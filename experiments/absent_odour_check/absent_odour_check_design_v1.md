@@ -1,6 +1,6 @@
 # Absent-odour check, design v1
 
-Date 2026-09-23. Status: **DRAFT for the owner's review. No code.** Follows decision:h23-closed (H23 shown under its registered criteria), decision:h23-filter-adopted-within-tested-conditions (the value filter adopted within the tested conditions; this world named as not validated) and decision:next-absent-odour-check-then-stage-b (owner, 2026-09-23, '2. 추천안 진행': this check first, then H20 Stage B). **A check, not a hypothesis**, like the selection-to-navigation link check (design doc d824732220256254b): it measures a cost the adoption already names. Readings are descriptive with three pre-fixed outcomes where an outcome applies; there is no PASS / FAIL verdict (the two-source check, doc d536d4a14700d1e37, registered pass / fail criteria; this check does not). No fix is tested. Nothing in the agent is changed.
+Date 2026-09-23. Status: **v1 FINAL (confirmed by the owner 2026-09-23 as written).** Follows decision:h23-closed (H23 shown under its registered criteria), decision:h23-filter-adopted-within-tested-conditions (the value filter adopted within the tested conditions; this world named as not validated) and decision:next-absent-odour-check-then-stage-b (owner, 2026-09-23, '2. 추천안 진행': this check first, then H20 Stage B). **A check, not a hypothesis**, like the selection-to-navigation link check (design doc d824732220256254b): it measures a cost the adoption already names. Readings are descriptive with three pre-fixed outcomes where an outcome applies; there is no PASS / FAIL verdict (the two-source check, doc d536d4a14700d1e37, registered pass / fail criteria; this check does not). No fix is tested. Nothing in the agent is changed.
 
 ## 1. Question
 
@@ -82,6 +82,8 @@ It does not test: two positive unequal values (+1 / +0.5); learned values; other
 4. The horizon of R5 (1800 steps).
 5. The seeds, and a development run before the one run (as the link check did).
 6. That no fix is tested here, and that the choice among (i) to (iv) is made after the report.
+
+- **Confirmed 2026-09-23 (decision:absent-odour-check-open):** the owner confirmed this version as FINAL as written on all six points ('의견 그대로 확정하고 진행', 'confirmed as proposed, proceed').
 
 ## 9. Self-review before storing (2026-09-23)
 

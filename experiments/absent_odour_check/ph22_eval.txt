@@ -1,0 +1,88 @@
+== absent-odour check, EVAL. design v1 FINAL doc ddab34a689d056e2e hash 3ec1b989a776ced5289ab64689cbc59535de28c307f47cf038d43d863bef3d43; this file sha256 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c; ph21.py sha256 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1 (the version H23 ran: True); world seed 1775, agent seed 1875; 400 rows x 600 steps per world and arm, R5 W1 400 x 1800; G 2.0, gate on; the one evaluation ==
+   seed self-check: (1775, 1875) and derived [19890, 29990, 11775, 21875] in no other file (129 scanned): True
+   worlds: W1 present B, read-out A +1 / B 0; W2 present A, read-out A +1 / B 0; W3 present B, read-out A +0 / B 0; W4 present B, read-out A -1 / B 0 (A = World7 `good`)
+
+   [W1 Agent8] 600 steps: reach (within 3.0 of the present source at least once) 344/400 = 0.860 [0.823, 0.891] -> reach kept; first-reach step quartiles 30/43/111
+      dwell (steps within 3.0) q1/median/q3 6.0/8.0/16.0 mean 12.36; rows with no whiff of the present plume in the last third 38; no nav in the last third 400; wall contacts per row 0.000 (rows with any 0); nav (row, step) 0; cast clock max 600
+      present-plume whiffs per row 13.22 (rows with any 399, first whiff step quartiles 4/12/76); steps in the present cone per row 111.8
+      holds: fraction of (row, step) holding B/present 0.791, nothing 0.209; holds of the present odour formed 397 (rows 376), released 23 (timeout flag 6, evidence 0, both 0, neither 17); first hold step quartiles 18/33/121 (never 24); holding the present odour at step 600 374/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -21.4/-19.9/-17.8, rows passing upwind of the source (d_along < 0) 400; final d_along -19.4/-17.3/-15.1, final |crosswind| 2.7/7.7/12.9; minimum distance 1.1/1.7/2.3; first step within 5.0 27/35/45 (rows 399), within 3.0 30/43/111 (rows 344); entries into 5.0 per row mean 3.31 (0: 1, 1: 70, 2: 70, 3+: 259)
+      cumulative reach at 100-step checkpoints: 100:180 200:338 300:339 400:340 500:340 600:344
+
+   [W1 Agent6] 600 steps: reach (within 3.0 of the present source at least once) 395/400 = 0.988 [0.971, 0.995]; first-reach step quartiles 31/44/116
+      dwell (steps within 3.0) q1/median/q3 19.0/25.0/29.2 mean 24.31; rows with no whiff of the present plume in the last third 16; no nav in the last third 16; wall contacts per row 0.000 (rows with any 0); nav (row, step) 4242; cast clock max 600
+      present-plume whiffs per row 10.61 (rows with any 399, first whiff step quartiles 4/12/76); steps in the present cone per row 34.3
+      holds: fraction of (row, step) holding B/present 0.747, nothing 0.253; holds of the present odour formed 422 (rows 388), released 36 (timeout flag 10, evidence 0, both 0, neither 26); first hold step quartiles 19/38/138 (never 12); holding the present odour at step 600 386/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -33.3/-32.7/-32.1, rows passing upwind of the source (d_along < 0) 400; final d_along -25.3/-13.9/-4.8, final |crosswind| 1.3/2.8/5.3; minimum distance 0.4/0.8/1.3; first step within 5.0 27/30/110 (rows 400), within 3.0 31/44/116 (rows 395); entries into 5.0 per row mean 4.33 (0: 0, 1: 2, 2: 6, 3+: 392)
+      cumulative reach at 100-step checkpoints: 100:199 200:379 300:388 400:391 500:395 600:395
+
+   [W2 Agent8] 600 steps: reach (within 3.0 of the present source at least once) 394/400 = 0.985 [0.968, 0.993]; first-reach step quartiles 31/48/115
+      dwell (steps within 3.0) q1/median/q3 20.0/25.0/30.0 mean 24.91; rows with no whiff of the present plume in the last third 13; no nav in the last third 13; wall contacts per row 0.000 (rows with any 0); nav (row, step) 4251; cast clock max 600
+      present-plume whiffs per row 10.63 (rows with any 398, first whiff step quartiles 4/14/112); steps in the present cone per row 35.0
+      holds: fraction of (row, step) holding B/present 0.908, nothing 0.092; holds of the present odour formed 398 (rows 398), released 0 (timeout flag 0, evidence 0, both 0, neither 0); first hold step quartiles 6/16/114 (never 2); holding the present odour at step 600 398/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -33.4/-32.9/-32.3, rows passing upwind of the source (d_along < 0) 400; final d_along -25.8/-13.7/-4.2, final |crosswind| 1.4/2.8/5.2; minimum distance 0.4/0.8/1.3; first step within 5.0 27/36/108 (rows 399), within 3.0 31/48/115 (rows 394); entries into 5.0 per row mean 4.37 (0: 1, 1: 3, 2: 8, 3+: 388)
+      cumulative reach at 100-step checkpoints: 100:198 200:380 300:387 400:388 500:391 600:394
+
+   [W2 Agent6] 600 steps: reach (within 3.0 of the present source at least once) 394/400 = 0.985 [0.968, 0.993]; first-reach step quartiles 31/48/115
+      dwell (steps within 3.0) q1/median/q3 20.0/25.0/30.0 mean 24.91; rows with no whiff of the present plume in the last third 13; no nav in the last third 13; wall contacts per row 0.000 (rows with any 0); nav (row, step) 4251; cast clock max 600
+      present-plume whiffs per row 10.63 (rows with any 398, first whiff step quartiles 4/14/112); steps in the present cone per row 35.0
+      holds: fraction of (row, step) holding B/present 0.908, nothing 0.092; holds of the present odour formed 398 (rows 398), released 0 (timeout flag 0, evidence 0, both 0, neither 0); first hold step quartiles 6/16/114 (never 2); holding the present odour at step 600 398/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -33.4/-32.9/-32.3, rows passing upwind of the source (d_along < 0) 400; final d_along -25.8/-13.7/-4.2, final |crosswind| 1.4/2.8/5.2; minimum distance 0.4/0.8/1.3; first step within 5.0 27/36/108 (rows 399), within 3.0 31/48/115 (rows 394); entries into 5.0 per row mean 4.37 (0: 1, 1: 3, 2: 8, 3+: 388)
+      cumulative reach at 100-step checkpoints: 100:198 200:380 300:387 400:388 500:391 600:394
+
+   [W3 Agent8] 600 steps: reach (within 3.0 of the present source at least once) 395/400 = 0.988 [0.971, 0.995]; first-reach step quartiles 31/44/116
+      dwell (steps within 3.0) q1/median/q3 19.0/25.0/29.2 mean 24.31; rows with no whiff of the present plume in the last third 16; no nav in the last third 16; wall contacts per row 0.000 (rows with any 0); nav (row, step) 4242; cast clock max 600
+      present-plume whiffs per row 10.61 (rows with any 399, first whiff step quartiles 4/12/76); steps in the present cone per row 34.3
+      holds: fraction of (row, step) holding B/present 0.747, nothing 0.253; holds of the present odour formed 422 (rows 388), released 36 (timeout flag 10, evidence 0, both 0, neither 26); first hold step quartiles 19/38/138 (never 12); holding the present odour at step 600 386/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -33.3/-32.7/-32.1, rows passing upwind of the source (d_along < 0) 400; final d_along -25.3/-13.9/-4.8, final |crosswind| 1.3/2.8/5.3; minimum distance 0.4/0.8/1.3; first step within 5.0 27/30/110 (rows 400), within 3.0 31/44/116 (rows 395); entries into 5.0 per row mean 4.33 (0: 0, 1: 2, 2: 6, 3+: 392)
+      cumulative reach at 100-step checkpoints: 100:199 200:379 300:388 400:391 500:395 600:395
+
+   [W3 Agent6] 600 steps: reach (within 3.0 of the present source at least once) 395/400 = 0.988 [0.971, 0.995]; first-reach step quartiles 31/44/116
+      dwell (steps within 3.0) q1/median/q3 19.0/25.0/29.2 mean 24.31; rows with no whiff of the present plume in the last third 16; no nav in the last third 16; wall contacts per row 0.000 (rows with any 0); nav (row, step) 4242; cast clock max 600
+      present-plume whiffs per row 10.61 (rows with any 399, first whiff step quartiles 4/12/76); steps in the present cone per row 34.3
+      holds: fraction of (row, step) holding B/present 0.747, nothing 0.253; holds of the present odour formed 422 (rows 388), released 36 (timeout flag 10, evidence 0, both 0, neither 26); first hold step quartiles 19/38/138 (never 12); holding the present odour at step 600 386/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -33.3/-32.7/-32.1, rows passing upwind of the source (d_along < 0) 400; final d_along -25.3/-13.9/-4.8, final |crosswind| 1.3/2.8/5.3; minimum distance 0.4/0.8/1.3; first step within 5.0 27/30/110 (rows 400), within 3.0 31/44/116 (rows 395); entries into 5.0 per row mean 4.33 (0: 0, 1: 2, 2: 6, 3+: 392)
+      cumulative reach at 100-step checkpoints: 100:199 200:379 300:388 400:391 500:395 600:395
+
+   [W4 Agent8] 600 steps: reach (within 3.0 of the present source at least once) 395/400 = 0.988 [0.971, 0.995]; first-reach step quartiles 31/44/116
+      dwell (steps within 3.0) q1/median/q3 19.0/25.0/29.2 mean 24.31; rows with no whiff of the present plume in the last third 16; no nav in the last third 16; wall contacts per row 0.000 (rows with any 0); nav (row, step) 4242; cast clock max 600
+      present-plume whiffs per row 10.61 (rows with any 399, first whiff step quartiles 4/12/76); steps in the present cone per row 34.3
+      holds: fraction of (row, step) holding B/present 0.747, nothing 0.253; holds of the present odour formed 422 (rows 388), released 36 (timeout flag 10, evidence 0, both 0, neither 26); first hold step quartiles 19/38/138 (never 12); holding the present odour at step 600 386/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -33.3/-32.7/-32.1, rows passing upwind of the source (d_along < 0) 400; final d_along -25.3/-13.9/-4.8, final |crosswind| 1.3/2.8/5.3; minimum distance 0.4/0.8/1.3; first step within 5.0 27/30/110 (rows 400), within 3.0 31/44/116 (rows 395); entries into 5.0 per row mean 4.33 (0: 0, 1: 2, 2: 6, 3+: 392)
+      cumulative reach at 100-step checkpoints: 100:199 200:379 300:388 400:391 500:395 600:395
+
+   [W4 Agent6] 600 steps: reach (within 3.0 of the present source at least once) 395/400 = 0.988 [0.971, 0.995]; first-reach step quartiles 31/44/116
+      dwell (steps within 3.0) q1/median/q3 19.0/25.0/29.2 mean 24.31; rows with no whiff of the present plume in the last third 16; no nav in the last third 16; wall contacts per row 0.000 (rows with any 0); nav (row, step) 4242; cast clock max 600
+      present-plume whiffs per row 10.61 (rows with any 399, first whiff step quartiles 4/12/76); steps in the present cone per row 34.3
+      holds: fraction of (row, step) holding B/present 0.747, nothing 0.253; holds of the present odour formed 422 (rows 388), released 36 (timeout flag 10, evidence 0, both 0, neither 26); first hold step quartiles 19/38/138 (never 12); holding the present odour at step 600 386/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -33.3/-32.7/-32.1, rows passing upwind of the source (d_along < 0) 400; final d_along -25.3/-13.9/-4.8, final |crosswind| 1.3/2.8/5.3; minimum distance 0.4/0.8/1.3; first step within 5.0 27/30/110 (rows 400), within 3.0 31/44/116 (rows 395); entries into 5.0 per row mean 4.33 (0: 0, 1: 2, 2: 6, 3+: 392)
+      cumulative reach at 100-step checkpoints: 100:199 200:379 300:388 400:391 500:395 600:395
+
+== readings (design v1 FINAL section 5; Wilson 95 percent; no PASS / FAIL) ==
+   R0 (i) Agent8 in W1, nav (row, step): 0 -> True; (ii) absent odour never sensed, never held, all 8 runs: True; (iii) {'W2 Agent8 == Agent6': True, 'W3 Agent8 == Agent6': True, 'W4 Agent8 == Agent6': True, 'W4 == W3 Agent8': True, 'W4 == W3 Agent6': True, 'Agent6 W1 == W3': True}; (iv) masked draws == World7's on every step, generator state equal, all 8 runs: True
+   R1 W1 600 steps: Agent8 reach 344/400 = 0.860 [0.823, 0.891] -> REACH KEPT; Agent6 reach 395/400 = 0.988 [0.971, 0.995] (predicted 0.94 to 1.00)
+      dwell median Agent8 8.0 / Agent6 25.0, mean 12.36 / 24.31; paired rows Agent8 below 330, equal 6 (both 0: 5), above 64; first-reach median 43 / 44; B held at step 600 374 / 386; lost rows 38 / 16; wall contacts per row 0.000 / 0.000
+   R2 control, W2: Agent8 == Agent6 True; reach 394/400 = 0.985 [0.968, 0.993], dwell median 25.0
+   R3 identity, W3: Agent8 == Agent6 True; == Agent6 W1 True; reach 395/400 = 0.988 [0.971, 0.995], dwell median 25.0
+   R4 reported, W4: Agent8 == Agent6 True; W4 == W3 Agent8 True, Agent6 True; reach 395/400 = 0.988 [0.971, 0.995], dwell median 25.0
+
+== R5 the horizon: W1, 1800 steps, both arms ==
+   implementation check: the first 600 steps of the 1800-step runs equal the 600-step runs bitwise: {'Agent8': True, 'Agent6': True}; Agent8 nav (row, step) 0; absent odour never sensed or held True; masked draws == World7's True
+
+   [W1 Agent8] 1800 steps: reach (within 3.0 of the present source at least once) 381/400 = 0.953 [0.927, 0.969] -> reach kept; first-reach step quartiles 30/108/112
+      dwell (steps within 3.0) q1/median/q3 15.0/26.0/42.2 mean 30.82; rows with no whiff of the present plume in the last third 130; no nav in the last third 400; wall contacts per row 0.675 (rows with any 111); nav (row, step) 0; cast clock max 1800
+      present-plume whiffs per row 26.84 (rows with any 400, first whiff step quartiles 4/12/108); steps in the present cone per row 193.2
+      holds: fraction of (row, step) holding B/present 0.912, nothing 0.088; holds of the present odour formed 418 (rows 395), released 24 (timeout flag 6, evidence 0, both 0, neither 18); first hold step quartiles 18/34/121 (never 5); holding the present odour at step 1800 394/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -69.8/-68.2/-65.6, rows passing upwind of the source (d_along < 0) 400; final d_along -65.3/-63.4/-61.4, final |crosswind| 6.6/12.8/17.7; minimum distance 0.3/0.8/1.4; first step within 5.0 27/36/45 (rows 400), within 3.0 30/108/112 (rows 381); entries into 5.0 per row mean 7.06 (0: 0, 1: 4, 2: 23, 3+: 373)
+      cumulative reach at 100-step checkpoints: 100:180 200:338 300:339 400:340 500:340 600:344 700:344 800:345 900:349 1000:349 1100:364 1200:367 1300:367 1400:379 1500:379 1600:379 1700:381 1800:381
+
+   [W1 Agent6] 1800 steps: reach (within 3.0 of the present source at least once) 400/400 = 1.000 [0.990, 1.000]; first-reach step quartiles 31/108/117
+      dwell (steps within 3.0) q1/median/q3 63.0/72.0/80.0 mean 72.05; rows with no whiff of the present plume in the last third 0; no nav in the last third 0; wall contacts per row 0.000 (rows with any 0); nav (row, step) 12106; cast clock max 1047
+      present-plume whiffs per row 30.27 (rows with any 400, first whiff step quartiles 4/12/108); steps in the present cone per row 87.6
+      holds: fraction of (row, step) holding B/present 0.911, nothing 0.089; holds of the present odour formed 437 (rows 400), released 37 (timeout flag 11, evidence 0, both 0, neither 26); first hold step quartiles 20/38/193 (never 0); holding the present odour at step 1800 400/400
+      trajectory: most-upwind d_along (start 20) q1/median/q3 -34.1/-33.6/-33.2, rows passing upwind of the source (d_along < 0) 400; final d_along -26.4/-19.4/-9.2, final |crosswind| 1.5/3.1/5.6; minimum distance 0.2/0.3/0.5; first step within 5.0 27/30/110 (rows 400), within 3.0 31/108/117 (rows 400); entries into 5.0 per row mean 12.61 (0: 0, 1: 0, 2: 0, 3+: 400)
+      cumulative reach at 100-step checkpoints: 100:199 200:379 300:388 400:391 500:395 600:395 700:397 800:397 900:398 1000:399 1100:399 1200:399 1300:400 1400:400 1500:400 1600:400 1700:400 1800:400
+   R5 Agent8: reach by 1800 381/400 = 0.953 [0.927, 0.969] -> REACH KEPT; cumulative reach at 600/1200/1800 344/367/381; dwell per third (median; mean) 8.0; 12.36, 9.0; 11.07, 8.0; 7.39; d_along at 1800 q1/median/q3 -65.3/-63.4/-61.4, rows upwind of the source at 1800 400; wall contacts per row 0.675
+   R5 Agent6: reach by 1800 400/400 = 1.000 [0.990, 1.000]; cumulative reach at 600/1200/1800 395/399/400; dwell per third (median; mean) 25.0; 24.31, 24.0; 24.06, 24.0; 23.68; d_along at 1800 q1/median/q3 -26.4/-19.4/-9.2, rows upwind of the source at 1800 361; wall contacts per row 0.000
+
+== end of table; nothing changes after it ==

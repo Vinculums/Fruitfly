@@ -352,6 +352,17 @@ Progress log
   point 2 (decision:next-absent-odour-check-then-stage-b): the absent-odour check, design v1 DRAFT doc
   ddab34a689d056e2e (local experiments/absent_odour_check/absent_odour_check_design_v1.md), no code;
   then H20 Stage B.
+- **Absent-odour check OPENED on design v1 FINAL and run once (decision:absent-odour-check-open; owner
+  2026-09-23, '의견 그대로 확정하고 진행').** Doc ddab34a689d056e2e finalised in place (hash 3ec1b989...3d43).
+  ph22.py (sha 03ab8c47...ca1c, source doc d6a27b8b1f1b927ce): World7 with the absent source masked after
+  the draw; ph21.Agent8 against ph19.Agent6, unchanged. Self-checks pass (one self-check indexing error
+  fixed in demo); development run 9890/9990 without operation error; one evaluation 1775/1875: R0
+  identities all True; in W1 Agent8 never surges and reaches the source by casting past it, 344/400 =
+  0.860 [0.823, 0.891] 'reach kept' (R5, 1800 steps: 381/400 'reach kept'), but dwells a third as long
+  (median 8 against Agent6's 25), ends upwind of the source (median 63 upwind at 1800, 111 rows at the
+  wall) and loses the plume in more rows (130 against 0 over the last 600 of 1800); Agent6 0.988 within
+  its prediction (record:absent-odour-check-result; report db7b4a7ca1c2ab7ea). The filter's scope is the
+  owner's decision, before H20 Stage B.
 
 ## Why a plan now
 
@@ -521,6 +532,17 @@ Four hypotheses were run in one day by picking the next most interesting candida
   the design (which the code and the outputs cite by hash): design v2 section 9 lists the bench's
   derived seeds as 30261001 / 40261002; seed + 10000 / + 20000 give 20271001 / 20281002; ph21.py's
   self-check tested all four and none appears in any other file; no run affected.
+
+### Absent-odour check (decision:next-absent-odour-check-then-stage-b; opened by decision:absent-odour-check-open; run once)
+- A check, not a hypothesis: the adopted agent (Agent8, the H23 filter) in World7 with one plume silenced
+  after the draw, against Agent6 on the same seeds and draws; W1 the cost case (only the 0-valued odour,
+  read-out +1/0), W2 control, W3 0/0 and W4 -1/0 identities. Design v1 FINAL doc ddab34a689d056e2e.
+- One run (1775/1875): every identity True. In W1 Agent8 never surges; it reaches the source by casting
+  past it (0.860, 'reach kept'; 0.953 by 1800), dwells a third as long (median 8 against 25), passes
+  upwind and keeps drifting (63 upwind at 1800, 111 rows at the wall), and loses the plume in more rows.
+  Meanwhile the circuit holds the present odour without following it. Agent6 0.988 as predicted. The
+  reach reflects this start; other starts, +1/+0.5 and learned values untested. Report
+  db7b4a7ca1c2ab7ea (record:absent-odour-check-result). Candidate fixes (i)-(iv) listed, none chosen.
 
 ## The architecture as currently adopted
 
@@ -837,6 +859,10 @@ Stated here so a later session does not have to reassemble it from decisions.
 - Housekeeping convention, set by the owner's bookkeeping decision of 2026-09-23
   (decision:code-citation-convention): records cite code by `code` (repo-relative path + sha256) and
   `source_doc` (the stored source's doc id); props.subject_path is not used.
+- Housekeeping convention, set by the owner on 2026-09-23 under '의견 그대로' (decision:master-plan-source-of-truth,
+  reversible): the git-tracked master_plan.md is the master plan's source of truth; graph doc
+  d1867092e4263d16c is a mirror re-put from it after every edit; no pre-edit byte comparison with the
+  store; the store's content_hash after each put must equal the file's sha256.
 
 ## A standing caution about bench gates
 
@@ -882,11 +908,10 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Confirmation of the absent-odour check design v1** (decision:next-absent-odour-check-then-stage-b;
-  DRAFT doc ddab34a689d056e2e, local experiments/absent_odour_check/absent_odour_check_design_v1.md,
-  no code): Agent8 against Agent6 in World7 with one plume silenced (W1 cost case, W2 control, W3
-  identity, W4 reported); the six points of its section 8. After its report the owner decides the
-  value filter's scope before H20 Stage B.
+- **The value filter's scope, before H20 Stage B** (record:absent-odour-check-result; report
+  db7b4a7ca1c2ab7ea): one of the candidate fixes (i) to (iv) of the absent-odour check (i to iii add a
+  sensory-history term the classification rule excludes as it stands; iv accepts the measured cost and
+  limits the adoption's scope to worlds where the top-valued odour is present).
 
 ## Queued candidates, none started
 
