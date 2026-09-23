@@ -373,6 +373,13 @@ Progress log
   as worded; = the check's candidate (ii)). H24 design v1 DRAFT doc d24c2efe28592c34d (local
   experiments/h24/h24_design_v1.md; concept:h24-presence-scoped-value-filter): variants (v-a) / (v-c) / (v-p),
   two tasks (the H21 task and W1), a draft classification-rule relaxation for (v-c) / (v-p); no code.
+- **H24 design v2, candidate FINAL (2026-09-23; decision:h24-design-v2-choices).** The owner chose (v-p), a
+  presence counter per odour that starts ON, N 60; start OFF is structurally blocked on T1. The owner signed
+  the H24-scoped relaxation of the classification rule, with the ON start recorded as a prior
+  (decision:classification-rule-relaxed-presence-counter). T3, a 'sensed then lost' world, is added: the
+  valued plume is masked from t0 150. The T2 dwell bar is to be fixed after bench (d) by a registered rule
+  (decision:h24-t2-dwell-bar). Doc d5a2e259bfb6445b9 (local experiments/h24/h24_design_v2.md, sha
+  f84ddf99...ee9f). No code. Awaiting the owner's confirmation.
 
 ## Why a plan now
 
@@ -556,6 +563,28 @@ Four hypotheses were run in one day by picking the next most interesting candida
   check. Outcome: reach kept (0.860; 0.953 by 1800), the cost in dwell, drift and lost rows; the owner then
   chose to explore option (v), presence-scoped v_max (decision:filter-scope-explore-option-v), as H24.
 
+### H24 (decision:filter-scope-explore-option-v; v2 choices decision:h24-design-v2-choices; in design, not opened)
+- Presence-scoped value filter (concept:h24-presence-scoped-value-filter). Diagnosis first
+  (record:option-v-presence-diagnosis-result). v1 DRAFT doc d24c2efe28592c34d offered three variants; it is
+  kept as history.
+- **Design v2, candidate FINAL**, doc d5a2e259bfb6445b9 (experiments/h24/h24_design_v2.md, sha
+  f84ddf99...ee9f), for the owner's confirmation; no code.
+  - One variant, (v-p): Agent9(Agent8) in a new ph23.py. A per-odour counter c (0 at construction, reset on a
+    whiff, +1 otherwise); present = c < 60 or held; v_max over present odours.
+  - (v-a) / (v-c) are rejected: the exact bounds [0.627, 0.820], and 0.766 of the filter's actions come
+    before the first valued whiff.
+  - The classification rule is relaxed for H24 only by a signed decision
+    (decision:classification-rule-relaxed-presence-counter: old / new / anchor; the ON start is a prior).
+- Tasks: T1, the H21 task (M2(a) 0.88 recommended, 0.85 the alternative). T2, W1 (M5(b) dwell bar =
+  -0.20 x Agent6's bench (d) W1 dwell, fixed by decision:h24-t2-dwell-bar before the development run).
+  **T3, added:** World7 with the valued plume masked from t0 150. M7(a) checks the window exactly (no neutral
+  surge on L+1..L+59; release at the first neutral whiff at or after L+60). M7(b) release within N+40 and
+  M7(c) last-third neutral dwell are relative to Agent6, with bars from bench (f) by the same rule (proposed
+  decision:h24-t3-bars).
+- Seeds unchanged from v1: 9885/9985, 1785/1885, bench 20261011/20261012, bootstrap 20261013.
+- Joint pass probability about 0.004 x p(M7) at the lower edge and about 0.97 x p(M7) at the centre. p(M7)
+  cannot be stated until bench (f).
+
 ## The architecture as currently adopted
 
 Stated here so a later session does not have to reassemble it from decisions.
@@ -693,6 +722,9 @@ Stated here so a later session does not have to reassemble it from decisions.
 - Added at the H14 close: when a stored bound is relaxed, the change is a signed decision naming
   the old bound, the new bound, and the already-accepted measurement the new bound is anchored
   to. The stored criteria are never edited; the hypothesis keeps its verdict under them.
+  One such relaxation of the classification rule exists, scoped to H24 only: a per-odour presence counter,
+  N 60, starting ON as a prior (decision:classification-rule-relaxed-presence-counter). The classification
+  rule itself is unchanged elsewhere.
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
   floor in the window where the gate is read. H15's probes spanned 0.3 to 600 and every agent
@@ -920,11 +952,16 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H24 variant choice and confirmation of design v1** (doc d24c2efe28592c34d;
-  record:option-v-presence-diagnosis-result): (v-a) strict, (v-c) presence counter starting OFF, or (v-p)
-  counter starting ON (outside option (v) as worded), or (iv) instead; if (v-c) / (v-p), the draft
-  classification-rule relaxation signed or refused and N (proposed 60); the bars and allowed gaps; both tasks
-  required. Part A predicts (v-a) / (v-c) fail the H21-task bars and pass W1 by identity.
+- **Confirmation of H24 design v2, candidate FINAL** (doc d5a2e259bfb6445b9; section 12). Points to
+  confirm:
+  - the (v-p) rule and N 60, with its counter convention;
+  - the relaxation decision:classification-rule-relaxed-presence-counter;
+  - T3 with t0 150 and its bars (M7(b), (c) relative to Agent6, bench-derived, proposed
+    decision:h24-t3-bars);
+  - the T2 bar-derivation rule (-0.20 x Agent6's bench (d) W1 dwell; decision:h24-t2-dwell-bar);
+  - the T1 bar, 0.88 (recommended) or 0.85;
+  - the seeds;
+  - the order: confirm -> ph23 -> self-checks -> bench -> bar decisions -> dev -> one evaluation -> report.
 
 ## Queued candidates, none started
 
