@@ -380,6 +380,12 @@ Progress log
   valued plume is masked from t0 150. The T2 dwell bar is to be fixed after bench (d) by a registered rule
   (decision:h24-t2-dwell-bar). Doc d5a2e259bfb6445b9 (local experiments/h24/h24_design_v2.md, sha
   f84ddf99...ee9f). No code. Awaiting the owner's confirmation.
+- **H24 opened, benched and CLOSED as NOT shown (2026-09-23; decision:h24-open, record:h24-bench-result,
+  decision:h24-closed).** Opened on design v3 FINAL (doc dafaa132a0267d56b); ph23.py (sha ae180492...b5ae,
+  source doc d0ea25b8bebac735d). M4 FAIL at (f) M7(a), 65/370 = 0.176 [0.140, 0.218] against 0.95: the held
+  clause presumed a timeout release the circuit does not make. No task run, nothing adopted, the H24-scoped
+  relaxation lapsed. H25 (the silence-timeout fix) opened for design (decision:h25-open-design); design v1
+  DRAFT doc d3cb0794633a587ae (experiments/h25/h25_design_v1.md), no code. Awaiting the owner's review.
 
 ## Why a plan now
 
@@ -563,27 +569,30 @@ Four hypotheses were run in one day by picking the next most interesting candida
   check. Outcome: reach kept (0.860; 0.953 by 1800), the cost in dwell, drift and lost rows; the owner then
   chose to explore option (v), presence-scoped v_max (decision:filter-scope-explore-option-v), as H24.
 
-### H24 (decision:filter-scope-explore-option-v; v2 choices decision:h24-design-v2-choices; in design, not opened)
+### H24 (decision:filter-scope-explore-option-v; v2 choices decision:h24-design-v2-choices; decision:h24-open; bench NO CANDIDATE; CLOSED by decision:h24-closed: NOT shown, nothing adopted)
 - Presence-scoped value filter (concept:h24-presence-scoped-value-filter). Diagnosis first
-  (record:option-v-presence-diagnosis-result). v1 DRAFT doc d24c2efe28592c34d offered three variants; it is
-  kept as history.
-- **Design v2, candidate FINAL**, doc d5a2e259bfb6445b9 (experiments/h24/h24_design_v2.md, sha
-  f84ddf99...ee9f), for the owner's confirmation; no code.
-  - One variant, (v-p): Agent9(Agent8) in a new ph23.py. A per-odour counter c (0 at construction, reset on a
-    whiff, +1 otherwise); present = c < 60 or held; v_max over present odours.
-  - (v-a) / (v-c) are rejected: the exact bounds [0.627, 0.820], and 0.766 of the filter's actions come
-    before the first valued whiff.
-  - The classification rule is relaxed for H24 only by a signed decision
-    (decision:classification-rule-relaxed-presence-counter: old / new / anchor; the ON start is a prior).
-- Tasks: T1, the H21 task (M2(a) 0.88 recommended, 0.85 the alternative). T2, W1 (M5(b) dwell bar =
-  -0.20 x Agent6's bench (d) W1 dwell, fixed by decision:h24-t2-dwell-bar before the development run).
-  **T3, added:** World7 with the valued plume masked from t0 150. M7(a) checks the window exactly (no neutral
-  surge on L+1..L+59; release at the first neutral whiff at or after L+60). M7(b) release within N+40 and
-  M7(c) last-third neutral dwell are relative to Agent6, with bars from bench (f) by the same rule (proposed
-  decision:h24-t3-bars).
-- Seeds unchanged from v1: 9885/9985, 1785/1885, bench 20261011/20261012, bootstrap 20261013.
-- Joint pass probability about 0.004 x p(M7) at the lower edge and about 0.97 x p(M7) at the centre. p(M7)
-  cannot be stated until bench (f).
+  (record:option-v-presence-diagnosis-result). v1 DRAFT doc d24c2efe28592c34d and v2 candidate FINAL doc
+  d5a2e259bfb6445b9 are kept as history. Opened on design v3 FINAL (doc dafaa132a0267d56b,
+  experiments/h24/h24_design_v3.md, sha 9a217a98...b06c; decision:h24-open): (v-p), Agent9(Agent8) in ph23.py
+  (sha ae180492...b5ae, source doc d0ea25b8bebac735d), a per-odour counter, present = c < 60 or held, v_max over
+  present odours; the classification rule relaxed for H24 only (decision:classification-rule-relaxed-presence-counter).
+- **CLOSED as NOT shown (owner 2026-09-23, decision:h24-closed): no candidate at the mechanism bench**
+  (record:h24-bench-result). M4 FAILED part (f) M7(a): 65/370 = 0.176 [0.140, 0.218] against 0.95. Under the
+  no-candidate rule T1/T2/T3 were not run and no task criterion was evaluated; the bars of M5(b) and M7(c) were
+  never fixed (decision:h24-t2-dwell-bar and decision:h24-t3-bars not created); seeds 9885/9985 and 1785/1885
+  never used, registered to H24, not to be reused.
+- **The design error:** design v3 section 3 assumed a valued hold ends on the timeout within 41 silent steps
+  (RESET_AFTER 40), contrary to record:silence-timeout-chain-result and H21 bench (a). With the 'held counts as
+  present' clause the valued odour stayed present past L + 60 in 305/370 eligible rows, and the filter never
+  released.
+- Measured apart from the verdict (bench seeds): the counter alone exact (no nav on L+1..L+59 in 370/370; bench
+  (b) 400/400); identities a1-a5 and the (f) construction True; (d), (e) 400/400. **In W1 the presence counter
+  removes the absent-odour cost:** mean dwell Agent9 24.125, Agent8 12.300, Agent6 25.835; paired Agent9 - Agent6
+  -1.71 [-2.73, -0.64] (a bench-level measurement, not a task result). T3's Agent6 reference was pinned (S6
+  0.0296, D6 4.74). Two implementation errors fixed before the saved bench (a demo assertion turned into a print;
+  a q3 helper call); neither changes a number.
+- Nothing adopted. The H24-scoped relaxation lapsed with the closure; it stays on record, and any reuse is a new
+  decision.
 
 ## The architecture as currently adopted
 
@@ -723,7 +732,7 @@ Stated here so a later session does not have to reassemble it from decisions.
   the old bound, the new bound, and the already-accepted measurement the new bound is anchored
   to. The stored criteria are never edited; the hypothesis keeps its verdict under them.
   One such relaxation of the classification rule exists, scoped to H24 only: a per-odour presence counter,
-  N 60, starting ON as a prior (decision:classification-rule-relaxed-presence-counter). The classification
+  N 60, starting ON as a prior (decision:classification-rule-relaxed-presence-counter) (lapsed with H24's closure; the decision stays on record). The classification
   rule itself is unchanged elsewhere.
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
@@ -947,30 +956,38 @@ navigation law differed from the rule's, instead of being computed from measured
 re-take, cone-edge whiff density, loop period). The H23 design applies all three
 (decision:h23-open-design).
 
+H24 adds a lesson (decision:h24-closed): a design assumption about circuit dynamics must cite a recorded bench
+or a code line, and a recorded defect must be treated as in force until a decision fixes it (H24's design
+presumed the silence timeout ends a valued hold; record:silence-timeout-chain-result had recorded that it does not).
+
 ## Why this order
 Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelling because it can redirect Phases 2 to 4 and is the project's stated purpose. Phase 2 precedes 3 and 4 because both will reuse the Select-and-Hold circuit and inherit its defects. Phase 3 precedes 4 because heading memory needs no learning, while the integrated agent needs both. Phases 5 and 6 need everything before them.
 
 ## Awaiting the owner
 
-- **Confirmation of H24 design v2, candidate FINAL** (doc d5a2e259bfb6445b9; section 12). Points to
-  confirm:
-  - the (v-p) rule and N 60, with its counter convention;
-  - the relaxation decision:classification-rule-relaxed-presence-counter;
-  - T3 with t0 150 and its bars (M7(b), (c) relative to Agent6, bench-derived, proposed
-    decision:h24-t3-bars);
-  - the T2 bar-derivation rule (-0.20 x Agent6's bench (d) W1 dwell; decision:h24-t2-dwell-bar);
-  - the T1 bar, 0.88 (recommended) or 0.85;
-  - the seeds;
-  - the order: confirm -> ph23 -> self-checks -> bench -> bar decisions -> dev -> one evaluation -> report.
+- **Confirmation of H25 design v1 DRAFT** (doc d3cb0794633a587ae, experiments/h25/h25_design_v1.md; section 12;
+  decision:h25-open-design). Points to confirm:
+  - the mechanism (S) + (Z): sustain the existing reset drive until both units are below threshold, and zero the
+    silence counter when a hold forms (against (S) alone, 4 fixed steps, or a drive of 40);
+  - the behaviour tested in the gate agent (Agent10g = the fix on Agent6), because Agent8's navigation does not
+    read the hold at +1/0 (by code), so in Agent8 the fix is behaviour-inert and the regression tasks are identities;
+  - identity (b) as restated (exact up to the base's first timeout firing on a hold; the stale-counter case);
+  - T3a (constructed loss at the valued source, ceiling and floor, R >= 0.50, span >= 5.0) plus T3b reported;
+  - the T1 cost in the gate agent reported, not a bar (or a bar DP >= -0.10);
+  - legitimate releases at p 0.057 under RESET_AFTER 40; bench (d) on bench seeds;
+  - the seeds (9896/9996, 1805/1905, bench 20261031/20261032, bootstrap 20261033) and the order.
 
 ## Queued candidates, none started
 
 The order does not change without a decision node. H21 is closed (decision:h21-closed); H22 is closed
 (decision:h22-closed); H23 is closed as shown (decision:h23-closed). Next, in this order
 (decision:next-absent-odour-check-then-stage-b): the absent-odour check is complete
-(record:absent-odour-check-result: reach kept, the cost in dwell and drift); H24 (filter scope, option v) in
-design (decision:filter-scope-explore-option-v); then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18,
-the silence timeout and the selection circuit's revision via the empty state stay as recorded limits.
+(record:absent-odour-check-result: reach kept, the cost in dwell and drift); H24 (filter scope, option v) closed
+as NOT shown (decision:h24-closed); H25, the silence-timeout fix, in design (decision:h25-open-design); the (v-p)
+presence-counter re-attempt after H25, proposed by the interpreting assistant at the H24 closure, not decided;
+then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18 and the selection circuit's
+revision via the empty state stay as recorded limits; the silence timeout stays a recorded defect, in force,
+until a decision fixes it.
 
 - **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
@@ -979,7 +996,7 @@ the silence timeout and the selection circuit's revision via the empty state sta
   expressed in behaviour, which Stage A did not have and which the link check has now
   characterised, and on a hold that stays, which H21 tested (the gate adopted within its tested
   conditions only).
-- **Silence timeout**, as a reset-control change or a circuit change
+- **Silence timeout**, now H25, in design as a reset-control change (decision:h25-open-design)
   (record:silence-timeout-chain-result); selection maintenance, release and distractor resistance
   re-verified either way.
 - **H17** (concept:h17-cold-search) finding a plume from an odour-free start without walls.
