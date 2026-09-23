@@ -1,0 +1,15 @@
+== H22 self-checks (demo). design v1 FINAL doc dfd041adf77911e7c hash 1ce2717e95d3444c79d8eeeec6b618d553edede71069b61ece7eb3cd13037f83; this file sha256 edec6d834860cc6c4c0ac361998fe09405344b2e494aef21a28b04ca7b6cefbe ==
+ok  G = 0 reproduces Agent3 over 400 steps; all-zero values reproduce G = 0 bitwise (positions and circuit state)
+ok  every start 20 downwind and 5 crosswind of both sources, inside both cones; walls >= 68; cells 100 each; whiff rate per plume 0.0567 / 0.0566 (expected 0.0567)
+ok  pre-hold: 100.0% hold the neutral odour, none the valued
+ok  priority in a constructed state: negative odour held on 300 (row, step), target = flee side on every one, equal to G = 0's target on the 300 steps both hold it; the valued odour took the hold on 0 (row, step) afterwards
+ok  Agent6 with the rule off is Agent4 bitwise; with the rule on it is Agent4 at 0/0, +1/+1 and +1/-1, and differs at +1/0 (40 rows x 200 steps)
+ok  constructed state, valued held and neutral presented 100 steps: with the rule the hold is kept in 100% and the neutral response entering the circuit is 0; without it the hold is kept in 0%
+ok  constructed state, neutral held and valued presented: revised to the valued odour in 100% of rows, bitwise the same as Agent4
+ok  priority (M5) with the H21 agent: negative odour held on 300 (row, step), target = flee side on every one, equal to G 0's on the 300 steps both hold it; the valued odour took the hold on 250 afterwards
+ok  known-answer h and hit; same cast draw and assignment across arms; majority classes; rule-off and priority-identity arms equal Agent4's runs; neutral equals G 0 (40 rows x 200 steps)
+ok  seeds {'dev': (9860, 9960), 'eval': (1725, 1825)} appear in no other script or output on the local record
+ok  Agent7 with the rule off is Agent6 bitwise; with the rule on it is Agent6 at 0/0, +1/+1 and +1/-1, and differs at +1/0 (40 rows x 200 steps)
+ok  constructed state, neutral held and a neutral whiff every step for 100 steps: held on every step; nav True on 0% of held steps with the rule, 100% without; the silence timer still reset by every hit (max 0) in both
+ok  run level (40 rows x 200 steps): maintain, neutral and priority-identity arms equal Agent6's runs; resample vs maintain separation {'never': 29, 'never_equal': 29, 'withheld': 11, 'withheld_pre_equal': 11, 'withheld_equal_throughout': 0}; withheld only while the neutral odour is held; known-answer h and hit; same cast draw and assignment across arms
+ok  seeds {'dev': (9870, 9970), 'eval': (1755, 1855)}, bench 20260929/20260930, bootstrap 20260931 appear in no other file under the repository
