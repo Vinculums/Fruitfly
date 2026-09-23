@@ -263,6 +263,36 @@ Progress log
   rows are revised at 0.442 in both arms and make up 92 of the 100 non-V rows; the design's arithmetic
   (0.70 x 0.971 + 0.30 x 0.233 = 0.750) is realised. No implementation error; nothing changed after
   the table. Closure is the owner's.
+- **H21 CLOSED by the owner (2026-09-23, decision:h21-closed): NOT shown under the registered
+  criteria on an INCONCLUSIVE M2 (part (c), DP +0.180 [+0.143, +0.218] against +0.15); no criterion
+  failed; not re-judged, no extension, nothing rewritten as a pass.** The gate is ADOPTED within the
+  tested conditions only, as a separate record (decision:h21-gate-adopted-within-tested-conditions):
+  supplied value, values +1/0, G 2, C0, the dwell-majority measure, learning off. Measured, recorded
+  apart from the verdict: a valued hold is never lost with the gate (0 of 280 against 204) and
+  converts at 0.971 (against 0.718); the first selection (280 valued-first) and the revision of
+  neutral-first holds (53 of 120) are identical with and without it; paired, 72 rows into V and 0 out;
+  the remaining loss is the front end, not maintenance. Recorded as an OBSERVATION, not a rule: the
+  M2(c) bar sat at the lower edge of the registered prediction; at 400 paired rows (sd about 0.384,
+  half-width about 0.038) the bound clears 0.15 only from an observed DP of about 0.188, so under a
+  true DP of 0.18 the pass probability was roughly 0.35 to 0.5. **H22 OPENED FOR DESIGN by the owner
+  (decision:h22-open-design): the front end of the H21 task, not the gate** (120 of 400 rows first
+  hold the zero-valued odour, 53 revised; ceiling the known-answer arm's 0.950), with the owner's
+  constraints (own value read-out and hold state only; avoidance untouched; no navigation change
+  unless the hypothesis is about navigation and says so; a flagged subclass, identity with the H21
+  maintain agent; bench first; seeds checked; the H21 task unchanged) and, for this design only, the
+  pass probability of every bar at its registered prediction. Diagnosis from the record, no code
+  run: with a neutral hold navigation surges only on neutral whiffs, which carries the agent up the
+  neutral axis, where the valued cone never reaches inside LMAX; a neutral-first row is revised only
+  if a valued whiff arrives before the overlap is left (arithmetic about 0.45 to 0.6 against 0.442
+  measured; a mechanism interpretation); the known-answer arm, whose navigation ignores neutral
+  whiffs, reaches 0.950. Design v1 DRAFT doc dfd041adf77911e7c (hash 97c4669c...2fd6, local
+  experiments/h22/h22_design_v1.md), no code: the value-gated surge, a navigation hypothesis
+  separated from selection (while a non-negative odour valued below the highest value in the
+  agent's read-out is held, its whiffs do not reset the cast clock); six arms against the H21
+  maintain agent; a bench with the agent placed at the neutral source; bars M2(a) 0.75, cells 0.55,
+  DP +0.05 with pass probabilities 0.99, 0.95 and 0.89 at the prediction's lower edge; seeds
+  9870/9970 and 1755/1855 checked unused. The first-selection lever was not chosen (bounded near
+  0.83 by the arrival-order arithmetic and still carried up the neutral plume by H19 (a)).
 
 ## Why a plan now
 
@@ -364,7 +394,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   (record:h20-run2-diagnosis) and CLOSED as not shown by the owner (decision:h20-run2-closed); the
   diagnosis led to H21. Stages B and C not entered.
 
-### H21 (decision:h21-open-design, decision:h21-design-v2-choices, decision:h21-open; evaluated once, awaiting closure)
+### H21 (decision:h21-open-design, decision:h21-design-v2-choices, decision:h21-open; evaluated once, CLOSED by decision:h21-closed)
 - Hold maintenance by value: while an odour with a positive value is held, a lower-valued
   non-negative odour's response is gated out of the selection circuit and the evidence release
   (Agent6 = Agent4 plus the gate; equal values, nothing held and negative odours never gated, so the
@@ -377,7 +407,12 @@ Four hypotheses were run in one day by picking the next most interesting candida
   INCONCLUSIVE M2, no FAIL. maintain 0.750 [0.705, 0.790]; DP against the Run 2 agent +0.180
   [+0.143, +0.218] against +0.15; the gate never loses a valued hold (0 of 280) and the remaining
   loss is the first selection (120 of 400 rows first hold the neutral odour, 53 revised). Report
-  d4fd6c39f7f81e1ee. Closure is the owner's.
+  d4fd6c39f7f81e1ee.
+- CLOSED by the owner (decision:h21-closed): NOT shown under the registered criteria, M2
+  INCONCLUSIVE on part (c), no criterion failed; not re-judged, no extension. The gate ADOPTED within
+  the tested conditions only by a separate decision (decision:h21-gate-adopted-within-tested-conditions):
+  supplied value, +1/0, G 2, C0, dwell majority, learning off. What follows is H22
+  (decision:h22-open-design).
 
 ## The architecture as currently adopted
 
@@ -412,9 +447,13 @@ Stated here so a later session does not have to reassemble it from decisions.
   violation; dwell at the punisher +0.507 step, within the allowed +1; reaching the valued source
   first fell by 3.8 points). It did NOT change which source was reached first. Input range at
   G 2: y' up to 5.34, the clip reached on at most 0.01 percent of steps in the task.
-  **Tested in H21, NOT adopted (closure pending):** a gate that zeroes a lower-valued non-negative
+  **H21 gate, ADOPTED WITHIN THE TESTED CONDITIONS ONLY (decision:h21-gate-adopted-within-tested-conditions;
+  the H21 verdict is NOT shown, decision:h21-closed):** a gate that zeroes a lower-valued non-negative
   odour's response into the circuit and the evidence release while a higher-valued odour is held
-  (Agent6; the Run 2 agent at equal values, with nothing held and at +1/-1, bitwise). Measured: a
+  (Agent6; the Run 2 agent at equal values, with nothing held and at +1/-1, bitwise). **Scope:**
+  supplied value, values +1/0, G 2, geometry C0, the dwell-majority measure, learning off. **Not
+  validated:** learning, the integrated environment, other G, other geometries, other values, the
+  first source reached, the timeout, any distractor condition. Measured: a
   valued hold is never lost with it (0 of 280 in the task, 400/400 on the bench) and converts into
   the majority source at 0.971; P(V) 0.750 against 0.570 without it on the same rows; the first
   selection is unchanged (the gate acts only once a hold exists); no lost rows added. Its limit is
@@ -703,26 +742,29 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **The closure of H21** (report d4fd6c39f7f81e1ee, record:h21-result). NOT shown under the registered
-  criteria on an INCONCLUSIVE M2 (DP against the Run 2 agent +0.180 [+0.143, +0.218] against +0.15);
-  no criterion failed; M2's absolute parts passed (0.750 [0.705, 0.790] against 0.70, every cell above
-  0.55); M1, M3, M4, M5, M6 passed. The design allows no extension, and a rerun for a pass label is not
-  prioritised (standing rule). Open to the owner: how to close H21 (inconclusive as registered; any
-  adoption of the gate within a stated scope is a separate decision), and what follows (H20 Stage B
-  with the gate, the first-selection and revision limit that now bounds P(V) at about 0.75, or another
-  candidate). No crosswind or navigation term has been added.
+- **Confirmation of H22 design v1** (doc dfd041adf77911e7c, hash 97c4669c...2fd6, local
+  experiments/h22/h22_design_v1.md; decision:h22-open-design). DRAFT for review, no code. To confirm or
+  change: the lever (the value-gated surge, a navigation hypothesis, rather than the first selection);
+  the rule's scope (below the highest value in the agent's own read-out, which uses the value of an
+  odour not being smelled, or the alternative 'surge only on a positive held value', which has no 0/0
+  identity); the bars with their pass probabilities at the registered prediction (M2(a) 0.75, cells
+  0.55, DP against the H21 maintain agent +0.05; +0.08 would pass with about 0.20 at the prediction's
+  lower edge); the bench (d) bar 0.50 with the agent placed at the neutral source; n 400 kept for
+  comparability; the seeds. No navigation term has been added to the adopted agent.
 
 ## Queued candidates, none started
 
-The order does not change without a decision node. H20's Stages B and C are queued behind the
-owner's closure of H21. H17, H18 and the silence timeout stay as recorded limits.
+The order does not change without a decision node. H21 is closed (decision:h21-closed); H22 is in
+design (decision:h22-open-design). H20's Stages B and C stay queued. H17, H18 and the silence timeout
+stay as recorded limits.
 
 - **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
   as it stands); C, the gain in the H15 Run 2 world with learning on, with Run 2's avoidance and
   long-horizon search values as the reference. Both depend on a task in which selection can be
   expressed in behaviour, which Stage A did not have and which the link check has now
-  characterised, and on a hold that stays, which H21 tests.
+  characterised, and on a hold that stays, which H21 tested (the gate adopted within its tested
+  conditions only).
 - **Silence timeout**, as a reset-control change or a circuit change
   (record:silence-timeout-chain-result); selection maintenance, release and distractor resistance
   re-verified either way.
