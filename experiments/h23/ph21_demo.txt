@@ -1,0 +1,17 @@
+== H23 self-checks (demo). design v2 FINAL doc db6df2e0013ab96e7 hash c19751f427363da9456a681659e23bf19bdb5463bdff966af99d04783bb30087; this file sha256 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1 ==
+ok  G = 0 reproduces Agent3 over 400 steps; all-zero values reproduce G = 0 bitwise (positions and circuit state)
+ok  every start 20 downwind and 5 crosswind of both sources, inside both cones; walls >= 68; cells 100 each; whiff rate per plume 0.0567 / 0.0566 (expected 0.0567)
+ok  pre-hold: 100.0% hold the neutral odour, none the valued
+ok  priority in a constructed state: negative odour held on 300 (row, step), target = flee side on every one, equal to G = 0's target on the 300 steps both hold it; the valued odour took the hold on 0 (row, step) afterwards
+ok  Agent6 with the rule off is Agent4 bitwise; with the rule on it is Agent4 at 0/0, +1/+1 and +1/-1, and differs at +1/0 (40 rows x 200 steps)
+ok  constructed state, valued held and neutral presented 100 steps: with the rule the hold is kept in 100% and the neutral response entering the circuit is 0; without it the hold is kept in 0%
+ok  constructed state, neutral held and valued presented: revised to the valued odour in 100% of rows, bitwise the same as Agent4
+ok  priority (M5) with the H21 agent: negative odour held on 300 (row, step), target = flee side on every one, equal to G 0's on the 300 steps both hold it; the valued odour took the hold on 250 afterwards
+ok  known-answer h and hit; same cast draw and assignment across arms; majority classes; rule-off and priority-identity arms equal Agent4's runs; neutral equals G 0 (40 rows x 200 steps)
+ok  seeds {'dev': (9860, 9960), 'eval': (1725, 1825)} appear in no other script or output on the local record
+ok  Agent8 with the filter off is Agent6 bitwise; with the filter on it is Agent6 at 0/0, +1/+1 and +1/-1, and differs at +1/0 (40 rows x 200 steps)
+ok  constructed state, neutral held: with neutral whiffs every step nav True on 0% of held steps with the filter, 100% without, the silence timer reset by every hit in both; then with valued whiffs every step, while the neutral odour is still held, nav True on 100% with the filter, 0% without
+ok  run level (40 rows x 200 steps): maintain, neutral and priority-identity arms equal Agent6's runs; filter nav == valued whiff on every (row, step) and its trajectory == G 0 gate off; filter vs maintain separation {'never': 15, 'never_equal': 15, 'differ': 25, 'differ_pre_equal': 25, 'differ_equal_throughout': 1}; no `differs` step while the valued odour is held; known-answer h and hit; same cast draw and assignment
+ok  the 'variant' start rebuilt here equals ph20b.simulate(rule off, 'variant') bitwise over 400 rows x 600 steps (H, whiffs), with Agent6 and with Agent8 filter off; holding valued at step 600 34/400
+ok  the 'source' start rebuilt here equals ph20b.simulate(rule off, 'bench') bitwise over 400 rows x 300 steps (H, whiffs), with Agent6 and with Agent8 filter off; holding valued at step 300 5/400
+ok  seeds {'dev': (9880, 9980), 'eval': (1765, 1865)}, bench 20261001/20261002, bootstrap 20261003 and derived [19880, 11765, 20271001, 29980, 21865, 20281002, 30261001, 40261002] appear in no other file under the repository

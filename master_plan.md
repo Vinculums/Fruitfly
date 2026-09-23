@@ -327,6 +327,18 @@ Progress log
   0.88, cells 0.70, DP +0.05 (pass 0.93, 0.99, 0.98 at the lower edge); bench (b) passes with
   probability 0.02 at its own lower edge, put to the owner. Seeds 9880/9980, 1765/1865, bench
   20261001/20261002, bootstrap 20261003 checked unused.
+- **H23 OPENED on design v2 FINAL (decision:h23-open; owner 2026-09-23, '1과 5 그대로 확정 한다',
+  then '1~5 전부 확정': all five points as recommended, bench (b) reported, not a gate).** Doc
+  db6df2e0013ab96e7 (hash c19751f4...0087). ph21.py (sha 3a1d79d9...cfc1, source doc
+  ddcec8520fcd8e23c): Agent8 = ph19.Agent6 + the value filter on nav. Self-checks pass first time;
+  bench M4 PASS (identities True, (a4) and (c) 400/400); bench (b), reported: from the task-like
+  neutral-hold start 217/800 = 0.271 hold the valued odour at 600 against 70/800 = 0.087, DP +0.184
+  [+0.148, +0.220], every revision through 'nothing held' (record:h23-bench-result). Development run
+  9880/9980: no operation error (record:h23-dev-run). One evaluation 1765/1865: **PASS under the
+  registered criteria, M1-M6 all PASS**: filter P(V) 381/400 = 0.953 [0.927, 0.969], cells 94 to
+  96, DP against the H21 maintain agent +0.240 [+0.200, +0.282], P(V) filter / known-answer 0.987,
+  no added lost rows (record:h23-result; report d8b91235798da849f). Value-driven navigation in the
+  full agent; the task does not show selection controlling navigation. Closure is the owner's.
 
 ## Why a plan now
 
@@ -467,6 +479,25 @@ Four hypotheses were run in one day by picking the next most interesting candida
 - CLOSED by the owner (decision:h22-closed): NOT shown under the registered criteria (no candidate
   at the bench; the task not run); not re-judged; seeds 9870/9970 and 1755/1855 unused and kept
   registered to H22. Nothing adopted. What follows is H23 (decision:h23-open-design).
+
+### H23 (decision:h23-open-design, decision:h23-open; evaluated once; PASS under the registered criteria; closure awaiting the owner)
+- Value-filtered navigation: the upwind surge follows the top-valued non-negative odour in the
+  agent's own read-out; while a top-valued (or a negative) odour is held its whiffs steer as before,
+  otherwise only a top-valued odour's whiffs steer (Agent8 = the H21 maintain agent ph19.Agent6 with
+  one line of act replaced; bitwise Agent6 at 0/0, +1/+1, +1/-1 and with the valued odour held). At
+  +1/0 navigation is the known-answer arm's law and does not depend on the circuit (accepted by the
+  owner in advance). Design v2 FINAL doc db6df2e0013ab96e7 (hash c19751f4...0087; v1
+  d77542ae99d003747 history).
+- Mechanism bench before the task (M4): identities and the implementation bars pass (400/400).
+  Bench (b), reported, not a gate: from the task-like neutral-hold start the hold follows navigation
+  in part, 0.271 against 0.087 at 600 steps (DP +0.184 [+0.148, +0.220]), every revision through
+  'nothing held' (record:h23-bench-result; ph21.py doc ddcec8520fcd8e23c).
+- Task as H21 (C0, dwell majority, six arms, seeds 1765/1865). One evaluation: PASS, M1-M6 all
+  PASS. filter 0.953 [0.927, 0.969]; DP against maintain +0.240 [+0.200, +0.282]; filter /
+  known-answer 0.987; P(V | first hold neutral) 0.897 against 0.169; neutral-first rows revised
+  0.968 against 0.400; no added lost rows. Not shown: selection controlling navigation (at +1/0 it
+  does not, by construction). Untested: a world where the higher-valued odour is absent (the rule's
+  cost), +1/+0.5, learning, other G and geometries. Report d8b91235798da849f (record:h23-result).
 
 ## The architecture as currently adopted
 
@@ -805,13 +836,15 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Confirmation of H23 design v1** (decision:h23-open-design; DRAFT doc d77542ae99d003747, local
-  experiments/h23/h23_design_v1.md; no code). Open points stated in its section 12: bench (b) as a
-  gate (pass probability 0.02 at its prediction's lower edge, 0.94 at 0.14, above 0.999 at the
-  centre 0.20; at +1/0 the hold does not steer, so the task measure does not depend on it); the
-  conceptual change (navigation value-driven and independent of the circuit at +1/0); the rule's
-  scope; the bars with their pass probabilities. No navigation term has been added to the adopted
-  agent.
+- **Closure of H23** (decision:h23-open; report d8b91235798da849f, local
+  experiments/h23/h23_report.md; record:h23-result). One evaluation: PASS under the registered
+  criteria (M1-M6 all PASS; filter P(V) 0.953, DP against the H21 maintain agent +0.240); bench (b),
+  reported, PASS. The pass is about value-driven navigation in the full agent, not selection
+  controlling navigation. Whether anything is adopted, and within which conditions, is the owner's
+  (untested: a world where the higher-valued odour is absent, +1/+0.5, learning). Noted for the
+  owner: design v2 section 9 lists the bench's derived generators as 30261001 / 40261002; seed +
+  10000 / + 20000 give 20271001 / 20281002 (all four checked unused; no run affected). No
+  navigation term has been added to the adopted agent.
 
 ## Queued candidates, none started
 

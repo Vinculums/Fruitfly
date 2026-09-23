@@ -1,0 +1,51 @@
+== H23 mechanism bench (design v2 section 4). design v2 FINAL doc db6df2e0013ab96e7 hash c19751f427363da9456a681659e23bf19bdb5463bdff966af99d04783bb30087; this file sha256 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1; {'rows': 400, 'rows_b': 800, 'p': 0.3, 'steps_stub': 200, 'steps_held': 260, 'steps': 600, 'seed_w': 20261001, 'seed_a': 20261002}; bootstrap seed 20261003 ==
+   rows share no state: one generator per world and one per agent population, fixed-size draws consumed in row order every step
+(a1) filt=False == Agent6 bitwise: stub +1/0 both channels p 0.3 200 steps (H, s, S, nav, since, target) True; the same with channel 1 held True; World7 task start 400 rows x 600 steps (positions, headings, circuit, H, nav) True
+(a2) filt=True at 0/0 == Agent6 bitwise: stub True; World7 400 x 600 True; `differs` (row, step) 0
+(a2) filt=True at +1/+1 == Agent6 bitwise: stub True; World7 400 x 600 True; `differs` (row, step) 0
+(a2) filt=True at +1/-1 == Agent6 bitwise: stub True; World7 400 x 600 True; `differs` (row, step) 0
+(a3) +1/0, channel 0 alone p 0.3 260 steps (the valued odour held): bitwise Agent6 True
+   (a4) +1/0, channel 1 (value 0) held by construction (s 2.0), both channels p 0.3, 200 steps: nav == channel 0's whiff on every step in 400/400 = 1.000 [0.990, 1.000] (bar lower bound >= 0.95); channel 1 held on 5641 (row, step), nav True on 1579 of them, all with a channel-0 whiff True; Agent6 on the same draws: nav on channel-1-held steps from channel 1's whiff 1730
+(a5) circuit independence at +1/0, World7 task start 400 x 600: positions and headings of Agent8 (G 2, gate on) == Agent8 at G 0 gate off True; == Agent8 with a neutral hold constructed at step 0 True; nav == valued whiff on every (row, step) in all three True; circuit states differ (G 2 vs G 0) True; holding valued at 600: 396 / 329 / 391
+(b) task-like neutral-hold start (ph20b VARIANT state), 800 rows x 600 steps, Agent8 and Agent6 on the same rows and draws; REPORTED, not a gate
+   [Agent8 (filter)] holding the valued odour at step 600: 217/800 = 0.271 [0.242, 0.303]; dwell majority V 18 N 782 tie 0; rows with a valued whiff 360, first valued whiff step quartiles 448/469/534; first surge on a valued whiff: rows 360, step quartiles 448/469/534, at the first valued whiff itself 360; first surge of any kind on a neutral-only whiff 0 rows, first surge step quartiles 448/469/534
+      holds ended 409 (timeout flag 0, evidence 382, both 0, neither 27); no whiff of either plume in the last 100 steps 175; wall contacts 0; cast clock max 600; `differs` (row, step) 20781
+   Agent8 (filter): holding valued against time
+      step | holding valued at t        | ever revised by t | >=1 valued whiff by t | revised, not holding at t | a valued hold ended by t | P(holding | >=1 valued whiff)
+       100 |   0/800 = 0.000                  |   0               |   0                   |   0                       |   0                      | nan
+       150 |   0/800 = 0.000                  |   0               |   2                   |   0                       |   0                      | 0.000
+       200 |   2/800 = 0.003                  |   2               |  16                   |   0                       |   0                      | 0.125
+       250 |   4/800 = 0.005                  |   4               |  16                   |   0                       |   0                      | 0.250
+       300 |  10/800 = 0.013 [0.007, 0.023]   |  10               |  50                   |   0                       |   0                      | 0.200
+       400 |  24/800 = 0.030                  |  24               |  50                   |   0                       |   0                      | 0.480
+       500 | 146/800 = 0.182                  | 146               | 210                   |   0                       |   0                      | 0.695
+       600 | 217/800 = 0.271 [0.242, 0.303]   | 217               | 360                   |   0                       |   0                      | 0.603
+   Agent8 (filter): revision route: transitions 0->N 127, 0->V 217, N->0 409
+      first valued hold per row (217 rows): entered from nothing held 217, directly from the neutral hold 0
+      'nothing held' stretches after a neutral hold: 409; ended by valued 217 (duration quartiles 5.0 / 8.0 / 18.0; valued whiffs in it mean 1.27, neutral whiffs mean 0.06); neutral again 127 (duration quartiles 9.0 / 18.0 / 24.5; valued whiffs in it mean 0.02, neutral whiffs mean 1.80); still nothing at the end 65 (duration quartiles 49.0 / 53.0 / 77.0; valued whiffs in it mean 0.00, neutral whiffs mean 0.18)
+   [Agent6 (maintain)] holding the valued odour at step 600: 70/800 = 0.087 [0.070, 0.109]; dwell majority V 8 N 791 tie 1; rows with a valued whiff 91, first valued whiff step quartiles 370/483/526; first surge on a valued whiff: rows 72, step quartiles 384/500/532, at the first valued whiff itself 2; first surge of any kind on a neutral-only whiff 800 rows, first surge step quartiles 4/9/16
+      holds ended 92 (timeout flag 0, evidence 91, both 0, neither 1); no whiff of either plume in the last 100 steps 257; wall contacts 0; cast clock max 394; `differs` (row, step) 0
+   Agent6 (maintain): holding valued against time
+      step | holding valued at t        | ever revised by t | >=1 valued whiff by t | revised, not holding at t | a valued hold ended by t | P(holding | >=1 valued whiff)
+       100 |   0/800 = 0.000                  |   0               |   0                   |   0                       |   0                      | nan
+       150 |   0/800 = 0.000                  |   0               |   0                   |   0                       |   0                      | nan
+       200 |   0/800 = 0.000                  |   0               |   0                   |   0                       |   0                      | nan
+       250 |   3/800 = 0.004                  |   3               |   8                   |   0                       |   0                      | 0.375
+       300 |   4/800 = 0.005 [0.002, 0.013]   |   4               |   8                   |   0                       |   0                      | 0.500
+       400 |  25/800 = 0.031                  |  25               |  37                   |   0                       |   0                      | 0.676
+       500 |  33/800 = 0.041                  |  34               |  47                   |   1                       |   1                      | 0.702
+       600 |  70/800 = 0.087 [0.070, 0.109]   |  71               |  91                   |   1                       |   1                      | 0.769
+   Agent6 (maintain): revision route: transitions 0->N 15, 0->V 71, N->0 91, V->0 1
+      first valued hold per row (71 rows): entered from nothing held 71, directly from the neutral hold 0
+      'nothing held' stretches after a neutral hold: 91; ended by valued 71 (duration quartiles 5.0 / 7.0 / 14.0; valued whiffs in it mean 1.14, neutral whiffs mean 0.00); neutral again 14 (duration quartiles 11.0 / 21.5 / 44.0; valued whiffs in it mean 0.00, neutral whiffs mean 2.36); still nothing at the end 6 (duration quartiles 18.8 / 30.0 / 51.0; valued whiffs in it mean 0.00, neutral whiffs mean 0.67)
+   Agent8 vs Agent6, same rows: positions first differ in 800/800 rows, step quartiles 4/9/16; Agent8's first `differs` step quartiles 4/9/16 (800 rows); holding valued at 600 both 22, Agent8 only 195, Agent6 only 48; dwell class into V 18, out of V 8
+   (b) paired DP holding valued at 600, Agent8 - Agent6: +0.1837 [+0.1475, +0.2200] (bootstrap 5000, seed 20261003); bar lower bound > 0 -> PASS (REPORTED, not a gate; design v2 section 4)
+(c) task start, nothing held, 400 rows x 600 steps, Agent8 and Agent6 on the same draws
+   (c) Agent8: rows in which every nav step has a valued whiff 400/400 = 1.000 [0.990, 1.000] (bar lower bound >= 0.95)
+      Agent8: first surge on valued only 384, neutral only 0, both 13, none 3; first hold valued 280 neutral 120 none 0, step median 13; dwell-majority P(V) 378/400 = 0.945 [0.918, 0.963] (preview, no bar); holding valued at 600 396
+      Agent6: first surge on valued only 188, neutral only 205, both 7, none 0; first hold valued 265 neutral 135 none 0, step median 13; dwell-majority P(V) 290/400 = 0.725 [0.679, 0.766] (preview, no bar); holding valued at 600 323
+      first hold identical row for row 377/400, and at the same step 337
+(d) placed at the neutral source with a neutral hold (ph20.bench_d's state) on the H23 bench seeds, 400 rows x 600 steps (reported, no bar)
+   (d) Agent8: holding the valued odour at 300 221/400 = 0.552 [0.504, 0.600]; at 600 305/400 = 0.762 [0.718, 0.802]; no whiff of either plume in the last 100 steps 69
+   (d) Agent6: holding the valued odour at 300 8/400 = 0.020 [0.010, 0.039]; at 600 82/400 = 0.205 [0.168, 0.247]; no whiff of either plume in the last 100 steps 246
+== M4: identities (a1, a2, a3, a5) True {'a1 stub': True, 'a1 stub, channel 1 held': True, 'a1 World7 +1/0': True, 'a2 0/0': True, 'a2 +1/+1': True, 'a2 +1/-1': True, 'a3': True, 'a5 G0 gate off': True, 'a5 neutral hold': True, 'a5 nav law': True}; (a4) lower bound 0.990 >= 0.95 -> PASS; (c) lower bound 0.990 >= 0.95 -> PASS -> M4 PASS: the task may be run; bench (b), reported beside it: PASS ==
