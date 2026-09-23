@@ -1,0 +1,13 @@
+== H24 Run 2 self-checks (demo). design v2 FINAL doc d65589bd43383a57c hash 0d819e73eb4296091452b869de910f349055e79e8576513bddcd655cccf28d7e ==
+   ph25.py sha256 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; design v2 FINAL doc d65589bd43383a57c hash 0d819e73eb4296091452b869de910f349055e79e8576513bddcd655cccf28d7e
+   depends on: ph21.py 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1; ph22.py 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef
+   seeds: dev (9919, 9929), eval (1815, 1915), bench (20261041, 20261042), bootstrap 20261043; demo seeds (5, 6) used deliberately, NOT part of the seed scan; no reproduction seed used; BARS {'T2': None}
+ok  the make and record hooks leave every field of ph24.run and ph24.stub bitwise equal for ph24's agents (World7 40 x 200 and stub; Agent10, Agent10g, Agent8, Agent6)
+ok  Agent11 scope 'off' == Agent10 and release=False == Agent9, bitwise (World7 and stub, 40 x 200); Agent9 through ph24.run == ph23.run (counter fields included)
+ok  Agent11 == Agent10 at 0/0, +1/+1, +1/-1; at +1/0 the presence identity holds on every (row, step); separation vs Agent10 {'never': 37, 'never_equal': 37, 'differ': 3, 'differ_pre_equal': 3, 'equal_throughout': 37, 'first_departure': '122/136/156'}
+ok  W1: Agent11 == Agent10 on steps 0-58, nav == nav6 from 59, valued present on 0-58 only, first surge = first B whiff at or after 59 in every row; W3 Agent11 == Agent10
+ok  T3a construction (draws, start, hold), presence identity, == Agent10 on 0-58; T3b == T1 before t0 and departs after. Printed, not asserted (bench (f) measures it): M7(a) T3a exact 40/40 (end at 47 40, not held from 47 40, no nav 0-58 40, surge 40)
+ok  counter convention (c = 0 at construction, updated before nav; one whiff on channel 0 at step 0: c_0 = t, c_1 = t + 1; channel 1 present exactly on 0-58). Printed, not asserted (bench (b)): channel 0 present exactly on 0-59 in 20/20; held-only presence 0
+ok  ph23.make hook: ph23.run with Agent10 == ph24.run (task start); ph23.run builds Agent11 for bench (c)'s variant start (neutral held at step 0)
+ok  seeds [9919, 9929, 1815, 1915, 20261041, 20261042, 20261043, 19919, 11815, 20271041, 29929, 21915, 20281042, 30261041, 40261042] appear in no other file under the repository (157 files scanned; excluded by name ph25.py, ph25_*.txt, h24_run2_*.md, master_plan.md, notes/*.md, viewer/*)
+    BARS {'T2': None} (unset: dev and eval refuse to run until decision:h24-run2-t2-dwell-bar is written in)

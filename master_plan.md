@@ -409,6 +409,17 @@ Progress log
   (record:release-negative-cost-limit). (3) H24 Run 2 opened for design (decision:h24-run2-open-design): design v1
   DRAFT doc d507838fdb2c85d0b (experiments/h24/h24_run2_design_v1.md), no code; the relaxation to be re-signed.
   (4) Viewer export extended with T3a, T1r and N1 rows, reproduction-checked (viewer/repro_check.txt).
+- **H24 Run 2 opened and STOPPED at the bench by its registered stop rule (2026-09-24).** The owner confirmed design
+  v1 section 12 ('(a) 규칙 완화 재서명, (b) 벤치 시드 T1 측정 (h) + 중단 규칙 채택 여부, (c) T3 = 구성 손실(T3a)로 등록
+  H24 Run 2 → H17 → Stage B'): decision:h24-run2-open on design v2 FINAL (doc d65589bd43383a57c,
+  experiments/h24/h24_run2_design_v2.md, sha 0d819e73...8d7e); the relaxation re-signed for Run 2 only
+  (decision:classification-rule-relaxed-presence-counter-run2); the project order H24 Run 2 → H17 → H20 Stage B
+  (decision:priority-h24run2-h17-stageb). src/ph25.py (Agent11 = Release + Agent9; sha 5620a908...7d91, source doc
+  dce688892e4db423c). Bench (record:h24-run2-bench-result): every identity and implementation bar PASS (M7(a) exact
+  400/400 in T3a, 382/382 in the Lost world; counter exact 400/400, held-only presence 0; W1 dwell Agent11 22.7 vs
+  Agent10 11.9 vs Agent6 24.4), but bench (h) T1: P(V) Agent11 0.785 vs Agent10 0.958, paired DP -0.1725
+  [-0.2125, -0.1350], M2(b) pass probability 0.0000 < 0.5: STOP. No bar decision, no development run, no evaluation;
+  seeds 9919/9929 and 1815/1915 unused.
 
 ## Why a plan now
 
@@ -616,6 +627,12 @@ Four hypotheses were run in one day by picking the next most interesting candida
   a q3 helper call); neither changes a number.
 - Nothing adopted. The H24-scoped relaxation lapsed with the closure; it stays on record, and any reuse is a new
   decision.
+- **H24 Run 2** (decision:h24-run2-open-design, decision:h24-run2-open; relaxation re-signed by
+  decision:classification-rule-relaxed-presence-counter-run2): (v-p) on the release agent, Agent11 = Release + Agent9
+  (src/ph25.py). **STOPPED at the bench by the registered stop rule of bench (h)** (record:h24-run2-bench-result):
+  M4's identities and implementation bars all pass, the released hold makes the window exact, but on the bench seeds
+  Agent11 loses the H21 task against Agent10 (P(V) 0.785 vs 0.958, DP -0.1725 [-0.2125, -0.1350]; M2(b) pass
+  probability 0.0000). Tasks not run; no verdict; the owner decides.
 
 ### H25 (decision:h25-open-design, decision:h25-open; evaluated once; CLOSED as SHOWN by decision:h25-closed; the release adopted at +1/0 by decision:h25-release-adopted-within-tested-conditions, at negative values ON HOLD by decision:release-negative-scope-on-hold)
 - Silence-timeout release (concept:h25-silence-timeout-release), a reset-control change: (S) keep delivering the
@@ -1038,12 +1055,10 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H24 Run 2 design v1 DRAFT** (decision:h24-run2-open-design; doc d507838fdb2c85d0b,
-  experiments/h24/h24_run2_design_v1.md): confirmation of section 12, and the classification-rule relaxation
-  RE-SIGNED for H24 Run 2 (the H24 signature lapsed with decision:h24-closed). The design states its main risk:
-  T1 (Agent11 - Agent10 anywhere in [-0.155, 0] on the record), with a proposed bench-seed measurement and stop rule.
-- **H17's priority against H20 Stage B:** H17 (cold-start search) now carries a measured consequence
-  (record:release-negative-cost-limit).
+- **H24 Run 2, stopped at the bench by the (h) stop rule** (record:h24-run2-bench-result): bench-seed T1 DP
+  Agent11 - Agent10 -0.1725 [-0.2125, -0.1350], M2(b) pass probability 0.0000. The owner decides what follows
+  (close, or a new design); the registered order after it is H17, then H20 Stage B
+  (decision:priority-h24run2-h17-stageb).
 
 ## Queued candidates, none started
 
@@ -1052,15 +1067,18 @@ The order does not change without a decision node. H21 is closed (decision:h21-c
 (decision:next-absent-odour-check-then-stage-b): the absent-odour check is complete
 (record:absent-odour-check-result: reach kept, the cost in dwell and drift); H24 (filter scope, option v) closed
 as NOT shown (decision:h24-closed); H25, the silence-timeout fix, closed as shown (decision:h25-closed), the release
-adopted at +1/0 and on hold at negative values (decision:release-negative-scope-on-hold); H24 Run 2, the (v-p)
-presence-counter re-attempt on Agent10, in design (decision:h24-run2-open-design); then H20 Stage B. H20's
+adopted at +1/0 and on hold at negative values (decision:release-negative-scope-on-hold). The order from here is
+fixed by the owner (decision:priority-h24run2-h17-stageb): H24 Run 2, the (v-p) presence-counter re-attempt on
+Agent10 (decision:h24-run2-open; stopped at the bench by its stop rule, record:h24-run2-bench-result), then H17,
+then H20 Stage B. H20's
 Stages B and C stay queued behind the check. H17, H18 and the selection circuit's revision via the empty state
 stay as recorded limits; the silence timeout defect is fixed within the H25 release's scope (+1/0) and stays in
 force outside it.
 
 - **H17** (concept:h17-cold-search) finding a plume from an odour-free start without walls. Moved up: it now
   carries a measured consequence (the release at negative values strands the agent outside the plumes, no whiff
-  afterwards in 131/131; record:release-negative-cost-limit); the owner decides its priority against Stage B.
+  afterwards in 131/131; record:release-negative-cost-limit); next after H24 Run 2, before Stage B
+  (decision:priority-h24run2-h17-stageb).
 - **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
   as it stands); C, the gain in the H15 Run 2 world with learning on, with Run 2's avoidance and
@@ -1070,8 +1088,8 @@ force outside it.
   conditions only).
 - **Silence timeout**, H25, closed as shown (decision:h25-closed); the release adopted at +1/0, on hold at negative
   values (decision:release-negative-scope-on-hold) (record:silence-timeout-chain-result).
-- **H24 Run 2** (decision:h24-run2-open-design): the presence-scoped value filter on Agent10 at +1/0; design v1
-  DRAFT, awaiting the owner.
+- **H24 Run 2** (decision:h24-run2-open): the presence-scoped value filter on Agent10 at +1/0; design v2 FINAL;
+  stopped at the bench by the (h) stop rule (record:h24-run2-bench-result); awaiting the owner.
 - **H18** (concept:h18-ring-under-cue-loss) why the ring loses the plume under cue loss. The
   10 degree mean error is not taken as the cause; first the tail of large errors, how long an
   error persists, and the heading error just before a plume is lost.
