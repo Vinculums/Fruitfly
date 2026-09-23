@@ -393,6 +393,22 @@ Progress log
   Bench M4 PASS; one evaluation 1805/1905: SHOWN under the registered criteria (M1-M5, M7 PASS); T3a R 0.957
   [0.895, 1.025]; Agent10 bitwise Agent8 in trajectory; M6 (reported) Agent10g - Agent6 P(V) -0.155 [-0.200, -0.113].
   Report doc d2a35d5a59aace929 (experiments/h25/h25_report.md). Awaiting the owner's closure.
+- **H25 CLOSED as SHOWN; the release adopted within the tested conditions (2026-09-24; decision:h25-closed,
+  decision:h25-release-adopted-within-tested-conditions).** Adopted at +1/0, G 2, C0, the worlds tested, learning off,
+  gate on; negative values excluded pending the avoidance check.
+- **Avoidance check run once (2026-09-24; design v1 FINAL doc df00c6e0dbc5f6792; src/ph24b.py sha bbabad15...eefc,
+  source doc d68d589ccad0beef9; record:avoidance-check-result).** R0 'identity holds', R1 'priority kept, identical',
+  R2 'released as valued holds', R3 'avoidance changed' (flee violations 0, dwell at the negative source lower, but
+  P(V) 0.765 vs 0.925, paired DP -0.160 [-0.195, -0.125]; lost rows 127 vs 33). Not every reading clean.
+- **The owner's decisions of 2026-09-24 ('1 → 2(a) → 3·4·5').** (1) R3 diagnosis, measurement only
+  (record:r3-negative-release-diagnosis-result; src/ph24c.py sha 17adab85...6a45, source doc d4238c123b7873d90;
+  report doc d56ab9eef4549b009, experiments/avoidance_check/r3_diagnosis.md): every drive-ended negative hold ends
+  outside both plumes and no whiff follows (131/131); the whole P(V) gap sits in the base's wall-contact rows.
+  (2a) The release stays adopted at +1/0 only; at negative values its adoption is ON HOLD
+  (decision:release-negative-scope-on-hold); the cost recorded as a limit pointing to H17
+  (record:release-negative-cost-limit). (3) H24 Run 2 opened for design (decision:h24-run2-open-design): design v1
+  DRAFT doc d507838fdb2c85d0b (experiments/h24/h24_run2_design_v1.md), no code; the relaxation to be re-signed.
+  (4) Viewer export extended with T3a, T1r and N1 rows, reproduction-checked (viewer/repro_check.txt).
 
 ## Why a plan now
 
@@ -601,7 +617,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
 - Nothing adopted. The H24-scoped relaxation lapsed with the closure; it stays on record, and any reuse is a new
   decision.
 
-### H25 (decision:h25-open-design, decision:h25-open; evaluated once; awaiting the owner's closure)
+### H25 (decision:h25-open-design, decision:h25-open; evaluated once; CLOSED as SHOWN by decision:h25-closed; the release adopted at +1/0 by decision:h25-release-adopted-within-tested-conditions, at negative values ON HOLD by decision:release-negative-scope-on-hold)
 - Silence-timeout release (concept:h25-silence-timeout-release), a reset-control change: (S) keep delivering the
   existing 10.0 reset drive while a unit is above 1.0 after the drive step, stopping on a hit or an evidence release;
   (Z) zero the silence counter when a hold forms. v1 DRAFT doc d3cb0794633a587ae kept as history; design v2 FINAL doc
@@ -616,6 +632,27 @@ Four hypotheses were run in one day by picking the next most interesting candida
   ceiling-floor span (12.967 [12.070, 13.918]). Agent10's trajectory is Agent8's everywhere (T1 P(V) 0.960 both);
   its circuit releases, its navigation stays blind to the neutral odour by construction. M6: Agent10g - Agent6 P(V)
   -0.155 [-0.200, -0.113] (0.575 vs 0.730). Nothing adopted; closure and any adoption are the owner's.
+- **CLOSED as SHOWN (decision:h25-closed, 2026-09-24).** The release (S)+(Z) adopted within the tested conditions
+  only (decision:h25-release-adopted-within-tested-conditions): +1/0, G 2, C0, T1/W1/T3a/T3b, learning off, gate on.
+  At negative values the adoption is ON HOLD, not rejected (decision:release-negative-scope-on-hold, owner
+  2026-09-24, '1 → 2(a) → 3·4·5'), on the avoidance check below.
+
+### Avoidance check (the H25 release under +1/-1; design v1 FINAL doc df00c6e0dbc5f6792; run once; a check, no verdict)
+- src/ph24b.py (sha bbabad15...eefc, source doc d68d589ccad0beef9); output experiments/avoidance_check/ph24b_check.txt;
+  record:avoidance-check-result. Seeds 1805/1905 reused on purpose; no new seed.
+- R0 'identity holds' (identity (b) in both pairs; Agent8 == Agent6 and Agent10 == Agent10g bitwise at +1/-1).
+  R1 'priority kept, identical'. R2 'released as valued holds' (a negative hold ends at step 47 in 400/400).
+  R3 'avoidance changed': flee violations 0/0; paired dwell at the negative source -0.368 [-0.550, -0.202]; P(V)
+  Agent10 0.765 vs Agent8 0.925, paired DP -0.160 [-0.195, -0.125] against >= -0.05; lost rows 127 vs 33, DP
+  +0.235 [+0.193, +0.278]; wall contacts per row 0.000 vs 0.307. Not every reading clean: Agent10 not adopted at
+  negatives.
+- **R3 diagnosis (measurement only; record:r3-negative-release-diagnosis-result; report doc d56ab9eef4549b009).**
+  All 131 drive-ended negative holds end outside both whiff regions (20.7/24.5/26.6 from the nearest) and no whiff
+  follows in the rest of the run (131/131); 116 of these rows end lost. On the 294 rows where Agent8 touches no
+  wall both arms end V in 284; all 64 rows that leave V are Agent8 wall-contact rows; Agent8 P(V | wall contact)
+  0.811 [0.726, 0.874] vs 0.966 [0.939, 0.981] without. Reading (interpretation): the release strands the agent
+  outside the plumes, where search does not find them again (the H17 limit); the base's recovery in those rows goes
+  through the wall reflex. Not measured: a run without walls.
 
 ## The architecture as currently adopted
 
@@ -637,6 +674,13 @@ Stated here so a later session does not have to reassemble it from decisions.
   never releases the hold; one step of reset is integrated away. 'Recovery does not depend on
   the timeout' holds for the tested conditions only. A later fix may be a reset-control change
   or a circuit change; either way maintenance, release and distractor resistance are re-verified.
+  **H25 release, ADOPTED AT +1/0 ONLY (decision:h25-release-adopted-within-tested-conditions); at NEGATIVE values
+  ON HOLD (decision:release-negative-scope-on-hold):** the Release mixin of ph24.py ((S) the timeout's 10.0 drive is
+  sustained while a unit is above 1.0; (Z) the silence counter is zeroed when a hold forms) ends a hold 48 steps
+  after its odour's last whiff. Within its scope (+1/0, G 2, C0, T1/W1/T3a/T3b, learning off, gate on) it fixes the
+  defect above; in the adopted agent (Agent10 = Release + Agent8) it is behaviour-inert at +1/0. At +1/-1 it keeps
+  avoidance but costs P(V) -0.160 and lost rows +0.235 (record:release-negative-cost-limit); outside the scope the
+  defect stays in force.
   **RECORDED LIMIT (record:selection-circuit-revision-via-empty-state; owner's bookkeeping decision
   2026-09-23):** under sparse task input the circuit never flips a hold from one odour to the other
   directly; every observed revision is a release to nothing held (evidence release or timeout)
@@ -699,7 +743,9 @@ Stated here so a later session does not have to reassemble it from decisions.
 - Navigation: surge-and-cast on a wind reference with the RETURN cast (triangle wave), adopted
   by decision:h16-close-limited-adoption. **Scope:** environments with little boundary influence
   and heading information on every step; tracking a plume already entered and reacquiring it
-  after loss. **Not validated:** finding a plume from an odour-free start (about half, H17);
+  after loss. **Not validated:** finding a plume from an odour-free start (about half, H17; now with a measured
+  consequence: after the release ends a negative hold 20-27 units outside the plumes no whiff follows in 131/131,
+  record:release-negative-cost-limit);
   navigation under loss of the heading cue; any arena whose walls are inside the rule's loop
   (in 40x40 it equals a random walk, concept:h15-arena-occupancy-floor). The saturating cast of
   Phase 7.3 is superseded: it leaves 94 to 98 percent of agents unrecovered over 5400 steps.
@@ -983,16 +1029,21 @@ H24 adds a lesson (decision:h24-closed): a design assumption about circuit dynam
 or a code line, and a recorded defect must be treated as in force until a decision fixes it (H24's design
 presumed the silence timeout ends a valued hold; record:silence-timeout-chain-result had recorded that it does not).
 
+The avoidance check adds one (record:r3-negative-release-diagnosis-result): a base result may rest on an artefact
+(here the wall reflex carrying the base's negative hold back across the plumes), so a fix that removes the artefact
+can look like a regression.
+
 ## Why this order
 Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelling because it can redirect Phases 2 to 4 and is the project's stated purpose. Phase 2 precedes 3 and 4 because both will reuse the Select-and-Hold circuit and inherit its defects. Phase 3 precedes 4 because heading memory needs no learning, while the integrated agent needs both. Phases 5 and 6 need everything before them.
 
 ## Awaiting the owner
 
-- **Closure of H25** (report doc d2a35d5a59aace929, experiments/h25/h25_report.md; record:h25-result): SHOWN under
-  the registered criteria (M1-M5, M7 PASS; T3a R 0.957 [0.895, 1.025]); M6 reported, Agent10g - Agent6 P(V) -0.155
-  [-0.200, -0.113]; in the adopted agent the change is behaviour-inert at +1/0 (letting go of a lost valued odour in
-  behaviour would need the value filter to release as well: the H24 counter re-attempt, not decided). Closure, and
-  whether and in which agent the release is adopted, are the owner's.
+- **H24 Run 2 design v1 DRAFT** (decision:h24-run2-open-design; doc d507838fdb2c85d0b,
+  experiments/h24/h24_run2_design_v1.md): confirmation of section 12, and the classification-rule relaxation
+  RE-SIGNED for H24 Run 2 (the H24 signature lapsed with decision:h24-closed). The design states its main risk:
+  T1 (Agent11 - Agent10 anywhere in [-0.155, 0] on the record), with a proposed bench-seed measurement and stop rule.
+- **H17's priority against H20 Stage B:** H17 (cold-start search) now carries a measured consequence
+  (record:release-negative-cost-limit).
 
 ## Queued candidates, none started
 
@@ -1000,12 +1051,16 @@ The order does not change without a decision node. H21 is closed (decision:h21-c
 (decision:h22-closed); H23 is closed as shown (decision:h23-closed). Next, in this order
 (decision:next-absent-odour-check-then-stage-b): the absent-odour check is complete
 (record:absent-odour-check-result: reach kept, the cost in dwell and drift); H24 (filter scope, option v) closed
-as NOT shown (decision:h24-closed); H25, the silence-timeout fix, in design (decision:h25-open-design); the (v-p)
-presence-counter re-attempt after H25, proposed by the interpreting assistant at the H24 closure, not decided;
-then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18 and the selection circuit's
-revision via the empty state stay as recorded limits; the silence timeout stays a recorded defect, in force,
-until a decision fixes it.
+as NOT shown (decision:h24-closed); H25, the silence-timeout fix, closed as shown (decision:h25-closed), the release
+adopted at +1/0 and on hold at negative values (decision:release-negative-scope-on-hold); H24 Run 2, the (v-p)
+presence-counter re-attempt on Agent10, in design (decision:h24-run2-open-design); then H20 Stage B. H20's
+Stages B and C stay queued behind the check. H17, H18 and the selection circuit's revision via the empty state
+stay as recorded limits; the silence timeout defect is fixed within the H25 release's scope (+1/0) and stays in
+force outside it.
 
+- **H17** (concept:h17-cold-search) finding a plume from an odour-free start without walls. Moved up: it now
+  carries a measured consequence (the release at negative values strands the agent outside the plumes, no whiff
+  afterwards in 131/131; record:release-negative-cost-limit); the owner decides its priority against Stage B.
 - **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
   as it stands); C, the gain in the H15 Run 2 world with learning on, with Run 2's avoidance and
@@ -1013,10 +1068,10 @@ until a decision fixes it.
   expressed in behaviour, which Stage A did not have and which the link check has now
   characterised, and on a hold that stays, which H21 tested (the gate adopted within its tested
   conditions only).
-- **Silence timeout**, now H25, in design as a reset-control change (decision:h25-open-design)
-  (record:silence-timeout-chain-result); selection maintenance, release and distractor resistance
-  re-verified either way.
-- **H17** (concept:h17-cold-search) finding a plume from an odour-free start without walls.
+- **Silence timeout**, H25, closed as shown (decision:h25-closed); the release adopted at +1/0, on hold at negative
+  values (decision:release-negative-scope-on-hold) (record:silence-timeout-chain-result).
+- **H24 Run 2** (decision:h24-run2-open-design): the presence-scoped value filter on Agent10 at +1/0; design v1
+  DRAFT, awaiting the owner.
 - **H18** (concept:h18-ring-under-cue-loss) why the ring loses the plume under cue loss. The
   10 degree mean error is not taken as the cause; first the tail of large errors, how long an
   error persists, and the heading error just before a plume is lost.

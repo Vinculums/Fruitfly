@@ -1,0 +1,47 @@
+== R3 diagnosis (measurement only; owner 2026-09-24, point 1). ph24c.py sha256 17adab85f64f75e64eb7a9febbefb417829a16ece4c391dc15e7721a21a76a45; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; ph24b.py bbabad15ecb17078c09a7886d8375b38c9cd71de8e4cd2352062b3134040eefc; seeds (1805, 1905) reused (the R3 runs); World7 +1/-1, 400 x 600; Agent10 vs Agent8 ==
+
+== reproduction of the recorded R3 counts (experiments/avoidance_check/ph24b_check.txt) ==
+   Agent10 V/N/tie, lost rows, wall contacts per row: got (306, 27, 67, 127, 0.0), recorded (306, 27, 67, 127, 0.0) -> MATCH
+   Agent8 V/N/tie, lost rows, wall contacts per row: got (370, 16, 14, 33, 0.307), recorded (370, 16, 14, 33, 0.307) -> MATCH
+   Agent10 negative holds formed / ended / ended by the drive: got (237, 236, 131), recorded (237, 236, 131) -> MATCH
+   Agent8 negative holds formed / ended / ended by the drive: got (200, 168, 0), recorded (200, 168, 0) -> MATCH
+
+== A. Agent10: the drive-ended negative holds (release step e = the step on which nothing is held after the drive; position = the position step e sensed at) ==
+   events 131 in 131 rows (max per row 1); hold formed at step 18/35/365; drive start 66/81/413; release step 72/87/419; hold length to the release 48/50/54; held on the release step: nothing 131/131; flee side at the hold's formation points toward the valued source 22/131, away 109/131
+   at the release the agent is beyond the valued source (nearer the valued axis than the negative one) 22/131 (flee toward the valued source 22/22), beyond the negative source 109/131 (flee away 109/109); |d_cross| to the nearer axis 26.1/29.0/30.9
+   relative to the valued (+1) source: d_along 4.9/11.1/13.8 (downwind > 0; upwind of the source 10), |d_cross| 36.1/39.0/40.9; inside its whiff region 0/131; distance to it when outside 30.5/34.3/36.3
+   relative to the negative (-1) source: d_along 4.9/11.1/13.8 (downwind > 0; upwind of the source 10), |d_cross| 28.1/29.9/31.7; inside its whiff region 0/131; distance to it when outside 23.0/26.0/26.9
+   inside either whiff region at the release: 0/131; outside both 131/131; distance to the nearest region, outside rows 20.7/24.5/26.6, max 28.4; beyond the cone's far end (d_along to both > 25) 0
+   within 60 steps after the release (windows cut by the run's end 14): any whiff 0/131 (valued 0, negative 0); re-entered a whiff region 0/131; reached a source 0/131; held at e + 60 (full windows) valued/negative/nothing [0, 0, 117]; distance to the nearest region at e + 60 19.7/24.6/29.8 (inside 0/117)
+   within 200 steps after the release (windows cut by the run's end 34): any whiff 0/131 (valued 0, negative 0); re-entered a whiff region 0/131; reached a source 0/131; held at e + 200 (full windows) valued/negative/nothing [0, 0, 97]; distance to the nearest region at e + 200 21.9/24.6/30.2 (inside 0/97)
+   until the run's end: any whiff 0/131; re-entered a whiff region 0/131; reached the valued source 0/131, the negative source 0/131
+   per row (the row's last release, 131 rows): final class V/N/tie [47, 24, 60]; lost rows 116/131 = 0.885; rows without any event: lost 11/269 = 0.041, class V/N/tie [259, 3, 7]; of all 127 lost rows, with an event 116; valued source reached before the last release 51/131; no whiff at all after the last release 131/131
+
+== B. Agent8: negative holds, wall contacts, and P(V | wall contact) ==
+   negative-hold segments 200 (incl. any held at construction), ended by kind {'evidence': 167, 'drive': 0, 'base timeout on the step before': 1, 'other': 0, 'open': 32}
+   evidence-ended negative holds 167: a wall contact during the hold before the release 83/167 = 0.497 (contacts per hold 0/0/1); hold start -> first wall contact 124/131/137 steps; hold start -> evidence release 20/33/280 steps (with a contact 265/280/296, without 15/20/23)
+   flee side at the hold's formation toward the valued source 96/167: with a wall contact before the release 14, without 82; away 71: with a contact 69, without 2; hold start -> release, toward 15/21/25, away 267/283/296
+   crosswind displacement over the hold |y_end - y_start| 8.0/10.8/13.2 (with a contact 7.8/10.6/12.9, without 8.4/11.2/13.5); largest crosswind excursion during the hold 11.2/19.6/79.1
+   negative holds still held at step 599: 32; wall contacts during them 1/1/1
+   at the evidence release: inside the valued whiff region 91/167, inside the negative one 2/167; d_cross to the valued axis 2.1/3.4/4.3, d_along 3.2/8.5/13.6
+   rows with >= 1 wall contact: Agent8 106/400, Agent10 0/400
+   Agent8 P(V | any wall contact) 86/106 = 0.811 [0.726, 0.874]; P(V | no wall contact) 284/294 = 0.966 [0.939, 0.981]
+   paired on the same rows: in Agent8's no-contact rows Agent8 V 284/294, Agent10 V 284/294; in Agent8's contact rows Agent8 V 86/106, Agent10 V 22/106
+   the 64 rows that leave V: Agent8 had a wall contact in 64/64
+   Agent8 V rows 370: first valued hold after the first wall contact 59/368; first arrival at the valued source after the first wall contact 61/370
+   Agent8 wall contacts 123 in total, while holding the negative odour 123, while holding the valued odour 0, holding nothing 0
+
+== C. The 64 paired rows that move out of V (Agent8 V, Agent10 not V) ==
+   rows 64 (Agent10 class N 10, tie 54); first step differing in any recorded field (circuit s included) 41/67/74, == the step after Agent10's first sustained drive step 44/64; first step differing in hold or trajectory (H, POS, HEAD, NAV, SINCE, TGT) == Agent10's first drive release (a drive-ended hold) 64/64; that first release ends a negative hold 63, a valued hold 1
+   first hold/trajectory differing step (= the release) quartiles 67/74/79; state then: Agent10 holds nothing 64, Agent8 holds the negative odour 63, the valued 1, nothing 0
+   position then: inside the negative whiff region 0, inside the valued 0, outside both 64; distance to the nearest region 19.8/24.6/26.7; d_along to the valued source 4.2/8.3/11.5, |d_cross| to the valued axis 34.8/38.8/40.4
+   [Agent10] after the first differing step: any whiff within 60 steps 0/64; any whiff until the end 1; valued whiff 0; re-entered a whiff region 1; reached the valued source 0, the negative source 1; wall contact 0; lost row 64; class V/N/tie [0, 10, 54]
+   [Agent8] after the first differing step: any whiff within 60 steps 0/64; any whiff until the end 64; valued whiff 64; re-entered a whiff region 64; reached the valued source 64, the negative source 9; wall contact 64; lost row 1; class V/N/tie [64, 0, 0]
+
+== D. Both arms: wall contacts, and where the agent is when nothing has been held for >= 60 steps ==
+   [Agent10] rows with >= 1 wall contact 0/400 (contacts per row 0.000); (row, step) with nothing held for >= 60 steps 101207 in 400 rows; of those inside a whiff region 6657/101207 = 0.066; distance to the nearest region, outside 8.8/18.5/26.6, p90 33.2; share at > 10 0.671, > 20 0.422
+      on those (row, step): d_along to the sources -12.2/0.3/25.0 (upwind of both 0.496, beyond the cones' far end > 25 0.250)
+   [Agent8] rows with >= 1 wall contact 106/400 (contacts per row 0.307); (row, step) with nothing held for >= 60 steps 15465 in 138 rows; of those inside a whiff region 937/15465 = 0.061; distance to the nearest region, outside 5.0/8.3/12.7, p90 20.8; share at > 10 0.362, > 20 0.104
+      on those (row, step): d_along to the sources -9.6/-0.6/20.9 (upwind of both 0.511, beyond the cones' far end > 25 0.202)
+
+== end (measurement only; no cause named beyond the counts; no change tested) ==

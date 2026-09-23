@@ -1,5 +1,5 @@
-== viz_export reproduction check, 2026-09-23T22:32:52 ==
-   src C:/Users/weg14/ff/Fruitfly/src; ph21 sha256 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1 (H23's 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1); ph22 sha256 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c (check's 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c)
+== viz_export reproduction check, 2026-09-24T02:35:18 ==
+   src src; ph21 sha256 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1 (H23's 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1); ph22 sha256 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c (check's 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c)
 
 -- bitwise against the modules' own run functions (positions, headings, circuit s, held, nav; 400 rows x 600 steps) --
    T1 filter == ph21.task('filter', (1765, 1865)): True
@@ -24,6 +24,20 @@
    T3 Agent6 eligible (experiments/h24/ph23_bench.txt): got 270, recorded 270 -> MATCH
    T3 Agent6 S (neutral surge within L+1..L+100 | eligible), k/n: got 8/270, recorded 8/270 -> MATCH
 
+-- H25 worlds (ph24.run, the module's own run function; seeds 1805/1905 = H25 evaluation and the avoidance check's R3) --
+   T3a Agent10g valued hold released at step 47 (<= 49, circuit empty), rows (experiments/h25/ph24_eval.txt M7(a)): got 400, recorded 400 -> MATCH
+   T3a Agent10 valued hold released at step 47 (<= 49, circuit empty), rows (experiments/h25/ph24_eval.txt M7(a)): got 400, recorded 400 -> MATCH
+   T3a Agent10g neutral dwell steps 100-599, mean (experiments/h25/ph24_eval.txt): got 13.300, recorded 13.300 -> MATCH
+   T3a Agent6 neutral dwell steps 100-599, mean (experiments/h25/ph24_eval.txt): got 0.890, recorded 0.890 -> MATCH
+   T3a ceiling neutral dwell steps 100-599, mean (experiments/h25/ph24_eval.txt): got 13.857, recorded 13.857 -> MATCH
+   T3a Agent10 neutral dwell steps 100-599, mean (experiments/h25/ph24_eval.txt): got 0.890, recorded 0.890 -> MATCH
+   T3a masked world: draws equal to the unmasked twin on every step, generator state equal: True
+   T1r Agent10g V/N/tie (experiments/h25/ph24_eval.txt): got (230, 164, 6), recorded (230, 164, 6) -> MATCH
+   T1r Agent6 V/N/tie (experiments/h25/ph24_eval.txt): got (292, 105, 3), recorded (292, 105, 3) -> MATCH
+   T1r Agent8 V/N/tie (experiments/h25/ph24_eval.txt): got (384, 14, 2), recorded (384, 14, 2) -> MATCH
+   N1 Agent10 V/N/tie, lost rows, wall contacts per row (experiments/avoidance_check/ph24b_check.txt R3): got (306, 27, 67, 127, '0.000'), recorded (306, 27, 67, 127, '0.000') -> MATCH
+   N1 Agent8 V/N/tie, lost rows, wall contacts per row (experiments/avoidance_check/ph24b_check.txt R3): got (370, 16, 14, 33, '0.307'), recorded (370, 16, 14, 33, '0.307') -> MATCH
+
 == reproduction OK: all checks match ==
 
 -- selected rows --
@@ -38,5 +52,13 @@
    T3 candidate counts: (g) 9 rows; (h) Agent6 eligible and never at the neutral source after t0 167 rows (of them also Agent8-eligible 166)
    [T3 row 244] (g) both eligible; Agent8 holds valued on every step 150-599; Agent6 releases and is at the neutral source after t0; max Agent6 neutral steps after t0: {'Agent8': {'eligible': True, 'L': 131, 'held_at_600': 'valued', 'steps_at_neutral_after_t0': 6}, 'Agent6': {'eligible': True, 'L': 5, 'held_at_600': 'neutral', 'steps_at_neutral_after_t0': 29}, 'Agent8_holds_valued_150_599': True}
    [T3 row 177] (h) Agent6 eligible and never within HIT_R of the neutral source after t0; earliest Agent6 L: {'Agent8': {'eligible': True, 'L': 1, 'held_at_600': 'valued', 'steps_at_neutral_after_t0': 0}, 'Agent6': {'eligible': True, 'L': 1, 'held_at_600': 'valued', 'steps_at_neutral_after_t0': 0}, 'Agent8_holds_valued_150_599': True}
+   T3a candidate counts: (i) 257 rows; (ii) Agent10g released at 47 and never within HIT_R of the neutral source 81 rows
+   [T3a row 249] (i) Agent10g releases the valued hold at step 47 and reaches the neutral source; Agent6 never reaches it; max Agent10g neutral dwell 100-599: {'Agent10g': {'dwell_neutral_100_599': 36, 'valued_hold_end_step': 47, 'reached_neutral': True, 'first_at_neutral_step': 190}, 'Agent6': {'dwell_neutral_100_599': 0, 'valued_hold_end_step': None, 'reached_neutral': False, 'first_at_neutral_step': None}, 'ceiling': {'dwell_neutral_100_599': 23, 'valued_hold_end_step': None, 'reached_neutral': True, 'first_at_neutral_step': 188}, 'Agent10': {'dwell_neutral_100_599': 0, 'valued_hold_end_step': 47, 'reached_neutral': False, 'first_at_neutral_step': None}, 'Agent10g_min_distance_to_neutral': 0.72}
+   [T3a row 370] (ii) Agent10g releases at step 47 but never comes within HIT_R of the neutral source; max over such rows of Agent10g's closest approach distance (the clearest failure): {'Agent10g': {'dwell_neutral_100_599': 0, 'valued_hold_end_step': 47, 'reached_neutral': False, 'first_at_neutral_step': None}, 'Agent6': {'dwell_neutral_100_599': 0, 'valued_hold_end_step': None, 'reached_neutral': False, 'first_at_neutral_step': None}, 'ceiling': {'dwell_neutral_100_599': 0, 'valued_hold_end_step': None, 'reached_neutral': False, 'first_at_neutral_step': None}, 'Agent10': {'dwell_neutral_100_599': 0, 'valued_hold_end_step': 47, 'reached_neutral': False, 'first_at_neutral_step': None}, 'Agent10g_min_distance_to_neutral': 10.47}
+   T1r candidate count: 69 rows (Agent6 V, Agent10g N, the two first differ at Agent10g's first drive-ended valued hold)
+   [T1r row 218] Agent6 ends V, Agent10g ends N; hold and trajectory are identical until Agent10g's first drive-ended valued hold (released after a silent gap); max Agent6 valued dwell: {'Agent6': {'cls': 'V', 'dwell_v': 39, 'dwell_n': 0}, 'Agent10g': {'cls': 'N', 'dwell_v': 16, 'dwell_n': 28}, 'Agent8': {'cls': 'V', 'dwell_v': 39, 'dwell_n': 0}, 'Agent10g_release_step': 88, 'silent_steps_before_the_drive': 41, 'first_differing_step_vs_Agent6': 88}
+   N1 candidate counts: (i) 81 rows; (ii) both V 306 rows
+   [N1 row 391] (i) Agent8 hits a wall while holding the negative odour, bounces and ends V; Agent10 releases the negative hold by the timeout drive and ends lost (no whiff on steps 400-599); max Agent8 valued dwell: {'Agent8': {'class': 'V', 'lost_row': False, 'wall_contacts': 1, 'negative_hold_released_by_drive_step': None}, 'Agent10': {'class': 'N', 'lost_row': True, 'wall_contacts': 0, 'negative_hold_released_by_drive_step': 87}, 'Agent8_wall_contact_while_holding_negative': True}
+   [N1 row 72] (ii) both arms end V; max Agent8 + Agent10 valued dwell: {'Agent8': {'class': 'V', 'lost_row': False, 'wall_contacts': 0, 'negative_hold_released_by_drive_step': None}, 'Agent10': {'class': 'V', 'lost_row': False, 'wall_contacts': 0, 'negative_hold_released_by_drive_step': None}, 'Agent8_wall_contact_while_holding_negative': False}
 
-wrote C:\Users\weg14\AppData\Local\Temp\claude\C--Users-weg14-ff\e79880f1-de21-49b0-b8d2-93858109a055\scratchpad\viz\trajectories.json (2.82 MB, 8 rows, 20 arm trajectories)
+wrote viewer/trajectories.json (4.63 MB, 13 rows, 35 arm trajectories)
