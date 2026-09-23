@@ -20,6 +20,7 @@ python ph19.py             # any phase script runs standalone
 - `experiments/<phase or hypothesis>/` recorded outputs (`*.txt`), design docs (`h*_design_*.md`, `h15_run2_spec_*.md`) and reports (`h*_report.md`).
 - `master_plan.md` the plan (renamed from `master_plan_updated.md`); the git copy is the source of truth, the graph copy a mirror.
 - `notes/` outlook notes (not decisions, nothing measured); canonical copies in the Vinc graph.
+- `viewer/` — trajectory viewer (2D map + 3D scene) and the export script that reproduces the recorded runs; open via a local server or GitHub Pages.
 - The canonical record, with sha256 provenance for every output file, is the Vinc graph (team space "Fruit Fly").
 
 | Script (`src/`) | Hypothesis / phase | Folder |

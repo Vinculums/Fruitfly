@@ -1,0 +1,42 @@
+== viz_export reproduction check, 2026-09-23T22:32:52 ==
+   src C:/Users/weg14/ff/Fruitfly/src; ph21 sha256 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1 (H23's 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1); ph22 sha256 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c (check's 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c)
+
+-- bitwise against the modules' own run functions (positions, headings, circuit s, held, nav; 400 rows x 600 steps) --
+   T1 filter == ph21.task('filter', (1765, 1865)): True
+   T1 maintain == ph21.task('maintain', (1765, 1865)): True
+   T1 known-answer == ph21.task('known-answer', (1765, 1865)): True
+   T1 maintain (Agent8 filt=False) == ph19.Agent6: True
+   W1 Agent8 == ph22.run('W1', 'Agent8', (1775, 1875)): True
+   W1 Agent6 == ph22.run('W1', 'Agent6', (1775, 1875)): True
+   T3 Agent8 == ph23.r8('T3', (20261011, 20261012)): True
+   T3 Agent6 == ph23.r6('T3', (20261011, 20261012)): True
+   T3 Agent9 == ph23.r9('T3', (20261011, 20261012)): True
+   masked worlds: draws equal to the unmasked twin on every step: True
+
+-- aggregate counts against the recorded outputs --
+   T1 filter V/N/tie (experiments/h23/ph21_eval.txt): got (381, 14, 5), recorded (381, 14, 5) -> MATCH
+   T1 maintain V/N/tie (experiments/h23/ph21_eval.txt): got (285, 109, 6), recorded (285, 109, 6) -> MATCH
+   T1 known-answer V/N/tie (experiments/h23/ph21_eval.txt): got (386, 13, 1), recorded (386, 13, 1) -> MATCH
+   W1 Agent8 reach (experiments/absent_odour_check/ph22_eval.txt): got 344, recorded 344 -> MATCH
+   W1 Agent6 reach (experiments/absent_odour_check/ph22_eval.txt): got 395, recorded 395 -> MATCH
+   T3 Agent9 eligible (experiments/h24/ph23_bench.txt): got 370, recorded 370 -> MATCH
+   T3 Agent8 eligible (experiments/h24/ph23_bench.txt): got 379, recorded 379 -> MATCH
+   T3 Agent6 eligible (experiments/h24/ph23_bench.txt): got 270, recorded 270 -> MATCH
+   T3 Agent6 S (neutral surge within L+1..L+100 | eligible), k/n: got 8/270, recorded 8/270 -> MATCH
+
+== reproduction OK: all checks match ==
+
+-- selected rows --
+   T1 candidate counts: (a) 258 rows, (b) 85 rows, (d) filter N rows 14
+   [T1 row 198] (a) first hold valued in maintain and filter, both end V; max(filter+maintain valued dwell): {'filter': {'cls': 'V', 'first_hold': {'odour': 'valued', 'step': 2}, 'dwell_v': 60, 'dwell_n': 0}, 'maintain': {'cls': 'V', 'first_hold': {'odour': 'valued', 'step': 2}, 'dwell_v': 60, 'dwell_n': 0}, 'known-answer': {'cls': 'V', 'first_hold': {'odour': 'valued', 'step': 0}, 'dwell_v': 35, 'dwell_n': 0}, 'filter_steps_at_valued_holding_neutral': 0}
+   [T1 row 318] (b) first hold neutral in maintain and filter, maintain N (trapped), filter V (revised); max(maintain neutral dwell + filter valued dwell): {'filter': {'cls': 'V', 'first_hold': {'odour': 'neutral', 'step': 39}, 'dwell_v': 38, 'dwell_n': 9}, 'maintain': {'cls': 'N', 'first_hold': {'odour': 'neutral', 'step': 39}, 'dwell_v': 9, 'dwell_n': 40}, 'known-answer': {'cls': 'V', 'first_hold': {'odour': 'valued', 'step': 0}, 'dwell_v': 19, 'dwell_n': 9}, 'filter_steps_at_valued_holding_neutral': 7}
+   [T1 row 5] (c) dissociation: max over rows of filter steps at the valued source while holding neutral: {'filter': {'cls': 'V', 'first_hold': {'odour': 'neutral', 'step': 34}, 'dwell_v': 17, 'dwell_n': 6}, 'maintain': {'cls': 'V', 'first_hold': {'odour': 'neutral', 'step': 34}, 'dwell_v': 21, 'dwell_n': 18}, 'known-answer': {'cls': 'V', 'first_hold': {'odour': 'valued', 'step': 0}, 'dwell_v': 30, 'dwell_n': 7}, 'filter_steps_at_valued_holding_neutral': 13}
+   [T1 row 135] (d) one of filter's N rows; max neutral dwell: {'filter': {'cls': 'N', 'first_hold': {'odour': 'neutral', 'step': 53}, 'dwell_v': 0, 'dwell_n': 48}, 'maintain': {'cls': 'N', 'first_hold': {'odour': 'neutral', 'step': 527}, 'dwell_v': 0, 'dwell_n': 25}, 'known-answer': {'cls': 'V', 'first_hold': {'odour': 'valued', 'step': 0}, 'dwell_v': 20, 'dwell_n': 0}, 'filter_steps_at_valued_holding_neutral': 0}
+   W1 candidate counts: (e) 216 rows; (f) Agent8 never reaches 56 rows
+   [W1 row 123] (e) Agent8 reaches then passes through and ends far upwind (min final d_along - 0.5 dwell) while Agent6 dwell >= 20: {'Agent8': {'reach': True, 'dwell': 3, 'final_d_along': -23.84, 'most_upwind_d_along': -23.84}, 'Agent6': {'reach': True, 'dwell': 24, 'final_d_along': -5.71, 'most_upwind_d_along': -33.79}}
+   [W1 row 225] (f) Agent8 never reaches the present source; max Agent6 dwell: {'Agent8': {'reach': False, 'dwell': 0, 'final_d_along': -12.63, 'most_upwind_d_along': -17.44}, 'Agent6': {'reach': True, 'dwell': 43, 'final_d_along': -2.49, 'most_upwind_d_along': -32.15}}
+   T3 candidate counts: (g) 9 rows; (h) Agent6 eligible and never at the neutral source after t0 167 rows (of them also Agent8-eligible 166)
+   [T3 row 244] (g) both eligible; Agent8 holds valued on every step 150-599; Agent6 releases and is at the neutral source after t0; max Agent6 neutral steps after t0: {'Agent8': {'eligible': True, 'L': 131, 'held_at_600': 'valued', 'steps_at_neutral_after_t0': 6}, 'Agent6': {'eligible': True, 'L': 5, 'held_at_600': 'neutral', 'steps_at_neutral_after_t0': 29}, 'Agent8_holds_valued_150_599': True}
+   [T3 row 177] (h) Agent6 eligible and never within HIT_R of the neutral source after t0; earliest Agent6 L: {'Agent8': {'eligible': True, 'L': 1, 'held_at_600': 'valued', 'steps_at_neutral_after_t0': 0}, 'Agent6': {'eligible': True, 'L': 1, 'held_at_600': 'valued', 'steps_at_neutral_after_t0': 0}, 'Agent8_holds_valued_150_599': True}
+
+wrote C:\Users\weg14\AppData\Local\Temp\claude\C--Users-weg14-ff\e79880f1-de21-49b0-b8d2-93858109a055\scratchpad\viz\trajectories.json (2.82 MB, 8 rows, 20 arm trajectories)
