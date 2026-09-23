@@ -1,0 +1,150 @@
+== H25, EVAL. design v2 FINAL doc dce297e76390fa854 hash 6fbb293bfb14acbc941998ccc1b7934ec20d0b873131bf9c2ba90e925fcce60b; G 2.0, gate on where G 2; world seed 1805, agent seed 1905; 400 rows x 600 steps; geometry C0; t0 150; bootstrap seed 20261033; the one evaluation ==
+   ph24.py sha256 f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; design v2 FINAL doc dce297e76390fa854 hash 6fbb293bfb14acbc941998ccc1b7934ec20d0b873131bf9c2ba90e925fcce60b
+   imported modules: ph2.py 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a; ph9.py 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706; ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23; ph13.py 2d75fae8e8c31e1c6ddf6577782fafde3099f10fe8f50fe382f53d09e9ef1f2d; ph14.py c6b745c60f9992934a0ccbc5584ef354a03f53f08b37a1252a694feb350be0d0; ph14b.py ef18eff833ccf1600d39758d72a50bf670d7d2013d2137d4d16603f06d15312e; ph15.py cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc; ph16.py 33d5fdb25959fb7f9cbe465ca25a8973776b39f1e5170d645cb53bc8d906a2c2; ph17.py 4b30ddf8b1fc6dc510f23a28f09d6391003d95f0744344d237f50e3393a3689f; ph18.py 26ad4defb7590e16e1030b0b6f8073d3258584baeec06ba66e233315da7c97c3; ph19.py 00c6a3b32f80fae9f58b6dbd23a8e03b1710be45fcf335238f289567fce34791; ph21.py 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1; ph22.py 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae
+   seeds: dev (9896, 9996), eval (1805, 1905), bench (20261031, 20261032), bootstrap 20261033; reproduction seeds {'h21': (1725, 1825), 'h23': (1765, 1865), 'h19': (9600, 9700)} reused on purpose, NOT part of the seed scan
+   rows share no state: one generator per world and one per agent population, fixed-size draws consumed in row order every step
+
+== T1, the H21 choice task ==
+
+   [filter-fix] G 2.0  MAIN, dwell majority: V 384  N 14  tie 2  (of 400)
+      cells: 0 odour A valued, +y: V 96 N 3 0 1 | 1 odour A valued, -y: V 95 N 5 0 0 | 2 odour B valued, +y: V 98 N 1 0 1 | 3 odour B valued, -y: V 95 N 5 0 0
+      dwell median valued 25.0 other 0.0; both zero 0; majority source == first hold 277/400; P(V | first hold valued) 267/273; P(V | first hold neutral) 117/127
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (4784, 55, 5019) | at neutral (723, 749, 361); nothing held 0.639 of steps
+      H21 diag: holds ended 1569 (on the timeout flag 1461, evidence 105, both 0, neither 3); held unit's s the step before, median 1.08; timeout firings while held 10248, of which ended the hold 1461; valued holds ended 1312, neutral holds ended 257
+      H21 diag: revision, first hold neutral and later held valued 125/127 = 0.984; no whiff of either plume in the last third 2; no navigation hit in the last third 15; wall contacts per row 0.00
+      [filter-fix] timeout drives started on a hold 1468 (drive steps delivered 10248), D quartiles 7/7/7, D max 7; ended the hold 1461; circuit empty at the drive's end 1461; interrupted by a hit or the evidence release 3; silent steps before the drive (quartiles) 41/41/41, stale (< 41) 0; nothing-held drives 2730 (D > 1 among them 0); counter lowered by (Z) 1432
+      [filter-fix] holds 1736; duration quartiles 48/48/55 (ended within the run 1569); held odour's silent gaps while held 4625, quartiles 1/5/47, >= 41 1470 (0.3178)
+
+   [filter] G 2.0  MAIN, dwell majority: V 384  N 14  tie 2  (of 400)
+      cells: 0 odour A valued, +y: V 96 N 3 0 1 | 1 odour A valued, -y: V 95 N 5 0 0 | 2 odour B valued, +y: V 98 N 1 0 1 | 3 odour B valued, -y: V 95 N 5 0 0
+      dwell median valued 25.0 other 0.0; both zero 0; majority source == first hold 277/400; P(V | first hold valued) 267/273; P(V | first hold neutral) 117/127
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (8621, 658, 579) | at neutral (782, 874, 177); nothing held 0.075 of steps
+      H21 diag: holds ended 128 (on the timeout flag 0, evidence 127, both 0, neither 1); held unit's s the step before, median 1.06; timeout firings while held 4178, of which ended the hold 0; valued holds ended 0, neutral holds ended 128
+      H21 diag: revision, first hold neutral and later held valued 123/127 = 0.969; no whiff of either plume in the last third 2; no navigation hit in the last third 15; wall contacts per row 0.00
+      [filter] timeout drives started on a hold 4178 (drive steps delivered 4178), D quartiles 1/1/1, D max 1; ended the hold 0; circuit empty at the drive's end 0; interrupted by a hit or the evidence release 20; silent steps before the drive (quartiles) 41/82/123, stale (< 41) 145; nothing-held drives 236 (D > 1 among them 0); counter lowered by (Z) 0
+      [filter] holds 527; duration quartiles 306/568/590 (ended within the run 128); held odour's silent gaps while held 4600, quartiles 1/4/111, >= 41 1393 (0.3028)
+
+   [maintain-fix] G 2.0  MAIN, dwell majority: V 230  N 164  tie 6  (of 400)
+      cells: 0 odour A valued, +y: V 63 N 37 0 0 | 1 odour A valued, -y: V 56 N 44 0 0 | 2 odour B valued, +y: V 60 N 37 0 3 | 3 odour B valued, -y: V 51 N 46 0 3
+      dwell median valued 16.0 other 11.0; both zero 0; majority source == first hold 284/400; P(V | first hold valued) 193/272; P(V | first hold neutral) 37/128
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (3161, 119, 3147) | at neutral (741, 1346, 3109); nothing held 0.684 of steps
+      H21 diag: holds ended 1401 (on the timeout flag 1382, evidence 19, both 0, neither 0); held unit's s the step before, median 1.07; timeout firings while held 9708, of which ended the hold 1382; valued holds ended 944, neutral holds ended 457
+      H21 diag: revision, first hold neutral and later held valued 58/128 = 0.453; no whiff of either plume in the last third 7; no navigation hit in the last third 7; wall contacts per row 0.00
+      [maintain-fix] timeout drives started on a hold 1390 (drive steps delivered 9708), D quartiles 7/7/7, D max 7; ended the hold 1382; circuit empty at the drive's end 1382; interrupted by a hit or the evidence release 0; silent steps before the drive (quartiles) 41/41/41, stale (< 41) 0; nothing-held drives 3086 (D > 1 among them 0); counter lowered by (Z) 1203
+      [maintain-fix] holds 1450; duration quartiles 48/48/54 (ended within the run 1401); held odour's silent gaps while held 3504, quartiles 1/6/47, >= 41 1392 (0.3973)
+
+   [maintain] G 2.0  MAIN, dwell majority: V 292  N 105  tie 3  (of 400)
+      cells: 0 odour A valued, +y: V 75 N 23 0 2 | 1 odour A valued, -y: V 68 N 32 0 0 | 2 odour B valued, +y: V 72 N 27 0 1 | 3 odour B valued, -y: V 77 N 23 0 0
+      dwell median valued 20.0 other 6.0; both zero 0; majority source == first hold 363/400; P(V | first hold valued) 264/272; P(V | first hold neutral) 28/128
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (7185, 123, 108) | at neutral (840, 2176, 516); nothing held 0.061 of steps
+      H21 diag: holds ended 73 (on the timeout flag 0, evidence 70, both 0, neither 3); held unit's s the step before, median 1.06; timeout firings while held 4323, of which ended the hold 0; valued holds ended 0, neutral holds ended 73
+      H21 diag: revision, first hold neutral and later held valued 49/128 = 0.383; no whiff of either plume in the last third 4; no navigation hit in the last third 12; wall contacts per row 0.00
+      [maintain] timeout drives started on a hold 4323 (drive steps delivered 4323), D quartiles 1/1/1, D max 1; ended the hold 0; circuit empty at the drive's end 0; interrupted by a hit or the evidence release 16; silent steps before the drive (quartiles) 41/82/123, stale (< 41) 118; nothing-held drives 181 (D > 1 among them 0); counter lowered by (Z) 0
+      [maintain] holds 473; duration quartiles 381/578/591 (ended within the run 73); held odour's silent gaps while held 4220, quartiles 1/5/143, >= 41 1412 (0.3346)
+
+   [pathway-off] G 0.0  MAIN, dwell majority: V 194  N 202  tie 4  (of 400)
+      cells: 0 odour A valued, +y: V 46 N 51 0 3 | 1 odour A valued, -y: V 44 N 55 0 1 | 2 odour B valued, +y: V 53 N 47 0 0 | 3 odour B valued, -y: V 51 N 49 0 0
+      dwell median valued 12.0 other 13.0; both zero 0; majority source == first hold 308/397; P(V | first hold valued) 152/201; P(V | first hold neutral) 39/196
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (3494, 123, 1625) | at neutral (125, 3943, 1518); nothing held 0.231 of steps
+      H21 diag: holds ended 239 (on the timeout flag 10, evidence 213, both 0, neither 16); held unit's s the step before, median 1.06; timeout firings while held 3714, of which ended the hold 10; valued holds ended 129, neutral holds ended 110
+      H21 diag: revision, first hold neutral and later held valued 61/196 = 0.311; no whiff of either plume in the last third 9; no navigation hit in the last third 9; wall contacts per row 0.00
+
+   [known-answer] G 0.0 (held odour fixed to the valued odour)  MAIN, dwell majority: V 377  N 21  tie 2  (of 400)
+      cells: 0 odour A valued, +y: V 98 N 2 0 0 | 1 odour A valued, -y: V 92 N 8 0 0 | 2 odour B valued, +y: V 95 N 3 0 2 | 3 odour B valued, -y: V 92 N 8 0 0
+      dwell median valued 25.0 other 0.0; both zero 0; majority source == first hold 377/400; P(V | first hold valued) 377/400; P(V | first hold neutral) 0/0
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (9778, 0, 0) | at neutral (1987, 0, 0); nothing held 0.000 of steps
+      H21 diag: holds ended 0 (on the timeout flag 0, evidence 0, both 0, neither 0); held unit's s the step before, median nan; timeout firings while held 0, of which ended the hold 0; valued holds ended 0, neutral holds ended 0
+      H21 diag: revision, first hold neutral and later held valued 0/0; no whiff of either plume in the last third 3; no navigation hit in the last third 12; wall contacts per row 0.00
+
+   [neutral] G 2.0  MAIN, dwell majority: V 184  N 209  tie 7  (of 400)
+      cells: 0 odour A valued, +y: V 51 N 48 0 1 | 1 odour A valued, -y: V 42 N 57 0 1 | 2 odour B valued, +y: V 50 N 48 0 2 | 3 odour B valued, -y: V 41 N 56 0 3
+      dwell median valued 13.0 other 15.0; both zero 0; majority source == first hold 274/397; P(V | first hold valued) 130/201; P(V | first hold neutral) 51/196
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (1427, 119, 3901) | at neutral (106, 1480, 4269); nothing held 0.770 of steps
+      H21 diag: holds ended 1065 (on the timeout flag 1026, evidence 39, both 0, neither 0); held unit's s the step before, median 1.06; timeout firings while held 7231, of which ended the hold 1026; valued holds ended 504, neutral holds ended 561
+      H21 diag: revision, first hold neutral and later held valued 77/196 = 0.393; no whiff of either plume in the last third 7; no navigation hit in the last third 7; wall contacts per row 0.00
+      [neutral] timeout drives started on a hold 1038 (drive steps delivered 7231), D quartiles 7/7/7, D max 7; ended the hold 1026; circuit empty at the drive's end 1026; interrupted by a hit or the evidence release 0; silent steps before the drive (quartiles) 41/41/41, stale (< 41) 0; nothing-held drives 3683 (D > 1 among them 0); counter lowered by (Z) 941
+      [neutral] holds 1088; duration quartiles 48/48/53 (ended within the run 1065); held odour's silent gaps while held 2357, quartiles 1/9/47, >= 41 1038 (0.4404)
+
+== T2, the absent-odour world W1 (valued source silenced from step 0) ==
+   [W1 filter-fix] dwell at the neutral (present) source mean 12.133, quartiles 6.0/9.0/16.2; rows reaching it 348; draws == twin True
+      [W1 filter-fix] timeout drives started on a hold 844 (drive steps delivered 5781), D quartiles 7/7/7, D max 7; ended the hold 806; circuit empty at the drive's end 806; interrupted by a hit or the evidence release 9; silent steps before the drive (quartiles) 41/41/41, stale (< 41) 0; nothing-held drives 3835 (D > 1 among them 0); counter lowered by (Z) 796
+      [W1 filter-fix] holds 937; duration quartiles 48/54/69 (ended within the run 807); held odour's silent gaps while held 3182, quartiles 1/5/47, >= 41 850 (0.2671)
+   [W1 filter] dwell at the neutral (present) source mean 12.133, quartiles 6.0/9.0/16.2; rows reaching it 348; draws == twin True
+      [W1 filter] timeout drives started on a hold 3602 (drive steps delivered 3602), D quartiles 1/1/1, D max 1; ended the hold 6; circuit empty at the drive's end 6; interrupted by a hit or the evidence release 36; silent steps before the drive (quartiles) 41/82/164, stale (< 41) 136; nothing-held drives 964 (D > 1 among them 0); counter lowered by (Z) 0
+      [W1 filter] holds 391; duration quartiles 471/550/578 (ended within the run 17); held odour's silent gaps while held 4403, quartiles 2/5/49, >= 41 1164 (0.2644)
+   [W1 maintain-fix] dwell at the neutral (present) source mean 25.435, quartiles 20.0/25.0/31.0; rows reaching it 396; draws == twin True
+      [W1 maintain-fix] timeout drives started on a hold 893 (drive steps delivered 6238), D quartiles 7/7/7, D max 7; ended the hold 890; circuit empty at the drive's end 890; interrupted by a hit or the evidence release 0; silent steps before the drive (quartiles) 41/41/41, stale (< 41) 0; nothing-held drives 3931 (D > 1 among them 0); counter lowered by (Z) 860
+      [W1 maintain-fix] holds 976; duration quartiles 48/48/51 (ended within the run 890); held odour's silent gaps while held 2044, quartiles 1/10/48, >= 41 895 (0.4379)
+   [W1 maintain] dwell at the neutral (present) source mean 25.435, quartiles 20.0/25.0/31.0; rows reaching it 396; draws == twin True
+      [W1 maintain] timeout drives started on a hold 3567 (drive steps delivered 3567), D quartiles 1/1/1, D max 1; ended the hold 11; circuit empty at the drive's end 11; interrupted by a hit or the evidence release 8; silent steps before the drive (quartiles) 41/82/123, stale (< 41) 200; nothing-held drives 1230 (D > 1 among them 0); counter lowered by (Z) 0
+      [W1 maintain] holds 418; duration quartiles 321/481/575 (ended within the run 26); held odour's silent gaps while held 3296, quartiles 1/4/147, >= 41 1119 (0.3395)
+
+== T3a, lost at the valued source (constructed: valued column masked from step 0, start at the valued source, valued hold s 2.0) ==
+   [T3a maintain-fix] dwell at the neutral source, steps 100-599: mean 13.300, quartiles 6.0/14.0/20.0, rows > 0 319; valued hold ended at step quartiles 47/47/47 (never 0), exact (<= 49, circuit empty) 400/400; neutral first held at step 186/222/304 (rows 309); first within 3.0 of the neutral source 198/240/310
+      [T3a maintain-fix] timeout drives started on a hold 963 (drive steps delivered 6705), D quartiles 7/7/7, D max 7; ended the hold 951; circuit empty at the drive's end 951; interrupted by a hit or the evidence release 0; silent steps before the drive (quartiles) 41/41/41, stale (< 41) 0; nothing-held drives 4117 (D > 1 among them 0); counter lowered by (Z) 513
+      [T3a maintain-fix] holds 994; duration quartiles 47/48/50 (ended within the run 951); held odour's silent gaps while held 1982, quartiles 1/16/47, >= 41 966 (0.4874)
+   [T3a maintain] dwell at the neutral source, steps 100-599: mean 0.890, quartiles 0.0/0.0/0.0, rows > 0 62; valued hold ended at step quartiles n/a (never 400), exact (<= 49, circuit empty) 0/400; neutral first held at step n/a (rows 0); first within 3.0 of the neutral source 475/533/536
+      [T3a maintain] timeout drives started on a hold 5600 (drive steps delivered 5600), D quartiles 1/1/1, D max 1; ended the hold 0; circuit empty at the drive's end 0; interrupted by a hit or the evidence release 0; silent steps before the drive (quartiles) 164/308/451, stale (< 41) 0; nothing-held drives 0 (D > 1 among them 0); counter lowered by (Z) 0
+      [T3a maintain] holds 400; duration quartiles 600/600/600 (ended within the run 0); held odour's silent gaps while held 400, quartiles 600/600/600, >= 41 400 (1.0000)
+   [T3a filter-fix] dwell at the neutral source, steps 100-599: mean 0.890, quartiles 0.0/0.0/0.0, rows > 0 62; valued hold ended at step quartiles 47/47/47 (never 0), exact (<= 49, circuit empty) 400/400; neutral first held at step 185/196/247 (rows 211); first within 3.0 of the neutral source 475/533/536
+      [T3a filter-fix] timeout drives started on a hold 791 (drive steps delivered 5414), D quartiles 7/7/7, D max 7; ended the hold 753; circuit empty at the drive's end 753; interrupted by a hit or the evidence release 37; silent steps before the drive (quartiles) 41/41/41, stale (< 41) 0; nothing-held drives 4510 (D > 1 among them 0); counter lowered by (Z) 326
+      [T3a filter-fix] holds 763; duration quartiles 47/47/48 (ended within the run 762); held odour's silent gaps while held 1093, quartiles 9/47/47, >= 41 791 (0.7237)
+   [T3a filter] dwell at the neutral source, steps 100-599: mean 0.890, quartiles 0.0/0.0/0.0, rows > 0 62; valued hold ended at step quartiles n/a (never 400), exact (<= 49, circuit empty) 0/400; neutral first held at step n/a (rows 0); first within 3.0 of the neutral source 475/533/536
+      [T3a filter] timeout drives started on a hold 5600 (drive steps delivered 5600), D quartiles 1/1/1, D max 1; ended the hold 0; circuit empty at the drive's end 0; interrupted by a hit or the evidence release 0; silent steps before the drive (quartiles) 164/308/451, stale (< 41) 0; nothing-held drives 0 (D > 1 among them 0); counter lowered by (Z) 0
+      [T3a filter] holds 400; duration quartiles 600/600/600 (ended within the run 0); held odour's silent gaps while held 400, quartiles 600/600/600, >= 41 400 (1.0000)
+   [T3a ceiling] dwell at the neutral source, steps 100-599: mean 13.857, quartiles 7.0/15.0/21.0, rows > 0 319
+
+== T3b, sensed then lost (ph23.Lost, valued column masked from t0 150; reported) ==
+   [T3b maintain-fix] dwell at the neutral source, steps 400-599: mean 6.830, quartiles 3.0/6.0/10.0; holding the valued odour at t0 80/400; its hold ended in 80 (never 0), step after t0 quartiles 22/28/35, relative to the counter's origin quartiles 48/48/48, <= +49 80/80
+   [T3b maintain] dwell at the neutral source, steps 400-599: mean 4.143, quartiles 0.0/0.5/8.0; holding the valued odour at t0 272/400; its hold ended in 0 (never 272), step after t0 quartiles n/a, relative to the counter's origin quartiles n/a, <= +49 0/0
+   [T3b filter-fix] dwell at the neutral source, steps 400-599: mean 1.972, quartiles 0.0/0.0/1.2; holding the valued odour at t0 173/400; its hold ended in 173 (never 0), step after t0 quartiles 16/22/29, relative to the counter's origin quartiles 48/48/48, <= +49 173/173
+   [T3b filter] dwell at the neutral source, steps 400-599: mean 1.972, quartiles 0.0/0.0/1.2; holding the valued odour at t0 317/400; its hold ended in 0 (never 317), step after t0 quartiles n/a, relative to the counter's origin quartiles n/a, <= +49 0/0
+   [T3b ceiling] dwell at the neutral source, steps 400-599: mean 5.897, quartiles 1.0/5.0/9.0
+
+== criteria (design v2 FINAL section 7; 95 percent, one evaluation, no extension; aggregation: PASS if every part passes, FAIL if any fails, else INCONCLUSIVE) ==
+   M1(a) pathway-off: ties 4/400 = 0.010  at most 0.20 -> PASS
+   M1(a) known-answer: ties 2/400 = 0.005  at most 0.20 -> PASS
+      reported: neutral ties 7/400
+   M1(b) neutral, P(+y source majority | chose): P k 214 n 393  value 0.545  95% interval [0.495, 0.593]  within [0.35, 0.65] -> PASS
+   M1(c) floor: pathway-off, P(V | chose): P k 194 n 396  value 0.490  95% interval [0.441, 0.539]  within [0.35, 0.65] -> PASS
+   M1(d) ceiling: known-answer, P(V) over all rows: P k 377 n 400  value 0.943  95% interval [0.915, 0.961]  at least 0.85 -> PASS
+   M1 -> PASS
+   M2(a) Agent10 trajectory == Agent8's on every row (POS, HEAD, NAV, SINCE, TGT): True -> PASS
+   M2(b) Agent10 (filter-fix), P(V) over all rows: P k 384 n 400  value 0.960  95% interval [0.936, 0.975]  at least 0.88 -> PASS
+   M2 -> PASS
+      reported: DP Agent10 - Agent8 +0.000 [+0.000, +0.000]; lost rows (no whiff of either plume in the last third) 2 vs 2, equal row for row True; wall contacts 0 vs 0, equal row for row True
+      M3 (a1) T1 filter-fix vs filter: True {'rows_without_firing': 0, 'with_firing': 400, 'with_firing_equal_throughout': 0, 'first_firing_step': '58/78/80'}
+      M3 (a1) T1 maintain-fix vs maintain: True {'rows_without_firing': 0, 'with_firing': 400, 'with_firing_equal_throughout': 0, 'first_firing_step': '55/78/81'}
+      M3 (a1) W1 filter-fix vs filter: True {'rows_without_firing': 24, 'with_firing': 376, 'with_firing_equal_throughout': 0, 'first_firing_step': '76/82/177'}
+      M3 (a1) W1 maintain-fix vs maintain: True {'rows_without_firing': 11, 'with_firing': 389, 'with_firing_equal_throughout': 0, 'first_firing_step': '78/84/205'}
+      M3 (a1) T3a filter-fix vs filter: True {'rows_without_firing': 0, 'with_firing': 400, 'with_firing_equal_throughout': 0, 'first_firing_step': '41/41/41'}
+      M3 (a1) T3a maintain-fix vs maintain: True {'rows_without_firing': 0, 'with_firing': 400, 'with_firing_equal_throughout': 0, 'first_firing_step': '41/41/41'}
+      M3 (a1) T3b filter-fix vs filter: True {'rows_without_firing': 1, 'with_firing': 399, 'with_firing_equal_throughout': 0, 'first_firing_step': '58/78/80'}
+      M3 (a1) T3b maintain-fix vs maintain: True {'rows_without_firing': 1, 'with_firing': 399, 'with_firing_equal_throughout': 0, 'first_firing_step': '55/78/81'}
+   M3 identities: (a1) T1 filter-fix vs filter True; (a1) T1 maintain-fix vs maintain True; (a2) T1 Agent10 == Agent8 trajectory True; (a1) W1 filter-fix vs filter True; (a1) W1 maintain-fix vs maintain True; (a2) W1 Agent10 == Agent8 trajectory True; (a1) T3a filter-fix vs filter True; (a1) T3a maintain-fix vs maintain True; (a2) T3a Agent10 == Agent8 trajectory True; (a1) T3b filter-fix vs filter True; (a1) T3b maintain-fix vs maintain True; (a2) T3b Agent10 == Agent8 trajectory True; (a3) W1 Agent10g == Agent6 trajectory True; T2 draws True; T3a draws, start, hold True; T3b draws True; T3b == T1 before t0 True -> PASS
+   M4 mechanism bench, re-run here with the bench seeds (section 4); its lines:
+      (b1 valued hold, Agent10g) exact 400/400 = 1.000 [0.990, 1.000] -> PASS; end step quartiles 47/47/47 (never 0); first drive step quartiles 41/41/41; D per row quartiles 7/7/7, max 7; S peak median 11.17 max 11.17; base (Agent6) holding at step 199: 400/400, its timeout firings 1600
+      (b2 neutral hold, Agent10g) exact 400/400 = 1.000 [0.990, 1.000] -> PASS; end step quartiles 47/47/47 (never 0); first drive step quartiles 41/41/41; D per row quartiles 7/7/7, max 7; S peak median 11.17 max 11.17; base (Agent6) holding at step 199: 400/400, its timeout firings 1600
+      (b3 valued hold, Agent10) exact 400/400 = 1.000 [0.990, 1.000] -> PASS; end step quartiles 47/47/47 (never 0); first drive step quartiles 41/41/41; D per row quartiles 7/7/7, max 7; S peak median 11.17 max 11.17; base (Agent8) holding at step 199: 400/400, its timeout firings 1600
+      (b4) H21 bench (a) protocol, Agent10g, channel 1 p 0.3: holding channel 0 at step 60 400/400; kept on every phase-2 step 0/400; release step after the last channel-0 whiff, quartiles 48/48/48; step the neutral odour is held, quartiles 120/122/124 (rows 400)
+      (b4) H21 bench (a) protocol, Agent6, channel 1 p 0.3: holding channel 0 at step 60 400/400; kept on every phase-2 step 400/400; release step after the last channel-0 whiff, quartiles n/a; step the neutral odour is held, quartiles n/a (rows 0)
+      (b4) H21 bench (a) protocol, Agent10g, channel 1 p 0.057: holding channel 0 at step 60 400/400; kept on every phase-2 step 0/400; release step after the last channel-0 whiff, quartiles 48/48/48; step the neutral odour is held, quartiles 134/156/176 (rows 377)
+      (b4) H21 bench (a) protocol, Agent6, channel 1 p 0.057: holding channel 0 at step 60 400/400; kept on every phase-2 step 400/400; release step after the last channel-0 whiff, quartiles n/a; step the neutral odour is held, quartiles n/a (rows 0)
+      (valued hold, p 0.3) rows with no false release 400/400 = 1.000 [0.990, 1.000] -> PASS; legitimate releases (drive after >= 41 silent steps) per row mean 0.000 (rows with any 0); feed gaps >= 41 per row mean 0.000 (expected 0.0001); holding the fed odour at step 599: fix 400, base 400; drive D quartiles n/a
+      (valued hold, p 0.057) rows with no false release 400/400 = 1.000 [0.990, 1.000] -> PASS; legitimate releases (drive after >= 41 silent steps) per row mean 2.147 (rows with any 373); feed gaps >= 41 per row mean 3.013 (expected 3.0832); holding the fed odour at step 599: fix 374, base 400; drive D quartiles 6/7/7
+      (neutral hold, p 0.3) rows with no false release 400/400 = 1.000 [0.990, 1.000] -> PASS; legitimate releases (drive after >= 41 silent steps) per row mean 0.000 (rows with any 0); feed gaps >= 41 per row mean 0.000 (expected 0.0001); holding the fed odour at step 599: fix 400, base 400; drive D quartiles n/a
+      (neutral hold, p 0.057) rows with no false release 400/400 = 1.000 [0.990, 1.000] -> PASS; legitimate releases (drive after >= 41 silent steps) per row mean 1.982 (rows with any 368); feed gaps >= 41 per row mean 3.050 (expected 3.0832); holding the fed odour at step 599: fix 332, base 400; drive D quartiles 5/7/7
+      base reproduces ph14b 1a (8652 timeout / 761 evidence requests): False  | fix bar: circuit empty at the end of an uninterrupted drive, lower bound 0.998 >= 0.95 -> PASS
+      base reproduces ph14b 1a (8652 timeout / 761 evidence requests): True  | fix bar: circuit empty at the end of an uninterrupted drive, lower bound 0.998 >= 0.95 -> PASS
+      == M4: identities (a0-a5) True; failed: []; bars (b) True (lower bounds [np.float64(0.9905), np.float64(0.9905), np.float64(0.9905)]), (c) True ([np.float64(0.9905), np.float64(0.9905), np.float64(0.9905), np.float64(0.9905)]), (e) True ([np.float64(0.998), np.float64(0.998)]); (e) base reproduces ph14b 1a: [('Agent4', False), ('Agent3', True)] (reported) -> M4 PASS: the tasks may be run ==
+   M4 -> PASS
+   M5(a) W1 Agent10 dwell == Agent8's row for row True; M5(b) W1 Agent10g dwell == Agent6's row for row True -> PASS   (means: Agent10 12.133, Agent8 12.133, Agent10g 25.435, Agent6 25.435)
+   M6 (REPORTED, no bar; not part of the PASS condition): DP = P(V) Agent10g - Agent6 -0.1550 [-0.2000, -0.1125] (P(V) 0.575 vs 0.730; predicted [-0.18, 0], centre -0.05); into V 12, out of V 74; lost rows 7 vs 4, DP +0.0075 [-0.0050, +0.0200]; contacts per row 0.000 vs 0.000, DP +0.0000 [+0.0000, +0.0000]
+   M7(a) T3a maintain-fix (Agent10g): valued hold ends at a step <= 49 with both units <= 1.0, rows exact: P k 400 n 400  value 1.000  95% interval [0.990, 1.000]  at least 0.95 -> PASS
+   M7(a) T3a filter-fix (Agent10): valued hold ends at a step <= 49 with both units <= 1.0, rows exact: P k 400 n 400  value 1.000  95% interval [0.990, 1.000]  at least 0.95 -> PASS
+   M7(b) readability: span D_ceiling - D_floor = 13.857 - 0.890 = 12.967 [12.070, 13.918], lower bound >= 5.0 -> readable
+   M7(b) R = (D_Agent10g - D_floor) / (D_ceiling - D_floor) = (13.300 - 0.890) / 12.967 = 0.9570 [0.8946, 1.0249] (bootstrap 5000, rows resampled together, seed 20261033); at least 0.50 -> PASS
+   M7 -> PASS
+   M8 T3b (REPORTED): neutral dwell 400-599 Agent10g 6.830, Agent6 4.143, Agent10 1.972, Agent8 1.972, ceiling 5.897; Agent10g - Agent6 +2.688 [+2.185, +3.185]; Agent10g - ceiling +0.933 [+0.267, +1.608]
+
+== H25 ==  M1 PASS  M2 PASS  M3 PASS  M4 PASS  M5 PASS  M7 PASS  (M6, M8 reported) -> H25 SHOWN under its registered criteria: the sustained drive ends a hold whose odour is silent for more than RESET_AFTER steps, leaves the circuit empty and ends no recently whiffed hold, and with it the gate agent tracks the remaining neutral odour after the valued odour is lost, recovering at least half of the ceiling-floor span; in the adopted agent the change is behaviour-inert at +1/0

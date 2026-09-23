@@ -386,6 +386,13 @@ Progress log
   clause presumed a timeout release the circuit does not make. No task run, nothing adopted, the H24-scoped
   relaxation lapsed. H25 (the silence-timeout fix) opened for design (decision:h25-open-design); design v1
   DRAFT doc d3cb0794633a587ae (experiments/h25/h25_design_v1.md), no code. Awaiting the owner's review.
+- **H25 opened on design v2 FINAL, benched, developed and evaluated once (2026-09-23; decision:h25-open, owner
+  '추천안으로 확정'; record:h25-bench-result, record:h25-dev-run, record:h25-result).** Design v2 FINAL doc
+  dce297e76390fa854 (experiments/h25/h25_design_v2.md, sha 6fbb293b...e60b). ph24.py (sha f344f178...1bef, source doc
+  d0c87ae7a68d1a27f): Release mixin (S)+(Z) on the adopted act; Agent10 = Release + Agent8, Agent10g = Release + Agent6.
+  Bench M4 PASS; one evaluation 1805/1905: SHOWN under the registered criteria (M1-M5, M7 PASS); T3a R 0.957
+  [0.895, 1.025]; Agent10 bitwise Agent8 in trajectory; M6 (reported) Agent10g - Agent6 P(V) -0.155 [-0.200, -0.113].
+  Report doc d2a35d5a59aace929 (experiments/h25/h25_report.md). Awaiting the owner's closure.
 
 ## Why a plan now
 
@@ -593,6 +600,22 @@ Four hypotheses were run in one day by picking the next most interesting candida
   a q3 helper call); neither changes a number.
 - Nothing adopted. The H24-scoped relaxation lapsed with the closure; it stays on record, and any reuse is a new
   decision.
+
+### H25 (decision:h25-open-design, decision:h25-open; evaluated once; awaiting the owner's closure)
+- Silence-timeout release (concept:h25-silence-timeout-release), a reset-control change: (S) keep delivering the
+  existing 10.0 reset drive while a unit is above 1.0 after the drive step, stopping on a hit or an evidence release;
+  (Z) zero the silence counter when a hold forms. v1 DRAFT doc d3cb0794633a587ae kept as history; design v2 FINAL doc
+  dce297e76390fa854 (experiments/h25/h25_design_v2.md, sha 6fbb293b...e60b). ph24.py (sha f344f178...1bef, source
+  doc d0c87ae7a68d1a27f); no adopted module edited.
+- Bench (record:h25-bench-result): M4 PASS; constructed holds released 400/400 at step 47 (D 7, predicted 4); no
+  false release 400/400; the ph14b protocol's uninterrupted drives empty the circuit 100%. The design's bench (e)
+  agent was misnamed (Agent4 G 0 does not reproduce ph14b 1a; ph14b's Agent3 does). Development run 9896/9996 clean
+  (record:h25-dev-run).
+- **Evaluated once (1805/1905; record:h25-result; report doc d2a35d5a59aace929): SHOWN under the registered
+  criteria** (M1, M2, M3, M4, M5, M7 PASS; M6, M8 reported). T3a: Agent10g R 0.957 [0.895, 1.025] of the
+  ceiling-floor span (12.967 [12.070, 13.918]). Agent10's trajectory is Agent8's everywhere (T1 P(V) 0.960 both);
+  its circuit releases, its navigation stays blind to the neutral odour by construction. M6: Agent10g - Agent6 P(V)
+  -0.155 [-0.200, -0.113] (0.575 vs 0.730). Nothing adopted; closure and any adoption are the owner's.
 
 ## The architecture as currently adopted
 
@@ -965,17 +988,11 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Confirmation of H25 design v1 DRAFT** (doc d3cb0794633a587ae, experiments/h25/h25_design_v1.md; section 12;
-  decision:h25-open-design). Points to confirm:
-  - the mechanism (S) + (Z): sustain the existing reset drive until both units are below threshold, and zero the
-    silence counter when a hold forms (against (S) alone, 4 fixed steps, or a drive of 40);
-  - the behaviour tested in the gate agent (Agent10g = the fix on Agent6), because Agent8's navigation does not
-    read the hold at +1/0 (by code), so in Agent8 the fix is behaviour-inert and the regression tasks are identities;
-  - identity (b) as restated (exact up to the base's first timeout firing on a hold; the stale-counter case);
-  - T3a (constructed loss at the valued source, ceiling and floor, R >= 0.50, span >= 5.0) plus T3b reported;
-  - the T1 cost in the gate agent reported, not a bar (or a bar DP >= -0.10);
-  - legitimate releases at p 0.057 under RESET_AFTER 40; bench (d) on bench seeds;
-  - the seeds (9896/9996, 1805/1905, bench 20261031/20261032, bootstrap 20261033) and the order.
+- **Closure of H25** (report doc d2a35d5a59aace929, experiments/h25/h25_report.md; record:h25-result): SHOWN under
+  the registered criteria (M1-M5, M7 PASS; T3a R 0.957 [0.895, 1.025]); M6 reported, Agent10g - Agent6 P(V) -0.155
+  [-0.200, -0.113]; in the adopted agent the change is behaviour-inert at +1/0 (letting go of a lost valued odour in
+  behaviour would need the value filter to release as well: the H24 counter re-attempt, not decided). Closure, and
+  whether and in which agent the release is adopted, are the owner's.
 
 ## Queued candidates, none started
 
