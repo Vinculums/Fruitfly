@@ -363,6 +363,16 @@ Progress log
   wall) and loses the plume in more rows (130 against 0 over the last 600 of 1800); Agent6 0.988 within
   its prediction (record:absent-odour-check-result; report db7b4a7ca1c2ab7ea). The filter's scope is the
   owner's decision, before H20 Stage B.
+- **Filter scope: option (v) explored (owner 2026-09-23, '(v) 안으로 가보자'; decision:filter-scope-explore-option-v;
+  a design decision, not an adoption).** Measurement-only diagnosis ph21b.py (sha 4f3b707e...0b12, source doc
+  d0a340a477986a52c; output experiments/h24/ph21b_diag.txt sha 17a0bf41...549a; dev seeds only; no new rule
+  run; record:option-v-presence-diagnosis-result): 0.766 of the H23 filter's actions, and its first action in
+  99/99 rows it moved into V, precede the row's first valued whiff; any presence scope that starts OFF (strict
+  P > theta, or a window N of any length) bounds P(V) in [0.627, 0.820] (filter 0.932, maintain 0.690) and is
+  bitwise Agent6 in W1; a presence counter that starts ON keeps [0.915, 0.973] at N 45-80 (outside option (v)
+  as worded; = the check's candidate (ii)). H24 design v1 DRAFT doc d24c2efe28592c34d (local
+  experiments/h24/h24_design_v1.md; concept:h24-presence-scoped-value-filter): variants (v-a) / (v-c) / (v-p),
+  two tasks (the H21 task and W1), a draft classification-rule relaxation for (v-c) / (v-p); no code.
 
 ## Why a plan now
 
@@ -542,7 +552,9 @@ Four hypotheses were run in one day by picking the next most interesting candida
   upwind and keeps drifting (63 upwind at 1800, 111 rows at the wall), and loses the plume in more rows.
   Meanwhile the circuit holds the present odour without following it. Agent6 0.988 as predicted. The
   reach reflects this start; other starts, +1/+0.5 and learned values untested. Report
-  db7b4a7ca1c2ab7ea (record:absent-odour-check-result). Candidate fixes (i)-(iv) listed, none chosen.
+  db7b4a7ca1c2ab7ea (record:absent-odour-check-result). Candidate fixes (i)-(iv) listed, none chosen by the
+  check. Outcome: reach kept (0.860; 0.953 by 1800), the cost in dwell, drift and lost rows; the owner then
+  chose to explore option (v), presence-scoped v_max (decision:filter-scope-explore-option-v), as H24.
 
 ## The architecture as currently adopted
 
@@ -908,17 +920,19 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **The value filter's scope, before H20 Stage B** (record:absent-odour-check-result; report
-  db7b4a7ca1c2ab7ea): one of the candidate fixes (i) to (iv) of the absent-odour check (i to iii add a
-  sensory-history term the classification rule excludes as it stands; iv accepts the measured cost and
-  limits the adoption's scope to worlds where the top-valued odour is present).
+- **H24 variant choice and confirmation of design v1** (doc d24c2efe28592c34d;
+  record:option-v-presence-diagnosis-result): (v-a) strict, (v-c) presence counter starting OFF, or (v-p)
+  counter starting ON (outside option (v) as worded), or (iv) instead; if (v-c) / (v-p), the draft
+  classification-rule relaxation signed or refused and N (proposed 60); the bars and allowed gaps; both tasks
+  required. Part A predicts (v-a) / (v-c) fail the H21-task bars and pass W1 by identity.
 
 ## Queued candidates, none started
 
 The order does not change without a decision node. H21 is closed (decision:h21-closed); H22 is closed
 (decision:h22-closed); H23 is closed as shown (decision:h23-closed). Next, in this order
-(decision:next-absent-odour-check-then-stage-b): the absent-odour check, in design (v1 DRAFT doc
-ddab34a689d056e2e); then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18,
+(decision:next-absent-odour-check-then-stage-b): the absent-odour check is complete
+(record:absent-odour-check-result: reach kept, the cost in dwell and drift); H24 (filter scope, option v) in
+design (decision:filter-scope-explore-option-v); then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18,
 the silence timeout and the selection circuit's revision via the empty state stay as recorded limits.
 
 - **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
