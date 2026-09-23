@@ -92,7 +92,7 @@ footer p{margin:0}
   </div>
   <div class="legend" aria-label="범례">
     <span><i class="swatch" style="background:var(--valued)"></i>보상 냄새(+1)를 붙잡음</span>
-    <span><i class="swatch" style="background:var(--neutral)"></i>중립 냄새(0)를 붙잡음</span>
+    <span><i class="swatch" style="background:var(--neutral)"></i>중립 냄새(0)를 붙잡음 <small>(처벌 세계에서는 처벌 냄새 −1)</small></span>
     <span><i class="swatch" style="background:var(--none)"></i>아무것도 안 붙잡음</span>
     <span><i class="line"></i>surge</span>
     <span><i class="line thin"></i>cast</span>
@@ -144,18 +144,24 @@ footer p{margin:0}
 <script>
 (() => {
 const $ = s => document.querySelector(s);
-const WORLD_LABEL = {T1:'선택 과제 · 두 냄새원', W1:'부재 세계 · 아는 좋은 냄새가 없음', T3:'잃어버린 세계 · 150스텝 뒤 보상 냄새 사라짐'};
-const ARM_ORDER = {T1:['maintain','filter','known-answer'], W1:['Agent6','Agent8'], T3:['Agent6','Agent8']};
+const WORLD_LABEL = {T1:'선택 과제 · 두 냄새원', W1:'부재 세계 · 아는 좋은 냄새가 없음', T3:'잃어버린 세계 · 150스텝 뒤 보상 냄새 사라짐', T3a:'잃어버린 세계(구성) · 보상원에서 출발, 보상 냄새 없음', T1r:'선택 과제 · 릴리즈의 비용', N1:'처벌 세계 (+1/−1) · 벽 튕김 vs 표류'};
+const WORLD_ORDER = ['T1','W1','T3','T3a','T1r','N1'];
+const ARM_ORDER = {T1:['maintain','filter','known-answer'], W1:['Agent6','Agent8'], T3:['Agent6','Agent8'], T3a:['Agent6','Agent10g','ceiling','Agent10'], T1r:['Agent6','Agent10g','Agent8'], N1:['Agent8','Agent10']};
 const ARM_LABEL = {
   maintain:['게이트만 (Agent6)','이득 + 게이트, 항법은 붙잡은 냄새를 따름'],
   filter:['가치 필터 (Agent8, 채택)','항법이 최고 가치 냄새의 whiff만 따름'],
   'known-answer':['정답 고정 (known-answer)','붙잡은 냄새를 보상으로 고정한 상한'],
-  Agent6:['필터 없음 (Agent6)','붙잡은 냄새의 whiff에 surge'],
-  Agent8:['가치 필터 (Agent8, 채택)','보상 냄새가 없어도 보상 whiff만 기다림'],
+  Agent6:['필터 없음 (Agent6)','붙잡은 냄새의 whiff에 surge; hold는 침묵에도 안 놓음'],
+  Agent8:['가치 필터 (Agent8, 채택)','최고 가치 냄새의 whiff만 따름; hold는 침묵에도 안 놓음'],
+  Agent10g:['게이트 + 릴리즈 (Agent10g)','H25 수정: 침묵 47스텝이면 hold를 놓음'],
+  Agent10:['필터 + 릴리즈 (Agent10)','채택 필터 + H25 수정; 행동은 Agent8과 같음'],
+  ceiling:['중립 고정 (상한)','붙잡은 냄새를 중립으로 고정한 상한'],
 };
-const ARM_SHORT = {maintain:'게이트만', filter:'필터(채택)', 'known-answer':'정답 고정', Agent6:'필터 없음', Agent8:'필터(채택)'};
+const ARM_SHORT = {maintain:'게이트만', filter:'필터(채택)', 'known-answer':'정답 고정', Agent6:'필터 없음', Agent8:'필터(채택)', Agent10g:'게이트+릴리즈', Agent10:'필터+릴리즈', ceiling:'중립 고정'};
 const CHIP = {a:'보상 먼저 → 둘 다 성공', b:'중립 먼저 → 필터만 전환', c:'몸은 보상원, 머리는 중립', d:'필터가 실패한 행', e:'지나쳐 가기', f:'도달 못함', g:'놓지 못함 vs 놓음', h:'둘 다 놓지 못함'};
-const HELD_K = {valued:'보상',neutral:'중립',none:'없음'};
+const CHIP_BY_KEY = {'T3a:249':'놓고 중립원으로 감 vs 안 놓음', 'T3a:370':'놓았지만 못 찾음', 'T1r:218':'놓은 뒤 중립에 빠짐 (비용)', 'N1:391':'벽 튕김 → 성공 vs 놓고 표류', 'N1:72':'둘 다 성공'};
+const heldName = h => h==='valued' ? '보상' : h==='neutral' ? (world==='N1' ? '처벌' : '중립') : '없음';
+const otherLabel = () => world==='N1' ? '−1' : '0';
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const HELD_COLOR = () => ({valued:css('--valued'), neutral:css('--neutral'), none:css('--none')});
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -171,8 +177,8 @@ function rowsOf(w){ return DATA.rows.filter(r=>r.world===w); }
 function curRow(){ return rowsOf(world)[rowIdx]; }
 function buildTabs(){
   const el=$('#tabs'); el.innerHTML='';
-  for(const w of ['T1','W1','T3']){
-    const b=document.createElement('button'); b.className='tab'; b.role='tab'; b.textContent=WORLD_LABEL[w]; b.id='tab-'+w;
+  for(const w of WORLD_ORDER){ if(!DATA.worlds[w]) continue;
+    const b=document.createElement('button'); b.className='tab'; b.role='tab'; b.textContent=WORLD_LABEL[w]||w; b.id='tab-'+w;
     b.setAttribute('aria-selected', String(w===world)); b.onclick=()=>selectWorld(w); el.appendChild(b);
   }
 }
@@ -181,7 +187,7 @@ function selectWorld(w){
   const el=$('#rows'); el.innerHTML='';
   rowsOf(w).forEach((r,i)=>{
     const key=(r.selection.criterion.match(/^\((\w)\)/)||[])[1];
-    const b=document.createElement('button'); b.className='chip'; b.id='chip-'+w+'-'+i; b.textContent=(CHIP[key]||r.selection.criterion.slice(0,40))+` · 행 ${r.row}`;
+    const b=document.createElement('button'); b.className='chip'; b.id='chip-'+w+'-'+i; b.textContent=(CHIP_BY_KEY[w+':'+r.row]||CHIP[key]||r.selection.criterion.slice(0,40))+` · 행 ${r.row}`;
     b.setAttribute('aria-pressed', String(i===rowIdx)); b.onclick=()=>{rowIdx=i;t=0;document.querySelectorAll('.chip').forEach((c,j)=>c.setAttribute('aria-pressed',String(j===i)));buildPanels(); if(view==='3d') scene3d.build();};
     el.appendChild(b);
   });
@@ -189,10 +195,14 @@ function selectWorld(w){
 }
 
 function fmtOutcome(w,arm){
-  const o=arm.outcome;
-  if(w==='T1'){ const cls=o.class; const col = cls==='V'?'valued':cls==='N'?'neutral':'none';
-    return {col, text:`${cls==='V'?'보상원에 머묾':cls==='N'?'중립원에 머묾':'동점'} · 머묾 ${arm.dwell_valued} / ${arm.dwell_neutral}`}; }
+  const o=arm.outcome; const other = w==='N1' ? '처벌원' : '중립원';
+  const clsText = cls => cls==='V'?'보상원에 머묾':cls==='N'?`${other}에 머묾`:'동점';
+  const clsCol = cls => cls==='V'?'valued':cls==='N'?'neutral':'none';
+  if(w==='T1'){ return {col:clsCol(o.class), text:`${clsText(o.class)} · 머묾 ${arm.dwell_valued} / ${arm.dwell_neutral}`}; }
+  if(w==='T1r'){ return {col:clsCol(o.class), text:`${clsText(o.class)} · 머묾 ${arm.dwell_valued} / ${arm.dwell_neutral}${o.first_valued_release_step!=null?` · 보상 hold 릴리즈 @${o.first_valued_release_step}`:' · 보상 hold 유지'}`}; }
+  if(w==='N1'){ return {col:clsCol(o.class), text:`${clsText(o.class)} · 벽 접촉 ${o.wall_contacts}${o.lost_row?' · 마지막 1/3 길 잃음':''}${o.negative_hold_released_by_drive_step!=null?` · 처벌 hold 릴리즈 @${o.negative_hold_released_by_drive_step}`:' · 처벌 hold 릴리즈 없음'}`}; }
   if(w==='W1'){ return {col:o.reach?'neutral':'none', text:o.reach?`도달 · 머묾 ${o.dwell} · 끝 위치 upwind ${(-o.final_d_along).toFixed(1)}`:`미도달 · 끝 위치 upwind ${(-o.final_d_along).toFixed(1)}`}; }
+  if(w==='T3a'){ const rel=o.valued_hold_end_step; return {col:o.reached_neutral?'neutral':(rel!=null?'none':'valued'), text:`${rel!=null?`보상 hold 놓음 @${rel}`:'보상 hold 유지(놓지 못함)'} · 중립원 ${o.reached_neutral?`도달 @${o.first_at_neutral_step}`:'미도달'} · 중립원 머묾(100–599) ${o.dwell_neutral_100_599}`}; }
   const held=o.held_at_600; return {col:held==='valued'?'valued':held==='neutral'?'neutral':'none', text:`마지막 보상 whiff L ${o.L} · 600스텝에 보유: ${held==='valued'?'보상(놓지 못함)':held==='neutral'?'중립':'없음'} · 중립원 머묾(400–599) ${o.dwell_neutral_400_599}`};
 }
 
@@ -208,7 +218,7 @@ function viewBounds(row){
 
 function buildPanels(){
   const row=curRow(); const W=DATA.worlds[world]; const host=$('#panels'); host.innerHTML=''; panels=[];
-  $('#why').innerHTML = `<b>이 행을 고른 이유.</b> ${escapeHtml(row.selection.criterion)} · 보상 냄새 ${row.valued_odour}, 보상원 ${row.valued_side} 쪽`;
+  $('#why').innerHTML = `<b>이 행을 고른 이유.</b> ${escapeHtml(row.selection.criterion)} · 보상 냄새 ${row.valued_odour}, 보상원 ${row.valued_side} 쪽` + (world==='N1' ? ' · <b>이 세계에서 주황 = 처벌 냄새(−1)</b>; 처벌을 붙잡으면 옆으로 도망침' : '') + (world==='T3a' ? ' · 보상원에서 보상 hold를 가진 채 출발, 보상 냄새는 처음부터 없음' : '');
   const vb=viewBounds(row);
   for(const name of ARM_ORDER[world]){
     const arm=row.arms[name]; if(!arm) continue;
@@ -239,16 +249,18 @@ function drawArena(P){
   ctx.clearRect(0,0,w,h); ctx.fillStyle=css('--surface-2'); ctx.fillRect(0,0,w,h);
   ctx.strokeStyle=css('--axis'); ctx.lineWidth=1*dpr; ctx.setLineDash([]);
   const [ax0,ay0]=sx(0,0),[ax1,ay1]=sx(160,160); ctx.strokeRect(ax0,ay0,ax1-ax0,ay1-ay0);
-  const t0 = W.t0 ?? Infinity;
-  drawCone(ctx,sx,k,dpr,P.row.valued_source,C.valued, world==='W1' ? 'silent' : (world==='T3' && t>=t0 ? 'silent' : 'on'));
+  const t0 = W.t0 ?? Infinity; const valuedSilent = world==='W1' || world==='T3a' || (world==='T3' && t>=t0);
+  drawCone(ctx,sx,k,dpr,P.row.valued_source,C.valued, valuedSilent ? 'silent' : 'on');
   drawCone(ctx,sx,k,dpr,P.row.neutral_source,C.neutral,'on');
-  drawSource(ctx,sx,k,dpr,P.row.valued_source,C.valued,'+1', world==='W1'||(world==='T3'&&t>=t0));
-  drawSource(ctx,sx,k,dpr,P.row.neutral_source,C.neutral,'0',false);
+  drawSource(ctx,sx,k,dpr,P.row.valued_source,C.valued,'+1', valuedSilent);
+  drawSource(ctx,sx,k,dpr,P.row.neutral_source,C.neutral,otherLabel(),false);
   const [s0x,s0y]=sx(P.row.start[0],P.row.start[1]); ctx.fillStyle=css('--muted'); ctx.beginPath(); ctx.arc(s0x,s0y,2.2*dpr,0,Math.PI*2); ctx.fill();
   ctx.lineCap='round'; ctx.lineJoin='round';
   let px=s0x,py=s0y;
   for(let i=0;i<=t;i++){ const s=st[i]; const [x,y]=sx(s.x,s.y); ctx.strokeStyle=C[s.held]||C.none; ctx.lineWidth=(s.nav?2.6:1.1)*dpr; ctx.globalAlpha=(i>t-40)?0.95:0.55; ctx.beginPath(); ctx.moveTo(px,py); ctx.lineTo(x,y); ctx.stroke(); px=x;py=y; }
   ctx.globalAlpha=1;
+  // wall contacts (N1): a cross in ink
+  for(let i=0;i<=t;i++){ const s=st[i]; if(!s.wall_contact) continue; const [x,y]=sx(s.x,s.y); const r=4*dpr; ctx.strokeStyle=css('--ink'); ctx.lineWidth=1.5*dpr; ctx.beginPath(); ctx.moveTo(x-r,y-r); ctx.lineTo(x+r,y+r); ctx.moveTo(x-r,y+r); ctx.lineTo(x+r,y-r); ctx.stroke(); }
   const s=st[t]; const [x,y]=sx(s.x,s.y); const hd=s.heading_deg*Math.PI/180; const dx=Math.sin(hd), dy=Math.cos(hd); const L=Math.max(9*dpr,2.4*k), Wd=L*0.55;
   ctx.fillStyle=C[s.held]||C.none; ctx.strokeStyle=css('--ink'); ctx.lineWidth=1*dpr;
   ctx.beginPath(); ctx.moveTo(x+dx*L,y+dy*L); ctx.lineTo(x-dy*Wd*0.5-dx*L*0.35,y+dx*Wd*0.5-dy*L*0.35); ctx.lineTo(x+dy*Wd*0.5-dx*L*0.35,y-dx*Wd*0.5-dy*L*0.35); ctx.closePath(); ctx.fill(); ctx.stroke();
@@ -291,8 +303,9 @@ function drawStrip(P){
 }
 function drawStats(P){
   const s=P.arm.steps[t]; const a=P.arm;
-  const fh=a.first_hold?`${HELD_K[a.first_hold.odour]} @${a.first_hold.step}`:'없음';
-  P.stats.innerHTML=`<span>지금 보유 <b>${HELD_K[s.held]}</b></span><span>${s.nav?'<b>surge</b>':'cast'} · since ${s.since}</span><span>s 보상/중립 <b>${s.s_valued.toFixed(2)}</b> / <b>${s.s_neutral.toFixed(2)}</b></span><span>첫 hold <b>${fh}</b></span><span>첫 보상 whiff <b>${a.first_valued_whiff_step??'—'}</b></span><span>전환 <b>${a.revision_step??'—'}</b></span>`;
+  const fh=a.first_hold?`${heldName(a.first_hold.odour)} @${a.first_hold.step}`:'없음';
+  const extra=(s.flee?'<span><b>도망 중</b></span>':'')+(s.wall_contact?'<span><b>벽 접촉</b></span>':'');
+  P.stats.innerHTML=`<span>지금 보유 <b>${heldName(s.held)}</b></span><span>${s.nav?'<b>surge</b>':'cast'} · since ${s.since}</span><span>s 보상/${heldName('neutral')} <b>${s.s_valued.toFixed(2)}</b> / <b>${s.s_neutral.toFixed(2)}</b></span><span>첫 hold <b>${fh}</b></span><span>첫 보상 whiff <b>${a.first_valued_whiff_step??'—'}</b></span><span>전환 <b>${a.revision_step??'—'}</b></span>${extra}`;
 }
 function drawAll(){ if(view==='map'){ for(const P of panels){ drawArena(P); drawStrip(P); drawStats(P);} } else { scene3d.update(); } $('#stepLabel').textContent=`step ${t}`; $('#slider').value=t; }
 
@@ -304,7 +317,7 @@ function bindStrip(P){
   cv.addEventListener('pointerup',()=>{drag=false;});
   cv.addEventListener('pointermove',e=>{ const i=stepAt(e); if(drag){t=i;drawAll();} const s=P.arm.steps[i];
     tip.style.display='block'; tip.style.left=(e.clientX+12)+'px'; tip.style.top=(e.clientY+12)+'px';
-    tip.textContent=`step ${i} · 보유 ${HELD_K[s.held]} · s ${s.s_valued.toFixed(2)}/${s.s_neutral.toFixed(2)} · ${s.nav?'surge':'cast'} · whiff ${s.whiff_valued?'보상 ':''}${s.whiff_neutral?'중립':''}${!s.whiff_valued&&!s.whiff_neutral?'없음':''}`; });
+    tip.textContent=`step ${i} · 보유 ${heldName(s.held)} · s ${s.s_valued.toFixed(2)}/${s.s_neutral.toFixed(2)} · ${s.nav?'surge':'cast'} · whiff ${s.whiff_valued?'보상 ':''}${s.whiff_neutral?heldName('neutral'):''}${!s.whiff_valued&&!s.whiff_neutral?'없음':''}${s.wall_contact?' · 벽 접촉':''}`; });
   cv.addEventListener('pointerleave',()=>{tip.style.display='none';drag=false;});
 }
 $('#slider').addEventListener('input',e=>{t=+e.target.value;drawAll();});
@@ -360,7 +373,7 @@ const scene3d = (() => {
     // sources + plumes
     plumes.push(makePlume(row.valued_source, C.valued, 'valued'));
     plumes.push(makePlume(row.neutral_source, C.neutral, 'neutral'));
-    makeSource(row.valued_source, C.valued, '+1'); makeSource(row.neutral_source, C.neutral, '0');
+    makeSource(row.valued_source, C.valued, '+1'); makeSource(row.neutral_source, C.neutral, otherLabel());
     // start marker
     const sm=new THREE.Mesh(new THREE.RingGeometry(1.6,2.0,32), new THREE.MeshBasicMaterial({color:col(css('--muted')), side:THREE.DoubleSide, transparent:true, opacity:0.8})); sm.rotation.x=-Math.PI/2; sm.position.copy(w2s(row.start[0],row.start[1],0.03)); root.add(sm);
     // flies
@@ -444,7 +457,7 @@ const scene3d = (() => {
   let lastT=-1;
   function update(){
     if(!inited || !flies.length) return; const row=curRow(), W=DATA.worlds[world]; const C=HELD_COLOR(); const t0=W.t0 ?? Infinity;
-    const valuedOn = world==='W1' ? false : !(world==='T3' && t>=t0);
+    const valuedOn = (world==='W1' || world==='T3a') ? false : !(world==='T3' && t>=t0);
     setPlumeOn(plumes[0], valuedOn); setPlumeOn(plumes[1], true);
     for(const f of flies){ const s=f.arm.steps[t]; const p=w2s(s.x,s.y,f.alt + (reduced?0:Math.sin((t+frame*0.15)*0.9)*0.06));
       f.group.position.copy(p); f.group.rotation.y = s.heading_deg*Math.PI/180;
@@ -469,7 +482,7 @@ const scene3d = (() => {
     // camera
     placeCamera();
     // hud
-    hud.innerHTML = flies.map(f=>{ const s=f.arm.steps[t]; return `<span><i class="swatch" style="background:${C[s.held]||C.none};vertical-align:-1px"></i> <b>${ARM_SHORT[f.name]||f.name}</b> ${HELD_K[s.held]} · ${s.nav?'surge':'cast'}${(s.at_valued||s.at_neutral)?' · 냄새원':''}</span>`; }).join('') + (world==='T3'?`<span>${t<t0?'보상 냄새 있음':'보상 냄새 사라짐'}</span>`:'');
+    hud.innerHTML = flies.map(f=>{ const s=f.arm.steps[t]; return `<span><i class="swatch" style="background:${C[s.held]||C.none};vertical-align:-1px"></i> <b>${ARM_SHORT[f.name]||f.name}</b> ${heldName(s.held)} · ${s.nav?'surge':s.flee?'도망':'cast'}${(s.at_valued||s.at_neutral)?' · 냄새원':''}${s.wall_contact?' · 벽':''}</span>`; }).join('') + (world==='T3'?`<span>${t<t0?'보상 냄새 있음':'보상 냄새 사라짐'}</span>`:'');
     renderer.render(scene,camera);
   }
   function placeCamera(){
