@@ -1,0 +1,72 @@
+== two-source check, EVAL. 200 agents, 9 blocks of 600 steps, one persistent world ==
+== Criteria: record:two-source-check-criteria, stored before this file existed ==
+
+== two sources, walls 160 apart, ph11 frame + 60. world seed 1620, agent seed 1720 ==
+   geometry check: source separation 14.0-18.0 crosswind, 0 along the wind; cones overlap in 31.0% of worlds; start in the rewarding cone 48.0%; nearest wall to any source 68.0
+
+   random   all agents             n 200 | visited rewarding  54.0% punishing  49.5% both  29.5%  (in the first third:  30.0 /  28.5 /  10.5)
+            first visit to any source: median step   1079 (148 agents);  first of one source -> first of the other: median   1178 steps (59 agents)
+            dwell, last third: rewarding median    0.0 mean    0.6 | punishing median    0.0 mean    0.6 | late unrecovered  44.5%  contacts/agent    24.4  near wall (last third)  2.53%
+            per block median dwell  rewarding   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                                    punishing   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+
+   oracle   all agents             n 200 | visited rewarding 100.0% punishing   0.0% both   0.0%  (in the first third: 100.0 /   0.0 /   0.0)
+            first visit to any source: median step     24 (200 agents);  first of one source -> first of the other: median    nan steps (0 agents)
+            dwell, last third: rewarding median  600.0 mean  600.0 | punishing median    0.0 mean    0.0 | late unrecovered   0.0%  contacts/agent     0.0  near wall (last third)  0.00%
+            per block median dwell  rewarding 576.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0
+                                    punishing   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+
+   neutral  all agents             n 200 | visited rewarding  57.5% punishing  60.0% both  17.5%  (in the first third:  52.0 /  53.0 /   5.0)
+            first visit to any source: median step     21 (200 agents);  first of one source -> first of the other: median   2817 steps (35 agents)
+            dwell, last third: rewarding median    0.0 mean    9.9 | punishing median    0.0 mean   10.7 | late unrecovered  10.0%  contacts/agent     6.5  near wall (last third)  1.04%
+            per block median dwell  rewarding   0.0   0.0   5.5   0.0   0.0   0.0   0.0   0.0   0.0
+                                    punishing   7.5   6.5   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   neutral  start: rewarding cone  n  96 | visited rewarding 100.0% punishing  16.7% both  16.7%  (in the first third: 100.0 /   2.1 /   2.1)
+            first visit to any source: median step     24 (96 agents);  first of one source -> first of the other: median   3333 steps (16 agents)
+            dwell, last third: rewarding median   20.8 mean   18.7 | punishing median    0.0 mean    2.1 | late unrecovered   7.3%  contacts/agent     5.0  near wall (last third)  0.88%
+            per block median dwell  rewarding  26.0  24.0  22.0  23.0  21.5  21.0  21.5  19.0  20.5
+                                    punishing   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   neutral  start: punishing cone  n 104 | visited rewarding  18.3% punishing 100.0% both  18.3%  (in the first third:   7.7 / 100.0 /   7.7)
+            first visit to any source: median step     20 (104 agents);  first of one source -> first of the other: median   1835 steps (19 agents)
+            dwell, last third: rewarding median    0.0 mean    1.9 | punishing median   21.5 mean   18.6 | late unrecovered  12.5%  contacts/agent     7.8  near wall (last third)  1.19%
+            per block median dwell  rewarding   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                                    punishing  27.0  24.0  24.0  22.0  22.0  23.0  21.0  20.0  21.0
+            heading error > 45 deg on 0.00% of agent-steps
+
+   known    all agents             n 200 | visited rewarding  96.5% punishing  37.0% both  34.5%  (in the first third:  96.5 /  34.0 /  31.5)
+            first visit to any source: median step     54 (198 agents);  first of one source -> first of the other: median    241 steps (69 agents)
+            dwell, last third: rewarding median   21.5 mean   18.8 | punishing median    0.0 mean    0.1 | late unrecovered  15.0%  contacts/agent    10.8  near wall (last third)  1.53%
+            per block median dwell  rewarding  21.0  20.0  21.0  22.0  21.0  21.0  22.0  19.0  20.0
+                                    punishing   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   known    start: rewarding cone  n  96 | visited rewarding 100.0% punishing   6.2% both   6.2%  (in the first third: 100.0 /   1.0 /   1.0)
+            first visit to any source: median step     24 (96 agents);  first of one source -> first of the other: median   3136 steps (6 agents)
+            dwell, last third: rewarding median   21.5 mean   19.8 | punishing median    0.0 mean    0.1 | late unrecovered  10.4%  contacts/agent     6.3  near wall (last third)  1.11%
+            per block median dwell  rewarding  26.0  24.0  22.0  22.5  22.0  21.0  22.0  19.5  21.5
+                                    punishing   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   known    start: punishing cone  n 104 | visited rewarding  93.3% punishing  65.4% both  60.6%  (in the first third:  93.3 /  64.4 /  59.6)
+            first visit to any source: median step     90 (102 agents);  first of one source -> first of the other: median    166 steps (63 agents)
+            dwell, last third: rewarding median   21.5 mean   17.9 | punishing median    0.0 mean    0.1 | late unrecovered  19.2%  contacts/agent    15.0  near wall (last third)  1.91%
+            per block median dwell  rewarding  12.5  17.0  18.5  21.5  19.0  21.5  21.5  19.0  19.0
+                                    punishing   7.5   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+            heading error > 45 deg on 0.00% of agent-steps
+
+== M1 validity, last third, per source ==
+   oracle rewarding dwell 600.0 - random 0.0 >= 10: True;  random punishing dwell 0.0;  no agent arm at the ceiling: True
+
+== M2 search and persistence without valence (neutral arm) ==
+   total dwell median 22.5 >= random 0.0 + 10: True;  late unrecovered 10.0% <= 10: True
+
+== M3 valence is used (known against neutral) ==
+     (a) AS FIRST REGISTERED, all agents             21.5 vs     0.0   wins  54.0%   gap  +100.0%   -> no
+       exactly tied pairs: 42.0% of all agents, 84.4% of those starting in the rewarding cone
+     (a) AS AMENDED, start in the punishing cone     21.5 vs   -21.5   wins  92.3%   gap  +200.0%   -> YES
+   (b) start in the punishing cone: punishing dwell known 0.0 <= half of neutral 21.5: True
+
+== M4 exposure label (not a gate) ==
+   agents visiting BOTH sources: neutral 17.5%, known 34.5%  -> natural exposure insufficient; two separate evaluations needed
+
+== M5 boundary label ==
+   neutral  near wall in the last third 1.04%  contacts/agent 6.5  -> within the adoption scope
+   known    near wall in the last third 1.53%  contacts/agent 10.8  -> within the adoption scope
+
+== two-source check ==  M1 pass  M2 pass  M3 as amended pass (as first registered FAIL)  -> DISCRIMINABLE as amended; not discriminable as first registered

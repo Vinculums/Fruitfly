@@ -1,0 +1,5682 @@
+[
+ {
+  "exp": "exp1",
+  "name": "T1 leak peak",
+  "kind": "exact",
+  "recorded": 4.524,
+  "new": 4.5244,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 leak s@100",
+  "kind": "exact",
+  "recorded": 0.0268,
+  "new": 0.02679,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 leak s@400",
+  "kind": "exact",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 leak retention",
+  "kind": "same",
+  "recorded": 42,
+  "new": 42,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 linear peak",
+  "kind": "exact",
+  "recorded": 4.804,
+  "new": 4.804,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 linear s@100",
+  "kind": "exact",
+  "recorded": 0.6371,
+  "new": 0.6371,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 linear s@400",
+  "kind": "exact",
+  "recorded": 0.0015,
+  "new": 0.00149,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 linear retention",
+  "kind": "same",
+  "recorded": 111,
+  "new": 111,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 saturating peak",
+  "kind": "exact",
+  "recorded": 4.853,
+  "new": 4.8525,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 saturating s@100",
+  "kind": "exact",
+  "recorded": 2.0164,
+  "new": 2.01645,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 saturating s@400",
+  "kind": "exact",
+  "recorded": 1.9993,
+  "new": 1.99933,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T1 saturating retention",
+  "kind": "same",
+  "recorded": 400,
+  "new": 400,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 leak amp 0.05",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 leak amp 0.1",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 leak amp 0.15",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 leak amp 0.2",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 leak amp 0.25",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 leak amp 0.3",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 leak amp 0.5",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 leak amp 1.0",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 leak amp 2.0",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 linear amp 0.05",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0001,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 linear amp 0.1",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0001,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 linear amp 0.15",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0002,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 linear amp 0.2",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0003,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 linear amp 0.25",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0004,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 linear amp 0.3",
+  "kind": "exact",
+  "recorded": 0,
+  "new": 0.0004,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 linear amp 0.5",
+  "kind": "exact",
+  "recorded": 0.001,
+  "new": 0.0007,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 linear amp 1.0",
+  "kind": "exact",
+  "recorded": 0.001,
+  "new": 0.0015,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 linear amp 2.0",
+  "kind": "exact",
+  "recorded": 0.003,
+  "new": 0.003,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 saturating amp 0.05",
+  "kind": "exact",
+  "recorded": 0.001,
+  "new": 0.0007,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 saturating amp 0.1",
+  "kind": "exact",
+  "recorded": 0.001,
+  "new": 0.0007,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 saturating amp 0.15",
+  "kind": "exact",
+  "recorded": 0.001,
+  "new": 0.0007,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 saturating amp 0.2",
+  "kind": "exact",
+  "recorded": 0.001,
+  "new": 0.0007,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 saturating amp 0.25",
+  "kind": "exact",
+  "recorded": 1.999,
+  "new": 1.9993,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 saturating amp 0.3",
+  "kind": "exact",
+  "recorded": 1.999,
+  "new": 1.9993,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 saturating amp 0.5",
+  "kind": "exact",
+  "recorded": 1.999,
+  "new": 1.9993,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 saturating amp 1.0",
+  "kind": "exact",
+  "recorded": 1.999,
+  "new": 1.9993,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T2 saturating amp 2.0",
+  "kind": "exact",
+  "recorded": 1.999,
+  "new": 1.9993,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.0 ON",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.0 OFF",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.02 ON",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.02 OFF",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.05 ON",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.05 OFF",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.1 ON",
+  "kind": "count",
+  "recorded": 180,
+  "new": 179,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.1 OFF",
+  "kind": "count",
+  "recorded": 172,
+  "new": 172,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.2 ON",
+  "kind": "count",
+  "recorded": 118,
+  "new": 118,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T3 sd 0.2 OFF",
+  "kind": "count",
+  "recorded": 84,
+  "new": 85,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T4 s@199",
+  "kind": "exact",
+  "recorded": 1.999,
+  "new": 1.9995,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T4 s@210",
+  "kind": "exact",
+  "recorded": -2.097,
+  "new": -2.0972,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T4 s@400",
+  "kind": "exact",
+  "recorded": 0.0006,
+  "new": 0.00057,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T5 alpha 0.04 decays (s@400 <= 0.0149)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T5 alpha 0.05 decays (s@400 <= 0.0149)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T5 alpha 0.055 decays (s@400 <= 0.0149)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T5 alpha 0.06 decays (s@400 <= 0.0149)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T5 alpha 0.07 decays (s@400 <= 0.0149)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T5 alpha 0.1 latch",
+  "kind": "exact",
+  "recorded": 1.9993,
+  "new": 1.99933,
+  "ok": true
+ },
+ {
+  "exp": "exp1",
+  "name": "T5 alpha 0.2 latch",
+  "kind": "exact",
+  "recorded": 4.0,
+  "new": 4.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.005 correct of 50",
+  "kind": "count",
+  "recorded": 49,
+  "new": 49,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.005 mean active",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.005 decision time",
+  "kind": "cont",
+  "recorded": 104.5,
+  "new": 104.48,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.005 control active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.005 control ratio",
+  "kind": "exact",
+  "recorded": 1.005,
+  "new": 1.0054,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.01 correct of 50",
+  "kind": "count",
+  "recorded": 50,
+  "new": 50,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.01 mean active",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.01 decision time",
+  "kind": "cont",
+  "recorded": 82.2,
+  "new": 82.24,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.01 control active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.01 control ratio",
+  "kind": "exact",
+  "recorded": 1.01,
+  "new": 1.0104,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.02 correct of 50",
+  "kind": "count",
+  "recorded": 50,
+  "new": 50,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.02 mean active",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.02 decision time",
+  "kind": "cont",
+  "recorded": 64.8,
+  "new": 64.82,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.02 control active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.02 control ratio",
+  "kind": "exact",
+  "recorded": 1.02,
+  "new": 1.0204,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.05 correct of 50",
+  "kind": "count",
+  "recorded": 50,
+  "new": 50,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.05 mean active",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.05 decision time",
+  "kind": "cont",
+  "recorded": 44.9,
+  "new": 44.94,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.05 control active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.05 control ratio",
+  "kind": "exact",
+  "recorded": 1.05,
+  "new": 1.0504,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.1 correct of 50",
+  "kind": "count",
+  "recorded": 50,
+  "new": 50,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.1 mean active",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.1 decision time",
+  "kind": "cont",
+  "recorded": 32.1,
+  "new": 32.1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.1 control active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.1 control ratio",
+  "kind": "exact",
+  "recorded": 1.1,
+  "new": 1.1004,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.3 correct of 50",
+  "kind": "count",
+  "recorded": 50,
+  "new": 50,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.3 mean active",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.3 decision time",
+  "kind": "cont",
+  "recorded": 17.0,
+  "new": 16.98,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.3 control active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T1 d 0.3 control ratio",
+  "kind": "exact",
+  "recorded": 1.3,
+  "new": 1.3004,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T2 single winner of 500",
+  "kind": "same",
+  "recorded": 500,
+  "new": 500,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T2 wins channel 0",
+  "kind": "count",
+  "recorded": 101,
+  "new": 101,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T2 wins channel 1",
+  "kind": "count",
+  "recorded": 93,
+  "new": 93,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T2 wins channel 2",
+  "kind": "count",
+  "recorded": 111,
+  "new": 111,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T2 wins channel 3",
+  "kind": "count",
+  "recorded": 102,
+  "new": 102,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T2 wins channel 4",
+  "kind": "count",
+  "recorded": 93,
+  "new": 93,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.0 x1 1.3 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.0 x1 1.5 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.0 x1 2.0 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.0 x1 3.0 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.0 x1 4.0 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.0 x1 6.0 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.5 x1 1.3 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.5 x1 1.5 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.5 x1 2.0 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.5 x1 3.0 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.5 x1 4.0 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.5 x1 6.0 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.9 x1 1.3 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.9 x1 1.5 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.9 x1 2.0 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.9 x1 3.0 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.9 x1 4.0 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 0.9 x1 6.0 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 1.2 x1 1.3 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 1.2 x1 1.5 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 1.2 x1 2.0 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 1.2 x1 3.0 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 1.2 x1 4.0 switched",
+  "kind": "same",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T3 w_e 1.2 x1 6.0 switched",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.0 active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.0 s[0]",
+  "kind": "cont",
+  "recorded": 2.397,
+  "new": 2.3967,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.0 s[1]",
+  "kind": "cont",
+  "recorded": 1.999,
+  "new": 1.9995,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.0 s[2]",
+  "kind": "cont",
+  "recorded": 2.0,
+  "new": 1.9998,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.0 s[3]",
+  "kind": "cont",
+  "recorded": 1.998,
+  "new": 1.9979,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.0 s[4]",
+  "kind": "cont",
+  "recorded": 2.0,
+  "new": 1.9998,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.1 active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.1 s[0]",
+  "kind": "cont",
+  "recorded": 1.553,
+  "new": 1.5525,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.1 s[1]",
+  "kind": "cont",
+  "recorded": 1.056,
+  "new": 1.0556,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.1 s[2]",
+  "kind": "cont",
+  "recorded": 1.056,
+  "new": 1.0556,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.1 s[3]",
+  "kind": "cont",
+  "recorded": 1.054,
+  "new": 1.0542,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.1 s[4]",
+  "kind": "cont",
+  "recorded": 1.056,
+  "new": 1.0555,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.2 active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.2 s[0]",
+  "kind": "cont",
+  "recorded": 1.33,
+  "new": 1.3303,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.2 s[1]",
+  "kind": "cont",
+  "recorded": 0.667,
+  "new": 0.6669,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.2 s[2]",
+  "kind": "cont",
+  "recorded": 0.666,
+  "new": 0.6664,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.2 s[3]",
+  "kind": "cont",
+  "recorded": 0.666,
+  "new": 0.6662,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.2 s[4]",
+  "kind": "cont",
+  "recorded": 0.666,
+  "new": 0.6662,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.3 active",
+  "kind": "same",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.3 s[0]",
+  "kind": "cont",
+  "recorded": 1.409,
+  "new": 1.4088,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.3 s[1]",
+  "kind": "cont",
+  "recorded": 0.412,
+  "new": 0.4121,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.3 s[2]",
+  "kind": "cont",
+  "recorded": 0.41,
+  "new": 0.4104,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.3 s[3]",
+  "kind": "cont",
+  "recorded": 0.413,
+  "new": 0.4131,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.3 s[4]",
+  "kind": "cont",
+  "recorded": 0.41,
+  "new": 0.4104,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.5 active",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.5 s[0]",
+  "kind": "cont",
+  "recorded": 2.397,
+  "new": 2.3967,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.5 s[1]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.5 s[2]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.5 s[3]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.5 s[4]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.7 active",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.7 s[0]",
+  "kind": "cont",
+  "recorded": 2.397,
+  "new": 2.3967,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.7 s[1]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.7 s[2]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.7 s[3]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 0.7 s[4]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 1.0 active",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 1.0 s[0]",
+  "kind": "cont",
+  "recorded": 2.397,
+  "new": 2.3967,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 1.0 s[1]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 1.0 s[2]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 1.0 s[3]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 1.0 s[4]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 2.0 active",
+  "kind": "same",
+  "recorded": 1,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 2.0 s[0]",
+  "kind": "cont",
+  "recorded": 2.397,
+  "new": 2.3967,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 2.0 s[1]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 2.0 s[2]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 2.0 s[3]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T4 w_i 2.0 s[4]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.5 s[0]",
+  "kind": "cont",
+  "recorded": 0.001,
+  "new": 0.0015,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.5 s[1]",
+  "kind": "cont",
+  "recorded": 0.001,
+  "new": 0.0006,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.5 s[2]",
+  "kind": "cont",
+  "recorded": 0.002,
+  "new": 0.0022,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.5 s[3]",
+  "kind": "cont",
+  "recorded": 0.002,
+  "new": 0.0019,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.5 s[4]",
+  "kind": "cont",
+  "recorded": 0.001,
+  "new": 0.0012,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.9 s[0]",
+  "kind": "cont",
+  "recorded": 0.014,
+  "new": 0.0141,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.9 s[1]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0002,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.9 s[2]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0001,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.9 s[3]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 0.9 s[4]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 1.2 s[0]",
+  "kind": "cont",
+  "recorded": 5.0,
+  "new": 5.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 1.2 s[1]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 1.2 s[2]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 1.2 s[3]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp2",
+  "name": "T5 w_e 1.2 s[4]",
+  "kind": "cont",
+  "recorded": 0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M0 idle A",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M0 idle B",
+  "kind": "count",
+  "recorded": 164,
+  "new": 163,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M0 idle B2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 A d 0.02 correct",
+  "kind": "count",
+  "recorded": 4,
+  "new": 2,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 A d 0.05 correct",
+  "kind": "count",
+  "recorded": 18,
+  "new": 38,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 A d 0.1 correct",
+  "kind": "count",
+  "recorded": 90,
+  "new": 104,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 A d 0.2 correct",
+  "kind": "count",
+  "recorded": 196,
+  "new": 199,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 A d 0.4 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B d 0.02 correct",
+  "kind": "count",
+  "recorded": 46,
+  "new": 58,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B d 0.05 correct",
+  "kind": "count",
+  "recorded": 66,
+  "new": 89,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B d 0.1 correct",
+  "kind": "count",
+  "recorded": 108,
+  "new": 123,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B d 0.2 correct",
+  "kind": "count",
+  "recorded": 186,
+  "new": 186,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B d 0.4 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B2 d 0.02 correct",
+  "kind": "count",
+  "recorded": 2,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B2 d 0.05 correct",
+  "kind": "count",
+  "recorded": 4,
+  "new": 10,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B2 d 0.1 correct",
+  "kind": "count",
+  "recorded": 64,
+  "new": 80,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B2 d 0.2 correct",
+  "kind": "count",
+  "recorded": 196,
+  "new": 198,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1 B2 d 0.4 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.05 A correct",
+  "kind": "count",
+  "recorded": 18,
+  "new": 38,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.05 A wrong",
+  "kind": "count",
+  "recorded": 5,
+  "new": 3,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.05 A abstain",
+  "kind": "count",
+  "recorded": 177,
+  "new": 159,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.05 B correct",
+  "kind": "count",
+  "recorded": 66,
+  "new": 89,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.05 B wrong",
+  "kind": "count",
+  "recorded": 134,
+  "new": 111,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.05 B abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.05 B2 correct",
+  "kind": "count",
+  "recorded": 4,
+  "new": 10,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.05 B2 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.05 B2 abstain",
+  "kind": "count",
+  "recorded": 196,
+  "new": 190,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.1 A correct",
+  "kind": "count",
+  "recorded": 89,
+  "new": 104,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.1 A wrong",
+  "kind": "count",
+  "recorded": 3,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.1 A abstain",
+  "kind": "count",
+  "recorded": 108,
+  "new": 95,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.1 B correct",
+  "kind": "count",
+  "recorded": 108,
+  "new": 123,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.1 B wrong",
+  "kind": "count",
+  "recorded": 92,
+  "new": 77,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.1 B abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.1 B2 correct",
+  "kind": "count",
+  "recorded": 64,
+  "new": 80,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.1 B2 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 100 d 0.1 B2 abstain",
+  "kind": "count",
+  "recorded": 136,
+  "new": 120,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.05 A correct",
+  "kind": "count",
+  "recorded": 102,
+  "new": 117,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.05 A wrong",
+  "kind": "count",
+  "recorded": 98,
+  "new": 83,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.05 A abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.05 B correct",
+  "kind": "count",
+  "recorded": 66,
+  "new": 89,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.05 B wrong",
+  "kind": "count",
+  "recorded": 134,
+  "new": 111,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.05 B abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.05 B2 correct",
+  "kind": "count",
+  "recorded": 71,
+  "new": 81,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.05 B2 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.05 B2 abstain",
+  "kind": "count",
+  "recorded": 129,
+  "new": 118,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.1 A correct",
+  "kind": "count",
+  "recorded": 171,
+  "new": 179,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.1 A wrong",
+  "kind": "count",
+  "recorded": 29,
+  "new": 21,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.1 A abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.1 B correct",
+  "kind": "count",
+  "recorded": 108,
+  "new": 123,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.1 B wrong",
+  "kind": "count",
+  "recorded": 92,
+  "new": 77,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.1 B abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.1 B2 correct",
+  "kind": "count",
+  "recorded": 193,
+  "new": 193,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.1 B2 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 300 d 0.1 B2 abstain",
+  "kind": "count",
+  "recorded": 7,
+  "new": 7,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.05 A correct",
+  "kind": "count",
+  "recorded": 102,
+  "new": 117,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.05 A wrong",
+  "kind": "count",
+  "recorded": 98,
+  "new": 83,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.05 A abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.05 B correct",
+  "kind": "count",
+  "recorded": 66,
+  "new": 89,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.05 B wrong",
+  "kind": "count",
+  "recorded": 134,
+  "new": 111,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.05 B abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.05 B2 correct",
+  "kind": "count",
+  "recorded": 171,
+  "new": 177,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.05 B2 wrong",
+  "kind": "count",
+  "recorded": 1,
+  "new": 2,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.05 B2 abstain",
+  "kind": "count",
+  "recorded": 28,
+  "new": 21,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.1 A correct",
+  "kind": "count",
+  "recorded": 171,
+  "new": 179,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.1 A wrong",
+  "kind": "count",
+  "recorded": 29,
+  "new": 21,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.1 A abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.1 B correct",
+  "kind": "count",
+  "recorded": 108,
+  "new": 123,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.1 B wrong",
+  "kind": "count",
+  "recorded": 92,
+  "new": 77,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.1 B abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.1 B2 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.1 B2 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M1b cue 1000 d 0.1 B2 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 A distractor 0.5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 A distractor 1.0",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 A distractor 1.5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 A distractor 2.0",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 A distractor 3.0",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 A distractor 4.0",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 A distractor 6.0",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B distractor 0.5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B distractor 1.0",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B distractor 1.5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B distractor 2.0",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B distractor 3.0",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B distractor 4.0",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B distractor 6.0",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B2 distractor 0.5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B2 distractor 1.0",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B2 distractor 1.5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B2 distractor 2.0",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B2 distractor 3.0",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B2 distractor 4.0",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M2 B2 distractor 6.0",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 A reset=False trial 1 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 A reset=False trial 2 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 A reset=False trial 3 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 A no reset: several held in trials 2 and 3",
+  "kind": "same",
+  "recorded": 400,
+  "new": 400,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B reset=False trial 1 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B reset=False trial 2 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B reset=False trial 3 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B2 reset=False trial 1 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B2 reset=False trial 2 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B2 reset=False trial 3 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 A reset=True trial 1 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 A reset=True trial 2 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 A reset=True trial 3 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B reset=True trial 1 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B reset=True trial 2 correct",
+  "kind": "count",
+  "recorded": 178,
+  "new": 190,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B reset=True trial 3 correct",
+  "kind": "count",
+  "recorded": 186,
+  "new": 187,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B2 reset=True trial 1 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B2 reset=True trial 2 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r1",
+  "name": "M3 B2 reset=True trial 3 correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.5 hard correct",
+  "kind": "count",
+  "recorded": 15,
+  "new": 15,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.5 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.5 hard abstain",
+  "kind": "count",
+  "recorded": 185,
+  "new": 185,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.5 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.5 idle",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.7 hard correct",
+  "kind": "count",
+  "recorded": 9,
+  "new": 12,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.7 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.7 hard abstain",
+  "kind": "count",
+  "recorded": 191,
+  "new": 188,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.7 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.7 idle",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.85 hard correct",
+  "kind": "count",
+  "recorded": 29,
+  "new": 26,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.85 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.85 hard abstain",
+  "kind": "count",
+  "recorded": 171,
+  "new": 174,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.85 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 0.85 idle",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.0 hard correct",
+  "kind": "count",
+  "recorded": 71,
+  "new": 81,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.0 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.0 hard abstain",
+  "kind": "count",
+  "recorded": 129,
+  "new": 118,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.0 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.0 idle",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.15 hard correct",
+  "kind": "count",
+  "recorded": 124,
+  "new": 131,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.15 hard wrong",
+  "kind": "count",
+  "recorded": 5,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.15 hard abstain",
+  "kind": "count",
+  "recorded": 71,
+  "new": 64,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.15 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.15 idle",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.3 hard correct",
+  "kind": "count",
+  "recorded": 146,
+  "new": 149,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.3 hard wrong",
+  "kind": "count",
+  "recorded": 24,
+  "new": 24,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.3 hard abstain",
+  "kind": "count",
+  "recorded": 30,
+  "new": 27,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.3 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.3 idle",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.5 hard correct",
+  "kind": "count",
+  "recorded": 136,
+  "new": 134,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.5 hard wrong",
+  "kind": "count",
+  "recorded": 55,
+  "new": 56,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.5 hard abstain",
+  "kind": "count",
+  "recorded": 9,
+  "new": 10,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.5 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 1.5 idle",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 2.0 hard correct",
+  "kind": "count",
+  "recorded": 103,
+  "new": 111,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 2.0 hard wrong",
+  "kind": "count",
+  "recorded": 97,
+  "new": 89,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 2.0 hard abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 2.0 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "w_i 2.0 idle",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 0.5 easy (no ON state)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 1.0 easy (no ON state)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 1.2 easy (no ON state)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 1.5 hard correct",
+  "kind": "count",
+  "recorded": 41,
+  "new": 38,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 1.5 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 1.5 hard abstain",
+  "kind": "count",
+  "recorded": 159,
+  "new": 161,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 2.0 hard correct",
+  "kind": "count",
+  "recorded": 71,
+  "new": 81,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 2.0 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 2.0 hard abstain",
+  "kind": "count",
+  "recorded": 129,
+  "new": 118,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 3.0 hard correct",
+  "kind": "count",
+  "recorded": 111,
+  "new": 123,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 3.0 hard wrong",
+  "kind": "count",
+  "recorded": 4,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 3.0 hard abstain",
+  "kind": "count",
+  "recorded": 85,
+  "new": 72,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 4.0 hard correct",
+  "kind": "count",
+  "recorded": 140,
+  "new": 139,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 4.0 hard wrong",
+  "kind": "count",
+  "recorded": 13,
+  "new": 14,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "g 4.0 hard abstain",
+  "kind": "count",
+  "recorded": 47,
+  "new": 47,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 0.5 hard correct",
+  "kind": "count",
+  "recorded": 86,
+  "new": 85,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 0.5 hard wrong",
+  "kind": "count",
+  "recorded": 114,
+  "new": 115,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 0.5 hard abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 0.75 hard correct",
+  "kind": "count",
+  "recorded": 118,
+  "new": 118,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 0.75 hard wrong",
+  "kind": "count",
+  "recorded": 82,
+  "new": 82,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 0.75 hard abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 1.25 hard correct",
+  "kind": "count",
+  "recorded": 1,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 1.25 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 1.25 hard abstain",
+  "kind": "count",
+  "recorded": 199,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 1.5 hard correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 1.5 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 1.5 hard abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "theta 2.0 easy",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 2 idle (empty state unstable)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 2.0 hard correct",
+  "kind": "count",
+  "recorded": 103,
+  "new": 97,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 2.0 hard wrong",
+  "kind": "count",
+  "recorded": 97,
+  "new": 103,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 2.0 hard abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 4.0 hard correct",
+  "kind": "count",
+  "recorded": 122,
+  "new": 121,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 4.0 hard wrong",
+  "kind": "count",
+  "recorded": 78,
+  "new": 79,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 4.0 hard abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 16.0 hard correct",
+  "kind": "count",
+  "recorded": 1,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 16.0 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "k 16.0 hard abstain",
+  "kind": "count",
+  "recorded": 199,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 0.5 hard correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 0.5 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 0.5 hard abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 0.75 hard correct",
+  "kind": "count",
+  "recorded": 1,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 0.75 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 0.75 hard abstain",
+  "kind": "count",
+  "recorded": 199,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 0.9 hard correct",
+  "kind": "count",
+  "recorded": 28,
+  "new": 27,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 0.9 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 0.9 hard abstain",
+  "kind": "count",
+  "recorded": 172,
+  "new": 173,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 1.25 hard correct",
+  "kind": "count",
+  "recorded": 147,
+  "new": 148,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 1.25 hard wrong",
+  "kind": "count",
+  "recorded": 24,
+  "new": 19,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 1.25 hard abstain",
+  "kind": "count",
+  "recorded": 29,
+  "new": 33,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 1.5 hard correct",
+  "kind": "count",
+  "recorded": 147,
+  "new": 142,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 1.5 hard wrong",
+  "kind": "count",
+  "recorded": 49,
+  "new": 54,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 1.5 hard abstain",
+  "kind": "count",
+  "recorded": 4,
+  "new": 4,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 2.0 hard correct",
+  "kind": "count",
+  "recorded": 110,
+  "new": 109,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 2.0 hard wrong",
+  "kind": "count",
+  "recorded": 90,
+  "new": 91,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "x0 2.0 hard abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 2 hard correct",
+  "kind": "count",
+  "recorded": 154,
+  "new": 151,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 2 hard wrong",
+  "kind": "count",
+  "recorded": 46,
+  "new": 49,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 2 hard abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 2 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 3 hard correct",
+  "kind": "count",
+  "recorded": 171,
+  "new": 171,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 3 hard wrong",
+  "kind": "count",
+  "recorded": 26,
+  "new": 22,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 3 hard abstain",
+  "kind": "count",
+  "recorded": 3,
+  "new": 7,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 3 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 5 hard correct",
+  "kind": "count",
+  "recorded": 71,
+  "new": 81,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 5 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 5 hard abstain",
+  "kind": "count",
+  "recorded": 129,
+  "new": 118,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 5 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 10 hard correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 10 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 10 hard abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 10 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 20 hard correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 20 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 20 hard abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "N 20 easy",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 0.1 hard correct",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 0.1 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 0.1 hard abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 0.6 hard correct",
+  "kind": "count",
+  "recorded": 18,
+  "new": 15,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 0.6 hard wrong",
+  "kind": "count",
+  "recorded": 9,
+  "new": 11,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 0.6 hard abstain",
+  "kind": "count",
+  "recorded": 173,
+  "new": 174,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 1.0 hard correct",
+  "kind": "count",
+  "recorded": 39,
+  "new": 42,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 1.0 hard wrong",
+  "kind": "count",
+  "recorded": 76,
+  "new": 75,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 1.0 hard abstain",
+  "kind": "count",
+  "recorded": 85,
+  "new": 83,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "cue noise 1.0 easy correct",
+  "kind": "count",
+  "recorded": 166,
+  "new": 157,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.7 g 1.0 nohold (easy)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.7 g 1.5 correct",
+  "kind": "count",
+  "recorded": 2,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.7 g 1.5 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.7 g 2.0 correct",
+  "kind": "count",
+  "recorded": 9,
+  "new": 12,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.7 g 2.0 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.7 g 3.0 correct",
+  "kind": "count",
+  "recorded": 58,
+  "new": 68,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.7 g 3.0 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.7 g 4.0 correct",
+  "kind": "count",
+  "recorded": 112,
+  "new": 119,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.7 g 4.0 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.85 g 1.0 nohold (easy)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.85 g 1.5 correct",
+  "kind": "count",
+  "recorded": 8,
+  "new": 7,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.85 g 1.5 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.85 g 2.0 correct",
+  "kind": "count",
+  "recorded": 29,
+  "new": 26,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.85 g 2.0 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.85 g 3.0 correct",
+  "kind": "count",
+  "recorded": 78,
+  "new": 91,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.85 g 3.0 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 0.85 g 4.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.0 g 1.0 nohold (easy)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.0 g 1.5 correct",
+  "kind": "count",
+  "recorded": 41,
+  "new": 38,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.0 g 1.5 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.0 g 2.0 correct",
+  "kind": "count",
+  "recorded": 71,
+  "new": 81,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.0 g 2.0 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.0 g 3.0 correct",
+  "kind": "count",
+  "recorded": 111,
+  "new": 123,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.0 g 3.0 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.0 g 4.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.15 g 1.0 nohold (easy)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.15 g 1.5 correct",
+  "kind": "count",
+  "recorded": 108,
+  "new": 116,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.15 g 1.5 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.15 g 2.0 correct",
+  "kind": "count",
+  "recorded": 124,
+  "new": 131,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.15 g 2.0 wrong <= 9",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.15 g 3.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.15 g 4.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.3 g 1.0 nohold (easy)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.3 g 1.5 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.3 g 2.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.3 g 3.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.3 g 4.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.5 g 1.0 nohold (easy)",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.5 g 1.5 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.5 g 2.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.5 g 3.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp3r2",
+  "name": "grid w_i 1.5 g 4.0 guess (wrong >= 2)",
+  "kind": "same",
+  "recorded": true,
+  "new": true,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "idle B2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "idle G1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "idle G2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "idle G3",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 0.25 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 0.25 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 0.25 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 0.5 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 0.5 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 0.5 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 1.0 correct",
+  "kind": "count",
+  "recorded": 71,
+  "new": 81,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 1.0 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 1.0 abstain",
+  "kind": "count",
+  "recorded": 129,
+  "new": 118,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 2.0 correct",
+  "kind": "count",
+  "recorded": 112,
+  "new": 104,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 2.0 wrong",
+  "kind": "count",
+  "recorded": 88,
+  "new": 96,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 2.0 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 4.0 correct",
+  "kind": "count",
+  "recorded": 107,
+  "new": 114,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 4.0 wrong",
+  "kind": "count",
+  "recorded": 68,
+  "new": 69,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale B2 x0 4.0 abstain",
+  "kind": "count",
+  "recorded": 25,
+  "new": 17,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 0.25 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 0.25 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 0.25 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 0.5 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 0.5 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 0.5 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 1.0 correct",
+  "kind": "count",
+  "recorded": 75,
+  "new": 83,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 1.0 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 1.0 abstain",
+  "kind": "count",
+  "recorded": 125,
+  "new": 116,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 2.0 correct",
+  "kind": "count",
+  "recorded": 112,
+  "new": 100,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 2.0 wrong",
+  "kind": "count",
+  "recorded": 88,
+  "new": 100,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 2.0 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 4.0 correct",
+  "kind": "count",
+  "recorded": 108,
+  "new": 116,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 4.0 wrong",
+  "kind": "count",
+  "recorded": 42,
+  "new": 40,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G1 x0 4.0 abstain",
+  "kind": "count",
+  "recorded": 50,
+  "new": 44,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 0.25 correct",
+  "kind": "count",
+  "recorded": 18,
+  "new": 16,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 0.25 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 0.25 abstain",
+  "kind": "count",
+  "recorded": 182,
+  "new": 184,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 0.5 correct",
+  "kind": "count",
+  "recorded": 65,
+  "new": 59,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 0.5 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 0.5 abstain",
+  "kind": "count",
+  "recorded": 135,
+  "new": 140,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 1.0 correct",
+  "kind": "count",
+  "recorded": 94,
+  "new": 103,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 1.0 wrong",
+  "kind": "count",
+  "recorded": 1,
+  "new": 2,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 1.0 abstain",
+  "kind": "count",
+  "recorded": 105,
+  "new": 95,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 2.0 correct",
+  "kind": "count",
+  "recorded": 106,
+  "new": 115,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 2.0 wrong",
+  "kind": "count",
+  "recorded": 3,
+  "new": 3,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 2.0 abstain",
+  "kind": "count",
+  "recorded": 91,
+  "new": 82,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 4.0 correct",
+  "kind": "count",
+  "recorded": 112,
+  "new": 123,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 4.0 wrong",
+  "kind": "count",
+  "recorded": 5,
+  "new": 6,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G2 x0 4.0 abstain",
+  "kind": "count",
+  "recorded": 83,
+  "new": 71,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 0.25 correct",
+  "kind": "count",
+  "recorded": 18,
+  "new": 16,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 0.25 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 0.25 abstain",
+  "kind": "count",
+  "recorded": 182,
+  "new": 184,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 0.5 correct",
+  "kind": "count",
+  "recorded": 65,
+  "new": 59,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 0.5 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 0.5 abstain",
+  "kind": "count",
+  "recorded": 135,
+  "new": 140,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 1.0 correct",
+  "kind": "count",
+  "recorded": 94,
+  "new": 103,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 1.0 wrong",
+  "kind": "count",
+  "recorded": 1,
+  "new": 2,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 1.0 abstain",
+  "kind": "count",
+  "recorded": 105,
+  "new": 95,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 2.0 correct",
+  "kind": "count",
+  "recorded": 106,
+  "new": 115,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 2.0 wrong",
+  "kind": "count",
+  "recorded": 3,
+  "new": 3,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 2.0 abstain",
+  "kind": "count",
+  "recorded": 91,
+  "new": 82,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 4.0 correct",
+  "kind": "count",
+  "recorded": 112,
+  "new": 123,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 4.0 wrong",
+  "kind": "count",
+  "recorded": 5,
+  "new": 6,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "scale G3 x0 4.0 abstain",
+  "kind": "count",
+  "recorded": 83,
+  "new": 71,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 2 correct",
+  "kind": "count",
+  "recorded": 154,
+  "new": 151,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 2 wrong",
+  "kind": "count",
+  "recorded": 46,
+  "new": 49,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 2 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 3 correct",
+  "kind": "count",
+  "recorded": 171,
+  "new": 171,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 3 wrong",
+  "kind": "count",
+  "recorded": 26,
+  "new": 22,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 3 abstain",
+  "kind": "count",
+  "recorded": 3,
+  "new": 7,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 5 correct",
+  "kind": "count",
+  "recorded": 71,
+  "new": 81,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 5 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 5 abstain",
+  "kind": "count",
+  "recorded": 129,
+  "new": 118,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 10 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 10 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 10 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 20 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 20 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N B2 N 20 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy B2 N 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy B2 N 5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy B2 N 10",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy B2 N 20",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 2 correct",
+  "kind": "count",
+  "recorded": 152,
+  "new": 151,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 2 wrong",
+  "kind": "count",
+  "recorded": 48,
+  "new": 49,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 2 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 3 correct",
+  "kind": "count",
+  "recorded": 170,
+  "new": 170,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 3 wrong",
+  "kind": "count",
+  "recorded": 25,
+  "new": 22,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 3 abstain",
+  "kind": "count",
+  "recorded": 5,
+  "new": 8,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 5 correct",
+  "kind": "count",
+  "recorded": 75,
+  "new": 83,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 5 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 5 abstain",
+  "kind": "count",
+  "recorded": 125,
+  "new": 116,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 10 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 10 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 10 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 20 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 20 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G1 N 20 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G1 N 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G1 N 5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G1 N 10",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G1 N 20",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 2 correct",
+  "kind": "count",
+  "recorded": 146,
+  "new": 146,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 2 wrong",
+  "kind": "count",
+  "recorded": 54,
+  "new": 54,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 2 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 3 correct",
+  "kind": "count",
+  "recorded": 168,
+  "new": 167,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 3 wrong",
+  "kind": "count",
+  "recorded": 30,
+  "new": 28,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 3 abstain",
+  "kind": "count",
+  "recorded": 2,
+  "new": 5,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 5 correct",
+  "kind": "count",
+  "recorded": 94,
+  "new": 103,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 5 wrong",
+  "kind": "count",
+  "recorded": 1,
+  "new": 2,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 5 abstain",
+  "kind": "count",
+  "recorded": 105,
+  "new": 95,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 10 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 10 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 10 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 20 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 20 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G2 N 20 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G2 N 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G2 N 5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G2 N 10",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G2 N 20",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 2 correct",
+  "kind": "count",
+  "recorded": 135,
+  "new": 133,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 2 wrong",
+  "kind": "count",
+  "recorded": 65,
+  "new": 67,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 2 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 3 correct",
+  "kind": "count",
+  "recorded": 131,
+  "new": 120,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 3 wrong",
+  "kind": "count",
+  "recorded": 69,
+  "new": 80,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 3 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 5 correct",
+  "kind": "count",
+  "recorded": 94,
+  "new": 103,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 5 wrong",
+  "kind": "count",
+  "recorded": 1,
+  "new": 2,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 5 abstain",
+  "kind": "count",
+  "recorded": 105,
+  "new": 95,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 10 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 10 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 10 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 20 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 20 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "N G3 N 20 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G3 N 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G3 N 5",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G3 N 10",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "easy G3 N 20 correct",
+  "kind": "count",
+  "recorded": 184,
+  "new": 189,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials B2 trial 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials B2 trial 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials B2 trial 3",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials G1 trial 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials G1 trial 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials G1 trial 3",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials G2 trial 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials G2 trial 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials G2 trial 3",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials G3 trial 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials G3 trial 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "3 trials G3 trial 3",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor B2 amp 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor B2 amp 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor B2 amp 3",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor B2 amp 4",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor B2 amp 6",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor B2 amp 10",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G1 amp 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G1 amp 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G1 amp 3",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G1 amp 4",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G1 amp 6",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G1 amp 10",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G2 amp 1",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G2 amp 2",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G2 amp 3",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G2 amp 4",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G2 amp 6",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G2 amp 10",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G3 amp 1",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G3 amp 2",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G3 amp 3",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G3 amp 4",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G3 amp 6",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "distractor G3 amp 10",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 hard correct",
+  "kind": "count",
+  "recorded": 11,
+  "new": 8,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 hard abstain",
+  "kind": "count",
+  "recorded": 189,
+  "new": 192,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 scale x0 0.25 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 scale x0 0.25 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 scale x0 0.25 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 scale x0 1.0 correct",
+  "kind": "count",
+  "recorded": 11,
+  "new": 8,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 scale x0 1.0 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 scale x0 1.0 abstain",
+  "kind": "count",
+  "recorded": 189,
+  "new": 192,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 scale x0 4.0 correct",
+  "kind": "count",
+  "recorded": 128,
+  "new": 130,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 scale x0 4.0 wrong",
+  "kind": "count",
+  "recorded": 8,
+  "new": 12,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 scale x0 4.0 abstain",
+  "kind": "count",
+  "recorded": 64,
+  "new": 58,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 distractor amp 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 distractor amp 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 distractor amp 3",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 distractor amp 4",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 distractor amp 6",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 1.5 distractor amp 10",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 hard correct",
+  "kind": "count",
+  "recorded": 63,
+  "new": 57,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 hard wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 hard abstain",
+  "kind": "count",
+  "recorded": 137,
+  "new": 142,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 scale x0 0.25 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 scale x0 0.25 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 scale x0 0.25 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 scale x0 1.0 correct",
+  "kind": "count",
+  "recorded": 63,
+  "new": 57,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 scale x0 1.0 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 1,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 scale x0 1.0 abstain",
+  "kind": "count",
+  "recorded": 137,
+  "new": 142,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 scale x0 4.0 correct",
+  "kind": "count",
+  "recorded": 145,
+  "new": 145,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 scale x0 4.0 wrong",
+  "kind": "count",
+  "recorded": 46,
+  "new": 47,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 scale x0 4.0 abstain",
+  "kind": "count",
+  "recorded": 9,
+  "new": 8,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 distractor amp 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 distractor amp 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 distractor amp 3",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 distractor amp 4",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 distractor amp 6",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.0 distractor amp 10",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 hard correct",
+  "kind": "count",
+  "recorded": 110,
+  "new": 119,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 hard wrong",
+  "kind": "count",
+  "recorded": 4,
+  "new": 3,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 hard abstain",
+  "kind": "count",
+  "recorded": 86,
+  "new": 78,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 scale x0 0.25 correct",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 scale x0 0.25 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 scale x0 0.25 abstain",
+  "kind": "count",
+  "recorded": 200,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 scale x0 1.0 correct",
+  "kind": "count",
+  "recorded": 110,
+  "new": 119,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 scale x0 1.0 wrong",
+  "kind": "count",
+  "recorded": 4,
+  "new": 3,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 scale x0 1.0 abstain",
+  "kind": "count",
+  "recorded": 86,
+  "new": 78,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 scale x0 4.0 correct",
+  "kind": "count",
+  "recorded": 112,
+  "new": 117,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 scale x0 4.0 wrong",
+  "kind": "count",
+  "recorded": 88,
+  "new": 83,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 scale x0 4.0 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 distractor amp 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 distractor amp 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 distractor amp 3",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 distractor amp 4",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 distractor amp 6",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 2.5 distractor amp 10",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 hard correct",
+  "kind": "count",
+  "recorded": 142,
+  "new": 137,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 hard wrong",
+  "kind": "count",
+  "recorded": 18,
+  "new": 20,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 hard abstain",
+  "kind": "count",
+  "recorded": 40,
+  "new": 43,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 scale x0 0.25 correct",
+  "kind": "count",
+  "recorded": 1,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 scale x0 0.25 wrong",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 scale x0 0.25 abstain",
+  "kind": "count",
+  "recorded": 199,
+  "new": 200,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 scale x0 1.0 correct",
+  "kind": "count",
+  "recorded": 142,
+  "new": 137,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 scale x0 1.0 wrong",
+  "kind": "count",
+  "recorded": 18,
+  "new": 20,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 scale x0 1.0 abstain",
+  "kind": "count",
+  "recorded": 40,
+  "new": 43,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 scale x0 4.0 correct",
+  "kind": "count",
+  "recorded": 102,
+  "new": 110,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 scale x0 4.0 wrong",
+  "kind": "count",
+  "recorded": 98,
+  "new": 90,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 scale x0 4.0 abstain",
+  "kind": "count",
+  "recorded": 0,
+  "new": 0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 distractor amp 1",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 distractor amp 2",
+  "kind": "frac",
+  "recorded": 1.0,
+  "new": 1.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 distractor amp 3",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 distractor amp 4",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 distractor amp 6",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ },
+ {
+  "exp": "exp4",
+  "name": "G4 C 3.0 distractor amp 10",
+  "kind": "frac",
+  "recorded": 0.0,
+  "new": 0.0,
+  "ok": true
+ }
+]

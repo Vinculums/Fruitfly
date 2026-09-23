@@ -1,0 +1,52 @@
+== H15 Run 2, DEV. specification v4 doc dc860b9c7c6f3aa6e hash 7f23e6e5965b8ea911711f8332f5fcb6c8a7a2adcc87c0cd2118b7cc90ae854d ==
+== one amendment recorded before the evaluation: record:h15-run2-dev-log (E2 training gap). Q3(c) not amended. ==
+
+==== E2 controlled experience. world seed 9801, agent seed 9901, 400 rows, every row a P-start row ====
+   training protocol AS AMENDED before the evaluation: 30 consecutive steps at one source, 50 silent steps, 30 at the other. In E2 'last third' below means the whole 3-block test.
+   pre-test valence, amended (gap): rewarded odour trained first +1.000 / trained second +1.000;  punished odour trained first -1.000 / trained second -1.000
+   pre-test valence, as first registered (no gap): rewarded odour trained first +0.501 / trained second +2.000;  punished odour trained first -0.501 / trained second -2.000
+
+   trained       all      n 400 | visited R  95.8% P  67.5% both  64.0% (first third  95.8/ 67.5/ 64.0) | first visit step    52; first punished step    17 (n 270), from it to the last step at the punisher     9
+      dwell last third R median  20.0 mean  18.9, P median   2.7 mean   2.5 | late unrecovered 0/400 | contacts/agent    1.0 near wall  0.19% | visits R    9 P    1, steps per visit R  6.9 P  8.5; longest unbroken rewarded run   11
+      per block median dwell R  14.5  21.0  23.0 | P   8.0   0.0   0.0
+      nothing held on  22.9% of steps; whiffs handed to navigation: nothing held  59.6% of 3163, other odour held   0.0% of 896
+      learned valence at the end: rewarded odour, receivers n 383 (96% of group) median +1.000, all +1.000 | punished odour, receivers n 270 (68%) median -1.000, all -1.000 | reinforced steps R    61 P    10
+      per block, receivers: punished odour -1.00 -1.00 -1.00 | rewarded odour +1.00 +1.00 +1.00
+      training calls 60 (2 x 30); test learning calls 0 (frozen); reward-first rows 200; pre-test valence rewarded +1.000 punished -1.000
+
+   sham          all      n 400 | visited R  13.2% P 100.0% both  13.2% (first third  13.2/100.0/ 13.2) | first visit step    19; first punished step    19 (n 400), from it to the last step at the punisher  1656
+      dwell last third R median   0.0 mean   1.6, P median  24.0 mean  23.1 | late unrecovered 0/400 | contacts/agent    0.0 near wall  0.01% | visits R    5 P   11, steps per visit R  6.8 P  6.8; longest unbroken rewarded run   10
+      per block median dwell R   0.0   0.0   0.0 | P  27.0  23.0  22.0
+      nothing held on   8.3% of steps; whiffs handed to navigation: nothing held 100.0% of 1715, other odour held   0.0% of 177
+      learned valence at the end: rewarded odour, receivers n 53 (13% of group) median +0.000, all +0.000 | punished odour, receivers n 400 (100%) median +0.000, all +0.000 | reinforced steps R    34 P    72
+      per block, receivers: punished odour +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00
+      training calls 60 (2 x 30); test learning calls 0 (frozen); reward-first rows 200; pre-test valence rewarded +0.000 punished +0.000
+
+== Q6 controlled experience (learning frozen) ==
+       manipulation check: trained, punished odour before the test: GM n 400  value -1.000  97.5% interval [-1.000, -0.900]  at most -0.5 -> PASS
+       manipulation check: sham >= -0.1: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at least -0.1 -> PASS
+       manipulation check: sham <= +0.1: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 0.1 -> PASS
+       readability: sham punishing dwell over the test: GM n 400  value 72.000  97.5% interval [70.000, 74.000]  at least 10 -> PASS
+   (a) punishing dwell, trained / sham: RGM n 400  value 0.111  97.5% interval [0.083, 0.129]  at most 0.5 -> PASS
+   (b) trained below sham: WIN k 395 ties 0.2% n 400  value 0.988  97.5% interval [0.968, 0.995]  at least 0.6 -> PASS
+   (c) reach the rewarding source, trained - sham: DP n 400  value 0.825  97.5% interval [0.782, 0.865]  at least 0.25 -> PASS
+
+== 7.2 gate at 30 consecutive steps, weight level ==
+      |value| of the rewarded odour, trained-ungated / trained-gated: RGM n 400  value 0.691  97.5% interval [0.691, 0.719]  at most 0.85 -> PASS
+      |value| of the punished odour, trained-ungated / trained-gated: RGM n 400  value 0.691  97.5% interval [0.691, 0.719]  at most 0.85 -> PASS
+
+   auxiliary, no criterion: the same test with learning ON
+   trained+learn all      n 400 | visited R  95.8% P  67.5% both  64.0% (first third  95.8/ 67.5/ 64.0) | first visit step    52; first punished step    17 (n 270), from it to the last step at the punisher     9
+      dwell last third R median  20.0 mean  18.9, P median   2.7 mean   2.5 | late unrecovered 0/400 | contacts/agent    1.0 near wall  0.19% | visits R    9 P    1, steps per visit R  6.9 P  8.5; longest unbroken rewarded run   11
+      per block median dwell R  14.5  21.0  23.0 | P   8.0   0.0   0.0
+      nothing held on  22.9% of steps; whiffs handed to navigation: nothing held  59.6% of 3163, other odour held   0.0% of 896
+      learned valence at the end: rewarded odour, receivers n 383 (96% of group) median +1.000, all +1.000 | punished odour, receivers n 270 (68%) median -0.987, all -0.991 | reinforced steps R    61 P    10
+      per block, receivers: punished odour -0.99 -0.99 -0.99 | rewarded odour +1.00 +1.00 +1.00
+
+   the protocol AS FIRST REGISTERED (no gap), reported beside the amended one:
+      as registered: manipulation check, trained punished odour: GM n 400  value -1.175  97.5% interval [-1.950, -0.501]  at most -0.5 -> PASS
+      as registered: (a) punishing dwell, trained / sham: RGM n 400  value 0.111  97.5% interval [0.083, 0.129]  at most 0.5 -> PASS
+      as registered: (b) trained below sham: WIN k 395 ties 0.2% n 400  value 0.988  97.5% interval [0.968, 0.995]  at least 0.6 -> PASS
+      as registered: (c) reach the rewarding source, trained - sham: DP n 400  value 0.825  97.5% interval [0.782, 0.865]  at least 0.25 -> PASS
+
+==== E2 RESULT (Q6, a trained memory driving behaviour with nothing learned in the test): ['PASS', 'PASS', 'PASS'] -> PASS ====

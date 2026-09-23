@@ -1,0 +1,126 @@
+
+== Phase 6.2 abstraction ladder, 200 runs per cell ==
+== Criteria: record:phase6-success-criteria, stored before this script existed ==
+
+== Motif 1: upstream normalisation (H6, Phase 2.1) ==
+   battery: the Phase 2 gate -- scale invariance (wrong <=5 of 200 over a 16-fold
+   range), distractor immunity to amplitude 10, idle stability.
+   none removed (adopted reference)           DEGRADED  passes, wrong [3, 4, 4, 4, 5] of 200 against bound 5
+   own term in the denominator                LOST      scale invariance (wrong [119, 129, 129, 128, 127] of 200, bound 5); distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)
+   the cross-channel pool (k 0.8 -> 0)        LOST      distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)
+   the exponent (n 1.5 -> 1.0)                SURVIVES  wrong [1, 2, 3, 3, 3], distractor 1.00, idle 1.00
+   the low-pass (tau 2.0 -> 1.0)              SURVIVES  wrong [0, 0, 0, 0, 0], distractor 1.00, idle 1.00
+   [perturbation] output bound (Rmax 1.8 -> 3.0) LOST      scale invariance (wrong [72, 75, 76, 78, 78] of 200, bound 5); distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)
+   [perturbation] semi-saturation (sig 0.05 -> 0.2) DEGRADED  passes, wrong [0, 1, 3, 4, 4] of 200 against bound 5
+   the whole stage                            LOST      scale invariance (wrong [0, 0, 0, 86, 51] of 200, bound 5); distractor immunity (correct [1.0, 1.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)  [reused]
+
+   wrote 8 rows (8 total) to ph6_rows.json
+== Phase 6.2 abstraction ladder, 200 runs per cell ==
+== Criteria: record:phase6-success-criteria, stored before this script existed ==
+
+== Motif 2: the Select-and-Hold circuit (G1 core, architecture spec v0.1) ==
+   same battery, with the upstream stage left adopted and the circuit stripped.
+   none removed (adopted reference)           DEGRADED  passes, wrong [3, 4, 4, 4, 5] of 200 against bound 5
+   sigmoid self-excitation -> linear          LOST      scale invariance (wrong [145, 146, 146, 146, 145] of 200, bound 5); distractor immunity (correct [0.975, 0.975, 0.975, 0.975, 0.975, 0.975], bound 1.0); idle stability (0.00, bound 1.0)
+   self-excitation entirely                   LOST      distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)
+   threshold sharpness (k 12 -> 1)            LOST      scale invariance (wrong [51, 51, 50, 50, 50] of 200, bound 5); distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0); idle stability (0.00, bound 1.0)
+   the global unit's temporal filter (tau_g 2 -> 1, all-to-all) DEGRADED  passes, wrong [3, 4, 4, 4, 4] of 200 against bound 5
+   [perturbation] membrane time constant (tau 10 -> 5) LOST      scale invariance (wrong [26, 30, 34, 35, 35] of 200, bound 5)
+   [perturbation] intrinsic noise (0.01 -> 0) DEGRADED  passes, wrong [3, 4, 4, 4, 4] of 200 against bound 5
+   the release condition (reset)              LOST      score 14 of a 400 ceiling with a timeout that never fires, 400 with an evidence reset; the circuit is unusable in a behaving agent without one  [reused]
+
+   wrote 8 rows (16 total) to ph6_rows.json
+== Phase 6.2 abstraction ladder, 200 runs per cell ==
+== Criteria: record:phase6-success-criteria, stored before this script existed ==
+
+== Motif 3: the ring attractor (H3, Phase 3 design D3) ==
+   battery: the Phase 3 gate -- single bump, retention over 1000 dark steps,
+   velocity integration at the calibrated gain, and no bump from rest.
+   none removed (adopted reference)           SURVIVES  bump 200/200, alive 200/200, drift 0.1 deg, gain 0.998, quiet 200/200
+   supralinear exponent (p 2.0 -> 1.0)        LOST      retention over 1000 dark steps (0/200); no bump from rest (0/200)
+   the divisive pool (c 2.0 -> 0)             LOST      the state diverged (non-finite), so no property can be read from it
+   the semi-saturation constant (sigma 0.3 -> 0.01) LOST      no bump from rest (0/200)
+   recurrent excitation (J 0.5 -> 0)          LOST      retention over 1000 dark steps (0/200); velocity integration (gain -0.091)
+   [perturbation] kernel width (1.2 -> 1.6)   SURVIVES  bump 200/200, alive 200/200, drift 0.2 deg, gain 0.997, quiet 200/200
+   [perturbation] output scale (Rmax 2.0 -> 3.0) LOST      no bump from rest (99/200)
+   divisive inhibition -> subtractive         LOST      the bump either dies or saturates; no setting of J by w_i over 12 tried held it  [reused]
+   graded units -> the bistable Select-and-Hold unit LOST      velocity integration: commanded 90 degrees, the bump moves about 1, because per-unit bistability pins it to the wedge lattice  [reused]
+
+   wrote 9 rows (25 total) to ph6_rows.json
+== Phase 6.2 abstraction ladder, 200 runs per cell ==
+== Criteria: record:phase6-success-criteria, stored before this script existed ==
+
+== Motif 4: the plasticity rule (H8 v2, Phase 4) ==
+   battery: the Phase 4 gate -- acquisition, specificity, extinction, reversal,
+   and the timing-dependent sign.
+   none removed (adopted reference)           SURVIVES  acq 200/200 (dA -0.727), leak 4.0%, ext 22%, rev 200/200, timing 200/200
+   the opponent feedback (beta 0.15 -> 0)     LOST      extinction (retains 99% of trained, bound 30)  [reused]
+   order gating of potentiation               LOST      extinction (retains 99% of trained, bound 30); reversal (0/200)  [reused]
+   the potentiation term (eta_p 0.30 -> 0)    LOST      reversal (0/200); timing sign (0/200)
+   the eligibility traces (tau 5 -> 1, no memory) LOST      acquisition (correct sign 0/200); specificity (leakage inf%, bound 10); extinction (retains inf% of trained, bound 30); reversal (0/200); timing sign (0/200)
+   sparseness (5% -> 50% of the code active)  LOST      specificity (leakage 50.0%, bound 10)
+   [perturbation] code size (K 500 -> 200, as the Phase 5 agent used) SURVIVES  acq 200/200 (dA -0.727), leak 0.0%, ext 22%, rev 200/200, timing 200/200
+   [perturbation] depression rate (eta_d 0.10 -> 0.20) SURVIVES  acq 200/200 (dA -0.349), leak 4.0%, ext 5%, rev 200/200, timing 200/200
+
+   wrote 8 rows (33 total) to ph6_rows.json
+== Phase 6.2 abstraction ladder, merged from ph6_rows.json ==
+
+
+== C3: the minimum structure each motif must preserve ==
+   Structural removals take a mechanism out. Perturbations only move a constant, and
+   are marked [perturbation]; they say which numbers are free, not which parts are.
+
+   NORMALISATION
+     load-bearing (3): own term in the denominator; the cross-channel pool (k 0.8 -> 0); the whole stage
+     removable without losing a property (2): the exponent (n 1.5 -> 1.0); the low-pass (tau 2.0 -> 1.0)
+     constants that are NOT free (2): output bound (Rmax 1.8 -> 3.0); semi-saturation (sig 0.05 -> 0.2)
+
+   SELECT-AND-HOLD
+     load-bearing (4): sigmoid self-excitation -> linear; self-excitation entirely; threshold sharpness (k 12 -> 1); the release condition (reset)
+     costly but survivable (1): the global unit's temporal filter (tau_g 2 -> 1, all-to-all)
+     removable without losing a property (0): none
+     constants that are NOT free (2): membrane time constant (tau 10 -> 5); intrinsic noise (0.01 -> 0)
+
+   RING ATTRACTOR
+     load-bearing (6): supralinear exponent (p 2.0 -> 1.0); the divisive pool (c 2.0 -> 0); the semi-saturation constant (sigma 0.3 -> 0.01); recurrent excitation (J 0.5 -> 0); divisive inhibition -> subtractive; graded units -> the bistable Select-and-Hold unit
+     removable without losing a property (0): none
+     free constants (1): kernel width (1.2 -> 1.6)
+     constants that are NOT free (1): output scale (Rmax 2.0 -> 3.0)
+
+   PLASTICITY
+     load-bearing (5): the opponent feedback (beta 0.15 -> 0); order gating of potentiation; the potentiation term (eta_p 0.30 -> 0); the eligibility traces (tau 5 -> 1, no memory); sparseness (5% -> 50% of the code active)
+     removable without losing a property (0): none
+     free constants (2): code size (K 500 -> 200, as the Phase 5 agent used); depression rate (eta_d 0.10 -> 0.20)
+
+   33 rows, 21 load-bearing features found.
+== Phase 6.2 abstraction ladder, 200 runs per cell ==
+== Criteria: record:phase6-success-criteria, stored before this script existed ==
+
+== Motif 1: upstream normalisation (H6, Phase 2.1) ==
+   battery: the Phase 2 gate -- scale invariance (wrong <=5 of 200 over a 16-fold
+   range), distractor immunity to amplitude 10, idle stability.
+   none removed (adopted reference)           SURVIVES  wrong [3, 4, 4, 4, 5], distractor 1.00, idle 1.00
+   own term in the denominator                LOST      scale invariance (wrong [119, 129, 129, 128, 127] of 200, bound 5); distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)
+   the cross-channel pool (k 0.8 -> 0)        LOST      distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)
+   the exponent (n 1.5 -> 1.0)                SURVIVES  wrong [1, 2, 3, 3, 3] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00
+   the low-pass (tau 2.0 -> 1.0)              SURVIVES  wrong [0, 0, 0, 0, 0] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00
+   [perturbation] output bound (Rmax 1.8 -> 3.0) LOST      scale invariance (wrong [72, 75, 76, 78, 78] of 200, bound 5); distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)
+   [perturbation] semi-saturation (sig 0.05 -> 0.2) SURVIVES  wrong [0, 1, 3, 4, 4] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00
+   the whole stage                            LOST      scale invariance (wrong [0, 0, 0, 86, 51] of 200, bound 5); distractor immunity (correct [1.0, 1.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)  [reused]
+
+   wrote 8 rows (33 total) to ph6_rows.json
+== Phase 6.2 abstraction ladder, 200 runs per cell ==
+== Criteria: record:phase6-success-criteria, stored before this script existed ==
+
+== Motif 2: the Select-and-Hold circuit (G1 core, architecture spec v0.1) ==
+   same battery, with the upstream stage left adopted and the circuit stripped.
+   none removed (adopted reference)           SURVIVES  wrong [3, 4, 4, 4, 5], distractor 1.00, idle 1.00
+   sigmoid self-excitation -> linear          LOST      scale invariance (wrong [145, 146, 146, 146, 145] of 200, bound 5); distractor immunity (correct [0.975, 0.975, 0.975, 0.975, 0.975, 0.975], bound 1.0); idle stability (0.00, bound 1.0)
+   self-excitation entirely                   LOST      distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)
+   threshold sharpness (k 12 -> 1)            LOST      scale invariance (wrong [51, 51, 50, 50, 50] of 200, bound 5); distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0); idle stability (0.00, bound 1.0)
+   the global unit's temporal filter (tau_g 2 -> 1, all-to-all) SURVIVES  wrong [3, 4, 4, 4, 4] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00
+   [perturbation] membrane time constant (tau 10 -> 5) LOST      scale invariance (wrong [26, 30, 34, 35, 35] of 200, bound 5)
+   [perturbation] intrinsic noise (0.01 -> 0) SURVIVES  wrong [3, 4, 4, 4, 4] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00
+   the release condition (reset)              LOST      score 14 of a 400 ceiling with a timeout that never fires, 400 with an evidence reset; the circuit is unusable in a behaving agent without one  [reused]
+
+   wrote 8 rows (33 total) to ph6_rows.json

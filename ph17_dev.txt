@@ -1,0 +1,43 @@
+== Selection-to-navigation link check, DEV. design v1 doc d824732220256254b hash acd059a823ef7ccd09c4e68a6ad479bb422af4712252d015210d74bd575322ec; this file sha256 4b30ddf8b1fc6dc510f23a28f09d6391003d95f0744344d237f50e3393a3689f; world seed 9830, agent seed 9930; 400 rows x 600 steps; values 0, G 0; operation check only ==
+
+== C0: sources 10 apart, start 20 downwind on the midline; whiff p 0.057 per plume at the start, overlap width 3.0, cones separate below 14, distance 20.6 ==
+   [track-A] reached the tracked source first 207, the other first 193, none 0; first-approach step median tracked 31 other 31; dwell median tracked 26.0 other 1.5; cone steps mean tracked 35 other 34; hits handed/row 10.7; contacts/row 0.00
+   [track-B] reached the tracked source first 215, the other first 185, none 0; first-approach step median tracked 31 other 31; dwell median tracked 25.0 other 0.0; cone steps mean tracked 35 other 31; hits handed/row 10.7; contacts/row 0.00
+   [circuit] reached A first 205 B first 195 none 0; first hold A 197 B 199 none 4, step median 28; first-approach step median 31; dwell median A 14.0 B 12.5; cone steps mean A 24 B 26; contacts/row 0.00
+
+   -- readings, C0 (s 10, d 20); diagnostic readings, not a hypothesis verdict --
+   L1 first reach, rows reached in both fixed arms 400: each arm reached its tracked source first 27 = 0.068 [0.047, 0.096]; the same source in both arms 368 = 0.920 [0.889, 0.943] -> not expressed in the first reach. (The first rate holds when the two arms track different odours; no-choice: track-A 0, track-B 0)
+   L2 dwell over 600 steps, track-A: P(dwell at tracked > other) 383/400 = 0.958 [0.933, 0.973], ties 1.0% -> expressed in dwell. (Dwell is a more lenient measure than the first reach: it accrues over the whole trial.)
+   L2 dwell over 600 steps, track-B: P(dwell at tracked > other) 381/400 = 0.953 [0.927, 0.969], ties 0.5% -> expressed in dwell. (Dwell is a more lenient measure than the first reach: it accrues over the whole trial.)
+   L3 divergence: target first differs at step median 6 (400 rows diverge); position first differs at median 6; first single-channel whiff at median 6; diverge before the first reach 393/400; target first differs exactly at the first single-channel whiff 400/400
+   L4 crosswind at the separation point (14 downwind), track-A: offset toward the tracked source positive in 190/400 = 0.475 [0.427, 0.524] -> not expressed
+   L4 crosswind at the separation point (14 downwind), track-B: offset toward the tracked source positive in 206/400 = 0.515 [0.466, 0.564] -> not expressed
+   L5 circuit arm: first reach = the first hold's source 325/396 = 0.821 [0.780, 0.855] (H20 evaluation, neutral arm: 0.532 of all rows reached the valued source, first hold == source reached 335/400)
+
+== C1: sources 10 apart, start 16 downwind on the midline; whiff p 0.079 per plume at the start, overlap width 1.0, cones separate below 14, distance 16.8 ==
+   [track-A] reached the tracked source first 227, the other first 173, none 0; first-approach step median tracked 25 other 24; dwell median tracked 24.0 other 0.0; cone steps mean tracked 26 other 24; hits handed/row 9.8; contacts/row 0.00
+   [track-B] reached the tracked source first 221, the other first 179, none 0; first-approach step median tracked 25 other 24; dwell median tracked 25.0 other 0.0; cone steps mean tracked 26 other 21; hits handed/row 10.0; contacts/row 0.00
+   [circuit] reached A first 197 B first 203 none 0; first hold A 192 B 204 none 4, step median 31; first-approach step median 25; dwell median A 12.5 B 12.0; cone steps mean A 18 B 20; contacts/row 0.00
+
+   -- readings, C1 (s 10, d 16); diagnostic readings, not a hypothesis verdict --
+   L1 first reach, rows reached in both fixed arms 400: each arm reached its tracked source first 48 = 0.120 [0.092, 0.156]; the same source in both arms 352 = 0.880 [0.844, 0.908] -> not expressed in the first reach. (The first rate holds when the two arms track different odours; no-choice: track-A 0, track-B 0)
+   L2 dwell over 600 steps, track-A: P(dwell at tracked > other) 383/400 = 0.958 [0.933, 0.973], ties 0.8% -> expressed in dwell. (Dwell is a more lenient measure than the first reach: it accrues over the whole trial.)
+   L2 dwell over 600 steps, track-B: P(dwell at tracked > other) 383/400 = 0.958 [0.933, 0.973], ties 0.8% -> expressed in dwell. (Dwell is a more lenient measure than the first reach: it accrues over the whole trial.)
+   L3 divergence: target first differs at step median 6 (400 rows diverge); position first differs at median 6; first single-channel whiff at median 6; diverge before the first reach 337/400; target first differs exactly at the first single-channel whiff 400/400
+   L4 crosswind at the separation point (14 downwind), track-A: offset toward the tracked source positive in 190/400 = 0.475 [0.427, 0.524] -> not expressed
+   L4 crosswind at the separation point (14 downwind), track-B: offset toward the tracked source positive in 211/400 = 0.527 [0.479, 0.576] -> not expressed
+   L5 circuit arm: first reach = the first hold's source 346/396 = 0.874 [0.837, 0.903] (H20 evaluation, neutral arm: 0.532 of all rows reached the valued source, first hold == source reached 335/400)
+
+== C2: sources 12 apart, start 24 downwind on the midline; whiff p 0.041 per plume at the start, overlap width 3.0, cones separate below 18, distance 24.7 ==
+   [track-A] reached the tracked source first 339, the other first 60, none 1; first-approach step median tracked 41 other 40; dwell median tracked 25.0 other 0.0; cone steps mean tracked 37 other 30; hits handed/row 10.6; contacts/row 0.00
+   [track-B] reached the tracked source first 333, the other first 66, none 1; first-approach step median tracked 42 other 40; dwell median tracked 25.0 other 0.0; cone steps mean tracked 37 other 28; hits handed/row 10.9; contacts/row 0.00
+   [circuit] reached A first 198 B first 202 none 0; first hold A 199 B 198 none 3, step median 35; first-approach step median 38; dwell median A 12.0 B 12.0; cone steps mean A 26 B 29; contacts/row 0.00
+
+   -- readings, C2 (s 12, d 24); diagnostic readings, not a hypothesis verdict --
+   L1 first reach, rows reached in both fixed arms 398: each arm reached its tracked source first 286 = 0.719 [0.672, 0.761]; the same source in both arms 98 = 0.246 [0.206, 0.291] -> partial. (The first rate holds when the two arms track different odours; no-choice: track-A 1, track-B 1)
+   L2 dwell over 600 steps, track-A: P(dwell at tracked > other) 386/400 = 0.965 [0.942, 0.979], ties 0.2% -> expressed in dwell. (Dwell is a more lenient measure than the first reach: it accrues over the whole trial.)
+   L2 dwell over 600 steps, track-B: P(dwell at tracked > other) 388/400 = 0.970 [0.948, 0.983], ties 0.5% -> expressed in dwell. (Dwell is a more lenient measure than the first reach: it accrues over the whole trial.)
+   L3 divergence: target first differs at step median 8 (400 rows diverge); position first differs at median 8; first single-channel whiff at median 8; diverge before the first reach 382/400; target first differs exactly at the first single-channel whiff 400/400
+   L4 crosswind at the separation point (18 downwind), track-A: offset toward the tracked source positive in 192/400 = 0.480 [0.431, 0.529] -> not expressed
+   L4 crosswind at the separation point (18 downwind), track-B: offset toward the tracked source positive in 209/400 = 0.522 [0.474, 0.571] -> not expressed
+   L5 circuit arm: first reach = the first hold's source 346/397 = 0.872 [0.835, 0.901] (H20 evaluation, neutral arm: 0.532 of all rows reached the valued source, first hold == source reached 335/400)

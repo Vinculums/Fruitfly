@@ -1,0 +1,98 @@
+== unrecovered excess, same two-source world for every arm. 200 agents, 5400 steps, neutral valence unless noted ==
+
+== world seed 1620, agent seed 1720 ==
+
+   bare           late unrecovered   1.5% (3/200)   last-third dwell median  24.7   whiffs per agent median     89   heading error > 45 deg  0.00%   contacts/agent   0.7
+      whiffs NOT handed to navigation:   0.0% of all whiffs  (nothing held   0.0%, the other odour held   0.0%)
+      re-encounters (whiff after >= 40 quiet steps):   6106;  a hit on that step 100.0%;  a hit within 30 steps  99.3%;  nothing held just before 100.0%
+      late unrecovered n   3: last hit at step   2365, last whiff at   2365;  whiffs received after the last hit: median    0, agents with any   0.0%;  steps inside a cone after it    28;  contacts after it   45;  distance to nearest source at the end   31.4
+      the rest         n 197: last hit at step   5328, last whiff at   5328;  whiffs received after the last hit: median    0, agents with any   0.0%;  steps inside a cone after it     1;  contacts after it    0;  distance to nearest source at the end   19.0
+
+   no-hold        late unrecovered   1.0% (2/200)   last-third dwell median  24.5   whiffs per agent median     90   heading error > 45 deg  0.00%   contacts/agent   0.4
+      whiffs NOT handed to navigation:   0.0% of all whiffs  (nothing held   0.0%, the other odour held   0.0%)
+      re-encounters (whiff after >= 40 quiet steps):   6131;  a hit on that step 100.0%;  a hit within 30 steps  99.5%;  nothing held just before 100.0%
+      late unrecovered n   2: last hit at step   2120, last whiff at   2120;  whiffs received after the last hit: median    0, agents with any   0.0%;  steps inside a cone after it    34;  contacts after it   38;  distance to nearest source at the end   64.1
+      the rest         n 198: last hit at step   5320, last whiff at   5320;  whiffs received after the last hit: median    0, agents with any   0.0%;  steps inside a cone after it     1;  contacts after it    0;  distance to nearest source at the end   18.6
+
+   no-norm        late unrecovered 100.0% (200/200)   last-third dwell median   0.0   whiffs per agent median     31   heading error > 45 deg  0.00%   contacts/agent  83.0
+      whiffs NOT handed to navigation: 100.0% of all whiffs  (nothing held 100.0%, the other odour held   0.0%)
+      re-encounters (whiff after >= 40 quiet steps):   1122;  a hit on that step   0.0%;  a hit within 30 steps   0.0%;  nothing held just before 100.0%
+      late unrecovered n 200: last hit at step     -1, last whiff at   1066;  whiffs received after the last hit: median   31, agents with any 100.0%;  steps inside a cone after it   218;  contacts after it   82;  distance to nearest source at the end   63.2
+
+   exact-heading  late unrecovered  11.0% (22/200)   last-third dwell median  22.5   whiffs per agent median     89   heading error > 45 deg  0.00%   contacts/agent   6.8
+      whiffs NOT handed to navigation:  10.0% of all whiffs  (nothing held   8.0%, the other odour held   1.9%)
+      re-encounters (whiff after >= 40 quiet steps):   5699;  a hit on that step  92.6%;  a hit within 30 steps  94.0%;  nothing held just before   3.7%
+      late unrecovered n  22: last hit at step   1750, last whiff at   2301;  whiffs received after the last hit: median    8, agents with any 100.0%;  steps inside a cone after it    88;  contacts after it   52;  distance to nearest source at the end   41.9
+      the rest         n 178: last hit at step   5310, last whiff at   5316;  whiffs received after the last hit: median    0, agents with any   7.3%;  steps inside a cone after it     1;  contacts after it    0;  distance to nearest source at the end   19.7
+
+   full           late unrecovered  10.0% (20/200)   last-third dwell median  22.5   whiffs per agent median     89   heading error > 45 deg  0.00%   contacts/agent   6.5
+      whiffs NOT handed to navigation:  10.9% of all whiffs  (nothing held   8.8%, the other odour held   2.2%)
+      re-encounters (whiff after >= 40 quiet steps):   5704;  a hit on that step  91.9%;  a hit within 30 steps  93.2%;  nothing held just before   4.1%
+      late unrecovered n  20: last hit at step   1363, last whiff at   1950;  whiffs received after the last hit: median    8, agents with any 100.0%;  steps inside a cone after it    74;  contacts after it   62;  distance to nearest source at the end   49.2
+      the rest         n 180: last hit at step   5306, last whiff at   5307;  whiffs received after the last hit: median    0, agents with any   8.9%;  steps inside a cone after it     2;  contacts after it    0;  distance to nearest source at the end   18.6
+
+   full+known     late unrecovered  15.0% (30/200)   last-third dwell median  21.5   whiffs per agent median     88   heading error > 45 deg  0.00%   contacts/agent  10.8
+      whiffs NOT handed to navigation:  15.5% of all whiffs  (nothing held  12.0%, the other odour held   3.6%)
+      re-encounters (whiff after >= 40 quiet steps):   5197;  a hit on that step  88.4%;  a hit within 30 steps  90.8%;  nothing held just before   7.2%
+      late unrecovered n  30: last hit at step    416, last whiff at   1452;  whiffs received after the last hit: median    6, agents with any  96.7%;  steps inside a cone after it    62;  contacts after it   66;  distance to nearest source at the end   55.1
+      the rest         n 170: last hit at step   5305, last whiff at   5307;  whiffs received after the last hit: median    0, agents with any  10.6%;  steps inside a cone after it     1;  contacts after it    0;  distance to nearest source at the end   18.6
+
+   `full`, every loss of the hold:
+      losses of the hold: 291 over 200 agents.  steps since the last hit: median   188, within 41-50 (the silence timeout)   0.0%, over 100 100.0%;  a whiff of the OTHER odour in the 10 steps before  95.2%
+      after a loss: never holds again   8.6%;  otherwise holds again after median    60 steps;  whiffs received while nothing is held: median    3, 90th percentile    6
+
+   order of events after the last hit, first late-unrecovered agents of `full`:
+      agent   0: last hit at step 1498; hold released at +187; whiff at +182 (h 0, odour B); whiff at +208 (h -1, odour A); whiff at +479 (h -1, odour B); whiff at +507 (h -1, odour A); whiff at +508 (h -1, odour A); whiff at +509 (h -1, odour A); first wall contact at +1193 (63 in all); then nothing to step 5399
+      agent  11: last hit at step 2859; hold released at +179; whiff at +175 (h 0, odour B); whiff at +200 (h -1, odour A); whiff at +240 (h -1, odour B); whiff at +483 (h -1, odour B); whiff at +485 (h -1, odour B); whiff at +508 (h 1, odour A); first wall contact at +1181 (23 in all); then nothing to step 5399
+      agent  16: last hit at step 3052; hold released at +177; whiff at +173 (h 0, odour B); whiff at +177 (h -1, odour B); whiff at +181 (h -1, odour B); whiff at +189 (h -1, odour B); whiff at +190 (h -1, odour B); whiff at +198 (h 1, odour A); first wall contact at +1204 (50 in all); then nothing to step 5399
+      agent  56: last hit at step 2809; hold released at +182; whiff at +177 (h 0, odour B); whiff at +178 (h 0, odour B); whiff at +191 (h -1, odour B); whiff at +193 (h -1, odour B); whiff at +198 (h -1, odour A); whiff at +211 (h -1, odour A); first wall contact at +1456 (29 in all); then nothing to step 5399
+
+   ladder, late unrecovered: bare 1.5%  no-hold 1.0%  no-norm 100.0%  exact-heading 11.0%  full 10.0%  full+known 15.0%
+
+== world seed 9600, agent seed 9700 ==
+
+   bare           late unrecovered   0.5% (1/200)   last-third dwell median  23.7   whiffs per agent median     90   heading error > 45 deg  0.00%   contacts/agent   0.1
+      whiffs NOT handed to navigation:   0.0% of all whiffs  (nothing held   0.0%, the other odour held   0.0%)
+      re-encounters (whiff after >= 40 quiet steps):   6146;  a hit on that step 100.0%;  a hit within 30 steps  99.5%;  nothing held just before 100.0%
+      late unrecovered n   1: last hit at step   2920, last whiff at   2920;  whiffs received after the last hit: median    0, agents with any   0.0%;  steps inside a cone after it    30;  contacts after it   15;  distance to nearest source at the end   30.8
+      the rest         n 199: last hit at step   5314, last whiff at   5314;  whiffs received after the last hit: median    0, agents with any   0.0%;  steps inside a cone after it     1;  contacts after it    0;  distance to nearest source at the end   19.8
+
+   no-hold        late unrecovered   0.0% (0/200)   last-third dwell median  24.7   whiffs per agent median     90   heading error > 45 deg  0.00%   contacts/agent   0.0
+      whiffs NOT handed to navigation:   0.0% of all whiffs  (nothing held   0.0%, the other odour held   0.0%)
+      re-encounters (whiff after >= 40 quiet steps):   6161;  a hit on that step 100.0%;  a hit within 30 steps  99.4%;  nothing held just before 100.0%
+      the rest         n 200: last hit at step   5322, last whiff at   5322;  whiffs received after the last hit: median    0, agents with any   0.0%;  steps inside a cone after it     1;  contacts after it    0;  distance to nearest source at the end   22.3
+
+   no-norm        late unrecovered 100.0% (200/200)   last-third dwell median   0.0   whiffs per agent median     34   heading error > 45 deg  0.00%   contacts/agent  83.2
+      whiffs NOT handed to navigation: 100.0% of all whiffs  (nothing held 100.0%, the other odour held   0.0%)
+      re-encounters (whiff after >= 40 quiet steps):   1164;  a hit on that step   0.0%;  a hit within 30 steps   0.0%;  nothing held just before 100.0%
+      late unrecovered n 200: last hit at step     -1, last whiff at   1068;  whiffs received after the last hit: median   34, agents with any 100.0%;  steps inside a cone after it   235;  contacts after it   82;  distance to nearest source at the end   64.6
+
+   exact-heading  late unrecovered   7.5% (15/200)   last-third dwell median  22.8   whiffs per agent median     89   heading error > 45 deg  0.00%   contacts/agent   4.1
+      whiffs NOT handed to navigation:  11.4% of all whiffs  (nothing held   9.2%, the other odour held   2.3%)
+      re-encounters (whiff after >= 40 quiet steps):   5827;  a hit on that step  91.7%;  a hit within 30 steps  93.3%;  nothing held just before   4.3%
+      late unrecovered n  15: last hit at step   1563, last whiff at   2315;  whiffs received after the last hit: median   12, agents with any 100.0%;  steps inside a cone after it    91;  contacts after it   60;  distance to nearest source at the end   66.0
+      the rest         n 185: last hit at step   5304, last whiff at   5307;  whiffs received after the last hit: median    0, agents with any  10.8%;  steps inside a cone after it     1;  contacts after it    0;  distance to nearest source at the end   19.1
+
+   full           late unrecovered   9.5% (19/200)   last-third dwell median  23.0   whiffs per agent median     89   heading error > 45 deg  0.00%   contacts/agent   6.5
+      whiffs NOT handed to navigation:  10.4% of all whiffs  (nothing held   8.4%, the other odour held   2.0%)
+      re-encounters (whiff after >= 40 quiet steps):   5705;  a hit on that step  92.4%;  a hit within 30 steps  94.4%;  nothing held just before   3.8%
+      late unrecovered n  19: last hit at step   1110, last whiff at   1735;  whiffs received after the last hit: median   11, agents with any 100.0%;  steps inside a cone after it    87;  contacts after it   67;  distance to nearest source at the end   55.4
+      the rest         n 181: last hit at step   5312, last whiff at   5316;  whiffs received after the last hit: median    0, agents with any   5.5%;  steps inside a cone after it     1;  contacts after it    0;  distance to nearest source at the end   19.1
+
+   full+known     late unrecovered  10.0% (20/200)   last-third dwell median  22.7   whiffs per agent median     92   heading error > 45 deg  0.00%   contacts/agent   7.3
+      whiffs NOT handed to navigation:  13.7% of all whiffs  (nothing held  10.5%, the other odour held   3.1%)
+      re-encounters (whiff after >= 40 quiet steps):   5465;  a hit on that step  90.2%;  a hit within 30 steps  92.7%;  nothing held just before   5.8%
+      late unrecovered n  20: last hit at step    149, last whiff at   1069;  whiffs received after the last hit: median    6, agents with any 100.0%;  steps inside a cone after it    45;  contacts after it   74;  distance to nearest source at the end   51.8
+      the rest         n 180: last hit at step   5309, last whiff at   5314;  whiffs received after the last hit: median    0, agents with any  10.0%;  steps inside a cone after it     1;  contacts after it    0;  distance to nearest source at the end   19.5
+
+   `full`, every loss of the hold:
+      losses of the hold: 275 over 200 agents.  steps since the last hit: median   187, within 41-50 (the silence timeout)   0.0%, over 100  99.6%;  a whiff of the OTHER odour in the 10 steps before  93.5%
+      after a loss: never holds again   6.5%;  otherwise holds again after median    55 steps;  whiffs received while nothing is held: median    3, 90th percentile    6
+
+   order of events after the last hit, first late-unrecovered agents of `full`:
+      agent   9: last hit at step 2735; hold released at +182; whiff at +177 (h 0, odour B); whiff at +220 (h -1, odour A); whiff at +448 (h -1, odour A); whiff at +449 (h -1, odour A); whiff at +450 (h -1, odour A); whiff at +486 (h 0, odour B); first wall contact at +1203 (32 in all); then nothing to step 5399
+      agent  46: last hit at step 609; hold released at +181; whiff at +176 (h 0, odour B); whiff at +178 (h 0, odour B); whiff at +181 (h -1, odour B); whiff at +215 (h -1, odour A); whiff at +241 (h -1, odour B); whiff at +242 (h -1, odour B); first wall contact at +932 (116 in all); then nothing to step 5399
+      agent  50: last hit at step 1110; hold released at +179; whiff at +175 (h 0, odour B); whiff at +182 (h -1, odour B); whiff at +183 (h -1, odour B); whiff at +187 (h -1, odour B); whiff at +220 (h -1, odour A); whiff at +235 (h -1, odour B); first wall contact at +1457 (59 in all); then nothing to step 5399
+      agent  52: last hit at step 787; hold released at +183; whiff at +178 (h 0, odour B); whiff at +179 (h 0, odour B); whiff at +216 (h -1, odour A); whiff at +219 (h -1, odour A); whiff at +480 (h -1, odour B); whiff at +482 (h -1, odour B); first wall contact at +1181 (121 in all); then nothing to step 5399
+
+   ladder, late unrecovered: bare 0.5%  no-hold 0.0%  no-norm 100.0%  exact-heading 7.5%  full 9.5%  full+known 10.0%

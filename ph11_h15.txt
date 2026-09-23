@@ -1,0 +1,33 @@
+== H15. Criteria: record:h15-success-criteria, stored before this file existed ==
+
+== J1 calibration: two fixed probes, before any agent is compared ==
+   floor probe (random walk)   median     0.3
+   ceiling probe (oracle)      median   600.0   arithmetic ceiling 600
+   -> READABLE (oracle clears the floor by 599.7); agent-arm saturation is checked in the table. World geometry frozen here.
+
+== H15, 200 agents, 9 episodes of 600 steps, p_hit 0.3 ==
+   intact                 median     0.0   first third     0.3 -> last     0.0   | mean    -0.0  >10:    0%  <-10:    0%
+   no normalisation       median     0.0   first third     0.0 -> last     0.0   | mean     0.0  >10:    0%  <-10:    0%
+   no select-and-hold     median     0.0   first third     0.0 -> last     0.0   | mean     0.0  >10:    0%  <-10:    0%
+   no learned valence     median     0.0   first third     0.0 -> last     0.0   | mean    -0.0  >10:    0%  <-10:    0%
+   no surge-and-cast      median     0.0   first third     0.0 -> last     0.0   | mean    14.0  >10:   16%  <-10:   12%
+   no heading memory      median     0.0   first third     1.7 -> last     0.0   | mean     0.0  >10:    0%  <-10:    0%
+   known valence (J4)     median     0.0   <- navigation ceiling            | mean    -0.0  >10:    0%  <-10:    0%
+   (mean and the two tail fractions are REPORTED only; J3 is judged on medians as stored. The score distribution is strongly skewed, so the median alone hides its shape.)
+
+   J3 matched pairs against the intact agent (same worlds, same seeds):
+     vs no normalisation           0.0 vs     0.0  wins   0.5%  gap     +nan%  -> no  [gated] 
+     vs no select-and-hold         0.0 vs     0.0  wins   4.0%  gap     +nan%  -> no  [gated] 
+     vs no learned valence         0.0 vs     0.0  wins   0.5%  gap     +nan%  -> no  [gated] 
+     vs no surge-and-cast          0.0 vs     0.0  wins  16.0%  gap     +nan%  -> no  [gated] pairs only, baseline expected near zero
+     vs no heading memory          0.0 vs     0.0  wins   1.0%  gap     +nan%  -> no  [reported] 
+   J3: intact beats 0 of 4 gated ablations -> gate NOT met
+
+   J2 two-sided learning, intact agent, end of run:
+     rewarding odour  median +0.900  mean +0.629  positive in 145/200
+     punishing odour  median +0.000  mean -0.364  negative in 90/200
+     -> J2 FAIL
+
+   J4: intact 0.0 is 0% of the known-valence probe 0.0
+
+== H15 verdict ==  J2 FAIL   J3 FAIL   -> not supported

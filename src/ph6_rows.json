@@ -1,0 +1,233 @@
+[
+ [
+  "ring attractor",
+  "none removed (adopted reference)",
+  "SURVIVES",
+  "bump 200/200, alive 200/200, drift 0.1 deg, gain 0.998, quiet 200/200",
+  ""
+ ],
+ [
+  "ring attractor",
+  "supralinear exponent (p 2.0 -> 1.0)",
+  "LOST",
+  "retention over 1000 dark steps (0/200); no bump from rest (0/200)",
+  ""
+ ],
+ [
+  "ring attractor",
+  "the divisive pool (c 2.0 -> 0)",
+  "LOST",
+  "the state diverged (non-finite), so no property can be read from it",
+  ""
+ ],
+ [
+  "ring attractor",
+  "the semi-saturation constant (sigma 0.3 -> 0.01)",
+  "LOST",
+  "no bump from rest (0/200)",
+  ""
+ ],
+ [
+  "ring attractor",
+  "recurrent excitation (J 0.5 -> 0)",
+  "LOST",
+  "retention over 1000 dark steps (0/200); velocity integration (gain -0.091)",
+  ""
+ ],
+ [
+  "ring attractor",
+  "[perturbation] kernel width (1.2 -> 1.6)",
+  "SURVIVES",
+  "bump 200/200, alive 200/200, drift 0.2 deg, gain 0.997, quiet 200/200",
+  ""
+ ],
+ [
+  "ring attractor",
+  "[perturbation] output scale (Rmax 2.0 -> 3.0)",
+  "LOST",
+  "no bump from rest (99/200)",
+  ""
+ ],
+ [
+  "ring attractor",
+  "divisive inhibition -> subtractive",
+  "LOST",
+  "the bump either dies or saturates; no setting of J by w_i over 12 tried held it",
+  "Phase 3 rejected design D2"
+ ],
+ [
+  "ring attractor",
+  "graded units -> the bistable Select-and-Hold unit",
+  "LOST",
+  "velocity integration: commanded 90 degrees, the bump moves about 1, because per-unit bistability pins it to the wedge lattice",
+  "Phase 3 rejected design D1"
+ ],
+ [
+  "plasticity",
+  "none removed (adopted reference)",
+  "SURVIVES",
+  "acq 200/200 (dA -0.727), leak 4.0%, ext 22%, rev 200/200, timing 200/200",
+  ""
+ ],
+ [
+  "plasticity",
+  "the opponent feedback (beta 0.15 -> 0)",
+  "LOST",
+  "extinction (retains 99% of trained, bound 30)",
+  "Phase 4 rejected design R1, re-scored here on the full battery"
+ ],
+ [
+  "plasticity",
+  "order gating of potentiation",
+  "LOST",
+  "extinction (retains 99% of trained, bound 30); reversal (0/200)",
+  "Phase 4 rejected design R2, re-scored here on the full battery"
+ ],
+ [
+  "plasticity",
+  "the potentiation term (eta_p 0.30 -> 0)",
+  "LOST",
+  "reversal (0/200); timing sign (0/200)",
+  ""
+ ],
+ [
+  "plasticity",
+  "the eligibility traces (tau 5 -> 1, no memory)",
+  "LOST",
+  "acquisition (correct sign 0/200); specificity (leakage inf%, bound 10); extinction (retains inf% of trained, bound 30); reversal (0/200); timing sign (0/200)",
+  ""
+ ],
+ [
+  "plasticity",
+  "sparseness (5% -> 50% of the code active)",
+  "LOST",
+  "specificity (leakage 50.0%, bound 10)",
+  ""
+ ],
+ [
+  "plasticity",
+  "[perturbation] code size (K 500 -> 200, as the Phase 5 agent used)",
+  "SURVIVES",
+  "acq 200/200 (dA -0.727), leak 0.0%, ext 22%, rev 200/200, timing 200/200",
+  ""
+ ],
+ [
+  "plasticity",
+  "[perturbation] depression rate (eta_d 0.10 -> 0.20)",
+  "SURVIVES",
+  "acq 200/200 (dA -0.349), leak 4.0%, ext 5%, rev 200/200, timing 200/200",
+  ""
+ ],
+ [
+  "normalisation",
+  "none removed (adopted reference)",
+  "SURVIVES",
+  "wrong [3, 4, 4, 4, 5], distractor 1.00, idle 1.00",
+  ""
+ ],
+ [
+  "normalisation",
+  "own term in the denominator",
+  "LOST",
+  "scale invariance (wrong [119, 129, 129, 128, 127] of 200, bound 5); distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)",
+  ""
+ ],
+ [
+  "normalisation",
+  "the cross-channel pool (k 0.8 -> 0)",
+  "LOST",
+  "distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)",
+  ""
+ ],
+ [
+  "normalisation",
+  "the exponent (n 1.5 -> 1.0)",
+  "SURVIVES",
+  "wrong [1, 2, 3, 3, 3] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00",
+  ""
+ ],
+ [
+  "normalisation",
+  "the low-pass (tau 2.0 -> 1.0)",
+  "SURVIVES",
+  "wrong [0, 0, 0, 0, 0] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00",
+  ""
+ ],
+ [
+  "normalisation",
+  "[perturbation] output bound (Rmax 1.8 -> 3.0)",
+  "LOST",
+  "scale invariance (wrong [72, 75, 76, 78, 78] of 200, bound 5); distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)",
+  ""
+ ],
+ [
+  "normalisation",
+  "[perturbation] semi-saturation (sig 0.05 -> 0.2)",
+  "SURVIVES",
+  "wrong [0, 1, 3, 4, 4] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00",
+  ""
+ ],
+ [
+  "normalisation",
+  "the whole stage",
+  "LOST",
+  "scale invariance (wrong [0, 0, 0, 86, 51] of 200, bound 5); distractor immunity (correct [1.0, 1.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)",
+  "Phase 2 control; re-run here for one table"
+ ],
+ [
+  "select-and-hold",
+  "none removed (adopted reference)",
+  "SURVIVES",
+  "wrong [3, 4, 4, 4, 5], distractor 1.00, idle 1.00",
+  ""
+ ],
+ [
+  "select-and-hold",
+  "sigmoid self-excitation -> linear",
+  "LOST",
+  "scale invariance (wrong [145, 146, 146, 146, 145] of 200, bound 5); distractor immunity (correct [0.975, 0.975, 0.975, 0.975, 0.975, 0.975], bound 1.0); idle stability (0.00, bound 1.0)",
+  ""
+ ],
+ [
+  "select-and-hold",
+  "self-excitation entirely",
+  "LOST",
+  "distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0)",
+  ""
+ ],
+ [
+  "select-and-hold",
+  "threshold sharpness (k 12 -> 1)",
+  "LOST",
+  "scale invariance (wrong [51, 51, 50, 50, 50] of 200, bound 5); distractor immunity (correct [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], bound 1.0); idle stability (0.00, bound 1.0)",
+  ""
+ ],
+ [
+  "select-and-hold",
+  "the global unit's temporal filter (tau_g 2 -> 1, all-to-all)",
+  "SURVIVES",
+  "wrong [3, 4, 4, 4, 4] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00",
+  ""
+ ],
+ [
+  "select-and-hold",
+  "[perturbation] membrane time constant (tau 10 -> 5)",
+  "LOST",
+  "scale invariance (wrong [26, 30, 34, 35, 35] of 200, bound 5)",
+  ""
+ ],
+ [
+  "select-and-hold",
+  "[perturbation] intrinsic noise (0.01 -> 0)",
+  "SURVIVES",
+  "wrong [3, 4, 4, 4, 4] (adopted [3, 4, 4, 4, 5]), distractor 1.00, idle 1.00",
+  ""
+ ],
+ [
+  "select-and-hold",
+  "the release condition (reset)",
+  "LOST",
+  "score 14 of a 400 ceiling with a timeout that never fires, 400 with an evidence reset; the circuit is unusable in a behaving agent without one",
+  "Phase 5 Run 2, B3"
+ ]
+]

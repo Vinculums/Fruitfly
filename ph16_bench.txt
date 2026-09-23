@@ -1,0 +1,14 @@
+== H20 G bench. design v3 doc dd947882bd962eebe hash e563bd60c7517afc545b9031265e0559f381cd189b34a162bd4ace5f35f0f0a3; this file sha256 6eaad9863bd5dc39ee0a369cbc66c8149a7a56872b9bbf6295d571a79c20ec71; {'rows': 400, 'steps': 200, 'rates': (0.057, 0.3), 'cands': (0.0, 0.5, 1.0, 2.0), 'seed_w': 20260921, 'seed_a': 20260922} ==
+   G 0.0 p 0.057: selection rate 395/400 (no selection 5); first hold on the biased channel 200/395 = 0.506 [0.457, 0.555]; held at step 200: ch0 77 ch1 82 none 241; hold changes mean 0.45; y' max 1.78, y' > 1.8 0.00%, s >= 4.9 0.00%, s max 3.62
+   G 0.0 p 0.300: selection rate 400/400 (no selection 0); first hold on the biased channel 184/400 = 0.460 [0.412, 0.509]; held at step 200: ch0 56 ch1 75 none 269; hold changes mean 0.67; y' max 1.78, y' > 1.8 0.00%, s >= 4.9 0.00%, s max 3.58
+   G 0.5 p 0.057: selection rate 400/400 (no selection 0); first hold on the biased channel 292/400 = 0.730 [0.684, 0.771]; held at step 200: ch0 189 ch1 35 none 176; hold changes mean 0.62; y' max 2.67, y' > 1.8 10.46%, s >= 4.9 0.00%, s max 4.43
+   G 0.5 p 0.300: selection rate 400/400 (no selection 0); first hold on the biased channel 324/400 = 0.810 [0.769, 0.845]; held at step 200: ch0 296 ch1 6 none 98; hold changes mean 0.37; y' max 2.67, y' > 1.8 17.96%, s >= 4.9 0.00%, s max 4.38
+   G 1.0 p 0.057: selection rate 400/400 (no selection 0); first hold on the biased channel 309/400 = 0.772 [0.729, 0.811]; held at step 200: ch0 234 ch1 27 none 139; hold changes mean 0.62; y' max 3.56, y' > 1.8 12.64%, s >= 4.9 0.00%, s max 4.85
+   G 1.0 p 0.300: selection rate 400/400 (no selection 0); first hold on the biased channel 353/400 = 0.882 [0.847, 0.910]; held at step 200: ch0 354 ch1 0 none 46; hold changes mean 0.17; y' max 3.56, y' > 1.8 26.27%, s >= 4.9 0.00%, s max 4.86
+   G 2.0 p 0.057: selection rate 400/400 (no selection 0); first hold on the biased channel 321/400 = 0.802 [0.761, 0.839]; held at step 200: ch0 270 ch1 22 none 108; hold changes mean 0.57; y' max 5.33, y' > 1.8 14.61%, s >= 4.9 0.00%, s max 4.92
+   G 2.0 p 0.300: selection rate 400/400 (no selection 0); first hold on the biased channel 368/400 = 0.920 [0.889, 0.943]; held at step 200: ch0 387 ch1 0 none 13; hold changes mean 0.09; y' max 5.34, y' > 1.8 33.27%, s >= 4.9 0.15%, s max 4.97
+   neutral tolerance at G 0, p 0.057: interval [0.457, 0.555] over 395 holding rows within [0.35, 0.65] -> PASS
+   candidate G 0.5: lower bound 0.684 >= 0.85 and holding rows 400 >= 200 -> does not meet
+   candidate G 1.0: lower bound 0.729 >= 0.85 and holding rows 400 >= 200 -> does not meet
+   candidate G 2.0: lower bound 0.761 >= 0.85 and holding rows 400 >= 200 -> does not meet
+== NO CANDIDATE meets the selection rule; Stage A is not run ==

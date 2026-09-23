@@ -1,0 +1,13 @@
+== input contract, development seeds, measurement only ==
+
+   Run 1's 40x40 arena, `return`, cue dropout 50/50:
+     integrate         handed != made on  5.313% of agent-steps, 100.0% of those are wall contacts;  heading error > 45 deg on 54.16% of cue-off steps (mean |error|  69.5 deg);  last third  15.2
+     integrate_actual  handed != made on  9.796% of agent-steps, 100.0% of those are wall contacts;  heading error > 45 deg on  0.00% of cue-off steps (mean |error|   0.0 deg);  last third   9.0
+
+   160x160 arena, `return`, cue dropout 50/50:
+     integrate         handed != made on  0.004% of agent-steps, 100.0% of those are wall contacts;  heading error > 45 deg on  0.04% of cue-off steps (mean |error|   0.0 deg);  last third  23.0
+     integrate_actual  handed != made on  0.004% of agent-steps, 100.0% of those are wall contacts;  heading error > 45 deg on  0.00% of cue-off steps (mean |error|   0.0 deg);  last third  23.0
+
+   open plane, `return`, cue dropout 50/50:
+     integrate         handed != made on  0.000% of agent-steps,   nan% of those are wall contacts;  heading error > 45 deg on  0.00% of cue-off steps (mean |error|   0.0 deg);  last third  23.0
+     integrate_actual  handed != made on  0.000% of agent-steps,   nan% of those are wall contacts;  heading error > 45 deg on  0.00% of cue-off steps (mean |error|   0.0 deg);  last third  23.0

@@ -1,0 +1,110 @@
+== H20 Run 2, DEV. design v1 doc d3866101cd92f911d hash b88f0769ffc59bc6885ceadb0e4ee9a16e8dcb1a8a656d1edbb6ba1d40e5b115; this file sha256 26ad4defb7590e16e1030b0b6f8073d3258584baeec06ba66e233315da7c97c3; G 2.0; world seed 9840, agent seed 9940; 400 rows x 600 steps; geometry C0; operation check only ==
+
+   [bias] G 2.0  MAIN, dwell majority: V 209  N 189  tie 2  (of 400)
+      cells: 0 odour A valued, +y: V 55 N 45 0 0 | 1 odour A valued, -y: V 49 N 50 0 1 | 2 odour B valued, +y: V 53 N 47 0 0 | 3 odour B valued, -y: V 52 N 47 0 1
+      dwell median valued 14.0 other 11.0; both zero 0; majority source == first hold 302/399; P(V | first hold valued) 189/265; P(V | first hold neutral) 20/134
+      secondary, first reach and diagnostics:
+
+   [bias] G 2.0  V 202  N 198  no-choice 0  (of 400)
+      cells: 0 odour A valued, +y: V 51 N 49 0 0 | 1 odour A valued, -y: V 45 N 55 0 0 | 2 odour B valued, +y: V 53 N 47 0 0 | 3 odour B valued, -y: V 53 N 47 0 0
+      P(V | reached) 202/400 = 0.505 [0.456, 0.554]; first-approach step median V 31 N 31; dwell median valued 14.0 other 11.0; contacts/row 0.00; no whiff in the last third 6
+      first hold: valued 265 neutral 134 none 1, step median 12; hold changes mean 0.42; agreement: first hold == source reached 299/400, held at reach == source reached 224/400 (nothing held at reach 111); P(V | first hold valued) 183/265; P(V | first hold neutral) 18/134
+      whiffs/row: valued plume 6.9 neutral plume 6.7 both same step 0.04; no-choice rows' hold history: never 0 valued only 0 neutral only 0 both 0
+      input range: y' max 5.34, y' > 1.8 on 2.62% of (row, step, channel), s >= 4.9 on 0.00% of (row, step), s max 4.93
+      segments, N rows: neutral selected first and held at reach 70; valued held earlier, neutral held at reach 1; valued held at reach yet neutral reached first 52; nothing held at reach 75 | V rows: valued held at reach 153 (of which first hold was neutral 2), neutral held at reach 13, nothing held 36
+
+   [neutral] G 2.0  MAIN, dwell majority: V 189  N 207  tie 4  (of 400)
+      cells: 0 odour A valued, +y: V 47 N 52 0 1 | 1 odour A valued, -y: V 52 N 47 0 1 | 2 odour B valued, +y: V 45 N 55 0 0 | 3 odour B valued, -y: V 45 N 53 0 2
+      dwell median valued 13.0 other 14.0; both zero 0; majority source == first hold 319/395; P(V | first hold valued) 154/196; P(V | first hold neutral) 33/199
+      secondary, first reach and diagnostics:
+
+   [neutral] G 2.0  V 201  N 199  no-choice 0  (of 400)
+      cells: 0 odour A valued, +y: V 51 N 49 0 0 | 1 odour A valued, -y: V 44 N 56 0 0 | 2 odour B valued, +y: V 53 N 47 0 0 | 3 odour B valued, -y: V 53 N 47 0 0
+      P(V | reached) 201/400 = 0.502 [0.454, 0.551]; first-approach step median V 31 N 31; dwell median valued 13.0 other 14.0; contacts/row 0.00; no whiff in the last third 7
+      first hold: valued 196 neutral 199 none 5, step median 32; hold changes mean 0.33; agreement: first hold == source reached 340/400, held at reach == source reached 158/400 (nothing held at reach 216); P(V | first hold valued) 170/196; P(V | first hold neutral) 29/199
+      whiffs/row: valued plume 6.6 neutral plume 6.9 both same step 0.04; no-choice rows' hold history: never 0 valued only 0 neutral only 0 both 0
+      input range: y' max 1.78, y' > 1.8 on 0.00% of (row, step, channel), s >= 4.9 on 0.00% of (row, step), s max 3.60
+      segments, N rows: neutral selected first and held at reach 81; valued held earlier, neutral held at reach 0; valued held at reach yet neutral reached first 11; nothing held at reach 107 | V rows: valued held at reach 77 (of which first hold was neutral 0), neutral held at reach 15, nothing held 109
+
+   [pathway-off] G 0.0  MAIN, dwell majority: V 189  N 207  tie 4  (of 400)
+      cells: 0 odour A valued, +y: V 47 N 52 0 1 | 1 odour A valued, -y: V 52 N 47 0 1 | 2 odour B valued, +y: V 45 N 55 0 0 | 3 odour B valued, -y: V 45 N 53 0 2
+      dwell median valued 13.0 other 14.0; both zero 0; majority source == first hold 319/395; P(V | first hold valued) 154/196; P(V | first hold neutral) 33/199
+      secondary, first reach and diagnostics:
+
+   [pathway-off] G 0.0  V 201  N 199  no-choice 0  (of 400)
+      cells: 0 odour A valued, +y: V 51 N 49 0 0 | 1 odour A valued, -y: V 44 N 56 0 0 | 2 odour B valued, +y: V 53 N 47 0 0 | 3 odour B valued, -y: V 53 N 47 0 0
+      P(V | reached) 201/400 = 0.502 [0.454, 0.551]; first-approach step median V 31 N 31; dwell median valued 13.0 other 14.0; contacts/row 0.00; no whiff in the last third 7
+      first hold: valued 196 neutral 199 none 5, step median 32; hold changes mean 0.33; agreement: first hold == source reached 340/400, held at reach == source reached 158/400 (nothing held at reach 216); P(V | first hold valued) 170/196; P(V | first hold neutral) 29/199
+      whiffs/row: valued plume 6.6 neutral plume 6.9 both same step 0.04; no-choice rows' hold history: never 0 valued only 0 neutral only 0 both 0
+      input range: y' max 1.78, y' > 1.8 on 0.00% of (row, step, channel), s >= 4.9 on 0.00% of (row, step), s max 3.60
+      segments, N rows: neutral selected first and held at reach 81; valued held earlier, neutral held at reach 0; valued held at reach yet neutral reached first 11; nothing held at reach 107 | V rows: valued held at reach 77 (of which first hold was neutral 0), neutral held at reach 15, nothing held 109
+
+   [known-answer] G 0.0 (held odour fixed to the valued odour)  MAIN, dwell majority: V 382  N 17  tie 1  (of 400)
+      cells: 0 odour A valued, +y: V 91 N 9 0 0 | 1 odour A valued, -y: V 94 N 5 0 1 | 2 odour B valued, +y: V 98 N 2 0 0 | 3 odour B valued, -y: V 99 N 1 0 0
+      dwell median valued 25.0 other 0.0; both zero 0; majority source == first hold 382/400; P(V | first hold valued) 382/400; P(V | first hold neutral) 0/0
+      secondary, first reach and diagnostics:
+
+   [known-answer] G 0.0  V 213  N 187  no-choice 0  (of 400)
+      cells: 0 odour A valued, +y: V 52 N 48 0 0 | 1 odour A valued, -y: V 49 N 51 0 0 | 2 odour B valued, +y: V 57 N 43 0 0 | 3 odour B valued, -y: V 55 N 45 0 0
+      P(V | reached) 213/400 = 0.532 [0.484, 0.581]; first-approach step median V 31 N 30; dwell median valued 25.0 other 0.0; contacts/row 0.00; no whiff in the last third 2
+      first hold: valued 400 neutral 0 none 0, step median 0; hold changes mean 0.00; agreement: first hold == source reached 213/400, held at reach == source reached 213/400 (nothing held at reach 0); P(V | first hold valued) 213/400; P(V | first hold neutral) 0/0
+      whiffs/row: valued plume 10.9 neutral plume 4.6 both same step 0.04; no-choice rows' hold history: never 0 valued only 0 neutral only 0 both 0
+      input range: y' max 1.78, y' > 1.8 on 0.00% of (row, step, channel), s >= 4.9 on 0.00% of (row, step), s max 0.00
+      segments, N rows: neutral selected first and held at reach 0; valued held earlier, neutral held at reach 0; valued held at reach yet neutral reached first 187; nothing held at reach 0 | V rows: valued held at reach 213 (of which first hold was neutral 0), neutral held at reach 0, nothing held 0
+
+   [priority] G 2.0  MAIN, dwell majority: V 361  N 22  tie 17  (of 400)
+      cells: 0 odour A valued, +y: V 93 N 2 0 5 | 1 odour A valued, -y: V 92 N 5 0 3 | 2 odour B valued, +y: V 93 N 5 0 2 | 3 odour B valued, -y: V 83 N 10 0 7
+      dwell median valued 21.5 other 0.0; both zero 12; majority source == first hold 268/400; P(V | first hold valued) 256/268; P(V | first hold neutral) 105/132
+      secondary, first reach and diagnostics:
+
+   [priority] G 2.0  V 279  N 109  no-choice 12  (of 400)
+      cells: 0 odour A valued, +y: V 69 N 29 0 2 | 1 odour A valued, -y: V 68 N 29 0 3 | 2 odour B valued, +y: V 72 N 26 0 2 | 3 odour B valued, -y: V 70 N 25 0 5
+      P(V | reached) 279/388 = 0.719 [0.672, 0.761]; first-approach step median V 32 N 31; dwell median valued 21.5 other 0.0; contacts/row 0.31; no whiff in the last third 22
+      first hold: valued 268 neutral 132 none 0, step median 12; hold changes mean 0.53; agreement: first hold == source reached 221/388, held at reach == source reached 222/388 (nothing held at reach 106); P(V | first hold valued) 190/268; P(V | first hold neutral) 89/132
+      whiffs/row: valued plume 10.0 neutral plume 3.8 both same step 0.04; no-choice rows' hold history: never 0 valued only 0 neutral only 10 both 2
+      input range: y' max 5.34, y' > 1.8 on 3.84% of (row, step, channel), s >= 4.9 on 0.01% of (row, step), s max 4.93
+      segments, N rows: neutral selected first and held at reach 4; valued held earlier, neutral held at reach 0; valued held at reach yet neutral reached first 49; nothing held at reach 56 | V rows: valued held at reach 218 (of which first hold was neutral 46), neutral held at reach 11, nothing held 50
+
+   [priority-off] G 0.0  MAIN, dwell majority: V 358  N 24  tie 18  (of 400)
+      cells: 0 odour A valued, +y: V 93 N 3 0 4 | 1 odour A valued, -y: V 90 N 7 0 3 | 2 odour B valued, +y: V 93 N 4 0 3 | 3 odour B valued, -y: V 82 N 10 0 8
+      dwell median valued 21.0 other 0.0; both zero 13; majority source == first hold 234/397; P(V | first hold valued) 214/218; P(V | first hold neutral) 142/179
+      secondary, first reach and diagnostics:
+
+   [priority-off] G 0.0  V 294  N 93  no-choice 13  (of 400)
+      cells: 0 odour A valued, +y: V 72 N 26 0 2 | 1 odour A valued, -y: V 75 N 22 0 3 | 2 odour B valued, +y: V 74 N 23 0 3 | 3 odour B valued, -y: V 73 N 22 0 5
+      P(V | reached) 294/387 = 0.760 [0.715, 0.800]; first-approach step median V 32 N 31; dwell median valued 21.0 other 0.0; contacts/row 0.36; no whiff in the last third 31
+      first hold: valued 218 neutral 179 none 3, step median 29; hold changes mean 0.46; agreement: first hold == source reached 236/387, held at reach == source reached 102/387 (nothing held at reach 262); P(V | first hold valued) 182/218; P(V | first hold neutral) 112/179
+      whiffs/row: valued plume 9.9 neutral plume 3.7 both same step 0.04; no-choice rows' hold history: never 0 valued only 0 neutral only 12 both 1
+      input range: y' max 1.78, y' > 1.8 on 0.00% of (row, step, channel), s >= 4.9 on 0.00% of (row, step), s max 3.65
+      segments, N rows: neutral selected first and held at reach 7; valued held earlier, neutral held at reach 0; valued held at reach yet neutral reached first 11; nothing held at reach 75 | V rows: valued held at reach 95 (of which first hold was neutral 13), neutral held at reach 12, nothing held 187
+
+== criteria (design v1 section 5; 95 percent, one evaluation, no extension; aggregation: PASS if every part passes, FAIL if any fails, else INCONCLUSIVE) ==
+   R1(a) neutral: ties 4/400 = 0.010  at most 0.20 -> PASS
+   R1(a) pathway-off: ties 4/400 = 0.010  at most 0.20 -> PASS
+   R1(a) known-answer: ties 1/400 = 0.003  at most 0.20 -> PASS
+   R1(b) neutral, P(+y source majority | chose): P k 192 n 396  value 0.485  95% interval [0.436, 0.534]  within [0.35, 0.65] -> PASS
+   R1(c) floor: pathway-off, P(V | chose): P k 189 n 396  value 0.477  95% interval [0.429, 0.526]  within [0.35, 0.65] -> PASS
+   R1(d) ceiling: known-answer, P(V) over all rows: P k 382 n 400  value 0.955  95% interval [0.930, 0.971]  at least 0.85 -> PASS
+   R1 -> PASS
+   R2(a) bias, P(V) over all rows: P k 209 n 400  value 0.522  95% interval [0.474, 0.571]  at least 0.7 -> FAIL
+   R2(b) bias, cell 0 (odour A valued, +y), P(V): P k 55 n 100  value 0.550  95% interval [0.452, 0.644]  at least 0.55 -> INCONCLUSIVE
+   R2(b) bias, cell 1 (odour A valued, -y), P(V): P k 49 n 100  value 0.490  95% interval [0.394, 0.587]  at least 0.55 -> INCONCLUSIVE
+   R2(b) bias, cell 2 (odour B valued, +y), P(V): P k 53 n 100  value 0.530  95% interval [0.433, 0.625]  at least 0.55 -> INCONCLUSIVE
+   R2(b) bias, cell 3 (odour B valued, -y), P(V): P k 52 n 100  value 0.520  95% interval [0.423, 0.615]  at least 0.55 -> INCONCLUSIVE
+   R2(c) DP = P(V) bias - pathway-off, same rows: DP n 400  value 0.050  95% interval [0.022, 0.080]  at least 0.2 -> FAIL
+   R2 -> FAIL
+      reported: bias N 189 tie 2; P(V) bias / known-answer = 0.522 / 0.955 = 0.547 of the ceiling
+      reported, secondary first reach, bias: V 202 N 198 none 0; P(V first) 202/400 = 0.505 [0.456, 0.554]
+      reported, secondary first reach, pathway-off: V 201 N 199 none 0; P(V first) 201/400 = 0.502 [0.454, 0.551]
+      reported, secondary first reach, known-answer: V 213 N 187 none 0; P(V first) 213/400 = 0.532 [0.484, 0.581]  <- that measure's ceiling with a perfect selection
+   R3 identity: neutral at G 2.0 vs G 0 bitwise equal True; G 0 vs ph14.Agent3 True; known-answer h = the valued odour on every step and hit = its whiffs True -> PASS
+   R4(a)(i) constructed state: negative odour held on 300 (row, step), target = flee side on every one, equal to G 0's on the 300 steps both hold it; the valued odour took the hold on 250 afterwards -> PASS
+   R4(a)(ii) priority: negative odour held in 191 rows over 35614 (row, step); violations 0 -> PASS
+   R4(a)(ii) priority-off: negative odour held in 218 rows over 41372 (row, step); violations 0 -> PASS
+   R4(b) dwell at the negative source, priority - priority-off (mean): DP n 400  value 0.460  95% interval [0.197, 0.745]  at most 1.0 -> PASS
+      priority: ever within 3.0 of the negative source 114/400; first entry to exit beyond 6.0: median 15 steps, never exited 0
+      priority-off: ever within 3.0 of the negative source 97/400; first entry to exit beyond 6.0: median 14 steps, never exited 0
+   R4(c) priority, P(V) over all rows: P k 361 n 400  value 0.902  95% interval [0.869, 0.928]  at least 0.7 -> PASS
+   R4 -> PASS      reported, no bar: DP = P(V) priority - priority-off +0.007 [-0.010, +0.025]
+
+== H20 Run 2 ==  R1 PASS  R2 FAIL  R3 PASS  R4 PASS  -> NOT shown under the registered criteria

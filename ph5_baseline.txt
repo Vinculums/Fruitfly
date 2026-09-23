@@ -1,0 +1,46 @@
+
+== Continuous odour (odour present on 100% of steps), 200 agents, 9 episodes of 400 steps ==
+  intact               median score     23.0   first third    19.0 -> last third    23.0
+  no normalisation     median score     15.5   first third     8.0 -> last third    15.5
+  no select-and-hold   median score    400.0   first third   371.5 -> last third   400.0
+  no heading memory    median score     14.0   first third    16.0 -> last third    14.0
+  no learned valence   median score     46.0   first third    38.0 -> last third    46.0
+  all off              median score   -308.0   first third  -285.5 -> last third  -308.0
+  matched-pair comparison against the intact agent (same worlds, same seeds):
+    vs no normalisation     intact wins  28.0% of pairs, median gap   +18.7% of intact  -> no clear difference
+    vs no select-and-hold   intact wins  16.0% of pairs, median gap -1851.2% of intact  -> ablation better
+    vs no heading memory    intact wins  16.5% of pairs, median gap   +23.6% of intact  -> no clear difference
+    vs no learned valence   intact wins  49.0% of pairs, median gap  -119.5% of intact  -> ablation better
+    vs all off              intact wins  54.0% of pairs, median gap +1585.4% of intact  -> no clear difference
+
+== Intermittent odour (odour present on 30% of steps), 200 agents, 9 episodes of 400 steps ==
+  intact               median score      0.0   first third     0.0 -> last third     0.0
+  no normalisation     median score      0.0   first third     0.0 -> last third     0.0
+  no select-and-hold   median score      9.0   first third     4.0 -> last third     9.0
+  no heading memory    median score      0.0   first third     0.0 -> last third     0.0
+  no learned valence   median score      0.0   first third     0.0 -> last third     0.0
+  all off              median score      0.0   first third     0.0 -> last third     0.0
+  matched-pair comparison against the intact agent (same worlds, same seeds):
+    vs no normalisation     intact wins  51.0% of pairs, median gap    +nan% of intact  -> ablation better
+    vs no select-and-hold   intact wins  26.0% of pairs, median gap    +nan% of intact  -> ablation better
+    vs no heading memory    intact wins  47.0% of pairs, median gap    +nan% of intact  -> no clear difference
+    vs no learned valence   intact wins  30.5% of pairs, median gap    +nan% of intact  -> no clear difference
+    vs all off              intact wins  49.5% of pairs, median gap    +nan% of intact  -> no clear difference
+
+== A4, is the heading module specific to intermittency? ==
+   continuous   : intact    23.0, no heading memory    14.0, deficit    +9.0
+   intermittent : intact     0.0, no heading memory     0.0, deficit    +0.0
+
+== What the intact agent learns ==
+   episode 0: score   16.0   valence of the rewarding odour +0.005, of the punishing odour -0.280
+   episode 2: score   20.0   valence of the rewarding odour +0.000, of the punishing odour -0.296
+   episode 5: score   27.5   valence of the rewarding odour +0.000, of the punishing odour -0.296
+   episode 8: score   20.5   valence of the rewarding odour +0.000, of the punishing odour -0.273
+
+== The reset signal, which no phase found a biological anchor for ==
+   reset on : intact    23.0, no-learned-valence    46.0
+   reset off: intact    20.5, no-learned-valence     0.0
+
+== Where the steering gradient is read from ==
+   raw channel of the selected odour   median score    23.0
+   normalised channel                  median score     0.0

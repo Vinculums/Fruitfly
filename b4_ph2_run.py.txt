@@ -1,0 +1,51 @@
+== Adopted design U1: upstream normalisation + retuned Select-and-Hold ==
+idle (no input, 400 steps, fraction empty): 1.0
+scale, hard cue, correct/wrong/abstain, x0 0.25 0.5 1 2 4:
+   [(109, 3, 88), (121, 4, 75), (121, 4, 75), (123, 4, 73), (125, 5, 70)]
+scale, easy cue, fraction correct:
+   [1.0, 1.0, 1.0, 1.0, 1.0]
+option count, hard cue, N 2 3 5 10 20:
+   [(176, 24, 0), (176, 14, 10), (121, 4, 75), (10, 0, 190), (0, 0, 200)]
+option count, easy cue, fraction correct:
+   [1.0, 1.0, 1.0, 1.0, 1.0]
+distractor in the delay, easy cue, amplitude 1 2 3 4 6 10:
+   [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+three sequential trials with reset: [1.0, 1.0, 1.0]
+
+== Control: same circuit, no upstream stage (this is G1/B2 retuned) ==
+scale, hard cue: [(0, 0, 200), (0, 0, 200), (4, 0, 196), (114, 86, 0), (113, 51, 36)]
+distractor:      [1.0, 1.0, 0.0, 0.0, 0.0, 0.0]
+
+== Retuning the decision threshold for the normalised input (hard cue) ==
+  theta 1.0 [(150, 39, 11), (121, 4, 75), (75, 1, 124)]
+  theta 1.05 [(151, 20, 29), (93, 3, 104), (49, 0, 151)]
+  theta 1.1 [(145, 10, 45), (67, 1, 132), (30, 0, 170)]
+  theta 1.15 [(130, 7, 63), (40, 0, 160), (15, 0, 185)]
+  theta 1.2 [(100, 3, 97), (21, 0, 179), (8, 0, 192)]
+
+== H7 attempt 1, REJECTED: saturating global inhibitory unit ==
+  Smax 2.5 kappa 0.5 N: [(0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200)]
+  Smax 2.5 kappa 1.0 N: [(168, 1, 31), (70, 0, 130), (5, 0, 195), (0, 0, 200), (0, 0, 200)]
+  Smax 2.5 kappa 2.0 N: [(151, 49, 0), (154, 46, 0), (151, 30, 19), (52, 0, 148), (0, 0, 200)]
+  Smax 3.0 kappa 0.5 N: [(0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200)]
+  Smax 3.0 kappa 1.0 N: [(0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200)]
+  Smax 3.0 kappa 2.0 N: [(175, 25, 0), (176, 14, 10), (125, 4, 71), (11, 0, 189), (0, 0, 200)]
+  Smax 4.0 kappa 0.5 N: [(0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200)]
+  Smax 4.0 kappa 1.0 N: [(0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200), (0, 0, 200)]
+  Smax 4.0 kappa 2.0 N: [(155, 1, 44), (47, 0, 153), (3, 0, 197), (0, 0, 200), (0, 0, 200)]
+
+== H7 attempt 2, REJECTED: supralinear pooling, pool = c*sum(s^p) ==
+  p 1.5 c 1.0 N: [(160, 40, 0), (164, 36, 0), (139, 9, 52), (1, 0, 199), (0, 0, 200)]
+  p 1.5 c 2.0 N: [(135, 65, 0), (100, 100, 0), (88, 112, 0), (78, 122, 0), (98, 90, 12)]
+  p 2.0 c 1.0 N: [(154, 46, 0), (146, 54, 0), (147, 24, 29), (2, 0, 198), (0, 0, 200)]
+  p 2.0 c 2.0 N: [(137, 63, 0), (104, 96, 0), (94, 106, 0), (103, 95, 2), (71, 21, 108)]
+  raising theta on the N-flat settings collapses every N at once:
+    theta 1.2 N: [(138, 62, 0), (96, 104, 0), (60, 19, 121)]
+    theta 1.35 N: [(50, 3, 147), (17, 1, 182), (1, 1, 198)]
+
+== Why option count fails: net drive at baseline against the ignition drive x* = 0.537 ==
+  N   2  baseline state 0.4994  net drive 0.4945  = 0.92 x*
+  N   3  baseline state 0.3315  net drive 0.3308  = 0.62 x*
+  N   5  baseline state 0.1988  net drive 0.1987  = 0.37 x*
+  N  10  baseline state 0.0994  net drive 0.0993  = 0.19 x*
+  N  20  baseline state 0.0497  net drive 0.0497  = 0.09 x*

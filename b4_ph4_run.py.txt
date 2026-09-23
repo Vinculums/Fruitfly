@@ -1,0 +1,38 @@
+== Adopted design: K 500, 5% sparse, eta_d 0.10, eta_p 0.30, feedback beta 0.15 ==
+L2 code overlap between A and B: 1.12 of 25 active units
+L1 acquisition, median change in learned valence of A:
+    after  1 pairings: -0.110
+    after  2 pairings: -0.201
+    after  3 pairings: -0.285
+    after  5 pairings: -0.436
+    after 10 pairings: -0.727
+    correct sign at 5 pairings: 200/200
+L2 specificity: unpaired B moved -0.0291, which is 4.0% of A's change
+L3 extinction: trained -0.727 -> after 20 unreinforced -0.158  (22% of trained), within bound in 200/200
+L4 reversal: after punishment training -0.727
+    after  1 reward pairings: -0.552
+    after  3 reward pairings: -0.263
+    after  5 reward pairings: -0.013
+    after 10 reward pairings: +0.012
+    sign flipped within 10 pairings in 200/200, all runs by pairing 6
+L5 timing: same reinforcement, forward pairing -0.727, reverse pairing +0.023, opposite sign in 200/200
+L6 locality of the rule (feedback off): compartment 1 unchanged, exactly: True  (max abs difference 0.0e+00)
+L6 locality of the training event (feedback on, adopted design): unchanged: False  (max abs difference 0.27)
+    The rule is compartment-local. The extinction feedback is itself a reinforcement
+    signal into the other compartment, so the training event is not.
+
+== Reported, not gated: sparsity and specificity ==
+   active   2.0% ( 10 units), overlap   0.18: A -0.727, B +0.000, leakage   0.0%
+   active   5.0% ( 25 units), overlap   1.12: A -0.727, B -0.029, leakage   4.0%
+   active  10.0% ( 50 units), overlap   4.76: A -0.727, B -0.073, leakage  10.0%
+   active  25.0% (125 units), overlap  31.04: A -0.727, B -0.180, leakage  24.8%
+   active  50.0% (250 units), overlap 124.89: A -0.727, B -0.363, leakage  50.0%
+
+== Rejected design R1: no output-to-reinforcement feedback (beta 0) ==
+   trained -0.997 -> after 20 unreinforced -0.985 (99% of trained). No extinction: an unreinforced odour drives nothing, so nothing changes.
+
+== Rejected design R2: plasticity sign set by overlap, not by order ==
+   In the first rule the potentiation term read the reinforcement trace whether or not
+   reinforcement was still on. With feedback added, reinforcement became co-active with
+   the odour, potentiation dominated, and punishment training drove the valence to the
+   wrong saturation: measured -2.000 where -1.000 is full depression.

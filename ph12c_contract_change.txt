@@ -1,0 +1,18 @@
+== input contract change. Run 1's 40x40 arena, return rule, seeds (9400, 9500), 200 agents, 5400 steps ==
+
+(1) wind cue on EVERY step, H15's condition
+   integrate       heading error > 45 deg on  0.00% of agent-steps, mean |error|  0.00 deg;  contacts on  9.74% of steps;  last third   9.7
+   integrate_made  heading error > 45 deg on  0.00% of agent-steps, mean |error|  0.00 deg;  contacts on  9.74% of steps;  last third   9.7
+   ring            heading error > 45 deg on  4.30% of agent-steps, mean |error|  6.53 deg;  contacts on 10.19% of steps;  last third   9.0
+   ring_made       heading error > 45 deg on  0.00% of agent-steps, mean |error|  0.90 deg;  contacts on  9.83% of steps;  last third   9.0
+
+(2) cue dropout 50/50: does the memory FOLLOW a reflection with no cue on either side of it?
+    median heading error just before the contact -> at the next step, by size of the reflection
+   integrate         0- 45 deg: n   2636    67.5 ->   87.6   |    45-135 deg: n  11549    54.6 ->  105.7   |   135-180 deg: n   5877    29.4 ->  138.5
+                   over all steps: error > 45 deg 26.66%, mean |error| 34.26 deg
+   integrate_made    0- 45 deg: n  12243     0.0 ->    0.0   |    45-135 deg: n  31667     0.0 ->    0.0   |   135-180 deg: n   6987     0.0 ->    0.0
+                   over all steps: error > 45 deg  0.00%, mean |error|  0.00 deg
+   ring              0- 45 deg: n   2511    62.6 ->   84.7   |    45-135 deg: n  11423    59.6 ->  107.0   |   135-180 deg: n   5989    40.4 ->  132.4
+                   over all steps: error > 45 deg 28.98%, mean |error| 39.24 deg
+   ring_made         0- 45 deg: n  13264     7.5 ->    7.8   |    45-135 deg: n  30615     7.0 ->    7.2   |   135-180 deg: n   7985     8.5 ->    8.7
+                   over all steps: error > 45 deg  0.16%, mean |error|  5.48 deg

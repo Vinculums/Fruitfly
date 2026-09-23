@@ -1,0 +1,4 @@
+reward     gated   peak |valence| 1.000, after 400 steps 1.000 (100.0% of peak) | n=5: +0.500  n=10: +1.000  n=25: +1.000  n=50: +1.000  n=100: +1.000  n=200: +1.000  n=400: +1.000
+reward     ungated peak |valence| 0.935, after 400 steps 0.003 (  0.3% of peak) | n=5: +0.485  n=10: +0.935  n=25: +0.745  n=50: +0.511  n=100: +0.240  n=200: +0.053  n=400: +0.003
+punishment gated   peak |valence| 1.000, after 400 steps 1.000 (100.0% of peak) | n=5: -0.500  n=10: -1.000  n=25: -1.000  n=50: -1.000  n=100: -1.000  n=200: -1.000  n=400: -1.000
+punishment ungated peak |valence| 0.935, after 400 steps 0.003 (  0.3% of peak) | n=5: -0.485  n=10: -0.935  n=25: -0.745  n=50: -0.511  n=100: -0.240  n=200: -0.053  n=400: -0.003

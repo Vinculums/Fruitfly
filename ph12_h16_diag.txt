@@ -1,0 +1,15 @@
+
+arena 40 x 40, walled, cone start, dev seeds 9000/9100. Source disc is 1.77% of the arena -> occupancy floor 10.6
+   random   last third median    9.0 mean    9.6  absorbed   0.0%  near wall   9.6%  reacq median    242  wall-free recoveries   0.2%
+   control  last third median    0.0 mean    0.1  absorbed  99.5%  near wall  98.1%  reacq median    152  wall-free recoveries   0.0%
+   return   last third median    9.3 mean    9.9  absorbed   0.5%  near wall  32.9%  reacq median    272  wall-free recoveries   0.3%
+
+arena 80 x 80, walled, cone start, dev seeds 9000/9100. Source disc is 0.44% of the arena -> occupancy floor 2.7
+   random   last third median    2.7 mean    2.9  absorbed   8.5%  near wall   5.0%  reacq median    556  wall-free recoveries   8.8%
+   control  last third median    0.0 mean    0.2  absorbed  98.5%  near wall  97.2%  reacq median    153  wall-free recoveries  87.1%
+   return   last third median    9.3 mean   11.2  absorbed  23.5%  near wall   8.3%  reacq median    157  wall-free recoveries  65.8%
+
+arena 160 x 160, walled, cone start, dev seeds 9000/9100. Source disc is 0.11% of the arena -> occupancy floor 0.7
+   random   last third median    0.0 mean    0.7  absorbed  54.5%  near wall   2.5%  reacq median   1340  wall-free recoveries  33.0%
+   control  last third median    0.0 mean    1.2  absorbed  91.0%  near wall  92.8%  reacq median    153  wall-free recoveries 100.0%
+   return   last third median   24.0 mean   23.8  absorbed   0.5%  near wall   0.0%  reacq median    153  wall-free recoveries 100.0%

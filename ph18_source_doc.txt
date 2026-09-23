@@ -1,0 +1,168 @@
+# ph18.py source (H20 Run 2: supplied-value choice test with the dwell-majority measure) sha256 26ad4defb7590e16e1030b0b6f8073d3258584baeec06ba66e233315da7c97c3
+Stored under working protocol rule 6. The version run at demo, development and evaluation. Imports ph15, ph16 and ph17.Agent5; edits none of them. Deterministic.
+
+#!/usr/bin/env python3
+"""H20 Run 2: the supplied-value choice test with the measure calibrated by a fixed-identity arm.
+
+Usage: python ph18.py demo | dev | eval
+
+Design v1 FINAL, confirmed by the owner (decision:h20-run2-open): doc d3866101cd92f911d, hash
+b88f0769...b115, stored before this file existed. A new pre-registration; Stage A's verdict stands.
+Main measure: the source the agent stays at more over the 600 steps (dwell majority; a tie is no
+choice). Geometry C0, G 2 pre-registered, the initial cast side drawn per row, a known-answer arm
+(the held odour fixed to the valued odour, G 0) as the measure's ceiling, pathway-off as its floor.
+The first source reached is reported as a secondary measure. Value supplied; nothing learned.
+"""
+import sys, hashlib
+import numpy as np
+import ph15, ph16
+from ph16 import World7, Agent4, cast_draw, outcome, diagnostics, describe, interval, crit, med, identity_agent3, priority_check, CELLS, R, T
+from ph17 import Agent5
+
+DESIGN = "v1 doc d3866101cd92f911d hash b88f0769ffc59bc6885ceadb0e4ee9a16e8dcb1a8a656d1edbb6ba1d40e5b115"
+G_STAR = 2.0
+SEEDS = dict(dev=(9840, 9940), eval=(1695, 1795))
+ARMS = {"bias": (1.0, 0.0, G_STAR, False), "neutral": (0.0, 0.0, G_STAR, False), "pathway-off": (1.0, 0.0, 0.0, False),
+        "known-answer": (1.0, 0.0, 0.0, True), "priority": (1.0, -1.0, G_STAR, False), "priority-off": (1.0, -1.0, 0.0, False)}
+ph15.BOOT_SEED = 20260924            # this run's bootstrap seed (design section 5); ph16 set the 95 percent level
+
+def sha(): return hashlib.sha256(open(__file__, "rb").read()).hexdigest()
+
+
+def run(arm, seeds, runs=R, steps=T, G=None):
+    vg, vo, g, fixed = ARMS[arm]; g = g if G is None else G
+    w = World7(runs, np.random.default_rng(seeds[0]), seeds[0]); rows = np.arange(runs); neutral = 1 - w.good
+    kv = np.zeros((runs, 2)); kv[rows, w.good] = vg; kv[rows, neutral] = vo
+    rng = np.random.default_rng(seeds[1])
+    a = Agent5(runs, rng, fixed=w.good.copy(), G=0.0, known=kv) if fixed else Agent4(runs, rng, G=g, known=kv)
+    a.cast_sign = cast_draw(seeds[1], runs)
+    o = dict(good=w.good, cell=w.cell, plus_y=w.plus_y, G=a.G, fixed=fixed, cast=a.cast_sign.copy(), first=np.full((runs, 2), -1),
+             dwell=np.zeros((runs, 2)), H=np.full((steps, runs), -1, np.int8), W=np.zeros((steps, runs, 2), bool), NAV=np.zeros((steps, runs), bool),
+             POS=np.zeros((steps, runs, 2)), HEAD=np.zeros((steps, runs)), S=np.zeros((steps, runs, 2)),
+             contacts=np.zeros(runs), viol=0, neg_steps=0, neg_rows=np.zeros(runs, bool), ymax=0.0, y_over=0, sat=0, smax=0.0,
+             exit=np.full(runs, -1))
+    for t in range(steps):
+        whiffs = w.sense()
+        turn, h = a.act(w, whiffs, w.wind_on())
+        neg = (h >= 0) & (kv[rows, np.maximum(h, 0)] < 0)                     # R4(a)(ii)
+        o["viol"] += int((neg & (a.tgt != a.flee_side)).sum()); o["neg_steps"] += int(neg.sum()); o["neg_rows"] |= neg
+        o["ymax"] = max(o["ymax"], float(a.yp.max())); o["y_over"] += int((a.yp > 1.8).sum())
+        o["sat"] += int((a.sel.s >= 4.9).any(1).sum()); o["smax"] = max(o["smax"], float(a.sel.s.max()))
+        w.move(turn); a.bump(w.bumped)
+        at = w.at_source()
+        o["first"] = np.where((o["first"] < 0) & at, t, o["first"]); o["dwell"] += at
+        d_neg = np.linalg.norm(w.pos - w.src[rows, neutral], axis=1)
+        o["exit"] = np.where((o["exit"] < 0) & (o["first"][rows, neutral] >= 0) & (d_neg > 6.0), t, o["exit"])
+        o["H"][t] = h; o["W"][t] = whiffs; o["NAV"][t] = a.nav_hit; o["POS"][t] = w.pos; o["HEAD"][t] = w.head; o["S"][t] = a.sel.s
+        o["contacts"] += w.bumped
+    return o
+
+
+def majority(o):
+    """the main measure: V = more dwell at the valued source, N = more at the other, Z = equal (no choice)"""
+    rows = np.arange(len(o["good"])); dv, dn = o["dwell"][rows, o["good"]], o["dwell"][rows, 1 - o["good"]]
+    return dv > dn, dn > dv, dv == dn
+
+
+def describe_majority(arm, o, V, N, Z):
+    n = len(V); cell = o["cell"]; rows = np.arange(n); good = o["good"]; d = diagnostics(o)
+    print(f"\n   [{arm}] G {o['G']:.1f}{' (held odour fixed to the valued odour)' if o['fixed'] else ''}  MAIN, dwell majority:"
+          f" V {V.sum()}  N {N.sum()}  tie {Z.sum()}  (of {n})")
+    print("      cells: " + " | ".join(f"{c} {CELLS[c]}: V {V[m].sum()} N {N[m].sum()} 0 {Z[m].sum()}" for c in range(4) for m in [cell == c]))
+    pv = lambda m: f"{int((V & m).sum())}/{int(m.sum())}"
+    print(f"      dwell median valued {med(o['dwell'][rows, good]):.1f} other {med(o['dwell'][rows, 1 - good]):.1f}; both zero {int(((o['dwell'] == 0).all(1)).sum())};"
+          f" majority source == first hold {int(((V & d['fh_v']) | (N & d['fh_n'])).sum())}/{int((d['fh'] >= 0).sum())};"
+          f" P(V | first hold valued) {pv(d['fh_v'])}; P(V | first hold neutral) {pv(d['fh_n'])}")
+
+
+def agg(parts):
+    """design section 5: PASS if every part passes, FAIL if any part fails, otherwise INCONCLUSIVE; an unreadable part is unreadable"""
+    if any(p == "UNREADABLE" for p in parts): return "UNREADABLE"
+    if all(p == "PASS" for p in parts): return "PASS"
+    if any(p == "FAIL" for p in parts): return "FAIL"
+    return "INCONCLUSIVE"
+
+
+def judge(res, maj, first, seeds):
+    rows = np.arange(R); ok = lambda z: "PASS" if z else "FAIL"
+    print("\n== criteria (design v1 section 5; 95 percent, one evaluation, no extension; aggregation: PASS if every part passes, FAIL if any fails, else INCONCLUSIVE) ==")
+    r1 = []
+    for arm in ("neutral", "pathway-off", "known-answer"):
+        z = maj[arm][2]; r1.append(ok(z.mean() <= 0.20))
+        print(f"   R1(a) {arm}: ties {z.sum()}/{R} = {z.mean():.3f}  at most 0.20 -> {r1[-1]}")
+    o = res["neutral"]; V, N, Z = maj["neutral"]; which = np.where(V, o["good"], np.where(N, 1 - o["good"], -1))
+    r1.append(crit("R1(b) neutral, P(+y source majority | chose)", "P", (0.35, 0.65), False, (which == o["plus_y"])[~Z]))
+    V, N, Z = maj["pathway-off"]; r1.append(crit("R1(c) floor: pathway-off, P(V | chose)", "P", (0.35, 0.65), False, V[~Z]))
+    r1.append(crit("R1(d) ceiling: known-answer, P(V) over all rows", "P", 0.85, False, maj["known-answer"][0]))
+    R1 = agg(r1); print(f"   R1 -> {R1}{'' if R1 == 'PASS' else '  (the run is UNREADABLE under section 6)'}")
+    Vb, Nb, Zb = maj["bias"]; Vp = maj["pathway-off"][0]; Vk = maj["known-answer"][0]
+    r2 = [crit("R2(a) bias, P(V) over all rows", "P", 0.70, False, Vb)]
+    for c in range(4): r2.append(crit(f"R2(b) bias, cell {c} ({CELLS[c]}), P(V)", "P", 0.55, False, Vb[res["bias"]["cell"] == c]))
+    r2.append(crit("R2(c) DP = P(V) bias - pathway-off, same rows", "DP", 0.20, False, Vb.astype(float), Vp.astype(float)))
+    R2 = agg(r2); print(f"   R2 -> {R2}")
+    print(f"      reported: bias N {Nb.sum()} tie {Zb.sum()}; P(V) bias / known-answer = {Vb.mean():.3f} / {Vk.mean():.3f} = {Vb.mean()/Vk.mean() if Vk.mean() else float('nan'):.3f} of the ceiling")
+    for arm in ("bias", "pathway-off", "known-answer"):
+        Vf, Nf, Zf = first[arm]; k, pt, lo, hi = interval("P", Vf)
+        print(f"      reported, secondary first reach, {arm}: V {Vf.sum()} N {Nf.sum()} none {Zf.sum()}; P(V first) {k}/{R} = {pt:.3f} [{lo:.3f}, {hi:.3f}]"
+              + ("  <- that measure's ceiling with a perfect selection" if arm == "known-answer" else ""))
+    n0 = run("neutral", seeds, G=0.0); o = res["neutral"]
+    same = all(np.array_equal(o[key], n0[key]) for key in ("POS", "HEAD", "S")); ag3 = identity_agent3(seeds)
+    ka = res["known-answer"]; kfix = bool((ka["H"] == ka["good"][None, :]).all() and np.array_equal(ka["NAV"], ka["W"][:, rows, ka["good"]]))
+    r3 = [ok(same), ok(ag3), ok(kfix)]; R3 = agg(r3)
+    print(f"   R3 identity: neutral at G {G_STAR} vs G 0 bitwise equal {same}; G 0 vs ph14.Agent3 {ag3}; known-answer h = the valued odour on every step"
+          f" and hit = its whiffs {kfix} -> {R3}")
+    exp1, cmp1, took = priority_check(G_STAR)
+    print(f"   R4(a)(i) constructed state: negative odour held on {exp1} (row, step), target = flee side on every one, equal to G 0's on the {cmp1}"
+          f" steps both hold it; the valued odour took the hold on {took} afterwards -> PASS")
+    r4 = ["PASS"]
+    for arm in ("priority", "priority-off"):
+        o = res[arm]
+        if o["neg_steps"] == 0: print(f"   R4(a)(ii) {arm}: negative odour never held (0 rows, 0 steps): no violation, no opportunity to verify operation")
+        else:
+            r4.append(ok(o["viol"] == 0))
+            print(f"   R4(a)(ii) {arm}: negative odour held in {int(o['neg_rows'].sum())} rows over {o['neg_steps']} (row, step); violations {o['viol']} -> {r4[-1]}")
+    dn = lambda arm: res[arm]["dwell"][rows, 1 - res[arm]["good"]]
+    r4.append(crit("R4(b) dwell at the negative source, priority - priority-off (mean)", "DP", 1.0, True, dn("priority"), dn("priority-off")))
+    for arm in ("priority", "priority-off"):
+        o = res[arm]; entry = o["first"][rows, 1 - o["good"]]; near = entry >= 0; ex = o["exit"] - entry
+        print(f"      {arm}: ever within 3.0 of the negative source {near.sum()}/{R}; first entry to exit beyond 6.0: median"
+              f" {med(ex[near & (o['exit'] >= 0)]):.0f} steps, never exited {int((near & (o['exit'] < 0)).sum())}")
+    r4.append(crit("R4(c) priority, P(V) over all rows", "P", 0.70, False, maj["priority"][0]))
+    _, pt, lo, hi = interval("DP", maj["priority"][0].astype(float), maj["priority-off"][0].astype(float))
+    R4 = agg(r4); print(f"   R4 -> {R4}      reported, no bar: DP = P(V) priority - priority-off {pt:+.3f} [{lo:+.3f}, {hi:+.3f}]")
+    verdict = all(x == "PASS" for x in (R1, R2, R3, R4))
+    print(f"\n== H20 Run 2 ==  R1 {R1}  R2 {R2}  R3 {R3}  R4 {R4}  -> "
+          + ("the pathway carries a supplied positive value into the choice of source, measured as the source the agent stays at"
+             if verdict else "UNREADABLE (R1)" if R1 != "PASS" else "NOT shown under the registered criteria"))
+
+
+def main(mode):
+    seeds = SEEDS[mode]
+    print(f"== H20 Run 2, {mode.upper()}. design {DESIGN}; this file sha256 {sha()}; G {G_STAR}; world seed {seeds[0]}, agent seed {seeds[1]};"
+          f" {R} rows x {T} steps; geometry C0; {'operation check only' if mode == 'dev' else 'the one evaluation'} ==")
+    res = {arm: run(arm, seeds) for arm in ARMS}
+    maj = {arm: majority(res[arm]) for arm in ARMS}; first = {arm: outcome(res[arm]) for arm in ARMS}
+    for arm in ARMS:
+        describe_majority(arm, res[arm], *maj[arm])
+        print("      secondary, first reach and diagnostics:"); describe(arm, res[arm], *first[arm])
+    judge(res, maj, first, seeds)
+
+
+def demo():
+    ph16.demo()                                   # identities, geometry, priority in a constructed state
+    seeds, n = (5, 6), 40; rows = np.arange(n)
+    o = run("known-answer", seeds, runs=n, steps=200); b = run("bias", seeds, runs=n, steps=200)
+    assert (o["H"] == o["good"][None, :]).all() and np.array_equal(o["NAV"], o["W"][:, rows, o["good"]]), "known-answer: h or hit wrong"
+    assert np.array_equal(o["cast"], b["cast"]) and np.array_equal(o["good"], b["good"]), "arms differ in cast draw or assignment"
+    V, N, Z = majority(dict(good=np.array([0, 0, 1]), dwell=np.array([[3.0, 1.0], [2.0, 2.0], [0.0, 5.0]])))
+    assert V.tolist() == [True, False, True] and N.tolist() == [False, False, False] and Z.tolist() == [False, True, False], "majority classes"
+    n1 = run("neutral", seeds, runs=n, steps=200); n2 = run("neutral", seeds, runs=n, steps=200, G=0.0)
+    assert all(np.array_equal(n1[k], n2[k]) for k in ("POS", "HEAD", "S")), "neutral at G* is not G 0"
+    print("ok  known-answer arm: h is the valued odour on every step and the hit is its whiffs; same cast draw and assignment as the bias arm")
+    print("ok  majority classes (V / N / tie) and the neutral-arm identity at G 2 vs G 0 on 40 rows x 200 steps")
+
+
+if __name__ == "__main__":
+    mode = ([m for m in sys.argv[1:] if m in ("demo", "dev", "eval")] or ["demo"])[0]
+    if mode == "demo": demo(); sys.exit(0)
+    main(mode)

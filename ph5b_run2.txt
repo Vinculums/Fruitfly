@@ -1,0 +1,78 @@
+== Phase 5 Run 2. Criteria: record:phase5-run2-success-criteria, stored before this run ==
+
+== B1 task calibration, continuous (odour on 100% of steps) ==
+   probe: all modules off, always-approach (the Run 1 gradient climber).
+   the intact agent is not run here.
+     400 steps: all-off median score   -400.0   discriminates
+   FROZEN: 400 steps.
+
+== B1 task calibration, intermittent (odour on 30% of steps) ==
+   probe: all modules off, always-approach (the Run 1 gradient climber).
+   the intact agent is not run here.
+     400 steps: all-off median score      0.0   at the floor
+     800 steps: all-off median score      0.0   at the floor
+    1600 steps: all-off median score      0.0   at the floor
+    3200 steps: all-off median score      6.0   at the floor
+   NO episode length up to 3200 makes this condition discriminate.
+   Under B1 this condition is reported as uninformative and no verdict is read from it.
+
+== Continuous odour (odour on 100% of steps), 200 agents, 9 episodes of 400 steps ==
+  intact               median score    400.0   first third   236.5 -> last third   400.0
+  no normalisation     median score    400.0   first third   204.5 -> last third   400.0
+  no select-and-hold   median score    400.0   first third   285.0 -> last third   400.0
+  no heading memory    median score    400.0   first third   310.0 -> last third   400.0
+  no learned valence   median score      0.0   first third     0.0 -> last third     0.0
+  all off              median score      0.0   first third     0.0 -> last third     0.0
+  matched-pair comparison against the intact agent (same worlds, same seeds):
+    vs no normalisation     intact wins  12.0% of pairs, median gap     +0.0% of intact  -> no clear difference
+    vs no select-and-hold   intact wins  22.5% of pairs, median gap     +0.0% of intact  -> no clear difference
+    vs no heading memory    intact wins  11.0% of pairs, median gap     +0.0% of intact  -> no clear difference
+    vs no learned valence   intact wins  91.5% of pairs, median gap    +99.8% of intact  -> intact better
+  A1: intact beats 1 of 4 single-module ablations  -> gate NOT met
+  CEILING: 4 arms are at the task ceiling of 400 (intact, no normalisation, no select-and-hold, no heading memory).
+  A1 asks the intact agent to EXCEED each ablation by 25 percent. Two arms that
+  both sit on the ceiling cannot differ, so for those pairs the gate is not
+  failed on the architecture, it is unreadable on the task. B1 checked that this
+  condition can discriminate; it did not check that it cannot saturate. Recorded
+  as a task-design limit and NOT worked around, per B5.
+
+== Intermittent odour: UNINFORMATIVE under B1, not read (same as Run 1) ==
+
+== B2 learning symmetry: does the rewarding odour get learned now? ==
+   Run 1 rule: approach by default    rewarding +0.000  punishing -0.198  score   400.0  reinforced-by-reward  28.5%  -> B2 NOT met
+   neutral, frozen sign per agent     rewarding +0.000  punishing -0.179  score   400.0  reinforced-by-reward  28.5%  -> B2 NOT met
+   neutral, flips on release (Run 2)  rewarding +0.000  punishing -0.100  score   400.0  reinforced-by-reward  27.5%  -> B2 NOT met
+   Note the shape of this: nearly every agent IS reinforced by the rewarding odour,
+   yet the median learned valence stays at zero. The action rule is not the cause;
+   the next block isolates what is.
+
+== Why B2 fails: sustained pairing erases what it just taught (module in isolation) ==
+   The Phase 4 rule carries an opponent feedback (beta 0.15, the MBON-to-DAN loop)
+   that pulls an active memory back toward balance. Pairing in bursts and then
+   leaving the odour is the case Phase 4 tested. Sitting inside the odour is not.
+   reward (compartment 1)     t=5:+0.485  t=10:+0.935  t=25:+0.745  t=50:+0.511  t=100:+0.240  t=200:+0.053  t=400:+0.003
+   punishment (compartment 0) t=5:-0.485  t=10:-0.935  t=25:-0.745  t=50:-0.511  t=100:-0.240  t=200:-0.053  t=400:-0.003
+   The valence rises, then is ground back to zero as the feedback depresses the
+   opposing compartment too. A memory survives only for a stimulus the agent LEAVES.
+   In Run 1 the punishing odour was left (so -0.296 stuck) and in Run 2 the rewarding
+   odour is sat on (so it does not). That is a property of the Phase 4 rule meeting a
+   behaving agent, not of the Phase 5 action rule.
+
+== B3 Select-and-Hold diagnosis, continuous odour ==
+   (i) no hold at all, (ii) hold with the Run 1 silence timeout, (iii) hold with an
+   evidence reset that releases the commitment when the other channel leads by 0.2.
+   (i)   no hold                median score    400.0
+   (ii)  timeout reset only     median score     14.0
+   (iii) evidence reset         median score    400.0
+   (iii) reaches 100.0% of (i).
+   B3: the fault was the MISSING RESET. With one, the circuit is not the problem.
+
+   margin sensitivity (reported, not gated):
+      margin 0.05: median score    400.0
+      margin 0.10: median score    400.0
+      margin 0.20: median score    400.0
+      margin 0.40: median score    400.0
+      margin 0.80: median score    400.0
+
+== A4, is the heading module specific to intermittency? ==
+   cannot be evaluated: the intermittent condition does not discriminate.

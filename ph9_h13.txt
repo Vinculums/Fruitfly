@@ -1,0 +1,74 @@
+== Phase 7.3, H13. 200 agents, 600 steps ==
+== Criteria: record:phase7-3-success-criteria, stored before this file existed ==
+
+== G1 calibration, intermittent plume (p_hit 0.3) ==
+   two fixed probes only. No surge-and-cast agent is run here.
+   floor probe  (random walk)      median    10.0
+   ceiling probe(ideal upwind)     median   586.0   arithmetic ceiling 600
+   discriminates (ideal >= 10): yes;   does not saturate (< 594): yes
+   -> condition is READABLE
+
+== G1 calibration, continuous plume (p_hit 1.0) ==
+   two fixed probes only. No surge-and-cast agent is run here.
+   floor probe  (random walk)      median    10.0
+   ceiling probe(ideal upwind)     median   586.0   arithmetic ceiling 600
+   discriminates (ideal >= 10): yes;   does not saturate (< 594): yes
+   -> condition is READABLE
+
+== Intermittent plume (p_hit 0.3, mode plume), 200 agents, 600 steps ==
+   random     median    10.0
+   grad       median     0.0
+   cast       median    29.0
+   freq       median    28.0
+   ideal      median   586.0
+   matched-pair comparisons (same worlds, same seeds):
+     G2  surge-and-cast vs the Phase 5 gradient rule    29.0 vs     0.0   wins  81.5%   gap  +100.0%   -> YES
+         encounter-frequency variant vs plain cast    28.0 vs    29.0   wins  43.5%   gap    -3.6%   -> no
+
+== Continuous plume (p_hit 1.0, mode plume), 200 agents, 600 steps ==
+   random     median    10.0
+   grad       median     0.0
+   cast       median    22.0
+   freq       median    19.0
+   ideal      median   586.0
+   matched-pair comparisons (same worlds, same seeds):
+     G2  surge-and-cast vs the Phase 5 gradient rule    22.0 vs     0.0   wins  77.5%   gap  +100.0%   -> YES
+         encounter-frequency variant vs plain cast    19.0 vs    22.0   wins  36.0%   gap   -15.8%   -> no
+
+== G3, does the heading memory earn its place? ==
+   Wind direction is mechanosensory and instantaneous. Dead reckoning can only pay
+   when that reference goes away, so the question is asked across p_wind.
+    p_wind  integrate     none     ring   int vs none
+       1.0       29.0     29.0     16.0   wins   0.0% gap    +0.0% -> no
+       0.5       25.0     26.0     15.0   wins  49.5% gap    -4.0% -> no
+       0.2       21.0     21.0     11.0   wins  47.5% gap    +0.0% -> no
+   The `ring` column is Phase 3's adopted RingDiv. Its velocity integration was
+   calibrated at 0.225 deg/step (gain 0.99); measured here it is 0.13 at 5 deg/step
+   and -0.06, sign reversed, at 20. This agent turns up to 40 deg/step.
+
+== G4 as written: the advantage across the two cone conditions ==
+   surge-and-cast advantage over the gradient rule: intermittent +100.0%, continuous cone +100.0%
+   UNREADABLE. The gradient rule scores exactly 0.0 in both, so a percentage
+   gap against it is 100 percent by construction. A cone at p_hit 1.0 is still
+   a boolean signal with nothing to climb, so it was never the right control.
+
+== G4 control, ADDED after the run: Phase 5's smooth Gaussian world ==
+   The gradient rule is given the world it was designed for. If surge-and-cast
+   still beats it here, the advantage is about the two rules and not about plumes.
+
+== Smooth gradient world (p_hit 1.0, mode gradient), 200 agents, 600 steps ==
+   random     median    10.0
+   grad       median   539.5
+   cast       median     7.0
+   freq       median     7.0
+   ideal      median   586.0
+   matched-pair comparisons (same worlds, same seeds):
+     G2  surge-and-cast vs the Phase 5 gradient rule     7.0 vs   539.5   wins   0.0%   gap -7607.1%   -> no
+         encounter-frequency variant vs plain cast     7.0 vs     7.0   wins   0.0%   gap    +0.0%   -> no
+
+   smooth world: gradient rule 539.5, surge-and-cast 7.0
+   plume world:  gradient rule 0.0, surge-and-cast 29.0
+   -> the advantage IS specific to the plume: the gradient rule wins where it has a gradient
+
+== H13 verdict ==
+   G2 pass   G3 FAIL (at any wind availability)   G4 as written unreadable; control says specific

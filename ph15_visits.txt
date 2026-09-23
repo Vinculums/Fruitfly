@@ -1,0 +1,16 @@
+
+neutral, rewarding source: visited by 143/200 agents; steps within 3.0 per block of 600, among visitors: median  22.2; over the whole run: median   200
+   visit = run of steps within 3.0: 3752 visits, steps per visit median    6 (p25   4, p75   9, p90  10); visits per visiting agent median   31; FIRST visit median    8 steps
+   visit = run of steps within 3.0, gaps <= 10 merged: 3709 visits, steps per visit median    6 (p25   4, p75   9, p90  10); visits per visiting agent median   30; FIRST visit median    8 steps
+
+neutral, punishing source: visited by 111/200 agents; steps within 3.0 per block of 600, among visitors: median  21.2; over the whole run: median   191
+   visit = run of steps within 3.0: 2709 visits, steps per visit median    7 (p25   4, p75   9, p90  10); visits per visiting agent median   29; FIRST visit median    8 steps
+   visit = run of steps within 3.0, gaps <= 10 merged: 2671 visits, steps per visit median    7 (p25   4, p75   9, p90  11); visits per visiting agent median   28; FIRST visit median    8 steps
+
+known, rewarding source: visited by 196/200 agents; steps within 3.0 per block of 600, among visitors: median  23.4; over the whole run: median   211
+   visit = run of steps within 3.0: 6099 visits, steps per visit median    6 (p25   4, p75   9, p90  10); visits per visiting agent median   32; FIRST visit median    8 steps
+   visit = run of steps within 3.0, gaps <= 10 merged: 6021 visits, steps per visit median    6 (p25   4, p75   9, p90  11); visits per visiting agent median   31; FIRST visit median    8 steps
+
+known, punishing source: visited by 47/200 agents; steps within 3.0 per block of 600, among visitors: median   1.1; over the whole run: median    10
+   visit = run of steps within 3.0: 62 visits, steps per visit median    9 (p25   7, p75  10, p90  12); visits per visiting agent median    1; FIRST visit median    9 steps
+   visit = run of steps within 3.0, gaps <= 10 merged: 60 visits, steps per visit median    9 (p25   7, p75  10, p90  12); visits per visiting agent median    1; FIRST visit median    9 steps

@@ -1,0 +1,5 @@
+ok  C0: start 20 downwind, 5 crosswind of each source, inside both cones; whiff p 0.0567/0.0566 (table 0.057); overlap width 3.0; cones separate below 14; distance 20.6; walls >= 68; cells 100 each
+ok  C1: start 16 downwind, 5 crosswind of each source, inside both cones; whiff p 0.0791/0.0792 (table 0.079); overlap width 1.0; cones separate below 14; distance 16.8; walls >= 68; cells 100 each
+ok  C2: start 24 downwind, 6 crosswind of each source, inside both cones; whiff p 0.0405/0.0406 (table 0.041); overlap width 3.0; cones separate below 18; distance 24.7; walls >= 68; cells 100 each
+ok  the circuit arm reproduces ph14.Agent3 bitwise (G 0, zero values, cast draw applied to both)
+ok  fixed arms: h constant on every step, the hit equals that channel's whiffs, same cast draw, positions identical up to the step the target first differs (median 5, 40/40 rows diverge in 200 steps)

@@ -1,0 +1,4 @@
+ok  G = 0 reproduces Agent3 over 400 steps; all-zero values reproduce G = 0 bitwise (positions and circuit state)
+ok  every start 20 downwind and 5 crosswind of both sources, inside both cones; walls >= 68; cells 100 each; whiff rate per plume 0.0567 / 0.0566 (expected 0.0567)
+ok  pre-hold: 100.0% hold the neutral odour, none the valued
+ok  priority in a constructed state: negative odour held on 300 (row, step), target = flee side on every one, equal to G = 0's target on the 300 steps both hold it; the valued odour took the hold on 0 (row, step) afterwards

@@ -1,0 +1,45 @@
+== Phase 7.2, H11. 200 runs per cell, K=500 ==
+== Criteria: record:phase7-2-success-criteria, stored before this file existed ==
+== Prediction on record: `gated` gives F2, `parallel` gives F3 ==
+
+   H8 v2 baseline      (parallel=no,  gated=no )
+     F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 22%  rev 200/200  timing 200/200   -> pass
+     F2 sustained: peak 0.935 -> t400 0.003, retains 0.3%   (bound 70%)   -> FAIL
+        t=5:-0.485  t=10:-0.935  t=25:-0.745  t=50:-0.511  t=100:-0.240  t=200:-0.053  t=400:-0.003
+     F3 trace: behavioural -0.727 -> -0.158 (extinguished); acquisition site -0.727 -> -0.158 (22% kept)   -> FAIL
+
+   gated only          (parallel=no,  gated=yes)
+     F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 22%  rev 200/200  timing 200/200   -> pass
+     F2 sustained: peak 1.000 -> t400 1.000, retains 100.0%   (bound 70%)   -> pass
+        t=5:-0.500  t=10:-1.000  t=25:-1.000  t=50:-1.000  t=100:-1.000  t=200:-1.000  t=400:-1.000
+     F3 trace: behavioural -0.727 -> -0.158 (extinguished); acquisition site -0.727 -> -0.158 (22% kept)   -> FAIL
+
+   parallel only       (parallel=yes, gated=no )
+     F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 22%  rev 200/200  timing 200/200   -> pass
+     F2 sustained: peak 0.935 -> t400 0.003, retains 0.3%   (bound 70%)   -> FAIL
+        t=5:-0.485  t=10:-0.935  t=25:-0.745  t=50:-0.511  t=100:-0.240  t=200:-0.053  t=400:-0.003
+     F3 trace: behavioural -0.727 -> -0.158 (extinguished); acquisition site -0.997 -> -0.985 (99% kept)   -> pass
+
+   H11 full            (parallel=yes, gated=yes)
+     F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 22%  rev 200/200  timing 200/200   -> pass
+     F2 sustained: peak 1.000 -> t400 1.000, retains 100.0%   (bound 70%)   -> pass
+        t=5:-0.500  t=10:-1.000  t=25:-1.000  t=50:-1.000  t=100:-1.000  t=200:-1.000  t=400:-1.000
+     F3 trace: behavioural -0.727 -> -0.158 (extinguished); acquisition site -0.997 -> -0.985 (99% kept)   -> pass
+
+== Two-by-two summary ==
+   cell                                      F1    F2    F3   F2 retains   F3 keeps
+   H8 v2 baseline      (parallel=no,  gated=no )  pass  FAIL  FAIL        0.3%        22%
+   gated only          (parallel=no,  gated=yes)  pass  pass  FAIL      100.0%        22%
+   parallel only       (parallel=yes, gated=no )  pass  FAIL  pass        0.3%        99%
+   H11 full            (parallel=yes, gated=yes)  pass  pass  pass      100.0%        99%
+
+   H11 SUPPORTED on all three criteria.
+
+== F6 reacquisition savings (reported, not gated; ADDED after the two-by-two) ==
+   After extinction, ONE re-pairing. A preserved trace should snap back; a trace
+   that was erased has to be relearned from scratch like a naive animal.
+   cell                                trained  extinct  +1 pair  naive+1  savings  % of trained
+   H8 v2 baseline                       -0.727   -0.158   -0.161   -0.110     0.0x           22%
+   gated only                           -0.727   -0.158   -0.161   -0.110     0.0x           22%
+   parallel only                        -0.727   -0.158   -0.161   -0.110     0.0x           22%
+   H11 full                             -0.727   -0.158   -0.161   -0.110     0.0x           22%

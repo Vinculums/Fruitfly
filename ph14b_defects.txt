@@ -1,0 +1,14 @@
+== 1a. the chain inside the agent (neutral, seeds 9600/9700, 2400 steps) ==
+   silence timeout  requests  8652 | value delivered to the circuit: [10.] | consecutive steps with a reset: median   1 | held unit before 1.99, lowest in the next 8 steps 1.49 (threshold 1.0) | global unit peak  6.99 | hold released within 8 steps   0.2%
+   evidence release requests   761 | value delivered to the circuit: [10.] | consecutive steps with a reset: median   3 | held unit before 1.37, lowest in the next 8 steps 0.54 (threshold 1.0) | global unit peak 11.05 | hold released within 8 steps 100.0%
+
+== 1b. bench: a committed circuit, reset of amplitude A for D consecutive steps; lowest value of the held unit, released? ==
+   A   10 | D1: low 1.52 released   0% | D2: low 1.30 released   0% | D3: low 1.14 released   0% | D4: low 0.06 released 100% | D6: low 0.05 released 100% | D8: low 0.04 released 100%
+   A   20 | D1: low 1.38 released   0% | D2: low 1.16 released   0% | D3: low 0.07 released 100% | D4: low 0.06 released 100% | D6: low 0.05 released 100% | D8: low 0.04 released 100%
+   A   40 | D1: low 1.26 released   0% | D2: low 0.09 released 100% | D3: low 0.06 released 100% | D4: low 0.06 released 100% | D6: low 0.05 released 100% | D8: low 0.04 released 100%
+
+== 2. input range against the selection threshold: ONE isolated whiff (x = 1 for one step) ==
+   upstream output: peak 1.76, above 1.0 for 6 steps, above 0.05 for 11 steps  (a raw whiff is 1.0 for 1 step)
+   with the upstream stage    held unit's peak after one whiff 0.76 (threshold 1.0); consecutive whiffs needed to commit: 2
+   raw, no upstream stage     held unit's peak after one whiff 0.10 (threshold 1.0); consecutive whiffs needed to commit: more than 12
+   control 'k = 0' (keep the stage's gain and persistence, remove only the cross-channel division): identical to the adopted stage when one odour is present: True; with both odours present its output is 1.76 against 0.99

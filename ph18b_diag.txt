@@ -1,0 +1,58 @@
+== H20 Run 2 diagnosis (measurement only). this file sha256 55b27b71c63dfc920f2149b6bc47736eb113ca3d38cd0f297a8176eaf3bdb433; ph18.py sha256 26ad4defb7590e16e1030b0b6f8073d3258584baeec06ba66e233315da7c97c3; design v1 doc d3866101cd92f911d hash b88f0769ffc59bc6885ceadb0e4ee9a16e8dcb1a8a656d1edbb6ba1d40e5b115; evaluation seeds (1695, 1795); 400 rows x 600 steps; arms bias (G 2) and pathway-off (G 0) re-run unchanged ==
+   identity: bias V/N/tie (214, 180, 6) and pathway-off (203, 190, 7) equal ph18_eval.txt; dwell recomputed from positions equals the run's dwell
+
+(1) paired majority class, same rows: rows = bias, cols = pathway-off
+   bias V  : pathway-off V 190  pathway-off N  23  pathway-off tie   1
+   bias N  : pathway-off V  13  pathway-off N 167  pathway-off tie   0
+   bias tie: pathway-off V   0  pathway-off N   0  pathway-off tie   6
+   rows the gain moved INTO V 24, OUT of V 13, net 11; unchanged class 363/400
+   paired first hold: rows = bias, cols = pathway-off
+   bias valued : pathway-off valued 210  pathway-off neutral  61  pathway-off none   3
+   bias neutral: pathway-off valued   0  pathway-off neutral 125  pathway-off none   0
+   bias none   : pathway-off valued   0  pathway-off neutral   0  pathway-off none   1
+   first-hold step, paired: bias earlier in 271 rows, same step 126, later 3
+
+(2) dwell steps (within 3.0) at each source, summed over rows, split by the odour held on that step: valued-held / neutral-held / nothing-held
+   bias         all rows  n 400: at valued (5622, 95, 262) (total 5979) | at neutral (387, 3291, 1519) (total 5197)
+   bias         V rows    n 214: at valued (4908, 6, 218) (total 5132) | at neutral (217, 357, 304) (total 878)
+   bias         N rows    n 180: at valued (647, 89, 44) (total 780) | at neutral (170, 2911, 1171) (total 4252)
+   bias         steps with nothing held, fraction per row: mean 0.141; V rows 0.084; N rows 0.205
+   pathway-off  all rows  n 400: at valued (4116, 110, 1355) (total 5581) | at neutral (67, 3649, 1701) (total 5417)
+   pathway-off  V rows    n 203: at valued (3659, 6, 1070) (total 4735) | at neutral (37, 366, 367) (total 770)
+   pathway-off  N rows    n 190: at valued (389, 104, 270) (total 763) | at neutral (30, 3254, 1280) (total 4564)
+   pathway-off  steps with nothing held, fraction per row: mean 0.235; V rows 0.224; N rows 0.245
+
+(3) hold history of the rows of each majority class; releases per row by kind (a timeout or evidence release counted only while something was held)
+   bias         V rows n 214: hold history {'none': 0, 'neutral_only': 0, 'valued_only': 149, 'valued_then_neutral': 37, 'neutral_then_valued': 28}; releases per row: timeout 10.54 evidence 4.25 direct switch 0.02; holds ended 0.71
+   bias         N rows n 180: hold history {'none': 1, 'neutral_only': 76, 'valued_only': 6, 'valued_then_neutral': 77, 'neutral_then_valued': 20}; releases per row: timeout 9.38 evidence 5.16 direct switch 0.04; holds ended 0.87
+   bias         tie    n   6: hold history {'none': 0, 'neutral_only': 0, 'valued_only': 0, 'valued_then_neutral': 5, 'neutral_then_valued': 1}; releases per row: timeout 9.00 evidence 5.50 direct switch 0.17; holds ended 1.17
+   bias         totals: timeout 3998 evidence 1871 direct 14; rows with any release 399/400
+   pathway-off  V rows n 203: hold history {'none': 1, 'neutral_only': 4, 'valued_only': 135, 'valued_then_neutral': 30, 'neutral_then_valued': 33}; releases per row: timeout 9.33 evidence 2.52 direct switch 0.03; holds ended 0.53
+   pathway-off  N rows n 190: hold history {'none': 3, 'neutral_only': 120, 'valued_only': 5, 'valued_then_neutral': 34, 'neutral_then_valued': 28}; releases per row: timeout 9.11 evidence 2.69 direct switch 0.05; holds ended 0.56
+   pathway-off  tie    n   7: hold history {'none': 0, 'neutral_only': 1, 'valued_only': 0, 'valued_then_neutral': 6, 'neutral_then_valued': 0}; releases per row: timeout 8.86 evidence 5.29 direct switch 0.14; holds ended 1.14
+   pathway-off  totals: timeout 3687 evidence 1060 direct 17; rows with any release 395/400
+
+(4) conversion of a valued first hold into a valued majority (dwell measure), same rows in both arms
+   bias: first hold valued, pathway-off ALSO first held valued: n 210; P(V) in bias 165/210 = 0.786; P(V) in pathway-off on the same rows 0.786
+   bias: first hold valued, pathway-off did NOT (gain-induced): n 64; P(V) in bias 21/64 = 0.328; P(V) in pathway-off on the same rows 0.172
+   bias: first hold neutral: n 125; P(V) in bias 28/125 = 0.224; P(V) in pathway-off on the same rows 0.216
+   pathway-off first held valued but bias did not: n 0
+   pathway-off: first hold valued: n 210; P(V) in pathway-off 0.786; in bias on the same rows 0.786 (bias first hold valued there 210)
+   rows both arms first held valued: bias first-hold step median 11, pathway-off 30
+
+(5) hold endings and surviving resets (a reset is the one-step drive 10 into the circuit's pool; RESET_AFTER 40 steps of silence on the held odour, MARGIN 0.2)
+   bias         resets fired while held, hold SURVIVED: 5568 (row, step); flag {'timeout': 3978, 'evidence': 1575, 'both': 15, 'neither': 0}; held unit's s the step before: median 1.99, share >= 4.5 0.00, share < 2.0 0.74
+   bias         hold ENDED: 315 (row, step); flag {'timeout': 5, 'evidence': 296, 'both': 0, 'neither': 14}; held unit's s the step before: median 1.06, share >= 4.5 0.00, share < 2.0 1.00
+   bias         valued hold ended: 212; next hold: same odour 77, other odour 121, none 14; steps to the next hold: median 27; at the ending step the agent had reached the valued source in 111 and the neutral in 53
+   bias         neutral hold ended: 103; next hold: same odour 28, other odour 71, none 4; steps to the next hold: median 12; at the ending step the agent had reached the valued source in 18 and the neutral in 86
+   bias         held unit's s over held steps: valued hold median 1.97 (share >= 4.5 0.01); neutral hold median 1.95 (share >= 4.5 0.00); held steps valued 123880 neutral 82267
+   pathway-off  resets fired while held, hold SURVIVED: 4542 (row, step); flag {'timeout': 3661, 'evidence': 871, 'both': 10, 'neither': 0}; held unit's s the step before: median 1.99, share >= 4.5 0.00, share < 2.0 0.76
+   pathway-off  hold ENDED: 222 (row, step); flag {'timeout': 16, 'evidence': 189, 'both': 0, 'neither': 17}; held unit's s the step before: median 1.06, share >= 4.5 0.00, share < 2.0 1.00
+   pathway-off  valued hold ended: 113; next hold: same odour 30, other odour 71, none 12; steps to the next hold: median 33; at the ending step the agent had reached the valued source in 100 and the neutral in 10
+   pathway-off  neutral hold ended: 109; next hold: same odour 33, other odour 64, none 12; steps to the next hold: median 28; at the ending step the agent had reached the valued source in 20 and the neutral in 90
+   pathway-off  held unit's s over held steps: valued hold median 1.96 (share >= 4.5 0.00); neutral hold median 1.95 (share >= 4.5 0.00); held steps valued 96098 neutral 87404
+
+   bias N rows that held the valued odour first and the neutral odour later (77 in section 3): the valued hold's ending
+   n 77; first valued hold ends at step median 40; flag at that step: timeout 0, evidence 76, neither 1; by then the valued source had been reached in 35 rows, the neutral in 17, neither in 26
+   distance at that step: to the valued source median 12.1, to the neutral median 8.9; nearer the neutral in 75 rows
+   whiffs before that step, per row: valued plume mean 3.2, neutral plume mean 2.2; after it: valued 1.7, neutral 9.1

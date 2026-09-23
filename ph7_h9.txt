@@ -1,0 +1,68 @@
+== Phase 7.1, H9. 200 runs per cell ==
+== Criteria: record:phase7-1-success-criteria, stored before this file existed ==
+
+== Control: the adopted bistable circuit, reset never driven ==
+   D3 is expected to fail here. If it does not, H9 is not needed.
+   bistable (adopted)
+     D1 hard cue c/w/a         121/  4/ 75   (bound: wrong <= 5)
+     D2 held through delay     200 of 200 committed   (bound 95%)
+     D3 revised by evidence      0 of 200 committed   (bound 90%)  <- the new one
+     D4 resisted distractor    200 of 200 committed   (bound 95%)
+     D6 idle, no commitment    200 of 200   (bound 98%)
+     D5 wrong by input scale   [3, 4, 4, 4, 5]   (bound 5 each)
+     D1 pass  D2 pass  D3 FAIL  D4 pass  D6 pass  D5 pass
+
+== H9 sweep: self-excitation J against pool weight c ==
+   Reported in full including settings that fail, per E1. D3 and D4 are the pair
+   that matters; a setting that passes one by failing the other does not support H9.
+       J     c |  D1w      D2      D3      D4   D6 | both D3+D4?
+     0.8   0.5 |   82 200/200 200/200   0/200  200 | .
+     0.8   1.0 |  125   0/0   200/200   0/200  200 | .
+     0.8   2.0 |    0   0/0     0/0     0/0    200 | .
+     1.0   0.5 |   32 200/200 200/200   0/200  200 | .
+     1.0   1.0 |  118   0/0   200/200   0/200  200 | .
+     1.0   2.0 |    0   0/0     0/0     0/0    200 | .
+     1.2   0.5 |   44 200/200 200/200 200/200  200 | YES
+     1.2   1.0 |  111   0/0   200/200   0/200  200 | .
+     1.2   2.0 |    0   0/0     0/0     0/0    200 | .
+     1.5   0.5 |  112 200/200 200/200 200/200  200 | YES
+     1.5   1.0 |   88 161/161 200/200   0/200  200 | .
+     1.5   2.0 |    0   0/0     0/0     0/0    200 | .
+     2.0   0.5 |  132 200/200   0/200 200/200   93 | .
+     2.0   1.0 |   32 200/200 200/200   0/200  103 | .
+     2.0   2.0 |    0   0/0     0/0     0/0    200 | .
+
+   settings passing D3 and D4 together: [(1.2, 0.5), (1.5, 0.5)]
+
+== Second sweep (added after D1 failed): integration time tau ==
+       J     c   tau |   D1w      D2      D3      D4   D6 | all?
+     1.2   0.5  10.0 |    44 200/200 200/200 200/200  200 | .
+     1.2   0.5  20.0 |    31 200/200 200/200 200/200  200 | .
+     1.2   0.5  40.0 |    27 200/200 200/200 200/200  200 | .
+     1.2   0.5  80.0 |    21 137/137 197/200 200/200  200 | .
+     1.5   0.5  10.0 |   112 200/200 200/200 200/200  200 | .
+     1.5   0.5  20.0 |    75 200/200 200/200 200/200  200 | .
+     1.5   0.5  40.0 |    44 200/200   0/200 200/200  200 | .
+     1.5   0.5  80.0 |    31 190/190   4/200 200/200  200 | .
+
+   settings passing every criterion except D5: NONE
+
+== H9 gate: the full battery on the settings that passed D3 and D4 ==
+   graded J=1.2 c=0.5
+     D1 hard cue c/w/a         156/ 44/  0   (bound: wrong <= 5)
+     D2 held through delay     200 of 200 committed   (bound 95%)
+     D3 revised by evidence    200 of 200 committed   (bound 90%)  <- the new one
+     D4 resisted distractor    200 of 200 committed   (bound 95%)
+     D6 idle, no commitment    200 of 200   (bound 98%)
+     D5 wrong by input scale   [61, 47, 44, 45, 45]   (bound 5 each)
+     D1 FAIL  D2 pass  D3 pass  D4 pass  D6 pass  D5 FAIL
+     -> H9 not supported at this setting
+   graded J=1.5 c=0.5
+     D1 hard cue c/w/a          88/112/  0   (bound: wrong <= 5)
+     D2 held through delay     200 of 200 committed   (bound 95%)
+     D3 revised by evidence    200 of 200 committed   (bound 90%)  <- the new one
+     D4 resisted distractor    200 of 200 committed   (bound 95%)
+     D6 idle, no commitment    200 of 200   (bound 98%)
+     D5 wrong by input scale   [114, 112, 112, 112, 111]   (bound 5 each)
+     D1 FAIL  D2 pass  D3 pass  D4 pass  D6 pass  D5 FAIL
+     -> H9 not supported at this setting

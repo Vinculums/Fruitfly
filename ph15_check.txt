@@ -1,0 +1,4 @@
+ok  one odour (channel 0), 2000 steps of random whiffs: largest output difference 0.0
+ok  one odour (channel 1), 2000 steps of random whiffs: largest output difference 0.0
+ok  both odours, 2000 steps: the filtered drive is identical in the two stages, and y_adopted*(sig^n + P + k*others) == y_control*(sig^n + P) to 2.2e-16
+    when both odours are active the adopted output is on average 0.56 of the control's (1606 steps)

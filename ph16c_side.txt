@@ -1,0 +1,4 @@
+== A1(b) diagnosis on the development seeds (9820, 9920). this file sha256 0096a727134ef6b807818998041eabad1459fef0a624db0bf170cb0feb545d28 ==
+   initial cast side adopted (+1 all rows) : reached +y first 25/400 = 0.062; no-choice 0; first hold on the +y odour 90/394; first-approach step median 31
+   initial cast side flipped (-1 all rows) : reached +y first 385/400 = 0.963; no-choice 0; first hold on the +y odour 313/398; first-approach step median 31
+   initial cast side drawn per row         : reached +y first 198/400 = 0.495; no-choice 0; first hold on the +y odour 197/398; first-approach step median 31

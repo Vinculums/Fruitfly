@@ -1,0 +1,9 @@
+point -1.175030948500982  lower -1.9498143089941073  upper -0.5006189700196425  bar -0.5  upper <= bar: True  -> PASS
+distinct pre-test values of the punished odour (rounded to 1e-6) and their counts:
+   -2.000000  x 115
+   -1.949814  x 76
+   -1.899629  x 8
+   -1.849443  x 1
+   -0.500619  x 103
+   -0.300743  x 76
+   -0.100867  x 21

@@ -1,0 +1,48 @@
+== H19 (a), DEV. 200 agents, 5400 steps, two-source world ==
+== Criteria: record:h19-success-criteria, stored before this file existed ==
+
+== neutral. world seed 9600, agent seed 9700 ==
+   bare     late unrecovered   0.5% (1/200; start rewarding 1/118, start punishing 0/82) | dwell last third: rewarding  18.0 punishing   0.0 total  23.7 | visited rewarding  79.0% punishing  64.0% both  43.0% | contacts/agent   0.1
+            nothing held on   nan% of steps; losses of the hold 0, held again after median   nan steps, never again   nan% | handed to navigation: nothing held 100.0% of 17954 whiffs, other odour held   nan%
+   full     late unrecovered   9.5% (19/200; start rewarding 10/118, start punishing 9/82) | dwell last third: rewarding  15.8 punishing   0.0 total  23.0 | visited rewarding  66.0% punishing  50.0% both  16.5% | contacts/agent   6.5
+            nothing held on   8.1% of steps; losses of the hold 275, held again after median    55 steps, never again   6.5% | handed to navigation: nothing held   0.0% of 1436 whiffs, other odour held   0.0%
+   fix      late unrecovered   0.5% (1/200; start rewarding 0/118, start punishing 1/82) | dwell last third: rewarding  16.8 punishing   0.0 total  24.0 | visited rewarding  71.5% punishing  55.5% both  27.0% | contacts/agent   0.1
+            nothing held on   4.0% of steps; losses of the hold 206, held again after median    39 steps, never again   1.5% | handed to navigation: nothing held 100.0% of 1207 whiffs, other odour held   0.0%
+   no-hold  late unrecovered   0.0% (0/200; start rewarding 0/118, start punishing 0/82) | dwell last third: rewarding  19.0 punishing   0.0 total  24.7 | visited rewarding  80.0% punishing  64.0% both  44.0% | contacts/agent   0.0
+            nothing held on  89.7% of steps; losses of the hold 7008, held again after median   142 steps, never again   2.6% | handed to navigation: nothing held   nan% of 0 whiffs, other odour held   nan%
+
+== known. world seed 9600, agent seed 9700 ==
+   full     late unrecovered  10.0% (20/200; start rewarding 3/118, start punishing 17/82) | dwell last third: rewarding  22.7 punishing   0.0 total  22.7 | visited rewarding  97.0% punishing  29.5% both  28.0% | contacts/agent   7.3
+            nothing held on  12.6% of steps; losses of the hold 366, held again after median    64 steps, never again   7.7% | handed to navigation: nothing held   0.0% of 1793 whiffs (rewarded odour   0.0%, punished odour   0.0%), other odour held   0.0%
+            start in the punishing plume: punishing dwell median   0.0, reached the rewarding source  93.9%, rewarding dwell median  21.3
+   fix      late unrecovered   2.5% (5/200; start rewarding 0/118, start punishing 5/82) | dwell last third: rewarding  24.0 punishing   0.0 total  24.0 | visited rewarding  98.0% punishing  23.5% both  22.0% | contacts/agent   1.7
+            nothing held on   7.3% of steps; losses of the hold 370, held again after median    46 steps, never again   2.4% | handed to navigation: nothing held  76.6% of 1782 whiffs (rewarded odour 100.0%, punished odour   0.0%), other odour held   0.0%
+            start in the punishing plume: punishing dwell median   0.0, reached the rewarding source  95.1%, rewarding dwell median  23.7
+   no-hold  late unrecovered  25.0% (50/200; start rewarding 21/118, start punishing 29/82) | dwell last third: rewarding  20.7 punishing   0.0 total  20.7 | visited rewarding  79.5% punishing  28.0% both  14.5% | contacts/agent  10.7
+            nothing held on  92.5% of steps; losses of the hold 5201, held again after median   142 steps, never again   3.6% | handed to navigation: nothing held   nan% of 0 whiffs (rewarded odour   nan%, punished odour   nan%), other odour held   nan%
+            start in the punishing plume: punishing dwell median   0.0, reached the rewarding source  50.0%, rewarding dwell median   6.5
+
+== distractor (known valence + background whiffs of the punished odour, p 0.03). world seed 9601, agent seed 9701 ==
+   full     late unrecovered   0.0% (0/200; start rewarding 0/98, start punishing 0/102) | dwell last third: rewarding   0.0 punishing   0.0 total   0.0 | visited rewarding  89.0% punishing  33.5% both  31.5% | contacts/agent  19.0
+            nothing held on   4.8% of steps; losses of the hold 507, held again after median    62 steps, never again   0.0% | handed to navigation: nothing held   0.0% of 3009 whiffs (rewarded odour   0.0%, punished odour   0.0%), other odour held   0.0%
+            start in the punishing plume: punishing dwell median   0.0, reached the rewarding source  81.4%, rewarding dwell median   0.0
+   fix      late unrecovered   0.0% (0/200; start rewarding 0/98, start punishing 0/102) | dwell last third: rewarding   0.0 punishing   0.0 total   0.0 | visited rewarding  89.5% punishing  32.0% both  30.5% | contacts/agent  19.3
+            nothing held on   3.8% of steps; losses of the hold 304, held again after median    72 steps, never again   0.0% | handed to navigation: nothing held  31.9% of 2092 whiffs (rewarded odour 100.0%, punished odour   0.0%), other odour held   0.0%
+            start in the punishing plume: punishing dwell median   0.0, reached the rewarding source  83.3%, rewarding dwell median   0.0
+   no-hold  late unrecovered   0.0% (0/200; start rewarding 0/98, start punishing 0/102) | dwell last third: rewarding   0.0 punishing   0.0 total   0.0 | visited rewarding  43.0% punishing   8.5% both   1.0% | contacts/agent 886.0
+            nothing held on  71.0% of steps; losses of the hold 23427, held again after median    23 steps, never again   0.6% | handed to navigation: nothing held   nan% of 0 whiffs (rewarded odour   nan%, punished odour   nan%), other odour held   nan%
+            start in the punishing plume: punishing dwell median   0.0, reached the rewarding source  19.6%, rewarding dwell median   0.0
+
+== criteria ==
+   N1 recovery, neutral: fix 0.5% vs bare 0.5% + 2.0 (all), + 4.0 (each start group): [np.True_, np.True_, np.True_]
+   N2 at most half of full's: neutral 0.5 vs 9.5, known 2.5 vs 10.0: [np.True_, np.True_]
+   N3 mechanism and boundary (>=99 handed when nothing held: neutral, known rewarded odour; 0 handed: other held neutral, other held known, punished odour with nothing held): [True, True, True, True, True]
+   N4 avoidance kept, punishing-plume start: punishing dwell 0.0 <= 1.0; reached rewarding 95.1% vs full 93.9% - 5: [True, np.True_]
+   N5 no harm: neutral total dwell 24.0 vs 23.0; known rewarding dwell 24.0 vs 22.7: [True, True]
+   separate reading: losses never followed by a hold, neutral: fix 1.5% vs full 6.5% -> selection recovers as well
+   N6 distractor, rewarding dwell last third (reported):
+     full vs no-hold                                  0.0 vs     0.0   wins   6.0%   gap    +nan%   -> no
+     fix vs no-hold                                   0.0 vs     0.0   wins   4.0%   gap    +nan%   -> no
+      late unrecovered: full 0.0%  fix 0.0%  no-hold 0.0%  -> the hold does NOT earn its place here
+
+== H19 (a) ==  N1 pass  N2 pass  N3 pass  N4 pass  N5 pass  -> SUPPORTED

@@ -1,0 +1,189 @@
+== H16 Run 2 DEV. 200 agents, 9 blocks of 600 steps, one persistent world ==
+== Pre-registration: record:h16-run2-success-criteria, stored before this file existed ==
+
+== W-cone: walls 160 apart, cone start, Run 1 frame + 60. world seed 9200, agent seed 9300 ==
+   random    last third: median    0.0 mean    0.7  p10/25/75/90   0.0   0.0   0.0   3.3  >floor+10:   0.0% | first third median    0.0 | late unrecovered  54.0%  lost at end  95.0%  reached ever  60.0%
+             per block  median score     0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       26.5   7.5   4.0   7.0   8.0   6.0   9.5   6.5   6.0
+                        % with whiff    81.0  22.0  15.0  17.5  20.5  18.0  24.5  18.0  16.5
+                        % near wall      1.2   2.5   2.9   2.2   2.2   2.3   2.4   2.8   2.3
+                        contacts/agent   1.4   2.8   3.2   2.6   2.6   2.6   2.8   3.1   2.6
+                        % touching      53.5  77.5  84.5  79.5  74.5  77.5  79.5  83.0  79.0
+             exposure   contacts per agent over the run: mean    23.8 median     23;  never touch a wall   0.0%, never after block 1   0.0%
+   oracle    last third: median  600.0 mean  600.0  p10/25/75/90 600.0 600.0 600.0 600.0  >floor+10: 100.0% | first third median  594.7 | late unrecovered   0.0%  lost at end   0.0%  reached ever 100.0%
+             exposure   contacts per agent over the run: mean     0.0 median      0;  never touch a wall 100.0%, never after block 1 100.0%
+   control   last third: median    0.0 mean    0.8  p10/25/75/90   0.0   0.0   0.0   0.0  >floor+10:   4.0% | first third median   15.7 | late unrecovered  94.0%  lost at end  99.0%  reached ever  99.0%
+             per block  median score    26.0  16.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       99.0  69.5  42.0  29.5  19.0   9.5   6.0   3.5   1.5
+                        % with whiff    99.0  69.0  43.0  29.0  19.0  10.0   6.0   3.5   1.5
+                        % near wall      4.5  31.7  56.0  69.7  79.7  88.6  93.1  94.9  96.6
+                        contacts/agent   9.8  68.5 121.2 150.9 172.8 191.2 200.8 206.7 209.0
+                        % touching      15.5  49.5  65.5  75.5  86.5  93.0  96.0  97.0  99.0
+             exposure   contacts per agent over the run: mean  1330.8 median   1444;  never touch a wall   1.0%, never after block 1   1.0%
+             recovery   lost events  1767  recovered  88.8%  reacquisition median    152  p90    170  without wall contact 100.0%
+   return    last third: median   23.0 mean   23.5  p10/25/75/90  17.3  20.3  26.7  30.0  >floor+10:  99.5% | first third median   24.8 | late unrecovered   0.5%  lost at end  15.5%  reached ever 100.0%
+             per block  median score    27.0  24.0  24.0  23.0  23.0  22.0  22.5  23.0  23.0
+                        % scoring      100.0 100.0 100.0 100.0 100.0  99.5  99.5  99.5  99.5
+                        % with whiff   100.0 100.0 100.0 100.0  99.5  99.5  99.5  99.5  99.5
+                        % near wall      0.0   0.0   0.0   0.0   0.0   0.0   0.1   0.1   0.0
+                        contacts/agent   0.0   0.0   0.0   0.0   0.0   0.0   0.1   0.1   0.1
+                        % touching       0.0   0.0   0.0   0.0   0.0   0.5   0.5   0.5   0.5
+             exposure   contacts per agent over the run: mean     0.2 median      0;  never touch a wall  99.5%, never after block 1  99.5%
+             recovery   lost events  5830  recovered  99.5%  reacquisition median    153  p90    204  without wall contact 100.0%
+
+== W-lost: walls 160 apart, lost start, Run 1 frame + 60. world seed 9201, agent seed 9301 ==
+   random    last third: median    0.0 mean    0.8  p10/25/75/90   0.0   0.0   0.0   3.3  >floor+10:   0.0% | first third median    0.0 | late unrecovered  54.5%  lost at end  96.5%  reached ever  56.5%
+             per block  median score     0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       20.0   6.5  11.0   5.0  10.0   8.5   7.5   9.0   8.0
+                        % with whiff    47.0  20.0  18.5  17.5  19.5  17.5  20.0  18.5  16.5
+                        % near wall      1.5   2.5   2.4   2.4   2.6   2.5   2.7   2.3   2.1
+                        contacts/agent   1.6   2.9   2.8   2.7   3.0   3.0   3.2   2.6   2.4
+                        % touching      61.5  81.0  78.5  78.0  81.5  77.5  80.5  79.5  74.0
+             exposure   contacts per agent over the run: mean    24.3 median     24;  never touch a wall   0.0%, never after block 1   0.0%
+   oracle    last third: median  600.0 mean  600.0  p10/25/75/90 600.0 600.0 600.0 600.0  >floor+10: 100.0% | first third median  590.7 | late unrecovered   0.0%  lost at end   0.0%  reached ever 100.0%
+             exposure   contacts per agent over the run: mean     0.0 median      0;  never touch a wall 100.0%, never after block 1 100.0%
+   control   last third: median    0.0 mean    0.4  p10/25/75/90   0.0   0.0   0.0   0.0  >floor+10:   1.5% | first third median    0.0 | late unrecovered  97.5%  lost at end  98.5%  reached ever  23.5%
+             per block  median score     0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       23.5  16.0  11.0   9.0   5.5   3.0   2.5   1.5   1.5
+                        % with whiff    23.5  16.0  11.0   8.5   5.5   3.0   2.5   1.5   1.5
+                        % near wall     40.6  82.4  87.1  89.9  92.7  94.7  95.9  96.8  96.8
+                        contacts/agent  88.8 179.2 188.5 194.6 201.3 206.8 207.8 211.9 207.6
+                        % touching      80.5  85.5  90.0  93.0  95.5  97.0  98.5  98.5  98.5
+             exposure   contacts per agent over the run: mean  1686.6 median   1806;  never touch a wall   1.5%, never after block 1   1.5%
+             recovery   lost events   621  recovered  68.3%  reacquisition median    152  p90    170  without wall contact 100.0%
+   return    last third: median   17.0 mean   12.3  p10/25/75/90   0.0   0.0  24.1  27.0  >floor+10:  51.5% | first third median   11.2 | late unrecovered  48.5%  lost at end  57.0%  reached ever  51.5%
+             per block  median score     0.0   7.0  13.0  12.0   9.0   9.0   9.0   9.0  11.0
+                        % scoring       46.0  51.0  51.5  51.5  51.5  51.5  51.5  51.5  51.5
+                        % with whiff    47.0  51.0  51.5  51.5  51.5  51.5  51.5  51.5  51.5
+                        % near wall      0.0   0.3   2.4   4.2   4.5   4.6   4.7   4.7   4.6
+                        contacts/agent   0.0   0.5   2.8   5.6   6.1   6.3   6.4   6.4   6.2
+                        % touching       0.0   9.0  34.0  48.5  48.5  48.5  48.5  48.5  48.5
+             exposure   contacts per agent over the run: mean    40.3 median      0;  never touch a wall  51.5%, never after block 1  51.5%
+             recovery   lost events  3061  recovered  96.3%  reacquisition median    153  p90    206  without wall contact 100.0%
+
+== O-cone: NO walls, cone start, Run 1 frame + 60. world seed 9202, agent seed 9302 ==
+   random    last third: median    0.0 mean    0.1  p10/25/75/90   0.0   0.0   0.0   0.0  >floor+10:   0.0% | first third median    0.0 | late unrecovered  92.5%  lost at end  99.5%  reached ever  28.5%
+             per block  median score     0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       17.0   4.0   4.5   2.0   2.0   2.0   2.0   1.5   1.5
+                        % with whiff    78.0  10.5   7.0   5.5   4.5   3.0   3.5   2.5   2.0
+   oracle    last third: median  600.0 mean  600.0  p10/25/75/90 600.0 600.0 600.0 600.0  >floor+10: 100.0% | first third median  594.7 | late unrecovered   0.0%  lost at end   0.0%  reached ever 100.0%
+   control   last third: median    0.0 mean    1.1  p10/25/75/90   0.0   0.0   0.0   0.0  >floor+10:   5.0% | first third median   19.7 | late unrecovered  92.0%  lost at end  98.5%  reached ever  98.5%
+             per block  median score    25.0  21.0   4.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       98.5  75.0  52.5  32.5  19.5  14.5   8.0   5.0   2.0
+                        % with whiff    99.0  75.5  52.5  32.0  19.5  15.0   8.0   5.0   2.0
+             recovery   lost events  1986  recovered  90.1%  reacquisition median    152  p90    170  without wall contact 100.0%
+   return    last third: median   24.5 mean   24.3  p10/25/75/90  19.3  22.0  26.7  30.3  >floor+10:  99.0% | first third median   24.7 | late unrecovered   1.0%  lost at end  19.0%  reached ever 100.0%
+             per block  median score    26.0  25.0  23.0  25.0  23.0  23.0  24.0  25.0  24.0
+                        % scoring       99.5  99.5 100.0 100.0 100.0 100.0  99.0  99.0  99.0
+                        % with whiff   100.0 100.0 100.0 100.0 100.0  99.5  99.0  99.0  99.0
+             recovery   lost events  5786  recovered  99.3%  reacquisition median    153  p90    204  without wall contact 100.0%
+
+== O-lost: NO walls, lost start, Run 1 frame + 60. world seed 9203, agent seed 9303 ==
+   random    last third: median    0.0 mean    0.1  p10/25/75/90   0.0   0.0   0.0   0.0  >floor+10:   0.0% | first third median    0.0 | late unrecovered  95.5%  lost at end  99.5%  reached ever  29.5%
+             per block  median score     0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       17.0   5.0   3.5   5.0   1.5   1.0   1.0   0.5   1.0
+                        % with whiff    50.5  11.0  12.0   9.5   3.0   3.0   1.5   2.0   1.5
+   oracle    last third: median  600.0 mean  600.0  p10/25/75/90 600.0 600.0 600.0 600.0  >floor+10: 100.0% | first third median  592.0 | late unrecovered   0.0%  lost at end   0.0%  reached ever 100.0%
+   control   last third: median    0.0 mean    0.2  p10/25/75/90   0.0   0.0   0.0   0.0  >floor+10:   1.0% | first third median    0.0 | late unrecovered  98.5%  lost at end 100.0%  reached ever  25.0%
+             per block  median score     0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       25.0  16.5  10.0   7.0   5.0   3.5   1.5   0.5   0.0
+                        % with whiff    24.0  17.0  10.0   7.0   5.0   3.0   1.5   0.5   0.0
+             recovery   lost events   590  recovered  66.1%  reacquisition median    153  p90    179  without wall contact 100.0%
+   return    last third: median   18.8 mean   13.9  p10/25/75/90   0.0   0.0  24.3  27.3  >floor+10:  59.0% | first third median   15.7 | late unrecovered  41.0%  lost at end  48.0%  reached ever  60.0%
+             per block  median score     3.0  15.0  16.0  15.5  16.0  17.0  15.0  16.0  16.0
+                        % scoring       52.5  59.5  59.5  59.5  59.0  59.0  59.0  59.0  59.0
+                        % with whiff    52.5  59.5  59.5  59.5  58.5  59.0  59.0  59.0  59.0
+             recovery   lost events  3454  recovered  97.2%  reacquisition median    153  p90    206  without wall contact 100.0%
+
+== Reference, reported only: Run 1's 40x40 arena on W-cone's seeds (9200, 9300). Same initial states, only the walls moved. ==
+   random    last third: median    9.3 mean   10.4  p10/25/75/90   3.3   5.7  14.0  19.7  >floor+10:  10.5% | first third median    9.7 | late unrecovered   0.0%  lost at end  31.0%  reached ever 100.0%
+             per block  median score     9.0  10.0   9.0  10.0   9.0   8.0   8.0  10.0   9.0
+                        % scoring       75.0  76.0  75.5  72.0  72.0  72.0  69.5  79.0  73.0
+                        % with whiff   100.0  99.5  99.5 100.0  99.0  99.5 100.0  99.5  99.0
+                        % near wall      9.4   9.7   9.7  10.0   9.7   9.8   9.6   9.6  10.0
+                        contacts/agent  11.1  11.4  11.2  11.8  11.5  11.3  11.3  11.4  11.6
+                        % touching     100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+             exposure   contacts per agent over the run: mean   102.6 median    102;  never touch a wall   0.0%, never after block 1   0.0%
+   control   last third: median    0.0 mean    0.0  p10/25/75/90   0.0   0.0   0.0   0.0  >floor+10:   0.0% | first third median    3.0 | late unrecovered  99.0%  lost at end 100.0%  reached ever  82.5%
+             per block  median score     9.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       82.5   2.5   0.5   0.0   0.0   0.5   0.0   0.5   0.0
+                        % with whiff    90.5   1.5   0.5   0.0   0.0   0.5   0.5   0.5   0.0
+                        % near wall     69.0  97.4  98.2  98.2  98.3  98.3  98.3  98.2  98.3
+                        contacts/agent 145.9 213.4 216.9 215.4 217.1 217.1 216.2 215.8 216.5
+                        % touching     100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+             exposure   contacts per agent over the run: mean  1874.5 median   1883;  never touch a wall   0.0%, never after block 1   0.0%
+             recovery   lost events   224  recovered  10.7%  reacquisition median    150  p90   2346  without wall contact   4.2%
+   return    last third: median    9.0 mean    9.2  p10/25/75/90   3.3   5.7  12.4  15.4  >floor+10:   2.0% | first third median   11.3 | late unrecovered   2.5%  lost at end  60.0%  reached ever 100.0%
+             per block  median score    16.0   9.0  10.0   9.0  10.0  10.0   8.0   8.0   9.0
+                        % scoring       96.0  74.5  72.5  76.5  75.5  79.5  76.0  75.0  74.5
+                        % with whiff    98.5  84.0  78.5  84.5  82.5  83.5  83.0  81.0  83.0
+                        % near wall     32.2  33.3  32.5  32.7  32.8  33.1  32.5  32.5  32.7
+                        contacts/agent  58.5  59.9  58.3  59.0  59.1  59.7  57.5  58.2  58.8
+                        % touching     100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+             exposure   contacts per agent over the run: mean   529.0 median    528;  never touch a wall   0.0%, never after block 1   0.0%
+             recovery   lost events  2004  recovered  94.0%  reacquisition median    385  p90    821  without wall contact   0.2%
+
+== K1 validity, W-cone, last third ==
+   (a) oracle 600.0 - random 0.0 >= 10: True
+   (b) no rule arm at 99 percent of 600: True
+   (c) control late unrecovered 94.0% >= 50%: True
+   (d) return clears random + 10: True
+
+== return ==
+     K2 return vs control, last third                23.0 vs     0.0   wins  99.0%   gap  +100.0%   -> YES
+   K2 clears floor (23.0 >= 10.0) True, sustained (>= half of first 24.8) True, beats control True -> pass   [reported: clears Run 1's absolute bar of 20.0: True]
+   K3 W-cone late unrecovered 0.5% <= 10: True;  W-lost reached 51.5% >= 75: False, late unrecovered 48.5% <= 10: False, last third 17.0 >= 10.0: True -> FAIL
+   K4 O-cone late unrecovered 1.0%, last third 24.5 (random 0.0) -> boundary-INDEPENDENT
+
+== H16 Run 2 Stage A verdict ==  K1 pass  K2 pass  K3 FAIL -> not supported
+
+== K5 Stage B: `return`, ring exactly as adopted (H14) and cued (H15), noise 0.3. Nothing changed. ==
+   (a) W-cone, wind cue every step, seeds (9200, 9300) so `exact` IS the Stage A arm
+   exact     last third: median   23.0 mean   23.5  p10/25/75/90  17.3  20.3  26.7  30.0  >floor+10:  99.5% | first third median   24.8 | late unrecovered   0.5%  lost at end  15.5%  reached ever 100.0%
+             per block  median score    27.0  24.0  24.0  23.0  23.0  22.0  22.5  23.0  23.0
+                        % scoring      100.0 100.0 100.0 100.0 100.0  99.5  99.5  99.5  99.5
+                        % with whiff   100.0 100.0 100.0 100.0  99.5  99.5  99.5  99.5  99.5
+                        % near wall      0.0   0.0   0.0   0.0   0.0   0.0   0.1   0.1   0.0
+                        contacts/agent   0.0   0.0   0.0   0.0   0.0   0.0   0.1   0.1   0.1
+                        % touching       0.0   0.0   0.0   0.0   0.0   0.5   0.5   0.5   0.5
+             exposure   contacts per agent over the run: mean     0.2 median      0;  never touch a wall  99.5%, never after block 1  99.5%
+             recovery   lost events  5830  recovered  99.5%  reacquisition median    153  p90    204  without wall contact 100.0%
+   ring      last third: median   23.7 mean   23.8  p10/25/75/90  18.0  20.9  27.0  28.3  >floor+10: 100.0% | first third median   25.7 | late unrecovered   0.0%  lost at end  12.5%  reached ever 100.0%
+             per block  median score    27.0  25.0  24.0  23.0  23.0  23.0  24.0  23.0  23.0
+                        % scoring      100.0 100.0 100.0 100.0 100.0 100.0 100.0  99.5 100.0
+                        % with whiff   100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0 100.0
+                        % near wall      0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        contacts/agent   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % touching       0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+             exposure   contacts per agent over the run: mean     0.0 median      0;  never touch a wall 100.0%, never after block 1 100.0%
+             recovery   lost events  5853  recovered  99.6%  reacquisition median    153  p90    204  without wall contact 100.0%
+   ring last third 23.7 >= 75% of exact 23.0: True;  late unrecovered 0.0% <= 10: True;  heading error > 45 deg in 0.00% of agent-steps < 5: True  -> K5(a) pass
+
+   (b) OPEN PLANE, cue dropout 50 off / 50 on, seeds (9202, 9302) so `exact` IS Stage A's O-cone arm
+   exact     last third: median   24.5 mean   24.3  p10/25/75/90  19.3  22.0  26.7  30.3  >floor+10:  99.0% | first third median   24.7 | late unrecovered   1.0%  lost at end  19.0%  reached ever 100.0%
+             per block  median score    26.0  25.0  23.0  25.0  23.0  23.0  24.0  25.0  24.0
+                        % scoring       99.5  99.5 100.0 100.0 100.0 100.0  99.0  99.0  99.0
+                        % with whiff   100.0 100.0 100.0 100.0 100.0  99.5  99.0  99.0  99.0
+             recovery   lost events  5786  recovered  99.3%  reacquisition median    153  p90    204  without wall contact 100.0%
+   none      last third: median    0.0 mean    0.7  p10/25/75/90   0.0   0.0   0.0   0.0  >floor+10:   2.0% | first third median    6.0 | late unrecovered  96.0%  lost at end  98.0%  reached ever  88.0%
+             per block  median score    13.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       85.5  15.0   7.5   7.5   5.5   2.5   1.5   2.0   2.0
+                        % with whiff    97.0  15.0  10.5   8.0   6.0   4.0   2.0   2.0   2.0
+             recovery   lost events   445  recovered  56.0%  reacquisition median    195  p90   1431  without wall contact 100.0%
+             heading error > 45 deg: 33.12% of all steps, 66.24% of cue-off steps
+   ring      last third: median    0.0 mean    4.0  p10/25/75/90   0.0   0.0   1.4  18.0  >floor+10:  17.0% | first third median   14.5 | late unrecovered  74.0%  lost at end  88.5%  reached ever  86.0%
+             per block  median score    19.0  13.0   8.0   0.0   0.0   0.0   0.0   0.0   0.0
+                        % scoring       76.0  65.0  58.0  48.0  43.5  32.0  25.5  19.5  17.0
+                        % with whiff    92.0  69.0  60.0  48.5  44.0  32.0  26.0  20.5  17.5
+             recovery   lost events  2116  recovered  91.6%  reacquisition median    162  p90    224  without wall contact 100.0%
+             heading error > 45 deg:  0.37% of all steps,  0.72% of cue-off steps
+   integrate last third: median   23.3 mean   20.6  p10/25/75/90   0.0  19.3  26.3  29.1  >floor+10:  85.0% | first third median   23.2 | late unrecovered  15.0%  lost at end  28.0%  reached ever  85.5%
+             per block  median score    23.0  23.0  22.5  23.0  21.0  22.0  23.0  23.5  20.0
+                        % scoring       80.0  84.5  85.5  85.5  85.5  85.5  85.0  85.0  85.0
+                        % with whiff    94.5  84.5  85.5  85.5  85.5  85.5  85.0  85.0  85.0
+             recovery   lost events  4938  recovered  98.9%  reacquisition median    153  p90    205  without wall contact 100.0%
+             heading error > 45 deg:  0.18% of all steps,  0.35% of cue-off steps
+   instrument check: perfect integrator > 45 deg wrong on 0.35% of cue-off steps < 1: True
+   ring under dropout 0.0 vs exact 24.5, late unrecovered 74.0% -> NOT maintained under cue loss
+     memory effect: ring vs none under dropout        0.0 vs     0.0   wins  26.0%   gap    +nan%   -> no
+     reference: perfect integrator vs none           23.3 vs     0.0   wins  83.5%   gap  +100.0%   -> YES

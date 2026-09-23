@@ -1,0 +1,37 @@
+== H20 diagnosis after the G bench (measurement only). this file sha256 b0a918b173f95f7d1e00355f4ac492079884529214913aae62df37ea96e9dad1; bench conditions {'rows': 400, 'steps': 200, 'rates': (0.057, 0.3), 'cands': (0.0, 0.5, 1.0, 2.0), 'seed_w': 20260921, 'seed_a': 20260922}; criterion rate p 0.057 ==
+
+(1) where the gain enters: bench variants with the gain in one place only
+   G 0.0 both    : first hold biased 200/395 = 0.506 [0.457, 0.555] (= registered bench); end state over 400: biased 19.2% unbiased 20.5% none 60.2%; releases fired: evidence 6386 timeout 857; direct switches to biased 90, to unbiased 90
+   G 0.0 circuit : first hold biased 200/395 = 0.506 [0.457, 0.555] (= registered bench); end state over 400: biased 19.2% unbiased 20.5% none 60.2%; releases fired: evidence 6386 timeout 857; direct switches to biased 90, to unbiased 90
+   G 0.0 release : first hold biased 200/395 = 0.506 [0.457, 0.555] (= registered bench); end state over 400: biased 19.2% unbiased 20.5% none 60.2%; releases fired: evidence 6386 timeout 857; direct switches to biased 90, to unbiased 90
+   G 0.5 both    : first hold biased 292/400 = 0.730 [0.684, 0.771] (= registered bench); end state over 400: biased 47.2% unbiased 8.8% none 44.0%; releases fired: evidence 10684 timeout 427; direct switches to biased 138, to unbiased 109
+   G 0.5 circuit : first hold biased 292/400 = 0.730 [0.684, 0.771] (= registered bench); end state over 400: biased 46.0% unbiased 9.5% none 44.5%; releases fired: evidence 10681 timeout 426; direct switches to biased 139, to unbiased 111
+   G 0.5 release : first hold biased 200/395 = 0.506 [0.457, 0.555]; end state over 400: biased 20.8% unbiased 19.5% none 59.8%; releases fired: evidence 6468 timeout 854; direct switches to biased 89, to unbiased 90
+   G 1.0 both    : first hold biased 309/400 = 0.772 [0.729, 0.811] (= registered bench); end state over 400: biased 58.5% unbiased 6.8% none 34.8%; releases fired: evidence 12561 timeout 291; direct switches to biased 143, to unbiased 104
+   G 1.0 circuit : first hold biased 309/400 = 0.772 [0.729, 0.811] (= registered bench); end state over 400: biased 56.2% unbiased 7.8% none 36.0%; releases fired: evidence 12784 timeout 297; direct switches to biased 145, to unbiased 107
+   G 1.0 release : first hold biased 200/395 = 0.506 [0.457, 0.555]; end state over 400: biased 22.0% unbiased 19.2% none 58.8%; releases fired: evidence 6433 timeout 851; direct switches to biased 89, to unbiased 87
+   G 2.0 both    : first hold biased 321/400 = 0.802 [0.761, 0.839] (= registered bench); end state over 400: biased 67.5% unbiased 5.5% none 27.0%; releases fired: evidence 13841 timeout 223; direct switches to biased 138, to unbiased 90
+   G 2.0 circuit : first hold biased 321/400 = 0.802 [0.761, 0.839] (= registered bench); end state over 400: biased 63.8% unbiased 6.2% none 30.0%; releases fired: evidence 14412 timeout 223; direct switches to biased 138, to unbiased 92
+   G 2.0 release : first hold biased 200/395 = 0.506 [0.457, 0.555]; end state over 400: biased 22.8% unbiased 18.5% none 58.8%; releases fired: evidence 6409 timeout 849; direct switches to biased 95, to unbiased 90
+
+(1b) one whiff from rest: peak circuit state of that channel (threshold 1.0)
+   G 0.0: biased channel 0.756  unbiased channel 0.756
+   G 0.5: biased channel 1.996  unbiased channel 0.756
+   G 1.0: biased channel 2.281  unbiased channel 0.756
+   G 2.0: biased channel 2.706  unbiased channel 0.756
+
+(2) sensory history before the first hold, registered pathway (both), p 0.057
+   G 0.0: first whiff on the biased channel 185, unbiased 202, same step 13; P(first hold biased | first whiff biased) 137/184; P(first hold biased | first whiff unbiased) 59/198; (| same step) 4/13
+      hold = biased (200 rows): whiffs before the hold, biased median 3 (mean 4.25), unbiased median 1 (mean 2.08); rows with 0 whiffs of the OTHER channel before the hold 66; held on its first own whiff 0; other response present at the hold 23; steps from the first whiff of any channel to the hold median 28
+      hold = unbiased (195 rows): whiffs before the hold, biased median 1 (mean 1.84), unbiased median 3 (mean 4.09); rows with 0 whiffs of the OTHER channel before the hold 77; held on its first own whiff 0; other response present at the hold 14; steps from the first whiff of any channel to the hold median 25
+   G 0.5: first whiff on the biased channel 185, unbiased 202, same step 13; P(first hold biased | first whiff biased) 178/185; P(first hold biased | first whiff unbiased) 103/202; (| same step) 11/13
+      hold = biased (292 rows): whiffs before the hold, biased median 2 (mean 1.85), unbiased median 0 (mean 1.05); rows with 0 whiffs of the OTHER channel before the hold 147; held on its first own whiff 127; other response present at the hold 32; steps from the first whiff of any channel to the hold median 4
+      hold = unbiased (108 rows): whiffs before the hold, biased median 0 (mean 0.41), unbiased median 3 (mean 2.95); rows with 0 whiffs of the OTHER channel before the hold 77; held on its first own whiff 0; other response present at the hold 4; steps from the first whiff of any channel to the hold median 11
+   G 1.0: first whiff on the biased channel 185, unbiased 202, same step 13; P(first hold biased | first whiff biased) 182/185; P(first hold biased | first whiff unbiased) 115/202; (| same step) 12/13
+      hold = biased (309 rows): whiffs before the hold, biased median 1 (mean 1.38), unbiased median 0 (mean 0.79); rows with 0 whiffs of the OTHER channel before the hold 158; held on its first own whiff 206; other response present at the hold 78; steps from the first whiff of any channel to the hold median 3
+      hold = unbiased (91 rows): whiffs before the hold, biased median 0 (mean 0.19), unbiased median 2 (mean 2.69); rows with 0 whiffs of the OTHER channel before the hold 77; held on its first own whiff 0; other response present at the hold 1; steps from the first whiff of any channel to the hold median 9
+   G 2.0: first whiff on the biased channel 185, unbiased 202, same step 13; P(first hold biased | first whiff biased) 184/185; P(first hold biased | first whiff unbiased) 124/202; (| same step) 13/13
+      hold = biased (321 rows): whiffs before the hold, biased median 1 (mean 1.17), unbiased median 0 (mean 0.73); rows with 0 whiffs of the OTHER channel before the hold 163; held on its first own whiff 268; other response present at the hold 107; steps from the first whiff of any channel to the hold median 2
+      hold = unbiased (79 rows): whiffs before the hold, biased median 0 (mean 0.03), unbiased median 2 (mean 2.38); rows with 0 whiffs of the OTHER channel before the hold 77; held on its first own whiff 0; other response present at the hold 1; steps from the first whiff of any channel to the hold median 8
+
+   reading key: arrival order limits the gain if the unbiased holds form with 0 biased whiffs before them; a circuit process limits it if they form after a biased whiff was already received

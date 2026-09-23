@@ -1,0 +1,31 @@
+== Phase 6.2 abstraction ladder, merged from ph6_rows.json ==
+
+
+== C3: the minimum structure each motif must preserve ==
+   Structural removals take a mechanism out. Perturbations only move a constant, and
+   are marked [perturbation]; they say which numbers are free, not which parts are.
+
+   NORMALISATION
+     load-bearing (3): own term in the denominator; the cross-channel pool (k 0.8 -> 0); the whole stage
+     removable without losing a property (2): the exponent (n 1.5 -> 1.0); the low-pass (tau 2.0 -> 1.0)
+     free constants (1): semi-saturation (sig 0.05 -> 0.2)
+     constants that are NOT free (1): output bound (Rmax 1.8 -> 3.0)
+
+   SELECT-AND-HOLD
+     load-bearing (4): sigmoid self-excitation -> linear; self-excitation entirely; threshold sharpness (k 12 -> 1); the release condition (reset)
+     removable without losing a property (1): the global unit's temporal filter (tau_g 2 -> 1, all-to-all)
+     free constants (1): intrinsic noise (0.01 -> 0)
+     constants that are NOT free (1): membrane time constant (tau 10 -> 5)
+
+   RING ATTRACTOR
+     load-bearing (6): supralinear exponent (p 2.0 -> 1.0); the divisive pool (c 2.0 -> 0); the semi-saturation constant (sigma 0.3 -> 0.01); recurrent excitation (J 0.5 -> 0); divisive inhibition -> subtractive; graded units -> the bistable Select-and-Hold unit
+     removable without losing a property (0): none
+     free constants (1): kernel width (1.2 -> 1.6)
+     constants that are NOT free (1): output scale (Rmax 2.0 -> 3.0)
+
+   PLASTICITY
+     load-bearing (5): the opponent feedback (beta 0.15 -> 0); order gating of potentiation; the potentiation term (eta_p 0.30 -> 0); the eligibility traces (tau 5 -> 1, no memory); sparseness (5% -> 50% of the code active)
+     removable without losing a property (0): none
+     free constants (2): code size (K 500 -> 200, as the Phase 5 agent used); depression rate (eta_d 0.10 -> 0.20)
+
+   33 rows, 21 load-bearing features found.
