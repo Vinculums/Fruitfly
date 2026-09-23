@@ -293,6 +293,22 @@ Progress log
   DP +0.05 with pass probabilities 0.99, 0.95 and 0.89 at the prediction's lower edge; seeds
   9870/9970 and 1755/1855 checked unused. The first-selection lever was not chosen (bounded near
   0.83 by the arrival-order arithmetic and still carried up the neutral plume by H19 (a)).
+- **H22 OPENED on design v1 FINAL (owner, 2026-09-23, decision:h22-open; hash 1ce2717e...7f83).
+  Mechanism bench (M4): NO CANDIDATE, the task NOT run** (record:h22-bench-result; ph20.py sha
+  edec6d83...efbe, doc d714b91e1fbbc7ede): (a) surge withheld 400/400 PASS, (b) and (c) identities
+  True, (d) placed at the neutral source 84/400 = 0.210 [0.173, 0.253] against the bar 0.50
+  (prediction 0.60 to 0.95), 5/400 without the rule; development and evaluation seeds unused; the bar
+  not lowered. The owner chose a measurement-only post-bench diagnosis and the record
+  (decision:h22-post-bench-diagnosis, '1. 1번 안 2. 기록 진행'). Diagnosis (ph20b.py sha
+  4b6c0497...49d1, output 12d1eee4...c702, report d124565e8d93abf16,
+  record:h22-post-bench-diagnosis-result): bench (d) reproduced exactly; on the registered start
+  revision reaches 0.328 [0.283, 0.375] at 600 steps and 0.390 at 900 (rule off 0.190, 0.307), not
+  0.60; no valued whiff installs the valued hold directly (isolated whiffs 0 of 319; every revision
+  passes through 'nothing held'), and with the rule 322 of 495 releases return to the neutral hold
+  (0.315 convert, against 0.826 without); on a variant start on the neutral axis 20 downwind (not the
+  bench) 0.083 with the rule and 0.085 without at 600. Reading: window and mechanism both, the window
+  alone insufficient; the rule produces sampling, not conversion. Verdict and bar unchanged; design
+  v2 or closure is the owner's.
 
 ## Why a plan now
 
@@ -413,6 +429,24 @@ Four hypotheses were run in one day by picking the next most interesting candida
   the tested conditions only by a separate decision (decision:h21-gate-adopted-within-tested-conditions):
   supplied value, +1/0, G 2, C0, dwell majority, learning off. What follows is H22
   (decision:h22-open-design).
+
+### H22 (decision:h22-open-design, decision:h22-open; bench NO CANDIDATE; post-bench diagnosis by decision:h22-post-bench-diagnosis; awaiting the owner)
+- Value-gated surge (leave and resample): while a non-negative odour valued below the highest value
+  in the agent's read-out is held, its whiffs do not reset the cast clock (Agent7 = the H21 maintain
+  agent ph19.Agent6 plus this rule; equal values, nothing held and a negative held odour inert,
+  checked bitwise). A navigation hypothesis separated from selection, aimed at the H21 front end (120
+  of 400 rows first hold the zero-valued odour, 53 revised). Design v1 FINAL doc dfd041adf77911e7c
+  (hash 1ce2717e...7f83).
+- Mechanism bench before the task (M4): (a) and the identities pass; (d), the agent placed at the
+  neutral source with a neutral hold, 84/400 = 0.210 [0.173, 0.253] hold the valued odour at step
+  300 against 0.50 (5/400 without the rule). NO CANDIDATE: the task not run, seeds 9870/9970 and
+  1755/1855 unused, the bar not lowered (record:h22-bench-result; ph20.py doc d714b91e1fbbc7ede).
+- Post-bench diagnosis, measurement only (record:h22-post-bench-diagnosis-result, report
+  d124565e8d93abf16): revision on the registered start 0.328 at 600 steps and 0.390 at 900; a valued
+  whiff at most releases the neutral hold, and with the rule 322 of 495 releases return to it; a
+  variant start on the neutral axis (not the bench) gives 0.083 with and 0.085 without the rule at
+  600. Window and mechanism both; the window alone insufficient.
+- Awaiting the owner: design v2 (options stated in the report, none chosen) or close.
 
 ## The architecture as currently adopted
 
@@ -742,15 +776,15 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Confirmation of H22 design v1** (doc dfd041adf77911e7c, hash 97c4669c...2fd6, local
-  experiments/h22/h22_design_v1.md; decision:h22-open-design). DRAFT for review, no code. To confirm or
-  change: the lever (the value-gated surge, a navigation hypothesis, rather than the first selection);
-  the rule's scope (below the highest value in the agent's own read-out, which uses the value of an
-  odour not being smelled, or the alternative 'surge only on a positive held value', which has no 0/0
-  identity); the bars with their pass probabilities at the registered prediction (M2(a) 0.75, cells
-  0.55, DP against the H21 maintain agent +0.05; +0.08 would pass with about 0.20 at the prediction's
-  lower edge); the bench (d) bar 0.50 with the agent placed at the neutral source; n 400 kept for
-  comparability; the seeds. No navigation term has been added to the adopted agent.
+- **The owner's decision on H22 after the post-bench diagnosis** (record:h22-post-bench-diagnosis-result,
+  report d124565e8d93abf16, local experiments/h22/h22_post_bench_diagnosis.md): design v2 or close.
+  The bench verdict (NO CANDIDATE, record:h22-bench-result) stands and the bar is not lowered. Options
+  stated in the report, none chosen: a window matched to the task alone does not pass the unchanged
+  bar on this measurement (0.328, upper bound 0.375, at 600 steps); mechanism levers, each its own
+  hypothesis: navigation in the 'nothing held' stretch after a release, the resample loop's reach
+  into the valued plume's core, or a selection change letting the valued odour take a released hold
+  (outside H22 as a navigation hypothesis); or closing H22 as NOT shown (no candidate). No navigation
+  term has been added to the adopted agent.
 
 ## Queued candidates, none started
 
