@@ -18,7 +18,8 @@ python ph19.py             # any phase script runs standalone
 
 - `src/` all code, flat (scripts hash themselves and import each other by module name, so nothing in it moves).
 - `experiments/<phase or hypothesis>/` recorded outputs (`*.txt`), design docs (`h*_design_*.md`, `h15_run2_spec_*.md`) and reports (`h*_report.md`).
-- `master_plan.md` the plan (renamed from `master_plan_updated.md`).
+- `master_plan.md` the plan (renamed from `master_plan_updated.md`); the git copy is the source of truth, the graph copy a mirror.
+- `notes/` outlook notes (not decisions, nothing measured); canonical copies in the Vinc graph.
 - The canonical record, with sha256 provenance for every output file, is the Vinc graph (team space "Fruit Fly").
 
 | Script (`src/`) | Hypothesis / phase | Folder |
@@ -39,4 +40,8 @@ python ph19.py             # any phase script runs standalone
 | `ph17.py` | selection-to-navigation link check (H20) | `experiments/h20/` |
 | `ph18.py`, `ph18b.py` | H20 Run 2 + diagnosis | `experiments/h20/` |
 | `ph19.py` | H21 | `experiments/h21/` |
-| (none yet) | H22, design only, no code yet | `experiments/h22/` |
+| `ph20.py`, `ph20b.py` | H22 (bench: no candidate) + post-bench diagnosis | `experiments/h22/` |
+| `ph21.py` | H23 | `experiments/h23/` |
+| `ph22.py` | absent-odour check (after H23) | `experiments/absent_odour_check/` |
+| `ph21b.py` | option-v presence diagnosis (before H24) | `experiments/h24/` |
+| (none yet) | H24, design v1 only, no code yet | `experiments/h24/` |
