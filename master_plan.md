@@ -420,6 +420,12 @@ Progress log
   Agent10 11.9 vs Agent6 24.4), but bench (h) T1: P(V) Agent11 0.785 vs Agent10 0.958, paired DP -0.1725
   [-0.2125, -0.1350], M2(b) pass probability 0.0000 < 0.5: STOP. No bar decision, no development run, no evaluation;
   seeds 9919/9929 and 1815/1915 unused.
+- **H24 Run 2 N sweep, measurement only (2026-09-24).** The owner chose the recommended option ('우리 그 다음 테스트는
+  추천안대로'; decision:h24-run2-n-sweep). src/ph25b.py (sha ad12a912...eaf6, source doc df429960dec38ae4c; ph25.py
+  unchanged), bench seeds only, N 60 to 450 and inf (record:h24-run2-n-sweep-result; report doc d06b9ef9d8775e587,
+  experiments/h24/h24_run2_nsweep.md): no swept N meets both targets. T1 DP vs Agent10 about -0.17 for N 60-150,
+  -0.0125 [-0.025, -0.0025] at 200, 0 from 300; W1 dwell with M5(b) passing only at N 60/90/120 (22.7/22.7/24.8),
+  19.6 at 150 (M5(b) 0.034), 17.8 at 200. Recommendation on record: close Run 2 at the bench stop, then H17.
 
 ## Why a plan now
 
@@ -1055,10 +1061,9 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H24 Run 2, stopped at the bench by the (h) stop rule** (record:h24-run2-bench-result): bench-seed T1 DP
-  Agent11 - Agent10 -0.1725 [-0.2125, -0.1350], M2(b) pass probability 0.0000. The owner decides what follows
-  (close, or a new design); the registered order after it is H17, then H20 Stage B
-  (decision:priority-h24run2-h17-stageb).
+- **H24 Run 2, the N decision** (record:h24-run2-bench-result, record:h24-run2-n-sweep-result): stopped at bench (h)
+  (T1 DP -0.1725 at N 60); the N sweep finds no N meeting both targets. The owner decides: a Run 3 design v1 or
+  closure (the sweep's recommendation: closure); then H17, then H20 Stage B (decision:priority-h24run2-h17-stageb).
 
 ## Queued candidates, none started
 
@@ -1089,7 +1094,8 @@ force outside it.
 - **Silence timeout**, H25, closed as shown (decision:h25-closed); the release adopted at +1/0, on hold at negative
   values (decision:release-negative-scope-on-hold) (record:silence-timeout-chain-result).
 - **H24 Run 2** (decision:h24-run2-open): the presence-scoped value filter on Agent10 at +1/0; design v2 FINAL;
-  stopped at the bench by the (h) stop rule (record:h24-run2-bench-result); awaiting the owner.
+  stopped at bench (h) (record:h24-run2-bench-result); N sweep done: no N in 60-450 meets both the T1 and the W1
+  target (T1 clears from N 200, W1 only up to N 120; record:h24-run2-n-sweep-result); awaiting the owner.
 - **H18** (concept:h18-ring-under-cue-loss) why the ring loses the plume under cue loss. The
   10 degree mean error is not taken as the cause; first the tail of large errors, how long an
   error persists, and the heading error just before a plume is lost.

@@ -1,0 +1,82 @@
+== H24 Run 2 N sweep (ph25b.py, measurement only; decision:h24-run2-n-sweep). ph25's bench seeds and bootstrap seed (digits not printed); 400 rows x 600 steps; N ['60', '90', '120', '150', '200', '300', '450', 'inf'] (inf = Agent10, scope off) ==
+   ph25b.py sha256 ad12a9122c171dd32c3fceac946add9d0eb0380e885e0f0872dd97ccd59eeaf6; ph25.py sha256 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; design v2 FINAL doc d65589bd43383a57c hash 0d819e73eb4296091452b869de910f349055e79e8576513bddcd655cccf28d7e
+   references: T1 Agent10 V 383 N 15 tie 2; W1 dwell Agent6 24.4325, Agent10 11.902; bar_T2 by the design's rule -4.9; T3a floor Agent10 0.807, ceiling 14.420, span 13.613, per-row paired sd 9.941
+   targets (registered, owner's instruction): T1 DP lower bound >= -0.05 AND W1 dwell >= 0.8 x Agent6 = 19.546 with M5(b) pass probability (bar -4.9) >= 0.5
+
+== N 60 ==
+   reproduction: T1 V/N/tie 314/81/5 and DP -0.1725 [-0.2125, -0.1350] as recorded (asserted)
+   T1: V 314 N 81 tie 5; P(V) 0.785 [0.742, 0.822]; paired DP vs Agent10 -0.1725 [-0.2125, -0.1350]; into V 1, out of V 70; lost rows 3 (Agent10 1); rows bitwise Agent10 throughout 270
+      pass probabilities (design section 7 arithmetic): M2(a) P(k >= 365 of 400) at P(V) 0.785: 0.0000; M2(b) at DP -0.1725, paired sd 0.3844: 0.0000
+      seduced path: rows with a valued hold ended by a timeout drive 389; of those, valued presence expired (c >= 60) before the valued hold re-formed 388 = 0.970 of 400 rows; expiry step 78/97/102; after expiry: valued whiff again 345, valued re-held 345, within 3.0 of the valued source again 367; class at 600 among them V 314 N 69 tie 5 (Agent10 on the same rows V 379)
+      first `differs8`: rows 130, step 204/354/373; after it, valued re-held 10, within 3.0 of the valued source 10; out-of-V rows among `differs8` rows 70
+   reproduction: W1 dwell 22.733 as recorded (asserted)
+   W1: dwell 22.733 (quartiles 16.8/24.0/29.0) vs Agent6 24.433, Agent10 11.902; paired vs Agent6 -1.7000 sd 9.9624 [-2.6801, -0.7300]; M5(b) pass probability at bar -4.9: 1.0000; reach 388/400; lost rows 28; first surge step 114/124/157 (rows 389); first surge == first B whiff at or after step 59 in 400/400
+   reproduction: T3a dwell 14.490, R 1.005 as recorded (asserted)
+   T3a: construction True; neutral dwell 100-599 14.490 (floor 0.807, ceiling 14.420); R 1.0051 [0.9362, 1.0767]; M7(b) pass probability 1.0000; valued hold end step 47/47/47 (rows 400); first neutral surge 176/186/212 (rows 323); first surge == first neutral whiff at or after step 59 in 400/400
+
+== N 90 ==
+   T1: V 314 N 81 tie 5; P(V) 0.785 [0.742, 0.822]; paired DP vs Agent10 -0.1725 [-0.2125, -0.1350]; into V 1, out of V 70; lost rows 3 (Agent10 1); rows bitwise Agent10 throughout 270
+      pass probabilities (design section 7 arithmetic): M2(a) P(k >= 365 of 400) at P(V) 0.785: 0.0000; M2(b) at DP -0.1725, paired sd 0.3844: 0.0000
+      seduced path: rows with a valued hold ended by a timeout drive 389; of those, valued presence expired (c >= 90) before the valued hold re-formed 388 = 0.970 of 400 rows; expiry step 108/127/132; after expiry: valued whiff again 345, valued re-held 345, within 3.0 of the valued source again 367; class at 600 among them V 314 N 69 tie 5 (Agent10 on the same rows V 379)
+      first `differs8`: rows 130, step 204/354/373; after it, valued re-held 10, within 3.0 of the valued source 10; out-of-V rows among `differs8` rows 70
+   W1: dwell 22.733 (quartiles 16.8/24.0/29.0) vs Agent6 24.433, Agent10 11.902; paired vs Agent6 -1.7000 sd 9.9624 [-2.6801, -0.7300]; M5(b) pass probability at bar -4.9: 1.0000; reach 388/400; lost rows 28; first surge step 114/124/157 (rows 389); first surge == first B whiff at or after step 89 in 400/400
+   T3a: construction True; neutral dwell 100-599 14.490 (floor 0.807, ceiling 14.420); R 1.0051 [0.9362, 1.0767]; M7(b) pass probability 1.0000; valued hold end step 47/47/47 (rows 400); first neutral surge 176/186/212 (rows 323); first surge == first neutral whiff at or after step 89 in 400/400
+
+== N 120 ==
+   T1: V 316 N 79 tie 5; P(V) 0.790 [0.747, 0.827]; paired DP vs Agent10 -0.1675 [-0.2075, -0.1325]; into V 0, out of V 67; lost rows 3 (Agent10 1); rows bitwise Agent10 throughout 276
+      pass probabilities (design section 7 arithmetic): M2(a) P(k >= 365 of 400) at P(V) 0.790: 0.0000; M2(b) at DP -0.1675, paired sd 0.3734: 0.0000
+      seduced path: rows with a valued hold ended by a timeout drive 389; of those, valued presence expired (c >= 120) before the valued hold re-formed 387 = 0.968 of 400 rows; expiry step 155/159/238; after expiry: valued whiff again 346, valued re-held 346, within 3.0 of the valued source again 367; class at 600 among them V 316 N 66 tie 5 (Agent10 on the same rows V 380)
+      first `differs8`: rows 124, step 208/356/376; after it, valued re-held 3, within 3.0 of the valued source 3; out-of-V rows among `differs8` rows 67
+   W1: dwell 24.805 (quartiles 17.0/26.0/32.2) vs Agent6 24.433, Agent10 11.902; paired vs Agent6 +0.3725 sd 12.1428 [-0.8176, +1.5501]; M5(b) pass probability at bar -4.9: 1.0000; reach 388/400; lost rows 33; first surge step 122/140/257 (rows 389); first surge == first B whiff at or after step 119 in 400/400
+   T3a: construction True; neutral dwell 100-599 14.490 (floor 0.807, ceiling 14.420); R 1.0051 [0.9362, 1.0767]; M7(b) pass probability 1.0000; valued hold end step 47/47/47 (rows 400); first neutral surge 176/186/212 (rows 323); first surge == first neutral whiff at or after step 119 in 400/400
+
+== N 150 ==
+   T1: V 318 N 77 tie 5; P(V) 0.795 [0.753, 0.832]; paired DP vs Agent10 -0.1625 [-0.2000, -0.1275]; into V 0, out of V 65; lost rows 3 (Agent10 1); rows bitwise Agent10 throughout 278
+      pass probabilities (design section 7 arithmetic): M2(a) P(k >= 365 of 400) at P(V) 0.795: 0.0000; M2(b) at DP -0.1625, paired sd 0.3689: 0.0000
+      seduced path: rows with a valued hold ended by a timeout drive 392; of those, valued presence expired (c >= 150) before the valued hold re-formed 389 = 0.973 of 400 rows; expiry step 189/270/301; after expiry: valued whiff again 345, valued re-held 345, within 3.0 of the valued source again 368; class at 600 among them V 317 N 68 tie 4 (Agent10 on the same rows V 381)
+      first `differs8`: rows 122, step 209/357/380; after it, valued re-held 4, within 3.0 of the valued source 4; out-of-V rows among `differs8` rows 65
+   W1: dwell 19.608 (quartiles 13.0/21.0/27.0) vs Agent6 24.433, Agent10 11.902; paired vs Agent6 -4.8250 sd 11.3976 [-5.9851, -3.7349]; M5(b) pass probability at bar -4.9: 0.0337; reach 379/400; lost rows 31; first surge step 156/266/289 (rows 386); first surge == first B whiff at or after step 149 in 400/400
+   T3a: construction True; neutral dwell 100-599 14.490 (floor 0.807, ceiling 14.420); R 1.0051 [0.9362, 1.0767]; M7(b) pass probability 1.0000; valued hold end step 47/47/47 (rows 400); first neutral surge 176/186/212 (rows 323); first surge == first neutral whiff at or after step 149 in 400/400
+
+== N 200 ==
+   T1: V 378 N 20 tie 2; P(V) 0.945 [0.918, 0.963]; paired DP vs Agent10 -0.0125 [-0.0250, -0.0025]; into V 0, out of V 5; lost rows 1 (Agent10 1); rows bitwise Agent10 throughout 372
+      pass probabilities (design section 7 arithmetic): M2(a) P(k >= 365 of 400) at P(V) 0.945: 0.9971; M2(b) at DP -0.0125, paired sd 0.1111: 1.0000
+      seduced path: rows with a valued hold ended by a timeout drive 392; of those, valued presence expired (c >= 200) before the valued hold re-formed 109 = 0.273 of 400 rows; expiry step 239/392/480; after expiry: valued whiff again 96, valued re-held 94, within 3.0 of the valued source again 83; class at 600 among them V 100 N 9 tie 0 (Agent10 on the same rows V 105)
+      first `differs8`: rows 28, step 270/280/419; after it, valued re-held 8, within 3.0 of the valued source 8; out-of-V rows among `differs8` rows 5
+   W1: dwell 17.775 (quartiles 11.0/18.0/24.0) vs Agent6 24.433, Agent10 11.902; paired vs Agent6 -6.6575 sd 10.6120 [-7.7201, -5.6000]; M5(b) pass probability at bar -4.9: 0.0000; reach 379/400; lost rows 28; first surge step 265/272/439 (rows 381); first surge == first B whiff at or after step 199 in 400/400
+   T3a: construction True; neutral dwell 100-599 11.300 (floor 0.807, ceiling 14.420); R 0.7708 [0.7010, 0.8447]; M7(b) pass probability 1.0000; valued hold end step 47/47/47 (rows 400); first neutral surge 213/235/243 (rows 308); first surge == first neutral whiff at or after step 199 in 400/400
+
+== N 300 ==
+   T1: V 383 N 15 tie 2; P(V) 0.958 [0.933, 0.973]; paired DP vs Agent10 +0.0000 [+0.0000, +0.0000]; into V 0, out of V 0; lost rows 1 (Agent10 1); rows bitwise Agent10 throughout 387
+      pass probabilities (design section 7 arithmetic): M2(a) P(k >= 365 of 400) at P(V) 0.958: 1.0000; M2(b) at DP +0.0000, paired sd 0.0000: 1.0000
+      seduced path: rows with a valued hold ended by a timeout drive 392; of those, valued presence expired (c >= 300) before the valued hold re-formed 12 = 0.030 of 400 rows; expiry step 318/428/493; after expiry: valued whiff again 3, valued re-held 3, within 3.0 of the valued source again 4; class at 600 among them V 10 N 2 tie 0 (Agent10 on the same rows V 10)
+      first `differs8`: rows 13, step 303/405/440; after it, valued re-held 3, within 3.0 of the valued source 3; out-of-V rows among `differs8` rows 0
+   W1: dwell 15.098 (quartiles 8.0/15.0/20.0) vs Agent6 24.433, Agent10 11.902; paired vs Agent6 -9.3350 sd 11.2718 [-10.4275, -8.2524]; M5(b) pass probability at bar -4.9: 0.0000; reach 369/400; lost rows 34; first surge step 419/442/468 (rows 367); first surge == first B whiff at or after step 299 in 400/400
+   T3a: construction True; neutral dwell 100-599 4.343 (floor 0.807, ceiling 14.420); R 0.2597 [0.2272, 0.2931]; M7(b) pass probability 0.0000; valued hold end step 47/47/47 (rows 400); first neutral surge 476/479/507 (rows 238); first surge == first neutral whiff at or after step 299 in 400/400
+
+== N 450 ==
+   T1: V 383 N 15 tie 2; P(V) 0.958 [0.933, 0.973]; paired DP vs Agent10 +0.0000 [+0.0000, +0.0000]; into V 0, out of V 0; lost rows 1 (Agent10 1); rows bitwise Agent10 throughout 392
+      pass probabilities (design section 7 arithmetic): M2(a) P(k >= 365 of 400) at P(V) 0.958: 1.0000; M2(b) at DP +0.0000, paired sd 0.0000: 1.0000
+      seduced path: rows with a valued hold ended by a timeout drive 394; of those, valued presence expired (c >= 450) before the valued hold re-formed 6 = 0.015 of 400 rows; expiry step 462/480/552; after expiry: valued whiff again 2, valued re-held 2, within 3.0 of the valued source again 3; class at 600 among them V 4 N 2 tie 0 (Agent10 on the same rows V 4)
+      first `differs8`: rows 8, step 455/468/519; after it, valued re-held 1, within 3.0 of the valued source 1; out-of-V rows among `differs8` rows 0
+   W1: dwell 14.585 (quartiles 8.0/13.0/19.0) vs Agent6 24.433, Agent10 11.902; paired vs Agent6 -9.8475 sd 12.1616 [-11.0376, -8.6575]; M5(b) pass probability at bar -4.9: 0.0000; reach 359/400; lost rows 33; first surge step 455/468/535 (rows 326); first surge == first B whiff at or after step 449 in 400/400
+   T3a: construction True; neutral dwell 100-599 4.338 (floor 0.807, ceiling 14.420); R 0.2593 [0.2271, 0.2927]; M7(b) pass probability 0.0000; valued hold end step 47/47/47 (rows 400); first neutral surge 476/479/507 (rows 238); first surge == first neutral whiff at or after step 449 in 400/400
+
+== N inf ==
+   identity: this arm is Agent10 itself (the reference); Agent11 with N = inf == Agent10 bitwise (T1): True
+   T1: V 383 N 15 tie 2; P(V) 0.958 [0.933, 0.973]; paired DP vs Agent10 +0.0000 [+0.0000, +0.0000]; into V 0, out of V 0; lost rows 1 (Agent10 1); rows bitwise Agent10 throughout 400
+      pass probabilities (design section 7 arithmetic): M2(a) P(k >= 365 of 400) at P(V) 0.958: 1.0000; M2(b) at DP +0.0000, paired sd 0.0000: 1.0000
+   W1: dwell 11.902 (quartiles 6.0/8.0/15.2) vs Agent6 24.433, Agent10 11.902; paired vs Agent6 -12.5300 sd 13.2919 [-13.8226, -11.2024]; M5(b) pass probability at bar -4.9: 0.0000; reach 336/400; lost rows 33; first surge step n/a (rows 0)
+   T3a: construction True; neutral dwell 100-599 0.807 (floor 0.807, ceiling 14.420); R 0.0000 [0.0000, 0.0000]; M7(b) pass probability 0.0000; valued hold end step 47/47/47 (rows 400); first neutral surge n/a (rows 0)
+
+== table: N -> T1 DP [interval], M2(b) pass prob, M2(a) pass prob; W1 dwell, M5(b) pass prob; T3a R [lower]; seduced fraction ==
+   N   60: T1 DP -0.1725 [-0.2125, -0.1350] M2(b) 0.0000 M2(a) 0.0000 | W1 dwell 22.733 M5(b) 1.0000 | T3a R 1.0051 [0.9362] | seduced 0.970
+   N   90: T1 DP -0.1725 [-0.2125, -0.1350] M2(b) 0.0000 M2(a) 0.0000 | W1 dwell 22.733 M5(b) 1.0000 | T3a R 1.0051 [0.9362] | seduced 0.970
+   N  120: T1 DP -0.1675 [-0.2075, -0.1325] M2(b) 0.0000 M2(a) 0.0000 | W1 dwell 24.805 M5(b) 1.0000 | T3a R 1.0051 [0.9362] | seduced 0.968
+   N  150: T1 DP -0.1625 [-0.2000, -0.1275] M2(b) 0.0000 M2(a) 0.0000 | W1 dwell 19.608 M5(b) 0.0337 | T3a R 1.0051 [0.9362] | seduced 0.973
+   N  200: T1 DP -0.0125 [-0.0250, -0.0025] M2(b) 1.0000 M2(a) 0.9971 | W1 dwell 17.775 M5(b) 0.0000 | T3a R 0.7708 [0.7010] | seduced 0.273
+   N  300: T1 DP +0.0000 [+0.0000, +0.0000] M2(b) 1.0000 M2(a) 1.0000 | W1 dwell 15.098 M5(b) 0.0000 | T3a R 0.2597 [0.2272] | seduced 0.030
+   N  450: T1 DP +0.0000 [+0.0000, +0.0000] M2(b) 1.0000 M2(a) 1.0000 | W1 dwell 14.585 M5(b) 0.0000 | T3a R 0.2593 [0.2271] | seduced 0.015
+   N  inf: T1 DP +0.0000 [+0.0000, +0.0000] M2(b) 1.0000 M2(a) 1.0000 | W1 dwell 11.902 M5(b) 0.0000 | T3a R 0.0000 [0.0000] | seduced 0.000
+
+== smallest N meeting BOTH targets (T1 DP lower bound >= -0.05; W1 dwell >= 19.546 with M5(b) pass probability >= 0.5): NONE of the swept N; all meeting: [] ==
