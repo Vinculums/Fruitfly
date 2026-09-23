@@ -339,6 +339,19 @@ Progress log
   96, DP against the H21 maintain agent +0.240 [+0.200, +0.282], P(V) filter / known-answer 0.987,
   no added lost rows (record:h23-result; report d8b91235798da849f). Value-driven navigation in the
   full agent; the task does not show selection controlling navigation. Closure is the owner's.
+- **H23 CLOSED as SHOWN by the owner (2026-09-23, decision:h23-closed; '1. shown + 진행 2. 추천안 진행
+  3. 정리필수').** M1-M6 all PASS under the registered criteria; not re-judged. The value filter is
+  ADOPTED within the tested conditions only, as a separate record
+  (decision:h23-filter-adopted-within-tested-conditions): supplied value, +1/0, G 2, C0, dwell
+  majority, learning off, the H21 gate on; not validated where the higher-valued odour is absent (the
+  rule's known cost), at +1/+0.5, with learned values, other G or geometries. Bookkeeping, mandatory by
+  the owner's point 3: the selection circuit's revision-via-the-empty-state limit recorded
+  (record:selection-circuit-revision-via-empty-state); the design v2 section 9 seed arithmetic slip
+  corrected in decision:h23-closed (the design left as cited); the code-citation convention set
+  (decision:code-citation-convention; subject_path removed from four records). Next, by the owner's
+  point 2 (decision:next-absent-odour-check-then-stage-b): the absent-odour check, design v1 DRAFT doc
+  ddab34a689d056e2e (local experiments/absent_odour_check/absent_odour_check_design_v1.md), no code;
+  then H20 Stage B.
 
 ## Why a plan now
 
@@ -480,7 +493,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   at the bench; the task not run); not re-judged; seeds 9870/9970 and 1755/1855 unused and kept
   registered to H22. Nothing adopted. What follows is H23 (decision:h23-open-design).
 
-### H23 (decision:h23-open-design, decision:h23-open; evaluated once; PASS under the registered criteria; closure awaiting the owner)
+### H23 (decision:h23-open-design, decision:h23-open; evaluated once; CLOSED as shown by decision:h23-closed; the filter adopted within the tested conditions by decision:h23-filter-adopted-within-tested-conditions)
 - Value-filtered navigation: the upwind surge follows the top-valued non-negative odour in the
   agent's own read-out; while a top-valued (or a negative) odour is held its whiffs steer as before,
   otherwise only a top-valued odour's whiffs steer (Agent8 = the H21 maintain agent ph19.Agent6 with
@@ -498,6 +511,16 @@ Four hypotheses were run in one day by picking the next most interesting candida
   0.968 against 0.400; no added lost rows. Not shown: selection controlling navigation (at +1/0 it
   does not, by construction). Untested: a world where the higher-valued odour is absent (the rule's
   cost), +1/+0.5, learning, other G and geometries. Report d8b91235798da849f (record:h23-result).
+- CLOSED by the owner (decision:h23-closed): SHOWN under the registered criteria, M1-M6 all PASS; a
+  statement about a supplied value, this rule, +1/0, C0, the dwell-majority measure and the full agent
+  with its circuit running, not about selection controlling navigation. The filter ADOPTED within the
+  tested conditions only (decision:h23-filter-adopted-within-tested-conditions): supplied value, +1/0,
+  G 2, C0, dwell majority, learning off, the H21 gate on. Its known cost, a world where the
+  higher-valued odour is absent, is to be measured by the absent-odour check before H20 Stage B
+  (decision:next-absent-odour-check-then-stage-b). Correction recorded in decision:h23-closed, not in
+  the design (which the code and the outputs cite by hash): design v2 section 9 lists the bench's
+  derived seeds as 30261001 / 40261002; seed + 10000 / + 20000 give 20271001 / 20281002; ph21.py's
+  self-check tested all four and none appears in any other file; no run affected.
 
 ## The architecture as currently adopted
 
@@ -519,6 +542,15 @@ Stated here so a later session does not have to reassemble it from decisions.
   never releases the hold; one step of reset is integrated away. 'Recovery does not depend on
   the timeout' holds for the tested conditions only. A later fix may be a reset-control change
   or a circuit change; either way maintenance, release and distractor resistance are re-verified.
+  **RECORDED LIMIT (record:selection-circuit-revision-via-empty-state; owner's bookkeeping decision
+  2026-09-23):** under sparse task input the circuit never flips a hold from one odour to the other
+  directly; every observed revision is a release to nothing held (evidence release or timeout)
+  followed by re-selection from the empty state (H22 diagnosis: 0 of 319 isolated valued whiffs and 0
+  of 596 at held s >= 1.8 flipped a neutral hold, 156/156 and 123/123 revisions via nothing held;
+  H23 bench (b): 217/217 and 71/71). Interpretation: which odour a re-selection takes is decided in
+  the empty state by arrival order and by H19 (a) / the value filter, so a mechanism that must change
+  a hold acts through the empty state. Stated for sparse input only: with dense valued-only input
+  (H21 bench (b), p 0.30) a neutral hold was revised in 400/400 rows, by a route not recorded.
   **Open:** whether the hold earns its place. In H15 Run 2 the agent without it left 132 of 400
   unrecovered against 21 of 400, with a rewarding dwell of 17.3 against 23.0; no distractor
   condition exists, so its distractor resistance is unverified.
@@ -590,6 +622,17 @@ Stated here so a later session does not have to reassemble it from decisions.
   first-reach measure in a two-source task therefore needs a geometry checked by a known-answer
   arm (the identity fixed) before it is registered. Whether a crosswind term is needed is not
   tested; such a term would change what the agent knows.
+  **H23 value filter, ADOPTED WITHIN THE TESTED CONDITIONS ONLY
+  (decision:h23-filter-adopted-within-tested-conditions; the H23 verdict is shown, decision:h23-closed):**
+  the upwind surge follows the top-valued non-negative odour in the agent's own read-out; while a
+  top-valued or a negative odour is held its whiffs steer as before, otherwise only a top-valued
+  odour's whiffs steer (Agent8, ph21.py; bitwise Agent6 at 0/0, +1/+1, +1/-1 and with the valued
+  odour held). **Scope:** supplied value, values +1/0, G 2, geometry C0, the dwell-majority measure,
+  learning off, the H21 gate on. **Not validated:** a world where the higher-valued odour is absent
+  (the agent would never surge on the odour present; the absent-odour check measures it), +1/+0.5,
+  learned values, other G, other geometries, the timeout. Accepted consequence: with unequal values
+  navigation is value-driven and selection does not steer; selection keeps equal-value arbitration,
+  the flee, and the hold state the H21 gate protects.
 
 ## Standing rules
 - One hypothesis active at a time. Adoption and every gate pass are decided by the project owner, not by the assistant.
@@ -791,6 +834,9 @@ Stated here so a later session does not have to reassemble it from decisions.
   lower edge of the registered prediction range, the design states the interval half-width expected
   at n (here about 0.04), so that a point estimate inside the range leaving the bar inside the
   interval is foreseen, not discovered.
+- Housekeeping convention, set by the owner's bookkeeping decision of 2026-09-23
+  (decision:code-citation-convention): records cite code by `code` (repo-relative path + sha256) and
+  `source_doc` (the stored source's doc id); props.subject_path is not used.
 
 ## A standing caution about bench gates
 
@@ -836,21 +882,19 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Closure of H23** (decision:h23-open; report d8b91235798da849f, local
-  experiments/h23/h23_report.md; record:h23-result). One evaluation: PASS under the registered
-  criteria (M1-M6 all PASS; filter P(V) 0.953, DP against the H21 maintain agent +0.240); bench (b),
-  reported, PASS. The pass is about value-driven navigation in the full agent, not selection
-  controlling navigation. Whether anything is adopted, and within which conditions, is the owner's
-  (untested: a world where the higher-valued odour is absent, +1/+0.5, learning). Noted for the
-  owner: design v2 section 9 lists the bench's derived generators as 30261001 / 40261002; seed +
-  10000 / + 20000 give 20271001 / 20281002 (all four checked unused; no run affected). No
-  navigation term has been added to the adopted agent.
+- **Confirmation of the absent-odour check design v1** (decision:next-absent-odour-check-then-stage-b;
+  DRAFT doc ddab34a689d056e2e, local experiments/absent_odour_check/absent_odour_check_design_v1.md,
+  no code): Agent8 against Agent6 in World7 with one plume silenced (W1 cost case, W2 control, W3
+  identity, W4 reported); the six points of its section 8. After its report the owner decides the
+  value filter's scope before H20 Stage B.
 
 ## Queued candidates, none started
 
 The order does not change without a decision node. H21 is closed (decision:h21-closed); H22 is closed
-(decision:h22-closed); H23 is in design (decision:h23-open-design). H20's Stages B and C stay queued. H17, H18 and the silence timeout
-stay as recorded limits.
+(decision:h22-closed); H23 is closed as shown (decision:h23-closed). Next, in this order
+(decision:next-absent-odour-check-then-stage-b): the absent-odour check, in design (v1 DRAFT doc
+ddab34a689d056e2e); then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18,
+the silence timeout and the selection circuit's revision via the empty state stay as recorded limits.
 
 - **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
