@@ -20,7 +20,7 @@ python ph19.py             # any phase script runs standalone
 - `experiments/<phase or hypothesis>/` recorded outputs (`*.txt`), design docs (`h*_design_*.md`, `h15_run2_spec_*.md`) and reports (`h*_report.md`).
 - `master_plan.md` the plan (renamed from `master_plan_updated.md`); the git copy is the source of truth, the graph copy a mirror.
 - `notes/` outlook notes (not decisions, nothing measured); canonical copies in the Vinc graph.
-- `viewer/` — trajectory viewer (2D map + 3D scene) and the export script that reproduces the recorded runs; open via a local server or GitHub Pages.
+- `viewer/`: trajectory viewer (2D map + 3D scene) and the export script that reproduces the recorded runs; open via a local server or GitHub Pages.
 - The canonical record, with sha256 provenance for every output file, is the Vinc graph (team space "Fruit Fly").
 
 | Script (`src/`) | Hypothesis / phase | Folder |
@@ -46,4 +46,5 @@ python ph19.py             # any phase script runs standalone
 | `ph22.py` | absent-odour check (after H23) | `experiments/absent_odour_check/` |
 | `ph21b.py` | option-v presence diagnosis (before H24) | `experiments/h24/` |
 | (none yet) | H24, design v1 only, no code yet | `experiments/h24/` |
-| `ph26.py`, `ph26b.py`, `ph27.py`, `ph27b.py` | H17 (design v2 FINAL; demo `ph26_demo.txt`, bench `ph26_bench.txt`: stopped at the bench, no candidate on part (d); tasks not run) + post-bench diagnosis (`ph26b_diag.txt`, measurement only); H17 Run 2 (`ph27.py`, design v1 DRAFT `h17_run2_design_v1.md`, v2 FINAL `h17_run2_design_v2.md`: engagement at q >= 250, T3 (c) re-signed; demo `ph27_demo.txt`, bench `ph27_bench.txt`: stopped at the bench by the (h2) stop rule; tasks not run) + Run 2 post-bench diagnosis (`ph27b.py`, `ph27b_diag.txt`, `h17_run2_post_bench_diagnosis.md`, measurement only; awaiting the owner) | `experiments/h17/` |
+| `ph26.py`, `ph26b.py`, `ph27.py`, `ph27b.py` | H17 (design v2 FINAL; demo `ph26_demo.txt`, bench `ph26_bench.txt`: stopped at the bench, no candidate on part (d); tasks not run) + post-bench diagnosis (`ph26b_diag.txt`, measurement only); H17 Run 2 (`ph27.py`, design v1 DRAFT `h17_run2_design_v1.md`, v2 FINAL `h17_run2_design_v2.md`: engagement at q >= 250, T3 (c) re-signed; demo `ph27_demo.txt`, bench `ph27_bench.txt`: stopped at the bench by the (h2) stop rule; tasks not run) + Run 2 post-bench diagnosis (`ph27b.py`, `ph27b_diag.txt`, `h17_run2_post_bench_diagnosis.md`, measurement only). **H17 CLOSED as NOT shown** (decision:h17-closed, 2026-09-24): nothing adopted, tasks never run | `experiments/h17/` |
+| (none yet) | H26 adaptive presence: design v1 DRAFT only (`h26_design_v1.md`, for the owner's confirmation), no code | `experiments/h26/` |

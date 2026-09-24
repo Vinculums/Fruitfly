@@ -510,6 +510,24 @@ Progress log
   nav (ph21.py:69, :72), and no hit followed while held. Design section 2 (E) holds in 70/105. Report doc
   dd1ba5b405811ef4a (experiments/h17/h17_run2_post_bench_diagnosis.md). Nothing adopted; the Run 2 verdict unchanged.
   The owner decides: close H17, or a Run 3 design.
+- **H17 CLOSED as NOT shown under its registered criteria (2026-09-24; decision:h17-closed).** The owner chose option 1:
+  '1. H17 종료, 등록된 순서대로 adaptive presence(제안) → H20 Stage B' ('option 1: close H17; proceed in the registered
+  order, adaptive presence (proposed), then H20 Stage B'). Run 1 stopped at its bench on part (d) (18/400, upper bound
+  0.070 against 0.05), Run 2 by its (h2) stop rule (T3 lost-row DP -0.0650 [-0.0900, -0.0425], pass probability
+  0.2287); T1-T4 never run; dev/eval seeds of both runs unused and kept registered; nothing adopted; the H17 relaxations
+  and the Run 2 T3 (c) re-sign lapse. The measured facts are recorded apart from the verdict (the search finds a plume
+  from the constructed stranded state, (c1) 0.542 and 0.578 against 0/400; the task-level whiff fraction after
+  engagement 18/84 = 0.214 against 0.5-0.7 is the factor that missed). Cold-start search stays a recorded limit; the
+  release at negative values stays ON HOLD.
+- **H26 (adaptive presence) opened for design; design v1 DRAFT (2026-09-24; decision:h26-open-design).** Same owner
+  message; the number H26 assigned by that decision. Doc d9452710c5166ba01 (experiments/h26/h26_design_v1.md, sha
+  18983aa2...3598; concept:h26-adaptive-presence), no code. Recommended: the presence prior separated from the window
+  (one counter per odour starting at 240, so an odour never sensed is present on steps 0-58, window 300 after any
+  whiff; Agent14 = Release + Agent9 with the start value; no second state variable; a new H26-scoped relaxation to
+  sign). Candidates (a)-(d) rejected on record. Bench (m) measures T1's rows without an early valued whiff before the
+  (h) T1 and (h3) W1 stop rules are read; M5(d) re-sign against Agent10 recommended (the inherited prediction contradicted
+  by two benches). Seeds dev 9977/9987, eval 1985/2085, bench 20261071/20261072, bootstrap 20261073 (189 files scanned,
+  no collision). Awaiting the owner's confirmation of section 12.
 
 ## Why a plan now
 
@@ -762,7 +780,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   outside the plumes, where search does not find them again (the H17 limit); the base's recovery in those rows goes
   through the wall reflex. Not measured: a run without walls.
 
-### H17 (decision:h17-open-design, decision:h17-open; bench NO CANDIDATE on part (d); STOPPED; post-bench diagnosis by decision:h17-post-bench-diagnosis; Run 2 opened for design by decision:h17-run2-open-design and opened by decision:h17-run2-open; Run 2 STOPPED at the bench by its (h2) stop rule; Run 2 post-bench diagnosis by decision:h17-run2-post-bench-diagnosis; awaiting the owner)
+### H17 (decision:h17-open-design, decision:h17-open; bench NO CANDIDATE on part (d); STOPPED; post-bench diagnosis by decision:h17-post-bench-diagnosis; Run 2 opened for design by decision:h17-run2-open-design and opened by decision:h17-run2-open; Run 2 STOPPED at the bench by its (h2) stop rule; Run 2 post-bench diagnosis by decision:h17-run2-post-bench-diagnosis; CLOSED by decision:h17-closed: NOT shown, nothing adopted)
 - Cold-start and reacquisition search (concept:h17-cold-search), a navigation change on the target only: after S 210
   steps with nothing held and no whiff of any odour, a crosswind cast of growing amplitude (legs 30 k steps) slanted
   15 degrees along the wind, the slant reversing every 360 steps. One counter q under the H17-scoped relaxation
@@ -843,6 +861,42 @@ Four hypotheses were run in one day by picking the next most interesting candida
   quantity, which is new state. Reading only; no cause established. Nothing adopted; the verdict stands. The owner
   decides between closing H17 and a Run 3 design, whose options and what each would register are listed in the
   report.
+- **CLOSED as NOT shown under its registered criteria (owner 2026-09-24, decision:h17-closed:** '1. H17 종료, 등록된 순서대로
+  adaptive presence(제안) → H20 Stage B', gloss 'option 1: close H17; proceed in the registered order, adaptive presence
+  (proposed), then H20 Stage B'). Run 1 stopped at the bench by the no-candidate rule on part (d) (18/400 engaged rows,
+  upper bound 0.070 against 0.05); Run 2 stopped at the bench by the (h2) stop rule (T3 lost-row DP -0.0650 [-0.0900,
+  -0.0425] against M3 (a) <= -0.05, pass probability 0.2287). T1-T4 never run in either run; seeds unused and kept
+  registered to H17 (Run 1 dev 9943/9953, eval 1945/2045; Run 2 dev 9961/9973, eval 1965/2065); not re-judged. Nothing
+  adopted; the Run 1 and Run 2 relaxations and the Run 2 T3 (c) re-sign lapse. Measured apart from the verdict: the
+  search finds a plume from the constructed stranded state in both benches ((c1) 0.542 / 0.698 / +0.5425 and 0.578 /
+  0.635 / +0.5775 against Agent10 0/400); H16's square 0.907 vs 0.688; at S 250 (d) 4/400, contacts 0, W1 dwell +1.75;
+  the task-level whiff fraction after engagement 18/84 = 0.214 against the predicted 0.5-0.7 is the factor that missed;
+  leg 1 toward the pair 13/19 vs 5/65 (task) and 184/194 vs 47/206 ((c1)); 29 late-released rows unreachable by any leg
+  rule; `since` - q separates nothing (35/105 vs 4/16); the last whiffed odour's value sign separates (105/105 vs 0/16)
+  but is new state. Reading (interpretation): the search works from the stranded state; at the task the first leg's
+  side and the upwind slant carry most stranded rows upwind of both sources before they cross the pair. Cold-start
+  search stays a recorded limit (record:release-negative-cost-limit unchanged); the release at negative values stays
+  ON HOLD (decision:release-negative-scope-on-hold).
+
+### H26 (decision:h26-open-design; design v1 DRAFT, no code; awaiting the owner's confirmation of section 12)
+- Adaptive presence (concept:h26-adaptive-presence), the item queued as proposed (not decided) at the H24 Run 2
+  closure; the number H26 assigned by decision:h26-open-design (the highest in use was H25). The problem: the H23 filter
+  is blind to the neutral odour when the valued odour is absent (W1 dwell Agent10 11.9 vs Agent6 24.4), and no fixed
+  presence window N meets both the H21 task (clear from N 200) and W1 (only to N 120) (record:h24-run2-n-sweep-result).
+- Design v1 DRAFT doc d9452710c5166ba01 (experiments/h26/h26_design_v1.md, sha 18983aa2...3598), no code. Reading
+  from the code, checked by the sweep: the sweep moved two quantities together, since the counter starts at 0; W1 and
+  T3a (valued odour never sensed) depend on N only through the prior, T1 mostly through the window after a whiff.
+  Recommended candidate (e): the prior separated from the window, one counter per odour as H24 Run 2's starting at
+  N_hi - P = 240 (an odour never sensed present on steps 0-58), window N_hi 300 after any whiff; Agent14 = Release +
+  Agent9 with the start value; no second state variable; a new H26-scoped relaxation to sign (H14 format). Predicted:
+  W1 and T3a bitwise Agent11 at N 60 (dwell 22.7, R 1.005); T1 bitwise Agent11 at N 300 (Agent10's outcome on the
+  sweep) in every row with a valued whiff by step 58, the rest measured at bench (m). Rejected on record: (a) the
+  hold-conditioned reload and its graded form, (b) the hold-tied window, (c) the neutral-conditioned release, (d) the
+  closure's gap-scaled patience. Bench with (m), (h) T1 and (h3) W1 stop rules at 0.5; M5(d) (W1 lost rows vs Agent6)
+  predicted to fail as inherited (+0.035 and +0.0475 on two benches), re-sign against Agent10 recommended. Joint pass
+  probability about 0.97 at 0-5 extra lost rows, 0.83 at 10, 0.42 at 13. Not addressed: a loss after tracking (there
+  the window is a fixed 300). Seeds dev 9977/9987, eval 1985/2085, bench 20261071/20261072, bootstrap 20261073 (189
+  files scanned, no collision).
 
 ## The architecture as currently adopted
 
@@ -935,7 +989,8 @@ Stated here so a later session does not have to reassemble it from decisions.
   and heading information on every step; tracking a plume already entered and reacquiring it
   after loss. **Not validated:** finding a plume from an odour-free start (about half, H17; now with a measured
   consequence: after the release ends a negative hold 20-27 units outside the plumes no whiff follows in 131/131,
-  record:release-negative-cost-limit);
+  record:release-negative-cost-limit; H17's search, closed NOT shown by decision:h17-closed, was not adopted, so the
+  limit stays);
   navigation under loss of the heading cue; any arena whose walls are inside the rule's loop
   (in 40x40 it equals a random walk, concept:h15-arena-occupancy-floor). The saturating cast of
   Phase 7.3 is superseded: it leaves 94 to 98 percent of agents unrecovered over 5400 steps.
@@ -994,7 +1049,11 @@ Stated here so a later session does not have to reassemble it from decisions.
   N 60, starting ON as a prior (decision:classification-rule-relaxed-presence-counter) (lapsed with H24's closure; the decision stays on record). A second,
   scoped to H17 only: ONE counter q, steps since the last whiff of any odour
   (decision:classification-rule-relaxed-any-odour-silence-counter-h17), re-signed in form for H17 and H17 Run 2
-  (decision:classification-rule-relaxed-any-odour-silence-counter-h17-run2). The classification rule itself is unchanged elsewhere.
+  (decision:classification-rule-relaxed-any-odour-silence-counter-h17-run2); both lapsed with H17's closure
+  (decision:h17-closed) and stay on record, as does the lapsed H24 Run 2 re-sign
+  (decision:classification-rule-relaxed-presence-counter-run2). A new one, scoped to H26 only (one presence counter per
+  odour, window 300, starting at 240 as a prior), is proposed in H26 design v1 and NOT yet signed. No relaxation is in
+  force now. The classification rule itself is unchanged elsewhere.
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
   floor in the window where the gate is read. H15's probes spanned 0.3 to 600 and every agent
@@ -1230,20 +1289,16 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H17 Run 2: post-bench diagnosis done (measurement only); the owner decides** (decision:h17-run2-open;
-  record:h17-run2-bench-result; decision:h17-run2-post-bench-diagnosis; record:h17-run2-post-bench-diagnosis-result;
-  report doc dd1ba5b405811ef4a). The bench stopped at the (h2) stop rule: T3 lost-row DP -0.0650 [-0.0900, -0.0425],
-  pass probability 0.2287. The diagnosis found that the missed factor is the whiff fraction after engagement (18/84 =
-  0.214 against 0.5-0.7). The 87 stranded rows without a whiff sit outward of the negative source, their first leg
-  points to the flee side, and they cross the pair only at the end of leg 4, upwind of both sources. `since` differs
-  from q in 35/105 stranded rows through one mechanism: the last negative whiff came before the hold formed. T1-T4
-  were not run; dev 9961/9973 and eval 1965/2065 are unused; nothing is adopted. Options: close H17 (Run 1 and Run 2
-  stopped at their benches) and move on in the registered order (adaptive presence (proposed), then H20 Stage B); or a
-  Run 3 design on new seeds. A Run 3 would have to register one or more of: a re-signed T3 (a) bar anchored to the
-  measured effect (pass probability 0.5 at about -0.041, 0.81 at -0.03); a change to the stop-rule or bar structure;
-  a first-leg side rule (resting on 13/19 vs 5/65, and on (c1)'s 184/194 vs 47/206); a value-sign memory separator
-  (new state, needing its own relaxation); and the negative-plume recapture cost. No dev or eval seed is touched until
-  the owner decides.
+- **H26 (adaptive presence): the owner's confirmation of design v1 section 12** (decision:h26-open-design; design v1
+  DRAFT doc d9452710c5166ba01, experiments/h26/h26_design_v1.md, sha 18983aa2...3598; no code). The seven points, each
+  with a RECOMMENDED option: (1) the candidate: (e), the presence prior separated from the window, (a)-(d) rejected on
+  record; (2) the parameters: P 60 (a 59-step prior for an odour never sensed), N_hi 300 (the window after a whiff);
+  alternatives P 90, P 120 (not recommended), N_hi 200, N_hi 450; (3) the H26-scoped relaxation to sign (H14 format:
+  one presence counter per odour, window 300, starting at 240 as a prior; no other state); (4) the bars, M2 and M7 as
+  H24 Run 2, M5(b) by the bench rule, and M5(d) re-signed against Agent10 (kept against Agent6 it is predicted to fail,
+  pass probability 0.04-0.37); (5) the stop rules (h) T1 and (h3) W1 at pass probability 0.5, bench (m) printed before;
+  (6) seeds dev 9977/9987, eval 1985/2085, bench 20261071/20261072, bootstrap 20261073; (7) the order H26 -> H20 Stage
+  B. No code and no seed is touched until the owner confirms and signs.
 
 ## Queued candidates, none started
 
@@ -1258,8 +1313,10 @@ Agent10 (decision:h24-run2-open; stopped at the bench by its stop rule, record:h
 NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapsed); H17 opened on design v2 FINAL
 (decision:h17-open; doc d83a917ea4152b4a7) and STOPPED at the bench, no candidate on part (d)
 (record:h17-bench-result); H17 Run 2 opened on design v2 FINAL (decision:h17-run2-open; doc d73c77ebd99d50d86) and
-STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result), awaiting the owner; then adaptive
-presence (proposed) and H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18 and the
+STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
+(decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
+presence, numbered H26, is open for design (decision:h26-open-design; design v1 DRAFT doc d9452710c5166ba01, awaiting
+the owner); then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18 and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the H25 release's scope (+1/0) and stays in force outside it.
 
@@ -1272,11 +1329,15 @@ within the H25 release's scope (+1/0) and stays in force outside it.
   design v1 DRAFT doc dedd3d11f43f9156f, experiments/h17/h17_run2_design_v1.md: engagement at q >= 250, T3 (c)
   re-anchored, new seeds); opened on design v2 FINAL (decision:h17-run2-open; doc d73c77ebd99d50d86; src/ph27.py) and
   STOPPED at the bench by the (h2) stop rule (record:h17-run2-bench-result: T3 lost-row DP -0.0650, pass probability
-  0.2287; every no-candidate part PASS, (d) 4/400); tasks not run; awaiting the owner. Before Stage B
-  (decision:priority-h24run2-h17-stageb).
-- **Adaptive presence** (proposed by the interpreting assistant in the H24 Run 2 closure, not decided): queued after
-  H17. A fixed N cannot satisfy both T1 and W1 (record:h24-run2-n-sweep-result).
-- **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
+  0.2287; every no-candidate part PASS, (d) 4/400); tasks not run. **CLOSED as NOT shown (decision:h17-closed,
+  2026-09-24):** nothing adopted, the relaxations lapsed, seeds kept registered; cold-start search stays a recorded
+  limit (record:release-negative-cost-limit unchanged).
+- **H26, adaptive presence** (concept:h26-adaptive-presence; proposed by the interpreting assistant in the H24 Run 2
+  closure, not decided; opened for design by decision:h26-open-design, the number assigned there). A fixed N cannot
+  satisfy both T1 and W1 (record:h24-run2-n-sweep-result). **In design:** design v1 DRAFT doc d9452710c5166ba01
+  (experiments/h26/h26_design_v1.md), recommending the presence prior separated from the window; no code; awaiting
+  the owner's confirmation of section 12. Before Stage B.
+- **H20 Stages B and C** (next after H26) (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
   as it stands); C, the gain in the H15 Run 2 world with learning on, with Run 2's avoidance and
   long-horizon search values as the reference. Both depend on a task in which selection can be
