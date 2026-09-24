@@ -496,6 +496,20 @@ Progress log
   +1.750 [+1.173, +2.343]). Also: `since` - q is 0 in 376/400 (b'2) rows and 70/105 engaged stranded task rows, so the
   design's section 2 (E) reading holds only in part (printed notice; not a mechanism failure). Tasks NOT run; dev
   9961/9973 and eval 1965/2065 unused; nothing tuned. The owner decides.
+- **H17 Run 2 post-bench diagnosis, measurement only (2026-09-24; decision:h17-run2-post-bench-diagnosis,
+  record:h17-run2-post-bench-diagnosis-result).** The owner chose option 2 ('2번 진단 먼저 진행', 'run the diagnosis,
+  option 2, first'). src/ph27b.py (sha a6232c09...79ac, source doc d9e169fcd01da251b) imports ph27 and ph26 unchanged;
+  bench seeds only; the bench re-run equals ph27_bench.txt line for line and the (h2) headline reproduces. (A) Of 134
+  stranded rows 105 engage (the other 29 are released at step 414 or later); 18 whiff after engagement, 87 do not. The
+  87 sit about 29 outward of the negative source's axis at engagement (81/87), and the pair is first crossed at the
+  end of leg 4 (u about 292), upwind of both sources in 63/64. In the 84 rows engaged by step 399, leg 1 (and so leg 3)
+  is on the flee side in 65, and those whiff 5/65 against 13/19 with leg 1 toward the pair ((c1): 184/194 vs 47/206).
+  The factor that missed the prediction is the whiff fraction after engagement: 18/84 = 0.214 against 0.5-0.7 (a whiff
+  then leaves lost in 17/18). (B) `since` - q > 0 in 35/105 task rows and 24/400 constructed rows, all by one
+  mechanism: the last negative whiff came with nothing held, 1-6 steps before the negative hold formed, so it was not
+  nav (ph21.py:69, :72), and no hit followed while held. Design section 2 (E) holds in 70/105. Report doc
+  dd1ba5b405811ef4a (experiments/h17/h17_run2_post_bench_diagnosis.md). Nothing adopted; the Run 2 verdict unchanged.
+  The owner decides: close H17, or a Run 3 design.
 
 ## Why a plan now
 
@@ -748,7 +762,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   outside the plumes, where search does not find them again (the H17 limit); the base's recovery in those rows goes
   through the wall reflex. Not measured: a run without walls.
 
-### H17 (decision:h17-open-design, decision:h17-open; bench NO CANDIDATE on part (d); STOPPED; post-bench diagnosis by decision:h17-post-bench-diagnosis; Run 2 opened for design by decision:h17-run2-open-design and opened by decision:h17-run2-open; Run 2 STOPPED at the bench by its (h2) stop rule; awaiting the owner)
+### H17 (decision:h17-open-design, decision:h17-open; bench NO CANDIDATE on part (d); STOPPED; post-bench diagnosis by decision:h17-post-bench-diagnosis; Run 2 opened for design by decision:h17-run2-open-design and opened by decision:h17-run2-open; Run 2 STOPPED at the bench by its (h2) stop rule; Run 2 post-bench diagnosis by decision:h17-run2-post-bench-diagnosis; awaiting the owner)
 - Cold-start and reacquisition search (concept:h17-cold-search), a navigation change on the target only: after S 210
   steps with nothing held and no whiff of any odour, a crosswind cast of growing amplitude (legs 30 k steps) slanted
   15 degrees along the wind, the slant reversing every 360 steps. One counter q under the H17-scoped relaxation
@@ -810,6 +824,25 @@ Four hypotheses were run in one day by picking the next most interesting candida
   0 in 376/400 (b'2) rows and 70/105 engaged stranded task rows (max 186): the design's reading that the two are equal
   in the stranded state holds only in part; printed as a notice, not a mechanism failure. Tasks NOT run; dev 9961/9973
   and eval 1965/2065 unused; nothing adopted, nothing tuned. The owner decides.
+- **Run 2 post-bench diagnosis (measurement only; decision:h17-run2-post-bench-diagnosis;
+  record:h17-run2-post-bench-diagnosis-result; report doc dd1ba5b405811ef4a,
+  experiments/h17/h17_run2_post_bench_diagnosis.md; ph27b.py sha a6232c09...79ac, output ph27b_diag.txt sha
+  7a2eeee5...441e).** Bench seeds only; the bench was reproduced line for line. Of Agent10's 134 stranded rows, 105
+  engage 196-202 steps after the release. The 29 that do not were released at step 414 or later, so the run ends
+  before q reaches 250. 18 rows whiff after engagement (u 150/159/180, legs 3-4) and 17 of them leave lost. The 87
+  without a whiff start about 29 outward of the negative source (d_along 36.5; beyond LMAX in 73). Their first
+  crossing of the pair comes at the end of leg 4 (u 289/292/295), at d_along -14.6, upwind of both sources in 63/64.
+  At step 599, 70 of them are upwind of both. No wall is involved. In the 84 rows engaged by step 399, leg 1 is on
+  the flee side (away from the pair) in 65; leg 1 toward the pair whiffs 13/19, away 5/65. In (c1), leg 1 toward
+  whiffs 184/194 and away 47/206. The slant also runs further upwind than the design's arithmetic: leg 3 covers
+  d_along 22 -> 5, against about 28 -> 14. The chain against the prediction: engaged by step 399 is 84/119 (0.706,
+  predicted 0.6-0.7); a whiff follows in 18/84 (0.214, predicted 0.5-0.7); the row leaves lost in 17/18. `since` - q
+  > 0 in 35/105 (and 24/400 constructed rows), all because the last negative whiff came with nothing held, 1-6 steps
+  before the hold formed (ph21.py:69, :72). Section 2 (E) holds in 70/105. The last whiffed odour is negative in
+  105/105 stranded rows and in none of the T1 silences (16 on these seeds, 18 in Run 1). That is the design's (b4)
+  quantity, which is new state. Reading only; no cause established. Nothing adopted; the verdict stands. The owner
+  decides between closing H17 and a Run 3 design, whose options and what each would register are listed in the
+  report.
 
 ## The architecture as currently adopted
 
@@ -1197,15 +1230,20 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H17 Run 2 STOPPED at the bench by its registered (h2) stop rule: the owner decides** (decision:h17-run2-open;
-  record:h17-run2-bench-result; ph27_bench.txt sha 7176278a...9b71). Every no-candidate part passed ((a)-(d), (b'),
-  (c1)); the T3 lost-row DP on the bench seeds was -0.0650 [-0.0900, -0.0425], pass probability 0.2287 < 0.5. T1-T4 not
-  run; dev 9961/9973 and eval 1965/2065 unused; nothing adopted. Also for the owner: `since` - q at engagement is 0 in
-  376/400 constructed stranded rows and 70/105 task stranded rows, so the design's section 2 (E) reading (the ground
-  for rejecting own-state separators) holds only in part. Options: close H17 (Run 1 and Run 2 stopped at their benches,
-  nothing adopted) and move on in the registered order (adaptive presence (proposed) -> H20 Stage B); a
-  measurement-only post-bench diagnosis first; or a further run design. No dev or eval seed is touched until the owner
-  decides.
+- **H17 Run 2: post-bench diagnosis done (measurement only); the owner decides** (decision:h17-run2-open;
+  record:h17-run2-bench-result; decision:h17-run2-post-bench-diagnosis; record:h17-run2-post-bench-diagnosis-result;
+  report doc dd1ba5b405811ef4a). The bench stopped at the (h2) stop rule: T3 lost-row DP -0.0650 [-0.0900, -0.0425],
+  pass probability 0.2287. The diagnosis found that the missed factor is the whiff fraction after engagement (18/84 =
+  0.214 against 0.5-0.7). The 87 stranded rows without a whiff sit outward of the negative source, their first leg
+  points to the flee side, and they cross the pair only at the end of leg 4, upwind of both sources. `since` differs
+  from q in 35/105 stranded rows through one mechanism: the last negative whiff came before the hold formed. T1-T4
+  were not run; dev 9961/9973 and eval 1965/2065 are unused; nothing is adopted. Options: close H17 (Run 1 and Run 2
+  stopped at their benches) and move on in the registered order (adaptive presence (proposed), then H20 Stage B); or a
+  Run 3 design on new seeds. A Run 3 would have to register one or more of: a re-signed T3 (a) bar anchored to the
+  measured effect (pass probability 0.5 at about -0.041, 0.81 at -0.03); a change to the stop-rule or bar structure;
+  a first-leg side rule (resting on 13/19 vs 5/65, and on (c1)'s 184/194 vs 47/206); a value-sign memory separator
+  (new state, needing its own relaxation); and the negative-plume recapture cost. No dev or eval seed is touched until
+  the owner decides.
 
 ## Queued candidates, none started
 
