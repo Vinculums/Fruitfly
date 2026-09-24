@@ -46,3 +46,4 @@ python ph19.py             # any phase script runs standalone
 | `ph22.py` | absent-odour check (after H23) | `experiments/absent_odour_check/` |
 | `ph21b.py` | option-v presence diagnosis (before H24) | `experiments/h24/` |
 | (none yet) | H24, design v1 only, no code yet | `experiments/h24/` |
+| (none yet) | H17, design v1 DRAFT only, no code (`experiments/h17/h17_design_v1.md`) | `experiments/h17/` |

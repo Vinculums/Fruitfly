@@ -426,6 +426,22 @@ Progress log
   experiments/h24/h24_run2_nsweep.md): no swept N meets both targets. T1 DP vs Agent10 about -0.17 for N 60-150,
   -0.0125 [-0.025, -0.0025] at 200, 0 from 300; W1 dwell with M5(b) passing only at N 60/90/120 (22.7/22.7/24.8),
   19.6 at 150 (M5(b) 0.034), 17.8 at 200. Recommendation on record: close Run 2 at the bench stop, then H17.
+- **H24 Run 2 CLOSED as NOT shown (2026-09-24; decision:h24-run2-closed).** The owner accepted the recommendation
+  ('일단 fruit fly 제안 추천에맞게 진행하고 laya는 추후 전달'). Stopped at bench (h) by the registered stop rule (Agent11 -
+  Agent10 paired DP -0.1725 [-0.2125, -0.1350] on bench seeds; M2(b) pass probability 0.000); no candidate; T1/T2/T3
+  never run; seeds dev 9919/9929 and eval 1815/1915 unused and registered to H24 Run 2. The N sweep is the measured
+  reason (no fixed N meets both targets; record:h24-run2-n-sweep-result). Nothing adopted; the Run 2 relaxation
+  (decision:classification-rule-relaxed-presence-counter-run2) lapses. Adaptive presence queued after H17, proposed,
+  not decided.
+- **H17 opened for design; design v1 DRAFT (2026-09-24; decision:h17-open-design).** Same owner message. Doc
+  de696df4b5963d1c1 (experiments/h17/h17_design_v1.md, sha 8180e889...bc15f; concept:h17-cold-search), no code. A
+  navigation hypothesis: Agent12 = Search + Agent10; after S 210 silent steps with nothing held and no whiff of any
+  odour, a crosswind cast of growing amplitude (legs 30 k steps) slanted 15 degrees along the wind, the slant
+  reversing every 360 steps. One new counter q (steps since the last whiff of any odour) needs a signed H17-scoped
+  relaxation (H14 format). Bench (a)-(d) with (c1) bars 0.40 / 0.30 / +0.30 and stop rules (h1) / (h2); tasks T1-T4
+  with bars T1 DP >= -0.05, T2 dwell vs Agent10 >= -1.2, T3 lost-row DP <= -0.05, P(V) DP >= -0.02 and contacts
+  <= 0.10 per row, T4 reported. Seeds dev 9943/9953, eval 1945/2045, bench 20261051/20261052, bootstrap 20261053
+  checked unused. Awaiting the owner's confirmation of section 12.
 
 ## Why a plan now
 
@@ -638,7 +654,8 @@ Four hypotheses were run in one day by picking the next most interesting candida
   (src/ph25.py). **STOPPED at the bench by the registered stop rule of bench (h)** (record:h24-run2-bench-result):
   M4's identities and implementation bars all pass, the released hold makes the window exact, but on the bench seeds
   Agent11 loses the H21 task against Agent10 (P(V) 0.785 vs 0.958, DP -0.1725 [-0.2125, -0.1350]; M2(b) pass
-  probability 0.0000). Tasks not run; no verdict; the owner decides.
+  probability 0.0000). Tasks not run. CLOSED as NOT shown by the owner (decision:h24-run2-closed, 2026-09-24): the
+  N sweep the measured reason (record:h24-run2-n-sweep-result), nothing adopted, the Run 2 relaxation lapsed.
 
 ### H25 (decision:h25-open-design, decision:h25-open; evaluated once; CLOSED as SHOWN by decision:h25-closed; the release adopted at +1/0 by decision:h25-release-adopted-within-tested-conditions, at negative values ON HOLD by decision:release-negative-scope-on-hold)
 - Silence-timeout release (concept:h25-silence-timeout-release), a reset-control change: (S) keep delivering the
@@ -1061,9 +1078,10 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H24 Run 2, the N decision** (record:h24-run2-bench-result, record:h24-run2-n-sweep-result): stopped at bench (h)
-  (T1 DP -0.1725 at N 60); the N sweep finds no N meeting both targets. The owner decides: a Run 3 design v1 or
-  closure (the sweep's recommendation: closure); then H17, then H20 Stage B (decision:priority-h24run2-h17-stageb).
+- **H17 design v1 DRAFT** (decision:h17-open-design; doc de696df4b5963d1c1, experiments/h17/h17_design_v1.md): the
+  owner confirms section 12 (six points: (1) the mechanism; (2) the relaxation for the counter q, options (a)
+  recommended / (b) / (c); (3) S 210 or 180; (4) the bench and the stop rules; (5) the task bars; (6) the seeds and
+  the order H17 -> adaptive presence (proposed) -> H20 Stage B) and signs the relaxation before any code.
 
 ## Queued candidates, none started
 
@@ -1074,16 +1092,20 @@ The order does not change without a decision node. H21 is closed (decision:h21-c
 as NOT shown (decision:h24-closed); H25, the silence-timeout fix, closed as shown (decision:h25-closed), the release
 adopted at +1/0 and on hold at negative values (decision:release-negative-scope-on-hold). The order from here is
 fixed by the owner (decision:priority-h24run2-h17-stageb): H24 Run 2, the (v-p) presence-counter re-attempt on
-Agent10 (decision:h24-run2-open; stopped at the bench by its stop rule, record:h24-run2-bench-result), then H17,
-then H20 Stage B. H20's
+Agent10 (decision:h24-run2-open; stopped at the bench by its stop rule, record:h24-run2-bench-result), is closed as
+NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapsed); H17 is in design
+(decision:h17-open-design; design v1 DRAFT doc de696df4b5963d1c1); then H20 Stage B. H20's
 Stages B and C stay queued behind the check. H17, H18 and the selection circuit's revision via the empty state
 stay as recorded limits; the silence timeout defect is fixed within the H25 release's scope (+1/0) and stays in
 force outside it.
 
 - **H17** (concept:h17-cold-search) finding a plume from an odour-free start without walls. Moved up: it now
   carries a measured consequence (the release at negative values strands the agent outside the plumes, no whiff
-  afterwards in 131/131; record:release-negative-cost-limit); next after H24 Run 2, before Stage B
-  (decision:priority-h24run2-h17-stageb).
+  afterwards in 131/131; record:release-negative-cost-limit). In design (decision:h17-open-design; design v1 DRAFT
+  doc de696df4b5963d1c1, experiments/h17/h17_design_v1.md), awaiting the owner's confirmation of section 12; before
+  Stage B (decision:priority-h24run2-h17-stageb).
+- **Adaptive presence** (proposed by the interpreting assistant in the H24 Run 2 closure, not decided): queued after
+  H17. A fixed N cannot satisfy both T1 and W1 (record:h24-run2-n-sweep-result).
 - **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
   as it stands); C, the gain in the H15 Run 2 world with learning on, with Run 2's avoidance and
@@ -1095,7 +1117,8 @@ force outside it.
   values (decision:release-negative-scope-on-hold) (record:silence-timeout-chain-result).
 - **H24 Run 2** (decision:h24-run2-open): the presence-scoped value filter on Agent10 at +1/0; design v2 FINAL;
   stopped at bench (h) (record:h24-run2-bench-result); N sweep done: no N in 60-450 meets both the T1 and the W1
-  target (T1 clears from N 200, W1 only up to N 120; record:h24-run2-n-sweep-result); awaiting the owner.
+  target (T1 clears from N 200, W1 only up to N 120; record:h24-run2-n-sweep-result). CLOSED as NOT shown
+  (decision:h24-run2-closed): nothing adopted, the Run 2 relaxation lapsed.
 - **H18** (concept:h18-ring-under-cue-loss) why the ring loses the plume under cue loss. The
   10 degree mean error is not taken as the cause; first the tail of large errors, how long an
   error persists, and the heading error just before a plume is lost.
