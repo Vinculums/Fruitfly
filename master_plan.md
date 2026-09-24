@@ -466,6 +466,18 @@ Progress log
   arms, no whiff after any contact; the contact rows carry no paired transition (all 19 into V and 37 out of lost are
   in engaged rows without a contact). Report doc d6f5ab6a423f8ba16 (experiments/h17/h17_post_bench_diagnosis.md).
   Nothing adopted; the H17 verdict unchanged. The owner decides between closure and a Run 2 design.
+- **H17 Run 2 opened for design; design v1 DRAFT (2026-09-24; decision:h17-run2-open-design).** The owner chose
+  option 2: '2번 Run 2 설계 v1 초안 진행' ('option 2, proceed with the Run 2 design v1 draft'). Run 1's verdict unchanged
+  (stopped at the bench, no candidate, nothing adopted; its seeds stay registered to Run 1). Doc dedd3d11f43f9156f
+  (experiments/h17/h17_run2_design_v1.md, sha 27bbd399...94dc), no code. Recommended: engagement at q >= 250 (q
+  unchanged; 6/400 T1 rows reach 250 against 18 at 210 on Run 1's bench seeds); own-state separators rejected (`since`
+  equals q in the tracking-loop silences, measured 16/18, and in the stranded state, read from ph21.py:71-75 and
+  checked exactly at the bench); leg rule kept, T3 (c) re-signed (H14 format) to 'out-of-lost rows whose first
+  post-engagement whiff follows a wall contact <= 0.10', contacts reported; (d) kept at 0.05 (pass 0.98 binomial,
+  0.91 predictive); the q relaxation re-signed in form for Run 2; bench adds (b') and a W1 bench-seed reading (h3)
+  with a proposed stop rule. Binding risk stated: T3 (a) pass probability about 0.5-0.6; joint about 0.32 if W1
+  holds. Seeds dev 9961/9973, eval 1965/2065, bench 20261061/20261062, bootstrap 20261063 (181 files scanned, one
+  collision replaced). Awaiting the owner's confirmation of section 12.
 
 ## Why a plan now
 
@@ -718,7 +730,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   outside the plumes, where search does not find them again (the H17 limit); the base's recovery in those rows goes
   through the wall reflex. Not measured: a run without walls.
 
-### H17 (decision:h17-open-design, decision:h17-open; bench NO CANDIDATE on part (d); STOPPED; post-bench diagnosis by decision:h17-post-bench-diagnosis; awaiting the owner)
+### H17 (decision:h17-open-design, decision:h17-open; bench NO CANDIDATE on part (d); STOPPED; post-bench diagnosis by decision:h17-post-bench-diagnosis; Run 2 opened for design by decision:h17-run2-open-design; awaiting the owner)
 - Cold-start and reacquisition search (concept:h17-cold-search), a navigation change on the target only: after S 210
   steps with nothing held and no whiff of any odour, a crosswind cast of growing amplitude (legs 30 k steps) slanted
   15 degrees along the wind, the slant reversing every 360 steps. One counter q under the H17-scoped relaxation
@@ -751,6 +763,18 @@ Four hypotheses were run in one day by picking the next most interesting candida
   (into V 19, out of V 4; out of lost 37, into lost 3) sits in the 117 engaged rows without a contact. Of 131 engaged
   stranded rows, 37 whiff after engagement (valued first 12, negative 25), 14 strand again. Reading only, no cause
   established. Nothing adopted; the verdict stands; the owner decides between closure and a Run 2 design.
+- **Run 2, design only (decision:h17-run2-open-design, owner 2026-09-24: '2번 Run 2 설계 v1 초안 진행'; design v1 DRAFT
+  doc dedd3d11f43f9156f, experiments/h17/h17_run2_design_v1.md, sha 27bbd399...94dc; no code).** Run 1's verdict
+  unchanged. The one mechanism change recommended is the engagement threshold: q >= 250 instead of 210, everything
+  else of the Search rule unchanged. Reason: the (d) silences are the return cast's own loop and the measured
+  longest-silence table gives 6/400 T1 rows at 250 (Wilson upper bound 0.032); the stranded rows engage 40 steps later
+  but, by the cast's exact-heading arithmetic, about 10 units further upwind, so T3 (a) is predicted at DP -0.079 to
+  -0.085 (pass probability about 0.5-0.6, the binding part). No own-state variable separates the two silences
+  (`since` equals q in both; the stranded case read from the code and checked exactly at the bench (b')). T3 (c)
+  re-signed to guard recovery through the wall rather than the contact count (the 99 Run 1 contacts carry no
+  transition); leg cap and flee-side first leg rejected. (d) kept at 0.05. The q relaxation re-signed in form for Run
+  2. New seeds dev 9961/9973, eval 1965/2065, bench 20261061/20261062, bootstrap 20261063. Awaiting the owner's
+  confirmation of section 12.
 
 ## The architecture as currently adopted
 
@@ -1137,15 +1161,13 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H17 STOPPED at the bench** (record:h17-bench-result; decision:h17-open; design v2 FINAL doc d83a917ea4152b4a7):
-  the registered no-candidate rule fired on part (d) (T1 +1/0 engaged rows 18/400, upper bound 0.070 against 0.05);
-  every other bench part passed and neither stop rule fired. T1-T4 not run; dev and eval seeds unused. The design
-  returns to the owner (design section 4: '(d) failing -> tasks not run (the mode would change normal tracking)').
-  The owner chose the measurement-only diagnosis first ('3번 진단 먼저 진행해'; decision:h17-post-bench-diagnosis); it is
-  done (record:h17-post-bench-diagnosis-result; report doc d6f5ab6a423f8ba16): the 18 engaged T1 rows are tracking
-  rows in the return cast's loop, and the (h2) contacts are in legs 3-4 of stranded rows that stay lost in both arms.
-  Nothing adopted. The owner decides between closing H17 as no candidate and a Run 2 design (what a Run 2 would
-  have to register is listed in the report, section 5).
+- **H17 Run 2 design v1 DRAFT: the owner's confirmation of section 12** (decision:h17-run2-open-design; doc
+  dedd3d11f43f9156f, experiments/h17/h17_run2_design_v1.md; no code). Eight points, each with a recommended option:
+  the engagement rule (q >= 250), the wall-contact handling (leg rule kept, T3 (c) re-anchored), the (d) bar (kept at
+  0.05), the T3 (c) re-sign (H14 format), the q relaxation's scope re-signed in form for Run 2, the bench additions
+  and stop rules ((b'), (h2c), (h3)), the seeds (dev 9961/9973, eval 1965/2065, bench 20261061/20261062, bootstrap
+  20261063) and the order (H17 Run 2 -> adaptive presence (proposed) -> H20 Stage B). H17 Run 1's verdict (stopped at
+  the bench, no candidate on part (d); record:h17-bench-result) stands; nothing adopted.
 
 ## Queued candidates, none started
 
@@ -1159,7 +1181,8 @@ fixed by the owner (decision:priority-h24run2-h17-stageb): H24 Run 2, the (v-p) 
 Agent10 (decision:h24-run2-open; stopped at the bench by its stop rule, record:h24-run2-bench-result), is closed as
 NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapsed); H17 opened on design v2 FINAL
 (decision:h17-open; doc d83a917ea4152b4a7) and STOPPED at the bench, no candidate on part (d)
-(record:h17-bench-result), awaiting the owner; then adaptive presence (proposed) and H20 Stage B. H20's
+(record:h17-bench-result); H17 Run 2 opened for design (decision:h17-run2-open-design; design v1 DRAFT doc
+dedd3d11f43f9156f), awaiting the owner; then adaptive presence (proposed) and H20 Stage B. H20's
 Stages B and C stay queued behind the check. H17, H18 and the selection circuit's revision via the empty state
 stay as recorded limits; the silence timeout defect is fixed within the H25 release's scope (+1/0) and stays in
 force outside it.
@@ -1169,7 +1192,9 @@ force outside it.
   afterwards in 131/131; record:release-negative-cost-limit). Opened on design v2 FINAL (decision:h17-open; doc
   d83a917ea4152b4a7, experiments/h17/h17_design_v2.md); src/ph26.py; STOPPED at the bench, no candidate on part
   (d) (record:h17-bench-result): the search finds the plume from the stranded state ((c1) all PASS) but engages in
-  18/400 T1 rows (upper bound 0.070 > 0.05). Tasks not run; awaiting the owner. Before Stage B
+  18/400 T1 rows (upper bound 0.070 > 0.05). Tasks not run. Run 2 opened for design (decision:h17-run2-open-design;
+  design v1 DRAFT doc dedd3d11f43f9156f, experiments/h17/h17_run2_design_v1.md: engagement at q >= 250, T3 (c)
+  re-anchored, new seeds; no code); awaiting the owner's confirmation of section 12. Before Stage B
   (decision:priority-h24run2-h17-stageb).
 - **Adaptive presence** (proposed by the interpreting assistant in the H24 Run 2 closure, not decided): queued after
   H17. A fixed N cannot satisfy both T1 and W1 (record:h24-run2-n-sweep-result).
