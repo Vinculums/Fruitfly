@@ -455,6 +455,17 @@ Progress log
   [0.029, 0.070], upper bound above 0.05 (predicted 0.0025-0.02). Stop rules did not fire ((h1) 1.0000, T1 DP
   -0.0025; (h2) 0.6324, lost-row DP -0.0850). Tasks NOT run; dev 9943/9953 and eval 1945/2045 unused. The owner
   decides.
+- **H17 post-bench diagnosis, measurement only (2026-09-24; decision:h17-post-bench-diagnosis,
+  record:h17-post-bench-diagnosis-result).** The owner chose option 3 ('3번 진단 먼저 진행해', 'run the diagnosis, option
+  3, first'). src/ph26b.py (sha 6b45d87c...e0ae, source doc d6bd7048dbe6be461) imports ph26 unchanged; bench seeds
+  only; the bench re-run equals ph26_bench.txt line for line. (A) The 18 T1 silences of >= 210 steps are tracking rows
+  (Agent10 V 15/18): 16 begin after the agent had been at a source, 16 with `since` 1, most steps upwind of both
+  sources (majority class in 16/18), and 14 are back inside a whiff region (d_along 14.5-24.6) when q reaches 210; S
+  210 sits at about p95 of Agent10's longest silence (207). Only row 184 changes outcome (V to N). (B) All 99 (h2)
+  contacts are engaged, in legs 3-4 on the upwind slant (none in legs 5-6), in 39 Agent10-stranded rows, lost in both
+  arms, no whiff after any contact; the contact rows carry no paired transition (all 19 into V and 37 out of lost are
+  in engaged rows without a contact). Report doc d6f5ab6a423f8ba16 (experiments/h17/h17_post_bench_diagnosis.md).
+  Nothing adopted; the H17 verdict unchanged. The owner decides between closure and a Run 2 design.
 
 ## Why a plan now
 
@@ -707,7 +718,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   outside the plumes, where search does not find them again (the H17 limit); the base's recovery in those rows goes
   through the wall reflex. Not measured: a run without walls.
 
-### H17 (decision:h17-open-design, decision:h17-open; bench NO CANDIDATE on part (d); STOPPED, awaiting the owner)
+### H17 (decision:h17-open-design, decision:h17-open; bench NO CANDIDATE on part (d); STOPPED; post-bench diagnosis by decision:h17-post-bench-diagnosis; awaiting the owner)
 - Cold-start and reacquisition search (concept:h17-cold-search), a navigation change on the target only: after S 210
   steps with nothing held and no whiff of any odour, a crosswind cast of growing amplitude (legs 30 k steps) slanted
   15 degrees along the wind, the slant reversing every 360 steps. One counter q under the H17-scoped relaxation
@@ -725,6 +736,21 @@ Four hypotheses were run in one day by picking the next most interesting candida
   pass probability 0.6324, contacts 0.247 per row (reported). Neither stop rule fired.
 - **STOPPED at the bench by the no-candidate rule** ('(d) failing -> tasks not run'). T1-T4 not run; seeds dev
   9943/9953 and eval 1945/2045 unused. Nothing adopted, nothing tuned. The owner decides.
+- **Post-bench diagnosis (measurement only; decision:h17-post-bench-diagnosis; record:h17-post-bench-diagnosis-result;
+  report doc d6f5ab6a423f8ba16, experiments/h17/h17_post_bench_diagnosis.md; ph26b.py sha 6b45d87c...e0ae, output
+  ph26b_diag.txt sha 10429f5b...df19).** Bench seeds only, the bench reproduced line for line. (A) Agent10's longest
+  any-odour silence per row in T1 +1/0: 154/160/171, p95 207, max 321; rows >= 210: 18, >= 250: 6, >= 300: 3. The 18
+  are the return cast's loop after a whiff at or next to a source: 16/18 start after the agent had been at a source
+  (13 inside a whiff region at the start, `since` 1 in 16), the majority of steps upwind of both sources in 16, and
+  14 are inside a whiff region again at the engagement step (d_along 15.8/19.0/22.0); no wall; Agent10 V 15/18.
+  Agent12 whiffs within u 6/11/50 in all 18 (first the other odour in 15); only row 184 changes outcome (V to N).
+  (B) The 99 contacts (0.247 per row) are all engaged, legs 3 (44) and 4 (55), upwind slant, u 150-254, 68 on the
+  negative source's side wall and 27 on the upwind wall, all in 39 Agent10-stranded rows that were 28.6/30.5/32.5
+  from the nearer side wall at engagement; no whiff follows any contact; the 39 rows are lost in both arms (P(V |
+  contact) 2/39 = 0.051 [0.014, 0.169] vs 306/361 = 0.848 without) and carry no paired transition: the (h2) effect
+  (into V 19, out of V 4; out of lost 37, into lost 3) sits in the 117 engaged rows without a contact. Of 131 engaged
+  stranded rows, 37 whiff after engagement (valued first 12, negative 25), 14 strand again. Reading only, no cause
+  established. Nothing adopted; the verdict stands; the owner decides between closure and a Run 2 design.
 
 ## The architecture as currently adopted
 
@@ -1115,6 +1141,11 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
   the registered no-candidate rule fired on part (d) (T1 +1/0 engaged rows 18/400, upper bound 0.070 against 0.05);
   every other bench part passed and neither stop rule fired. T1-T4 not run; dev and eval seeds unused. The design
   returns to the owner (design section 4: '(d) failing -> tasks not run (the mode would change normal tracking)').
+  The owner chose the measurement-only diagnosis first ('3번 진단 먼저 진행해'; decision:h17-post-bench-diagnosis); it is
+  done (record:h17-post-bench-diagnosis-result; report doc d6f5ab6a423f8ba16): the 18 engaged T1 rows are tracking
+  rows in the return cast's loop, and the (h2) contacts are in legs 3-4 of stranded rows that stay lost in both arms.
+  Nothing adopted. The owner decides between closing H17 as no candidate and a Run 2 design (what a Run 2 would
+  have to register is listed in the report, section 5).
 
 ## Queued candidates, none started
 

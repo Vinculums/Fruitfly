@@ -46,4 +46,4 @@ python ph19.py             # any phase script runs standalone
 | `ph22.py` | absent-odour check (after H23) | `experiments/absent_odour_check/` |
 | `ph21b.py` | option-v presence diagnosis (before H24) | `experiments/h24/` |
 | (none yet) | H24, design v1 only, no code yet | `experiments/h24/` |
-| `ph26.py` | H17 (design v2 FINAL; demo `ph26_demo.txt`, bench `ph26_bench.txt`: stopped at the bench, no candidate on part (d); tasks not run) | `experiments/h17/` |
+| `ph26.py`, `ph26b.py` | H17 (design v2 FINAL; demo `ph26_demo.txt`, bench `ph26_bench.txt`: stopped at the bench, no candidate on part (d); tasks not run) + post-bench diagnosis (`ph26b_diag.txt`, measurement only) | `experiments/h17/` |
