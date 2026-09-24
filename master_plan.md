@@ -442,6 +442,19 @@ Progress log
   with bars T1 DP >= -0.05, T2 dwell vs Agent10 >= -1.2, T3 lost-row DP <= -0.05, P(V) DP >= -0.02 and contacts
   <= 0.10 per row, T4 reported. Seeds dev 9943/9953, eval 1945/2045, bench 20261051/20261052, bootstrap 20261053
   checked unused. Awaiting the owner's confirmation of section 12.
+- **H17 opened on design v2 FINAL (2026-09-24; decision:h17-open).** The owner answered section 12 with '그래 그방향으로
+  진행' ('yes, proceed in that direction'): every recommended option. The relaxation signed for H17 only
+  (decision:classification-rule-relaxed-any-odour-silence-counter-h17: ONE counter q, steps since the last whiff of
+  any odour). Design v2 FINAL doc d83a917ea4152b4a7 (experiments/h17/h17_design_v2.md, sha f94d6ace...7516); v1
+  kept as history. src/ph26.py (sha 1c9b6f5b...67cf, source doc d911535d7e535751c): Agent12 = Search + Agent10, no
+  adopted module edited; demo self-checks all pass (two failed self-checks fixed first, neither in the rule).
+- **H17 STOPPED at the bench: no candidate by the registered rule (2026-09-24; record:h17-bench-result).** (a)
+  identities all True; (b) engagement exact 400/400; (c1) bars PASS: from the R3 stranded state Agent12 senses a
+  whiff within 300 steps of engagement in 0.542 [0.494, 0.591] (Agent10 0/400), reaches a source within 600 in
+  0.698 [0.651, 0.740], paired DP +0.5425 [+0.4925, +0.5925]. (d) FAILS: in T1 +1/0 18/400 rows engage, 0.045
+  [0.029, 0.070], upper bound above 0.05 (predicted 0.0025-0.02). Stop rules did not fire ((h1) 1.0000, T1 DP
+  -0.0025; (h2) 0.6324, lost-row DP -0.0850). Tasks NOT run; dev 9943/9953 and eval 1945/2045 unused. The owner
+  decides.
 
 ## Why a plan now
 
@@ -694,6 +707,25 @@ Four hypotheses were run in one day by picking the next most interesting candida
   outside the plumes, where search does not find them again (the H17 limit); the base's recovery in those rows goes
   through the wall reflex. Not measured: a run without walls.
 
+### H17 (decision:h17-open-design, decision:h17-open; bench NO CANDIDATE on part (d); STOPPED, awaiting the owner)
+- Cold-start and reacquisition search (concept:h17-cold-search), a navigation change on the target only: after S 210
+  steps with nothing held and no whiff of any odour, a crosswind cast of growing amplitude (legs 30 k steps) slanted
+  15 degrees along the wind, the slant reversing every 360 steps. One counter q under the H17-scoped relaxation
+  (decision:classification-rule-relaxed-any-odour-silence-counter-h17). v1 DRAFT doc de696df4b5963d1c1 kept as
+  history; design v2 FINAL doc d83a917ea4152b4a7 (experiments/h17/h17_design_v2.md, sha f94d6ace...7516). ph26.py
+  (sha 1c9b6f5b...67cf, source doc d911535d7e535751c); no adopted module edited.
+- Bench (record:h17-bench-result; experiments/h17/ph26_bench.txt sha ec9df782...ff6d): (a) identities all True
+  (never-engaged rows bitwise Agent10 in T1, +1/-1, W1, T3a and the chains); (b) engagement exact 400/400; (c1) the
+  R3 stranded state, walls off: whiff within 300 steps of engagement 0.542 [0.494, 0.591] vs Agent10 0/400, reach
+  within 600 0.698 [0.651, 0.740], paired DP +0.5425 [+0.4925, +0.5925] (all three bars PASS; oracle 0.983 / 1.000);
+  engagement positions d_along 50.0/52.2/54.5 beyond LMAX in 400/400. (c2) upwind starts: 0/400 for both arms
+  (reported). (c3) the H16 square: reached by 600 steps Agent12 0.907 vs Agent10 0.688 (reported). (d) FAIL: T1 +1/0
+  rows with any engaged step 18/400 = 0.045 [0.029, 0.070]; Agent10's own any-odour silences reach 210 steps in 18
+  rows (p90 193, max 321). (h1) T1 DP -0.0025, pass probability 1.0000; (h2) lost-row DP -0.0850 [-0.1150, -0.0575],
+  pass probability 0.6324, contacts 0.247 per row (reported). Neither stop rule fired.
+- **STOPPED at the bench by the no-candidate rule** ('(d) failing -> tasks not run'). T1-T4 not run; seeds dev
+  9943/9953 and eval 1945/2045 unused. Nothing adopted, nothing tuned. The owner decides.
+
 ## The architecture as currently adopted
 
 Stated here so a later session does not have to reassemble it from decisions.
@@ -841,8 +873,9 @@ Stated here so a later session does not have to reassemble it from decisions.
   the old bound, the new bound, and the already-accepted measurement the new bound is anchored
   to. The stored criteria are never edited; the hypothesis keeps its verdict under them.
   One such relaxation of the classification rule exists, scoped to H24 only: a per-odour presence counter,
-  N 60, starting ON as a prior (decision:classification-rule-relaxed-presence-counter) (lapsed with H24's closure; the decision stays on record). The classification
-  rule itself is unchanged elsewhere.
+  N 60, starting ON as a prior (decision:classification-rule-relaxed-presence-counter) (lapsed with H24's closure; the decision stays on record). A second,
+  scoped to H17 only: ONE counter q, steps since the last whiff of any odour
+  (decision:classification-rule-relaxed-any-odour-silence-counter-h17). The classification rule itself is unchanged elsewhere.
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
   floor in the window where the gate is read. H15's probes spanned 0.3 to 600 and every agent
@@ -1078,10 +1111,10 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H17 design v1 DRAFT** (decision:h17-open-design; doc de696df4b5963d1c1, experiments/h17/h17_design_v1.md): the
-  owner confirms section 12 (six points: (1) the mechanism; (2) the relaxation for the counter q, options (a)
-  recommended / (b) / (c); (3) S 210 or 180; (4) the bench and the stop rules; (5) the task bars; (6) the seeds and
-  the order H17 -> adaptive presence (proposed) -> H20 Stage B) and signs the relaxation before any code.
+- **H17 STOPPED at the bench** (record:h17-bench-result; decision:h17-open; design v2 FINAL doc d83a917ea4152b4a7):
+  the registered no-candidate rule fired on part (d) (T1 +1/0 engaged rows 18/400, upper bound 0.070 against 0.05);
+  every other bench part passed and neither stop rule fired. T1-T4 not run; dev and eval seeds unused. The design
+  returns to the owner (design section 4: '(d) failing -> tasks not run (the mode would change normal tracking)').
 
 ## Queued candidates, none started
 
@@ -1093,17 +1126,20 @@ as NOT shown (decision:h24-closed); H25, the silence-timeout fix, closed as show
 adopted at +1/0 and on hold at negative values (decision:release-negative-scope-on-hold). The order from here is
 fixed by the owner (decision:priority-h24run2-h17-stageb): H24 Run 2, the (v-p) presence-counter re-attempt on
 Agent10 (decision:h24-run2-open; stopped at the bench by its stop rule, record:h24-run2-bench-result), is closed as
-NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapsed); H17 is in design
-(decision:h17-open-design; design v1 DRAFT doc de696df4b5963d1c1); then H20 Stage B. H20's
+NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapsed); H17 opened on design v2 FINAL
+(decision:h17-open; doc d83a917ea4152b4a7) and STOPPED at the bench, no candidate on part (d)
+(record:h17-bench-result), awaiting the owner; then adaptive presence (proposed) and H20 Stage B. H20's
 Stages B and C stay queued behind the check. H17, H18 and the selection circuit's revision via the empty state
 stay as recorded limits; the silence timeout defect is fixed within the H25 release's scope (+1/0) and stays in
 force outside it.
 
 - **H17** (concept:h17-cold-search) finding a plume from an odour-free start without walls. Moved up: it now
   carries a measured consequence (the release at negative values strands the agent outside the plumes, no whiff
-  afterwards in 131/131; record:release-negative-cost-limit). In design (decision:h17-open-design; design v1 DRAFT
-  doc de696df4b5963d1c1, experiments/h17/h17_design_v1.md), awaiting the owner's confirmation of section 12; before
-  Stage B (decision:priority-h24run2-h17-stageb).
+  afterwards in 131/131; record:release-negative-cost-limit). Opened on design v2 FINAL (decision:h17-open; doc
+  d83a917ea4152b4a7, experiments/h17/h17_design_v2.md); src/ph26.py; STOPPED at the bench, no candidate on part
+  (d) (record:h17-bench-result): the search finds the plume from the stranded state ((c1) all PASS) but engages in
+  18/400 T1 rows (upper bound 0.070 > 0.05). Tasks not run; awaiting the owner. Before Stage B
+  (decision:priority-h24run2-h17-stageb).
 - **Adaptive presence** (proposed by the interpreting assistant in the H24 Run 2 closure, not decided): queued after
   H17. A fixed N cannot satisfy both T1 and W1 (record:h24-run2-n-sweep-result).
 - **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
