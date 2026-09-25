@@ -637,6 +637,19 @@ Progress log
   composed (N1) left 122/200 P-start rows unrecovered (the stranding inferred in design 3.6). The first bench run had
   printed 'no candidate' on an identity whose only unequal field was a harness measure (hold_pos) reading the clipped
   read-out; fixed, recorded, re-run: every other line identical, (hR) STOP in both. Awaiting the owner.
+- **H20 Stage C post-bench diagnosis, measurement only (2026-09-25; decision:h20-stage-c-post-bench-diagnosis,
+  owner '2번 진단 먼저 진행', 'run the diagnosis, option 2, first'; record:h20-stage-c-post-bench-diagnosis-result).**
+  src/ph30b.py (sha 4e4122c8...be59, source doc df098689fe0f428d4) imports ph30 unchanged; bench E1 seeds and the bench
+  bootstrap seed only. The bench's (h), (hR) and printed-beside lines reproduce verbatim (23/23). 'GM' is the group
+  median (spec v3 line 36, ph15.py:180). The no-learning Agent14 floor ends every G3 row at one source: 88 at the reward
+  source (last-third punishing dwell 0; none lost, none at a wall, no definition mismatch) and 111 at the punisher
+  (median 24); with 44.2 percent of rows at 0, 5.26 percent of bootstrap resamples have median 0, hence 16.000 [0.000,
+  19.667] (Run 2's computation: [0.000, 20.333]). The 0-dwell rows are those that sensed R whiffs with nothing held after
+  the H25 release ended their P holds (48 steps after the last whiff); none returned to P. M4(c)'s WIN on G3+ is 111/0/0
+  (no ties); the floor GM on G3+ (and on no-learning dwell >= 1, 5, 10) is 24.000 [22.667, 24.667]; H15 Run 2's agent
+  without learning reads 21.000 [19.667, 22.667] (55 rows at 0, also at R). Report doc ded5da7a47fb9e759
+  (experiments/h20/h20_stage_c_post_bench_diagnosis.md); output experiments/h20/ph30b_diag.txt (sha 69c9867c...4ae8).
+  Stage C's verdict unchanged; nothing adopted. Awaiting the owner.
 
 ## Why a plan now
 
@@ -778,6 +791,15 @@ Four hypotheses were run in one day by picking the next most interesting candida
   vs 64 of 200) and (hS) at 1.0000. The tasks were not run; nothing is shown or not shown about Stage C's hypothesis;
   nothing adopted. Reported beside: the release as composed at negative holds (N1) left 122/200 P-start rows unrecovered
   (against 19 under (N2)). The owner decides (Stage C, and H20 as a whole).
+- Stage C post-bench diagnosis (decision:h20-stage-c-post-bench-diagnosis, owner 2026-09-25, '2번 진단 먼저 진행';
+  record:h20-stage-c-post-bench-diagnosis-result; report doc ded5da7a47fb9e759; src/ph30b.py, measurement only, bench
+  seeds). The (hR) interval reaches 0 because the no-learning floor is two-moded, not spread: in 88 of 199 G3 rows it ends
+  the run at the reward source (0 punishing dwell), in 111 at the punisher (median 24), and the group median of a
+  resample falls to 0 whenever 100 or more zero rows are drawn (5.26 percent of resamples). The 0-dwell rows sensed R
+  whiffs with nothing held after the H25 release had ended their P holds, and never returned to P; H15 Run 2's agent
+  without learning shows 55 such rows on the same seeds and reads 21.000 [19.667, 22.667]. On G3+ the M4(c) WIN is
+  111/0/0 and the floor GM 24.000 [22.667, 24.667]. Verdict unchanged; the owner decides: close Stage C and return H20,
+  or a Run 2 design that registers a re-signed M4(c) readability rule or floor (report section 5).
 
 ### H21 (decision:h21-open-design, decision:h21-design-v2-choices, decision:h21-open; evaluated once, CLOSED by decision:h21-closed)
 - Hold maintenance by value: while an odour with a positive value is held, a lower-valued
@@ -1490,16 +1512,19 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H20 Stage C: STOPPED at the bench by its (hR) stop rule; the owner decides** (decision:h20-stage-c-open;
-  record:h20-stage-c-bench-result; design v2 FINAL doc d27e6dfe2e2c16183; src/ph30.py sha 98822834...59bd, source doc
-  d3a2e1142563d7b38; experiments/h20/ph30_bench.txt sha 3fec4dc5...7eec). The registered (hR) rule: STOP if Agent14
-  no-learning's GM last-third punishing dwell in the bench G3 does not PASS 'at least 10'; measured 16.000 [0.000,
-  19.667] (INCONCLUSIVE; 111 of 199 G3 rows above 0). No task was run; no development or evaluation seed was used; no
-  tuning or sweep. The other parts of the bench held ((r) reproduction 266/266 lines; every identity True; (v) exact;
-  (h) pass probability 1.0000 at R-start punisher visits 10 vs 64 of 200; (hS) 1.0000 / 1.0000). One implementation
-  error was fixed and recorded (a harness measure in identity (i4)); the first bench output is kept. Per the design's
-  order, H20 as a whole (Stages A, Run 2, B, C) returns to the owner after Stage C; with Stage C stopped, the owner
-  decides both.
+- **H20 Stage C: STOPPED at the bench by its (hR) stop rule; the post-bench diagnosis (option 2) is done; the owner
+  decides** (decision:h20-stage-c-open; record:h20-stage-c-bench-result; design v2 FINAL doc d27e6dfe2e2c16183;
+  src/ph30.py sha 98822834...59bd, source doc d3a2e1142563d7b38; experiments/h20/ph30_bench.txt sha 3fec4dc5...7eec).
+  The registered (hR) rule: STOP if Agent14 no-learning's GM last-third punishing dwell in the bench G3 does not PASS
+  'at least 10'; measured 16.000 [0.000, 19.667] (INCONCLUSIVE; 111 of 199 G3 rows above 0). No task was run; no
+  development or evaluation seed was used. The owner chose the measurement-only diagnosis first
+  (decision:h20-stage-c-post-bench-diagnosis, '2번 진단 먼저 진행'); done (record:h20-stage-c-post-bench-diagnosis-result;
+  report doc ded5da7a47fb9e759, experiments/h20/h20_stage_c_post_bench_diagnosis.md; src/ph30b.py): the floor ends 88 G3
+  rows at the reward source and 111 at the punisher, so its group median sits near its breakpoint; on G3+ the M4(c) WIN
+  is 111/0/0 and the floor GM 24.000 [22.667, 24.667]. Stage C's verdict is unchanged and nothing is adopted. The owner
+  decides: close Stage C at the bench stop and return H20 as a whole (Stages A, Run 2, B, C), or a Stage C Run 2 design
+  that registers a re-signed M4(c) readability rule or floor definition anchored to these measurements (report section 5
+  lists each with its bench pass fraction), the tie rule as H15 Run 2 left it, and new seeds.
 
 ## Queued candidates, none started
 
