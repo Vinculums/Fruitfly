@@ -1090,7 +1090,7 @@ Stated here so a later session does not have to reassemble it from decisions.
   first, saturating dose), read out by the module's own function into the `known` array Agent14 already reads, is used
   in behaviour within Stage B's tested conditions (World7 T1, G 2, C0, gate and release on, learning frozen in the test);
   nothing was adopted for it and the adopted agent's scope above is not widened. Learning ON during behaviour, negative
-  and sub-saturating learned values are not shown (H20 Stage C, in design: decision:h20-stage-c-open-design).
+  and sub-saturating learned values are not shown (H20 Stage C, opened by decision:h20-stage-c-open, stopped at its bench by the (hR) stop rule before any task: record:h20-stage-c-bench-result).
 
 - Upstream normalisation: Phase 2.1's Heeger stage, unchanged (ph2.Upstream).
   **WARNING for ablation:** it is also the amplifier and pulse-stretcher that brings a single
