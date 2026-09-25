@@ -665,6 +665,34 @@ Progress log
   0.94 (M3(a) binding). Seeds E1 dev 9955/9959, eval 2057/2159; E2 dev 9967/9975, eval 2061/2163; bench
   20261111/20261112, 20261114/20261115; bootstrap 20261113 (216 files scanned; one file and three graph collisions
   replaced). Awaiting the owner's confirmation of section 12.
+- **H20 Stage C Run 2 OPENED on design v2 FINAL (2026-09-25; decision:h20-stage-c-run2-open).** The owner's standing
+  instruction '다음도 권고안에 따라 작업 진행' ('proceed with the next work too, according to the recommended option'),
+  given before the Run 2 design was written, applied to every recommended option of design v1 section 12. Before any
+  code, in H14 format: M4(c)'s readability re-signed for Run 2 only to read on G3+ with G3+ >= 50
+  (decision:h20-stage-c-m4c-readability-resigned-run2, the proposed Korean wording of design 3.3 adopted as the owner's
+  words) and (N2) re-signed in form for Stage C Run 1 and Run 2 (decision:release-value-gated-stage-c-run2). Design v2
+  FINAL doc d007990ab333e7194 (experiments/h20/h20_stage_c_run2_design_v2.md, sha 48fdd1f3...e4f2): v1 with section 12
+  resolved; no bar, seed, arm, prediction or rule changed.
+- **H20 Stage C Run 2 code, demo, bench (M9 PASS) and development run (2026-09-25;
+  record:h20-stage-c-run2-bench-result, record:h20-stage-c-run2-dev-run).** src/ph31.py (sha 77440037...ec80, source
+  doc d4c5f81249ef02a9e) imports ph30 and ph30b unchanged. It was written by a session cut off by a rate limit before any
+  run; the resuming session read it against the design, added readings R13 and R14 and a completion note, and changed no
+  bar, seed, arm or rule. Demo 8/8 ok. Bench: (r) H15 Run 2 reproduced 266/266; (r') Run 1's bench reproduced 370/370
+  through ph30 as imported, and the re-signed readability read Run 1's rows exactly as expected (G3+ 111, 24.000
+  [22.667, 24.667], WIN 111/0/0, (hR2) 1.000); identities and (v) exactness True; (h) R-start punisher visits 18 vs 65
+  of 200, pass probability 1.0000; (hS) 1.0000 and 1.0000; (hR1) G3+ 107 of 200; (hR2) 1.0000; no stop. Development
+  run clean, no amendment.
+- **H20 Stage C Run 2 evaluated once: SHOWN under its registered criteria (2026-09-25; record:h20-stage-c-run2-result;
+  report doc de5963e5a73875a97, experiments/h20/h20_stage_c_run2_report.md).** M1 to M9 all PASS. With learning on in
+  the H15 Run 2 world, Agent14 (N2) sent 8 of 200 R-start rows to the not-yet-learned punisher, against 56 for H15 Run
+  2's agent (DP -0.240 [-0.300, -0.180]) and 91 with its positive values removed (DP -0.415); late unrecovered 18/400;
+  M4 read with the re-signed readability (G3+ 112, floor GM 23.333 [22.667, 24.500]; WIN 112/0/0); reach after
+  punishment 188 vs 189 of 199; E2 reach trained 373 vs sham 142 of 400. Reported beside, no bar: the floor over all G3
+  18.667 [0.000, 20.667] (Run 1's rule would have read M4 (b), (c) unreadable); the all-G3 WIN 112/85/2, unreadable by
+  the tie rule; the 87 rows outside G3+ all ended at the reward source, with the learned arm above 0 in 2 of them (the
+  losses hidden from the G3+ WIN); H15 Run 2's agent without learning 22.000 [21.000, 22.667] with 40 rows at 0. A count
+  in the evaluation output equals one of Run 1's seed numbers by chance (reported; no seed used). Nothing adopted.
+  Awaiting the owner: Stage C's closure and H20 as a whole.
 
 ## Why a plan now
 
@@ -736,7 +764,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
 ### H19 (decision:h19-open-option-a, adopted by decision:h19a-adopt-and-run2-direction)
 - Option (a) only: while nothing is held, a sensed whiff resets the cast clock, within the owner's three boundaries. Criteria record:h19-success-criteria (N1-N6). Supported on N1-N5, N6 unreadable; adopted within the tested conditions.
 
-### H20 (decision:h20-priority-design-first; Stage A opened by decision:h20-stage-a-open, CLOSED by decision:h20-stage-a-closed; link check by decision:h20-linkcheck-open, complete; Run 2 opened by decision:h20-run2-open, evaluated, CLOSED by decision:h20-run2-closed; Stage B opened for design by decision:h20-stage-b-open-design, opened by decision:h20-stage-b-open, evaluated once, CLOSED as SHOWN by decision:h20-stage-b-closed; Stage C opened for design by decision:h20-stage-c-open-design, opened by decision:h20-stage-c-open with the Stage C-only release rule decision:release-value-gated-stage-c, STOPPED at the bench by its (hR) stop rule; post-bench diagnosis by decision:h20-stage-c-post-bench-diagnosis; Stage C Run 2 opened for design by decision:h20-stage-c-run2-open-design)
+### H20 (decision:h20-priority-design-first; Stage A opened by decision:h20-stage-a-open, CLOSED by decision:h20-stage-a-closed; link check by decision:h20-linkcheck-open, complete; Run 2 opened by decision:h20-run2-open, evaluated, CLOSED by decision:h20-run2-closed; Stage B opened for design by decision:h20-stage-b-open-design, opened by decision:h20-stage-b-open, evaluated once, CLOSED as SHOWN by decision:h20-stage-b-closed; Stage C opened for design by decision:h20-stage-c-open-design, opened by decision:h20-stage-c-open with the Stage C-only release rule decision:release-value-gated-stage-c, STOPPED at the bench by its (hR) stop rule; post-bench diagnosis by decision:h20-stage-c-post-bench-diagnosis; Stage C Run 2 opened for design by decision:h20-stage-c-run2-open-design, opened by decision:h20-stage-c-run2-open with the M4(c) readability re-signed for Run 2 (decision:h20-stage-c-m4c-readability-resigned-run2) and (N2) re-signed in form (decision:release-value-gated-stage-c-run2), evaluated once, SHOWN under its registered criteria; closure the owner's)
 - Does a positive value change which odour the agent pursues? Three separated checks: A, a
   supplied value (pre-registered, design v3 FINAL doc dd947882bd962eebe); B, a learned value
   (outline only); C, integration in the H15 Run 2 world (outline only). Nothing about B or C is
@@ -823,7 +851,18 @@ Four hypotheses were run in one day by picking the next most interesting candida
   floor over all G3, the all-G3 WIN with its ties and the dropped rows' end state reported beside; the tie rule is not
   touched; (hR) becomes a pass probability on the bench rows with a G3+ count guard; (N2) is re-signed in form. Named
   lesson: Run 1's readability estimate (about 0.9) came from Agent3's value while the floor was Agent14. New seeds.
-  Awaiting the owner's confirmation of section 12.
+  Section 12 confirmed by the owner's standing instruction (below).
+- Stage C Run 2 OPENED on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194) after the M4(c)
+  readability re-sign (decision:h20-stage-c-m4c-readability-resigned-run2) and the (N2) re-sign in form
+  (decision:release-value-gated-stage-c-run2). src/ph31.py (source doc d4c5f81249ef02a9e), ph30 and ph30b imported
+  unchanged. Bench M9 PASS (record:h20-stage-c-run2-bench-result): (r) and (r') reproduced exactly; (h), (hS), (hR)
+  continue (G3+ 107 of 200, (hR2) 1.0000). Development run clean (record:h20-stage-c-run2-dev-run). **Evaluated once,
+  SHOWN under the registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97): M1 to M9 all
+  PASS.** The gain: R-start rows visiting the not-yet-learned punisher 8 (learned Agent14) vs 56 (H15 Run 2's agent) vs
+  91 (positive-off) of 200; search, avoidance (read on G3+, 112 rows), reach and the E2 result kept. What M4(c) gives up
+  is reported: on all G3 the WIN is unreadable by the tie rule (112/85/2), and the 87 rows outside G3+ (all at the
+  reward source) hold 2 losses the G3+ WIN does not see. Nothing adopted. Closing Stage C, and H20 as a whole (Stages
+  A, Run 2, B, C), is the owner's decision.
 
 ### H21 (decision:h21-open-design, decision:h21-design-v2-choices, decision:h21-open; evaluated once, CLOSED by decision:h21-closed)
 - Hold maintenance by value: while an odour with a positive value is held, a lower-valued
@@ -1135,8 +1174,11 @@ Stated here so a later session does not have to reassemble it from decisions.
   2026-09-25):** a positive value learned by the agent's own learning module (H15 E2 training off-world, neutral
   first, saturating dose), read out by the module's own function into the `known` array Agent14 already reads, is used
   in behaviour within Stage B's tested conditions (World7 T1, G 2, C0, gate and release on, learning frozen in the test);
-  nothing was adopted for it and the adopted agent's scope above is not widened. Learning ON during behaviour, negative
-  and sub-saturating learned values are not shown (H20 Stage C, opened by decision:h20-stage-c-open, stopped at its bench by the (hR) stop rule before any task: record:h20-stage-c-bench-result).
+  nothing was adopted for it and the adopted agent's scope above is not widened. Learning ON during behaviour was
+  evaluated once in H20 Stage C Run 2 and SHOWN under its registered criteria within its tested conditions (World6, the
+  H15 Run 2 tasks, the per-step mirror, the release gated at negative holds by the Stage C-only rule (N2); M4(c) read on
+  G3+; record:h20-stage-c-run2-result); nothing was adopted for it and the owner has not closed it. Stage C Run 1
+  stopped at its bench (record:h20-stage-c-bench-result). Negative and sub-saturating learned values are not shown.
 
 - Upstream normalisation: Phase 2.1's Heeger stage, unchanged (ph2.Upstream).
   **WARNING for ablation:** it is also the amplifier and pulse-stretcher that brings a single
@@ -1300,7 +1342,7 @@ Stated here so a later session does not have to reassemble it from decisions.
   (decision:h17-closed) and stay on record, as does the lapsed H24 Run 2 re-sign
   (decision:classification-rule-relaxed-presence-counter-run2). A new one, scoped to H26 only (one presence counter per
   odour, window 300, starting at 240 as a prior), was signed by the owner on 2026-09-24
-  (decision:classification-rule-relaxed-presence-prior-h26); H26 was closed as shown and its counter adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25), so this relaxation STAYS IN FORCE for the adopted agent's counter (Agent14), as part of the adopted state; any wider use (another counter, window or agent) is a new decision. The classification rule itself is unchanged elsewhere. A composition rule, not a relaxation, was signed in the same H14 format for H20 Stage C only (decision:release-value-gated-stage-c: the H25 release not applied while the held odour's own value is negative); it adopts nothing, and decision:release-negative-scope-on-hold stays in force outside Stage C.
+  (decision:classification-rule-relaxed-presence-prior-h26); H26 was closed as shown and its counter adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25), so this relaxation STAYS IN FORCE for the adopted agent's counter (Agent14), as part of the adopted state; any wider use (another counter, window or agent) is a new decision. The classification rule itself is unchanged elsewhere. A composition rule, not a relaxation, was signed in the same H14 format for H20 Stage C only (decision:release-value-gated-stage-c: the H25 release not applied while the held odour's own value is negative); it adopts nothing, and decision:release-negative-scope-on-hold stays in force outside Stage C. For H20 Stage C Run 2 that rule was re-signed in form, content unchanged, scope Stage C Run 1 and Run 2 (decision:release-value-gated-stage-c-run2), and one bar was re-signed in H14 format for Run 2 only: M4(c)'s readability read on G3+ with G3+ at least 50 (decision:h20-stage-c-m4c-readability-resigned-run2); the stored Run 1 criteria are not edited.
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
   floor in the window where the gate is read. H15's probes spanned 0.3 to 600 and every agent
@@ -1536,17 +1578,14 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **The owner's confirmation of H20 Stage C Run 2 design v1 section 12** (decision:h20-stage-c-run2-open-design, owner
-  2026-09-25, '다음도 권고안에 따라 작업 진행'; design v1 DRAFT doc dfad8d4ed6b1d7675,
-  experiments/h20/h20_stage_c_run2_design_v1.md, sha b091d7f0...71b6; no code). Stage C Run 1 stays stopped at the bench
-  by its (hR) stop rule (record:h20-stage-c-bench-result; diagnosis record:h20-stage-c-post-bench-diagnosis-result);
-  nothing adopted. Seven points, each with a recommended option: (1) M4(c)'s reading: the readability read on G3+ (the
-  rows the WIN is already read on) with G3+ >= 50, H15 Run 2's agent without learning reported as a floor; (2) the H14
-  re-sign of the readability rule (old: over G3, ph30.py:937 and (hR) ph30.py:869-871; new: over G3+; anchor: the
-  diagnosis; scope: Run 2 only; the tie rule untouched); (3) (hR) restated as a pass probability on the bench rows with
-  a G3+ >= 50 guard; (4) (N2) re-signed in form for Run 2; (5) new seeds; (6) the bench addition (r') and a new ph31.py
-  importing ph30 unchanged; (7) the order: Stage C Run 2, then H20 as a whole (Stages A, Run 2, B, C) returns to the
-  owner. The re-sign and the (N2) re-sign in form are signed before any Run 2 code.
+- **The closure of H20 Stage C, and of H20 as a whole (Stages A, Run 2, B, C).** Stage C Run 2 was opened on design v2
+  FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194), benched (M9 PASS, record:h20-stage-c-run2-bench-result)
+  and evaluated once: **SHOWN under its registered criteria, M1 to M9 all PASS** (record:h20-stage-c-run2-result; report
+  doc de5963e5a73875a97, experiments/h20/h20_stage_c_run2_report.md). Reported beside M4, no bar: the all-G3 WIN is
+  unreadable by the tie rule (112/85/2) and the 87 rows outside G3+ hold 2 losses the G3+ WIN does not see. Stage C Run
+  1 stays stopped at its bench (record:h20-stage-c-bench-result); Stage A and Run 2 closed not shown, Stage B closed as
+  shown. Nothing adopted; the (N2) rule and the M4(c) re-sign are Stage C-only and Run 2-only. The owner decides the
+  closure and what, if anything, is adopted.
 
 ## Queued candidates, none started
 
@@ -1564,7 +1603,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design; design v1 DRAFT doc dfad8d4ed6b1d7675), awaiting the confirmation of its section 12. H17, H18 and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), awaiting the owner's closure of Stage C and of H20 as a whole. H17, H18 and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the H25 release's scope (+1/0) and stays in force outside it.
 
@@ -1593,9 +1632,10 @@ within the H25 release's scope (+1/0) and stays in force outside it.
   (decision:h20-stage-c-open, 2026-09-25; doc d27e6dfe2e2c16183; the Stage C-only release rule
   decision:release-value-gated-stage-c; src/ph30.py) and **STOPPED at the bench by its (hR) stop rule**
   (record:h20-stage-c-bench-result; tasks not run); post-bench diagnosis done (record:h20-stage-c-post-bench-diagnosis-result);
-  **Stage C Run 2 opened for design** (decision:h20-stage-c-run2-open-design; design v1 DRAFT doc dfad8d4ed6b1d7675:
-  M4(c)'s readability re-signed to read on G3+, new seeds), awaiting the owner's confirmation; then H20 as a whole returns
-  to the owner. As first queued: B, the same choice
+  **Stage C Run 2 opened on design v2 FINAL** (decision:h20-stage-c-run2-open; doc d007990ab333e7194: M4(c)'s
+  readability re-signed to read on G3+, new seeds; src/ph31.py), bench M9 PASS, **evaluated once: SHOWN under its
+  registered criteria** (record:h20-stage-c-run2-result; report doc de5963e5a73875a97); nothing adopted; H20 as a whole
+  returns to the owner. As first queued: B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
   as it stands); C, the gain in the H15 Run 2 world with learning on, with Run 2's avoidance and
   long-horizon search values as the reference. Both depend on a task in which selection can be
