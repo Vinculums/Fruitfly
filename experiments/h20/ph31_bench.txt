@@ -1,0 +1,782 @@
+== H20 Stage C Run 2 mechanism bench (design v2 FINAL section 4). design H20 Stage C Run 2 v2 FINAL doc d007990ab333e7194 hash 48fdd1f30952a376fce85fba355645635d08ef37db772b59fe24588f7ac2e4f2; bench E1 (20261111, 20261112), E2 (20261114, 20261115); bootstrap seed 20261113, 95 percent; (hR2) 1000 outer draws ==
+   ph31.py sha256 7744003736c9b3bb43ea34b79e8724bad41c92c963f3afaca6a743670870ec80; design H20 Stage C Run 2 v2 FINAL doc d007990ab333e7194 hash 48fdd1f30952a376fce85fba355645635d08ef37db772b59fe24588f7ac2e4f2
+   ph30.py sha256 98822834043de5f31615e73cd4a83444adcef2f1d5e56478356d70ca905059bd (the Run 1 version 98822834...59bd: True); ph30b.py sha256 4e4122c8ba945467d61f3235b8d7eac3d28e788f851ae2b3629d1f476a12be59 (recorded 4e4122c8...be59: True)
+   imported modules (through ph30): ph4.py d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a; ph8.py ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e; ph9.py 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706; ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23; ph13.py 2d75fae8e8c31e1c6ddf6577782fafde3099f10fe8f50fe382f53d09e9ef1f2d; ph14.py c6b745c60f9992934a0ccbc5584ef354a03f53f08b37a1252a694feb350be0d0; ph15.py cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc; ph16.py 33d5fdb25959fb7f9cbe465ca25a8973776b39f1e5170d645cb53bc8d906a2c2; ph19.py 00c6a3b32f80fae9f58b6dbd23a8e03b1710be45fcf335238f289567fce34791; ph21.py 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; ph25.py 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; ph25b.py ad12a9122c171dd32c3fceac946add9d0eb0380e885e0f0872dd97ccd59eeaf6; ph28.py 64ce7d0ce123f912aa675e86627d5b6b0ae3d89976b093666316e6b78441e7aa
+   seeds: E1-C dev (9955, 9959), eval (2057, 2159); E2-C dev (9967, 9975), eval (2061, 2163); bench E1 (20261111, 20261112), E2 (20261114, 20261115); bootstrap 20261113 (95 percent, 5000); reproduction (r) on H15 Run 2's ((1640, 1740), (1641, 1741)) only (reused on purpose, read for no criterion, NOT in the seed scan); (r') on Run 1's bench seeds read from ph30 (not written out); (i5) on Stage B's (2005, 2107) only; demo seeds (3, 4), (5, 6), (7, 8) used deliberately
+   decisions: decision:h20-stage-c-run2-open (seven points); decision:h20-stage-c-m4c-readability-resigned-run2 (M4(c) readability on G3+, G3+ >= 50, Run 2 only); decision:release-value-gated-stage-c-run2 ((N2) re-signed in form, Stage C Run 1 and Run 2; decision:release-negative-scope-on-hold stays in force outside Stage C); the adopted agent: decision:h26-adaptive-presence-adopted-within-tested-conditions
+   rows share no state: one world generator and one agent generator per arm; arms in 4 parallel processes (ph30 reading R18)
+   readings where the design is silent (file header R1-R12): R1 (r) = ph30.reproduction first, then (r') = ph30.bench as it is (its own (r) again); R2 Run 1's rows from ph30.bench through a hook on ph30.pool_run (restored), ph30's statistics during (r'), Run 2's after; R3 (r') lines carrying a Run 1 seed number compared, not printed; R4 (r') (hR2) = ph30b.judge_draw mode '>0', generator [Run 1's bench bootstrap seed, 2], 1000 draws; R5 recorder: a separate recorded run of the arm (whiffs of either odour and contacts over the last third), classes by ph30b.classify, the recorded run checked equal to the unrecorded one; R6 (hR2) at the Run 2 bench = ph30b.judge_draw mode '>0', generator [20261113, 2], 1000 draws, RGM / WIN / M4(c) fractions beside; R7 (v), (g), (n), (i9) on Run 2's bench E1 seeds, (i5) on 2005/2107; R8 M9 in dev and eval read from ph31_bench.txt, not re-run; R9 item (3) every G3 row outside G3+, item (4) the arm 'H15 no-learning'; R10 the H15 no-learning arm at the bench = ph30's single arm, its classes from its recorded run; R11 else ph30's R1-R20; R12 a leak check for Run 1 seed numbers
+   seed self-check (design section 9, before the first run): every Run 2 seed and derived number in no other file (208 scanned): True
+   ph30's own seed self-check (Run 1's numbers; this file's outputs must not break it): True (203 scanned)
+(r) REPRODUCTION of H15 Run 2 (world/agent (1640, 1740) for E1, (1641, 1741) for E2; ph15's own e1/e2 printing with this harness as ph15.simulate; H15 Run 2's statistics 97.5 percent, bootstrap 20260920): 266 lines against 266 in experiments/h15/ph15_run2.txt (sha256 5ce0132fc83c200e6f5c9b0378e132c937bad55c1a3c3f7b89201dc88a9c8b39); equal line for line 266; identical True
+   (r)   1 == == H15 Run 2, EVAL. specification v4 doc dc860b9c7c6f3aa6e hash 7f23e6e5965b8ea911711f8332f5fcb6c8a7a2adcc87c0cd2118b7cc90ae854d ==
+   (r)   2 == == one amendment recorded before the evaluation: record:h15-run2-dev-log (E2 training gap). Q3(c) not amended. ==
+   (r)   3 == 
+   (r)   4 == ==== E1 natural search. world seed 1640, agent seed 1740, 400 rows ====
+   (r)   5 == 
+   (r)   6 ==    random        all      n 400 | visited R  60.0% P  54.2% both  38.0% (first third  36.0/ 31.0/ 13.5) | first visit step   747; first punished step  1446 (n 217), from it to the last step at the punisher     9
+   (r)   7 ==       dwell last third R median   0.0 mean   0.7, P median   0.0 mean   0.5 | late unrecovered 176/400 | contacts/agent   24.8 near wall  2.56% | visits R    1 P    1, steps per visit R  8.0 P  8.5; longest unbroken rewarded run   10
+   (r)   8 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)   9 ==       nothing held on   0.0% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r)  10 ==       learned valence at the end: rewarded odour, receivers n 240 (60% of group) median +0.000, all +0.000 | punished odour, receivers n 217 (54%) median +0.000, all +0.000 | reinforced steps R    10 P    10
+   (r)  11 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r)  12 ==    random        P-start  n 200 | visited R  58.5% P  59.0% both  39.0% (first third  32.0/ 36.0/ 16.0) | first visit step   980; first punished step  1072 (n 118), from it to the last step at the punisher    10
+   (r)  13 ==       dwell last third R median   0.0 mean   0.8, P median   0.0 mean   0.5 | late unrecovered 78/200 | contacts/agent   24.3 near wall  2.44% | visits R    1 P    1, steps per visit R  9.0 P  9.0; longest unbroken rewarded run   10
+   (r)  14 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  15 ==       nothing held on   0.0% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r)  16 ==       learned valence at the end: rewarded odour, receivers n 117 (58% of group) median +0.000, all +0.000 | punished odour, receivers n 118 (59%) median +0.000, all +0.000 | reinforced steps R    10 P    10
+   (r)  17 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r)  18 == 
+   (r)  19 ==    oracle        all      n 400 | visited R 100.0% P   0.0% both   0.0% (first third 100.0/  0.0/  0.0) | first visit step    24; first punished step   nan (n 0), from it to the last step at the punisher   nan
+   (r)  20 ==       dwell last third R median 600.0 mean 600.0, P median   0.0 mean   0.0 | late unrecovered 0/400 | contacts/agent    0.0 near wall  0.00% | visits R    1 P  nan, steps per visit R 5376.0 P  nan; longest unbroken rewarded run 5376
+   (r)  21 ==       per block median dwell R 576.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  22 ==       nothing held on   0.0% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r)  23 ==       learned valence at the end: rewarded odour, receivers n 400 (100% of group) median +0.000, all +0.000 | punished odour, receivers n 0 (0%) median +nan, all +0.000 | reinforced steps R  5376 P   nan
+   (r)  24 ==    oracle        P-start  n 200 | visited R 100.0% P   0.0% both   0.0% (first third 100.0/  0.0/  0.0) | first visit step    30; first punished step   nan (n 0), from it to the last step at the punisher   nan
+   (r)  25 ==       dwell last third R median 600.0 mean 600.0, P median   0.0 mean   0.0 | late unrecovered 0/200 | contacts/agent    0.0 near wall  0.00% | visits R    1 P  nan, steps per visit R 5370.0 P  nan; longest unbroken rewarded run 5370
+   (r)  26 ==       per block median dwell R 570.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  27 ==       nothing held on   0.0% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r)  28 ==       learned valence at the end: rewarded odour, receivers n 200 (100% of group) median +0.000, all +0.000 | punished odour, receivers n 0 (0%) median +nan, all +0.000 | reinforced steps R  5370 P   nan
+   (r)  29 == 
+   (r)  30 ==    intact        all      n 400 | visited R  97.2% P  62.7% both  60.0% (first third  96.5/ 55.5/ 52.0) | first visit step    20; first punished step    25 (n 251), from it to the last step at the punisher    10
+   (r)  31 ==       dwell last third R median  23.0 mean  22.1, P median   0.0 mean   0.2 | late unrecovered 21/400 | contacts/agent    3.0 near wall  0.30% | visits R   31 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r)  32 ==       per block median dwell R  22.0  22.0  23.0  23.0  23.0  23.0  23.0  21.0  23.5 | P   1.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  33 ==       nothing held on   9.9% of steps; whiffs handed to navigation: nothing held  81.6% of 3876, other odour held   0.0% of 1226
+   (r)  34 ==       learned valence at the end: rewarded odour, receivers n 389 (97% of group) median +1.000, all +1.000 | punished odour, receivers n 251 (63%) median -0.888, all -0.497 | reinforced steps R   209 P    10
+   (r)  35 ==       per block, receivers: punished odour -0.78 -0.80 -0.80 -0.80 -0.88 -0.89 -0.89 -0.89 -0.89 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r)  36 ==    intact        P-start  n 200 | visited R  94.5% P  99.5% both  94.0% (first third  93.0/ 99.5/ 92.5) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher    11
+   (r)  37 ==       dwell last third R median  22.7 mean  21.8, P median   0.0 mean   0.0 | late unrecovered 15/200 | contacts/agent    4.2 near wall  0.38% | visits R   30 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r)  38 ==       per block median dwell R  16.0  20.0  22.0  23.0  21.0  23.0  22.0  21.0  25.0 | P  10.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  39 ==       nothing held on  14.3% of steps; whiffs handed to navigation: nothing held  75.9% of 2461, other odour held   0.0% of 813
+   (r)  40 ==       learned valence at the end: rewarded odour, receivers n 189 (94% of group) median +1.000, all +1.000 | punished odour, receivers n 199 (100%) median -0.892, all -0.891 | reinforced steps R   201 P    10
+   (r)  41 ==       per block, receivers: punished odour -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 | rewarded odour +0.95 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r)  42 ==    intact        R-start  n 200 | visited R 100.0% P  26.0% both  26.0% (first third 100.0/ 11.5/ 11.5) | first visit step    20; first punished step  1963 (n 52), from it to the last step at the punisher    10
+   (r)  43 ==       dwell last third R median  23.0 mean  22.5, P median   0.0 mean   0.3 | late unrecovered 6/200 | contacts/agent    1.7 near wall  0.22% | visits R   32 P    1, steps per visit R  6.8 P  7.5; longest unbroken rewarded run   15
+   (r)  44 ==       per block median dwell R  28.0  24.0  24.5  23.0  24.0  23.5  24.0  22.0  23.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  45 ==       nothing held on   5.5% of steps; whiffs handed to navigation: nothing held  91.7% of 1415, other odour held   0.0% of 413
+   (r)  46 ==       learned valence at the end: rewarded odour, receivers n 200 (100% of group) median +1.000, all +1.000 | punished odour, receivers n 52 (26%) median -0.883, all +0.000 | reinforced steps R   216 P    10
+   (r)  47 ==       per block, receivers: punished odour +0.10 +0.00 +0.00 -0.34 -0.45 -0.60 -0.80 -0.84 -0.88 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r)  48 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r)  49 == 
+   (r)  50 ==    no-learning   all      n 400 | visited R  65.5% P  62.7% both  28.2% (first third  56.2/ 55.5/ 11.8) | first visit step    20; first punished step    25 (n 251), from it to the last step at the punisher  5083
+   (r)  51 ==       dwell last third R median  15.8 mean  12.5, P median   0.0 mean  10.9 | late unrecovered 3/400 | contacts/agent    0.5 near wall  0.07% | visits R   31 P   29, steps per visit R  6.7 P  6.8; longest unbroken rewarded run   14
+   (r)  52 ==       per block median dwell R   9.0  10.5   9.0   7.5   8.0  11.0  11.0  11.0  10.0 | P   4.0   2.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  53 ==       nothing held on   4.1% of steps; whiffs handed to navigation: nothing held 100.0% of 2429, other odour held   0.0% of 512
+   (r)  54 ==       learned valence at the end: rewarded odour, receivers n 262 (66% of group) median +0.000, all +0.000 | punished odour, receivers n 251 (63%) median +0.000, all +0.000 | reinforced steps R   202 P   190
+   (r)  55 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r)  56 ==    no-learning   P-start  n 200 | visited R  31.5% P  99.5% both  31.0% (first third  13.0/ 99.5/ 12.5) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher  5192
+   (r)  57 ==       dwell last third R median   0.0 mean   7.1, P median  20.7 mean  16.4 | late unrecovered 1/200 | contacts/agent    0.3 near wall  0.05% | visits R   20 P   31, steps per visit R  6.7 P  6.7; longest unbroken rewarded run   14
+   (r)  58 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P  26.0  23.0  23.0  22.0  23.0  20.0  20.0  19.0  18.0
+   (r)  59 ==       nothing held on   4.9% of steps; whiffs handed to navigation: nothing held 100.0% of 1273, other odour held   0.0% of 241
+   (r)  60 ==       learned valence at the end: rewarded odour, receivers n 63 (32% of group) median +0.000, all +0.000 | punished odour, receivers n 199 (100%) median +0.000, all +0.000 | reinforced steps R   137 P   203
+   (r)  61 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r)  62 ==    no-learning   R-start  n 200 | visited R  99.5% P  26.0% both  25.5% (first third  99.5/ 11.5/ 11.0) | first visit step    20; first punished step  1963 (n 52), from it to the last step at the punisher  3299
+   (r)  63 ==       dwell last third R median  21.3 mean  17.8, P median   0.0 mean   5.5 | late unrecovered 2/200 | contacts/agent    0.8 near wall  0.10% | visits R   32 P   20, steps per visit R  6.7 P  6.9; longest unbroken rewarded run   14
+   (r)  64 ==       per block median dwell R  28.0  23.0  24.0  22.0  23.0  22.0  21.0  18.0  20.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  65 ==       nothing held on   3.3% of steps; whiffs handed to navigation: nothing held 100.0% of 1156, other odour held   0.0% of 271
+   (r)  66 ==       learned valence at the end: rewarded odour, receivers n 199 (100% of group) median +0.000, all +0.000 | punished odour, receivers n 52 (26%) median +0.000, all +0.000 | reinforced steps R   209 P   135
+   (r)  67 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r)  68 == 
+   (r)  69 ==    known         all      n 400 | visited R  97.0% P  32.8% both  31.0% (first third  96.2/ 32.5/ 30.2) | first visit step    25; first punished step    34 (n 131), from it to the last step at the punisher     9
+   (r)  70 ==       dwell last third R median  23.7 mean  22.9, P median   0.0 mean   0.0 | late unrecovered 17/400 | contacts/agent    2.8 near wall  0.27% | visits R   32 P    1, steps per visit R  6.8 P  8.0; longest unbroken rewarded run   15
+   (r)  71 ==       per block median dwell R  22.0  22.0  24.0  23.0  24.0  23.0  24.0  23.0  23.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  72 ==       nothing held on   8.2% of steps; whiffs handed to navigation: nothing held  75.0% of 3708, other odour held   0.0% of 1128
+   (r)  73 ==       learned valence at the end: rewarded odour, receivers n 388 (97% of group) median +0.000, all +0.000 | punished odour, receivers n 131 (33%) median +0.000, all +0.000 | reinforced steps R   212 P    10
+   (r)  74 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r)  75 ==    known         P-start  n 200 | visited R  94.0% P  64.0% both  60.5% (first third  92.5/ 64.0/ 59.5) | first visit step   117; first punished step    33 (n 128), from it to the last step at the punisher     9
+   (r)  76 ==       dwell last third R median  24.2 mean  22.5, P median   0.0 mean   0.0 | late unrecovered 15/200 | contacts/agent    4.8 near wall  0.43% | visits R   30 P    1, steps per visit R  6.8 P  8.2; longest unbroken rewarded run   15
+   (r)  77 ==       per block median dwell R  13.0  20.0  23.0  22.0  24.0  22.5  24.0  23.0  24.0 | P   7.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  78 ==       nothing held on  12.5% of steps; whiffs handed to navigation: nothing held  64.8% of 2239, other odour held   0.0% of 725
+   (r)  79 ==       learned valence at the end: rewarded odour, receivers n 188 (94% of group) median +0.000, all +0.000 | punished odour, receivers n 128 (64%) median +0.000, all +0.000 | reinforced steps R   201 P    10
+   (r)  80 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r)  81 ==    known         R-start  n 200 | visited R 100.0% P   1.5% both   1.5% (first third 100.0/  1.0/  1.0) | first visit step    20; first punished step  1411 (n 3), from it to the last step at the punisher     3
+   (r)  82 ==       dwell last third R median  23.2 mean  23.3, P median   0.0 mean   0.0 | late unrecovered 2/200 | contacts/agent    0.8 near wall  0.10% | visits R   32 P    1, steps per visit R  6.8 P  4.0; longest unbroken rewarded run   15
+   (r)  83 ==       per block median dwell R  28.0  24.0  25.0  24.0  24.0  24.5  24.0  23.0  23.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  84 ==       nothing held on   3.9% of steps; whiffs handed to navigation: nothing held  90.6% of 1469, other odour held   0.0% of 403
+   (r)  85 ==       learned valence at the end: rewarded odour, receivers n 200 (100% of group) median +0.000, all +0.000 | punished odour, receivers n 3 (2%) median +0.000, all +0.000 | reinforced steps R   220 P     4
+   (r)  86 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r)  87 == 
+   (r)  88 ==    ungated       all      n 400 | visited R  97.2% P  62.7% both  60.0% (first third  96.5/ 55.5/ 52.0) | first visit step    20; first punished step    25 (n 251), from it to the last step at the punisher    10
+   (r)  89 ==       dwell last third R median  22.7 mean  22.1, P median   0.0 mean   0.1 | late unrecovered 21/400 | contacts/agent    2.9 near wall  0.30% | visits R   31 P    1, steps per visit R  6.8 P  7.5; longest unbroken rewarded run   15
+   (r)  90 ==       per block median dwell R  22.0  22.0  23.0  23.0  23.0  23.0  23.0  21.0  23.0 | P   1.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  91 ==       nothing held on   9.8% of steps; whiffs handed to navigation: nothing held  81.5% of 3903, other odour held   0.0% of 1235
+   (r)  92 ==       learned valence at the end: rewarded odour, receivers n 389 (97% of group) median +0.048, all +0.048 | punished odour, receivers n 251 (63%) median -0.763, all -0.490 | reinforced steps R   209 P    10
+   (r)  93 ==       per block, receivers: punished odour -0.68 -0.74 -0.75 -0.75 -0.76 -0.76 -0.76 -0.76 -0.76 | rewarded odour +0.72 +0.53 +0.38 +0.27 +0.19 +0.14 +0.10 +0.07 +0.05
+   (r)  94 ==    ungated       P-start  n 200 | visited R  94.5% P  99.5% both  94.0% (first third  93.0/ 99.5/ 92.5) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher    10
+   (r)  95 ==       dwell last third R median  22.7 mean  21.7, P median   0.0 mean   0.0 | late unrecovered 15/200 | contacts/agent    4.2 near wall  0.38% | visits R   30 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r)  96 ==       per block median dwell R  16.0  20.0  22.0  23.0  21.0  23.0  22.0  21.0  25.0 | P  10.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r)  97 ==       nothing held on  14.2% of steps; whiffs handed to navigation: nothing held  75.6% of 2459, other odour held   0.0% of 813
+   (r)  98 ==       learned valence at the end: rewarded odour, receivers n 189 (94% of group) median +0.057, all +0.055 | punished odour, receivers n 199 (100%) median -0.771, all -0.767 | reinforced steps R   201 P    10
+   (r)  99 ==       per block, receivers: punished odour -0.76 -0.77 -0.76 -0.76 -0.76 -0.76 -0.77 -0.77 -0.77 | rewarded odour +0.76 +0.57 +0.42 +0.30 +0.22 +0.16 +0.11 +0.08 +0.06
+   (r) 100 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r) 101 == 
+   (r) 102 ==    no-hold       all      n 400 | visited R  69.5% P  73.8% both  43.2% (first third  69.0/ 65.2/ 34.2) | first visit step    21; first punished step   121 (n 295), from it to the last step at the punisher     8
+   (r) 103 ==       dwell last third R median  17.3 mean  13.1, P median   0.0 mean   0.2 | late unrecovered 132/400 | contacts/agent   16.4 near wall  2.69% | visits R   30 P    1, steps per visit R  6.7 P  6.0; longest unbroken rewarded run   14
+   (r) 104 ==       per block median dwell R  17.0  16.0  14.0  13.0  14.0  15.0  15.0  14.5  13.0 | P   2.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r) 105 ==       nothing held on  93.3% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r) 106 ==       learned valence at the end: rewarded odour, receivers n 278 (70% of group) median +1.000, all +1.000 | punished odour, receivers n 295 (74%) median -0.800, all -0.500 | reinforced steps R   199 P     8
+   (r) 107 ==       per block, receivers: punished odour -0.50 -0.60 -0.70 -0.70 -0.70 -0.80 -0.80 -0.80 -0.80 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r) 108 ==    no-hold       P-start  n 200 | visited R  39.0% P  99.0% both  38.0% (first third  38.0/ 99.0/ 37.0) | first visit step    22; first punished step    22 (n 198), from it to the last step at the punisher     7
+   (r) 109 ==       dwell last third R median   0.0 mean   9.1, P median   0.0 mean   0.2 | late unrecovered 97/200 | contacts/agent   25.5 near wall  4.03% | visits R   30 P    1, steps per visit R  6.8 P  5.7; longest unbroken rewarded run   14
+   (r) 110 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P   6.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r) 111 ==       nothing held on  95.1% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r) 112 ==       learned valence at the end: rewarded odour, receivers n 78 (39% of group) median +1.000, all +0.000 | punished odour, receivers n 198 (99%) median -0.800, all -0.750 | reinforced steps R   199 P     8
+   (r) 113 ==       per block, receivers: punished odour -0.60 -0.70 -0.70 -0.70 -0.70 -0.75 -0.80 -0.80 -0.80 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r) 114 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r) 115 == 
+   (r) 116 ==    stage-removed all      n 400 | visited R  55.5% P  74.0% both  29.5% (first third  55.5/ 65.2/ 20.8) | first visit step    20; first punished step   120 (n 296), from it to the last step at the punisher   796
+   (r) 117 ==       dwell last third R median   0.0 mean   9.0, P median   0.0 mean   0.4 | late unrecovered 236/400 | contacts/agent   48.0 near wall  5.65% | visits R   30 P    5, steps per visit R  6.8 P  8.0; longest unbroken rewarded run   14
+   (r) 118 ==       per block median dwell R  10.0   4.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P   6.0   6.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r) 119 ==       nothing held on 100.0% of steps; whiffs handed to navigation: nothing held  67.4% of 23056, other odour held   0.0% of 0
+   (r) 120 ==       learned valence at the end: rewarded odour, receivers n 222 (56% of group) median +1.000, all +0.900 | punished odour, receivers n 296 (74%) median -1.000, all -1.000 | reinforced steps R   199 P    39
+   (r) 121 ==       per block, receivers: punished odour -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r) 122 ==    stage-removed P-start  n 200 | visited R  11.5% P  99.5% both  11.0% (first third  11.5/ 99.5/ 11.0) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher   798
+   (r) 123 ==       dwell last third R median   0.0 mean   2.8, P median   0.0 mean   0.0 | late unrecovered 178/200 | contacts/agent   77.3 near wall  8.42% | visits R   31 P    5, steps per visit R  6.7 P  8.2; longest unbroken rewarded run   13
+   (r) 124 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P  28.0  10.5   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r) 125 ==       nothing held on 100.0% of steps; whiffs handed to navigation: nothing held  29.6% of 7313, other odour held   0.0% of 0
+   (r) 126 ==       learned valence at the end: rewarded odour, receivers n 23 (12% of group) median +1.000, all +0.000 | punished odour, receivers n 199 (100%) median -1.000, all -1.000 | reinforced steps R   199 P    41
+   (r) 127 ==       per block, receivers: punished odour -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 | rewarded odour +0.70 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r) 128 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r) 129 == 
+   (r) 130 ==    xchan-removed all      n 400 | visited R  97.2% P  62.7% both  60.0% (first third  96.5/ 55.5/ 52.0) | first visit step    20; first punished step    25 (n 251), from it to the last step at the punisher    10
+   (r) 131 ==       dwell last third R median  23.0 mean  22.1, P median   0.0 mean   0.2 | late unrecovered 21/400 | contacts/agent    3.0 near wall  0.30% | visits R   31 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r) 132 ==       per block median dwell R  22.0  22.0  23.0  23.0  23.0  23.0  23.0  21.0  23.5 | P   1.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r) 133 ==       nothing held on   9.9% of steps; whiffs handed to navigation: nothing held  81.6% of 3875, other odour held   0.0% of 1226
+   (r) 134 ==       learned valence at the end: rewarded odour, receivers n 389 (97% of group) median +1.000, all +1.000 | punished odour, receivers n 251 (63%) median -0.888, all -0.497 | reinforced steps R   209 P    10
+   (r) 135 ==       per block, receivers: punished odour -0.78 -0.80 -0.80 -0.80 -0.88 -0.89 -0.89 -0.89 -0.89 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r) 136 ==    xchan-removed P-start  n 200 | visited R  94.5% P  99.5% both  94.0% (first third  93.0/ 99.5/ 92.5) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher    11
+   (r) 137 ==       dwell last third R median  22.7 mean  21.8, P median   0.0 mean   0.0 | late unrecovered 15/200 | contacts/agent    4.2 near wall  0.38% | visits R   30 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r) 138 ==       per block median dwell R  16.0  20.0  22.0  23.0  21.0  23.0  22.0  21.0  25.0 | P  10.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r) 139 ==       nothing held on  14.3% of steps; whiffs handed to navigation: nothing held  75.9% of 2461, other odour held   0.0% of 813
+   (r) 140 ==       learned valence at the end: rewarded odour, receivers n 189 (94% of group) median +1.000, all +1.000 | punished odour, receivers n 199 (100%) median -0.892, all -0.891 | reinforced steps R   201 P    10
+   (r) 141 ==       per block, receivers: punished odour -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 | rewarded odour +0.95 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r) 142 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r) 143 == 
+   (r) 144 ==    exact-heading all      n 400 | visited R  98.8% P  64.0% both  62.7% (first third  97.2/ 56.0/ 53.2) | first visit step    21; first punished step    27 (n 256), from it to the last step at the punisher    10
+   (r) 145 ==       dwell last third R median  23.7 mean  22.8, P median   0.0 mean   0.1 | late unrecovered 14/400 | contacts/agent    3.1 near wall  0.33% | visits R   31 P    1, steps per visit R  6.7 P  7.5; longest unbroken rewarded run   14
+   (r) 146 ==       per block median dwell R  22.0  22.0  22.0  23.0  23.0  23.0  23.0  23.0  24.0 | P   1.5   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r) 147 ==       nothing held on  11.0% of steps; whiffs handed to navigation: nothing held  81.5% of 3932, other odour held   0.0% of 1262
+   (r) 148 ==       learned valence at the end: rewarded odour, receivers n 395 (99% of group) median +1.000, all +1.000 | punished odour, receivers n 256 (64%) median -0.888, all -0.600 | reinforced steps R   207 P    10
+   (r) 149 ==       per block, receivers: punished odour -0.79 -0.80 -0.80 -0.88 -0.88 -0.89 -0.89 -0.89 -0.89 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r) 150 ==    exact-heading P-start  n 200 | visited R  97.5% P  98.5% both  96.0% (first third  94.5/ 98.0/ 92.5) | first visit step    22; first punished step    22 (n 197), from it to the last step at the punisher    10
+   (r) 151 ==       dwell last third R median  23.7 mean  22.4, P median   0.0 mean   0.0 | late unrecovered 11/200 | contacts/agent    5.3 near wall  0.57% | visits R   30 P    1, steps per visit R  6.6 P  7.5; longest unbroken rewarded run   14
+   (r) 152 ==       per block median dwell R  15.0  20.5  22.0  23.0  23.0  23.0  23.5  23.0  23.0 | P  10.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r) 153 ==       nothing held on  15.6% of steps; whiffs handed to navigation: nothing held  76.1% of 2429, other odour held   0.0% of 837
+   (r) 154 ==       learned valence at the end: rewarded odour, receivers n 195 (98% of group) median +1.000, all +1.000 | punished odour, receivers n 197 (98%) median -0.888, all -0.887 | reinforced steps R   202 P    10
+   (r) 155 ==       per block, receivers: punished odour -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 | rewarded odour +0.94 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r) 156 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r) 157 == 
+   (r) 158 == == Q1 validity (all rows, last third) ==
+   (r) 159 ==    (a) rewarding dwell, oracle - random: DGM n 400  value 600.000  97.5% interval [600.000, 600.000]  at least 10 -> PASS
+   (r) 160 ==    (b) intact dwell at R: GM n 400  value 23.000  97.5% interval [22.333, 23.667]  at most 594 -> PASS
+   (r) 161 ==    (b) intact dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r) 162 ==    (b) no-learning dwell at R: GM n 400  value 15.833  97.5% interval [0.000, 19.333]  at most 594 -> PASS
+   (r) 163 ==    (b) no-learning dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 14.667]  at most 594 -> PASS
+   (r) 164 ==    (b) known dwell at R: GM n 400  value 23.667  97.5% interval [22.667, 24.333]  at most 594 -> PASS
+   (r) 165 ==    (b) known dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r) 166 ==    (b) ungated dwell at R: GM n 400  value 22.667  97.5% interval [22.333, 23.500]  at most 594 -> PASS
+   (r) 167 ==    (b) ungated dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r) 168 ==    (b) no-hold dwell at R: GM n 400  value 17.333  97.5% interval [12.000, 19.667]  at most 594 -> PASS
+   (r) 169 ==    (b) no-hold dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r) 170 ==    (b) stage-removed dwell at R: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r) 171 ==    (b) stage-removed dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r) 172 ==    (b) xchan-removed dwell at R: GM n 400  value 23.000  97.5% interval [22.333, 23.667]  at most 594 -> PASS
+   (r) 173 ==    (b) xchan-removed dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r) 174 ==    (b) exact-heading dwell at R: GM n 400  value 23.667  97.5% interval [23.000, 24.333]  at most 594 -> PASS
+   (r) 175 ==    (b) exact-heading dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r) 176 ==    (c) total dwell, intact - random: DGM n 400  value 23.000  97.5% interval [22.667, 23.667]  at least 10 -> PASS
+   (r) 177 == 
+   (r) 178 == == Q2 search maintained while learning (late unrecovered) ==
+   (r) 179 ==    (a) intact, all rows: P k 21 n 400  value 0.052  97.5% interval [0.033, 0.084]  at most 0.1 -> PASS
+   (r) 180 ==        reference: known valence, all rows: P k 17 n 400  value 0.043  97.5% interval [0.025, 0.071]  at most 0.1 -> PASS
+   (r) 181 ==        reported: intact P-start: P k 15 n 200  value 0.075  97.5% interval [0.043, 0.128]  at most 0.1 -> INCONCLUSIVE
+   (r) 182 ==        reported: known P-start: P k 15 n 200  value 0.075  97.5% interval [0.043, 0.128]  at most 0.1 -> INCONCLUSIVE
+   (r) 183 ==    (b) intact - known, P-start: DP n 200  value 0.000  97.5% interval [-0.045, 0.045]  at most 0.1 -> PASS
+   (r) 184 ==        reported: intact R-start: P k 6 n 200  value 0.030  97.5% interval [0.012, 0.071]  at most 0.1 -> PASS
+   (r) 185 ==        reported: known R-start: P k 2 n 200  value 0.010  97.5% interval [0.002, 0.042]  at most 0.1 -> PASS
+   (r) 186 ==    (b) intact - known, R-start: DP n 200  value 0.020  97.5% interval [0.000, 0.045]  at most 0.1 -> PASS
+   (r) 187 == 
+   (r) 188 == == Q3 a learned negative valence becomes avoidance. G3 = P-start rows punished at least once: 199/200 (99.5%) ==
+   (r) 189 ==        readability: no-learning punishing dwell in G3: GM n 199  value 20.667  97.5% interval [18.333, 22.667]  at least 10 -> PASS
+   (r) 190 ==    (a) learned valence of the punished odour: GM n 199  value -0.892  97.5% interval [-0.900, -0.876]  at most -0.5 -> PASS
+   (r) 191 ==    (b) punishing dwell, intact: GM n 199  value 0.000  97.5% interval [0.000, 0.000]  at most 1.0 -> PASS
+   (r) 192 ==    (c) intact below no-learning: WIN k 146 ties 26.6% n 199 -> UNREADABLE (ties)
+   (r) 193 ==    (c) punishing dwell, intact / no-learning: RGM n 199  value 0.000  97.5% interval [0.000, 0.000]  at most 0.75 -> PASS
+   (r) 194 == 
+   (r) 195 == == Q4 search continues after avoidance (G3 rows, known valence as reference) ==
+   (r) 196 ==        readability: known arm avoids (P-start punishing dwell): GM n 200  value 0.000  97.5% interval [0.000, 0.000]  at most 1.0 -> PASS
+   (r) 197 ==        readability: known arm rewarding dwell in G3: GM n 199  value 24.000  97.5% interval [22.667, 25.000]  at least 10 -> PASS
+   (r) 198 ==    (a) reach the rewarding source after the first punished step, intact - known: DP n 199  value 0.005  97.5% interval [-0.030, 0.040]  at least -0.1 -> PASS
+   (r) 199 ==    (b) rewarding dwell, intact / known: RGM n 199  value 0.944  97.5% interval [0.892, 1.014]  at least 0.75 -> PASS
+   (r) 200 == 
+   (r) 201 == == Q5 positive valence, weight level only. G5 = rows rewarded at least once: 389/400 ==
+   (r) 202 ==    learned valence of the rewarded odour: GM n 389  value 1.000  97.5% interval [1.000, 1.000]  at least 0.5 -> PASS
+   (r) 203 == 
+   (r) 204 == == 7.2 gate comparison, auxiliary ==
+   (r) 205 ==    replay instrument (self-check 7): gated replay reproduces the intact arm's end values: True
+   (r) 206 ==    longest unbroken rewarded run, G5: median 15, p90 18; rows under 10: 7, 10-24: 382, 25 or more: 0
+   (r) 207 ==    replay, ungated / gated, G5: RGM n 389  value 0.049  97.5% interval [0.046, 0.052]  at most 0.8 -> PASS
+   (r) 208 ==    reading: the rule with the gate keeps more of the value at the exposures that occurred; fewer than 50 rows reach 25 consecutive steps, so this speaks for short stays only
+   (r) 209 ==       stratum under 10: n 7 < 50 -> UNREADABLE
+   (r) 210 ==       stratum 10-24: RGM n 382  value 0.048  97.5% interval [0.046, 0.051]  at most 0.8 -> PASS
+   (r) 211 ==       stratum 25 or more: n 0 < 50 -> UNREADABLE
+   (r) 212 ==    free-running ungated arm, descriptive: rewarded-odour value among its receivers (n 389) median +0.048; intact receivers (n 389) +1.000
+   (r) 213 == 
+   (r) 214 == ==== E1 VERDICT (Q1-Q4, integrated behaviour): Q1 ['PASS'] Q2 ['PASS', 'PASS', 'PASS'] Q3 ['PASS', 'PASS', 'UNREADABLE', 'PASS'] Q4 ['PASS', 'PASS'] -> NOT DECIDED BY THIS RUN ====
+   (r) 215 ==      Q5 (weight level): PASS
+   (r) 216 == 
+   (r) 217 == ==== E2 controlled experience. world seed 1641, agent seed 1741, 400 rows, every row a P-start row ====
+   (r) 218 ==    training protocol AS AMENDED before the evaluation: 30 consecutive steps at one source, 50 silent steps, 30 at the other. In E2 'last third' below means the whole 3-block test.
+   (r) 219 ==    pre-test valence, amended (gap): rewarded odour trained first +1.000 / trained second +1.000;  punished odour trained first -1.000 / trained second -1.000
+   (r) 220 ==    pre-test valence, as first registered (no gap): rewarded odour trained first +0.501 / trained second +2.000;  punished odour trained first -0.501 / trained second -2.000
+   (r) 221 == 
+   (r) 222 ==    trained       all      n 400 | visited R  94.2% P  59.0% both  54.8% (first third  94.2/ 59.0/ 54.8) | first visit step   111; first punished step    23 (n 236), from it to the last step at the punisher     9
+   (r) 223 ==       dwell last third R median  20.0 mean  18.8, P median   2.3 mean   2.2 | late unrecovered 0/400 | contacts/agent    1.1 near wall  0.22% | visits R    9 P    1, steps per visit R  6.9 P  8.5; longest unbroken rewarded run   11
+   (r) 224 ==       per block median dwell R  13.0  22.0  23.0 | P   7.0   0.0   0.0
+   (r) 225 ==       nothing held on  24.5% of steps; whiffs handed to navigation: nothing held  59.1% of 3115, other odour held   0.0% of 908
+   (r) 226 ==       learned valence at the end: rewarded odour, receivers n 377 (94% of group) median +1.000, all +1.000 | punished odour, receivers n 236 (59%) median -1.000, all -1.000 | reinforced steps R    62 P    10
+   (r) 227 ==       per block, receivers: punished odour -1.00 -1.00 -1.00 | rewarded odour +1.00 +1.00 +1.00
+   (r) 228 ==       training calls 60 (2 x 30); test learning calls 0 (frozen); reward-first rows 200; pre-test valence rewarded +1.000 punished -1.000
+   (r) 229 == 
+   (r) 230 ==    sham          all      n 400 | visited R   9.8% P  99.8% both   9.5% (first third   9.8/ 99.8/  9.5) | first visit step    20; first punished step    20 (n 399), from it to the last step at the punisher  1661
+   (r) 231 ==       dwell last third R median   0.0 mean   1.0, P median  24.0 mean  23.8 | late unrecovered 0/400 | contacts/agent    0.0 near wall  0.00% | visits R    5 P   11, steps per visit R  6.5 P  6.7; longest unbroken rewarded run   10
+   (r) 232 ==       per block median dwell R   0.0   0.0   0.0 | P  26.0  24.0  22.0
+   (r) 233 ==       nothing held on   7.1% of steps; whiffs handed to navigation: nothing held 100.0% of 1602, other odour held   0.0% of 183
+   (r) 234 ==       learned valence at the end: rewarded odour, receivers n 39 (10% of group) median +0.000, all +0.000 | punished odour, receivers n 399 (100%) median +0.000, all +0.000 | reinforced steps R    30 P    72
+   (r) 235 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00
+   (r) 236 ==       training calls 60 (2 x 30); test learning calls 0 (frozen); reward-first rows 200; pre-test valence rewarded +0.000 punished +0.000
+   (r) 237 == 
+   (r) 238 == == Q6 controlled experience (learning frozen) ==
+   (r) 239 ==        manipulation check: trained, punished odour before the test: GM n 400  value -1.000  97.5% interval [-1.000, -0.900]  at most -0.5 -> PASS
+   (r) 240 ==        manipulation check: sham >= -0.1: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at least -0.1 -> PASS
+   (r) 241 ==        manipulation check: sham <= +0.1: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 0.1 -> PASS
+   (r) 242 ==        readability: sham punishing dwell over the test: GM n 400  value 72.000  97.5% interval [70.000, 74.000]  at least 10 -> PASS
+   (r) 243 ==    (a) punishing dwell, trained / sham: RGM n 400  value 0.097  97.5% interval [0.056, 0.111]  at most 0.5 -> PASS
+   (r) 244 ==    (b) trained below sham: WIN k 396 ties 0.2% n 400  value 0.990  97.5% interval [0.971, 0.997]  at least 0.6 -> PASS
+   (r) 245 ==    (c) reach the rewarding source, trained - sham: DP n 400  value 0.845  97.5% interval [0.805, 0.885]  at least 0.25 -> PASS
+   (r) 246 == 
+   (r) 247 == == 7.2 gate at 30 consecutive steps, weight level ==
+   (r) 248 ==       |value| of the rewarded odour, trained-ungated / trained-gated: RGM n 400  value 0.691  97.5% interval [0.691, 0.719]  at most 0.85 -> PASS
+   (r) 249 ==       |value| of the punished odour, trained-ungated / trained-gated: RGM n 400  value 0.691  97.5% interval [0.691, 0.719]  at most 0.85 -> PASS
+   (r) 250 == 
+   (r) 251 ==    auxiliary, no criterion: the same test with learning ON
+   (r) 252 ==    trained+learn all      n 400 | visited R  94.2% P  59.0% both  54.8% (first third  94.2/ 59.0/ 54.8) | first visit step   111; first punished step    23 (n 236), from it to the last step at the punisher     9
+   (r) 253 ==       dwell last third R median  20.0 mean  18.8, P median   2.3 mean   2.2 | late unrecovered 0/400 | contacts/agent    1.1 near wall  0.22% | visits R    9 P    1, steps per visit R  6.9 P  8.5; longest unbroken rewarded run   11
+   (r) 254 ==       per block median dwell R  13.0  22.0  23.0 | P   7.0   0.0   0.0
+   (r) 255 ==       nothing held on  24.5% of steps; whiffs handed to navigation: nothing held  59.1% of 3115, other odour held   0.0% of 908
+   (r) 256 ==       learned valence at the end: rewarded odour, receivers n 377 (94% of group) median +1.000, all +1.000 | punished odour, receivers n 236 (59%) median -0.987, all -0.989 | reinforced steps R    62 P    10
+   (r) 257 ==       per block, receivers: punished odour -0.99 -0.99 -0.99 | rewarded odour +1.00 +1.00 +1.00
+   (r) 258 == 
+   (r) 259 ==    the protocol AS FIRST REGISTERED (no gap), reported beside the amended one:
+   (r) 260 ==       as registered: manipulation check, trained punished odour: GM n 400  value -1.175  97.5% interval [-1.950, -0.501]  at most -0.5 -> PASS
+   (r) 261 ==       as registered: (a) punishing dwell, trained / sham: RGM n 400  value 0.097  97.5% interval [0.056, 0.111]  at most 0.5 -> PASS
+   (r) 262 ==       as registered: (b) trained below sham: WIN k 396 ties 0.2% n 400  value 0.990  97.5% interval [0.971, 0.997]  at least 0.6 -> PASS
+   (r) 263 ==       as registered: (c) reach the rewarding source, trained - sham: DP n 400  value 0.845  97.5% interval [0.805, 0.885]  at least 0.25 -> PASS
+   (r) 264 == 
+   (r) 265 == ==== E2 RESULT (Q6, a trained memory driving behaviour with nothing learned in the test): ['PASS', 'PASS', 'PASS'] -> PASS ====
+   (r) 266 == 
+(r) ph15.simulate's arrays field for field (the original ph15.simulate against this harness): E1 intact True (keys 27, differing []); E2 trained, learning on True (keys 30, differing [])
+== (r) holds: every line of experiments/h15/ph15_run2.txt reproduced; (r') next ==
+(r') Run 1's bench through ph30 as imported (reading R1-R4): ph30.py True; experiments/h20/ph30_bench.txt sha256 3fec4dc50dd3af4456649cf8b10a494d04a5afe937f5bf1f65bc31f2a2367eec (recorded 3fec4dc5...7eec: True)
+(r') ph30.bench re-run: 370 lines against 370 in ph30_bench.txt; equal line for line 370; identical True; ph30.bench's M9 as Run 1 (STOPPED by (hR)): True
+   (r')   1 == [a line carrying Run 1's bench seeds: compared, not printed]
+   (r')   2 ==    ph30.py sha256 98822834043de5f31615e73cd4a83444adcef2f1d5e56478356d70ca905059bd; design H20 Stage C v2 FINAL doc d27e6dfe2e2c16183 hash f1e1909566310ecafaeb589491d946b9d9526a8f1a5dc9d4b6ee46d2ae27453a
+   (r')   3 ==    imported modules: ph4.py d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a; ph8.py ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e; ph9.py 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706; ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23; ph13.py 2d75fae8e8c31e1c6ddf6577782fafde3099f10fe8f50fe382f53d09e9ef1f2d; ph14.py c6b745c60f9992934a0ccbc5584ef354a03f53f08b37a1252a694feb350be0d0; ph15.py cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc; ph16.py 33d5fdb25959fb7f9cbe465ca25a8973776b39f1e5170d645cb53bc8d906a2c2; ph19.py 00c6a3b32f80fae9f58b6dbd23a8e03b1710be45fcf335238f289567fce34791; ph21.py 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; ph25.py 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; ph25b.py ad12a9122c171dd32c3fceac946add9d0eb0380e885e0f0872dd97ccd59eeaf6; ph28.py 64ce7d0ce123f912aa675e86627d5b6b0ae3d89976b093666316e6b78441e7aa
+   (r')   4 == [a line carrying Run 1's bench seeds: compared, not printed]
+   (r')   5 ==    decisions: decision:h20-stage-c-open (the ten points); decision:release-value-gated-stage-c ((N2), Stage C only; decision:release-negative-scope-on-hold stays in force outside Stage C); the adopted agent: decision:h26-adaptive-presence-adopted-within-tested-conditions
+   (r')   6 ==    rows share no state: one world generator and one agent generator per arm, fixed-size draws consumed in row order every step; arms in 4 parallel processes (reading R18)
+   (r')   7 ==    readings where the design is silent (file header R1-R20): R1 mirror written after sense and wind, before act; R2 bitwise = lockstep (step, row) equality on POS, HEAD, H, NAV, S, SG, SIL, SINCE, EST, TURN, W, mb.w (+ TGT, TO, EV, C where both expose them) and every end-of-run record; R3 (N2): held odour of (S) = hp, of (Z) = h, value = chan_valence(); R4 (i7) up to the first negative hold of the (N1) arm (exclusive); R5 (i8) row 0 displaced, rows 1-399 equal, calls == steps / 0, mirror checked every step; R6 (v) exactness claims where R is learned from the naive state ((1), (3a), every row: v_R == 0.1k, k <= 10; v_P == 0.0 at u = 0 before punishment), punisher-first sequences printed, not claimed; R7 (g) ph24.stub construction, bench E1 seeds; R8 (n) known (1.0, -0.9), channel 1 held s 2.0, 260 silent steps, evidence variant 100 silent + channel-0 p 0.30; R9 (i9) one punished module step, mirror vs stale; R10 pass probabilities se = sqrt(b - DP^2)/sqrt(n); R11 G3/G5 from the learned arm, M5(a) each arm's own first punished step, G3+ from Agent14 no-learning; R12 (hR) GM lower bound >= 10; R13 E2 bench seeds: E2-C harness checks, arms printed beside; R14 dev/eval re-run the bench for M9; R15 (i5) builder hooked into ph24.make; R16 E2 reach = first_g >= 0, P dwell = b over the test; R17 M1(b) arms = the eight agent arms; R18 parallel processes; R19 punisher hold at a positive learned residual (module read-out), R absent (counter >= 300 / 300 steps since an R whiff) at the first punisher visit; R20 wall contact between the first punished step and the next rewarded step
+   (r')   8 == (r) REPRODUCTION of H15 Run 2 (world/agent (1640, 1740) for E1, (1641, 1741) for E2; ph15's own e1/e2 printing with this harness as ph15.simulate; H15 Run 2's statistics 97.5 percent, bootstrap 20260920): 266 lines against 266 in experiments/h15/ph15_run2.txt (sha256 5ce0132fc83c200e6f5c9b0378e132c937bad55c1a3c3f7b89201dc88a9c8b39); equal line for line 266; identical True
+   (r')   9 ==    (r)   1 == == H15 Run 2, EVAL. specification v4 doc dc860b9c7c6f3aa6e hash 7f23e6e5965b8ea911711f8332f5fcb6c8a7a2adcc87c0cd2118b7cc90ae854d ==
+   (r')  10 ==    (r)   2 == == one amendment recorded before the evaluation: record:h15-run2-dev-log (E2 training gap). Q3(c) not amended. ==
+   (r')  11 ==    (r)   3 == 
+   (r')  12 ==    (r)   4 == ==== E1 natural search. world seed 1640, agent seed 1740, 400 rows ====
+   (r')  13 ==    (r)   5 == 
+   (r')  14 ==    (r)   6 ==    random        all      n 400 | visited R  60.0% P  54.2% both  38.0% (first third  36.0/ 31.0/ 13.5) | first visit step   747; first punished step  1446 (n 217), from it to the last step at the punisher     9
+   (r')  15 ==    (r)   7 ==       dwell last third R median   0.0 mean   0.7, P median   0.0 mean   0.5 | late unrecovered 176/400 | contacts/agent   24.8 near wall  2.56% | visits R    1 P    1, steps per visit R  8.0 P  8.5; longest unbroken rewarded run   10
+   (r')  16 ==    (r)   8 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  17 ==    (r)   9 ==       nothing held on   0.0% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r')  18 ==    (r)  10 ==       learned valence at the end: rewarded odour, receivers n 240 (60% of group) median +0.000, all +0.000 | punished odour, receivers n 217 (54%) median +0.000, all +0.000 | reinforced steps R    10 P    10
+   (r')  19 ==    (r)  11 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r')  20 ==    (r)  12 ==    random        P-start  n 200 | visited R  58.5% P  59.0% both  39.0% (first third  32.0/ 36.0/ 16.0) | first visit step   980; first punished step  1072 (n 118), from it to the last step at the punisher    10
+   (r')  21 ==    (r)  13 ==       dwell last third R median   0.0 mean   0.8, P median   0.0 mean   0.5 | late unrecovered 78/200 | contacts/agent   24.3 near wall  2.44% | visits R    1 P    1, steps per visit R  9.0 P  9.0; longest unbroken rewarded run   10
+   (r')  22 ==    (r)  14 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  23 ==    (r)  15 ==       nothing held on   0.0% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r')  24 ==    (r)  16 ==       learned valence at the end: rewarded odour, receivers n 117 (58% of group) median +0.000, all +0.000 | punished odour, receivers n 118 (59%) median +0.000, all +0.000 | reinforced steps R    10 P    10
+   (r')  25 ==    (r)  17 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r')  26 ==    (r)  18 == 
+   (r')  27 ==    (r)  19 ==    oracle        all      n 400 | visited R 100.0% P   0.0% both   0.0% (first third 100.0/  0.0/  0.0) | first visit step    24; first punished step   nan (n 0), from it to the last step at the punisher   nan
+   (r')  28 ==    (r)  20 ==       dwell last third R median 600.0 mean 600.0, P median   0.0 mean   0.0 | late unrecovered 0/400 | contacts/agent    0.0 near wall  0.00% | visits R    1 P  nan, steps per visit R 5376.0 P  nan; longest unbroken rewarded run 5376
+   (r')  29 ==    (r)  21 ==       per block median dwell R 576.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  30 ==    (r)  22 ==       nothing held on   0.0% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r')  31 ==    (r)  23 ==       learned valence at the end: rewarded odour, receivers n 400 (100% of group) median +0.000, all +0.000 | punished odour, receivers n 0 (0%) median +nan, all +0.000 | reinforced steps R  5376 P   nan
+   (r')  32 ==    (r)  24 ==    oracle        P-start  n 200 | visited R 100.0% P   0.0% both   0.0% (first third 100.0/  0.0/  0.0) | first visit step    30; first punished step   nan (n 0), from it to the last step at the punisher   nan
+   (r')  33 ==    (r)  25 ==       dwell last third R median 600.0 mean 600.0, P median   0.0 mean   0.0 | late unrecovered 0/200 | contacts/agent    0.0 near wall  0.00% | visits R    1 P  nan, steps per visit R 5370.0 P  nan; longest unbroken rewarded run 5370
+   (r')  34 ==    (r)  26 ==       per block median dwell R 570.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 600.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  35 ==    (r)  27 ==       nothing held on   0.0% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r')  36 ==    (r)  28 ==       learned valence at the end: rewarded odour, receivers n 200 (100% of group) median +0.000, all +0.000 | punished odour, receivers n 0 (0%) median +nan, all +0.000 | reinforced steps R  5370 P   nan
+   (r')  37 ==    (r)  29 == 
+   (r')  38 ==    (r)  30 ==    intact        all      n 400 | visited R  97.2% P  62.7% both  60.0% (first third  96.5/ 55.5/ 52.0) | first visit step    20; first punished step    25 (n 251), from it to the last step at the punisher    10
+   (r')  39 ==    (r)  31 ==       dwell last third R median  23.0 mean  22.1, P median   0.0 mean   0.2 | late unrecovered 21/400 | contacts/agent    3.0 near wall  0.30% | visits R   31 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r')  40 ==    (r)  32 ==       per block median dwell R  22.0  22.0  23.0  23.0  23.0  23.0  23.0  21.0  23.5 | P   1.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  41 ==    (r)  33 ==       nothing held on   9.9% of steps; whiffs handed to navigation: nothing held  81.6% of 3876, other odour held   0.0% of 1226
+   (r')  42 ==    (r)  34 ==       learned valence at the end: rewarded odour, receivers n 389 (97% of group) median +1.000, all +1.000 | punished odour, receivers n 251 (63%) median -0.888, all -0.497 | reinforced steps R   209 P    10
+   (r')  43 ==    (r)  35 ==       per block, receivers: punished odour -0.78 -0.80 -0.80 -0.80 -0.88 -0.89 -0.89 -0.89 -0.89 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r')  44 ==    (r)  36 ==    intact        P-start  n 200 | visited R  94.5% P  99.5% both  94.0% (first third  93.0/ 99.5/ 92.5) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher    11
+   (r')  45 ==    (r)  37 ==       dwell last third R median  22.7 mean  21.8, P median   0.0 mean   0.0 | late unrecovered 15/200 | contacts/agent    4.2 near wall  0.38% | visits R   30 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r')  46 ==    (r)  38 ==       per block median dwell R  16.0  20.0  22.0  23.0  21.0  23.0  22.0  21.0  25.0 | P  10.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  47 ==    (r)  39 ==       nothing held on  14.3% of steps; whiffs handed to navigation: nothing held  75.9% of 2461, other odour held   0.0% of 813
+   (r')  48 ==    (r)  40 ==       learned valence at the end: rewarded odour, receivers n 189 (94% of group) median +1.000, all +1.000 | punished odour, receivers n 199 (100%) median -0.892, all -0.891 | reinforced steps R   201 P    10
+   (r')  49 ==    (r)  41 ==       per block, receivers: punished odour -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 | rewarded odour +0.95 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r')  50 ==    (r)  42 ==    intact        R-start  n 200 | visited R 100.0% P  26.0% both  26.0% (first third 100.0/ 11.5/ 11.5) | first visit step    20; first punished step  1963 (n 52), from it to the last step at the punisher    10
+   (r')  51 ==    (r)  43 ==       dwell last third R median  23.0 mean  22.5, P median   0.0 mean   0.3 | late unrecovered 6/200 | contacts/agent    1.7 near wall  0.22% | visits R   32 P    1, steps per visit R  6.8 P  7.5; longest unbroken rewarded run   15
+   (r')  52 ==    (r)  44 ==       per block median dwell R  28.0  24.0  24.5  23.0  24.0  23.5  24.0  22.0  23.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  53 ==    (r)  45 ==       nothing held on   5.5% of steps; whiffs handed to navigation: nothing held  91.7% of 1415, other odour held   0.0% of 413
+   (r')  54 ==    (r)  46 ==       learned valence at the end: rewarded odour, receivers n 200 (100% of group) median +1.000, all +1.000 | punished odour, receivers n 52 (26%) median -0.883, all +0.000 | reinforced steps R   216 P    10
+   (r')  55 ==    (r)  47 ==       per block, receivers: punished odour +0.10 +0.00 +0.00 -0.34 -0.45 -0.60 -0.80 -0.84 -0.88 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r')  56 ==    (r)  48 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r')  57 ==    (r)  49 == 
+   (r')  58 ==    (r)  50 ==    no-learning   all      n 400 | visited R  65.5% P  62.7% both  28.2% (first third  56.2/ 55.5/ 11.8) | first visit step    20; first punished step    25 (n 251), from it to the last step at the punisher  5083
+   (r')  59 ==    (r)  51 ==       dwell last third R median  15.8 mean  12.5, P median   0.0 mean  10.9 | late unrecovered 3/400 | contacts/agent    0.5 near wall  0.07% | visits R   31 P   29, steps per visit R  6.7 P  6.8; longest unbroken rewarded run   14
+   (r')  60 ==    (r)  52 ==       per block median dwell R   9.0  10.5   9.0   7.5   8.0  11.0  11.0  11.0  10.0 | P   4.0   2.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  61 ==    (r)  53 ==       nothing held on   4.1% of steps; whiffs handed to navigation: nothing held 100.0% of 2429, other odour held   0.0% of 512
+   (r')  62 ==    (r)  54 ==       learned valence at the end: rewarded odour, receivers n 262 (66% of group) median +0.000, all +0.000 | punished odour, receivers n 251 (63%) median +0.000, all +0.000 | reinforced steps R   202 P   190
+   (r')  63 ==    (r)  55 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r')  64 ==    (r)  56 ==    no-learning   P-start  n 200 | visited R  31.5% P  99.5% both  31.0% (first third  13.0/ 99.5/ 12.5) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher  5192
+   (r')  65 ==    (r)  57 ==       dwell last third R median   0.0 mean   7.1, P median  20.7 mean  16.4 | late unrecovered 1/200 | contacts/agent    0.3 near wall  0.05% | visits R   20 P   31, steps per visit R  6.7 P  6.7; longest unbroken rewarded run   14
+   (r')  66 ==    (r)  58 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P  26.0  23.0  23.0  22.0  23.0  20.0  20.0  19.0  18.0
+   (r')  67 ==    (r)  59 ==       nothing held on   4.9% of steps; whiffs handed to navigation: nothing held 100.0% of 1273, other odour held   0.0% of 241
+   (r')  68 ==    (r)  60 ==       learned valence at the end: rewarded odour, receivers n 63 (32% of group) median +0.000, all +0.000 | punished odour, receivers n 199 (100%) median +0.000, all +0.000 | reinforced steps R   137 P   203
+   (r')  69 ==    (r)  61 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r')  70 ==    (r)  62 ==    no-learning   R-start  n 200 | visited R  99.5% P  26.0% both  25.5% (first third  99.5/ 11.5/ 11.0) | first visit step    20; first punished step  1963 (n 52), from it to the last step at the punisher  3299
+   (r')  71 ==    (r)  63 ==       dwell last third R median  21.3 mean  17.8, P median   0.0 mean   5.5 | late unrecovered 2/200 | contacts/agent    0.8 near wall  0.10% | visits R   32 P   20, steps per visit R  6.7 P  6.9; longest unbroken rewarded run   14
+   (r')  72 ==    (r)  64 ==       per block median dwell R  28.0  23.0  24.0  22.0  23.0  22.0  21.0  18.0  20.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  73 ==    (r)  65 ==       nothing held on   3.3% of steps; whiffs handed to navigation: nothing held 100.0% of 1156, other odour held   0.0% of 271
+   (r')  74 ==    (r)  66 ==       learned valence at the end: rewarded odour, receivers n 199 (100% of group) median +0.000, all +0.000 | punished odour, receivers n 52 (26%) median +0.000, all +0.000 | reinforced steps R   209 P   135
+   (r')  75 ==    (r)  67 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r')  76 ==    (r)  68 == 
+   (r')  77 ==    (r)  69 ==    known         all      n 400 | visited R  97.0% P  32.8% both  31.0% (first third  96.2/ 32.5/ 30.2) | first visit step    25; first punished step    34 (n 131), from it to the last step at the punisher     9
+   (r')  78 ==    (r)  70 ==       dwell last third R median  23.7 mean  22.9, P median   0.0 mean   0.0 | late unrecovered 17/400 | contacts/agent    2.8 near wall  0.27% | visits R   32 P    1, steps per visit R  6.8 P  8.0; longest unbroken rewarded run   15
+   (r')  79 ==    (r)  71 ==       per block median dwell R  22.0  22.0  24.0  23.0  24.0  23.0  24.0  23.0  23.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  80 ==    (r)  72 ==       nothing held on   8.2% of steps; whiffs handed to navigation: nothing held  75.0% of 3708, other odour held   0.0% of 1128
+   (r')  81 ==    (r)  73 ==       learned valence at the end: rewarded odour, receivers n 388 (97% of group) median +0.000, all +0.000 | punished odour, receivers n 131 (33%) median +0.000, all +0.000 | reinforced steps R   212 P    10
+   (r')  82 ==    (r)  74 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r')  83 ==    (r)  75 ==    known         P-start  n 200 | visited R  94.0% P  64.0% both  60.5% (first third  92.5/ 64.0/ 59.5) | first visit step   117; first punished step    33 (n 128), from it to the last step at the punisher     9
+   (r')  84 ==    (r)  76 ==       dwell last third R median  24.2 mean  22.5, P median   0.0 mean   0.0 | late unrecovered 15/200 | contacts/agent    4.8 near wall  0.43% | visits R   30 P    1, steps per visit R  6.8 P  8.2; longest unbroken rewarded run   15
+   (r')  85 ==    (r)  77 ==       per block median dwell R  13.0  20.0  23.0  22.0  24.0  22.5  24.0  23.0  24.0 | P   7.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  86 ==    (r)  78 ==       nothing held on  12.5% of steps; whiffs handed to navigation: nothing held  64.8% of 2239, other odour held   0.0% of 725
+   (r')  87 ==    (r)  79 ==       learned valence at the end: rewarded odour, receivers n 188 (94% of group) median +0.000, all +0.000 | punished odour, receivers n 128 (64%) median +0.000, all +0.000 | reinforced steps R   201 P    10
+   (r')  88 ==    (r)  80 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r')  89 ==    (r)  81 ==    known         R-start  n 200 | visited R 100.0% P   1.5% both   1.5% (first third 100.0/  1.0/  1.0) | first visit step    20; first punished step  1411 (n 3), from it to the last step at the punisher     3
+   (r')  90 ==    (r)  82 ==       dwell last third R median  23.2 mean  23.3, P median   0.0 mean   0.0 | late unrecovered 2/200 | contacts/agent    0.8 near wall  0.10% | visits R   32 P    1, steps per visit R  6.8 P  4.0; longest unbroken rewarded run   15
+   (r')  91 ==    (r)  83 ==       per block median dwell R  28.0  24.0  25.0  24.0  24.0  24.5  24.0  23.0  23.0 | P   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  92 ==    (r)  84 ==       nothing held on   3.9% of steps; whiffs handed to navigation: nothing held  90.6% of 1469, other odour held   0.0% of 403
+   (r')  93 ==    (r)  85 ==       learned valence at the end: rewarded odour, receivers n 200 (100% of group) median +0.000, all +0.000 | punished odour, receivers n 3 (2%) median +0.000, all +0.000 | reinforced steps R   220 P     4
+   (r')  94 ==    (r)  86 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00 +0.00
+   (r')  95 ==    (r)  87 == 
+   (r')  96 ==    (r)  88 ==    ungated       all      n 400 | visited R  97.2% P  62.7% both  60.0% (first third  96.5/ 55.5/ 52.0) | first visit step    20; first punished step    25 (n 251), from it to the last step at the punisher    10
+   (r')  97 ==    (r)  89 ==       dwell last third R median  22.7 mean  22.1, P median   0.0 mean   0.1 | late unrecovered 21/400 | contacts/agent    2.9 near wall  0.30% | visits R   31 P    1, steps per visit R  6.8 P  7.5; longest unbroken rewarded run   15
+   (r')  98 ==    (r)  90 ==       per block median dwell R  22.0  22.0  23.0  23.0  23.0  23.0  23.0  21.0  23.0 | P   1.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r')  99 ==    (r)  91 ==       nothing held on   9.8% of steps; whiffs handed to navigation: nothing held  81.5% of 3903, other odour held   0.0% of 1235
+   (r') 100 ==    (r)  92 ==       learned valence at the end: rewarded odour, receivers n 389 (97% of group) median +0.048, all +0.048 | punished odour, receivers n 251 (63%) median -0.763, all -0.490 | reinforced steps R   209 P    10
+   (r') 101 ==    (r)  93 ==       per block, receivers: punished odour -0.68 -0.74 -0.75 -0.75 -0.76 -0.76 -0.76 -0.76 -0.76 | rewarded odour +0.72 +0.53 +0.38 +0.27 +0.19 +0.14 +0.10 +0.07 +0.05
+   (r') 102 ==    (r)  94 ==    ungated       P-start  n 200 | visited R  94.5% P  99.5% both  94.0% (first third  93.0/ 99.5/ 92.5) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher    10
+   (r') 103 ==    (r)  95 ==       dwell last third R median  22.7 mean  21.7, P median   0.0 mean   0.0 | late unrecovered 15/200 | contacts/agent    4.2 near wall  0.38% | visits R   30 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r') 104 ==    (r)  96 ==       per block median dwell R  16.0  20.0  22.0  23.0  21.0  23.0  22.0  21.0  25.0 | P  10.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r') 105 ==    (r)  97 ==       nothing held on  14.2% of steps; whiffs handed to navigation: nothing held  75.6% of 2459, other odour held   0.0% of 813
+   (r') 106 ==    (r)  98 ==       learned valence at the end: rewarded odour, receivers n 189 (94% of group) median +0.057, all +0.055 | punished odour, receivers n 199 (100%) median -0.771, all -0.767 | reinforced steps R   201 P    10
+   (r') 107 ==    (r)  99 ==       per block, receivers: punished odour -0.76 -0.77 -0.76 -0.76 -0.76 -0.76 -0.77 -0.77 -0.77 | rewarded odour +0.76 +0.57 +0.42 +0.30 +0.22 +0.16 +0.11 +0.08 +0.06
+   (r') 108 ==    (r) 100 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r') 109 ==    (r) 101 == 
+   (r') 110 ==    (r) 102 ==    no-hold       all      n 400 | visited R  69.5% P  73.8% both  43.2% (first third  69.0/ 65.2/ 34.2) | first visit step    21; first punished step   121 (n 295), from it to the last step at the punisher     8
+   (r') 111 ==    (r) 103 ==       dwell last third R median  17.3 mean  13.1, P median   0.0 mean   0.2 | late unrecovered 132/400 | contacts/agent   16.4 near wall  2.69% | visits R   30 P    1, steps per visit R  6.7 P  6.0; longest unbroken rewarded run   14
+   (r') 112 ==    (r) 104 ==       per block median dwell R  17.0  16.0  14.0  13.0  14.0  15.0  15.0  14.5  13.0 | P   2.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r') 113 ==    (r) 105 ==       nothing held on  93.3% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r') 114 ==    (r) 106 ==       learned valence at the end: rewarded odour, receivers n 278 (70% of group) median +1.000, all +1.000 | punished odour, receivers n 295 (74%) median -0.800, all -0.500 | reinforced steps R   199 P     8
+   (r') 115 ==    (r) 107 ==       per block, receivers: punished odour -0.50 -0.60 -0.70 -0.70 -0.70 -0.80 -0.80 -0.80 -0.80 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r') 116 ==    (r) 108 ==    no-hold       P-start  n 200 | visited R  39.0% P  99.0% both  38.0% (first third  38.0/ 99.0/ 37.0) | first visit step    22; first punished step    22 (n 198), from it to the last step at the punisher     7
+   (r') 117 ==    (r) 109 ==       dwell last third R median   0.0 mean   9.1, P median   0.0 mean   0.2 | late unrecovered 97/200 | contacts/agent   25.5 near wall  4.03% | visits R   30 P    1, steps per visit R  6.8 P  5.7; longest unbroken rewarded run   14
+   (r') 118 ==    (r) 110 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P   6.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r') 119 ==    (r) 111 ==       nothing held on  95.1% of steps; whiffs handed to navigation: nothing held   0.0% of 0, other odour held   0.0% of 0
+   (r') 120 ==    (r) 112 ==       learned valence at the end: rewarded odour, receivers n 78 (39% of group) median +1.000, all +0.000 | punished odour, receivers n 198 (99%) median -0.800, all -0.750 | reinforced steps R   199 P     8
+   (r') 121 ==    (r) 113 ==       per block, receivers: punished odour -0.60 -0.70 -0.70 -0.70 -0.70 -0.75 -0.80 -0.80 -0.80 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r') 122 ==    (r) 114 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r') 123 ==    (r) 115 == 
+   (r') 124 ==    (r) 116 ==    stage-removed all      n 400 | visited R  55.5% P  74.0% both  29.5% (first third  55.5/ 65.2/ 20.8) | first visit step    20; first punished step   120 (n 296), from it to the last step at the punisher   796
+   (r') 125 ==    (r) 117 ==       dwell last third R median   0.0 mean   9.0, P median   0.0 mean   0.4 | late unrecovered 236/400 | contacts/agent   48.0 near wall  5.65% | visits R   30 P    5, steps per visit R  6.8 P  8.0; longest unbroken rewarded run   14
+   (r') 126 ==    (r) 118 ==       per block median dwell R  10.0   4.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P   6.0   6.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r') 127 ==    (r) 119 ==       nothing held on 100.0% of steps; whiffs handed to navigation: nothing held  67.4% of 23056, other odour held   0.0% of 0
+   (r') 128 ==    (r) 120 ==       learned valence at the end: rewarded odour, receivers n 222 (56% of group) median +1.000, all +0.900 | punished odour, receivers n 296 (74%) median -1.000, all -1.000 | reinforced steps R   199 P    39
+   (r') 129 ==    (r) 121 ==       per block, receivers: punished odour -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r') 130 ==    (r) 122 ==    stage-removed P-start  n 200 | visited R  11.5% P  99.5% both  11.0% (first third  11.5/ 99.5/ 11.0) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher   798
+   (r') 131 ==    (r) 123 ==       dwell last third R median   0.0 mean   2.8, P median   0.0 mean   0.0 | late unrecovered 178/200 | contacts/agent   77.3 near wall  8.42% | visits R   31 P    5, steps per visit R  6.7 P  8.2; longest unbroken rewarded run   13
+   (r') 132 ==    (r) 124 ==       per block median dwell R   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0 | P  28.0  10.5   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r') 133 ==    (r) 125 ==       nothing held on 100.0% of steps; whiffs handed to navigation: nothing held  29.6% of 7313, other odour held   0.0% of 0
+   (r') 134 ==    (r) 126 ==       learned valence at the end: rewarded odour, receivers n 23 (12% of group) median +1.000, all +0.000 | punished odour, receivers n 199 (100%) median -1.000, all -1.000 | reinforced steps R   199 P    41
+   (r') 135 ==    (r) 127 ==       per block, receivers: punished odour -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 -1.00 | rewarded odour +0.70 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r') 136 ==    (r) 128 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r') 137 ==    (r) 129 == 
+   (r') 138 ==    (r) 130 ==    xchan-removed all      n 400 | visited R  97.2% P  62.7% both  60.0% (first third  96.5/ 55.5/ 52.0) | first visit step    20; first punished step    25 (n 251), from it to the last step at the punisher    10
+   (r') 139 ==    (r) 131 ==       dwell last third R median  23.0 mean  22.1, P median   0.0 mean   0.2 | late unrecovered 21/400 | contacts/agent    3.0 near wall  0.30% | visits R   31 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r') 140 ==    (r) 132 ==       per block median dwell R  22.0  22.0  23.0  23.0  23.0  23.0  23.0  21.0  23.5 | P   1.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r') 141 ==    (r) 133 ==       nothing held on   9.9% of steps; whiffs handed to navigation: nothing held  81.6% of 3875, other odour held   0.0% of 1226
+   (r') 142 ==    (r) 134 ==       learned valence at the end: rewarded odour, receivers n 389 (97% of group) median +1.000, all +1.000 | punished odour, receivers n 251 (63%) median -0.888, all -0.497 | reinforced steps R   209 P    10
+   (r') 143 ==    (r) 135 ==       per block, receivers: punished odour -0.78 -0.80 -0.80 -0.80 -0.88 -0.89 -0.89 -0.89 -0.89 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r') 144 ==    (r) 136 ==    xchan-removed P-start  n 200 | visited R  94.5% P  99.5% both  94.0% (first third  93.0/ 99.5/ 92.5) | first visit step    22; first punished step    22 (n 199), from it to the last step at the punisher    11
+   (r') 145 ==    (r) 137 ==       dwell last third R median  22.7 mean  21.8, P median   0.0 mean   0.0 | late unrecovered 15/200 | contacts/agent    4.2 near wall  0.38% | visits R   30 P    1, steps per visit R  6.8 P  7.0; longest unbroken rewarded run   15
+   (r') 146 ==    (r) 138 ==       per block median dwell R  16.0  20.0  22.0  23.0  21.0  23.0  22.0  21.0  25.0 | P  10.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r') 147 ==    (r) 139 ==       nothing held on  14.3% of steps; whiffs handed to navigation: nothing held  75.9% of 2461, other odour held   0.0% of 813
+   (r') 148 ==    (r) 140 ==       learned valence at the end: rewarded odour, receivers n 189 (94% of group) median +1.000, all +1.000 | punished odour, receivers n 199 (100%) median -0.892, all -0.891 | reinforced steps R   201 P    10
+   (r') 149 ==    (r) 141 ==       per block, receivers: punished odour -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 | rewarded odour +0.95 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r') 150 ==    (r) 142 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r') 151 ==    (r) 143 == 
+   (r') 152 ==    (r) 144 ==    exact-heading all      n 400 | visited R  98.8% P  64.0% both  62.7% (first third  97.2/ 56.0/ 53.2) | first visit step    21; first punished step    27 (n 256), from it to the last step at the punisher    10
+   (r') 153 ==    (r) 145 ==       dwell last third R median  23.7 mean  22.8, P median   0.0 mean   0.1 | late unrecovered 14/400 | contacts/agent    3.1 near wall  0.33% | visits R   31 P    1, steps per visit R  6.7 P  7.5; longest unbroken rewarded run   14
+   (r') 154 ==    (r) 146 ==       per block median dwell R  22.0  22.0  22.0  23.0  23.0  23.0  23.0  23.0  24.0 | P   1.5   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r') 155 ==    (r) 147 ==       nothing held on  11.0% of steps; whiffs handed to navigation: nothing held  81.5% of 3932, other odour held   0.0% of 1262
+   (r') 156 ==    (r) 148 ==       learned valence at the end: rewarded odour, receivers n 395 (99% of group) median +1.000, all +1.000 | punished odour, receivers n 256 (64%) median -0.888, all -0.600 | reinforced steps R   207 P    10
+   (r') 157 ==    (r) 149 ==       per block, receivers: punished odour -0.79 -0.80 -0.80 -0.88 -0.88 -0.89 -0.89 -0.89 -0.89 | rewarded odour +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r') 158 ==    (r) 150 ==    exact-heading P-start  n 200 | visited R  97.5% P  98.5% both  96.0% (first third  94.5/ 98.0/ 92.5) | first visit step    22; first punished step    22 (n 197), from it to the last step at the punisher    10
+   (r') 159 ==    (r) 151 ==       dwell last third R median  23.7 mean  22.4, P median   0.0 mean   0.0 | late unrecovered 11/200 | contacts/agent    5.3 near wall  0.57% | visits R   30 P    1, steps per visit R  6.6 P  7.5; longest unbroken rewarded run   14
+   (r') 160 ==    (r) 152 ==       per block median dwell R  15.0  20.5  22.0  23.0  23.0  23.0  23.5  23.0  23.0 | P  10.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0   0.0
+   (r') 161 ==    (r) 153 ==       nothing held on  15.6% of steps; whiffs handed to navigation: nothing held  76.1% of 2429, other odour held   0.0% of 837
+   (r') 162 ==    (r) 154 ==       learned valence at the end: rewarded odour, receivers n 195 (98% of group) median +1.000, all +1.000 | punished odour, receivers n 197 (98%) median -0.888, all -0.887 | reinforced steps R   202 P    10
+   (r') 163 ==    (r) 155 ==       per block, receivers: punished odour -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 -0.89 | rewarded odour +0.94 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+   (r') 164 ==    (r) 156 ==       learning calls 5400 over 5400 steps; two sources in reach on 0 row-steps
+   (r') 165 ==    (r) 157 == 
+   (r') 166 ==    (r) 158 == == Q1 validity (all rows, last third) ==
+   (r') 167 ==    (r) 159 ==    (a) rewarding dwell, oracle - random: DGM n 400  value 600.000  97.5% interval [600.000, 600.000]  at least 10 -> PASS
+   (r') 168 ==    (r) 160 ==    (b) intact dwell at R: GM n 400  value 23.000  97.5% interval [22.333, 23.667]  at most 594 -> PASS
+   (r') 169 ==    (r) 161 ==    (b) intact dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r') 170 ==    (r) 162 ==    (b) no-learning dwell at R: GM n 400  value 15.833  97.5% interval [0.000, 19.333]  at most 594 -> PASS
+   (r') 171 ==    (r) 163 ==    (b) no-learning dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 14.667]  at most 594 -> PASS
+   (r') 172 ==    (r) 164 ==    (b) known dwell at R: GM n 400  value 23.667  97.5% interval [22.667, 24.333]  at most 594 -> PASS
+   (r') 173 ==    (r) 165 ==    (b) known dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r') 174 ==    (r) 166 ==    (b) ungated dwell at R: GM n 400  value 22.667  97.5% interval [22.333, 23.500]  at most 594 -> PASS
+   (r') 175 ==    (r) 167 ==    (b) ungated dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r') 176 ==    (r) 168 ==    (b) no-hold dwell at R: GM n 400  value 17.333  97.5% interval [12.000, 19.667]  at most 594 -> PASS
+   (r') 177 ==    (r) 169 ==    (b) no-hold dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r') 178 ==    (r) 170 ==    (b) stage-removed dwell at R: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r') 179 ==    (r) 171 ==    (b) stage-removed dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r') 180 ==    (r) 172 ==    (b) xchan-removed dwell at R: GM n 400  value 23.000  97.5% interval [22.333, 23.667]  at most 594 -> PASS
+   (r') 181 ==    (r) 173 ==    (b) xchan-removed dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r') 182 ==    (r) 174 ==    (b) exact-heading dwell at R: GM n 400  value 23.667  97.5% interval [23.000, 24.333]  at most 594 -> PASS
+   (r') 183 ==    (r) 175 ==    (b) exact-heading dwell at P: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 594 -> PASS
+   (r') 184 ==    (r) 176 ==    (c) total dwell, intact - random: DGM n 400  value 23.000  97.5% interval [22.667, 23.667]  at least 10 -> PASS
+   (r') 185 ==    (r) 177 == 
+   (r') 186 ==    (r) 178 == == Q2 search maintained while learning (late unrecovered) ==
+   (r') 187 ==    (r) 179 ==    (a) intact, all rows: P k 21 n 400  value 0.052  97.5% interval [0.033, 0.084]  at most 0.1 -> PASS
+   (r') 188 ==    (r) 180 ==        reference: known valence, all rows: P k 17 n 400  value 0.043  97.5% interval [0.025, 0.071]  at most 0.1 -> PASS
+   (r') 189 ==    (r) 181 ==        reported: intact P-start: P k 15 n 200  value 0.075  97.5% interval [0.043, 0.128]  at most 0.1 -> INCONCLUSIVE
+   (r') 190 ==    (r) 182 ==        reported: known P-start: P k 15 n 200  value 0.075  97.5% interval [0.043, 0.128]  at most 0.1 -> INCONCLUSIVE
+   (r') 191 ==    (r) 183 ==    (b) intact - known, P-start: DP n 200  value 0.000  97.5% interval [-0.045, 0.045]  at most 0.1 -> PASS
+   (r') 192 ==    (r) 184 ==        reported: intact R-start: P k 6 n 200  value 0.030  97.5% interval [0.012, 0.071]  at most 0.1 -> PASS
+   (r') 193 ==    (r) 185 ==        reported: known R-start: P k 2 n 200  value 0.010  97.5% interval [0.002, 0.042]  at most 0.1 -> PASS
+   (r') 194 ==    (r) 186 ==    (b) intact - known, R-start: DP n 200  value 0.020  97.5% interval [0.000, 0.045]  at most 0.1 -> PASS
+   (r') 195 ==    (r) 187 == 
+   (r') 196 ==    (r) 188 == == Q3 a learned negative valence becomes avoidance. G3 = P-start rows punished at least once: 199/200 (99.5%) ==
+   (r') 197 ==    (r) 189 ==        readability: no-learning punishing dwell in G3: GM n 199  value 20.667  97.5% interval [18.333, 22.667]  at least 10 -> PASS
+   (r') 198 ==    (r) 190 ==    (a) learned valence of the punished odour: GM n 199  value -0.892  97.5% interval [-0.900, -0.876]  at most -0.5 -> PASS
+   (r') 199 ==    (r) 191 ==    (b) punishing dwell, intact: GM n 199  value 0.000  97.5% interval [0.000, 0.000]  at most 1.0 -> PASS
+   (r') 200 ==    (r) 192 ==    (c) intact below no-learning: WIN k 146 ties 26.6% n 199 -> UNREADABLE (ties)
+   (r') 201 ==    (r) 193 ==    (c) punishing dwell, intact / no-learning: RGM n 199  value 0.000  97.5% interval [0.000, 0.000]  at most 0.75 -> PASS
+   (r') 202 ==    (r) 194 == 
+   (r') 203 ==    (r) 195 == == Q4 search continues after avoidance (G3 rows, known valence as reference) ==
+   (r') 204 ==    (r) 196 ==        readability: known arm avoids (P-start punishing dwell): GM n 200  value 0.000  97.5% interval [0.000, 0.000]  at most 1.0 -> PASS
+   (r') 205 ==    (r) 197 ==        readability: known arm rewarding dwell in G3: GM n 199  value 24.000  97.5% interval [22.667, 25.000]  at least 10 -> PASS
+   (r') 206 ==    (r) 198 ==    (a) reach the rewarding source after the first punished step, intact - known: DP n 199  value 0.005  97.5% interval [-0.030, 0.040]  at least -0.1 -> PASS
+   (r') 207 ==    (r) 199 ==    (b) rewarding dwell, intact / known: RGM n 199  value 0.944  97.5% interval [0.892, 1.014]  at least 0.75 -> PASS
+   (r') 208 ==    (r) 200 == 
+   (r') 209 ==    (r) 201 == == Q5 positive valence, weight level only. G5 = rows rewarded at least once: 389/400 ==
+   (r') 210 ==    (r) 202 ==    learned valence of the rewarded odour: GM n 389  value 1.000  97.5% interval [1.000, 1.000]  at least 0.5 -> PASS
+   (r') 211 ==    (r) 203 == 
+   (r') 212 ==    (r) 204 == == 7.2 gate comparison, auxiliary ==
+   (r') 213 ==    (r) 205 ==    replay instrument (self-check 7): gated replay reproduces the intact arm's end values: True
+   (r') 214 ==    (r) 206 ==    longest unbroken rewarded run, G5: median 15, p90 18; rows under 10: 7, 10-24: 382, 25 or more: 0
+   (r') 215 ==    (r) 207 ==    replay, ungated / gated, G5: RGM n 389  value 0.049  97.5% interval [0.046, 0.052]  at most 0.8 -> PASS
+   (r') 216 ==    (r) 208 ==    reading: the rule with the gate keeps more of the value at the exposures that occurred; fewer than 50 rows reach 25 consecutive steps, so this speaks for short stays only
+   (r') 217 ==    (r) 209 ==       stratum under 10: n 7 < 50 -> UNREADABLE
+   (r') 218 ==    (r) 210 ==       stratum 10-24: RGM n 382  value 0.048  97.5% interval [0.046, 0.051]  at most 0.8 -> PASS
+   (r') 219 ==    (r) 211 ==       stratum 25 or more: n 0 < 50 -> UNREADABLE
+   (r') 220 ==    (r) 212 ==    free-running ungated arm, descriptive: rewarded-odour value among its receivers (n 389) median +0.048; intact receivers (n 389) +1.000
+   (r') 221 ==    (r) 213 == 
+   (r') 222 ==    (r) 214 == ==== E1 VERDICT (Q1-Q4, integrated behaviour): Q1 ['PASS'] Q2 ['PASS', 'PASS', 'PASS'] Q3 ['PASS', 'PASS', 'UNREADABLE', 'PASS'] Q4 ['PASS', 'PASS'] -> NOT DECIDED BY THIS RUN ====
+   (r') 223 ==    (r) 215 ==      Q5 (weight level): PASS
+   (r') 224 ==    (r) 216 == 
+   (r') 225 ==    (r) 217 == ==== E2 controlled experience. world seed 1641, agent seed 1741, 400 rows, every row a P-start row ====
+   (r') 226 ==    (r) 218 ==    training protocol AS AMENDED before the evaluation: 30 consecutive steps at one source, 50 silent steps, 30 at the other. In E2 'last third' below means the whole 3-block test.
+   (r') 227 ==    (r) 219 ==    pre-test valence, amended (gap): rewarded odour trained first +1.000 / trained second +1.000;  punished odour trained first -1.000 / trained second -1.000
+   (r') 228 ==    (r) 220 ==    pre-test valence, as first registered (no gap): rewarded odour trained first +0.501 / trained second +2.000;  punished odour trained first -0.501 / trained second -2.000
+   (r') 229 ==    (r) 221 == 
+   (r') 230 ==    (r) 222 ==    trained       all      n 400 | visited R  94.2% P  59.0% both  54.8% (first third  94.2/ 59.0/ 54.8) | first visit step   111; first punished step    23 (n 236), from it to the last step at the punisher     9
+   (r') 231 ==    (r) 223 ==       dwell last third R median  20.0 mean  18.8, P median   2.3 mean   2.2 | late unrecovered 0/400 | contacts/agent    1.1 near wall  0.22% | visits R    9 P    1, steps per visit R  6.9 P  8.5; longest unbroken rewarded run   11
+   (r') 232 ==    (r) 224 ==       per block median dwell R  13.0  22.0  23.0 | P   7.0   0.0   0.0
+   (r') 233 ==    (r) 225 ==       nothing held on  24.5% of steps; whiffs handed to navigation: nothing held  59.1% of 3115, other odour held   0.0% of 908
+   (r') 234 ==    (r) 226 ==       learned valence at the end: rewarded odour, receivers n 377 (94% of group) median +1.000, all +1.000 | punished odour, receivers n 236 (59%) median -1.000, all -1.000 | reinforced steps R    62 P    10
+   (r') 235 ==    (r) 227 ==       per block, receivers: punished odour -1.00 -1.00 -1.00 | rewarded odour +1.00 +1.00 +1.00
+   (r') 236 ==    (r) 228 ==       training calls 60 (2 x 30); test learning calls 0 (frozen); reward-first rows 200; pre-test valence rewarded +1.000 punished -1.000
+   (r') 237 ==    (r) 229 == 
+   (r') 238 ==    (r) 230 ==    sham          all      n 400 | visited R   9.8% P  99.8% both   9.5% (first third   9.8/ 99.8/  9.5) | first visit step    20; first punished step    20 (n 399), from it to the last step at the punisher  1661
+   (r') 239 ==    (r) 231 ==       dwell last third R median   0.0 mean   1.0, P median  24.0 mean  23.8 | late unrecovered 0/400 | contacts/agent    0.0 near wall  0.00% | visits R    5 P   11, steps per visit R  6.5 P  6.7; longest unbroken rewarded run   10
+   (r') 240 ==    (r) 232 ==       per block median dwell R   0.0   0.0   0.0 | P  26.0  24.0  22.0
+   (r') 241 ==    (r) 233 ==       nothing held on   7.1% of steps; whiffs handed to navigation: nothing held 100.0% of 1602, other odour held   0.0% of 183
+   (r') 242 ==    (r) 234 ==       learned valence at the end: rewarded odour, receivers n 39 (10% of group) median +0.000, all +0.000 | punished odour, receivers n 399 (100%) median +0.000, all +0.000 | reinforced steps R    30 P    72
+   (r') 243 ==    (r) 235 ==       per block, receivers: punished odour +0.00 +0.00 +0.00 | rewarded odour +0.00 +0.00 +0.00
+   (r') 244 ==    (r) 236 ==       training calls 60 (2 x 30); test learning calls 0 (frozen); reward-first rows 200; pre-test valence rewarded +0.000 punished +0.000
+   (r') 245 ==    (r) 237 == 
+   (r') 246 ==    (r) 238 == == Q6 controlled experience (learning frozen) ==
+   (r') 247 ==    (r) 239 ==        manipulation check: trained, punished odour before the test: GM n 400  value -1.000  97.5% interval [-1.000, -0.900]  at most -0.5 -> PASS
+   (r') 248 ==    (r) 240 ==        manipulation check: sham >= -0.1: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at least -0.1 -> PASS
+   (r') 249 ==    (r) 241 ==        manipulation check: sham <= +0.1: GM n 400  value 0.000  97.5% interval [0.000, 0.000]  at most 0.1 -> PASS
+   (r') 250 ==    (r) 242 ==        readability: sham punishing dwell over the test: GM n 400  value 72.000  97.5% interval [70.000, 74.000]  at least 10 -> PASS
+   (r') 251 ==    (r) 243 ==    (a) punishing dwell, trained / sham: RGM n 400  value 0.097  97.5% interval [0.056, 0.111]  at most 0.5 -> PASS
+   (r') 252 ==    (r) 244 ==    (b) trained below sham: WIN k 396 ties 0.2% n 400  value 0.990  97.5% interval [0.971, 0.997]  at least 0.6 -> PASS
+   (r') 253 ==    (r) 245 ==    (c) reach the rewarding source, trained - sham: DP n 400  value 0.845  97.5% interval [0.805, 0.885]  at least 0.25 -> PASS
+   (r') 254 ==    (r) 246 == 
+   (r') 255 ==    (r) 247 == == 7.2 gate at 30 consecutive steps, weight level ==
+   (r') 256 ==    (r) 248 ==       |value| of the rewarded odour, trained-ungated / trained-gated: RGM n 400  value 0.691  97.5% interval [0.691, 0.719]  at most 0.85 -> PASS
+   (r') 257 ==    (r) 249 ==       |value| of the punished odour, trained-ungated / trained-gated: RGM n 400  value 0.691  97.5% interval [0.691, 0.719]  at most 0.85 -> PASS
+   (r') 258 ==    (r) 250 == 
+   (r') 259 ==    (r) 251 ==    auxiliary, no criterion: the same test with learning ON
+   (r') 260 ==    (r) 252 ==    trained+learn all      n 400 | visited R  94.2% P  59.0% both  54.8% (first third  94.2/ 59.0/ 54.8) | first visit step   111; first punished step    23 (n 236), from it to the last step at the punisher     9
+   (r') 261 ==    (r) 253 ==       dwell last third R median  20.0 mean  18.8, P median   2.3 mean   2.2 | late unrecovered 0/400 | contacts/agent    1.1 near wall  0.22% | visits R    9 P    1, steps per visit R  6.9 P  8.5; longest unbroken rewarded run   11
+   (r') 262 ==    (r) 254 ==       per block median dwell R  13.0  22.0  23.0 | P   7.0   0.0   0.0
+   (r') 263 ==    (r) 255 ==       nothing held on  24.5% of steps; whiffs handed to navigation: nothing held  59.1% of 3115, other odour held   0.0% of 908
+   (r') 264 ==    (r) 256 ==       learned valence at the end: rewarded odour, receivers n 377 (94% of group) median +1.000, all +1.000 | punished odour, receivers n 236 (59%) median -0.987, all -0.989 | reinforced steps R    62 P    10
+   (r') 265 ==    (r) 257 ==       per block, receivers: punished odour -0.99 -0.99 -0.99 | rewarded odour +1.00 +1.00 +1.00
+   (r') 266 ==    (r) 258 == 
+   (r') 267 ==    (r) 259 ==    the protocol AS FIRST REGISTERED (no gap), reported beside the amended one:
+   (r') 268 ==    (r) 260 ==       as registered: manipulation check, trained punished odour: GM n 400  value -1.175  97.5% interval [-1.950, -0.501]  at most -0.5 -> PASS
+   (r') 269 ==    (r) 261 ==       as registered: (a) punishing dwell, trained / sham: RGM n 400  value 0.097  97.5% interval [0.056, 0.111]  at most 0.5 -> PASS
+   (r') 270 ==    (r) 262 ==       as registered: (b) trained below sham: WIN k 396 ties 0.2% n 400  value 0.990  97.5% interval [0.971, 0.997]  at least 0.6 -> PASS
+   (r') 271 ==    (r) 263 ==       as registered: (c) reach the rewarding source, trained - sham: DP n 400  value 0.845  97.5% interval [0.805, 0.885]  at least 0.25 -> PASS
+   (r') 272 ==    (r) 264 == 
+   (r') 273 ==    (r) 265 == ==== E2 RESULT (Q6, a trained memory driving behaviour with nothing learned in the test): ['PASS', 'PASS', 'PASS'] -> PASS ====
+   (r') 274 ==    (r) 266 == 
+   (r') 275 == (r) ph15.simulate's arrays field for field (the original ph15.simulate against this harness): E1 intact True (keys 27, differing []); E2 trained, learning on True (keys 30, differing [])
+   (r') 276 == == (r) holds: every line of experiments/h15/ph15_run2.txt reproduced; the bench continues ==
+   (r') 277 ==    (v) (1) R 8, silent 200, P 9: per step, median by u (u=0 218 / u=1 152 / u=2 29 / u=3 1 rows) v_R | v_P:
+   (r') 278 ==         R1: +0.1000|+0.0000 +0.1000|+0.0100 +0.1000|+0.0200 +0.1000|+0.0300; R2: +0.2000|+0.0000 +0.2000|+0.0200 +0.2000|+0.0400 +0.2000|+0.0600; R3: +0.3000|+0.0000 +0.3000|+0.0300 +0.3000|+0.0600 +0.3000|+0.0900; R4: +0.4000|+0.0000 +0.4000|+0.0400 +0.4000|+0.0800 +0.4000|+0.1200
+   (r') 279 ==         R5: +0.5000|+0.0000 +0.5000|+0.0500 +0.5000|+0.1000 +0.5000|+0.1500; R6: +0.6000|+0.0000 +0.6000|+0.0600 +0.6000|+0.1200 +0.6000|+0.1800; R7: +0.7000|+0.0000 +0.7000|+0.0700 +0.7000|+0.1400 +0.7000|+0.2100; R8: +0.8000|+0.0000 +0.8000|+0.0800 +0.8000|+0.1600 +0.8000|+0.2400
+   (r') 280 ==         -1: +0.8000|+0.0000 +0.8000|+0.0800 +0.8000|+0.1600 +0.8000|+0.2400; -200: +0.8000|+0.0000 +0.8000|+0.0800 +0.8000|+0.1600 +0.8000|+0.2400; P1: +0.8000|-0.1000 +0.7900|-0.0200 +0.7800|+0.0600 +0.7700|+0.1400; P2: +0.8000|-0.2000 +0.7800|-0.1200 +0.7600|-0.0400 +0.7400|+0.0400
+   (r') 281 ==         P3: +0.8000|-0.3000 +0.7700|-0.2200 +0.7400|-0.1400 +0.7100|-0.0600; P4: +0.8000|-0.4000 +0.7600|-0.3200 +0.7200|-0.2400 +0.6800|-0.1600; P5: +0.8000|-0.5000 +0.7500|-0.4200 +0.7000|-0.3400 +0.6500|-0.2600; P6: +0.8000|-0.6000 +0.7400|-0.5200 +0.6800|-0.4400 +0.6200|-0.3600
+   (r') 282 ==         P7: +0.8000|-0.7000 +0.7300|-0.6200 +0.6600|-0.5400 +0.5900|-0.4600; P8: +0.8000|-0.8000 +0.7200|-0.7200 +0.6400|-0.6400 +0.5600|-0.5600; P9: +0.8000|-0.9000 +0.7100|-0.8200 +0.6200|-0.7400 +0.5300|-0.6600
+   (r') 283 ==       step on which each value leaves 0 (per row, quartiles; step counted from 1): v_R 1/1/1 (rows 400), v_P 1/209/209 (rows 400)
+   (r') 284 ==       design 3.8 (reported): max |v_P - 0.01uk| while R learned (k <= 10) 1.39e-16; after 9 punished steps max |v_R - (v_R before - 0.01um)| 2.22e-16; max |v_P - (-0.1m + 0.1u)| nan (R not saturated: not the formula case); v_P at the end by u: u=0: -0.9000, u=1: -0.8200, u=2: -0.7400, u=3: -0.6600
+   (r') 285 ==       (reported, not an exactness claim: R learned after the punisher) max |increment - 0.1k| over k <= 10 3.33e-16; max |v_R before R - (-0.01um)| 1.39e-16; max |v_R - 0.1k| 0.27 (u = 0 rows 3.33e-16)
+   (r') 286 ==    (v) (2) P 9, silent 200, R 8: per step, median by u (u=0 218 / u=1 152 / u=2 29 / u=3 1 rows) v_R | v_P:
+   (r') 287 ==         P1: +0.0000|-0.1000 -0.0100|-0.1000 -0.0200|-0.1000 -0.0300|-0.1000; P2: +0.0000|-0.2000 -0.0200|-0.2000 -0.0400|-0.2000 -0.0600|-0.2000; P3: +0.0000|-0.3000 -0.0300|-0.3000 -0.0600|-0.3000 -0.0900|-0.3000; P4: +0.0000|-0.4000 -0.0400|-0.4000 -0.0800|-0.4000 -0.1200|-0.4000
+   (r') 288 ==         P5: +0.0000|-0.5000 -0.0500|-0.5000 -0.1000|-0.5000 -0.1500|-0.5000; P6: +0.0000|-0.6000 -0.0600|-0.6000 -0.1200|-0.6000 -0.1800|-0.6000; P7: +0.0000|-0.7000 -0.0700|-0.7000 -0.1400|-0.7000 -0.2100|-0.7000; P8: +0.0000|-0.8000 -0.0800|-0.8000 -0.1600|-0.8000 -0.2400|-0.8000
+   (r') 289 ==         P9: +0.0000|-0.9000 -0.0900|-0.9000 -0.1800|-0.9000 -0.2700|-0.9000; -1: +0.0000|-0.9000 -0.0900|-0.9000 -0.1800|-0.9000 -0.2700|-0.9000; -200: +0.0000|-0.9000 -0.0900|-0.9000 -0.1800|-0.9000 -0.2700|-0.9000; R1: +0.1000|-0.9000 +0.0100|-0.8900 -0.0800|-0.8800 -0.1700|-0.8700
+   (r') 290 ==         R2: +0.2000|-0.9000 +0.1100|-0.8800 +0.0200|-0.8600 -0.0700|-0.8400; R3: +0.3000|-0.9000 +0.2100|-0.8700 +0.1200|-0.8400 +0.0300|-0.8100; R4: +0.4000|-0.9000 +0.3100|-0.8600 +0.2200|-0.8200 +0.1300|-0.7800; R5: +0.5000|-0.9000 +0.4100|-0.8500 +0.3200|-0.8000 +0.2300|-0.7500
+   (r') 291 ==         R6: +0.6000|-0.9000 +0.5100|-0.8400 +0.4200|-0.7800 +0.3300|-0.7200; R7: +0.7000|-0.9000 +0.6100|-0.8300 +0.5200|-0.7600 +0.4300|-0.6900; R8: +0.8000|-0.9000 +0.7100|-0.8200 +0.6200|-0.7400 +0.5300|-0.6600
+   (r') 292 ==       step on which each value leaves 0 (per row, quartiles; step counted from 1): v_R 1/210/210 (rows 400), v_P 1/1/1 (rows 400)
+   (r') 293 ==    (v) (3a) E2 reward-first R 30, gap 50, P 30: per step, median by u (u=0 218 / u=1 152 / u=2 29 / u=3 1 rows) v_R | v_P:
+   (r') 294 ==         R1: +0.1000|+0.0000 +0.1000|+0.0100 +0.1000|+0.0200 +0.1000|+0.0300; R2: +0.2000|+0.0000 +0.2000|+0.0200 +0.2000|+0.0400 +0.2000|+0.0600; R3: +0.3000|+0.0000 +0.3000|+0.0300 +0.3000|+0.0600 +0.3000|+0.0900; R4: +0.4000|+0.0000 +0.4000|+0.0400 +0.4000|+0.0800 +0.4000|+0.1200
+   (r') 295 ==         R5: +0.5000|+0.0000 +0.5000|+0.0500 +0.5000|+0.1000 +0.5000|+0.1500; R6: +0.6000|+0.0000 +0.6000|+0.0600 +0.6000|+0.1200 +0.6000|+0.1800; R7: +0.7000|+0.0000 +0.7000|+0.0700 +0.7000|+0.1400 +0.7000|+0.2100; R8: +0.8000|+0.0000 +0.8000|+0.0800 +0.8000|+0.1600 +0.8000|+0.2400
+   (r') 296 ==         R9: +0.9000|+0.0000 +0.9000|+0.0900 +0.9000|+0.1800 +0.9000|+0.2700; R10: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; R11: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; R12: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000
+   (r') 297 ==         R30: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; -1: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; -50: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; P1: +1.0000|-0.1000 +0.9900|-0.0000 +0.9800|+0.1000 +0.9700|+0.2000
+   (r') 298 ==         P2: +1.0000|-0.2000 +0.9800|-0.1000 +0.9600|-0.0000 +0.9400|+0.1000; P3: +1.0000|-0.3000 +0.9700|-0.2000 +0.9400|-0.1000 +0.9100|-0.0000; P4: +1.0000|-0.4000 +0.9600|-0.3000 +0.9200|-0.2000 +0.8800|-0.1000; P5: +1.0000|-0.5000 +0.9500|-0.4000 +0.9000|-0.3000 +0.8500|-0.2000
+   (r') 299 ==         P6: +1.0000|-0.6000 +0.9400|-0.5000 +0.8800|-0.4000 +0.8200|-0.3000; P7: +1.0000|-0.7000 +0.9300|-0.6000 +0.8600|-0.5000 +0.7900|-0.4000; P8: +1.0000|-0.8000 +0.9200|-0.7000 +0.8400|-0.6000 +0.7600|-0.5000; P9: +1.0000|-0.9000 +0.9100|-0.8000 +0.8200|-0.7000 +0.7300|-0.6000
+   (r') 300 ==         P10: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; P11: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; P12: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; P30: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000
+   (r') 301 ==       step on which each value leaves 0 (per row, quartiles; step counted from 1): v_R 1/1/1 (rows 400), v_P 1/81/81 (rows 400)
+   (r') 302 ==       design 3.8 (reported): max |v_P - 0.01uk| while R learned (k <= 10) 1.39e-16; after 10 punished steps max |v_R - (v_R before - 0.01um)| 1.02e-05; max |v_P - (-0.1m + 0.1u)| 1.91e-05 (R saturated); v_P at the end by u: u=0: -1.0000, u=1: -0.9000, u=2: -0.8000, u=3: -0.7000
+   (r') 303 ==       (reported, not an exactness claim: R learned after the punisher) max |increment - 0.1k| over k <= 10 1.91e-05; max |v_R before R - (-0.01um)| 0.6; max |v_R - 0.1k| 0.3 (u = 0 rows 1.91e-05)
+   (r') 304 ==    (v) (3b) E2 punish-first P 30, gap 50, R 30: per step, median by u (u=0 218 / u=1 152 / u=2 29 / u=3 1 rows) v_R | v_P:
+   (r') 305 ==         P1: +0.0000|-0.1000 -0.0100|-0.1000 -0.0200|-0.1000 -0.0300|-0.1000; P2: +0.0000|-0.2000 -0.0200|-0.2000 -0.0400|-0.2000 -0.0600|-0.2000; P3: +0.0000|-0.3000 -0.0300|-0.3000 -0.0600|-0.3000 -0.0900|-0.3000; P4: +0.0000|-0.4000 -0.0400|-0.4000 -0.0800|-0.4000 -0.1200|-0.4000
+   (r') 306 ==         P5: +0.0000|-0.5000 -0.0500|-0.5000 -0.1000|-0.5000 -0.1500|-0.5000; P6: +0.0000|-0.6000 -0.0600|-0.6000 -0.1200|-0.6000 -0.1800|-0.6000; P7: +0.0000|-0.7000 -0.0700|-0.7000 -0.1400|-0.7000 -0.2100|-0.7000; P8: +0.0000|-0.8000 -0.0800|-0.8000 -0.1600|-0.8000 -0.2400|-0.8000
+   (r') 307 ==         P9: +0.0000|-0.9000 -0.0900|-0.9000 -0.1800|-0.9000 -0.2700|-0.9000; P10: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; P11: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; P12: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000
+   (r') 308 ==         P30: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; -1: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; -50: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; R1: +0.1000|-1.0000 +0.0000|-0.9900 -0.1000|-0.9800 -0.2000|-0.9700
+   (r') 309 ==         R2: +0.2000|-1.0000 +0.1000|-0.9800 +0.0000|-0.9600 -0.1000|-0.9400; R3: +0.3000|-1.0000 +0.2000|-0.9700 +0.1000|-0.9400 +0.0000|-0.9100; R4: +0.4000|-1.0000 +0.3000|-0.9600 +0.2000|-0.9200 +0.1000|-0.8800; R5: +0.5000|-1.0000 +0.4000|-0.9500 +0.3000|-0.9000 +0.2000|-0.8500
+   (r') 310 ==         R6: +0.6000|-1.0000 +0.5000|-0.9400 +0.4000|-0.8800 +0.3000|-0.8200; R7: +0.7000|-1.0000 +0.6000|-0.9300 +0.5000|-0.8600 +0.4000|-0.7900; R8: +0.8000|-1.0000 +0.7000|-0.9200 +0.6000|-0.8400 +0.5000|-0.7600; R9: +0.9000|-1.0000 +0.8000|-0.9100 +0.7000|-0.8200 +0.6000|-0.7300
+   (r') 311 ==         R10: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; R11: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; R12: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; R30: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000
+   (r') 312 ==       step on which each value leaves 0 (per row, quartiles; step counted from 1): v_R 1/81/81 (rows 400), v_P 1/1/1 (rows 400)
+   (r') 313 ==    (v) masks recomputed from the values == from the order-and-sign canonical pair on every step (gate, top, keep, H19 (a), flee; h -1/0/1): (1) R 8, silent 200, P 9 True; (2) P 9, silent 200, R 8 True; (3a) E2 reward-first R 30, gap 50, P 30 True; (3b) E2 punish-first P 30, gap 50, R 30 True
+   (r') 314 ==    (v) exactness claims (reading R6): v_R == 0.1k to 1e-12 for k <= 10 (R learned from the naive state: (1), (3a); every row) True; v_P exactly 0.0 in u = 0 rows before punishment ((1), (3a); every pre-punishment step) True
+   (r') 315 == (g) one punisher whiff at step 0 from rest, gain 1.00 (v_P 0.0): peak of the median s_1 0.756; per-row peak quartiles 0.754/0.756/0.758; rows holding the punisher odour on some step 0/400
+   (r') 316 == (g) one punisher whiff at step 0 from rest, gain 1.02 (v_P 0.01): peak of the median s_1 0.774; per-row peak quartiles 0.772/0.774/0.775; rows holding the punisher odour on some step 0/400
+   (r') 317 == (g) one punisher whiff at step 0 from rest, gain 1.05 (v_P 0.025): peak of the median s_1 0.801; per-row peak quartiles 0.799/0.801/0.803; rows holding the punisher odour on some step 0/400
+   (r') 318 == (g) one punisher whiff at step 0 from rest, gain 1.10 (v_P 0.05): peak of the median s_1 0.850; per-row peak quartiles 0.848/0.851/0.853; rows holding the punisher odour on some step 0/400
+   (r') 319 == (g) one punisher whiff at step 0 from rest, gain 1.20 (v_P 0.1): peak of the median s_1 1.975; per-row peak quartiles 1.973/1.975/1.977; rows holding the punisher odour on some step 400/400
+   (r') 320 ==    (g) Stage B reproduced first: 0.756 at gain 1.0 True; every row holding at gain 1.2 True
+   (r') 321 == (n) (N1) as composed, negative hold (known (1.0, -0.9), channel 1 held s 2.0), silent: hold ended in 400/400 rows (step 47/47/47; at step 47: 400); ended with the evidence release flag 0, without it 400; still held at step 259: 0; timeout firings while held 2400; target == flee side on held steps 1.000
+   (r') 322 == (n) (N2), negative hold (known (1.0, -0.9), channel 1 held s 2.0), silent: hold ended in 0/400 rows (step n/a; at step 47: 0); ended with the evidence release flag 0, without it 0; still held at step 259: 400; timeout firings while held 2400; target == flee side on held steps 1.000
+   (r') 323 == (n) (N1) as composed, negative hold (known (1.0, -0.9), channel 1 held s 2.0), R whiffs p 0.30 from step 100: hold ended in 400/400 rows (step 47/47/47; at step 47: 400); ended with the evidence release flag 0, without it 400; still held at step 259: 0; timeout firings while held 2400; target == flee side on held steps 1.000
+   (r') 324 == (n) (N2), negative hold (known (1.0, -0.9), channel 1 held s 2.0), R whiffs p 0.30 from step 100: hold ended in 400/400 rows (step 106/107/109; at step 47: 0); ended with the evidence release flag 400, without it 0; still held at step 259: 0; timeout firings while held 800; target == flee side on held steps 1.000
+   (r') 325 == (i9) constructed (reading R9): v_1 after one punished step -0.1 x400; with the mirror target == flee side in 400/400 rows (channel 1 held 400); with known left at 0/0 0/400 (held 400) -> True
+   (r') 326 == (i5) World7 T1, supplied +1/0, learning off, 2005/2107 (reading R15): Agent14 (N1): == ph28's Agent14 bitwise True; V/N/tie 369/30/1, cells ((91, 8, 1), (90, 10, 0), (95, 5, 0), (93, 7, 0)) (Stage B supplied 369/30/1, ((91, 8, 1), (90, 10, 0), (95, 5, 0), (93, 7, 0))); Agent14 (N2): == ph28's Agent14 bitwise True; V/N/tie 369/30/1, cells ((91, 8, 1), (90, 10, 0), (95, 5, 0), (93, 7, 0)) (Stage B supplied 369/30/1, ((91, 8, 1), (90, 10, 0), (95, 5, 0), (93, 7, 0))) -> True
+   (r') 327 == [a line carrying Run 1's bench seeds: compared, not printed]
+   (r') 328 ==    (i1) Agent3 + mirror == Agent3 live: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+   (r') 329 ==    (i4) Agent3 + min(v, 0) mirror == Agent3 live: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+   (r') 330 ==    (i3) Agent8 G 0, gate off, filter off, mirror == Agent3 live: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+   (r') 331 ==    (i7) (N2) == (N1) on every row before its first negative hold (reading R4): True; rows never holding a negative odour in (N1) 193, of them equal throughout 193; rows with a negative hold 207 (P-start 198, R-start 9), first negative hold step 16/24/144; rows departing at all 178, first departing step 33/130/190; departing before the first negative hold 0
+   (r') 332 ==    (i6) Agent14 (N2) at 0/0 == Agent10 at 0/0: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'TGT', 'TO', 'EV', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+   (r') 333 ==    (i7) no-learning pair: (N2) == (N1) at 0/0: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'TGT', 'TO', 'EV', 'C', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+   (r') 334 ==       E2 (reported): (N2) vs (N1) trained learning on, rows equal throughout 40/400
+   (r') 335 ==    (i8) row independence (row 0 displaced; every per-row record of rows 1-399, reading R5): learned True; H15 agent True; positive-off True; as composed (N1) True; H15 agent + mirror True; H15 agent + min mirror True; Agent8 pathway-off True
+   (r') 336 ==    (i8) learning calls: H15 agent 5400, H15 agent + mirror 5400, H15 agent + min mirror 5400, Agent8 pathway-off 5400, learned 5400, as composed (N1) 5400, no-learning 0, Agent10 0/0 0, N1 no-learning 0, positive-off 5400, known-answer 0 (learning-on arms == 5400, frozen arms 0) -> True
+   (r') 337 ==    mirror == a fresh read-out after act on every step (steps with a mismatch): H15 agent + mirror 0, H15 agent + min mirror 0, Agent8 pathway-off 0, learned 0, as composed (N1) 0, positive-off 0 -> True
+   (r') 338 ==    (i8) E2-C row independence (row 0 moved to the rewarding source after training): trained, learning on True; H15 agent trained, learning on True; trained, learning on, as composed (N1) True
+   (r') 339 ==    (i8) E2-C calls (test, training): trained, learning on (1800, 60), trained, learning on, as composed (N1) (1800, 60), H15 agent trained, learning on (1800, 60), sham, frozen (0, 60), trained, frozen (0, 60) -> True; identical training in every trained arm (pre-test values and weights bitwise): True; mirror mismatches trained, learning on 0, trained, learning on, as composed (N1) 0, sham, frozen 0, trained, frozen 0
+   (r') 340 ==    integrity (H19 (a) boundary: a whiff of a negatively valued odour handed to navigation while nothing is held; flee: a negative hold whose target is not the flee side): H15 agent 0/0, learned 0/0, as composed (N1) 0/0, no-learning 0/0, positive-off 0/0, known-answer 0/0
+   (r') 341 == [a line carrying Run 1's bench seeds: compared, not printed]
+   (r') 342 ==    [learned] R-start rows visiting P 10/200; P-start late unrecovered 19/200, R-start 0/200; all 19/400; G3 reach after the first punished step 192/199; last-third dwell median R 23.3 P 0.0; first rewarded step 19/50/276; contacts/agent 3.43
+   (r') 343 ==    [H15 agent] R-start rows visiting P 64/200; P-start late unrecovered 21/200, R-start 1/200; all 22/400; G3 reach after the first punished step 192/199; last-third dwell median R 23.3 P 0.0; first rewarded step 19/50/276; contacts/agent 3.62
+   (r') 344 ==    [positive-off] R-start rows visiting P 90/200; P-start late unrecovered 19/200, R-start 4/200; all 23/400; G3 reach after the first punished step 192/199; last-third dwell median R 23.3 P 0.0; first rewarded step 19/50/276; contacts/agent 3.91
+   (r') 345 ==    [no-learning] R-start rows visiting P 90/200; P-start late unrecovered 0/200, R-start 0/200; all 0/400; G3 reach after the first punished step 96/199; last-third dwell median R 14.0 P 3.7; first rewarded step 14/110/775; contacts/agent 0.01
+   (r') 346 ==    [known-answer] R-start rows visiting P 0/200; P-start late unrecovered 12/200, R-start 1/200; all 13/400; G3 reach after the first punished step 192/199; last-third dwell median R 23.0 P 0.0; first rewarded step 19/120/284; contacts/agent 2.30
+   (r') 347 ==    [as composed (N1)] R-start rows visiting P 10/200; P-start late unrecovered 122/200, R-start 4/200; all 126/400; G3 reach after the first punished step 89/199; last-third dwell median R 21.0 P 0.0; first rewarded step 14/28/124; contacts/agent 25.21
+   (r') 348 ==    (h) M2(a) R-start punisher visits learned 10 vs H15 agent 64: DP -0.2700 [-0.3350, -0.2099], discordant b 0.2800 (learned only 1, H15 agent only 55); pass probability 1.0000
+   (r') 349 ==    reported: M2(b) learned vs positive-off 90: DP -0.4000, b 0.4000, pass probability 1.0000
+   (r') 350 ==    (h) STOP RULE: M2(a) pass probability 1.0000 >= 0.5 -> continue
+   (r') 351 ==    (hS) M3(b) P-start late unrecovered learned 19 vs H15 agent 21 of 200: DP -0.0100, b 0.0100, pass probability 1.0000; M5(a) G3 reach after the first punished step learned 192 vs H15 agent 192 of 199: DP +0.0000, b 0.0000, pass probability 1.0000
+   (r') 352 ==    reported: M3(b) R-start DP -0.0050, pass probability 1.0000; M3(a) learned late unrecovered 19/400
+   (r') 353 ==    (hS) STOP RULE: both >= 0.5 -> continue
+   (r') 354 ==    (hR) Agent14 no-learning, GM last-third punishing dwell in the bench G3 (reading R12): GM n 199  value 16.000  95% interval [0.000, 19.667]  at least 10 -> INCONCLUSIVE
+   (r') 355 ==    (hR) STOP RULE: STOP: M4(c) would be unreadable; G3+ (no-learning dwell > 0) 111/199
+   (r') 356 ==    printed beside (no rule): Stage C measures per arm
+   (r') 357 ==       [learned] visited P: P-start 199/200, R-start 10/200 (first P visit step, R-start 1834/2258/4619); punisher holds formed at a positive residual: rows 41, events 137 (R-start rows 41); R-start first P visits with R absent (counter >= 300) 10 / 300+ steps since an R whiff 10 of 10
+   (r') 358 ==          G3 (199 rows): reach after the first punished step 192; with a wall contact between it and the next rewarded step 106, without 86; not reached 7 (of them with a wall contact after the first punished step 7); contacts per agent 3.43 (P-start 6.84, R-start 0.03); near wall 0.35%; steps holding a negative odour per row 237.2; (N2) withheld (S) 2060, (Z) 274
+   (r') 359 ==       [H15 agent] visited P: P-start 199/200, R-start 64/200 (first P visit step, R-start 1239/2208/3524); punisher holds formed at a positive residual: rows 8, events 8 (R-start rows 7); R-start first P visits with R absent (counter >= 300) n/a / 300+ steps since an R whiff 52 of 64
+   (r') 360 ==          G3 (199 rows): reach after the first punished step 192; with a wall contact between it and the next rewarded step 105, without 87; not reached 7 (of them with a wall contact after the first punished step 7); contacts per agent 3.62 (P-start 6.88, R-start 0.36); near wall 0.38%; steps holding a negative odour per row 268.4
+   (r') 361 ==       [positive-off] visited P: P-start 199/200, R-start 90/200 (first P visit step, R-start 773/1125/1863); punisher holds formed at a positive residual: rows 21, events 21 (R-start rows 21); R-start first P visits with R absent (counter >= 300) 53 / 300+ steps since an R whiff 53 of 90
+   (r') 362 ==          G3 (199 rows): reach after the first punished step 192; with a wall contact between it and the next rewarded step 106, without 86; not reached 7 (of them with a wall contact after the first punished step 7); contacts per agent 3.91 (P-start 6.80, R-start 1.02); near wall 0.41%; steps holding a negative odour per row 294.8; (N2) withheld (S) 2561, (Z) 364
+   (r') 363 ==       [no-learning] visited P: P-start 199/200, R-start 90/200 (first P visit step, R-start 773/1125/1863); punisher holds formed at a positive residual: rows 0, events 0 (R-start rows 0); R-start first P visits with R absent (counter >= 300) 53 / 300+ steps since an R whiff 53 of 90
+   (r') 364 ==          G3 (199 rows): reach after the first punished step 96; with a wall contact between it and the next rewarded step 0, without 96; not reached 103 (of them with a wall contact after the first punished step 0); contacts per agent 0.01 (P-start 0.00, R-start 0.01); near wall 0.00%; steps holding a negative odour per row 0.0
+   (r') 365 ==       [known-answer] visited P: P-start 141/200, R-start 0/200 (first P visit step, R-start n/a); punisher holds formed at a positive residual: rows 0, events 0 (R-start rows 0); R-start first P visits with R absent (counter >= 300) 0 / 300+ steps since an R whiff 0 of 0
+   (r') 366 ==          G3 (199 rows): reach after the first punished step 192; with a wall contact between it and the next rewarded step 72, without 120; not reached 7 (of them with a wall contact after the first punished step 5); contacts per agent 2.30 (P-start 4.16, R-start 0.45); near wall 0.21%; steps holding a negative odour per row 262.0; (N2) withheld (S) 2245, (Z) 417
+   (r') 367 ==       [as composed (N1)] visited P: P-start 199/200, R-start 10/200 (first P visit step, R-start 1834/2258/4619); punisher holds formed at a positive residual: rows 41, events 137 (R-start rows 41); R-start first P visits with R absent (counter >= 300) 10 / 300+ steps since an R whiff 10 of 10
+   (r') 368 ==          G3 (199 rows): reach after the first punished step 89; with a wall contact between it and the next rewarded step 0, without 89; not reached 110 (of them with a wall contact after the first punished step 110); contacts per agent 25.21 (P-start 49.58, R-start 0.83); near wall 3.28%; steps holding a negative odour per row 26.4
+   (r') 369 == [a line carrying Run 1's bench seeds: compared, not printed]
+   (r') 370 == == M9: (r) True; identities True; failed []; exactness claims of (v) True; failed []; (h) continue; (hS) continue; (hR) STOP -> M9 STOPPED by a stop rule: the tasks are NOT run; the owner decides ==
+(r') lines carrying Run 1's seeds, compared and not printed: 5
+(r') recorder: the recorded no-learning run == the bench's no-learning arm on every end-of-run record: True
+(r') the re-signed readability on Run 1's bench rows (ph30's statistics): G3 199; G3+ 111; Agent14 no-learning GM over G3+ 24.000 [22.667, 24.667] 'at least 10' -> PASS; WIN learned below no-learning on G3+ wins 111, ties 0, losses 0
+(r') (hR2) on Run 1's rows, drawn as ph30b (B5) draws it (1000 outer draws): readability PASS 1.000; RGM part 1.000; WIN part 1.000; M4(c) whole 1.000
+(r') end-state classes of the 88 G3 rows outside G3+ (ph30b.classify via the recorder): (i) 88; (ii) 0; (iii) 0; (iv) 0; (v) 0
+(r') expected exactly (design section 4; diag:38, :49, :201, :210, :231): every line identical True; G3 199 True; G3+ 111 True; GM 24.000 [22.667, 24.667] PASS True; WIN 111/0/0 True; (hR2) 1.000 True; classes (i) 88, others 0 True; recorder == bench arm True -> (r') True
+== (r') holds: Run 1's bench reproduced line for line and the re-signed readability reads Run 1's rows exactly as expected; the Run 2 bench continues ==
+   (v) (1) R 8, silent 200, P 9: per step, median by u (u=0 218 / u=1 152 / u=2 29 / u=3 1 rows) v_R | v_P:
+        R1: +0.1000|+0.0000 +0.1000|+0.0100 +0.1000|+0.0200 +0.1000|+0.0300; R2: +0.2000|+0.0000 +0.2000|+0.0200 +0.2000|+0.0400 +0.2000|+0.0600; R3: +0.3000|+0.0000 +0.3000|+0.0300 +0.3000|+0.0600 +0.3000|+0.0900; R4: +0.4000|+0.0000 +0.4000|+0.0400 +0.4000|+0.0800 +0.4000|+0.1200
+        R5: +0.5000|+0.0000 +0.5000|+0.0500 +0.5000|+0.1000 +0.5000|+0.1500; R6: +0.6000|+0.0000 +0.6000|+0.0600 +0.6000|+0.1200 +0.6000|+0.1800; R7: +0.7000|+0.0000 +0.7000|+0.0700 +0.7000|+0.1400 +0.7000|+0.2100; R8: +0.8000|+0.0000 +0.8000|+0.0800 +0.8000|+0.1600 +0.8000|+0.2400
+        -1: +0.8000|+0.0000 +0.8000|+0.0800 +0.8000|+0.1600 +0.8000|+0.2400; -200: +0.8000|+0.0000 +0.8000|+0.0800 +0.8000|+0.1600 +0.8000|+0.2400; P1: +0.8000|-0.1000 +0.7900|-0.0200 +0.7800|+0.0600 +0.7700|+0.1400; P2: +0.8000|-0.2000 +0.7800|-0.1200 +0.7600|-0.0400 +0.7400|+0.0400
+        P3: +0.8000|-0.3000 +0.7700|-0.2200 +0.7400|-0.1400 +0.7100|-0.0600; P4: +0.8000|-0.4000 +0.7600|-0.3200 +0.7200|-0.2400 +0.6800|-0.1600; P5: +0.8000|-0.5000 +0.7500|-0.4200 +0.7000|-0.3400 +0.6500|-0.2600; P6: +0.8000|-0.6000 +0.7400|-0.5200 +0.6800|-0.4400 +0.6200|-0.3600
+        P7: +0.8000|-0.7000 +0.7300|-0.6200 +0.6600|-0.5400 +0.5900|-0.4600; P8: +0.8000|-0.8000 +0.7200|-0.7200 +0.6400|-0.6400 +0.5600|-0.5600; P9: +0.8000|-0.9000 +0.7100|-0.8200 +0.6200|-0.7400 +0.5300|-0.6600
+      step on which each value leaves 0 (per row, quartiles; step counted from 1): v_R 1/1/1 (rows 400), v_P 1/209/209 (rows 400)
+      design 3.8 (reported): max |v_P - 0.01uk| while R learned (k <= 10) 1.39e-16; after 9 punished steps max |v_R - (v_R before - 0.01um)| 2.22e-16; max |v_P - (-0.1m + 0.1u)| nan (R not saturated: not the formula case); v_P at the end by u: u=0: -0.9000, u=1: -0.8200, u=2: -0.7400, u=3: -0.6600
+      (reported, not an exactness claim: R learned after the punisher) max |increment - 0.1k| over k <= 10 3.33e-16; max |v_R before R - (-0.01um)| 1.39e-16; max |v_R - 0.1k| 0.27 (u = 0 rows 3.33e-16)
+   (v) (2) P 9, silent 200, R 8: per step, median by u (u=0 218 / u=1 152 / u=2 29 / u=3 1 rows) v_R | v_P:
+        P1: +0.0000|-0.1000 -0.0100|-0.1000 -0.0200|-0.1000 -0.0300|-0.1000; P2: +0.0000|-0.2000 -0.0200|-0.2000 -0.0400|-0.2000 -0.0600|-0.2000; P3: +0.0000|-0.3000 -0.0300|-0.3000 -0.0600|-0.3000 -0.0900|-0.3000; P4: +0.0000|-0.4000 -0.0400|-0.4000 -0.0800|-0.4000 -0.1200|-0.4000
+        P5: +0.0000|-0.5000 -0.0500|-0.5000 -0.1000|-0.5000 -0.1500|-0.5000; P6: +0.0000|-0.6000 -0.0600|-0.6000 -0.1200|-0.6000 -0.1800|-0.6000; P7: +0.0000|-0.7000 -0.0700|-0.7000 -0.1400|-0.7000 -0.2100|-0.7000; P8: +0.0000|-0.8000 -0.0800|-0.8000 -0.1600|-0.8000 -0.2400|-0.8000
+        P9: +0.0000|-0.9000 -0.0900|-0.9000 -0.1800|-0.9000 -0.2700|-0.9000; -1: +0.0000|-0.9000 -0.0900|-0.9000 -0.1800|-0.9000 -0.2700|-0.9000; -200: +0.0000|-0.9000 -0.0900|-0.9000 -0.1800|-0.9000 -0.2700|-0.9000; R1: +0.1000|-0.9000 +0.0100|-0.8900 -0.0800|-0.8800 -0.1700|-0.8700
+        R2: +0.2000|-0.9000 +0.1100|-0.8800 +0.0200|-0.8600 -0.0700|-0.8400; R3: +0.3000|-0.9000 +0.2100|-0.8700 +0.1200|-0.8400 +0.0300|-0.8100; R4: +0.4000|-0.9000 +0.3100|-0.8600 +0.2200|-0.8200 +0.1300|-0.7800; R5: +0.5000|-0.9000 +0.4100|-0.8500 +0.3200|-0.8000 +0.2300|-0.7500
+        R6: +0.6000|-0.9000 +0.5100|-0.8400 +0.4200|-0.7800 +0.3300|-0.7200; R7: +0.7000|-0.9000 +0.6100|-0.8300 +0.5200|-0.7600 +0.4300|-0.6900; R8: +0.8000|-0.9000 +0.7100|-0.8200 +0.6200|-0.7400 +0.5300|-0.6600
+      step on which each value leaves 0 (per row, quartiles; step counted from 1): v_R 1/210/210 (rows 400), v_P 1/1/1 (rows 400)
+   (v) (3a) E2 reward-first R 30, gap 50, P 30: per step, median by u (u=0 218 / u=1 152 / u=2 29 / u=3 1 rows) v_R | v_P:
+        R1: +0.1000|+0.0000 +0.1000|+0.0100 +0.1000|+0.0200 +0.1000|+0.0300; R2: +0.2000|+0.0000 +0.2000|+0.0200 +0.2000|+0.0400 +0.2000|+0.0600; R3: +0.3000|+0.0000 +0.3000|+0.0300 +0.3000|+0.0600 +0.3000|+0.0900; R4: +0.4000|+0.0000 +0.4000|+0.0400 +0.4000|+0.0800 +0.4000|+0.1200
+        R5: +0.5000|+0.0000 +0.5000|+0.0500 +0.5000|+0.1000 +0.5000|+0.1500; R6: +0.6000|+0.0000 +0.6000|+0.0600 +0.6000|+0.1200 +0.6000|+0.1800; R7: +0.7000|+0.0000 +0.7000|+0.0700 +0.7000|+0.1400 +0.7000|+0.2100; R8: +0.8000|+0.0000 +0.8000|+0.0800 +0.8000|+0.1600 +0.8000|+0.2400
+        R9: +0.9000|+0.0000 +0.9000|+0.0900 +0.9000|+0.1800 +0.9000|+0.2700; R10: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; R11: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; R12: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000
+        R30: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; -1: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; -50: +1.0000|+0.0000 +1.0000|+0.1000 +1.0000|+0.2000 +1.0000|+0.3000; P1: +1.0000|-0.1000 +0.9900|-0.0000 +0.9800|+0.1000 +0.9700|+0.2000
+        P2: +1.0000|-0.2000 +0.9800|-0.1000 +0.9600|-0.0000 +0.9400|+0.1000; P3: +1.0000|-0.3000 +0.9700|-0.2000 +0.9400|-0.1000 +0.9100|-0.0000; P4: +1.0000|-0.4000 +0.9600|-0.3000 +0.9200|-0.2000 +0.8800|-0.1000; P5: +1.0000|-0.5000 +0.9500|-0.4000 +0.9000|-0.3000 +0.8500|-0.2000
+        P6: +1.0000|-0.6000 +0.9400|-0.5000 +0.8800|-0.4000 +0.8200|-0.3000; P7: +1.0000|-0.7000 +0.9300|-0.6000 +0.8600|-0.5000 +0.7900|-0.4000; P8: +1.0000|-0.8000 +0.9200|-0.7000 +0.8400|-0.6000 +0.7600|-0.5000; P9: +1.0000|-0.9000 +0.9100|-0.8000 +0.8200|-0.7000 +0.7300|-0.6000
+        P10: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; P11: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; P12: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; P30: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000
+      step on which each value leaves 0 (per row, quartiles; step counted from 1): v_R 1/1/1 (rows 400), v_P 1/81/81 (rows 400)
+      design 3.8 (reported): max |v_P - 0.01uk| while R learned (k <= 10) 1.39e-16; after 10 punished steps max |v_R - (v_R before - 0.01um)| 1.02e-05; max |v_P - (-0.1m + 0.1u)| 1.91e-05 (R saturated); v_P at the end by u: u=0: -1.0000, u=1: -0.9000, u=2: -0.8000, u=3: -0.7000
+      (reported, not an exactness claim: R learned after the punisher) max |increment - 0.1k| over k <= 10 1.91e-05; max |v_R before R - (-0.01um)| 0.6; max |v_R - 0.1k| 0.3 (u = 0 rows 1.91e-05)
+   (v) (3b) E2 punish-first P 30, gap 50, R 30: per step, median by u (u=0 218 / u=1 152 / u=2 29 / u=3 1 rows) v_R | v_P:
+        P1: +0.0000|-0.1000 -0.0100|-0.1000 -0.0200|-0.1000 -0.0300|-0.1000; P2: +0.0000|-0.2000 -0.0200|-0.2000 -0.0400|-0.2000 -0.0600|-0.2000; P3: +0.0000|-0.3000 -0.0300|-0.3000 -0.0600|-0.3000 -0.0900|-0.3000; P4: +0.0000|-0.4000 -0.0400|-0.4000 -0.0800|-0.4000 -0.1200|-0.4000
+        P5: +0.0000|-0.5000 -0.0500|-0.5000 -0.1000|-0.5000 -0.1500|-0.5000; P6: +0.0000|-0.6000 -0.0600|-0.6000 -0.1200|-0.6000 -0.1800|-0.6000; P7: +0.0000|-0.7000 -0.0700|-0.7000 -0.1400|-0.7000 -0.2100|-0.7000; P8: +0.0000|-0.8000 -0.0800|-0.8000 -0.1600|-0.8000 -0.2400|-0.8000
+        P9: +0.0000|-0.9000 -0.0900|-0.9000 -0.1800|-0.9000 -0.2700|-0.9000; P10: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; P11: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; P12: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000
+        P30: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; -1: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; -50: +0.0000|-1.0000 -0.1000|-1.0000 -0.2000|-1.0000 -0.3000|-1.0000; R1: +0.1000|-1.0000 +0.0000|-0.9900 -0.1000|-0.9800 -0.2000|-0.9700
+        R2: +0.2000|-1.0000 +0.1000|-0.9800 +0.0000|-0.9600 -0.1000|-0.9400; R3: +0.3000|-1.0000 +0.2000|-0.9700 +0.1000|-0.9400 +0.0000|-0.9100; R4: +0.4000|-1.0000 +0.3000|-0.9600 +0.2000|-0.9200 +0.1000|-0.8800; R5: +0.5000|-1.0000 +0.4000|-0.9500 +0.3000|-0.9000 +0.2000|-0.8500
+        R6: +0.6000|-1.0000 +0.5000|-0.9400 +0.4000|-0.8800 +0.3000|-0.8200; R7: +0.7000|-1.0000 +0.6000|-0.9300 +0.5000|-0.8600 +0.4000|-0.7900; R8: +0.8000|-1.0000 +0.7000|-0.9200 +0.6000|-0.8400 +0.5000|-0.7600; R9: +0.9000|-1.0000 +0.8000|-0.9100 +0.7000|-0.8200 +0.6000|-0.7300
+        R10: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; R11: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; R12: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000; R30: +1.0000|-1.0000 +0.9000|-0.9000 +0.8000|-0.8000 +0.7000|-0.7000
+      step on which each value leaves 0 (per row, quartiles; step counted from 1): v_R 1/81/81 (rows 400), v_P 1/1/1 (rows 400)
+   (v) masks recomputed from the values == from the order-and-sign canonical pair on every step (gate, top, keep, H19 (a), flee; h -1/0/1): (1) R 8, silent 200, P 9 True; (2) P 9, silent 200, R 8 True; (3a) E2 reward-first R 30, gap 50, P 30 True; (3b) E2 punish-first P 30, gap 50, R 30 True
+   (v) exactness claims (ph30 reading R6): v_R == 0.1k to 1e-12 for k <= 10 (R learned from the naive state: (1), (3a); every row) True; v_P exactly 0.0 in u = 0 rows before punishment ((1), (3a); every pre-punishment step) True
+(g) one punisher whiff at step 0 from rest, gain 1.00 (v_P 0.0): peak of the median s_1 0.756; per-row peak quartiles 0.755/0.756/0.758; rows holding the punisher odour on some step 0/400
+(g) one punisher whiff at step 0 from rest, gain 1.02 (v_P 0.01): peak of the median s_1 0.774; per-row peak quartiles 0.772/0.774/0.775; rows holding the punisher odour on some step 0/400
+(g) one punisher whiff at step 0 from rest, gain 1.05 (v_P 0.025): peak of the median s_1 0.801; per-row peak quartiles 0.799/0.801/0.803; rows holding the punisher odour on some step 0/400
+(g) one punisher whiff at step 0 from rest, gain 1.10 (v_P 0.05): peak of the median s_1 0.851; per-row peak quartiles 0.849/0.851/0.853; rows holding the punisher odour on some step 0/400
+(g) one punisher whiff at step 0 from rest, gain 1.20 (v_P 0.1): peak of the median s_1 1.975; per-row peak quartiles 1.973/1.975/1.977; rows holding the punisher odour on some step 400/400
+   (g) Stage B reproduced first: 0.756 at gain 1.0 True; every row holding at gain 1.2 True
+(n) (N1) as composed, negative hold (known (1.0, -0.9), channel 1 held s 2.0), silent: hold ended in 400/400 rows (step 47/47/47; at step 47: 400); ended with the evidence release flag 0, without it 400; still held at step 259: 0; timeout firings while held 2400; target == flee side on held steps 1.000
+(n) (N2), negative hold (known (1.0, -0.9), channel 1 held s 2.0), silent: hold ended in 0/400 rows (step n/a; at step 47: 0); ended with the evidence release flag 0, without it 0; still held at step 259: 400; timeout firings while held 2400; target == flee side on held steps 1.000
+(n) (N1) as composed, negative hold (known (1.0, -0.9), channel 1 held s 2.0), R whiffs p 0.30 from step 100: hold ended in 400/400 rows (step 47/47/47; at step 47: 400); ended with the evidence release flag 0, without it 400; still held at step 259: 0; timeout firings while held 2400; target == flee side on held steps 1.000
+(n) (N2), negative hold (known (1.0, -0.9), channel 1 held s 2.0), R whiffs p 0.30 from step 100: hold ended in 400/400 rows (step 106/108/110; at step 47: 0); ended with the evidence release flag 400, without it 0; still held at step 259: 0; timeout firings while held 800; target == flee side on held steps 1.000
+(i9) constructed (ph30 reading R9, Run 2's bench agent seed): v_1 after one punished step -0.1 x400; with the mirror target == flee side in 400/400 rows (channel 1 held 400); with known left at 0/0 0/400 (held 400) -> True
+(i5) World7 T1, supplied +1/0, learning off, 2005/2107 (reading R15): Agent14 (N1): == ph28's Agent14 bitwise True; V/N/tie 369/30/1, cells ((91, 8, 1), (90, 10, 0), (95, 5, 0), (93, 7, 0)) (Stage B supplied 369/30/1, ((91, 8, 1), (90, 10, 0), (95, 5, 0), (93, 7, 0))); Agent14 (N2): == ph28's Agent14 bitwise True; V/N/tie 369/30/1, cells ((91, 8, 1), (90, 10, 0), (95, 5, 0), (93, 7, 0)) (Stage B supplied 369/30/1, ((91, 8, 1), (90, 10, 0), (95, 5, 0), (93, 7, 0))) -> True
+(i) identities on the E1 bench seeds (20261111, 20261112), 400 x 5400 (lockstep, ph30 reading R2):
+   (i1) Agent3 + mirror == Agent3 live: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+   (i4) Agent3 + min(v, 0) mirror == Agent3 live: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+   (i3) Agent8 G 0, gate off, filter off, mirror == Agent3 live: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+   (i7) (N2) == (N1) on every row before its first negative hold (reading R4): True; rows never holding a negative odour in (N1) 186, of them equal throughout 186; rows with a negative hold 214 (P-start 199, R-start 15), first negative hold step 14/25/137; rows departing at all 178, first departing step 23/121/190; departing before the first negative hold 0
+   (i6) Agent14 (N2) at 0/0 == Agent10 at 0/0: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'TGT', 'TO', 'EV', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+   (i7) no-learning pair: (N2) == (N1) at 0/0: every (step, row) equal True (400/400 rows; fields ['H', 'S', 'SG', 'SIL', 'SINCE', 'TURN', 'W', 'EST', 'NAV', 'TGT', 'TO', 'EV', 'C', 'POS', 'HEAD', 'MBW']); end-of-run records equal True -> True
+      E2 (reported): (N2) vs (N1) trained learning on, rows equal throughout 29/400
+   (i8) row independence (row 0 displaced; every per-row record of rows 1-399, reading R5): learned True; H15 agent True; positive-off True; as composed (N1) True; H15 agent + mirror True; H15 agent + min mirror True; Agent8 pathway-off True
+   (i8) learning calls: H15 agent 5400, H15 agent + mirror 5400, H15 agent + min mirror 5400, Agent8 pathway-off 5400, learned 5400, as composed (N1) 5400, no-learning 0, Agent10 0/0 0, N1 no-learning 0, positive-off 5400, known-answer 0, H15 no-learning 0 (learning-on arms == 5400, frozen arms 0) -> True
+   mirror == a fresh read-out after act on every step (steps with a mismatch): H15 agent + mirror 0, H15 agent + min mirror 0, Agent8 pathway-off 0, learned 0, as composed (N1) 0, positive-off 0 -> True
+   (i8) E2-C row independence (row 0 moved to the rewarding source after training): trained, learning on True; H15 agent trained, learning on True; trained, learning on, as composed (N1) True
+   (i8) E2-C calls (test, training): trained, learning on (1800, 60), trained, learning on, as composed (N1) (1800, 60), H15 agent trained, learning on (1800, 60), sham, frozen (0, 60), trained, frozen (0, 60) -> True; identical training in every trained arm (pre-test values and weights bitwise): True; mirror mismatches trained, learning on 0, trained, learning on, as composed (N1) 0, sham, frozen 0, trained, frozen 0
+   integrity (H19 (a) boundary: a whiff of a negatively valued odour handed to navigation while nothing is held; flee: a negative hold whose target is not the flee side): H15 agent 0/0, learned 0/0, as composed (N1) 0/0, no-learning 0/0, positive-off 0/0, known-answer 0/0, H15 no-learning 0/0
+   recorder (reading R5): the recorded no-learning and H15 no-learning runs == the unrecorded arms on every end-of-run record: True
+(h) E1-C on bench seeds (20261111, 20261112), 400 x 5400; G3 (learned arm) 200/200:
+   [learned] R-start rows visiting P 18/200; P-start late unrecovered 13/200, R-start 0/200; all 13/400; G3 reach after the first punished step 191/200; last-third dwell median R 23.3 P 0.0; first rewarded step 18/39/268; contacts/agent 1.91
+   [H15 agent] R-start rows visiting P 65/200; P-start late unrecovered 13/200, R-start 2/200; all 15/400; G3 reach after the first punished step 191/200; last-third dwell median R 23.3 P 0.0; first rewarded step 18/39/203; contacts/agent 2.41
+   [positive-off] R-start rows visiting P 89/200; P-start late unrecovered 14/200, R-start 4/200; all 18/400; G3 reach after the first punished step 191/200; last-third dwell median R 23.3 P 0.0; first rewarded step 18/39/268; contacts/agent 2.72
+   [no-learning] R-start rows visiting P 89/200; P-start late unrecovered 0/200, R-start 0/200; all 0/400; G3 reach after the first punished step 100/200; last-third dwell median R 15.3 P 0.0; first rewarded step 14/26/722; contacts/agent 0.00
+   [known-answer] R-start rows visiting P 3/200; P-start late unrecovered 8/200, R-start 2/200; all 10/400; G3 reach after the first punished step 195/200; last-third dwell median R 23.3 P 0.0; first rewarded step 18/47/274; contacts/agent 1.38
+   [as composed (N1)] R-start rows visiting P 18/200; P-start late unrecovered 107/200, R-start 5/200; all 112/400; G3 reach after the first punished step 107/200; last-third dwell median R 22.0 P 0.0; first rewarded step 14/27/58; contacts/agent 21.33
+   [H15 no-learning] R-start rows visiting P 65/200; P-start late unrecovered 0/200, R-start 0/200; all 0/400; G3 reach after the first punished step 65/200; last-third dwell median R 8.8 P 11.2; first rewarded step 13/23/215; contacts/agent 0.00
+   (h) M2(a) R-start punisher visits learned 18 vs H15 agent 65: DP -0.2350 [-0.2950, -0.1800], discordant b 0.2350 (learned only 0, H15 agent only 47); pass probability 1.0000
+   reported: M2(b) learned vs positive-off 89: DP -0.3550, b 0.3550, pass probability 1.0000
+   (h) STOP RULE: M2(a) pass probability 1.0000 >= 0.5 -> continue
+   (hS) M3(b) P-start late unrecovered learned 13 vs H15 agent 13 of 200: DP +0.0000, b 0.0100, pass probability 1.0000; M5(a) G3 reach after the first punished step learned 191 vs H15 agent 191 of 200: DP +0.0000, b 0.0000, pass probability 1.0000
+   reported: M3(b) R-start DP -0.0100, pass probability 1.0000; M3(a) learned late unrecovered 13/400
+   (hS) STOP RULE: both >= 0.5 -> continue
+   (hR1) G3+ (G3 rows whose Agent14 no-learning last-third punishing dwell is above 0) 107/200; STOP if under 50: continue
+   (hR2) pass probability of the re-signed readability (G3+ at least 50 and the no-learning GM over G3+ lower bound >= 10), 1000 outer draws of the bench G3 rows (generator [20261113, 2]; ph30b (B5), reading R6): 1.0000 >= 0.5 -> continue
+   (hR) STOP RULE: continue
+   printed beside (hR), no rule:
+      point reading: Agent14 no-learning GM last-third punishing dwell over the bench G3+: GM n 107  value 24.000  95% interval [22.667, 25.333]  at least 10 -> PASS
+   pass probabilities of the other M4(c) parts on the same draws: RGM part 1.0000; WIN part (ties <= 0.20, Wilson lower >= 0.60) 1.0000; M4(c) as a whole 1.0000
+   WIN learned below no-learning on the bench G3+: wins 107, ties 0, losses 0
+   reported beside M4, no bar (design 3.2):
+   (1) Run 1's reading: Agent14 no-learning GM last-third punishing dwell over ALL G3: n 200, rows at 0 93; 15.667 [0.000, 20.833]; 'at least 10' would read INCONCLUSIVE
+   (2) WIN learned below no-learning over ALL G3 (Run 2's Q3(c) form): n 200; wins 107, ties 93, losses 0; tie fraction 0.465; share 0.535 [0.466, 0.603] -> UNREADABLE (ties > 0.20; the tie rule, not waived)
+   (3) G3 rows outside G3+ (no-learning last-third punishing dwell 0): 93; end-state classes (ph30b (A2)): (i) at the reward source (a last-third step within HIT_R of R) 93; (ii) at the punisher source but not counted 0; (iii) lost (no whiff of either odour in the last third) 0; (iv) at a wall (a contact or a step within 1.0 of a wall in the last third) 0; (v) other 0; learned arm's last-third punishing dwell in these rows: above 0 (a loss hidden from the G3+ WIN) 0, max 0.000
+       row 3 (i) 0.000; row 5 (i) 0.000; row 7 (i) 0.000; row 14 (i) 0.000; row 19 (i) 0.000; row 21 (i) 0.000; row 25 (i) 0.000; row 28 (i) 0.000; row 29 (i) 0.000; row 37 (i) 0.000
+       row 42 (i) 0.000; row 47 (i) 0.000; row 51 (i) 0.000; row 53 (i) 0.000; row 57 (i) 0.000; row 58 (i) 0.000; row 60 (i) 0.000; row 69 (i) 0.000; row 70 (i) 0.000; row 71 (i) 0.000
+       row 73 (i) 0.000; row 75 (i) 0.000; row 85 (i) 0.000; row 96 (i) 0.000; row 98 (i) 0.000; row 99 (i) 0.000; row 101 (i) 0.000; row 103 (i) 0.000; row 106 (i) 0.000; row 107 (i) 0.000
+       row 113 (i) 0.000; row 114 (i) 0.000; row 122 (i) 0.000; row 123 (i) 0.000; row 126 (i) 0.000; row 129 (i) 0.000; row 132 (i) 0.000; row 134 (i) 0.000; row 136 (i) 0.000; row 148 (i) 0.000
+       row 154 (i) 0.000; row 156 (i) 0.000; row 157 (i) 0.000; row 164 (i) 0.000; row 166 (i) 0.000; row 169 (i) 0.000; row 174 (i) 0.000; row 175 (i) 0.000; row 177 (i) 0.000; row 196 (i) 0.000
+       row 198 (i) 0.000; row 203 (i) 0.000; row 204 (i) 0.000; row 209 (i) 0.000; row 211 (i) 0.000; row 215 (i) 0.000; row 221 (i) 0.000; row 222 (i) 0.000; row 227 (i) 0.000; row 229 (i) 0.000
+       row 236 (i) 0.000; row 237 (i) 0.000; row 239 (i) 0.000; row 247 (i) 0.000; row 248 (i) 0.000; row 250 (i) 0.000; row 260 (i) 0.000; row 263 (i) 0.000; row 285 (i) 0.000; row 286 (i) 0.000
+       row 288 (i) 0.000; row 300 (i) 0.000; row 308 (i) 0.000; row 311 (i) 0.000; row 323 (i) 0.000; row 329 (i) 0.000; row 332 (i) 0.000; row 333 (i) 0.000; row 336 (i) 0.000; row 339 (i) 0.000
+       row 341 (i) 0.000; row 345 (i) 0.000; row 347 (i) 0.000; row 351 (i) 0.000; row 352 (i) 0.000; row 354 (i) 0.000; row 360 (i) 0.000; row 366 (i) 0.000; row 374 (i) 0.000; row 375 (i) 0.000
+       row 394 (i) 0.000; row 398 (i) 0.000; row 399 (i) 0.000
+   (4) H15 Run 2's agent without learning as a floor (arm 'H15 no-learning'): rows at 0 54/200
+          reported: H15 no-learning GM last-third punishing dwell over G3: GM n 200  value 21.333  95% interval [20.667, 22.333]  at least 10 -> PASS
+          reported: RGM learned / H15 no-learning over G3: RGM n 200  value 0.000  95% interval [0.000, 0.000]  at most 0.75 -> PASS
+       reported: WIN learned below H15 no-learning on its own dwell > 0 rows: n 146; wins 146, ties 0, losses 0
+          reported: WIN learned below H15 no-learning on its own dwell > 0 rows: WIN k 146 ties 0.0% n 146  value 1.000  95% interval [0.974, 1.000]  at least 0.6 -> PASS
+   the H15 no-learning arm at the bench (reading R10): GM over G3 printed in item (4); its zero rows 54, classes: (i) 54; (ii) 0; (iii) 0; (iv) 0; (v) 0; zero in both no-learning arms 54
+   printed beside (no rule): Stage C measures per arm
+      [learned] visited P: P-start 200/200, R-start 18/200 (first P visit step, R-start 1900/3711/4846); punisher holds formed at a positive residual: rows 41, events 143 (R-start rows 39); R-start first P visits with R absent (counter >= 300) 18 / 300+ steps since an R whiff 17 of 18
+         G3 (200 rows): reach after the first punished step 191; with a wall contact between it and the next rewarded step 90, without 101; not reached 9 (of them with a wall contact after the first punished step 9); contacts per agent 1.91 (P-start 3.77, R-start 0.05); near wall 0.17%; steps holding a negative odour per row 248.1; (N2) withheld (S) 2150, (Z) 284
+      [H15 agent] visited P: P-start 200/200, R-start 65/200 (first P visit step, R-start 1151/1932/3200); punisher holds formed at a positive residual: rows 12, events 12 (R-start rows 11); R-start first P visits with R absent (counter >= 300) n/a / 300+ steps since an R whiff 47 of 65
+         G3 (200 rows): reach after the first punished step 191; with a wall contact between it and the next rewarded step 88, without 103; not reached 9 (of them with a wall contact after the first punished step 9); contacts per agent 2.41 (P-start 4.04, R-start 0.78); near wall 0.22%; steps holding a negative odour per row 259.6
+      [positive-off] visited P: P-start 200/200, R-start 89/200 (first P visit step, R-start 805/1186/2175); punisher holds formed at a positive residual: rows 25, events 25 (R-start rows 25); R-start first P visits with R absent (counter >= 300) 52 / 300+ steps since an R whiff 51 of 89
+         G3 (200 rows): reach after the first punished step 191; with a wall contact between it and the next rewarded step 90, without 101; not reached 9 (of them with a wall contact after the first punished step 9); contacts per agent 2.72 (P-start 3.90, R-start 1.53); near wall 0.28%; steps holding a negative odour per row 287.2; (N2) withheld (S) 2471, (Z) 346
+      [no-learning] visited P: P-start 200/200, R-start 89/200 (first P visit step, R-start 805/1186/2175); punisher holds formed at a positive residual: rows 0, events 0 (R-start rows 0); R-start first P visits with R absent (counter >= 300) 52 / 300+ steps since an R whiff 51 of 89
+         G3 (200 rows): reach after the first punished step 100; with a wall contact between it and the next rewarded step 0, without 100; not reached 100 (of them with a wall contact after the first punished step 0); contacts per agent 0.00 (P-start 0.00, R-start 0.00); near wall 0.00%; steps holding a negative odour per row 0.0
+      [known-answer] visited P: P-start 137/200, R-start 3/200 (first P visit step, R-start 2648/3806/4035); punisher holds formed at a positive residual: rows 0, events 0 (R-start rows 0); R-start first P visits with R absent (counter >= 300) 3 / 300+ steps since an R whiff 3 of 3
+         G3 (200 rows): reach after the first punished step 195; with a wall contact between it and the next rewarded step 65, without 130; not reached 5 (of them with a wall contact after the first punished step 5); contacts per agent 1.38 (P-start 2.25, R-start 0.52); near wall 0.12%; steps holding a negative odour per row 279.6; (N2) withheld (S) 2409, (Z) 420
+      [as composed (N1)] visited P: P-start 200/200, R-start 18/200 (first P visit step, R-start 1900/3711/4846); punisher holds formed at a positive residual: rows 40, events 139 (R-start rows 39); R-start first P visits with R absent (counter >= 300) 18 / 300+ steps since an R whiff 17 of 18
+         G3 (200 rows): reach after the first punished step 107; with a wall contact between it and the next rewarded step 0, without 107; not reached 93 (of them with a wall contact after the first punished step 93); contacts per agent 21.33 (P-start 41.65, R-start 1.01); near wall 2.80%; steps holding a negative odour per row 27.1
+      [H15 no-learning] visited P: P-start 200/200, R-start 65/200 (first P visit step, R-start 1151/1932/3200); punisher holds formed at a positive residual: rows 0, events 0 (R-start rows 0); R-start first P visits with R absent (counter >= 300) n/a / 300+ steps since an R whiff 47 of 65
+         G3 (200 rows): reach after the first punished step 65; with a wall contact between it and the next rewarded step 0, without 65; not reached 135 (of them with a wall contact after the first punished step 0); contacts per agent 0.00 (P-start 0.00, R-start 0.00); near wall 0.00%; steps holding a negative odour per row 0.0
+(E2 bench seeds (20261114, 20261115), ph30 reading R13, printed beside, no rule): pre-test medians trained rewarded +1.000, punished -1.000; sham +0.000/+0.000; trained, learning on: reach R 380/400, P dwell median 7.5;  trained, learning on, as composed (N1): reach R 181/400, P dwell median 5.0;  H15 agent trained, learning on: reach R 380/400, P dwell median 7.5;  sham, frozen: reach R 122/400, P dwell median 70.0;  trained, frozen: reach R 380/400, P dwell median 7.5
+== M9: (r) True; (r') True; identities True; failed []; exactness claims of (v) True; failed []; (h) continue; (hS) continue; (hR) continue -> M9 PASS: the tasks may be run ==
+   leak check (reading R12): Run 1 seed numbers in this output outside the masked (r') lines: none
