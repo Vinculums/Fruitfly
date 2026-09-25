@@ -75,7 +75,7 @@ BENCH = dict(rows=400, rows_c=800, p=0.30, steps_stub=200, steps_held=260, steps
 BS = (BENCH["seed_w"], BENCH["seed_a"])
 ph15.BOOT_SEED = 20261073; ph15._idx.clear()     # design section 7 (after ph25's import set its own); the resample cache emptied
 # ---- bar constant: filled from bench (d) by decision:h26-t2-dwell-bar (registered order) ----
-BARS = dict(T2=None)                            # bar_T2 = -0.20 x D6_W1 (M5 b)
+BARS = dict(T2=-4.9)                            # bar_T2 = -0.20 x D6_W1 (M5 b)
 # ----
 MODS = (ph15, ph21, ph22, ph23, ph24, ph25, ph25b)
 Z95 = 1.96

@@ -528,6 +528,28 @@ Progress log
   (h) T1 and (h3) W1 stop rules are read; M5(d) re-sign against Agent10 recommended (the inherited prediction contradicted
   by two benches). Seeds dev 9977/9987, eval 1985/2085, bench 20261071/20261072, bootstrap 20261073 (189 files scanned,
   no collision). Awaiting the owner's confirmation of section 12.
+- **H26 opened on design v2 FINAL (2026-09-24; decision:h26-open, owner '권고안대로 확정하고 H26 진행', 'confirm as
+  recommended and proceed with H26').** Every recommended option of v1 section 12 confirmed; signed before any code: the
+  H26-only relaxation (decision:classification-rule-relaxed-presence-prior-h26: one presence counter per odour, window
+  300, start 240 as a prior) and the M5(d) re-sign against Agent10 (decision:h26-m5d-bar-resigned). Design v2 FINAL doc
+  d54441658b54a6799 (experiments/h26/h26_design_v2.md, sha ac95c22d...9f54).
+- **H26 bench: M4 PASS, both stop rules continue (2026-09-24; record:h26-bench-result).** src/ph28.py (sha
+  29c594e4...6dd7, BARS unset; source doc d4f81b6d946b6ccfb): Agent14 = Release + Agent9 with the counter starting at
+  240. Every identity True; counter exact 400/400; W1 first surge at or after 59 400/400; T3a window 400/400; Lost-world
+  window at L + 300 385/385. (m) printed first: at-risk rows 15, k = 1. (h) T1 DP Agent14 - Agent10 +0.0025 [-0.0050,
+  +0.0100], M2(b) pass probability 1.0000; (h3) W1 paired dwell -1.7775 at bar -4.9, pass probability 1.0000. The run
+  was resumed after the previous agent was cut off right after the bench; the bench record was written at resumption.
+- **H26 M5(b) bar fixed from the bench (2026-09-25; decision:h26-t2-dwell-bar).** bar_T2 = -0.20 x D6_W1 = -0.20 x
+  24.7200 = -4.9, by the registered rule, before any task seed was used; written into ph28.py as BARS['T2'] (sha now
+  64ce7d0c...e7aa, the only line changed; demo re-run, ph28_demo_bar.txt). Development run 9977/9987: no operation
+  error, no amendment (record:h26-dev-run).
+- **H26 evaluated once (2026-09-25; 1985/2085; record:h26-result; report doc d8163e16317b251eb,
+  experiments/h26/h26_report.md): SHOWN under the registered criteria (M1-M7 PASS).** T1 Agent14 P(V) 0.927 [0.898,
+  0.949], DP vs Agent10 -0.0075 [-0.020, +0.005] (5 rows out of V, all in the 20 at-risk rows; k 5); W1 paired dwell vs
+  Agent6 -1.047 [-2.043, -0.075] against -4.9; W1 lost rows vs Agent10 -0.025 [-0.055, +0.005] (vs Agent6 +0.0475
+  [+0.0200, +0.0775], reported); T3a window exact 400/400, R 1.0376 [0.9642, 1.1186]. Not shown: a loss after tracking
+  (T3b, a fixed 300-step window: 4.412 against Agent11 (N 60) 5.772) and negative values (T4 reported, == Agent10).
+  Nothing adopted; awaiting the owner's closure.
 
 ## Why a plan now
 
@@ -878,7 +900,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   search stays a recorded limit (record:release-negative-cost-limit unchanged); the release at negative values stays
   ON HOLD (decision:release-negative-scope-on-hold).
 
-### H26 (decision:h26-open-design; design v1 DRAFT, no code; awaiting the owner's confirmation of section 12)
+### H26 (decision:h26-open-design, decision:h26-open; evaluated once; SHOWN under the registered criteria; awaiting the owner's closure)
 - Adaptive presence (concept:h26-adaptive-presence), the item queued as proposed (not decided) at the H24 Run 2
   closure; the number H26 assigned by decision:h26-open-design (the highest in use was H25). The problem: the H23 filter
   is blind to the neutral odour when the valued odour is absent (W1 dwell Agent10 11.9 vs Agent6 24.4), and no fixed
@@ -897,6 +919,23 @@ Four hypotheses were run in one day by picking the next most interesting candida
   probability about 0.97 at 0-5 extra lost rows, 0.83 at 10, 0.42 at 13. Not addressed: a loss after tracking (there
   the window is a fixed 300). Seeds dev 9977/9987, eval 1985/2085, bench 20261071/20261072, bootstrap 20261073 (189
   files scanned, no collision).
+- Opened on design v2 FINAL (decision:h26-open, owner 2026-09-24, '권고안대로 확정하고 H26 진행'; doc d54441658b54a6799,
+  experiments/h26/h26_design_v2.md, sha ac95c22d...9f54): candidate (e), P 60, N_hi 300; the H26-only relaxation signed
+  (decision:classification-rule-relaxed-presence-prior-h26); M5(d) re-signed against Agent10
+  (decision:h26-m5d-bar-resigned). src/ph28.py (source doc d4f81b6d946b6ccfb): Agent14 = Release + Agent9 with the
+  counter starting at 240; no adopted module edited.
+- Bench (record:h26-bench-result, ph28_bench.txt on ph28.py 29c594e4...6dd7): M4 PASS; (m) at-risk rows 15, k 1; (h)
+  DP +0.0025, pass probability 1.0000; (h3) 1.0000. M5(b) bar fixed at -4.9 = -0.20 x 24.7200
+  (decision:h26-t2-dwell-bar) and written into ph28.py (64ce7d0c...e7aa). Development run 9977/9987 clean
+  (record:h26-dev-run).
+- **Evaluated once (1985/2085; record:h26-result; report doc d8163e16317b251eb): SHOWN under the registered criteria**
+  (M1-M7 PASS; T3b, T4 reported). T1: Agent14 0.927 vs Agent10 0.935, DP -0.0075 [-0.020, +0.005]; 288/400 rows with an
+  early valued whiff bitwise Agent11 (N 300); 5 rows out of V, all at-risk. W1: Agent14 == Agent11 (N 60), dwell 23.782
+  vs Agent6 24.830, paired -1.047 [-2.043, -0.075] (bar -4.9); lost rows 35 vs Agent10 45 (M5(d) -0.025 [-0.055,
+  +0.005]) and vs Agent6 16 (+0.0475 [+0.0200, +0.0775], reported). T3a: window exact 400/400, R 1.0376 [0.9642,
+  1.1186]. Not shown: a loss after tracking (T3b 4.412, the post-whiff window a fixed 300) and negative values (T4 ==
+  Agent10). Missed predictions stated in the report (W1 lost-row counts, T3a R and floor, Agent11 (N 60)'s T1 cost).
+  Nothing adopted; closure and any adoption are the owner's.
 
 ## The architecture as currently adopted
 
@@ -1052,8 +1091,8 @@ Stated here so a later session does not have to reassemble it from decisions.
   (decision:classification-rule-relaxed-any-odour-silence-counter-h17-run2); both lapsed with H17's closure
   (decision:h17-closed) and stay on record, as does the lapsed H24 Run 2 re-sign
   (decision:classification-rule-relaxed-presence-counter-run2). A new one, scoped to H26 only (one presence counter per
-  odour, window 300, starting at 240 as a prior), is proposed in H26 design v1 and NOT yet signed. No relaxation is in
-  force now. The classification rule itself is unchanged elsewhere.
+  odour, window 300, starting at 240 as a prior), was signed by the owner on 2026-09-24
+  (decision:classification-rule-relaxed-presence-prior-h26) and is in force for H26 only until H26 is closed. The classification rule itself is unchanged elsewhere.
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
   floor in the window where the gate is read. H15's probes spanned 0.3 to 600 and every agent
@@ -1289,16 +1328,13 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H26 (adaptive presence): the owner's confirmation of design v1 section 12** (decision:h26-open-design; design v1
-  DRAFT doc d9452710c5166ba01, experiments/h26/h26_design_v1.md, sha 18983aa2...3598; no code). The seven points, each
-  with a RECOMMENDED option: (1) the candidate: (e), the presence prior separated from the window, (a)-(d) rejected on
-  record; (2) the parameters: P 60 (a 59-step prior for an odour never sensed), N_hi 300 (the window after a whiff);
-  alternatives P 90, P 120 (not recommended), N_hi 200, N_hi 450; (3) the H26-scoped relaxation to sign (H14 format:
-  one presence counter per odour, window 300, starting at 240 as a prior; no other state); (4) the bars, M2 and M7 as
-  H24 Run 2, M5(b) by the bench rule, and M5(d) re-signed against Agent10 (kept against Agent6 it is predicted to fail,
-  pass probability 0.04-0.37); (5) the stop rules (h) T1 and (h3) W1 at pass probability 0.5, bench (m) printed before;
-  (6) seeds dev 9977/9987, eval 1985/2085, bench 20261071/20261072, bootstrap 20261073; (7) the order H26 -> H20 Stage
-  B. No code and no seed is touched until the owner confirms and signs.
+- **H26 (adaptive presence): closure** (decision:h26-open; evaluated once, record:h26-result; report doc
+  d8163e16317b251eb, experiments/h26/h26_report.md). SHOWN under the registered criteria (M1-M7 PASS): T1 Agent14 P(V)
+  0.927, DP vs Agent10 -0.0075 [-0.020, +0.005]; W1 paired dwell vs Agent6 -1.047 [-2.043, -0.075] against -4.9; T3a
+  window exact 400/400, R 1.0376 [0.9642, 1.1186]. Reported, not criteria: W1 lost rows vs Agent6 +0.0475 [+0.0200,
+  +0.0775]; T3b (a loss after tracking, a fixed 300-step window) 4.412; T4 == Agent10. Nothing is adopted until the
+  owner closes H26 and decides on adoption (the H26 relaxation is scoped to H26 only). Then, in the registered order,
+  H20 Stage B.
 
 ## Queued candidates, none started
 
@@ -1315,8 +1351,8 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 (record:h17-bench-result); H17 Run 2 opened on design v2 FINAL (decision:h17-run2-open; doc d73c77ebd99d50d86) and
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
-presence, numbered H26, is open for design (decision:h26-open-design; design v1 DRAFT doc d9452710c5166ba01, awaiting
-the owner); then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18 and the
+presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
+registered criteria (record:h26-result; report doc d8163e16317b251eb), awaiting the owner's closure; then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18 and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the H25 release's scope (+1/0) and stays in force outside it.
 
@@ -1334,9 +1370,10 @@ within the H25 release's scope (+1/0) and stays in force outside it.
   limit (record:release-negative-cost-limit unchanged).
 - **H26, adaptive presence** (concept:h26-adaptive-presence; proposed by the interpreting assistant in the H24 Run 2
   closure, not decided; opened for design by decision:h26-open-design, the number assigned there). A fixed N cannot
-  satisfy both T1 and W1 (record:h24-run2-n-sweep-result). **In design:** design v1 DRAFT doc d9452710c5166ba01
-  (experiments/h26/h26_design_v1.md), recommending the presence prior separated from the window; no code; awaiting
-  the owner's confirmation of section 12. Before Stage B.
+  satisfy both T1 and W1 (record:h24-run2-n-sweep-result). Opened on design v2 FINAL (decision:h26-open; doc
+  d54441658b54a6799): the presence prior separated from the window (Agent14, counter start 240, window 300); src/ph28.py;
+  bench M4 PASS (record:h26-bench-result); **evaluated once, SHOWN under the registered criteria** (record:h26-result;
+  report doc d8163e16317b251eb); awaiting the owner's closure. Before Stage B.
 - **H20 Stages B and C** (next after H26) (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
   as it stands); C, the gain in the H15 Run 2 world with learning on, with Run 2's avoidance and
