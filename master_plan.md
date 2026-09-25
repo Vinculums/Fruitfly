@@ -550,6 +550,25 @@ Progress log
   [+0.0200, +0.0775], reported); T3a window exact 400/400, R 1.0376 [0.9642, 1.1186]. Not shown: a loss after tracking
   (T3b, a fixed 300-step window: 4.412 against Agent11 (N 60) 5.772) and negative values (T4 reported, == Agent10).
   Nothing adopted; awaiting the owner's closure.
+- **H26 CLOSED as SHOWN; the presence counter and Agent14 adopted within the tested conditions (2026-09-25;
+  decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions).** The owner answered '1.
+  shown으로 종료하고 채택, H20 Stage B 진행' ('option 1: close as shown and adopt; proceed to H20 Stage B'). Not re-judged;
+  one evaluation. Adopted: the presence counter starting at N_hi - P = 240 (P 60, N_hi 300) on the H23 filter; the adopted
+  agent is now Agent14 = Release + Agent9 (src/ph28.py:92-97), within supplied +1/0, G 2, C0, gate on, release on,
+  learning off, T1 / W1 / T3a. Limits: a loss after tracking not shown (T3b 4.412); negative values excluded (the
+  release's negative scope stays ON HOLD); W1 lost rows vs Agent6 +0.0475 reported. The H26 relaxation stays in force
+  for the adopted counter; the M5(d) re-sign applies to H26 only.
+- **H20 Stage B opened for design; design v1 DRAFT (2026-09-25; decision:h20-stage-b-open-design).** Same owner message.
+  Doc da31fd8fe14fd6444 (experiments/h20/h20_stage_b_design_v1.md, sha 0ca7f6c1...9248), no code. The learning check:
+  the value learned by the agent's own module (H15 E2 protocol off-world: neutral odour 30 steps, 50 silent steps,
+  valued odour 30 reinforced steps; sham without reinforcement), read out into `known` (the array Agent14 reads; no
+  module edited), frozen in the test; T1 main, W1 and T3a reported, +1/-1 excluded. Read from the code: the learned
+  valued value is exactly +1.0; the neutral odour keeps a small positive residual (about +7e-6, or about +0.1 where the
+  two codes share a unit); presented in the opposite order it would be slightly NEGATIVE and flip Agent14 into the
+  +1/-1 regime, so the order is fixed (neutral first) and the check has a sign clause (0 <= neutral <= +0.15).
+  Recommended bars: learned - supplied >= -0.05, learned - sham >= +0.20, cells >= 0.70, vs learned Agent10g >= +0.05
+  (0.88 reported); stop rules (h) and (hL). Seeds dev 9983/9989, eval 2005/2107, bench 20261081/20261082, bootstrap
+  20261083 (198 files scanned; four collisions replaced). Awaiting the owner's confirmation of section 12.
 
 ## Why a plan now
 
@@ -621,7 +640,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
 ### H19 (decision:h19-open-option-a, adopted by decision:h19a-adopt-and-run2-direction)
 - Option (a) only: while nothing is held, a sensed whiff resets the cast clock, within the owner's three boundaries. Criteria record:h19-success-criteria (N1-N6). Supported on N1-N5, N6 unreadable; adopted within the tested conditions.
 
-### H20 (decision:h20-priority-design-first; Stage A opened by decision:h20-stage-a-open, CLOSED by decision:h20-stage-a-closed; link check by decision:h20-linkcheck-open, complete; Run 2 opened by decision:h20-run2-open, evaluated, CLOSED by decision:h20-run2-closed)
+### H20 (decision:h20-priority-design-first; Stage A opened by decision:h20-stage-a-open, CLOSED by decision:h20-stage-a-closed; link check by decision:h20-linkcheck-open, complete; Run 2 opened by decision:h20-run2-open, evaluated, CLOSED by decision:h20-run2-closed; Stage B opened for design by decision:h20-stage-b-open-design, IN DESIGN)
 - Does a positive value change which odour the agent pursues? Three separated checks: A, a
   supplied value (pre-registered, design v3 FINAL doc dd947882bd962eebe); B, a learned value
   (outline only); C, integration in the H15 Run 2 world (outline only). Nothing about B or C is
@@ -650,6 +669,13 @@ Four hypotheses were run in one day by picking the next most interesting candida
   dd71f30d466badf4b, source ph18.py sha 26ad4def...97c3. Diagnosed on the evaluation trajectories
   (record:h20-run2-diagnosis) and CLOSED as not shown by the owner (decision:h20-run2-closed); the
   diagnosis led to H21. Stages B and C not entered.
+- Stage B (the learning check) OPENED FOR DESIGN on 2026-09-25 (decision:h20-stage-b-open-design), after H21, H23, H25
+  and H26 made the supplied value control the dwell majority (H26: Agent14 0.927). Design v1 DRAFT doc
+  da31fd8fe14fd6444 (experiments/h20/h20_stage_b_design_v1.md), no code: Agent14 unchanged; the value learned off-world
+  by the H15 E2 protocol (neutral first, valued 30 reinforced steps; sham without reinforcement), read out into
+  `known`, frozen in the test; learned vs supplied vs sham on the same rows in the H21 task; a learned-value check with a
+  sign clause; W1 and T3a reported; +1/-1 excluded. Stage C (integration, learning on in the H15 Run 2 world) not
+  entered.
 
 ### H21 (decision:h21-open-design, decision:h21-design-v2-choices, decision:h21-open; evaluated once, CLOSED by decision:h21-closed)
 - Hold maintenance by value: while an odour with a positive value is held, a lower-valued
@@ -900,7 +926,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   search stays a recorded limit (record:release-negative-cost-limit unchanged); the release at negative values stays
   ON HOLD (decision:release-negative-scope-on-hold).
 
-### H26 (decision:h26-open-design, decision:h26-open; evaluated once; SHOWN under the registered criteria; awaiting the owner's closure)
+### H26 (decision:h26-open-design, decision:h26-open; evaluated once; CLOSED as SHOWN by decision:h26-closed; ADOPTED within the tested conditions by decision:h26-adaptive-presence-adopted-within-tested-conditions)
 - Adaptive presence (concept:h26-adaptive-presence), the item queued as proposed (not decided) at the H24 Run 2
   closure; the number H26 assigned by decision:h26-open-design (the highest in use was H25). The problem: the H23 filter
   is blind to the neutral odour when the valued odour is absent (W1 dwell Agent10 11.9 vs Agent6 24.4), and no fixed
@@ -935,11 +961,28 @@ Four hypotheses were run in one day by picking the next most interesting candida
   +0.005]) and vs Agent6 16 (+0.0475 [+0.0200, +0.0775], reported). T3a: window exact 400/400, R 1.0376 [0.9642,
   1.1186]. Not shown: a loss after tracking (T3b 4.412, the post-whiff window a fixed 300) and negative values (T4 ==
   Agent10). Missed predictions stated in the report (W1 lost-row counts, T3a R and floor, Agent11 (N 60)'s T1 cost).
-  Nothing adopted; closure and any adoption are the owner's.
+- **CLOSED as SHOWN (2026-09-25, decision:h26-closed; owner '1. shown으로 종료하고 채택, H20 Stage B 진행').** Not
+  re-judged. **ADOPTED within the tested conditions** (decision:h26-adaptive-presence-adopted-within-tested-conditions):
+  the presence counter starting at 240 (P 60, N_hi 300); Agent14 = Release + Agent9 (src/ph28.py:92-97) is the adopted
+  agent at supplied +1/0, G 2, C0, gate on, release on, learning off, in T1, W1 and T3a. Limits: a loss after tracking
+  not shown (T3b); negative values excluded (decision:release-negative-scope-on-hold unchanged); learned values not
+  validated (H20 Stage B). The H26 relaxation stays in force for the adopted counter; the M5(d) re-sign applies to H26
+  only.
 
 ## The architecture as currently adopted
 
 Stated here so a later session does not have to reassemble it from decisions.
+
+- **The adopted agent, as composed (decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25):
+  Agent14 = ph24.Release + ph23.Agent9 with the presence counter starting at N_hi - P = 240** (src/ph28.py:92-97;
+  constants P 60, N_hi 300 at :72). It carries every module below: the upstream stage, the selection circuit with the
+  H20 gain (G 2) and the H21 gate, the H25 release, the ring, the learning module (constructed, not called with a
+  supplied value), and navigation with H19 (a) and the H23 filter scoped by presence. **Scope:** supplied values +1/0,
+  G 2, C0, gate on, release on, learning off, the worlds tested by H26 (World7 T1, W1, T3a). It replaces Agent10 (=
+  Release + Agent8) as the adopted agent within that scope; Agent10 stays the reference it was tested against. A loss
+  after tracking (T3b) is not shown; negative values are excluded; learned values are not validated (H20 Stage B, in
+  design). The H26-scoped relaxation of the classification rule (one presence counter per odour, window 300, start 240
+  as a prior) stays in force for this counter.
 
 - Upstream normalisation: Phase 2.1's Heeger stage, unchanged (ph2.Upstream).
   **WARNING for ablation:** it is also the amplifier and pulse-stretcher that brings a single
@@ -1058,6 +1101,16 @@ Stated here so a later session does not have to reassemble it from decisions.
   learned values, other G, other geometries, the timeout. Accepted consequence: with unequal values
   navigation is value-driven and selection does not steer; selection keeps equal-value arbitration,
   the flee, and the hold state the H21 gate protects.
+  **H26 presence scope, ADOPTED WITHIN THE TESTED CONDITIONS ONLY
+  (decision:h26-adaptive-presence-adopted-within-tested-conditions; the H26 verdict is shown, decision:h26-closed):**
+  v_max of the H23 filter is taken over the odours present, present_k = (c_k < 300) or k held, with one counter c_k per
+  odour (steps since last sensed, ph23.py:83-85) starting at 240 (ph28.py:97): an odour never sensed is present on steps
+  0-58 (a PRIOR, not evidence), and for 300 steps after any whiff. In W1 it removes the filter's absent-odour cost
+  (dwell 23.8 against Agent6 24.8 and Agent10 12.3); in T1 it keeps H23's result (0.927, DP vs Agent10 -0.0075); after a
+  constructed loss from step 0 it opens at step 59 (R 1.04). **Scope:** as the adopted agent above. **Not validated:** a
+  loss after tracking (T3b: a fixed 300-step blind window, 4.412 against 5.772 at N 60); negative values; learned values;
+  other P or N_hi. Measured cost: W1 lost rows against the unfiltered agent +0.0475 (the price of the 59-step prior);
+  T1 rows without a valued whiff by step 58 (20 of 400) carry the residual (k 5).
 
 ## Standing rules
 - One hypothesis active at a time. Adoption and every gate pass are decided by the project owner, not by the assistant.
@@ -1092,7 +1145,7 @@ Stated here so a later session does not have to reassemble it from decisions.
   (decision:h17-closed) and stay on record, as does the lapsed H24 Run 2 re-sign
   (decision:classification-rule-relaxed-presence-counter-run2). A new one, scoped to H26 only (one presence counter per
   odour, window 300, starting at 240 as a prior), was signed by the owner on 2026-09-24
-  (decision:classification-rule-relaxed-presence-prior-h26) and is in force for H26 only until H26 is closed. The classification rule itself is unchanged elsewhere.
+  (decision:classification-rule-relaxed-presence-prior-h26); H26 was closed as shown and its counter adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25), so this relaxation STAYS IN FORCE for the adopted agent's counter (Agent14), as part of the adopted state; any wider use (another counter, window or agent) is a new decision. The classification rule itself is unchanged elsewhere.
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
   floor in the window where the gate is read. H15's probes spanned 0.3 to 600 and every agent
@@ -1328,13 +1381,16 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H26 (adaptive presence): closure** (decision:h26-open; evaluated once, record:h26-result; report doc
-  d8163e16317b251eb, experiments/h26/h26_report.md). SHOWN under the registered criteria (M1-M7 PASS): T1 Agent14 P(V)
-  0.927, DP vs Agent10 -0.0075 [-0.020, +0.005]; W1 paired dwell vs Agent6 -1.047 [-2.043, -0.075] against -4.9; T3a
-  window exact 400/400, R 1.0376 [0.9642, 1.1186]. Reported, not criteria: W1 lost rows vs Agent6 +0.0475 [+0.0200,
-  +0.0775]; T3b (a loss after tracking, a fixed 300-step window) 4.412; T4 == Agent10. Nothing is adopted until the
-  owner closes H26 and decides on adoption (the H26 relaxation is scoped to H26 only). Then, in the registered order,
-  H20 Stage B.
+- **H20 Stage B: confirmation of design v1 section 12** (decision:h20-stage-b-open-design; design v1 DRAFT doc
+  da31fd8fe14fd6444, experiments/h20/h20_stage_b_design_v1.md, sha 0ca7f6c1...9248; no code). Nine points, each with a
+  recommended option: (1) the learned value enters through a read-out into `known`, learning frozen in the test, no
+  module edited; (2) the H15 E2 training with the neutral odour first, the same fixed order in every row and arm (valued
+  first would give the neutral odour a tiny negative value); (3) the learned-value check 0 <= neutral <= +0.15 with a
+  sign clause, failing rows kept as assigned, readable iff at most 40 of 400 fail; (4) bars learned - supplied >= -0.05,
+  learned - sham >= +0.20, cells >= 0.70, learned Agent14 - learned Agent10g >= +0.05, the 0.88 bar reported; (5) stop
+  rules (h) and (hL); (6) T1 main, W1 and T3a reported, +1/-1 excluded ('none' as Stage B's avoidance statement); (7)
+  seeds dev 9983/9989, eval 2005/2107, bench 20261081/20261082, bootstrap 20261083; (8) no sub-saturating dose arm; (9)
+  then the Stage C design.
 
 ## Queued candidates, none started
 
@@ -1352,7 +1408,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), awaiting the owner's closure; then H20 Stage B. H20's Stages B and C stay queued behind the check. H17, H18 and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B is now IN DESIGN (decision:h20-stage-b-open-design; design v1 DRAFT doc da31fd8fe14fd6444), and Stage C (integration) is next after it. H17, H18 and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the H25 release's scope (+1/0) and stays in force outside it.
 
@@ -1373,8 +1429,11 @@ within the H25 release's scope (+1/0) and stays in force outside it.
   satisfy both T1 and W1 (record:h24-run2-n-sweep-result). Opened on design v2 FINAL (decision:h26-open; doc
   d54441658b54a6799): the presence prior separated from the window (Agent14, counter start 240, window 300); src/ph28.py;
   bench M4 PASS (record:h26-bench-result); **evaluated once, SHOWN under the registered criteria** (record:h26-result;
-  report doc d8163e16317b251eb); awaiting the owner's closure. Before Stage B.
-- **H20 Stages B and C** (next after H26) (concept:h20-learned-positive-valence-in-behaviour): B, the same choice
+  report doc d8163e16317b251eb). **DONE: CLOSED as SHOWN and adopted within the tested conditions (decision:h26-closed,
+  decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25).**
+- **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour). **Stage B IN DESIGN** (decision:h20-stage-b-open-design,
+  2026-09-25; design v1 DRAFT doc da31fd8fe14fd6444, awaiting the owner's confirmation of section 12; no code); **Stage C
+  next** (design after Stage B). As first queued: B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
   as it stands); C, the gain in the H15 Run 2 world with learning on, with Run 2's avoidance and
   long-horizon search values as the reference. Both depend on a task in which selection can be
