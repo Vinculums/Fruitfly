@@ -569,6 +569,28 @@ Progress log
   Recommended bars: learned - supplied >= -0.05, learned - sham >= +0.20, cells >= 0.70, vs learned Agent10g >= +0.05
   (0.88 reported); stop rules (h) and (hL). Seeds dev 9983/9989, eval 2005/2107, bench 20261081/20261082, bootstrap
   20261083 (198 files scanned; four collisions replaced). Awaiting the owner's confirmation of section 12.
+- **H20 Stage B OPENED on design v2 FINAL (2026-09-25; decision:h20-stage-b-open).** The owner answered '권고안 적용'
+  ('apply the recommended options'): every recommended option of design v1 section 12 confirmed. Design v2 FINAL doc
+  d3f2ce9707790cd87 (experiments/h20/h20_stage_b_design_v2.md, sha 28c1010f...66ae): v1 with section 12 resolved; no
+  bar, seed, arm, prediction or rule changed. No relaxation and no bar re-sign (no new state).
+- **H20 Stage B code, demo and bench (2026-09-25; record:h20-stage-b-bench-result).** src/ph29.py (sha 122c1925...799c,
+  source doc dbcf264395e76d71a): the H15 E2 training on the agent's own module, neutral first, the read-out written
+  into `known`, frozen; no adopted module edited. Demo every check ok (ph29_demo.txt). Bench on 20261081/20261082 (M4
+  PASS): the learned valued value is exactly +1.0 in 400/400 rows, the neutral residual positive in 400/400 (7.13e-6
+  where the codes share no unit, 0.1000064 where they share one); sham exactly 0; ML 30/400 failing (the rows sharing
+  two or three units) against the bound 40; every identity True, including learned with `known` := +1/0 == supplied
+  and the reproduction of H26's T1; a single neutral whiff holds at gain 1.2 and 1.4 in every row; T1 learned ==
+  supplied in outcome (381/16/3), DP 0.0000, (h) pass probability 1.0000, (hL) continue.
+- **H20 Stage B development run (2026-09-25; 9983/9989; record:h20-stage-b-dev-run):** no operation error, no
+  amendment.
+- **H20 Stage B evaluated once (2026-09-25; 2005/2107; record:h20-stage-b-result; report doc d66ad8dea08c92116,
+  experiments/h20/h20_stage_b_report.md): SHOWN under the registered criteria** (ML readable, M1, M2, M3, M4, M6 PASS;
+  W1 and T3a reported). T1 learned Agent14 369/30/1 = supplied 369/30/1, P(V) 0.922 [0.892, 0.945]; DP learned -
+  supplied 0.000 [0.000, 0.000] (no row changed its outcome; 117 rows, all with shared code units, changed trajectory);
+  learned - sham +0.467 [+0.415, +0.522]; cells 91/90/95/93 (lower bounds >= 0.826); learned Agent14 - learned Agent10g
+  +0.367 [+0.318, +0.417]. W1 and T3a: learned == supplied row for row. A statement about a saturating off-world
+  training, neutral first, learning frozen in the test; not about learning during behaviour (Stage C), negative or
+  sub-saturating learned values. Nothing adopted; awaiting the owner's closure.
 
 ## Why a plan now
 
@@ -640,7 +662,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
 ### H19 (decision:h19-open-option-a, adopted by decision:h19a-adopt-and-run2-direction)
 - Option (a) only: while nothing is held, a sensed whiff resets the cast clock, within the owner's three boundaries. Criteria record:h19-success-criteria (N1-N6). Supported on N1-N5, N6 unreadable; adopted within the tested conditions.
 
-### H20 (decision:h20-priority-design-first; Stage A opened by decision:h20-stage-a-open, CLOSED by decision:h20-stage-a-closed; link check by decision:h20-linkcheck-open, complete; Run 2 opened by decision:h20-run2-open, evaluated, CLOSED by decision:h20-run2-closed; Stage B opened for design by decision:h20-stage-b-open-design, IN DESIGN)
+### H20 (decision:h20-priority-design-first; Stage A opened by decision:h20-stage-a-open, CLOSED by decision:h20-stage-a-closed; link check by decision:h20-linkcheck-open, complete; Run 2 opened by decision:h20-run2-open, evaluated, CLOSED by decision:h20-run2-closed; Stage B opened for design by decision:h20-stage-b-open-design, opened by decision:h20-stage-b-open, evaluated once, SHOWN, awaiting closure)
 - Does a positive value change which odour the agent pursues? Three separated checks: A, a
   supplied value (pre-registered, design v3 FINAL doc dd947882bd962eebe); B, a learned value
   (outline only); C, integration in the H15 Run 2 world (outline only). Nothing about B or C is
@@ -676,6 +698,17 @@ Four hypotheses were run in one day by picking the next most interesting candida
   `known`, frozen in the test; learned vs supplied vs sham on the same rows in the H21 task; a learned-value check with a
   sign clause; W1 and T3a reported; +1/-1 excluded. Stage C (integration, learning on in the H15 Run 2 world) not
   entered.
+- Stage B OPENED on design v2 FINAL (decision:h20-stage-b-open, owner 2026-09-25, '권고안 적용'; doc d3f2ce9707790cd87,
+  experiments/h20/h20_stage_b_design_v2.md). src/ph29.py (source doc dbcf264395e76d71a); bench M4 PASS, (h) and (hL)
+  continue (record:h20-stage-b-bench-result); development run clean (record:h20-stage-b-dev-run). **Evaluated once
+  (2005/2107; record:h20-stage-b-result; report doc d66ad8dea08c92116): SHOWN under the registered criteria.** The
+  learned value (valued exactly +1.0; neutral a small positive residual; sham exactly 0) is carried into the choice as
+  the supplied value is: learned - supplied 0.000 [0.000, 0.000], learned - sham +0.467 [+0.415, +0.522], every cell
+  >= 0.826 at the lower bound, learned Agent14 - learned Agent10g +0.367. Close to an identity test at the saturating
+  dose; the neutral residual (gain up to x 1.6, a single neutral whiff then holds) moved 117 trajectories and no
+  outcome. Missed predictions (sham 0.455, pathway-off 0.448, learned Agent10g 0.555, supplied 0.922, known-answer
+  0.958) enter no bar. Not shown: learning during behaviour (Stage C), negative learned values, a sub-saturating dose,
+  other codes. Nothing adopted; closure is the owner's. Stage C not entered.
 
 ### H21 (decision:h21-open-design, decision:h21-design-v2-choices, decision:h21-open; evaluated once, CLOSED by decision:h21-closed)
 - Hold maintenance by value: while an odour with a positive value is held, a lower-valued
@@ -980,8 +1013,9 @@ Stated here so a later session does not have to reassemble it from decisions.
   supplied value), and navigation with H19 (a) and the H23 filter scoped by presence. **Scope:** supplied values +1/0,
   G 2, C0, gate on, release on, learning off, the worlds tested by H26 (World7 T1, W1, T3a). It replaces Agent10 (=
   Release + Agent8) as the adopted agent within that scope; Agent10 stays the reference it was tested against. A loss
-  after tracking (T3b) is not shown; negative values are excluded; learned values are not validated (H20 Stage B, in
-  design). The H26-scoped relaxation of the classification rule (one presence counter per odour, window 300, start 240
+  after tracking (T3b) is not shown; negative values are excluded; learned values are not validated (H20 Stage B,
+  evaluated once and SHOWN under its registered criteria, record:h20-stage-b-result, awaiting the owner's closure;
+  nothing adopted from it). The H26-scoped relaxation of the classification rule (one presence counter per odour, window 300, start 240
   as a prior) stays in force for this counter.
 
 - Upstream normalisation: Phase 2.1's Heeger stage, unchanged (ph2.Upstream).
@@ -1381,16 +1415,15 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H20 Stage B: confirmation of design v1 section 12** (decision:h20-stage-b-open-design; design v1 DRAFT doc
-  da31fd8fe14fd6444, experiments/h20/h20_stage_b_design_v1.md, sha 0ca7f6c1...9248; no code). Nine points, each with a
-  recommended option: (1) the learned value enters through a read-out into `known`, learning frozen in the test, no
-  module edited; (2) the H15 E2 training with the neutral odour first, the same fixed order in every row and arm (valued
-  first would give the neutral odour a tiny negative value); (3) the learned-value check 0 <= neutral <= +0.15 with a
-  sign clause, failing rows kept as assigned, readable iff at most 40 of 400 fail; (4) bars learned - supplied >= -0.05,
-  learned - sham >= +0.20, cells >= 0.70, learned Agent14 - learned Agent10g >= +0.05, the 0.88 bar reported; (5) stop
-  rules (h) and (hL); (6) T1 main, W1 and T3a reported, +1/-1 excluded ('none' as Stage B's avoidance statement); (7)
-  seeds dev 9983/9989, eval 2005/2107, bench 20261081/20261082, bootstrap 20261083; (8) no sub-saturating dose arm; (9)
-  then the Stage C design.
+- **H20 Stage B: closure** (decision:h20-stage-b-open; evaluated once on 2005/2107, record:h20-stage-b-result; report
+  doc d66ad8dea08c92116, experiments/h20/h20_stage_b_report.md). **SHOWN under the registered criteria** (ML readable,
+  M1, M2, M3, M4, M6 PASS): a positive value learned off-world by the H15 E2 training (neutral first, frozen in the test)
+  is carried by Agent14 into the choice in the H21 task exactly as the supplied value (DP 0.000 [0.000, 0.000]), +0.467
+  [+0.415, +0.522] above a sham-trained agent, every cell >= 0.826 at the lower bound, +0.367 over the learned gate agent.
+  Scope: saturating dose, this protocol and order, this code set, G 2, C0, learning frozen in the test. Not shown:
+  learning during behaviour, negative or sub-saturating learned values, other codes. The owner decides the closure and
+  whether anything is adopted (for example, learned values read out into `known` as within the adopted agent's scope);
+  next in the registered order (decision:h20-stage-b-open point 9): the Stage C design.
 
 ## Queued candidates, none started
 
@@ -1408,7 +1441,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B is now IN DESIGN (decision:h20-stage-b-open-design; design v1 DRAFT doc da31fd8fe14fd6444), and Stage C (integration) is next after it. H17, H18 and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87) and evaluated once: SHOWN under its registered criteria (record:h20-stage-b-result; report doc d66ad8dea08c92116), awaiting the owner's closure; Stage C (integration) is next after it (design first). H17, H18 and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the H25 release's scope (+1/0) and stays in force outside it.
 
@@ -1431,9 +1464,10 @@ within the H25 release's scope (+1/0) and stays in force outside it.
   bench M4 PASS (record:h26-bench-result); **evaluated once, SHOWN under the registered criteria** (record:h26-result;
   report doc d8163e16317b251eb). **DONE: CLOSED as SHOWN and adopted within the tested conditions (decision:h26-closed,
   decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25).**
-- **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour). **Stage B IN DESIGN** (decision:h20-stage-b-open-design,
-  2026-09-25; design v1 DRAFT doc da31fd8fe14fd6444, awaiting the owner's confirmation of section 12; no code); **Stage C
-  next** (design after Stage B). As first queued: B, the same choice
+- **H20 Stages B and C** (concept:h20-learned-positive-valence-in-behaviour). **Stage B evaluated once, SHOWN under the
+  registered criteria, awaiting closure** (decision:h20-stage-b-open, 2026-09-25; design v2 FINAL doc d3f2ce9707790cd87;
+  src/ph29.py; record:h20-stage-b-result; report doc d66ad8dea08c92116); **Stage C next** (design after Stage B's
+  closure). As first queued: B, the same choice
   task with the value learned (its own criteria written at its design time; A4 does not transfer
   as it stands); C, the gain in the H15 Run 2 world with learning on, with Run 2's avoidance and
   long-horizon search values as the reference. Both depend on a task in which selection can be

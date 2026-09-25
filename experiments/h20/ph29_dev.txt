@@ -1,0 +1,133 @@
+== H20 Stage B, DEV. design H20 Stage B v2 FINAL doc d3f2ce9707790cd87 hash 28c1010f29978b0389106e6b6a0d02a91ed3eb5b9c95be86557a723e30b966ae; G 2.0, gate on where G 2; Agent14 (P 60, N_hi 300); world seed 9983, agent seed 9989; 400 rows x 600 steps; geometry C0; training H15 E2 (neutral 30, gap 50, valued 30); bootstrap seed 20261083; operation check only (not a verdict) ==
+   ph29.py sha256 122c19250ea5d67d0dbd997fa20493c63c6c1101faff83d3cc6b3e907d4c799c; design H20 Stage B v2 FINAL doc d3f2ce9707790cd87 hash 28c1010f29978b0389106e6b6a0d02a91ed3eb5b9c95be86557a723e30b966ae
+   imported modules: ph4.py d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a; ph8.py ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e; ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23; ph14.py c6b745c60f9992934a0ccbc5584ef354a03f53f08b37a1252a694feb350be0d0; ph15.py cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc; ph17.py 4b30ddf8b1fc6dc510f23a28f09d6391003d95f0744344d237f50e3393a3689f; ph21.py 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1; ph22.py 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; ph25.py 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; ph25b.py ad12a9122c171dd32c3fceac946add9d0eb0380e885e0f0872dd97ccd59eeaf6; ph28.py 64ce7d0ce123f912aa675e86627d5b6b0ae3d89976b093666316e6b78441e7aa
+   seeds: dev (9983, 9989), eval (2005, 2107), bench (20261081, 20261082), bootstrap 20261083; reproduction (i8) on H26's (1985, 2085) only; demo seeds (5, 6) used deliberately; neither is part of the seed scan
+   decisions: decision:h20-stage-b-open (no relaxation, no bar re-sign); the adopted agent: decision:h26-adaptive-presence-adopted-within-tested-conditions
+   seed self-check: every Stage B seed and derived in no other file (190 scanned): True
+   amendments: none
+   rows share no state: one generator per world and one per agent population, fixed-size draws consumed in row order every step
+   construction order in every trained or sham arm: world, mask, twin, values (+1/0 placeholder), agent, TRAINING on a.mb + read-out into a.known, cast draw, position, hold
+
+== the learned values (read-out after training; printed before the task) ==
+   u by row: u=0: 218, u=1: 152, u=2: 29, u=3: 1; per cell cell 0: 60/36/4/0 | cell 1: 54/36/10/0 | cell 2: 51/45/3/1 | cell 3: 53/35/12/0
+   trained v_V by value 1 x400; v_N by value 7.12740422792457e-06 x16, 7.12740422803559e-06 x202, 0.100006414663805 x22, 0.100006414663805 x130, 0.200005701923382 x2, 0.200005701923382 x27, 0.30000498918296 x1; cross-table u x v_N u=0: 7.12740422792457e-06 x16, 7.12740422803559e-06 x202 | u=1: 0.100006414663805 x22, 0.100006414663805 x130 | u=2: 0.200005701923382 x2, 0.200005701923382 x27 | u=3: 0.30000498918296 x1
+   sham v_V by value 0 x400; v_N by value 0 x400
+   ML (design section 7): trained rows failing 30/400 (v_V >= 0.5 fails 0; 0 <= v_N <= 0.15 fails 30; v_V > v_N fails 0); by cell 4/10/4/12; sham rows failing 0/400 -> readable (bound 40); failing rows kept in every arm as assigned
+
+== T1, the H21 choice task ==
+
+   [learned] G 2.0  MAIN, dwell majority: V 368  N 31  tie 1  (of 400)
+      cells: 0 odour A valued, +y: V 87 N 13 0 0 | 1 odour A valued, -y: V 93 N 6 0 1 | 2 odour B valued, +y: V 97 N 3 0 0 | 3 odour B valued, -y: V 91 N 9 0 0
+      dwell median valued 25.0 other 2.0; both zero 0; majority source == first hold 245/400; P(V | first hold valued) 222/231; P(V | first hold neutral) 146/169
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (4631, 38, 5022) | at neutral (683, 923, 549); nothing held 0.642 of steps
+      H21 diag: holds ended 1588 (on the timeout flag 1460, evidence 125, both 0, neither 3); held unit's s the step before, median 1.08; timeout firings while held 10244, of which ended the hold 1460; valued holds ended 1255, neutral holds ended 333
+      H21 diag: revision, first hold neutral and later held valued 153/169 = 0.905; no whiff of either plume in the last third 6; no navigation hit in the last third 13; wall contacts per row 0.00
+
+   [supplied] G 2.0  MAIN, dwell majority: V 368  N 31  tie 1  (of 400)
+      cells: 0 odour A valued, +y: V 87 N 13 0 0 | 1 odour A valued, -y: V 93 N 6 0 1 | 2 odour B valued, +y: V 97 N 3 0 0 | 3 odour B valued, -y: V 91 N 9 0 0
+      dwell median valued 25.0 other 2.0; both zero 0; majority source == first hold 274/400; P(V | first hold valued) 251/260; P(V | first hold neutral) 117/140
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (4697, 26, 4968) | at neutral (691, 853, 611); nothing held 0.647 of steps
+      H21 diag: holds ended 1541 (on the timeout flag 1450, evidence 90, both 0, neither 1); held unit's s the step before, median 1.08; timeout firings while held 10172, of which ended the hold 1450; valued holds ended 1260, neutral holds ended 281
+      H21 diag: revision, first hold neutral and later held valued 124/140 = 0.886; no whiff of either plume in the last third 6; no navigation hit in the last third 13; wall contacts per row 0.00
+
+   [sham] G 2.0  MAIN, dwell majority: V 206  N 189  tie 5  (of 400)
+      cells: 0 odour A valued, +y: V 57 N 43 0 0 | 1 odour A valued, -y: V 59 N 39 0 2 | 2 odour B valued, +y: V 39 N 58 0 3 | 3 odour B valued, -y: V 51 N 49 0 0
+      dwell median valued 14.0 other 13.0; both zero 0; majority source == first hold 280/400; P(V | first hold valued) 139/191; P(V | first hold neutral) 67/209
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (1658, 115, 4171) | at neutral (123, 1626, 3775); nothing held 0.764 of steps
+      H21 diag: holds ended 1079 (on the timeout flag 1038, evidence 40, both 0, neither 1); held unit's s the step before, median 1.06; timeout firings while held 7307, of which ended the hold 1038; valued holds ended 539, neutral holds ended 540
+      H21 diag: revision, first hold neutral and later held valued 97/209 = 0.464; no whiff of either plume in the last third 7; no navigation hit in the last third 7; wall contacts per row 0.00
+
+   [release-maintain learned] G 2.0  MAIN, dwell majority: V 238  N 158  tie 4  (of 400)
+      cells: 0 odour A valued, +y: V 62 N 38 0 0 | 1 odour A valued, -y: V 64 N 34 0 2 | 2 odour B valued, +y: V 53 N 45 0 2 | 3 odour B valued, -y: V 59 N 41 0 0
+      dwell median valued 17.0 other 10.0; both zero 0; majority source == first hold 279/400; P(V | first hold valued) 172/226; P(V | first hold neutral) 66/174
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (3455, 175, 3144) | at neutral (691, 1710, 2724); nothing held 0.662 of steps
+      H21 diag: holds ended 1499 (on the timeout flag 1451, evidence 48, both 0, neither 0); held unit's s the step before, median 1.07; timeout firings while held 10207, of which ended the hold 1451; valued holds ended 931, neutral holds ended 568
+      H21 diag: revision, first hold neutral and later held valued 100/174 = 0.575; no whiff of either plume in the last third 7; no navigation hit in the last third 7; wall contacts per row 0.00
+
+   [pathway-off] G 0.0  MAIN, dwell majority: V 211  N 184  tie 5  (of 400)
+      cells: 0 odour A valued, +y: V 56 N 43 0 1 | 1 odour A valued, -y: V 61 N 36 0 3 | 2 odour B valued, +y: V 43 N 57 0 0 | 3 odour B valued, -y: V 51 N 48 0 1
+      dwell median valued 14.0 other 12.0; both zero 0; majority source == first hold 305/400; P(V | first hold valued) 155/191; P(V | first hold neutral) 56/209
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (3980, 130, 1716) | at neutral (117, 3814, 1350); nothing held 0.227 of steps
+      H21 diag: holds ended 242 (on the timeout flag 13, evidence 207, both 0, neither 22); held unit's s the step before, median 1.06; timeout firings while held 3697, of which ended the hold 13; valued holds ended 111, neutral holds ended 131
+      H21 diag: revision, first hold neutral and later held valued 73/209 = 0.349; no whiff of either plume in the last third 7; no navigation hit in the last third 7; wall contacts per row 0.00
+
+   [known-answer] G 0.0 (held odour fixed to the valued odour)  MAIN, dwell majority: V 380  N 18  tie 2  (of 400)
+      cells: 0 odour A valued, +y: V 92 N 8 0 0 | 1 odour A valued, -y: V 95 N 5 0 0 | 2 odour B valued, +y: V 94 N 4 0 2 | 3 odour B valued, -y: V 99 N 1 0 0
+      dwell median valued 25.0 other 0.0; both zero 0; majority source == first hold 380/400; P(V | first hold valued) 380/400; P(V | first hold neutral) 0/0
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (9942, 0, 0) | at neutral (1893, 0, 0); nothing held 0.000 of steps
+      H21 diag: holds ended 0 (on the timeout flag 0, evidence 0, both 0, neither 0); held unit's s the step before, median nan; timeout firings while held 0, of which ended the hold 0; valued holds ended 0, neutral holds ended 0
+      H21 diag: revision, first hold neutral and later held valued 0/0; no whiff of either plume in the last third 4; no navigation hit in the last third 16; wall contacts per row 0.00
+
+   [base] G 2.0  MAIN, dwell majority: V 374  N 24  tie 2  (of 400)
+      cells: 0 odour A valued, +y: V 90 N 9 0 1 | 1 odour A valued, -y: V 92 N 7 0 1 | 2 odour B valued, +y: V 97 N 3 0 0 | 3 odour B valued, -y: V 95 N 5 0 0
+      dwell median valued 26.0 other 2.0; both zero 0; majority source == first hold 270/400; P(V | first hold valued) 253/261; P(V | first hold neutral) 121/139
+      H21 diag: dwell steps at valued (valued-held, neutral-held, nothing) (4791, 47, 5074) | at neutral (711, 900, 435); nothing held 0.638 of steps
+      H21 diag: holds ended 1577 (on the timeout flag 1465, evidence 111, both 0, neither 1); held unit's s the step before, median 1.08; timeout firings while held 10279, of which ended the hold 1465; valued holds ended 1292, neutral holds ended 285
+      H21 diag: revision, first hold neutral and later held valued 134/139 = 0.964; no whiff of either plume in the last third 6; no navigation hit in the last third 16; wall contacts per row 0.00
+
+== T2, the absent-odour world W1 (valued column masked from step 0; REPORTED) ==
+   [W1 learned Agent14] dwell at the present source mean 23.815 (quartiles 17.0/25.0/30.2); reach 390/400; lost rows 21; wall contacts per row 0.000; first surge step 113/122/153 (rows 391); draws == twin True
+   [W1 supplied Agent14] dwell at the present source mean 23.815 (quartiles 17.0/25.0/30.2); reach 390/400; lost rows 21; wall contacts per row 0.000; first surge step 113/122/153 (rows 391); draws == twin True
+   [W1 sham Agent14] dwell at the present source mean 24.500 (quartiles 19.8/25.0/29.0); reach 397/400; lost rows 12; wall contacts per row 0.000; first surge step 4/12/110 (rows 400); draws == twin True
+   [W1 maintain Agent6] dwell at the present source mean 24.500 (quartiles 19.8/25.0/29.0); reach 397/400; lost rows 12; wall contacts per row 0.000; first surge step 4/12/110 (rows 400); draws == twin True
+
+== T3a, the constructed loss (valued column masked from step 0, start at the valued source, valued hold s 2.0; REPORTED) ==
+   [T3a learned Agent14] neutral dwell 100-599 mean 13.885 (quartiles 7.0/15.0/21.0), rows > 0 318
+   [T3a supplied Agent14] neutral dwell 100-599 mean 13.885 (quartiles 7.0/15.0/21.0), rows > 0 318
+   [T3a floor Agent10] neutral dwell 100-599 mean 0.637 (quartiles 0.0/0.0/0.0), rows > 0 49
+   [T3a ceiling Agent5] neutral dwell 100-599 mean 14.652 (quartiles 7.8/16.0/22.0), rows > 0 328
+
+== criteria (design v2 FINAL section 7; 95 percent, one evaluation, no extension; aggregation: PASS if every part passes, FAIL if any fails, else INCONCLUSIVE; the unrounded bound decides) ==
+   ML the learned-value check: trained failing 30/400 (bound 40), sham failing 0/400 -> readable
+   M1(a) sham: ties 5/400 = 0.013  at most 0.20 -> PASS
+   M1(a) pathway-off: ties 5/400 = 0.013  at most 0.20 -> PASS
+   M1(a) known-answer: ties 2/400 = 0.005  at most 0.20 -> PASS
+   M1(b) sham, P(+y source majority | chose): P k 184 n 395  value 0.466  95% interval [0.417, 0.515]  within [0.35, 0.65] -> PASS
+   M1(c) floor: pathway-off (learned values), P(V | chose): P k 211 n 395  value 0.534  95% interval [0.485, 0.583]  within [0.35, 0.65] -> PASS
+   M1(d) ceiling: known-answer, P(V) over all rows: P k 380 n 400  value 0.950  95% interval [0.924, 0.967]  at least 0.85 -> PASS
+   M1 -> PASS
+   section 8: ties in the learned, supplied and sham arms learned 0.003, supplied 0.003, sham 0.013 (unreadable above 0.20)
+   M2(a) DP = P(V) learned - supplied (Agent14), same rows: DP n 400  value 0.000  95% interval [0.000, 0.000]  at least -0.05 -> PASS
+   M2(b) DP = P(V) learned - sham (Agent14), same rows: DP n 400  value 0.405  95% interval [0.353, 0.455]  at least 0.2 -> PASS
+   M2(c) cell 0 (odour A valued, +y), learned P(V): P k 87 n 100  value 0.870  95% interval [0.790, 0.922]  at least 0.7 -> PASS
+   M2(c) cell 1 (odour A valued, -y), learned P(V): P k 93 n 100  value 0.930  95% interval [0.863, 0.966]  at least 0.7 -> PASS
+   M2(c) cell 2 (odour B valued, +y), learned P(V): P k 97 n 100  value 0.970  95% interval [0.915, 0.990]  at least 0.7 -> PASS
+   M2(c) cell 3 (odour B valued, -y), learned P(V): P k 91 n 100  value 0.910  95% interval [0.838, 0.952]  at least 0.7 -> PASS
+   M2(c) -> PASS
+   M2(d) DP = P(V) learned Agent14 - learned Agent10g, same rows: DP n 400  value 0.325  95% interval [0.278, 0.373]  at least 0.05 -> PASS
+   M2 -> PASS
+      reported, not a bar (design section 12 point 4): learned P(V) 368/400 = 0.920 [0.889, 0.943] against the 0.88 line (lower bound >= 0.88 would read above); P(k >= 365 of 400) at 0.920: 0.7454
+      reported beside M2 (design section 7 ML): learned P(V) over the ML-passing rows 341/370 = 0.922 [0.890, 0.945]
+      reported: learned (Agent14) V 368 N 31 tie 1; P(V) 368/400 = 0.920 [0.889, 0.943]
+      reported: supplied (Agent14) V 368 N 31 tie 1; P(V) 368/400 = 0.920 [0.889, 0.943]
+      reported: sham (Agent14) V 206 N 189 tie 5; P(V) 206/400 = 0.515 [0.466, 0.564]
+      reported: release-maintain learned (Agent10g) V 238 N 158 tie 4; P(V) 238/400 = 0.595 [0.546, 0.642]
+      reported: pathway-off (Agent8) V 211 N 184 tie 5; P(V) 211/400 = 0.527 [0.479, 0.576]
+      reported: known-answer (Agent5) V 380 N 18 tie 2; P(V) 380/400 = 0.950 [0.924, 0.967]
+      reported: base (Agent10) V 374 N 24 tie 2; P(V) 374/400 = 0.935 [0.906, 0.955]
+      reported: DP learned - Agent10 (+1/0) -0.0150 [-0.0325, +0.0025]
+      where the value goes: into V 0, out of V 0; outcome class changed 0 rows, by u u=0: 0/218, u=1: 0/152, u=2: 0/29, u=3: 0/1; rows with an identical trajectory 271, by u u=0: 218, u=1: 43, u=2: 10, u=3: 0; first departing step 9/17/215; ML-failing rows' outcomes learned V 27/30, supplied V 27
+   M3 identities: (i2) learned with known := +1/0 == supplied (T1, every field) True; (i4) sham == Agent14 0/0 (every field) == Agent10 0/0 (T1) True; (i5) pathway-off learned == +1/0 (T1) True; (i5) known-answer learned == +1/0 (T1) True; (i6) module frozen in every trained or sham arm (T1, W1, T3a) True; (i7) masks with the learned values == +1/0's on every (row, step) (T1 learned) True -> PASS
+      (i7) rows equal per mask {'gate': 400, 'top': 400, 'keep': 400, 'h19': 400, 'flee': 400}; read-out printed above; construction order printed in the header
+      reported checks (not M3): masked draws == World7 twin (W1, T3a) and T3a construction in every arm: True
+      exactness claims (reading R9): v_V == 1.0 in every trained row True; v_N > 0 in every trained row True; sham values exactly 0.0 True; compartments 0, 2, 3 unchanged (trained, sham) True; rows with v_N < 0 (trained) 0
+      (t) ML (design section 7, reading R10): trained rows failing 30/400 (v_V >= 0.5 fails 0; 0 <= v_N <= 0.15 fails 30 (v_N < 0 0, v_N > 0.15 30); v_V > v_N fails 0); by cell 7/9/8/6; failing rows by u u=0: 0, u=1: 0, u=2: 29, u=3: 1; sham rows failing 0/400
+      (hL) STOP RULE (design section 4): ML readable (30 trained failures against the bound 40; 0 sham failures) -> continue
+      (i1) training leaves the agent untouched except mb.w (and the read-out in known): trained agent vs untrained, differing state ['known', 'mb.w'] -> True; sham vs untrained (placeholder zeros) [] -> True; 86 state entries compared incl. the generator state
+      (i2) the learned agent with known overwritten by +1/0 == the supplied Agent14 bitwise on every field: stub both p 0.30 True; channel 0 alone True; channel 1 held True; World7 T1 400 x 600 True
+      (i4) sham == Agent14 at 0/0 (every field) == Agent10 at 0/0 (ph24's fields): stub True; World7 T1 True
+      (i3) T1 learned vs supplied: rows with an identical trajectory (reading R3) 281/400; of them counter and release fields equal on every step 281 -> True
+      (i5) pathway-off (Agent8 G 0, gate off, filter off) with the learned values == with +1/0 bitwise: True; known-answer (Agent5 fixed valued, G 0) with the learned values == with +1/0: True
+      (i6) the module is frozen during the test (reading R4; steps 0, 299, 599): learned True; sham True; learned->+1/0 True; pathway-off learned True; known-answer learned True; Agent10g learned True
+      (i7) T1 learned run: gate, top, keep, H19 (a), flee masks with the learned values == with +1/0 on every (row, step): rows equal per mask {'gate': 400, 'top': 400, 'keep': 400, 'h19': 400, 'flee': 400}; all rows 400/400 -> True; the run's read-out equals (t)'s trained read-out True
+      (i8) reproduction on H26's evaluation seeds (1985, 2085) (reading R8): this harness's supplied Agent14 == ph28.t1arm('adaptive') bitwise True; V/N/tie 371/28/1 (recorded 371/28/1); cells ((90, 10, 0), (95, 5, 0), (95, 5, 0), (91, 8, 1)) (recorded ((90, 10, 0), (95, 5, 0), (95, 5, 0), (91, 8, 1))) -> True
+      (h) STOP RULE (design section 4, section 12 point 5): M2(a) pass probability 1.0000 >= 0.5 -> continue
+      == M4: identities True; failed []; exactness claims of (t) True; failed []; (h) continue; (hL) continue -> M4 PASS: the tasks may be run; (g2), (g3) reported ==
+   M4 mechanism bench, re-run here with the bench seeds -> PASS
+   M6(a) T1 no whiff of either plume in the last third, learned - supplied: DP n 400  value 0.000  95% interval [0.000, 0.000]  at most 0.05 -> PASS
+   M6(b) T1 learned, wall contacts per row: mean 0.000  at most 0.10 -> PASS
+   M6 -> PASS
+   M5 W1 (REPORTED, no bar): paired dwell learned - supplied +0.000 [+0.000, +0.000] (identical row for row True); learned - Agent6 -0.685 [-1.683, +0.315]; reach learned 390, supplied 390, sham 397, Agent6 397; lost rows 21 / 21 / 12 / 12; first surge == first B whiff at or after 59, learned 400/400
+   M7 T3a (REPORTED, no bar): span 14.015 [13.108, 14.960]; R learned 0.9452 [0.8820, 1.0133], R supplied 0.9452 [0.8820, 1.0133]; neutral dwell learned 13.885, supplied 13.885, floor 0.637, ceiling 14.652; identical row for row learned vs supplied True
+
+== H20 Stage B ==  ML readable  M1 PASS  M2 PASS  M3 PASS  M4 PASS  M6 PASS  (M5 W1, M7 T3a reported) -> PASS: SHOWN: a positive value learned by the agent's own learning module under a fixed reward training (the neutral odour presented equally often without reinforcement; learning frozen in the test) is carried by the adopted agent (Agent14) into the choice of source in the H21 task: within 0.05 of the supplied value on the same rows, at least 0.20 above a sham-trained agent, at least 0.70 in every cell, and with the filter's gain over the gate agent
