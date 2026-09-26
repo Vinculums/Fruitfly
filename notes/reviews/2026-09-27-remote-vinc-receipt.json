@@ -1,0 +1,10 @@
+{
+  "space": "01a0b944-ecb4-737b-b3e6-5cc99ff37654",
+  "document": "d8f8aa2df2f267461",
+  "local_path": "notes/reviews/2026-09-27-remote-diagnosis.md",
+  "sha256": "36c6a2dddda621335ab46e325a0bb73053dfd54f9bf1e0a408ab44398fc9ce2e",
+  "verified_readback": true,
+  "status": "Package D complete as measurement; Stage 2 UNREADABLE unchanged; Package E proposed and unrun",
+  "tested_commit": "ac69bb7dd132a44456824237fc1133e9c8c64c22",
+  "remote_run": "https://github.com/Vinculums/Fruitfly/actions/runs/36260387653"
+}

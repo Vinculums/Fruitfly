@@ -1,0 +1,404 @@
+{
+  "events_sha256": "c21f3e84342165ca0a11cb9a70b81a64d98e43a0f24325fa06ee7b5eab0883e1",
+  "rows": 400,
+  "tau": 5000,
+  "formula": "acq_P2 + par_P2 * (1 - 1/5000)^D",
+  "analytic_max_abs_error_by_D": {
+    "0": 0.0,
+    "1200": 1.7208456881689926e-14,
+    "5000": 3.430589146091734e-14
+  },
+  "analytic_tolerance": 1e-10,
+  "decay_off_invariant": true,
+  "D0_clones_equal": true,
+  "negative_row_ids_by_D": {
+    "0": [
+      15,
+      82,
+      156,
+      164,
+      209,
+      240,
+      333,
+      347,
+      391
+    ],
+    "1200": [
+      15,
+      82,
+      156,
+      164,
+      209,
+      240,
+      333,
+      347,
+      391
+    ],
+    "5000": [
+      15,
+      82,
+      156,
+      164,
+      209,
+      240,
+      333,
+      347,
+      391
+    ]
+  },
+  "same_negative_indices_at_D0_D1200_D5000": true,
+  "negative_rows_union": [
+    {
+      "row": 15,
+      "P1_acquisition_value": 1.0,
+      "P2_acquisition_output_component": -0.008480000000000043,
+      "P2_parallel_output_component": -0.03652485282187501,
+      "P2_extinguished_value": -0.04500485282187505,
+      "D1200_value": -0.037210777212158486,
+      "D5000_value": -0.021915398658752028,
+      "P1_sign_preserved_at_D5000": false,
+      "acquisition_component_negative_at_P2": true,
+      "valid_recovery_denominator": true,
+      "recovery_denominator": 1.045004852821875
+    },
+    {
+      "row": 82,
+      "P1_acquisition_value": 1.0,
+      "P2_acquisition_output_component": -0.39692078489600013,
+      "P2_parallel_output_component": 0.20910104733549928,
+      "P2_extinguished_value": -0.18781973756050085,
+      "D1200_value": -0.2324400233957764,
+      "D5000_value": -0.32000450149260173,
+      "P1_sign_preserved_at_D5000": false,
+      "acquisition_component_negative_at_P2": true,
+      "valid_recovery_denominator": true,
+      "recovery_denominator": 1.1878197375605009
+    },
+    {
+      "row": 156,
+      "P1_acquisition_value": 1.0,
+      "P2_acquisition_output_component": -0.1854271999999999,
+      "P2_parallel_output_component": 0.07123983043891202,
+      "P2_extinguished_value": -0.11418736956108788,
+      "D1200_value": -0.12938930966395745,
+      "D5000_value": -0.15922215197430867,
+      "P1_sign_preserved_at_D5000": false,
+      "acquisition_component_negative_at_P2": true,
+      "valid_recovery_denominator": true,
+      "recovery_denominator": 1.1141873695610878
+    },
+    {
+      "row": 164,
+      "P1_acquisition_value": 1.0,
+      "P2_acquisition_output_component": -0.008480000000000043,
+      "P2_parallel_output_component": -0.03652485282187501,
+      "P2_extinguished_value": -0.04500485282187505,
+      "D1200_value": -0.037210777212158375,
+      "D5000_value": -0.021915398658752028,
+      "P1_sign_preserved_at_D5000": false,
+      "acquisition_component_negative_at_P2": true,
+      "valid_recovery_denominator": true,
+      "recovery_denominator": 1.045004852821875
+    },
+    {
+      "row": 209,
+      "P1_acquisition_value": 1.0,
+      "P2_acquisition_output_component": -0.10678399999999999,
+      "P2_parallel_output_component": 0.02294579631107818,
+      "P2_extinguished_value": -0.08383820368892181,
+      "D1200_value": -0.0887346305751805,
+      "D5000_value": -0.09834355747486989,
+      "P1_sign_preserved_at_D5000": false,
+      "acquisition_component_negative_at_P2": true,
+      "valid_recovery_denominator": true,
+      "recovery_denominator": 1.0838382036889218
+    },
+    {
+      "row": 240,
+      "P1_acquisition_value": 1.0,
+      "P2_acquisition_output_component": -0.18542720013544667,
+      "P2_parallel_output_component": 0.08576186228507665,
+      "P2_extinguished_value": -0.09966533785037002,
+      "D1200_value": -0.11796614914561498,
+      "D5000_value": -0.15388032942972707,
+      "P1_sign_preserved_at_D5000": false,
+      "acquisition_component_negative_at_P2": true,
+      "valid_recovery_denominator": true,
+      "recovery_denominator": 1.09966533785037
+    },
+    {
+      "row": 333,
+      "P1_acquisition_value": 1.0,
+      "P2_acquisition_output_component": -0.10678399999999999,
+      "P2_parallel_output_component": 0.02294579631107818,
+      "P2_extinguished_value": -0.08383820368892181,
+      "D1200_value": -0.0887346305751805,
+      "D5000_value": -0.09834355747486989,
+      "P1_sign_preserved_at_D5000": false,
+      "acquisition_component_negative_at_P2": true,
+      "valid_recovery_denominator": true,
+      "recovery_denominator": 1.0838382036889218
+    },
+    {
+      "row": 347,
+      "P1_acquisition_value": 1.0,
+      "P2_acquisition_output_component": -0.4662230027947216,
+      "P2_parallel_output_component": 0.2652222542038798,
+      "P2_extinguished_value": -0.20100074859084183,
+      "D1200_value": -0.2575967960198491,
+      "D5000_value": -0.36866294592659665,
+      "P1_sign_preserved_at_D5000": false,
+      "acquisition_component_negative_at_P2": true,
+      "valid_recovery_denominator": true,
+      "recovery_denominator": 1.2010007485908418
+    },
+    {
+      "row": 391,
+      "P1_acquisition_value": 1.0,
+      "P2_acquisition_output_component": -0.3389387263999999,
+      "P2_parallel_output_component": 0.16917304020555624,
+      "P2_extinguished_value": -0.16976568619444365,
+      "D1200_value": -0.20586569384998876,
+      "D5000_value": -0.27670966695493027,
+      "P1_sign_preserved_at_D5000": false,
+      "acquisition_component_negative_at_P2": true,
+      "valid_recovery_denominator": true,
+      "recovery_denominator": 1.1697656861944437
+    }
+  ],
+  "sign_preserved_count_D5000": 391,
+  "valid_signed_recovery_denominator_count": 381,
+  "invalid_signed_recovery_denominator_count": 19,
+  "invalid_denominator_rows": [
+    {
+      "row": 34,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 53,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 72,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 75,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 84,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 90,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 92,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 96,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 125,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 139,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 140,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 204,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 205,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 222,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 266,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 279,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 304,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 339,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    },
+    {
+      "row": 383,
+      "reasons": [
+        "nonpositive_or_tiny_signed_denominator"
+      ],
+      "P1_value": 1.0,
+      "P2_value": 1.0,
+      "signed_denominator": 0.0,
+      "P2_acquisition_component": 1.0,
+      "P2_parallel_component": 0.0,
+      "D5000_value": 1.0
+    }
+  ],
+  "negative_D5000_with_negative_acquisition_component": 9,
+  "negative_D5000_with_nonnegative_acquisition_component": 0
+}

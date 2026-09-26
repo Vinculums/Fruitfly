@@ -1,0 +1,18 @@
+{
+  "successful_run": "https://github.com/Vinculums/Fruitfly/actions/runs/36260387653",
+  "tested_commit": "ac69bb7dd132a44456824237fc1133e9c8c64c22",
+  "inspection_run": "https://github.com/Vinculums/Fruitfly/actions/runs/36261176952",
+  "inspection_commit": "f8dfc31",
+  "artifact_id": 10911809335,
+  "artifact_name": "h12-remote-36260387653-1",
+  "artifact_zip_sha256": "2607a3ac6a157aacc0e2868df999e02eed9ce8f438363ea7d904148173b9ccf4",
+  "artifact_expires_at": "2026-10-26T17:55:48Z",
+  "events_npz_sha256": "c21f3e84342165ca0a11cb9a70b81a64d98e43a0f24325fa06ee7b5eab0883e1",
+  "events_npz_size_bytes": 171129091,
+  "local_events_path": "notes/reviews/remote-runs/36260387653/h12-remote-36260387653-1/diagnosis/events.npz",
+  "source_and_reports_committed": true,
+  "large_binary_committed": false,
+  "simulation_execution": "GitHub-hosted Linux; no local simulation",
+  "test_agent_model": "gpt-6-sol",
+  "local_events_sha256_verified": true
+}
