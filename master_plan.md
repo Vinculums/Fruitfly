@@ -828,6 +828,27 @@ Progress log
   200 catches the first downwind pass (dwell 6.460), 250 misses it (4.115). Output experiments/h29/ph34b_diag.txt (sha
   6a4219b3...cc07); report experiments/h29/t3b_diagnosis.md (doc d8a7e386faf08075d); record:t3b-diagnosis-result. The
   readings point to branches (i) and (ii), not (iii). Nothing adopted; H29 not opened; H28 untouched. Awaiting the owner.
+- **H29 OPENED (2026-09-26; decision:h29-open; the owner's '(i) 권고안대로 진행', gloss 'branch (i), proceed as
+  recommended').** Branch (i) of the T3b diagnosis: every recommended option of design v1 section 12 except point 1, which
+  the diagnosis resolved, plus one addition the interpreting assistant recommended and the owner accepted with the same
+  words: the F2 finding recorded as a stated sensitivity and a REPORTED phase-sensitivity condition (T3b at t0 100 and
+  t0 200, no bar). Signed before code: decision:classification-rule-relaxed-presence-prior-h29 (the H26 presence
+  relaxation re-signed with window 200, start 140, H29 only). Design v2 FINAL doc d724287aa203d256d
+  (experiments/h29/h29_design_v2.md, sha 552e2ee1...6aa7); no registered bar, seed, arm, prediction or rule changed.
+- **H29 code, demo, bench, development run and one evaluation: SHOWN under its registered criteria (2026-09-26;
+  record:h29-bench-result, record:h29-dev-run, record:h29-result; report doc d92ffd006bdbcdc28).** src/ph35.py (sha
+  e4a3ceda...b1b1, source doc d7ed06b1bd4bb0e2c): Agent17 = Agent14N2 built with N_hi 200 through the existing
+  constructor argument (a body-less subclass); ph28.py, ph30.py, ph34b.py imported unchanged and checked at run time; no
+  adopted file edited. Demo 12/12 ok, nothing fixed. Bench (ph35_bench.txt sha e217dd00...d0a0): M4 PASS; (m) 20, (x) 16;
+  (h) T1 DP +0.0025 [+0.0000, +0.0075], M2(b) pass probability 1.0000; (hB) T3b gain +2.1350 [+1.6649, +2.6201], M8(b)
+  pass probability 1.0000; both continue. Development run 9903/9913 (ph35_dev.txt sha a70342bf...bf0c): no operation
+  error, no amendment. One evaluation 2111/2221 (ph35_eval.txt sha 1577b42c...6e2e): M1 PASS; M2(b) DP Agent17 -
+  Agent14N2 -0.0075 [-0.0200, +0.0025] PASS; M2(c) +0.348 PASS; M3 identities PASS (the 19 departing T1 rows are
+  exactly the exposure set); M4 PASS; M6 PASS; M8(a) window exact at L + 200 376/376 PASS; M8(b) paired T3b dwell
+  +1.9525 [+1.4549, +2.4501] PASS (6.730 vs 4.777). Reported: R_b 1.96; T3b at t0 100 +0.7000 [+0.2625, +1.1425], at t0
+  200 +3.8175 [+3.3400, +4.3050] (the first-surge delays after L unchanged; t0 moves L relative to the measurement
+  window). Predictions missed: the T3b gain (1.95 vs 0.5-1.3) and the Agent11 bound, Agent17's dwell level, the bench's
+  T1 k and DP (favourable side). A trade, not a separation. Closure is the owner's; H28's closure untouched.
 
 ## Why a plan now
 
@@ -1417,7 +1438,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   0.220 vs 13.193; T4 +1/-1/0 0.740 vs 0.932 (no tie arises there). The residual W1D loss is not attributed to a path by
   this run. Closure, and any adoption, are the owner's.
 
-### H29 (decision:h29-open-design; in design; the T3b diagnosis done by decision:t3b-diagnosis; the owner decides)
+### H29 (decision:h29-open-design; the T3b diagnosis by decision:t3b-diagnosis; opened by decision:h29-open; evaluated once; SHOWN under its registered criteria (record:h29-result); closure awaiting the owner)
 - The H26 T3b limit, a loss after tracking (concept:h29-loss-after-tracking): after the adopted agent has tracked the
   valued odour and the odour disappears (the Lost world, t0 150), its presence counter keeps it present for a fixed 300
   steps after the last whiff, so the filter is blind to the neutral odour until L + 300 (exact 379/379; T3b neutral dwell
@@ -1449,7 +1470,24 @@ Four hypotheses were run in one day by picking the next most interesting candida
   (window 200) measured directly: T1 DP +0.0000 (F5 MET), T3b gain +2.460 [+1.883, +3.055], above the design's +0.5 to
   +1.3; window 250 gains nothing (4.115 vs 4.000), so the result rests on the window's alignment with the cast loop.
   Branches (i) open H29 on design v1 and (ii) a different design are both triggered; (iii) close as a limit is not.
-  H29 not opened; the owner decides.
+- Opened on design v2 FINAL (decision:h29-open, owner 2026-09-26, '(i) 권고안대로 진행', gloss 'branch (i), proceed as
+  recommended'; doc d724287aa203d256d, experiments/h29/h29_design_v2.md, sha 552e2ee1...6aa7): every recommended option
+  of v1 section 12 except point 1 (resolved by the diagnosis); the F2 finding recorded as a stated sensitivity (section
+  11) and T3b at t0 100 and t0 200 added as a REPORTED condition (no bar). Signed before code:
+  decision:classification-rule-relaxed-presence-prior-h29. src/ph35.py (sha e4a3ceda...b1b1, source doc
+  d7ed06b1bd4bb0e2c); no adopted file edited.
+- **Bench (record:h29-bench-result, ph35_bench.txt sha e217dd00...d0a0): M4 PASS, both stop rules continue.** Identities
+  (I1)-(I7) True (Agent17 built with N_hi 300 == Agent14N2 on every field; W1, T3a identical; the 16 departing T1 rows
+  are exactly the exposure set; T3b identical before the first neutral whiff at or after L + 200); counter exact 400/400;
+  window exact at L + 200 380/380. (h) 1.0000 (DP +0.0025); (hB) 1.0000 (gain +2.1350, sd 5.0097).
+- **Evaluation (record:h29-result, ph35_eval.txt sha 1577b42c...6e2e; report doc d92ffd006bdbcdc28): SHOWN.** T1 P(V)
+  0.927 vs 0.935, DP -0.0075 [-0.0200, +0.0025] (4 out of V, 1 into, all in the 19 exposure rows); T3b neutral dwell
+  6.730 vs 4.777, paired +1.9525 [+1.4549, +2.4501], window exact 376/376, rows never steering on the neutral odour by
+  600 172 -> 78; M1, M3, M4, M6 PASS; W1, T3a, T4 identical. Reported: R_b 1.96 (the window-60 agent 5.772); the
+  phase-sensitivity condition, t0 100 +0.70 [+0.26, +1.14] and t0 200 +3.82 [+3.34, +4.31]: positive at all three
+  losses, its size set largely by where L falls relative to the measurement window 400-599 (the stated sensitivity to
+  other geometries and cast parameters stays untested). A trade within the registered bars, not a separation of loss
+  from tracking. Closure, and any adoption, are the owner's.
 
 ## The architecture as currently adopted
 
@@ -1661,7 +1699,7 @@ Stated here so a later session does not have to reassemble it from decisions.
   (decision:h17-closed) and stay on record, as does the lapsed H24 Run 2 re-sign
   (decision:classification-rule-relaxed-presence-counter-run2). A new one, scoped to H26 only (one presence counter per
   odour, window 300, starting at 240 as a prior), was signed by the owner on 2026-09-24
-  (decision:classification-rule-relaxed-presence-prior-h26); H26 was closed as shown and its counter adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25), so this relaxation STAYS IN FORCE for the adopted agent's counter (Agent14), as part of the adopted state; any wider use (another counter, window or agent) is a new decision. The classification rule itself is unchanged elsewhere. A composition rule, not a relaxation, was signed in the same H14 format for H20 Stage C only (decision:release-value-gated-stage-c: the H25 release not applied while the held odour's own value is negative); it adopts nothing, and decision:release-negative-scope-on-hold stays in force outside Stage C. For H20 Stage C Run 2 that rule was re-signed in form, content unchanged, scope Stage C Run 1 and Run 2 (decision:release-value-gated-stage-c-run2), and one bar was re-signed in H14 format for Run 2 only: M4(c)'s readability read on G3+ with G3+ at least 50 (decision:h20-stage-c-m4c-readability-resigned-run2); the stored Run 1 criteria are not edited. On 2026-09-25 Stage C Run 2 was closed as shown (decision:h20-stage-c-run2-closed) and the (N2) rule was ADOPTED as the adopted agent's release rule (decision:n2-release-adopted-within-tested-conditions), which supersedes decision:release-negative-scope-on-hold; the Run 2-only M4(c) re-sign lapsed with the closure. For H27 two records were signed in the same format on 2026-09-25, H27 only: an evidence-release composition rule at N channels (decision:evidence-release-composition-rule-h27) and an in-form re-sign of the H26 relaxation for a third counter (decision:classification-rule-relaxed-presence-prior-h27); H27 stopped at its bench (record:h27-bench-result), and both stay on record, scoped to H27. H27 was closed on 2026-09-26 (decision:h27-closed): both lapse with the closure and stay on record; the composition rule stays available as a recorded composition for any future N = 3 design, by a new decision (a re-sign in form). For H28 three records were signed on 2026-09-26, H28 only (decision:h28-open): a new H28-scoped relaxation (per odour the step of its second most recent whiff and of its last burst, read only to rank odours tied at the top value; decision:classification-rule-relaxed-burst-record-h28) and the two H27 records re-signed in form (decision:evidence-release-composition-rule-h28, decision:classification-rule-relaxed-presence-prior-h28); H28 was evaluated once and SHOWN (record:h28-result); the three stay scoped to H28 until the owner's closure decides otherwise.
+  (decision:classification-rule-relaxed-presence-prior-h26); H26 was closed as shown and its counter adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25), so this relaxation STAYS IN FORCE for the adopted agent's counter (Agent14), as part of the adopted state; any wider use (another counter, window or agent) is a new decision. The classification rule itself is unchanged elsewhere. A composition rule, not a relaxation, was signed in the same H14 format for H20 Stage C only (decision:release-value-gated-stage-c: the H25 release not applied while the held odour's own value is negative); it adopts nothing, and decision:release-negative-scope-on-hold stays in force outside Stage C. For H20 Stage C Run 2 that rule was re-signed in form, content unchanged, scope Stage C Run 1 and Run 2 (decision:release-value-gated-stage-c-run2), and one bar was re-signed in H14 format for Run 2 only: M4(c)'s readability read on G3+ with G3+ at least 50 (decision:h20-stage-c-m4c-readability-resigned-run2); the stored Run 1 criteria are not edited. On 2026-09-25 Stage C Run 2 was closed as shown (decision:h20-stage-c-run2-closed) and the (N2) rule was ADOPTED as the adopted agent's release rule (decision:n2-release-adopted-within-tested-conditions), which supersedes decision:release-negative-scope-on-hold; the Run 2-only M4(c) re-sign lapsed with the closure. For H27 two records were signed in the same format on 2026-09-25, H27 only: an evidence-release composition rule at N channels (decision:evidence-release-composition-rule-h27) and an in-form re-sign of the H26 relaxation for a third counter (decision:classification-rule-relaxed-presence-prior-h27); H27 stopped at its bench (record:h27-bench-result), and both stay on record, scoped to H27. H27 was closed on 2026-09-26 (decision:h27-closed): both lapse with the closure and stay on record; the composition rule stays available as a recorded composition for any future N = 3 design, by a new decision (a re-sign in form). For H28 three records were signed on 2026-09-26, H28 only (decision:h28-open): a new H28-scoped relaxation (per odour the step of its second most recent whiff and of its last burst, read only to rank odours tied at the top value; decision:classification-rule-relaxed-burst-record-h28) and the two H27 records re-signed in form (decision:evidence-release-composition-rule-h28, decision:classification-rule-relaxed-presence-prior-h28); H28 was evaluated once and SHOWN (record:h28-result); the three stay scoped to H28 until the owner's closure decides otherwise. For H29 one record was signed on 2026-09-26, H29 only (decision:h29-open): the H26 presence relaxation re-signed in H14 format with the window 200 and the start 140, the prior unchanged (decision:classification-rule-relaxed-presence-prior-h29); the adopted counter (300, start 240) is unchanged; H29 was evaluated once and SHOWN (record:h29-result); the record stays scoped to H29 until the owner's closure decides otherwise.
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
   floor in the window where the gate is read. H15's probes spanned 0.3 to 600 and every agent
@@ -1920,15 +1958,14 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
   400 rows (against 29 without D; H27's W1D bars against D off all fail); T3aD 0.220 against 13.193 (a loss with a
   distractor not shown); M6 +0.0000 (the hold's benefit under a distractor unmeasured). Alternatives: close as SHOWN
   without adoption; a follow-up on the residual W1D loss (not attributed to a path), not recommended before the closure.
-- **H29 after the T3b diagnosis** (decision:h29-open-design; design doc dd00688c21f09b13e; concept:h29-loss-after-tracking).
-  The owner accepted section 12 point 1 (decision:t3b-diagnosis); the diagnosis is done (report
-  experiments/h29/t3b_diagnosis.md, doc d8a7e386faf08075d; record:t3b-diagnosis-result). The six registered readings:
-  F1 MET (twin identity 400/400), F2 NOT MET (0.990 upwind at L + 300), F3 NOT MET (0.478 recover within 200 steps),
-  F4 INCONCLUSIVE (0.917 within 200, median 153), F5 MET (Agent17 T1 DP +0.0000; T3b gain +2.460 [+1.883, +3.055]),
-  F6 INCONCLUSIVE (best 0.652 vs 0.169). The owner decides: (i) open H29 on design v1 (window 200; its condition, F5
-  MET with a positive gain, is met); (ii) a different H29 design (its condition, F2 NOT MET, is met: the window works
-  only where it falls inside a cast pass, 200 against 250); (iii) close T3b as a limit (its condition is not met).
-  Nothing adopted; H29 not opened.
+- **Closure and adoption of H29** (decision:h29-open; record:h29-result; report doc d92ffd006bdbcdc28,
+  experiments/h29/h29_report.md; concept:h29-loss-after-tracking). H29 was evaluated once and is SHOWN under its
+  registered criteria (M1, M2(b) -0.0075 [-0.0200, +0.0025], M2(c), M3, M4, M6, M8(a) 376/376, M8(b) +1.9525 [+1.4549,
+  +2.4501] all PASS). The owner decides whether to close H29 as SHOWN and whether to adopt the window of 200 (a trade:
+  the shorter window also acts in T1 silences, 19 of 400 rows here); limits to state with any adoption: the stated
+  cast-phase sensitivity (window 250 behaves like 300; other geometries and cast parameters untested), the reported t0
+  condition (gain +0.70 at t0 100 to +3.82 at t0 200), learning, negative values beyond T4, three channels and D. No
+  recommendation is recorded here; nothing is adopted until the owner decides.
 
 ## Queued candidates, none started
 
@@ -1946,7 +1983,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711); closure awaiting the owner.** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design; design v1 DRAFT doc dd00688c21f09b13e); in design; the measurement-only T3b diagnosis done (decision:t3b-diagnosis; record:t3b-diagnosis-result), the owner decides between (i) opening H29 on design v1 and (ii) a different design.** The rest, ranked in decision:h28-open-design: (3) H12; (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, T3b and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711); closure awaiting the owner.** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design), measured first by the T3b diagnosis (decision:t3b-diagnosis; record:t3b-diagnosis-result), opened on design v2 FINAL (decision:h29-open; doc d724287aa203d256d), evaluated once and SHOWN under its registered criteria (record:h29-result; report doc d92ffd006bdbcdc28); closure awaiting the owner. Next by decision:h29-open point 9: H12, if the owner's closure resolves T3b.** The rest, ranked in decision:h28-open-design: (3) H12; (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, T3b and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the release's scope (non-negative held values) and stays in force at negative held values under N2.
 

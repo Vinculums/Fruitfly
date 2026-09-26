@@ -1,0 +1,90 @@
+== H29, DEV. design H29 v2 FINAL doc d724287aa203d256d hash 552e2ee17df346a4e8eb9fd06525eabd51db2a8d88040d6e44d632700fa56aa7; G 2, gate on; P 60; Agent17 N_hi 200, Agent14N2 N_hi 300; t0 150 (reported t0 (100, 200)); world seed 9903, agent seed 9913; 400 rows x 600 steps; geometry C0; bootstrap seed 20261143; operation check only (not a verdict) ==
+   ph35.py sha256 e4a3ceda25628e7026a64861ad51f84974f1e2a720794276df706d006a52b1b1; design H29 v2 FINAL doc d724287aa203d256d hash 552e2ee17df346a4e8eb9fd06525eabd51db2a8d88040d6e44d632700fa56aa7
+   imported: ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23; ph12.py e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7; ph15.py cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc; ph16.py 33d5fdb25959fb7f9cbe465ca25a8973776b39f1e5170d645cb53bc8d906a2c2; ph21.py 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1; ph22.py 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; ph25.py 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; ph25b.py ad12a9122c171dd32c3fceac946add9d0eb0380e885e0f0872dd97ccd59eeaf6; ph28.py 64ce7d0ce123f912aa675e86627d5b6b0ae3d89976b093666316e6b78441e7aa; ph30.py 98822834043de5f31615e73cd4a83444adcef2f1d5e56478356d70ca905059bd; ph34b.py 1de70167c1bddd07a559c73033f3686b5ff71db3d2c8dd662dac808407f3bf25
+   ph28.py, ph30.py, ph34b.py sha256 equal to the record: {'ph28': True, 'ph30': True, 'ph34b': True}; prefixes of ph11, ph12, ph22, ph23, ph24, ph25b equal to design v2's: True; experiments/h29/h29_design_v2.md sha256 equal to the design's hash: True
+   seeds: dev (9903, 9913), eval (2111, 2221), bench (20261141, 20261142), bootstrap 20261143; demo seeds (5, 6) used deliberately for smoke checks only, NOT in the seed scan; statistics 95 percent (Z 1.959964), 5000 resamples; P 60; Agent17 N_hi 200 (counter start 140); Agent14N2 N_hi 300 (start 240); t0 150; reported t0 (100, 200); 400 rows x 600 steps
+   decisions: decision:h29-open; decision:classification-rule-relaxed-presence-prior-h29 (signed before this file); seed-scan exclusion pair by reference: experiments/h20/ph31_eval.txt with decision:seed-scan-exclusion-ph31-eval
+   readings (file header R1-R13): R1 Agent14N2 via ph34b's hook, Agent17 (a body-less subclass) via this file's, (P, N_hi) from ph28.pn: (60, 300) and (60, 200); R2 'every field' = every recorded per-step array, 'behavioural' = ph28.BEHK, (I2)/(I3) on ph28.ALLK + the valued counter exactly 100 lower; R3 exposure (x) from Agent14N2's T1 run: valued counter in [200, 300) after a valued whiff, valued not held, a neutral whiff; departing rows == (x) rows, first departure == first exposure; R4 L = last valued whiff before t0, M8(a) = ph28.lost300(W 200) on eligible rows, M8(b) paired over 400 rows, PASS iff lower > 0, FAIL iff upper <= 0; R5 (h) b = discordant fraction of V, ph28.pp_dp, k = out of V - into V; R6 (hB) ph23.pass_prob(D17 - D14N2, 0); R7 M1 neutral arm = Agent17 at 0/0; R8 M3 on the task seeds incl. (I1) in T1 and T3b and (I6) at 0/0, +1/-1, +1/+1; R9 reported t0 100, 200 via ph24.run's t0 (dev and eval only); R10 (t) re-scored from Agent14N2's run, positions by ph34b.geo; R11 dev/eval re-run the bench for M4; R12 W1, T3a, T3b reported quantities as H26's; R13 seed scan, 18 numbers, exclusions by name, the ph31_eval pair by reference
+   seed self-check: the 18 numbers in no other file (235 scanned): True
+   amendments: none
+   rows share no state: one generator per world and one per agent population, fixed-size draws consumed in row order every step
+
+== T1, the H21 choice task (+1/0; M1 arms as H26) ==
+   [T1 Agent17 Agent17] V 379 N 19 tie 2; P(V) 379/400 = 0.948 [0.921, 0.965]; lost rows 3; wall contacts per row 0.000
+   [T1 Agent14N2 Agent14N2] V 386 N 13 tie 1; P(V) 386/400 = 0.965 [0.942, 0.979]; lost rows 3; wall contacts per row 0.000
+   [T1 Agent10g Agent10g] V 243 N 149 tie 8; P(V) 243/400 = 0.608 [0.559, 0.654]; lost rows 2; wall contacts per row 0.000
+   [T1 pathway-off Agent8] V 220 N 174 tie 6; P(V) 220/400 = 0.550 [0.501, 0.598]; lost rows 10; wall contacts per row 0.000
+   [T1 known-answer Agent5] V 379 N 17 tie 4; P(V) 379/400 = 0.948 [0.921, 0.965]; lost rows 4; wall contacts per row 0.000
+   [T1 neutral Agent17] V 216 N 175 tie 9; P(V) 216/400 = 0.540 [0.491, 0.588]; lost rows 1; wall contacts per row 0.000
+   [T1 neutral-ref Agent14N2] V 216 N 175 tie 9; P(V) 216/400 = 0.540 [0.491, 0.588]; lost rows 1; wall contacts per row 0.000
+   where the value goes: into V 0, out of V 7; exposure set (x) 29 rows (first exposure step 287/421/543), departing rows 29, departing exactly at their first exposure step 29; H26's at-risk rows (m) 17 (literal 120)
+
+== W1, the absent-odour world (identity world; H26's M5 numbers REPORTED) ==
+   [W1 Agent17 Agent17] dwell at the present source mean 23.590 (quartiles 19.0/25.0/30.0); reach 387/400; lost rows 22; wall contacts per row 0.000; first surge step 114/130/153 (rows 392); draws == twin True
+   [W1 Agent14N2 Agent14N2] dwell at the present source mean 23.590 (quartiles 19.0/25.0/30.0); reach 387/400; lost rows 22; wall contacts per row 0.000; first surge step 114/130/153 (rows 392); draws == twin True
+   [W1 Agent6 Agent6] dwell at the present source mean 24.613 (quartiles 21.0/25.0/30.0); reach 391/400; lost rows 12; wall contacts per row 0.000; first surge step 5/16/113 (rows 398); draws == twin True
+
+== T3a, the constructed loss (identity world; H26's M7 numbers REPORTED) ==
+   [T3a Agent17 Agent17] neutral dwell 100-599 mean 14.182 (quartiles 7.0/15.0/22.0); valued hold end step 47/47/47 (rows 400); first neutral surge 177/200/213 (rows 330); first within 3.0 of the neutral source 203/240/309 (rows 326)
+   [T3a Agent14N2 Agent14N2] neutral dwell 100-599 mean 14.182 (quartiles 7.0/15.0/22.0); valued hold end step 47/47/47 (rows 400); first neutral surge 177/200/213 (rows 330); first within 3.0 of the neutral source 203/240/309 (rows 326)
+   [T3a floor Agent10] neutral dwell 100-599 mean 0.708 (quartiles 0.0/0.0/0.0); valued hold end step 47/47/47 (rows 400); first neutral surge n/a (rows 0); first within 3.0 of the neutral source 465/510/534 (rows 55)
+   [T3a ceiling Agent5] neutral dwell 100-599 mean 14.375 (quartiles 7.0/16.0/22.0)
+
+== T3b, the Lost world (mask from t0 150; registered, M8) ==
+   [T3b Agent17 Agent17] neutral dwell 400-599 mean 6.473 (quartiles 0.0/5.5/10.0); eligible 383/400; L 37/41/121; holding valued at t0 176, ended 176 at origin + 48/48/48; first-neutral-surge delay after L 214/234/241 (none 93); post-whiff window exact at L + 200 383/383
+   [T3b Agent14N2 Agent14N2] neutral dwell 400-599 mean 4.327 (quartiles 0.0/1.0/9.0); eligible 383/400; L 37/41/121; holding valued at t0 176, ended 176 at origin + 48/48/48; first-neutral-surge delay after L 472/476/479 (none 184); post-whiff window exact at L + 300 383/383
+   [T3b Agent11 (N 60) Agent11] neutral dwell 400-599 mean 5.475 (quartiles 0.0/5.0/9.0); eligible 383/400; L 37/41/121; holding valued at t0 176, ended 176 at origin + 48/48/48; first-neutral-surge delay after L 173/181/210 (none 89); post-whiff window exact at L + 60 383/383
+   [T3b Agent10 Agent10] neutral dwell 400-599 mean 1.830 (quartiles 0.0/0.0/1.2); eligible 390/400; L 37/41/121; holding valued at t0 181, ended 181 at origin + 48/48/48; first-neutral-surge delay after L n/a (none 390)
+   [T3b Agent10g Agent10g] neutral dwell 400-599 mean 6.850 (quartiles 3.0/7.0/10.0); eligible 273/400; L 36/38/114; holding valued at t0 72, ended 72 at origin + 48/48/48; first-neutral-surge delay after L 172/176/187 (none 45)
+   [T3b ceiling Agent5] neutral dwell 400-599 mean 5.452 (quartiles 1.0/5.0/8.0); eligible 389/400; L 36/41/122; the held odour fixed (valued, then neutral from t0); first-neutral-surge delay after L 173/182/210 (none 77)
+
+== T4, +1/-1 (World7; REPORTED) ==
+   [T4 Agent17 Agent17] V 371 N 15 tie 14; P(V) 0.927 [0.898, 0.949]; lost rows 29; wall contacts per row 0.350
+   [T4 Agent14N2 Agent14N2] V 371 N 15 tie 14; P(V) 0.927 [0.898, 0.949]; lost rows 29; wall contacts per row 0.350
+
+== criteria (design v2 FINAL section 7; 95 percent, one evaluation, no extension; a multi-part criterion PASS if every part passes, FAIL if any fails, else INCONCLUSIVE; the unrounded bound decides) ==
+   M1(a) neutral: ties 9/400 = 0.022  at most 0.20 -> PASS
+   M1(a) pathway-off: ties 6/400 = 0.015  at most 0.20 -> PASS
+   M1(a) known-answer: ties 4/400 = 0.010  at most 0.20 -> PASS
+   M1(b) neutral (Agent17 at 0/0), P(+y source majority | chose): P k 177 n 391  value 0.453  95% interval [0.404, 0.502]  within [0.35, 0.65] -> PASS
+   M1(c) floor: pathway-off, P(V | chose): P k 220 n 394  value 0.558  95% interval [0.509, 0.607]  within [0.35, 0.65] -> PASS
+   M1(d) ceiling: known-answer, P(V) over all rows: P k 379 n 400  value 0.948  95% interval [0.921, 0.965]  at least 0.85 -> PASS
+   M1 -> PASS
+   section 8: ties in the arms under test Agent17 0.005, Agent14N2 0.003 (unreadable above 0.20)
+   M2(a) Agent17 P(V) (REPORTED against 0.88): 379/400 = 0.948 [0.921, 0.965]; lower bound >= 0.88 (reported, not a criterion)
+   M2(b) DP = P(V) Agent17 - Agent14N2, same rows: DP n 400  value -0.017  95% interval [-0.030, -0.005]  at least -0.05 -> PASS
+   M2(c) DP = P(V) Agent17 - Agent10g, same rows: DP n 400  value 0.340  95% interval [0.290, 0.392]  at least 0.05 -> PASS
+   M2 -> PASS (parts (b), (c))
+      M2(b) unrounded: -0.0175 [-0.0300, -0.0050]; into V 0, out of V 7, k = 7
+   M3 identities: (I1) Agent17 at N_hi 300 == Agent14N2 every field, T1 True; (I1) T3b True; (I2) W1 == Agent14N2 on ALLK, valued counter 100 lower True; (I3) T3a True; (I4) T1 departing rows == exposure rows, departing at the first exposure step True; (I5) T3b True; (I6) 0/0 True; (I6) +1/-1 True; (I6) +1/+1 True; (I7) held-only presence 0 (Agent17 T1, T3b) True; masked draws == World7 twin (W1, T3a, T3b) True; T3a construction, every arm True; T3b == T1 on steps 0-149 (Agent17, Agent14N2, Agent10g) True; imported files as on record True -> PASS
+      (I4) counts: (x) 29 rows, departing 29, at the first exposure step 29; (I5) rows 400/400, departing exactly at the first neutral whiff at or after L + 200 267
+      (x) the exposure set of (I4) (reading R3), Agent14N2's T1 run: 16 rows; first exposure step 285/414/457; silence age there (steps since the last valued whiff) 209/227/253; cast phase there (since mod 2 SAT) 202/225/234; rows departing from Agent14N2 on the behavioural fields 16, of them in (x) 16, departing exactly at their first exposure step 16; departing rows == (x) rows and first departure == first exposure: True
+      (b) counter exact in every schedule (400 rows x 400 steps): 400/400 = 1.000 [0.990, 1.000] (bar lower bound >= 0.95) -> PASS; (I7) held-only presence (an odour held with its counter >= 200): stubs 0, Agent17 T1 and T3b runs 0 (row, step), expected 0 -> True
+      (f) T3b post-whiff window exact at L + 200, Agent17, eligible rows (reading R4): 380/380 = 1.000 [0.990, 1.000] (bar lower bound >= 0.95) -> PASS; parts (no nav on a neutral-only whiff on L+1..L+199, first neutral surge after L = first neutral whiff at or after L+200, valued not held from L+60): 380/380/380; L 37/42/122; first-neutral-surge delay after L 212/233/242 (none 89)
+      (f) T3a M7(a) exact, Agent17 (valued hold ends at 47 with both units <= 1.0, not held from 47, no nav on 0-58, first neutral surge = first neutral whiff at or after 59): 400/400 = 1.000 [0.990, 1.000] (bar lower bound >= 0.95) -> PASS; construction True
+      (h) STOP RULE (design v2 FINAL section 4, section 12 point 7): M2(b) pass probability 1.0000 >= 0.5 -> continue
+      (hB) STOP RULE (design v2 FINAL section 4, section 12 point 7): M8(b) pass probability 1.0000 >= 0.5 -> continue
+      == M4: identities True; failed []; implementation bars (lower bounds >= 0.95) True {'b counter': 0.9905, 'f window T3b (L + 200)': 0.99, 'f T3a M7(a)': 0.9905}; imported files as on record True -> M4 PASS: the tasks may be run; (m), (x), (t) printed first; (h) stop rule continue; (hB) stop rule continue ==
+   M4 mechanism bench, re-run here with the bench seeds (reading R11) -> PASS; its M4 line equal to ph35_bench.txt's: True
+   M6(a) T1 no whiff of either plume in the last third, Agent17 - Agent14N2: DP n 400  value 0.000  95% interval [0.000, 0.000]  at most 0.05 -> PASS
+   M6(b) T1 Agent17, wall contacts per row: mean 0.000  at most 0.10 -> PASS
+   M6 -> PASS
+   M8(a) T3b Agent17, the window exact at L + 200 (eligible rows): P k 383 n 383  value 1.000  95% interval [0.990, 1.000]  at least 0.95 -> PASS
+      M8(a) parts: no nav on a neutral-only whiff on L+1..L+199 383, first neutral surge = first neutral whiff at or after L+200 383, valued not held from L+60 383 of 383
+   M8(b) paired T3b neutral dwell 400-599 Agent17 - Agent14N2 (400 rows, reading R4): +2.1450 [+1.6424, +2.6401] (sd 5.1185; rows gaining 180, losing 68, equal 152); lower bound > 0 -> PASS
+   M8 -> PASS
+      reported (no bar): R_b = (D_17 - D_14N2) / (D_60 - D_14N2) = 1.8693 [1.3721, 2.9705] (D_60 5.475); H25's R (floor Agent10 1.830, ceiling Agent5 valued then neutral 5.452, span 3.622 [3.103, 4.147]): Agent17 1.2816 [1.1129, 1.4823], Agent14N2 0.6894 [0.5666, 0.8355]
+   REPORTED W1 (H26's M5 quantities; identity world): Agent17 reach 387/400 = 0.968 [0.945, 0.981]; dwell 23.590 vs Agent14N2 23.590 vs Agent6 24.613, paired Agent17 - Agent6 -1.023 [-1.955, -0.123]; wall contacts per row 0.000; lost rows Agent17 22, Agent14N2 22, Agent6 12; first surge == first neutral whiff at or after 59 400/400
+   REPORTED T3a (H26's M7 quantities; identity world): M7(a) exact Agent17 400/400; R = 0.9859 [0.9236, 1.0524] (floor Agent10 0.708, ceiling 14.375, span 13.668 [12.717, 14.555], readable at the bound 5.0); Agent17 == Agent14N2 in dwell row for row True
+   REPORTED M9 T4 +1/-1 [Agent17]: V 371 N 15 tie 14; P(V) 0.927 [0.898, 0.949]; lost rows 29; wall contacts per row 0.350
+   REPORTED M9 T4 +1/-1 [Agent14N2]: V 371 N 15 tie 14; P(V) 0.927 [0.898, 0.949]; lost rows 29; wall contacts per row 0.350
+
+== REPORTED: the phase-sensitivity condition (design v2 section 5; T3b at t0 (100, 200); no bar, no stop rule, outside the verdict) ==
+   [t0 100] eligible rows 276/400; L 14/36/38 (min 0, max 48); t0 - L 62/64/86; rows whose L equals the row's L at t0 150: 206
+      neutral dwell 400-599: Agent17 8.165 (quartiles 5.0/8.0/11.0), Agent14N2 7.308 (5.0/9.0/10.0); paired Agent17 - Agent14N2 +0.8575 [+0.3874, +1.3350] (sd 4.8252); rows gaining 109, losing 91, equal 200
+      window exact: Agent17 at L + 200 276/276, Agent14N2 at L + 300 276/276; first neutral surge after L: Agent17 235/241/267 (none 14), Agent14N2 454/474/478 (none 26); (I5) at t0 100: True (== T1 before t0 True, rows 400/400, draws True)
+   [t0 200] eligible rows 384/400; L 117/132/189 (min 2, max 199); t0 - L 11/68/83; rows whose L equals the row's L at t0 150: 217
+      neutral dwell 400-599: Agent17 4.890 (quartiles 0.0/4.0/8.2), Agent14N2 1.353 (0.0/0.0/0.0); paired Agent17 - Agent14N2 +3.5375 [+3.0875, +3.9925] (sd 4.5808); rows gaining 229, losing 17, equal 154
+      window exact: Agent17 at L + 200 384/384, Agent14N2 at L + 300 384/384; first neutral surge after L: Agent17 213/231/238 (none 115), Agent14N2 461/472/477 (none 334); (I5) at t0 200: True (== T1 before t0 True, rows 400/400, draws True)
+
+== H29 ==  M1 PASS  M2 PASS  M3 PASS  M4 PASS  M6 PASS  M8 PASS  (M2(a), M9 T4, W1, T3a, R_b, R and the t0 condition reported) -> PASS: with the presence window after a whiff shortened from 300 to 200 steps and the 59-step prior unchanged, the adopted agent keeps its choice in the H21 task within 0.05 of itself with the 300-step window, is unchanged in the absent-odour world and after a loss from step 0, and after the valued odour is lost following tracking opens the filter exactly 200 steps after the last valued whiff and dwells longer at the neutral source late in the run than the adopted agent on the same rows [development run: an operation check, not a verdict]
