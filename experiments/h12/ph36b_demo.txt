@@ -1,0 +1,23 @@
+== H12 Stage 2 demo self-checks. design H12 v2 FINAL doc d27ec95924fe49be1 hash 3d3aab80cce766f4b3201c951970f4e118ddcd9506633e95a265d6a7941495f1 ==
+   smoke runs on the unregistered seeds (5, 6) only; no registered seed is used and no number here is read for any criterion
+   ph36b.py sha256 cfb9a26a45bfd5ef9e5d781d73a772e3129db24e633c66eeb89c2d61556f1cef; design H12 v2 FINAL doc d27ec95924fe49be1 hash 3d3aab80cce766f4b3201c951970f4e118ddcd9506633e95a265d6a7941495f1; tau_ext* 5000 (record:h12-bench-result); composition decision:h12-stage2-composition
+   imported: ph4.py d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a; ph8.py ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e; ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23; ph15.py cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc; ph16.py 33d5fdb25959fb7f9cbe465ca25a8973776b39f1e5170d645cb53bc8d906a2c2; ph22.py 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; ph25.py 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; ph28.py 64ce7d0ce123f912aa675e86627d5b6b0ae3d89976b093666316e6b78441e7aa; ph29.py 122c19250ea5d67d0dbd997fa20493c63c6c1101faff83d3cc6b3e907d4c799c; ph30.py 98822834043de5f31615e73cd4a83444adcef2f1d5e56478356d70ca905059bd; ph35.py e4a3ceda25628e7026a64861ad51f84974f1e2a720794276df706d006a52b1b1; ph36.py b83bd9e9d1bd9b191d771779b1cd907d9eb057797105c05e82acb15d2a99ca71
+   sha256 equal to the record: ph36.py True; {'ph29': True, 'ph30': True, 'ph35': True, 'ph4': True, 'ph8': True, 'ph11': True}; design file True
+   seeds: bench (20261151, 20261152), dev (9911, 9921), eval (2129, 2243); derived world + 10000, agent + 20000; bootstrap 20261153 (95 percent, Z 1.959964); c 0.5; 400 rows x 4200 steps; phases P1 0-599, P2 600-2399, P3 2400-3599 (V masked), P4 3600-4199; BARS {'K1': None}
+ok 1  ph36.py, ph29.py, ph30.py, ph35.py, ph4.py, ph8.py, ph11.py sha256 and the design file hash equal the record
+ok 2  seed scan clean (18 numbers, 243 files)
+ok 3  the harness with supplied +1/0 and the mask off (600 steps) == ph35.run('T1', Agent17, (1, 0)) on every recorded field: the adopted agent and world, bitwise
+ok 4  replacing the module by MB5 with every tau None and parallel False (== ph8.MB4) leaves the learning arm bitwise unchanged (1800 steps)
+ok 5  pre-acquisition off-world (ph29.train): V's value exactly 1.0 at step 0 in every row
+   (I5) H12 == gate only on every recorded field on steps 0..FU per row: 40/40 rows -> True; FU equal in the two arms: True
+   K2(c) ceiling with the H12 module == ceiling with the adopted module, every field, every step: True; module calls 0 in every learning-off arm: True
+   supplied trajectories == their learning arms on every field and step: H12 True, gate only True
+   H11 full == gate only on every field and step: 8/40 rows; departing rows 32 (first departures at steps [601, 601, 1385, 1401, 1429, 1468, 1511, 1513, 1513, 1514]...; |V value difference| at the departure: max 1.110e-16); max |V value difference| over the run 2.078e-01 (reported, not in the verdict)
+   learning arms == ceiling on every field before and at FU (V exactly 1.0 until the first unreinforced step): H12 True, gate only True
+   sham: V exactly 0.0 on every step and row: True; sham module calls 4200
+   every arm: the mask consumed no draw (draws_equal, rng_equal): True
+ok 6  (I5), K2(c), the supplied-trajectory identities, the draw checks and the sham's exact 0 hold on the smoke seeds (40 rows x 4200 steps)
+ok 7  the measures compute (smoke, not read): crossing rows 33, leave rows 19, re-form rows 4; learning calls 4200 == steps
+ok 8  a run in a worker process == the same run sequentially, bitwise (reading R11)
+ok 9  the bar rule rounds 0.5 x (kc - kf)/400 to 0.01 half up exactly (reading R7)
+ok    all demo self-checks passed

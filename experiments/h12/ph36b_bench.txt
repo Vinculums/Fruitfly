@@ -1,0 +1,207 @@
+== H12 Stage 2 bench (design v2 FINAL section 5.5). design H12 v2 FINAL doc d27ec95924fe49be1 hash 3d3aab80cce766f4b3201c951970f4e118ddcd9506633e95a265d6a7941495f1; world seed 20261151, agent seed 20261152 ==
+   ph36b.py sha256 cfb9a26a45bfd5ef9e5d781d73a772e3129db24e633c66eeb89c2d61556f1cef; design H12 v2 FINAL doc d27ec95924fe49be1 hash 3d3aab80cce766f4b3201c951970f4e118ddcd9506633e95a265d6a7941495f1; tau_ext* 5000 (record:h12-bench-result); composition decision:h12-stage2-composition
+   imported: ph4.py d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a; ph8.py ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e; ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23; ph15.py cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc; ph16.py 33d5fdb25959fb7f9cbe465ca25a8973776b39f1e5170d645cb53bc8d906a2c2; ph22.py 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; ph25.py 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; ph28.py 64ce7d0ce123f912aa675e86627d5b6b0ae3d89976b093666316e6b78441e7aa; ph29.py 122c19250ea5d67d0dbd997fa20493c63c6c1101faff83d3cc6b3e907d4c799c; ph30.py 98822834043de5f31615e73cd4a83444adcef2f1d5e56478356d70ca905059bd; ph35.py e4a3ceda25628e7026a64861ad51f84974f1e2a720794276df706d006a52b1b1; ph36.py b83bd9e9d1bd9b191d771779b1cd907d9eb057797105c05e82acb15d2a99ca71
+   sha256 equal to the record: ph36.py True; {'ph29': True, 'ph30': True, 'ph35': True, 'ph4': True, 'ph8': True, 'ph11': True}; design file True
+   seeds: bench (20261151, 20261152), dev (9911, 9921), eval (2129, 2243); derived world + 10000, agent + 20000; bootstrap 20261153 (95 percent, Z 1.959964); c 0.5; 400 rows x 4200 steps; phases P1 0-599, P2 600-2399, P3 2400-3599 (V masked), P4 3600-4199; BARS {'K1': None}
+   Readings where the design is silent, chosen so that the identities stay exact (printed again in every output header):
+    (R1) The harness is ph24.run's loop (ph24.py:113-149) for the T3b world (ph23.Lost with the valued column masked while `on`, the
+         unmasked World7 twin checking the draws), with `on` = 2400 <= t < 3600, plus: the per-step value write (the mirror in the
+         learning arms, the supplied schedule otherwise) after the step's sense and wind draws and before act (ph30.py reading R1); the
+         module step after the move (ph15.simulate's order); and the records below. The record hook chain ph24.record (ph29 -> ph25 ->
+         ph24) is called unchanged; ph29's frozen-module check stays inert because no agent carries its training marker.
+    (R2) Construction order: world, mask, twin, placeholder values (V +1, N c), agent (ph24.make inside ph28.pn(60, 200)), module
+         replaced (H12: MB5; H11 full: ph8.MB4(parallel True)), off-world training (ph29.train, trained or sham group, neutral-first as
+         Stage B), the step-0 values written, the cast draw (ph16.cast_draw(agent seed)). The module's generator is the agent's own
+         module generator (never drawn from); codes are the agent's own (a.codes, ph11.py:116).
+    (R3) 'Every recorded field' (I5, the supplied-trajectory identities, K2(c), H11 full): ph28.ALLK (ph24's fields + SIL, TO, EV, W,
+         NAV6, NAV8, DIFF, DIFF8, PRES) plus P2, C2 (ph25's record), AT2, C (contacts) and KV (the V value written on the step), compared
+         per (step, row). (I5) on steps 0..FU inclusive per row, FU = the row's first step at V's source without reinforcement in the H12
+         arm (the module update of step FU happens after that step's record); rows with none: every step.
+    (R4) Dwell majority per block: V dwell > N dwell (ph18.majority's rule on the block); ties = equal dwell (both 0 included).
+    (R5) Crossing rows: KV < c on some step of P2 (600-2399). Time to leave: the first t in 600..2399 with V outside the top set on each
+         of the steps t..t+199 (top set recomputed from the recorded presence P2 and the written values: V present, v_V >= 0 and
+         v_V >= the value of every present odour); -1 if none. Time to re-form: first step at V's source at or after 3600, minus 3600;
+         and the first 100-step sub-block of P4 with V dwell > N dwell (index 0-5); -1 if none.
+    (R6) Value trajectories at 599, 1199, ..., 4199 after the step's update: on V's code, the behavioural valence, out0 - out1,
+         out2 - out3, out1 and out0 (mb.out, ph4.py:37-39); learning-off arms print none.
+    (R7) bar_B = 0.5 x (P4 P(V) ceiling - P4 P(V) floor) on the bench, rounded to 0.01 half up, computed exactly from the counts
+         (floor(dk / 8 + 1/2) / 100 with dk the difference of the two V counts over 400 rows).
+    (R8) (hS): ph28.pp_dp(DP, b, bar_B, most=False) (sd = sqrt(b - DP^2), se = sd / 20, Phi((DP - bar_B)/se - 1.96); sd 0: the point).
+    (R9) K1: ph15.boot('DP', H12 P4 V indicator, gate-only P4 V indicator), 95 percent, 5000 resamples, seed 20261153 (set through
+         ph30.set_stats after every import), ph15.verdict 'at least' bar_B.
+    (R10) K2(c): the ceiling arm is run a second time with the H12 module constructed (learning off) and compared on every recorded
+         field; the module call count is 0 in every learning-off arm.
+    (R11) Arms run in parallel processes (fork); each builds its own world and agent generators from the seed pair; the two
+         supplied-trajectory arms run after the learning arms whose written values they replay. The demo checks parallel == sequential.
+    (R12) dev and eval refuse to run while BARS['K1'] is unset; the bench prints the K1 reference numbers and (hS) and runs no task seed.
+    (R13) Seed scan: ph36.seeds_unused() (ph36's reading R13; ph36b.py and ph36b_*.txt are excluded by name there). The demo's smoke
+         seeds (5, 6) are unregistered and are used for smoke checks only.
+   seed scan: 18 numbers, 243 files, hits: none
+
+   [H12] draws_equal True, rng_equal True, module calls 4200
+      block  P(V)   P(N)   ties   mean dwell V/N   median dwell V/N
+      b0 P1  0.917  0.080  0.003    23.98 /   5.59     24.5 /   4.5
+      b1 P2  0.915  0.083  0.003    21.72 /   2.46     23.0 /   0.0
+      b2 P2  0.873  0.113  0.015    20.25 /   2.85     21.5 /   0.0
+      b3 P2  0.787  0.200  0.013    19.35 /   5.05     21.0 /   0.0
+      b4 P3  0.345  0.625  0.030     9.89 /  14.11      9.0 /  16.0
+      b5 P3  0.150  0.703  0.147     1.69 /  16.86      0.0 /  19.0
+      b6 P4  0.083  0.627  0.290     2.32 /  15.86      0.0 /  19.0
+      crossing rows (V below c in P2): 312/400; unreadable rows (never below c in P2): 88
+      time to leave (first t in P2 with V outside the top set for 200 steps): rows 159, median t 1630 [636, 2131]
+      time to re-form: first arrival at V after 3600 in 55 rows, median 279 [160, 458] steps; first 100-step P4 sub-block with V majority in 55 rows, median index 2 [1, 4]
+      P3 contacts at V's source: 4631 steps in 267 rows; unreinforced at-source steps over the run: 29158; rows with one: 382
+      V value written at step 0: min 1.000000 max 1.000000; at 2400 (start of P3): 0.454 [0.400, 0.514]
+      value trajectory on V's code (median [quartiles]; after the step's update):
+        t  599: v 1.000 [1.000, 1.000]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 1199: v 0.710 [0.663, 0.783]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.278 [-0.324, -0.195]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 1799: v 0.552 [0.485, 0.617]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.433 [-0.501, -0.368]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 2399: v 0.454 [0.400, 0.514]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.537 [-0.590, -0.475]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 2999: v 0.450 [0.390, 0.530]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.538 [-0.597, -0.458]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 3599: v 0.507 [0.437, 0.580]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.481 [-0.542, -0.408]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 4199: v 0.563 [0.500, 0.629]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.427 [-0.481, -0.362]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+
+   [gate only] draws_equal True, rng_equal True, module calls 4200
+      block  P(V)   P(N)   ties   mean dwell V/N   median dwell V/N
+      b0 P1  0.917  0.080  0.003    23.98 /   5.59     24.5 /   4.5
+      b1 P2  0.920  0.080  0.000    21.79 /   2.36     23.0 /   0.0
+      b2 P2  0.868  0.117  0.015    20.18 /   3.05     21.0 /   0.0
+      b3 P2  0.735  0.253  0.013    18.23 /   6.40     20.0 /   0.0
+      b4 P3  0.335  0.632  0.033     9.07 /  14.68      8.0 /  17.0
+      b5 P3  0.155  0.708  0.138     1.78 /  17.02      0.0 /  19.0
+      b6 P4  0.025  0.690  0.285     0.75 /  17.04      0.0 /  20.0
+      crossing rows (V below c in P2): 348/400; unreadable rows (never below c in P2): 52
+      time to leave (first t in P2 with V outside the top set for 200 steps): rows 179, median t 1630 [944, 2066]
+      time to re-form: first arrival at V after 3600 in 20 rows, median 168 [42, 298] steps; first 100-step P4 sub-block with V majority in 19 rows, median index 1 [0, 2]
+      P3 contacts at V's source: 4342 steps in 248 rows; unreinforced at-source steps over the run: 28418; rows with one: 382
+      V value written at step 0: min 1.000000 max 1.000000; at 2400 (start of P3): 0.374 [0.312, 0.449]
+      value trajectory on V's code (median [quartiles]; after the step's update):
+        t  599: v 1.000 [1.000, 1.000]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 1199: v 0.696 [0.645, 0.773]  acq out0-out1 0.696 [0.645, 0.773]  parallel out2-out3 0.000 [0.000, 0.000]  out1 0.000 [0.000, 0.000]  out0 0.706 [0.655, 0.793]
+        t 1799: v 0.499 [0.436, 0.572]  acq out0-out1 0.499 [0.436, 0.572]  parallel out2-out3 0.000 [0.000, 0.000]  out1 0.000 [0.000, 0.000]  out0 0.514 [0.449, 0.589]
+        t 2399: v 0.374 [0.312, 0.449]  acq out0-out1 0.374 [0.312, 0.449]  parallel out2-out3 0.000 [0.000, 0.000]  out1 0.000 [0.000, 0.000]  out0 0.380 [0.322, 0.463]
+        t 2999: v 0.319 [0.257, 0.424]  acq out0-out1 0.319 [0.257, 0.424]  parallel out2-out3 0.000 [0.000, 0.000]  out1 0.000 [0.000, 0.000]  out0 0.337 [0.264, 0.442]
+        t 3599: v 0.317 [0.236, 0.416]  acq out0-out1 0.317 [0.236, 0.416]  parallel out2-out3 0.000 [0.000, 0.000]  out1 0.000 [0.000, 0.000]  out0 0.332 [0.257, 0.436]
+        t 4199: v 0.317 [0.236, 0.416]  acq out0-out1 0.317 [0.236, 0.416]  parallel out2-out3 0.000 [0.000, 0.000]  out1 0.000 [0.000, 0.000]  out0 0.332 [0.257, 0.436]
+
+   [H11 full] draws_equal True, rng_equal True, module calls 4200
+      block  P(V)   P(N)   ties   mean dwell V/N   median dwell V/N
+      b0 P1  0.917  0.080  0.003    23.98 /   5.59     24.5 /   4.5
+      b1 P2  0.915  0.083  0.003    21.72 /   2.46     23.0 /   0.0
+      b2 P2  0.863  0.122  0.015    20.07 /   3.13     21.0 /   0.0
+      b3 P2  0.730  0.258  0.013    18.13 /   6.54     20.0 /   0.0
+      b4 P3  0.330  0.637  0.033     8.97 /  14.77      7.0 /  17.0
+      b5 P3  0.152  0.710  0.138     1.77 /  17.02      0.0 /  19.0
+      b6 P4  0.025  0.693  0.282     0.75 /  17.17      0.0 /  20.0
+      crossing rows (V below c in P2): 348/400; unreadable rows (never below c in P2): 52
+      time to leave (first t in P2 with V outside the top set for 200 steps): rows 181, median t 1630 [803, 2058]
+      time to re-form: first arrival at V after 3600 in 20 rows, median 168 [42, 298] steps; first 100-step P4 sub-block with V majority in 19 rows, median index 1 [0, 2]
+      P3 contacts at V's source: 4298 steps in 246 rows; unreinforced at-source steps over the run: 28266; rows with one: 382
+      V value written at step 0: min 1.000000 max 1.000000; at 2400 (start of P3): 0.374 [0.312, 0.449]
+      value trajectory on V's code (median [quartiles]; after the step's update):
+        t  599: v 1.000 [1.000, 1.000]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 1199: v 0.696 [0.645, 0.773]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.294 [-0.345, -0.207]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 1799: v 0.499 [0.436, 0.572]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.486 [-0.551, -0.411]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 2399: v 0.374 [0.312, 0.449]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.620 [-0.678, -0.537]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 2999: v 0.319 [0.257, 0.424]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.663 [-0.736, -0.558]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 3599: v 0.317 [0.236, 0.416]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.668 [-0.743, -0.564]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+        t 4199: v 0.317 [0.236, 0.416]  acq out0-out1 1.000 [1.000, 1.000]  parallel out2-out3 -0.668 [-0.743, -0.564]  out1 0.000 [0.000, 0.000]  out0 1.000 [1.000, 1.000]
+
+   [ceiling] draws_equal True, rng_equal True, module calls 0
+      block  P(V)   P(N)   ties   mean dwell V/N   median dwell V/N
+      b0 P1  0.917  0.080  0.003    23.98 /   5.59     24.5 /   4.5
+      b1 P2  0.927  0.072  0.000    22.21 /   2.13     24.0 /   0.0
+      b2 P2  0.902  0.095  0.003    20.98 /   2.41     22.0 /   0.0
+      b3 P2  0.885  0.115  0.000    21.14 /   2.83     22.0 /   0.0
+      b4 P3  0.450  0.525  0.025    12.69 /  12.03     10.0 /  12.5
+      b5 P3  0.185  0.670  0.145     2.25 /  16.43      0.0 /  19.0
+      b6 P4  0.105  0.578  0.318     2.79 /  14.66      0.0 /  17.0
+      time to re-form: first arrival at V after 3600 in 64 rows, median 268 [170, 432]; P4 sub-block with V majority in 64 rows
+
+   [floor] draws_equal True, rng_equal True, module calls 0
+      block  P(V)   P(N)   ties   mean dwell V/N   median dwell V/N
+      b0 P1  0.917  0.080  0.003    23.98 /   5.59     24.5 /   4.5
+      b1 P2  0.738  0.260  0.003    18.42 /   6.54     21.0 /   0.0
+      b2 P2  0.560  0.435  0.005    13.96 /  10.54     14.0 /   0.0
+      b3 P2  0.497  0.500  0.003    12.41 /  11.86     10.0 /   7.0
+      b4 P3  0.295  0.688  0.018     7.54 /  15.79      0.0 /  17.5
+      b5 P3  0.142  0.740  0.117     1.67 /  17.79      0.0 /  20.0
+      b6 P4  0.013  0.733  0.255     0.54 /  17.59      0.0 /  20.0
+      time to re-form: first arrival at V after 3600 in 17 rows, median 175 [55, 272]; P4 sub-block with V majority in 17 rows
+
+   [sham] draws_equal True, rng_equal True, module calls 4200
+      block  P(V)   P(N)   ties   mean dwell V/N   median dwell V/N
+      b0 P1  0.080  0.917  0.003     5.30 /  24.22      0.0 /  25.0
+      b1 P2  0.072  0.925  0.003     1.76 /  21.45      0.0 /  22.0
+      b2 P2  0.077  0.922  0.000     1.80 /  22.61      0.0 /  23.0
+      b3 P2  0.095  0.897  0.007     2.34 /  21.67      0.0 /  23.0
+      b4 P3  0.070  0.927  0.003     2.27 /  22.10      0.0 /  22.0
+      b5 P3  0.028  0.945  0.028     0.46 /  22.33      0.0 /  23.0
+      b6 P4  0.033  0.915  0.052     1.00 /  21.91      0.0 /  23.0
+      crossing rows (V below c in P2): 400/400; unreadable rows (never below c in P2): 0
+      time to leave (first t in P2 with V outside the top set for 200 steps): rows 387, median t 600 [600, 600]
+      time to re-form: first arrival at V after 3600 in 25 rows, median 232 [127, 372] steps; first 100-step P4 sub-block with V majority in 24 rows, median index 2 [1, 3]
+      P3 contacts at V's source: 1091 steps in 62 rows; unreinforced at-source steps over the run: 5973; rows with one: 248
+      V value written at step 0: min 0.000000 max 0.000000; at 2400 (start of P3): 0.000 [0.000, 0.000]
+      value trajectory on V's code (median [quartiles]; after the step's update):
+        t  599: v 0.000 [0.000, 0.000]  acq out0-out1 0.000 [0.000, 0.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 1.000 [1.000, 1.000]  out0 1.000 [1.000, 1.000]
+        t 1199: v 0.000 [0.000, 0.000]  acq out0-out1 0.000 [0.000, 0.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 1.000 [1.000, 1.000]  out0 1.000 [1.000, 1.000]
+        t 1799: v 0.000 [0.000, 0.000]  acq out0-out1 0.000 [0.000, 0.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 1.000 [1.000, 1.000]  out0 1.000 [1.000, 1.000]
+        t 2399: v 0.000 [0.000, 0.000]  acq out0-out1 0.000 [0.000, 0.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 1.000 [1.000, 1.000]  out0 1.000 [1.000, 1.000]
+        t 2999: v 0.000 [0.000, 0.000]  acq out0-out1 0.000 [0.000, 0.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 1.000 [1.000, 1.000]  out0 1.000 [1.000, 1.000]
+        t 3599: v 0.000 [0.000, 0.000]  acq out0-out1 0.000 [0.000, 0.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 1.000 [1.000, 1.000]  out0 1.000 [1.000, 1.000]
+        t 4199: v 0.000 [0.000, 0.000]  acq out0-out1 0.000 [0.000, 0.000]  parallel out2-out3 0.000 [0.000, 0.000]  out1 1.000 [1.000, 1.000]  out0 1.000 [1.000, 1.000]
+
+   [ceiling (H12 module)] draws_equal True, rng_equal True, module calls 0
+      block  P(V)   P(N)   ties   mean dwell V/N   median dwell V/N
+      b0 P1  0.917  0.080  0.003    23.98 /   5.59     24.5 /   4.5
+      b1 P2  0.927  0.072  0.000    22.21 /   2.13     24.0 /   0.0
+      b2 P2  0.902  0.095  0.003    20.98 /   2.41     22.0 /   0.0
+      b3 P2  0.885  0.115  0.000    21.14 /   2.83     22.0 /   0.0
+      b4 P3  0.450  0.525  0.025    12.69 /  12.03     10.0 /  12.5
+      b5 P3  0.185  0.670  0.145     2.25 /  16.43      0.0 /  19.0
+      b6 P4  0.105  0.578  0.318     2.79 /  14.66      0.0 /  17.0
+      time to re-form: first arrival at V after 3600 in 64 rows, median 268 [170, 432]; P4 sub-block with V majority in 64 rows
+
+   [supplied H12 trajectory] draws_equal True, rng_equal True, module calls 0
+      block  P(V)   P(N)   ties   mean dwell V/N   median dwell V/N
+      b0 P1  0.917  0.080  0.003    23.98 /   5.59     24.5 /   4.5
+      b1 P2  0.915  0.083  0.003    21.72 /   2.46     23.0 /   0.0
+      b2 P2  0.873  0.113  0.015    20.25 /   2.85     21.5 /   0.0
+      b3 P2  0.787  0.200  0.013    19.35 /   5.05     21.0 /   0.0
+      b4 P3  0.345  0.625  0.030     9.89 /  14.11      9.0 /  16.0
+      b5 P3  0.150  0.703  0.147     1.69 /  16.86      0.0 /  19.0
+      b6 P4  0.083  0.627  0.290     2.32 /  15.86      0.0 /  19.0
+      time to re-form: first arrival at V after 3600 in 55 rows, median 279 [160, 458]; P4 sub-block with V majority in 55 rows
+
+   [supplied gate-only trajectory] draws_equal True, rng_equal True, module calls 0
+      block  P(V)   P(N)   ties   mean dwell V/N   median dwell V/N
+      b0 P1  0.917  0.080  0.003    23.98 /   5.59     24.5 /   4.5
+      b1 P2  0.920  0.080  0.000    21.79 /   2.36     23.0 /   0.0
+      b2 P2  0.868  0.117  0.015    20.18 /   3.05     21.0 /   0.0
+      b3 P2  0.735  0.253  0.013    18.23 /   6.40     20.0 /   0.0
+      b4 P3  0.335  0.632  0.033     9.07 /  14.68      8.0 /  17.0
+      b5 P3  0.155  0.708  0.138     1.78 /  17.02      0.0 /  19.0
+      b6 P4  0.025  0.690  0.285     0.75 /  17.04      0.0 /  20.0
+      time to re-form: first arrival at V after 3600 in 20 rows, median 168 [42, 298]; P4 sub-block with V majority in 19 rows
+
+== identities and checks ==
+   (I5) H12 == gate only on every recorded field on steps 0..FU per row: 400/400 rows -> True; FU equal in the two arms: True
+   K2(c) ceiling with the H12 module == ceiling with the adopted module, every field, every step: True; module calls 0 in every learning-off arm: True
+   supplied trajectories == their learning arms on every field and step: H12 True, gate only True
+   H11 full == gate only on every field and step: 50/400 rows; departing rows 350 (first departures at steps [601, 601, 601, 601, 601, 601, 601, 601, 601, 601]...; |V value difference| at the departure: max 9.830e-02); max |V value difference| over the run 2.036e-01 (reported, not in the verdict)
+   learning arms == ceiling on every field before and at FU (V exactly 1.0 until the first unreinforced step): H12 True, gate only True
+   sham: V exactly 0.0 on every step and row: True; sham module calls 4200
+   every arm: the mask consumed no draw (draws_equal, rng_equal): True
+
+== K0 readability and the unreadable conditions (design 5.5) ==
+   P4 P(V): ceiling 42/400 = 0.1050, floor 5/400 = 0.0125; ceiling - floor = +0.0925 (>= 0.30 required)
+   P4 ties per arm: H12 0.290; gate only 0.285; H11 full 0.282; ceiling 0.318; floor 0.255; sham 0.052; ceiling (H12 module) 0.318; supplied H12 trajectory 0.290; supplied gate-only trajectory 0.285 (each <= 0.20 required)
+   crossing rows in the gate-only arm: 348 (>= 50 required); (I5) True
+   K0 -> UNREADABLE; unreadable conditions: HOLD
+
+== the K1 reference numbers (design 5.5; the bar is fixed by decision:h12-k1-bar, not here) ==
+   bar_B = 0.5 x (ceiling - floor) = 0.5 x (42 - 5)/400 = 0.04625 -> rounded to 0.01 half up: 0.05
+   bench paired DP P4 P(V), H12 - gate only: +0.0575 (H12 33/400, gate only 10/400); discordant fraction b 0.0675; into V 25, out of V 2
+   reported beside it: H11 full - gate only paired DP P4 P(V) +0.0000 (the same valence in real arithmetic; the size of the last-bit divergence between the two layouts)
+   STOP: Stage 2 UNREADABLE at the bench as designed (K0 or an unreadable condition); redesigned, not retuned; (hS) not computed
