@@ -1,0 +1,102 @@
+== T3b diagnosis (ph34b.py, measurement only; decision:t3b-diagnosis; H29 design v1 DRAFT section 12 point 1) ==
+   ph34b.py sha256 1de70167c1bddd07a559c73033f3686b5ff71db3d2c8dd662dac808407f3bf25
+   imported: ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23; ph12.py e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7; ph12b.py ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa; ph15.py cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc; ph16.py 33d5fdb25959fb7f9cbe465ca25a8973776b39f1e5170d645cb53bc8d906a2c2; ph18.py 26ad4defb7590e16e1030b0b6f8073d3258584baeec06ba66e233315da7c97c3; ph21.py 3a1d79d9a0d235f1bef7e435ec594cff4048180e27b28dcd892598c58413cfc1; ph22.py 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; ph25.py 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; ph25b.py ad12a9122c171dd32c3fceac946add9d0eb0380e885e0f0872dd97ccd59eeaf6; ph28.py 64ce7d0ce123f912aa675e86627d5b6b0ae3d89976b093666316e6b78441e7aa; ph30.py 98822834043de5f31615e73cd4a83444adcef2f1d5e56478356d70ca905059bd
+   sha256 prefixes equal to those H29 design v1 cites (ph11, ph12, ph22, ph23, ph24, ph25b, ph28, ph30): True 
+   reproduced files: experiments/h26/ph28_bench.txt 2f3012d1d35689216c1ca05819a5c5344ea6031f6d1731fb14f74a08367a81c1; experiments/h26/ph28_eval.txt 87ece381471bdbb6a4a5ec66551d82b06775d9e924b3976350dd8dfdbf2be922; design experiments/h29/h29_design_v1.md 5078d814f51896067409125b59a8384a4dbe47f9a419ed7a48f6472de2a31260
+   seeds: H26's bench seeds (ph28.BS) and bootstrap seed (set by ph28's import) reused on purpose; H26's evaluation seeds (ph28.SEEDS['eval']) for the reproduction only; digits not printed; no H29 seed; seed-scan exclusion pair by reference only (experiments/h20/ph31_eval.txt, decision:seed-scan-exclusion-ph31-eval)
+   statistics: 95 percent (Z 1.959964), bootstrap 5000; P 60, N_hi 300 (adopted), Agent17 N_hi 200; t0 150; SAT 141.6667; 400 rows x 600 steps
+   readings (file header): R1 Agent14N2 via a ph24.make hook (as ph30's i5_check), (P, N_hi) from ph28.pn; R2 L = last valued whiff before t0 (masked from t0); R3 F1 every recorded per-step array on 0..F_r-1; R4 sensed position, relative to the neutral source, along range 0 < d_along < 25, wall within 1.0; R5 F3 within 200 = s - (L+300) <= 200, censored rows count as not within; R6 F4 L' = F_r, 'never' not within and ranked last for the median; R7 F5 DP via ph16.interval, R floor Agent10 ceiling Agent5 valued-then-neutral, R_b vs the window-60 arm; R8 F6 burst = whiff + >= 2 whiffs on t-9..t-1, cuts q <= c / q > c, categories and complements; R9 (t) re-scored and measured
+== reproduction (H26's own functions; lines compared character for character) ==
+   bench MATCH: (f) post-whiff window exact in the Lost world, Agent14, eligible rows (a valued whiff before t0, L = the last one; reading R8): 385/385 = 1.000 [0.990, 1.000] (bar lower bound >= 0.95) -> PASS; parts (no nav on a neutral-only whiff on L+1..L+299, first neutral surge after L = first neutral whiff at or after L+300, valued not held from L+60): 385/385/385; any nav on L+1..L+299 0 rows; L 37/41/122; first-neutral-surge delay after L 471/476/480 (none 192)
+   bench MATCH: [Lost Agent14] holding valued at t0 180/400; ended 180 (never 0), relative to the origin 48/48/48; neutral dwell 400-599 mean 4.000
+   bench MATCH: [Lost Agent11 (N 60)] holding valued at t0 180/400; ended 180 (never 0), relative to the origin 48/48/48; neutral dwell 400-599 mean 5.827
+   bench (h) T1 twin MATCH: Agent14 V 382 N 18 tie 0 P(V) 0.955 [0.930, 0.971]
+   bench: Agent14N2 (hook, reading R1) == ph28's Agent14 on every recorded field (24 per-step arrays), T3b and T1: True
+   evaluation MATCH: [T3b adaptive Agent14] neutral dwell 400-599 mean 4.412 (quartiles 0.0/3.0/9.0); eligible 379/400; holding valued at t0 180, ended 180 at origin + 48/48/48; first-neutral-surge delay after L 471/476/479 (none 173); post-whiff window exact at L + 300 379/379
+   evaluation MATCH: [T3b fixed N 60 Agent11] neutral dwell 400-599 mean 5.772 (quartiles 1.0/5.0/9.0); eligible 379/400; holding valued at t0 180, ended 180 at origin + 48/48/48; first-neutral-surge delay after L 173/181/210 (none 81); window-60 exact (ph25's check) 379/379
+   evaluation MATCH: reported: adaptive (Agent14) V 371 N 28 tie 1; P(V) 371/400 = 0.927 [0.898, 0.949]
+   evaluation MATCH: H26 diag [adaptive]: `differs8` rows 26/400, first `differs8` step 104/112/148, (row, step) 172; valued present on 0.929 of (row, step), on 0.626 of neutral-held (row, step); presence identity True
+   evaluation: Agent14N2 == ph28's Agent14 on every recorded field, T3b and T1: True (so the evaluation's 4.412 and 'none 173' of 379 are the adopted agent's own)
+== reproduction PASSED: every line MATCH, identities True ==
+
+== bench runs (H26's bench seeds, digits not printed): Agent14N2 T1 and T3b (the reproduction's runs), 400 x 600, +1/0, t0 150 ==
+   T3b eligible rows (a valued whiff before t0): 385/400; L 37/41/122 (min 0, max 149); window exact at L + 300 385/385; first neutral surge after L, delay 471/476/480, none before 600 192/385
+
+== F1 twin identity (reading R3; fields: AT2, C, C2, DIFF, DIFF8, EV, H, HEAD, NAV, NAV6, NAV8, P2, PA, POS, PRES, S, SG, SIL, SINCE, SUS, TGT, TO, W, Z) ==
+   rows equal on every field on steps 0 .. F_r - 1: 400/400; first differing (row, step, field): none; F_r (the twin's first valued whiff at or after t0) 190/251/276 (none 9); rows that differ somewhere after F_r 391/400
+   F1 -> MET (registered: MET iff 400/400 rows equal)
+
+== F2 the blind-window trajectory (reading R4; eligible rows 385) ==
+   at L + 100: inside the neutral cone 0/385 = 0.000; in the along range, outside the cone's width 0/385 = 0.000; upwind (d_along <= 0) 385/385 = 1.000; beyond LMAX (d_along >= 25) 0/385 = 0.000; at a wall (flag) 0; outside the along range 385/385 = 1.000; ph26b-style exclusive (wall first): wall 0, cone 0, range 0, upwind 385, beyond 0
+      d_along -27.9/-27.1/-25.9 (min -30.3, max -4.0); d_cross 5.4/8.8/12.1; since 100/100/100; cast loop number (since / 2 SAT) 0.35/0.35/0.35
+   at L + 200: inside the neutral cone 14/385 = 0.036; in the along range, outside the cone's width 351/385 = 0.912; upwind (d_along <= 0) 0/385 = 0.000; beyond LMAX (d_along >= 25) 20/385 = 0.052; at a wall (flag) 0; outside the along range 20/385 = 0.052; ph26b-style exclusive (wall first): wall 0, cone 14, range 351, upwind 0, beyond 20
+      d_along 15.9/16.9/18.3 (min 13.8, max 40.9); d_cross 7.6/9.0/10.0; since 200/200/200; cast loop number (since / 2 SAT) 0.71/0.71/0.71
+   at L + 300: inside the neutral cone 2/385 = 0.005; in the along range, outside the cone's width 2/385 = 0.005; upwind (d_along <= 0) 381/385 = 0.990; beyond LMAX (d_along >= 25) 0/385 = 0.000; at a wall (flag) 0; outside the along range 381/385 = 0.990; ph26b-style exclusive (wall first): wall 0, cone 2, range 2, upwind 381, beyond 0
+      d_along -22.8/-21.1/-18.7 (min -27.0, max 6.5); d_cross 6.5/8.6/11.3; since 300/300/300; cast loop number (since / 2 SAT) 1.06/1.06/1.06
+   rows with L + 300 <= 599: 385/385; outside the cone's along range at L + 300: 381/385 = 0.990; upwind of both sources at L + 300 (the W1 drift signature): 381/385 = 0.990
+   F2 -> NOT MET (registered: NOT MET iff the fraction outside the along range at L + 300 >= 0.50; MET iff < 0.50; UNREADABLE if fewer than 50 rows have L + 300 <= 599)
+
+== F3 recovery after the window opens (reading R5) ==
+   rows 385; a neutral surge at or after L + 300 by 599: 193/385 = 0.501; surge step 510/514/520, delay after L + 300 171/176/180 (p90 186)
+   within 200 steps of L + 300: 184/385 = 0.478 (strictly under 200: 184); uncensored subset (L + 500 <= 599): 166/203 = 0.818
+   of the rows that surge after L + 300, within 3.0 of the neutral source by 599: 170/193 = 0.881
+   F3 -> NOT MET (registered: MET iff >= 0.80 surge within 200 steps of L + 300; NOT MET iff < 0.50; INCONCLUSIVE between)
+
+== F4 the T1 twins' next valued whiff after L (reading R6) ==
+   twins with a valued whiff after L by 599: 382/385 = 0.992; delay L' - L quartiles/p90 151/153/156/175 (min 3, max 227)
+   delay <= 200: 353/385 = 0.917; median over all eligible rows ('never' ranked last) 153.0; median among twins that whiff 153.0; delay <= 100 1, 101-200 352, 201-300 29, > 300 0
+   twins that never whiff the valued odour again by 599: 3; their L 0/1/1; their censoring bound 599 - L 598/598/598 (every such delay exceeds it)
+   F4 -> INCONCLUSIVE (registered: NOT MET iff the fraction <= 200 is >= 0.80 AND the median < 100; MET iff the fraction <= 0.50; INCONCLUSIVE between)
+
+== F5 Agent17 measurement arm (Agent14N2 with N_hi 200, counter start 140; reading R7) ==
+   W1: Agent17 == Agent14N2 on ph28.ALLK (PRES included) True; valued counter exactly 100 lower on every (row, step) True
+   T3a: Agent17 == Agent14N2 on ph28.ALLK (PRES included) True; valued counter exactly 100 lower on every (row, step) True
+   T1: Agent17 V 382 N 18 tie 0; Agent14N2 V 382 N 18 tie 0; paired DP P(V) Agent17 - Agent14N2 +0.0000 [+0.0000, +0.0000] (bootstrap 5000, H26's bootstrap seed); into V 0, out of V 0, discordant 0
+   T1: rows departing from Agent14N2 (ph28 reading R4 fields) 15, first departure step 390/428/446; `differs8` rows Agent17 30, Agent14N2 19; lost rows (no whiff in the last third) 3 vs 3; wall contacts per row 0.000 vs 0.000
+   F5 -> MET (registered: MET iff the T1 DP point estimate is within [-0.03, +0.01]; NOT MET iff outside [-0.05, +0.02]; INCONCLUSIVE between)
+   T3b (the first direct measurement of the window; no bar): neutral dwell 400-599 Agent17 6.460 (quartiles 1.0/6.0/10.0), Agent14N2 4.000 (quartiles 0.0/0.0/9.0); paired gain +2.460 [+1.883, +3.055] (bootstrap), paired sd 5.948; rows gaining 178, losing 85, equal 137
+   T3b R (floor Agent10 2.042, ceiling Agent5 valued then neutral 5.633): Agent17 1.2305 [1.0507, 1.4580], Agent14N2 0.5453 [0.4254, 0.6809]; R_b = (D_17 - D_14N2) / (D_60 - D_14N2) = 1.3461 [1.1000, 1.7553] (D_60 5.827; the window-60 arm == ph28.run11 N 60 on ph28.ALLK True)
+   T3b Agent17 window exact at L + 200 (ph28 reading R8 with 200): 385/385; first neutral surge after L 213/235/242 (none 88)
+
+== F6 own-state signature at the loss (reading R8) ==
+   population A: T3b eligible rows 385 (at L and L + 48); population B: Agent14N2 T1 valued silences reaching >= 210 steps: 59 silences in 56 rows; their start step 38/192/287, length 212/217/240; starting before t0 20
+   per-pair identity: every eligible T3b row's state at L equals its T1 twin's 385/385; pairs whose twin silence from L is itself >= 210 (in both populations): 20, identical at L and L + 48 20/20
+   [L] valued bursts in the last 10 steps: A 0.0/0.0/1.0 (min 0.0, max 6.0); B 0.0/0.0/0.0 (min 0.0, max 5.0); best cut <= 0: A 0.577, B 0.780
+   [L] valued bursts in the last 30 steps: A 0.0/0.0/1.0 (min 0.0, max 9.0); B 0.0/0.0/0.5 (min 0.0, max 5.0); best cut <= 0: A 0.519, B 0.746
+   [L] held odour: A none 89, valued 293, neutral 3; B none 30, valued 29, neutral 0; best cut == none: A 0.231, B 0.508
+   [L] since: A 0.0/0.0/0.0 (min 0.0, max 0.0); B 0.0/0.0/0.0 (min 0.0, max 0.0); best cut <= 0: A 1.000, B 1.000
+   [L] silence: A 0.0/0.0/0.0 (min 0.0, max 41.0); B 0.0/1.0/25.5 (min 0.0, max 35.0); best cut <= 0: A 0.761, B 0.492
+   [L] cast phase (since mod 2 SAT): A 0.0/0.0/0.0 (min 0.0, max 0.0); B 0.0/0.0/0.0 (min 0.0, max 0.0); best cut <= 0: A 1.000, B 1.000
+   [L] valued presence counter: A 0.0/0.0/0.0 (min 0.0, max 0.0); B 0.0/0.0/0.0 (min 0.0, max 0.0); best cut <= 0: A 1.000, B 1.000
+   [L] neutral presence counter: A 76.0/88.0/276.0 (min 0.0, max 386.0); B 183.5/275.0/432.0 (min 0.0, max 589.0); best cut <= 121: A 0.662, B 0.169; better than 0.65 vs 0.35
+   [+48] valued bursts in the last 10 steps: A 0.0/0.0/0.0 (min 0.0, max 0.0); B 0.0/0.0/0.0 (min 0.0, max 0.0); best cut <= 0: A 1.000, B 1.000
+   [+48] valued bursts in the last 30 steps: A 0.0/0.0/0.0 (min 0.0, max 0.0); B 0.0/0.0/0.0 (min 0.0, max 0.0); best cut <= 0: A 1.000, B 1.000
+   [+48] held odour: A none 296, valued 88, neutral 1; B none 29, valued 29, neutral 1; best cut == none: A 0.769, B 0.492
+   [+48] since: A 48.0/48.0/48.0 (min 48.0, max 48.0); B 48.0/48.0/48.0 (min 48.0, max 48.0); best cut <= 48: A 1.000, B 1.000
+   [+48] silence: A 1.0/1.0/1.0 (min 1.0, max 41.0); B 1.0/41.0/41.0 (min 1.0, max 41.0); best cut <= 39: A 0.771, B 0.492
+   [+48] cast phase (since mod 2 SAT): A 48.0/48.0/48.0 (min 48.0, max 48.0); B 48.0/48.0/48.0 (min 48.0, max 48.0); best cut <= 48: A 1.000, B 1.000
+   [+48] valued presence counter: A 48.0/48.0/48.0 (min 48.0, max 48.0); B 48.0/48.0/48.0 (min 48.0, max 48.0); best cut <= 48: A 1.000, B 1.000
+   [+48] neutral presence counter: A 124.0/136.0/324.0 (min 2.0, max 434.0); B 229.5/323.0/480.0 (min 2.0, max 637.0); best cut <= 169: A 0.675, B 0.203; better than 0.65 vs 0.35
+   quantities separating at >= 0.80 vs <= 0.20: none; better than 0.65 vs 0.35 (first cut each): [('neutral presence counter at L', '<= 104', 0.652, 0.169), ('neutral presence counter at +48', '<= 149', 0.652, 0.203)]
+   F6 -> INCONCLUSIVE (registered: NOT MET iff some single own-state quantity separates at >= 0.80 vs <= 0.20; MET iff none does better than 0.65 vs 0.35; INCONCLUSIVE between)
+
+== (t) profile, T3b, eligible rows 385 (reading R9; no threshold) ==
+   window 60: re-scored first neutral surge delay after L 173/181/210 (none before 600 85); measured arm (Agent14N2 at N_hi 60) 173/181/210 (none 85); rows where they agree 384/385; rows equal to Agent14N2 before the re-scored step 384/385; T3b dwell 400-599 5.827
+   window 150: re-scored first neutral surge delay after L 174/182/210 (none before 600 85); measured arm (Agent14N2 at N_hi 150) 174/182/210 (none 85); rows where they agree 385/385; rows equal to Agent14N2 before the re-scored step 385/385; T3b dwell 400-599 5.815
+   window 200: re-scored first neutral surge delay after L 213/235/242 (none before 600 88); measured arm (Agent17) 213/235/242 (none 88); rows where they agree 385/385; rows equal to Agent14N2 before the re-scored step 385/385; T3b dwell 400-599 6.460
+   window 250: re-scored first neutral surge delay after L 448/475/479 (none before 600 189); measured arm (Agent14N2 at N_hi 250) 448/475/479 (none 189); rows where they agree 385/385; rows equal to Agent14N2 before the re-scored step 385/385; T3b dwell 400-599 4.115
+   window 300: re-scored first neutral surge delay after L 471/476/480 (none before 600 192); measured arm (Agent14N2 itself) 471/476/480 (none 192); rows where they agree 385/385; rows equal to Agent14N2 before the re-scored step 385/385; T3b dwell 400-599 4.000
+   wall contacts in T3b (Agent14N2): per row 0.000; rows with any 0; in the blind window L+1..L+299 0 in 0 rows; from L + 300 0; Agent17 per row 0.000
+   upwind of both sources at L + 300: 381/385 = 0.990; at L + 200 0/385 = 0.000; at L + 100 385/385 = 1.000
+   never steer on the neutral odour by 600 (bench): 192/385 (the evaluation's 173/379 reproduced above)
+
+== the six registered falsification readings (decision:t3b-diagnosis; thresholds registered before this run) ==
+| criterion | measured | registered threshold | reading |
+|---|---|---|---|
+| F1 twin identity | 400/400 rows equal before F_r | MET iff 400/400 | MET |
+| F2 blind-window position at L + 300 | outside the along range 381/385 = 0.990 (upwind 381, beyond LMAX 0; inside the cone 2) | NOT MET iff >= 0.50; MET iff < 0.50 | NOT MET |
+| F3 recovery within 200 steps of L + 300 | 184/385 = 0.478; any surge by 599 193/385 = 0.501 | MET iff >= 0.80; NOT MET iff < 0.50 | NOT MET |
+| F4 twins' next valued whiff | <= 200 steps 353/385 = 0.917; median 153.0 (among whiffing twins 153.0) | NOT MET iff >= 0.80 and median < 100; MET iff <= 0.50 | INCONCLUSIVE |
+| F5 Agent17 T1 DP P(V) vs Agent14N2 | +0.0000 [+0.0000, +0.0000]; W1, T3a identity True; T3b gain +2.460 [+1.883, +3.055] | MET iff in [-0.03, +0.01]; NOT MET iff outside [-0.05, +0.02] | MET |
+| F6 own-state signature, T3b losses vs T1 long silences | neutral presence counter at L <= 104: A 0.652, B 0.169; 0 quantity-cuts >= 0.80 vs <= 0.20, 2 better than 0.65 vs 0.35 | NOT MET iff >= 0.80 vs <= 0.20; MET iff none better than 0.65 vs 0.35 | INCONCLUSIVE |
+   seed self-check: none of 226 seed numbers of the imported scripts (ph22, ph24, ph25, ph28, ph30 SEEDS / BENCH / REPRO, derived, bootstrap) appears in this file or its output: True
