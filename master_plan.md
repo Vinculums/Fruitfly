@@ -2047,7 +2047,8 @@ within the release's scope (non-negative held values) and stays in force at nega
   record:h24-run2-n-sweep-result. **Opened for design as H29 (decision:h29-open-design, 2026-09-26; design v1 DRAFT doc
   dd00688c21f09b13e):** by T3b's construction no own-state rule separates a loss from a tracking silence; the lever is the
   window's length (Agent17, window 200). The T3b diagnosis is done (decision:t3b-diagnosis): F2 NOT MET, F5 MET, T3b
-  gain +2.460 at window 200; the owner decides.
+  gain +2.460 at window 200. **Opened on design v2 FINAL (decision:h29-open); DONE: evaluated once, SHOWN under its
+  registered criteria (record:h29-result, 2026-09-26); closure awaiting the owner.**
 - **H12** the acquisition and extinction traces persist differently; this is what would make
   the parallel site earn its place. Ranked third: the memory half of the core, but no measured failure calls for it.
 - **H10** abstention and revision belong to different stages: a thresholded stage decides
