@@ -849,6 +849,38 @@ Progress log
   200 +3.8175 [+3.3400, +4.3050] (the first-surge delays after L unchanged; t0 moves L relative to the measurement
   window). Predictions missed: the T3b gain (1.95 vs 0.5-1.3) and the Agent11 bound, Agent17's dwell level, the bench's
   T1 k and DP (favourable side). A trade, not a separation. Closure is the owner's; H28's closure untouched.
+- **H28 CLOSED as SHOWN and the burst-ranked value tie ADOPTED for the three-channel distractor form (2026-09-26;
+  decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions; the owner's '권고안으로 바로 진행', gloss
+  'proceed right away with the recommended options').** Not re-judged. Adopted within the tested conditions only: Act16
+  (src/ph33.py:116-177) in Agent16 as composed, supplied +1/0, D at value 0 and p_D 0.03, G 2, C0, gate on, N2, learning
+  off, T1D and W1D; the H27 composition rule, the three-counter presence relaxation and the H28 burst-record relaxation
+  become adopted state for the three-channel form only (in form). At two channels the rule is inert by code, so the
+  two-channel adopted agent is unchanged. Limits: W1D 222/400 rows still lost (29 without D); T3aD 0.220 vs 13.193; M6
+  (the hold's benefit under a distractor) unmeasured; other p_D, a non-zero-valued D, learning, the H15 world untested.
+  The distractor limit under the adopted rule: record:distractor-capture-limit-under-h28-tie (T1D DP -0.0275, W1D
+  222/400); record:distractor-capture-limit unchanged. Rejected on record: no adoption; adoption as the universal rule.
+- **H29 CLOSED as SHOWN and the window 200 ADOPTED; the adopted two-channel agent is now Agent17 (2026-09-26;
+  decision:h29-closed, decision:h29-window-200-adopted-within-tested-conditions; the same answer).** Not re-judged.
+  Agent17 = Agent14N2 built with N_hi 200, counter start 140, the 59-step prior unchanged (src/ph35.py:104-105 through
+  src/ph28.py:95-97); it supersedes the H26 window (300, start 240), whose relaxation stays on record as superseded; the
+  H29 relaxation (decision:classification-rule-relaxed-presence-prior-h29) is the adopted state. Scope: +1/0, G 2, C0,
+  gate on, N2, learning off, World7 T1, W1, T3a, T3b at t0 150. Limits: the T3b gain's cast-phase dependence (F2 NOT MET;
+  t0 100 +0.70 [+0.26, +1.14], t0 150 +1.95 [+1.45, +2.45], t0 200 +3.82 [+3.34, +4.31]; other geometries and cast
+  parameters untested); a loss whose second pass falls after the row's end is not recovered (F3); the three-channel form
+  keeps its tested window 300. Rejected on record: keep 300; adopt 200 universally including the three-channel form.
+- **H12 OPENED FOR DESIGN (2026-09-26; decision:h12-open-design; the same answer, 'then the next queued item').** The
+  item queued at the Phase 7.2 close (concept:h12-differential-persistence, reused). Design v1 DRAFT doc
+  dff68b78ea66ed47e (experiments/h12/h12_design_v1.md, sha 75428f1a...e79e), no code. From the code: the adopted module
+  already writes extinction on the opposite valence's acquisition compartment, so no per-compartment decay gives
+  sign-symmetric recovery with retained acquisition, while the parallel pair with one decay constant can; in every
+  recorded behaving run extinction never fires (every coded step is reinforced), so the change is inert there and a
+  behavioural test needs a world change and a positive competitor; decay alone gives recovery, not reacquisition by
+  re-pairing. Recommended (c): a Stage 1 module bench (H11 reproduced bitwise; tau_ext the smallest of 2000, 5000,
+  10000, 20000 keeping the Phase 4 battery, predicted 5000; SR >= 0.20 and RET >= 0.99 at D 5000 for both signs; stop
+  rules) gating a Stage 2 behavioural test outlined with bars unmeasured. Seeds: Stage 1 codes 20261151/20261152,
+  bootstrap 20261153; Stage 2 bench 20261151/20261152, dev 9911/9921, eval 2129/2243 (251 files scanned; one
+  candidate replaced). Awaiting the owner's confirmation of section 12. Recorded by a session that resumed after a
+  rate-limit cut-off (the cut-off session had written nothing).
 
 ## Why a plan now
 
@@ -1396,7 +1428,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   lapse and stay on record (the composition rule available to a future N = 3 design by a new decision). Queued as
   PROPOSED, not decided: a recognition-core mechanism for a ubiquitous odour, designed as H28 (below).
 
-### H28 (decision:h28-open-design, decision:h28-open; evaluated once; SHOWN under its registered criteria (record:h28-result); closure awaiting the owner)
+### H28 (decision:h28-open-design, decision:h28-open; evaluated once; CLOSED as SHOWN by decision:h28-closed; the burst-ranked value tie ADOPTED for the three-channel distractor form by decision:h28-burst-tie-adopted-within-tested-conditions)
 - Discounting a ubiquitous, never-reinforced odour by its whiff statistics rather than its value
   (concept:h28-ubiquitous-odour-discount), the proposal queued at the H27 closure; the number H28 assigned by
   decision:h28-open-design (the highest in use was H27). Ranked first over the H26 T3b limit, H12, H10, H18 and H17 (reasons
@@ -1437,8 +1469,20 @@ Four hypotheses were run in one day by picking the next most interesting candida
   [-0.495, -0.397]; M1, M3, M4 PASS. Reported: H27's W1D bars against D off fail (222 vs 29 lost); M6 +0.0000; T3aD
   0.220 vs 13.193; T4 +1/-1/0 0.740 vs 0.932 (no tie arises there). The residual W1D loss is not attributed to a path by
   this run. Closure, and any adoption, are the owner's.
+- **CLOSED as SHOWN (2026-09-26, decision:h28-closed; owner '권고안으로 바로 진행', gloss 'proceed right away with the
+  recommended options').** Not re-judged. **ADOPTED within the tested conditions for the THREE-CHANNEL distractor form
+  only** (decision:h28-burst-tie-adopted-within-tested-conditions): Act16 (src/ph33.py:116-177; the burst record :145-149,
+  the ranked top set :155-158, keep :161) in Agent16 as composed (src/ph33.py:180), supplied +1/0, D at value 0 and p_D
+  0.03, G 2, C0, gate on, N2, learning off, T1D and W1D. The H27 composition rule (decision:evidence-release-composition-rule-h28),
+  the three-counter presence relaxation (decision:classification-rule-relaxed-presence-prior-h28) and the burst-record
+  relaxation (decision:classification-rule-relaxed-burst-record-h28) are adopted state for the three-channel form, in form,
+  scope 'the adopted three-channel agent'. At two channels the rule is inert by code (I1'), so the two-channel adopted agent
+  is unchanged and does not carry them. Limits: W1D 222/400 lost (29 without D); T3aD 0.220 vs 13.193; M6 unmeasured;
+  other p_D, a non-zero-valued D, learning with D, the H15 world. record:distractor-capture-limit-under-h28-tie records
+  the limit under the adopted rule (T1D DP -0.0275, W1D 222/400); record:distractor-capture-limit is unchanged (H27's
+  agent). Rejected on record: no adoption; adoption as the universal rule.
 
-### H29 (decision:h29-open-design; the T3b diagnosis by decision:t3b-diagnosis; opened by decision:h29-open; evaluated once; SHOWN under its registered criteria (record:h29-result); closure awaiting the owner)
+### H29 (decision:h29-open-design; the T3b diagnosis by decision:t3b-diagnosis; opened by decision:h29-open; evaluated once; CLOSED as SHOWN by decision:h29-closed; the window 200 ADOPTED within the tested conditions by decision:h29-window-200-adopted-within-tested-conditions, the adopted two-channel agent now Agent17)
 - The H26 T3b limit, a loss after tracking (concept:h29-loss-after-tracking): after the adopted agent has tracked the
   valued odour and the odour disappears (the Lost world, t0 150), its presence counter keeps it present for a fixed 300
   steps after the last whiff, so the filter is blind to the neutral odour until L + 300 (exact 379/379; T3b neutral dwell
@@ -1488,12 +1532,74 @@ Four hypotheses were run in one day by picking the next most interesting candida
   losses, its size set largely by where L falls relative to the measurement window 400-599 (the stated sensitivity to
   other geometries and cast parameters stays untested). A trade within the registered bars, not a separation of loss
   from tracking. Closure, and any adoption, are the owner's.
+- **CLOSED as SHOWN (2026-09-26, decision:h29-closed; owner '권고안으로 바로 진행', gloss 'proceed right away with the
+  recommended options').** Not re-judged; the diagnosis's six readings cited. **ADOPTED within the tested conditions**
+  (decision:h29-window-200-adopted-within-tested-conditions): the presence window after a whiff 200 with start 140, the
+  59-step prior unchanged; the adopted two-channel agent becomes Agent17 = Agent14N2 built with N_hi 200 (src/ph35.py:104-105,
+  through src/ph28.py:95-97; N17 at src/ph35.py:89). It SUPERSEDES the H26 window (300, start 240) for the two-channel
+  agent: decision:classification-rule-relaxed-presence-prior-h26 stays on record as superseded and
+  decision:classification-rule-relaxed-presence-prior-h29 is the adopted state (scope widened from H29 only to the adopted
+  two-channel agent within the tested conditions). Scope: +1/0, G 2, C0, gate on, N2, learning off, World7 T1, W1, T3a,
+  T3b at t0 150. Limits: the T3b gain depends on the loss's cast phase (F2 NOT MET; t0 100 +0.70 [+0.26, +1.14], t0 150
+  +1.95 [+1.45, +2.45], t0 200 +3.82 [+3.34, +4.31]; other geometries and cast parameters untested); a loss whose second
+  pass falls after the row's end is not recovered (F3); the window also acts in T1 silences (a trade); the three-channel
+  form keeps its tested window 300 until a run tests it at 200. Rejected on record: keep 300; adopt 200 universally
+  including the three-channel form.
+
+### H12 (queued at the Phase 7.2 close, decision:phase7-2-gate; opened for design by decision:h12-open-design; design v1 DRAFT awaiting the owner)
+- The acquisition and extinction traces persist differently (concept:h12-differential-persistence, the node queued at
+  the Phase 7.2 close, reused; the number assigned there). Opened for design by decision:h12-open-design (2026-09-26,
+  the owner's '권고안으로 바로 진행' after the H28 and H29 closures), the next item in the order confirmed at
+  decision:h28-open point 10 and decision:h29-open point 9. No measured failure calls for it (the queue's own ranking);
+  the reasons are the confirmed order, the module boundary outlook's memory core, and Stage C's values changing during
+  behaviour.
+- Checked against the code before design (design v1 sections 1, 2.2, 2.3): the acquisition trace is the depression of
+  the reinforced compartment's weights on the odour's code units (ph4.py:58; compartment 0 punishment, 1 reward); the
+  extinction trace is written by the opponent feedback driven by the behavioural valence, gated off on any step with
+  external reinforcement (ph8.py:74-91); in the adopted layout it lands on the opposite valence's acquisition compartment
+  (ph8.py:88-90), in the parallel layout on compartments 2 and 3 (ph8.py:85-87), which the adopted agent already allocates
+  and sums (ph11.py:53, :115; ph8.py:63-65). So no per-compartment decay in the single-site layout gives sign-symmetric
+  spontaneous recovery with retained acquisition, while one decay constant on the parallel pair does. In every recorded
+  behaving run extinction never fires (the module gets an odour code only at a source and every source reinforces,
+  ph15.py:55-61), so the H12 module is identical to the adopted one there; the adopted read-out expresses value by sign
+  and rank, so a behavioural test needs a world change (reward withdrawn) and a positive competitor; decay alone gives
+  recovery, not reacquisition by re-pairing (acquisition weights at the floor).
+- Design v1 DRAFT doc dff68b78ea66ed47e (experiments/h12/h12_design_v1.md, sha256 75428f1a...e79e), no code.
+  Recommended (c), both in order: Stage 1, a module bench on MB5(ph8.MB4) in a new src/ph36.py (ph4.py, ph8.py untouched):
+  H11's two-by-two and F6 reproduced bitwise; identities; tau_ext* the smallest of {2000, 5000, 10000, 20000} keeping F1
+  and F2 (predicted 5000, a 1.3-point margin on F1's extinction clause); B3 SR lower bound >= 0.20 and B4 RET >= 0.99 at
+  D 5000 for both signs; single-site arms reported; stop rules (s1), (s2). Stage 2 outlined (World7 T1 geometry with
+  learning on, reward withdrawn at t0 600, V masked 2400-3599, reinstated 3600-4199, a supplied competitor c +0.5;
+  arms H12 module, gate only, H11 full, supplied ceiling and floor, sham; K0 readability first; K1 bar = 0.5 x (ceiling
+  minus floor) after the bench; pass probabilities unmeasured). No classification-rule relaxation; a composition record to
+  sign before any Stage 2 code; adoption of the parallel site only by a separate decision after both stages. Seeds:
+  Stage 1 codes 20261151/20261152, bootstrap 20261153; Stage 2 bench 20261151/20261152, dev 9911/9921, eval
+  2129/2243. Awaiting the owner's confirmation of section 12.
 
 ## The architecture as currently adopted
 
 Stated here so a later session does not have to reassemble it from decisions.
 
-- **The adopted agent, as composed (decision:n2-release-adopted-within-tested-conditions, 2026-09-25): Agent14N2 =
+- **TWO FORMS, since 2026-09-26 (decision:h28-burst-tie-adopted-within-tested-conditions,
+  decision:h29-window-200-adopted-within-tested-conditions).** The adopted architecture has a two-channel form and a
+  three-channel distractor form; a future design must say which form it composes.
+  **The two-channel form, the adopted agent: Agent17 = Agent14N2 built with N_hi 200** (src/ph35.py:104-105, a body-less
+  subclass built through Agent14's constructor argument, src/ph28.py:95-97; N17 = 200 at src/ph35.py:89): everything
+  stated below for Agent14N2 holds for it, with the presence window after a whiff 200 and the counter start 140 (the
+  59-step prior unchanged) in place of 300 and 240. It supersedes the H26 window for this form (the H26 relaxation stays
+  on record as superseded; the H29 relaxation is the adopted state). **Scope:** supplied +1/0, G 2, C0, gate on, N2
+  release, learning off, World7 T1, W1, T3a, and T3b at t0 150 (T3b paired dwell +1.9525 [+1.4549, +2.4501] against
+  Agent14N2; T1 DP -0.0075 [-0.0200, +0.0025]; W1, T3a identical). Limits: the T3b gain's cast-phase dependence (t0 100
+  +0.70, t0 200 +3.82; other geometries and cast parameters untested); a loss whose second pass falls after the row's end
+  is not recovered; the shorter window also acts in T1 silences (a trade). Agent14N2 (window 300) is the reference it
+  was tested against.
+  **The three-channel distractor form: Agent16 as composed in src/ph33.py** (Agent14N2's modules with three channels, the
+  H27 composition rule, three presence counters at window 300 and start 240, and the H28 burst-ranked value tie, Act16,
+  src/ph33.py:116-177). **Scope:** supplied +1/0 with a background distractor D at value 0, p_D 0.03, G 2, C0, gate on,
+  N2, learning off, T1D and W1D (T1D DP -0.0275 against itself without D; W1D 222/400 lost against 400 for H27's agent
+  and 29 without D). It keeps the window 300 (200 untested at three channels). At two channels its tie rule is inert by
+  code, so it adds nothing to the two-channel form.
+- **Before 2026-09-26 (kept for the lineage): the adopted agent, as composed (decision:n2-release-adopted-within-tested-conditions, 2026-09-25): Agent14N2 =
   ReleaseN2 + Agent14** (src/ph30.py:117-140; ReleaseN2 applies the H25 release (S) and (Z) only while the held odour's
   own value is non-negative, :128-132). At non-negative values it is Agent14 by code and by the Stage C bench identity
   (ph30_bench.txt line 326), so everything below that is stated for Agent14 holds for it unchanged; with a negative value
@@ -1508,15 +1614,18 @@ Stated here so a later session does not have to reassemble it from decisions.
   Release + Agent8) as the adopted agent within that scope; Agent10 stays the reference it was tested against. A loss
   after tracking (T3b) is not shown; negative values are excluded; learned values beyond H20 Stage B's tested
   conditions are not validated (below). The H26-scoped relaxation of the classification rule (one presence counter per odour, window 300, start 240
-  as a prior) stays in force for this counter.
+  as a prior) stayed in force for this counter until it was superseded for the two-channel form on 2026-09-26 (above).
 - **RECORDED LIMIT, a ubiquitous distractor (record:distractor-capture-limit; decision:h27-closed, 2026-09-26):** with a
   third odour D (value 0, never reinforced, background whiffs at p_D 0.03) the adopted agent composed with three channels
   loses 0.13 of P(V) in the choice task (0.787 vs 0.920) and every row in the absent-odour world (400/400 vs 22): with the
   valued odour absent, D ties the neutral odour at value 0 in the filter's top set and steers whenever nothing or D is
   held; while V is present nothing changes. The hold's benefit under a distractor is unmeasured. A remedy, the
   burst-ranked value tie (H28, Agent16, three channels), was evaluated once and SHOWN under its registered criteria
-  (record:h28-result): T1D cost 0.0275 of P(V) against itself without D, W1D 222 vs 400 lost; it is NOT adopted (closure
-  awaiting the owner) and W1D still loses 222 rows against 29 without D. The adopted agent is unchanged.
+  (record:h28-result): T1D cost 0.0275 of P(V) against itself without D, W1D 222 vs 400 lost. **ADOPTED for the
+  three-channel distractor form only (decision:h28-burst-tie-adopted-within-tested-conditions, 2026-09-26);** under it
+  the limit is T1D DP -0.0275 and W1D 222/400 lost against 29 without D
+  (record:distractor-capture-limit-under-h28-tie); the hold's benefit under a distractor stays unmeasured. The two-channel
+  adopted agent is unchanged by it.
 - **Learned values reach behaviour through the adopted read-out, with no new module (decision:h20-stage-b-closed,
   2026-09-25):** a positive value learned by the agent's own learning module (H15 E2 training off-world, neutral
   first, saturating dose), read out by the module's own function into the `known` array Agent14 already reads, is used
@@ -1605,6 +1714,11 @@ Stated here so a later session does not have to reassemble it from decisions.
   a time it leaks agents to a median score of 0.0 where a perfect integrator keeps 24.0
   (concept:ring-leaks-under-cue-loss). The cause is not known; H18.
 - Learning: H8 v2 with the extinction GATE, per decision:phase7-2-gate. Parallel site not adopted.
+  **Read at the H12 design (2026-09-26, design v1 doc dff68b78ea66ed47e; no run):** the module receives an odour code
+  only at a source and every source reinforces (ph15.py:55-61), so with the gate on extinction has never fired in any
+  recorded behaving run; the adopted layout writes extinction on the opposite valence's acquisition compartment
+  (ph8.py:88-90); no weight decays at any site. H12 (in design) proposes the parallel site with a decaying extinction
+  pair, inert in every recorded run by code; nothing is changed until the owner decides.
   **Learning loop, from H15 Run 2:** every agent's learning state is updated exactly once per
   world step from its own position. Run 1's loop advanced the module only when some agent stood
   at a source, which coupled the agents (displacing one agent changed the others; shown by
@@ -1665,6 +1779,10 @@ Stated here so a later session does not have to reassemble it from decisions.
   loss after tracking (T3b: a fixed 300-step blind window, 4.412 against 5.772 at N 60); negative values; learned values;
   other P or N_hi. Measured cost: W1 lost rows against the unfiltered agent +0.0475 (the price of the 59-step prior);
   T1 rows without a valued whiff by step 58 (20 of 400) carry the residual (k 5).
+  **Window SUPERSEDED for the two-channel form (decision:h29-window-200-adopted-within-tested-conditions, 2026-09-26):**
+  present_k = (c_k < 200) or k held, the counter starting at 140 (the prior P 60 unchanged: a never-sensed odour is present
+  on steps 0-58), Agent17; the H26 relaxation stays on record as superseded there. The three-channel distractor form
+  keeps window 300 and start 240 as tested.
 
 ## Standing rules
 - One hypothesis active at a time. Adoption and every gate pass are decided by the project owner, not by the assistant.
@@ -1699,7 +1817,7 @@ Stated here so a later session does not have to reassemble it from decisions.
   (decision:h17-closed) and stay on record, as does the lapsed H24 Run 2 re-sign
   (decision:classification-rule-relaxed-presence-counter-run2). A new one, scoped to H26 only (one presence counter per
   odour, window 300, starting at 240 as a prior), was signed by the owner on 2026-09-24
-  (decision:classification-rule-relaxed-presence-prior-h26); H26 was closed as shown and its counter adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25), so this relaxation STAYS IN FORCE for the adopted agent's counter (Agent14), as part of the adopted state; any wider use (another counter, window or agent) is a new decision. The classification rule itself is unchanged elsewhere. A composition rule, not a relaxation, was signed in the same H14 format for H20 Stage C only (decision:release-value-gated-stage-c: the H25 release not applied while the held odour's own value is negative); it adopts nothing, and decision:release-negative-scope-on-hold stays in force outside Stage C. For H20 Stage C Run 2 that rule was re-signed in form, content unchanged, scope Stage C Run 1 and Run 2 (decision:release-value-gated-stage-c-run2), and one bar was re-signed in H14 format for Run 2 only: M4(c)'s readability read on G3+ with G3+ at least 50 (decision:h20-stage-c-m4c-readability-resigned-run2); the stored Run 1 criteria are not edited. On 2026-09-25 Stage C Run 2 was closed as shown (decision:h20-stage-c-run2-closed) and the (N2) rule was ADOPTED as the adopted agent's release rule (decision:n2-release-adopted-within-tested-conditions), which supersedes decision:release-negative-scope-on-hold; the Run 2-only M4(c) re-sign lapsed with the closure. For H27 two records were signed in the same format on 2026-09-25, H27 only: an evidence-release composition rule at N channels (decision:evidence-release-composition-rule-h27) and an in-form re-sign of the H26 relaxation for a third counter (decision:classification-rule-relaxed-presence-prior-h27); H27 stopped at its bench (record:h27-bench-result), and both stay on record, scoped to H27. H27 was closed on 2026-09-26 (decision:h27-closed): both lapse with the closure and stay on record; the composition rule stays available as a recorded composition for any future N = 3 design, by a new decision (a re-sign in form). For H28 three records were signed on 2026-09-26, H28 only (decision:h28-open): a new H28-scoped relaxation (per odour the step of its second most recent whiff and of its last burst, read only to rank odours tied at the top value; decision:classification-rule-relaxed-burst-record-h28) and the two H27 records re-signed in form (decision:evidence-release-composition-rule-h28, decision:classification-rule-relaxed-presence-prior-h28); H28 was evaluated once and SHOWN (record:h28-result); the three stay scoped to H28 until the owner's closure decides otherwise. For H29 one record was signed on 2026-09-26, H29 only (decision:h29-open): the H26 presence relaxation re-signed in H14 format with the window 200 and the start 140, the prior unchanged (decision:classification-rule-relaxed-presence-prior-h29); the adopted counter (300, start 240) is unchanged; H29 was evaluated once and SHOWN (record:h29-result); the record stays scoped to H29 until the owner's closure decides otherwise.
+  (decision:classification-rule-relaxed-presence-prior-h26); H26 was closed as shown and its counter adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25), so this relaxation STAYS IN FORCE for the adopted agent's counter (Agent14), as part of the adopted state; any wider use (another counter, window or agent) is a new decision. The classification rule itself is unchanged elsewhere. A composition rule, not a relaxation, was signed in the same H14 format for H20 Stage C only (decision:release-value-gated-stage-c: the H25 release not applied while the held odour's own value is negative); it adopts nothing, and decision:release-negative-scope-on-hold stays in force outside Stage C. For H20 Stage C Run 2 that rule was re-signed in form, content unchanged, scope Stage C Run 1 and Run 2 (decision:release-value-gated-stage-c-run2), and one bar was re-signed in H14 format for Run 2 only: M4(c)'s readability read on G3+ with G3+ at least 50 (decision:h20-stage-c-m4c-readability-resigned-run2); the stored Run 1 criteria are not edited. On 2026-09-25 Stage C Run 2 was closed as shown (decision:h20-stage-c-run2-closed) and the (N2) rule was ADOPTED as the adopted agent's release rule (decision:n2-release-adopted-within-tested-conditions), which supersedes decision:release-negative-scope-on-hold; the Run 2-only M4(c) re-sign lapsed with the closure. For H27 two records were signed in the same format on 2026-09-25, H27 only: an evidence-release composition rule at N channels (decision:evidence-release-composition-rule-h27) and an in-form re-sign of the H26 relaxation for a third counter (decision:classification-rule-relaxed-presence-prior-h27); H27 stopped at its bench (record:h27-bench-result), and both stay on record, scoped to H27. H27 was closed on 2026-09-26 (decision:h27-closed): both lapse with the closure and stay on record; the composition rule stays available as a recorded composition for any future N = 3 design, by a new decision (a re-sign in form). For H28 three records were signed on 2026-09-26, H28 only (decision:h28-open): a new H28-scoped relaxation (per odour the step of its second most recent whiff and of its last burst, read only to rank odours tied at the top value; decision:classification-rule-relaxed-burst-record-h28) and the two H27 records re-signed in form (decision:evidence-release-composition-rule-h28, decision:classification-rule-relaxed-presence-prior-h28); H28 was evaluated once and SHOWN (record:h28-result); the three stay scoped to H28 until the owner's closure decides otherwise. For H29 one record was signed on 2026-09-26, H29 only (decision:h29-open): the H26 presence relaxation re-signed in H14 format with the window 200 and the start 140, the prior unchanged (decision:classification-rule-relaxed-presence-prior-h29); the adopted counter (300, start 240) is unchanged; H29 was evaluated once and SHOWN (record:h29-result); the record stays scoped to H29 until the owner's closure decides otherwise. On 2026-09-26 the owner closed both as SHOWN and adopted them within their tested conditions ('권고안으로 바로 진행', gloss 'proceed right away with the recommended options'): for the TWO-CHANNEL form the H26 relaxation (window 300, start 240) is SUPERSEDED by the H29 relaxation (window 200, start 140, the prior unchanged; decision:h29-window-200-adopted-within-tested-conditions), which is now the adopted state for Agent17 and stays in force as such (the H26 record stays on record as superseded); for the THREE-CHANNEL distractor form the H28 burst-record relaxation, the H27 three-counter presence relaxation and the H27 composition rule (as re-signed for H28) are adopted state, re-signed in form by decision:h28-burst-tie-adopted-within-tested-conditions with scope 'the adopted three-channel agent'; the two-channel form does not carry them. Any wider use of any of these (another window, another N, another agent) is a new decision. H12 (in design) proposes no relaxation of the classification rule (its change is inside the learning module).
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
   floor in the window where the gate is read. H15's probes spanned 0.3 to 600 and every agent
@@ -1948,24 +2066,18 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Closure and adoption of H28** (decision:h28-open; record:h28-result; report doc d29986a75ef4e9711,
-  experiments/h28/h28_report.md; concept:h28-ubiquitous-odour-discount). H28 was evaluated once and is SHOWN under its
-  registered criteria (M1, M2(b) -0.0275 [-0.0450, -0.0125], M2(c), M3, M4, M5(a') -0.445 [-0.495, -0.397] all PASS).
-  RECOMMENDED (the interpreting assistant's): close H28 as SHOWN; adoption of the burst-ranked value tie scoped to the
-  three-channel distractor condition only (supplied +1/0/0, p_D 0.03), since at two channels the rule is inert by code
-  (identity (I1'), (I3')), with the three H28-scoped records re-signed for any use beyond H28 and
-  record:distractor-capture-limit updated with the H28 numbers. The limits to record with it: W1D still loses 222 of
-  400 rows (against 29 without D; H27's W1D bars against D off all fail); T3aD 0.220 against 13.193 (a loss with a
-  distractor not shown); M6 +0.0000 (the hold's benefit under a distractor unmeasured). Alternatives: close as SHOWN
-  without adoption; a follow-up on the residual W1D loss (not attributed to a path), not recommended before the closure.
-- **Closure and adoption of H29** (decision:h29-open; record:h29-result; report doc d92ffd006bdbcdc28,
-  experiments/h29/h29_report.md; concept:h29-loss-after-tracking). H29 was evaluated once and is SHOWN under its
-  registered criteria (M1, M2(b) -0.0075 [-0.0200, +0.0025], M2(c), M3, M4, M6, M8(a) 376/376, M8(b) +1.9525 [+1.4549,
-  +2.4501] all PASS). The owner decides whether to close H29 as SHOWN and whether to adopt the window of 200 (a trade:
-  the shorter window also acts in T1 silences, 19 of 400 rows here); limits to state with any adoption: the stated
-  cast-phase sensitivity (window 250 behaves like 300; other geometries and cast parameters untested), the reported t0
-  condition (gain +0.70 at t0 100 to +3.82 at t0 200), learning, negative values beyond T4, three channels and D. No
-  recommendation is recorded here; nothing is adopted until the owner decides.
+- **Confirmation of H12 design v1 section 12** (decision:h12-open-design; design v1 DRAFT doc dff68b78ea66ed47e,
+  experiments/h12/h12_design_v1.md, sha256 75428f1a...e79e; concept:h12-differential-persistence). Nine points, each
+  with a RECOMMENDED option: (1) candidate (c), a Stage 1 module bench now, gating a Stage 2 behavioural test completed
+  in design v2 only after Stage 1; (2) the mechanism (m1), the parallel site with only its extinction pair decaying, one
+  constant tau_ext; (3) a new src/ph36.py (MB5), ph4.py and ph8.py untouched, Stage 1 signing and adopting nothing, a
+  composition record signed before any Stage 2 code, no classification-rule relaxation; (4) the bench (H11 reproduced
+  bitwise; tau grid 2000/5000/10000/20000, the smallest keeping F1 and F2; SR >= 0.20 and RET >= 0.99 at D 5000 for both
+  signs); (5) stop rules (s1), (s2); (6) Stage 2's outline (reward withdrawn at t0 600, V masked 2400-3599, reinstated
+  3600-4199, a supplied competitor c +0.5, bars after the bench); (7) seeds; (8) the order (then H10, H18, H17); (9) the
+  adoption path (a separate decision after both stages). H28 and H29 were closed and adopted on 2026-09-26
+  (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, decision:h29-closed,
+  decision:h29-window-200-adopted-within-tested-conditions).
 
 ## Queued candidates, none started
 
@@ -1983,7 +2095,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711); closure awaiting the owner.** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design), measured first by the T3b diagnosis (decision:t3b-diagnosis; record:t3b-diagnosis-result), opened on design v2 FINAL (decision:h29-open; doc d724287aa203d256d), evaluated once and SHOWN under its registered criteria (record:h29-result; report doc d92ffd006bdbcdc28); closure awaiting the owner. Next by decision:h29-open point 9: H12, if the owner's closure resolves T3b.** The rest, ranked in decision:h28-open-design: (3) H12; (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, T3b and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711), and CLOSED as SHOWN with the burst-ranked value tie adopted for the three-channel distractor form only (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, 2026-09-26).** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design), measured first by the T3b diagnosis (decision:t3b-diagnosis; record:t3b-diagnosis-result), opened on design v2 FINAL (decision:h29-open; doc d724287aa203d256d), evaluated once and SHOWN under its registered criteria (record:h29-result; report doc d92ffd006bdbcdc28), and CLOSED as SHOWN with the window 200 adopted, the adopted two-channel agent now Agent17 (decision:h29-closed, decision:h29-window-200-adopted-within-tested-conditions, 2026-09-26).** **H12, the differential persistence of the acquisition and extinction traces, is IN DESIGN (decision:h12-open-design, 2026-09-26; design v1 DRAFT doc dff68b78ea66ed47e awaiting the owner's confirmation of section 12).** The rest, ranked in decision:h28-open-design: (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, the T3b cast-phase dependence and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the release's scope (non-negative held values) and stays in force at negative held values under N2.
 
@@ -2040,17 +2152,22 @@ within the release's scope (non-negative held values) and stays in force at nega
   the number assigned there; design v1 DRAFT doc dc81dbd5005ca164c), ranked first: it addresses a measured failure of the
   recognition core the owner named (T1D DP -0.1325, W1D every row lost); habituation in its usual sense is rejected by
   arithmetic and a burst-ranked value tie is recommended; the W1D rows in which B is never sensed before the capture stay
-  in the recorded limit. **Opened on design v2 FINAL (decision:h28-open); DONE: evaluated once, SHOWN under its
-  registered criteria (record:h28-result, 2026-09-26); closure awaiting the owner.**
+  in the recorded limit. **Opened on design v2 FINAL (decision:h28-open); evaluated once, SHOWN under its registered
+  criteria (record:h28-result). DONE: CLOSED as SHOWN, the tie ADOPTED for the three-channel distractor form only
+  (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, 2026-09-26).**
 - **The H26 T3b limit** (a loss after tracking: the post-whiff window a fixed 300 steps, 4.412 against 5.772), ranked
   second: a measured limit of an adopted module, narrow; a fix is another counter rule with the trade-off of
   record:h24-run2-n-sweep-result. **Opened for design as H29 (decision:h29-open-design, 2026-09-26; design v1 DRAFT doc
   dd00688c21f09b13e):** by T3b's construction no own-state rule separates a loss from a tracking silence; the lever is the
   window's length (Agent17, window 200). The T3b diagnosis is done (decision:t3b-diagnosis): F2 NOT MET, F5 MET, T3b
-  gain +2.460 at window 200. **Opened on design v2 FINAL (decision:h29-open); DONE: evaluated once, SHOWN under its
-  registered criteria (record:h29-result, 2026-09-26); closure awaiting the owner.**
+  gain +2.460 at window 200. **Opened on design v2 FINAL (decision:h29-open); evaluated once, SHOWN under its
+  registered criteria (record:h29-result). DONE: CLOSED as SHOWN, the window 200 ADOPTED, Agent17 the adopted
+  two-channel agent (decision:h29-closed, decision:h29-window-200-adopted-within-tested-conditions, 2026-09-26).**
 - **H12** the acquisition and extinction traces persist differently; this is what would make
   the parallel site earn its place. Ranked third: the memory half of the core, but no measured failure calls for it.
+  **IN DESIGN (decision:h12-open-design, 2026-09-26; design v1 DRAFT doc dff68b78ea66ed47e, experiments/h12/h12_design_v1.md):**
+  recommended a Stage 1 module bench (the parallel site with a decaying extinction pair, the decay constant fixed
+  against the Phase 4 battery) gating a Stage 2 behavioural test; awaiting the owner's confirmation of section 12.
 - **H10** abstention and revision belong to different stages: a thresholded stage decides
   whether to commit at all, a graded stage decides what to and revises it. Ranked fourth: a rebuild of the selection
   circuit that would reopen every adopted bench; revision via the empty state works in the adopted agent.
