@@ -1,0 +1,77 @@
+name: H12 remote diagnosis
+
+on:
+  push:
+    branches: [codex/h12-review-plan]
+    paths:
+      - .github/workflows/h12-remote-diagnosis.yml
+      - src/h12_diagnose.py
+      - notes/reviews/h12_remote_verify.py
+
+permissions:
+  contents: read
+
+concurrency:
+  group: h12-remote-diagnosis
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PH36B_PROCS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: current
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: 6870b4d7e50629b5362ab40454251ef94183bd83
+          path: baseline
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11.15'
+      - name: Install recorded numerical dependency
+        run: python -m pip install numpy==2.4.6
+      - name: Record remote execution provenance
+        run: |
+          mkdir -p remote-output
+          python - <<'PY'
+          import json, os, platform, socket, sys
+          import numpy
+          from pathlib import Path
+          assert os.environ.get('RUNNER_ENVIRONMENT') == 'github-hosted'
+          assert platform.system() == 'Linux'
+          keys = ('GITHUB_SHA', 'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'RUNNER_ENVIRONMENT', 'RUNNER_OS', 'RUNNER_ARCH', 'RUNNER_NAME', 'ImageOS', 'ImageVersion')
+          data = dict(python=sys.version, numpy=numpy.__version__, platform=platform.platform(), hostname=socket.gethostname(), cpu_count=os.cpu_count(), execution={k: os.environ.get(k) for k in keys}, test_owner_model='gpt-6-sol', baseline='6870b4d7e50629b5362ab40454251ef94183bd83')
+          Path('remote-output/runtime.json').write_text(json.dumps(data, indent=2)+'\n')
+          print(json.dumps(data, indent=2))
+          PY
+      - name: Reproduce immutable Stage 2 bench
+        working-directory: baseline
+        run: |
+          python src/ph36b.py bench > ../remote-output/ph36b_bench.txt
+          diff -u experiments/h12/ph36b_bench.txt ../remote-output/ph36b_bench.txt
+      - name: Run diagnostic package when present
+        working-directory: current
+        run: |
+          if test -f src/h12_diagnose.py; then
+            python src/h12_diagnose.py --output ../remote-output/diagnosis
+          else
+            echo 'Baseline reproduction only; Package D implementation pending.'
+          fi
+      - name: Preserve results including failures
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: h12-remote-${{ github.run_id }}-${{ github.run_attempt }}
+          path: remote-output/
+          retention-days: 30
+          if-no-files-found: error
