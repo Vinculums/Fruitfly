@@ -1,0 +1,887 @@
+== H12 Stage 1, the module bench (design v2 FINAL section 4). design H12 v2 FINAL doc d27ec95924fe49be1 hash 3d3aab80cce766f4b3201c951970f4e118ddcd9506633e95a265d6a7941495f1 ==
+   ph36.py sha256 b83bd9e9d1bd9b191d771779b1cd907d9eb057797105c05e82acb15d2a99ca71; design H12 v2 FINAL doc d27ec95924fe49be1 hash 3d3aab80cce766f4b3201c951970f4e118ddcd9506633e95a265d6a7941495f1
+   imported unchanged: ph4.py d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a; ph8.py ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e; ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23
+   ph4.py, ph8.py, ph11.py sha256 prefixes equal to design v2's ({'ph4': 'd009568c', 'ph8': 'ada2fc4b', 'ph11': 'e80f40bd'}): True; experiments/h12/h12_design_v2.md sha256 equal to the design's hash: True
+   seeds: odour A 20261151 (punishment sign), odour B 20261152 (reward sign), bootstrap 20261153 (5000 resamples, 95 percent); H11's own seeds (rng 0; codes 11, 12, 101) for the reproduction; H15 Run 2's evaluation seeds (1640, 1740) for (I4) only (not in the scan); the pair of decision:seed-scan-exclusion-ph31-eval excluded by reference; 200 runs; K sets ['K500', 'K200']; tau grid (2000, 5000, 10000, 20000); D (0, 300, 1000, 3000, 5000, 10000)
+   Readings where the design is silent, chosen so that the identities stay exact (printed again in the bench output):
+    (R1) The relaxation: after MB4.step (after the clip, ph8.py:96), for every compartment c with a finite tau_c,
+         w[:, c, :] = w[:, c, :] + (w0 - w[:, c, :]) / tau_c, w0 = 1.0 (MB's default, ph4.py:20); on every step, silent steps included.
+         It keeps w inside [0, 2], so no second clip is applied. A weight at w0 is left at w0 exactly.
+    (R2) Arms (design 4.1), all gated True (the adopted gate): A0 parallel False, no tau (the adopted module); A1 parallel True, no tau
+         (H11 full); P parallel True, tau (None, None, tau, tau); S1 parallel False, tau on every compartment; S2 parallel False, tau on
+         compartment 1 only. Each module is built with rng default_rng(0) (ph8.mk's), which the module never draws from.
+    (R3) (r): ph8.py is run as a subprocess (python3 ph8.py: H11's own main, its own seeds) and its stdout is compared line for line
+         with experiments/h11/ph8_h11.txt. Any mismatch stops the bench.
+    (R4) (I1), (I2) on H11's protocols: ph8.f1_battery, f2_sustained, f3_trace and f6_savings called with MB5 (tau None) factories and
+         with ph8.mk's MB4 factories (parallel False and True, gated True); the returned values equal exactly. On every constructed
+         schedule of design 4.1 (s), the A0 and A1 arms run in lockstep beside an ph8.MB4 twin with the same flags and w, tc, tr are
+         compared bitwise at every read point (after acquisition, after extinction, at every D, after every re-pairing, on the control
+         path at every D, and the naive pairing).
+    (R5) (I2'): A1 against A0, the behavioural valence after EVERY step of the acquisition, extinction and re-pairing phases and at
+         every read point. The two layouts sum the same quantities in a different order ((o0 - o1') + (o2 - o3) against
+         (o0 - o1) + (o2 - o3')), so the design's 'exact' (2.2) holds in real arithmetic; a smoke check on the unregistered code seed 5
+         (demo) found last-bit differences (1.4e-16). Read as: max |difference| <= 1e-12, the maximum printed.
+    (R6) (I4): H15 Run 2's recorded source-occupancy streams are re-created by ph15.run_e1('intact', Run 2's evaluation seeds
+         (1640, 1740), keep_src=True) (ph15.py:121-126; ph15's own replay check uses this call) and replayed as ph15.replay
+         (ph15.py:129-135) into ph8.MB4(parallel False, gated True) and into P at tau_ext*; both end values equal the run's own end
+         values o['val'][-1] bitwise, and the number of (step, row) carrying a code with no reinforcement is 0. Run 2's evaluation seeds
+         are reused on purpose for this identity only and are not in the seed scan.
+    (R7) Retention schedules (design 4.1 (s), 5.5): the punishment sign (compartment 0) on odour A's code MB.odour(20261151), the reward
+         sign (compartment 1) on odour B's code MB.odour(20261152); acquisition = 10 forward pairings (ph8.trained), extinction = 20
+         forward presentations without reinforcement (ph4.pairing(code, None), as ph8.f3_trace), then silent mb.step() calls; at each D
+         in {0, 300, 1000, 3000, 5000, 10000} the valence is read (no step) and ONE forward re-pairing is applied to a deep copy (the
+         silent run continues on the original). Control path: a deep copy taken after acquisition, silent steps, read at each D. Naive:
+         a fresh module, one forward pairing. The baseline valence at w0 is exactly 0 (checked), so raw valences are used.
+    (R8) SR's denominator: 'a, the acquisition-site valence at the end of extinction' is taken from the parallel layout without decay
+         (A1) at the same K and sign. In P it is the same array bitwise (in the parallel layout compartments 0 and 1 are written only by
+         external reinforcement; checked); in the single-site arms MB4.acq_valence contains the extinction trace (a = v_ext, 0/0), so
+         A1's value is the acquisition site's own scale for every arm, as design 4.2 requires for 'A0 and A1 ... 0 exactly'.
+         SR(D) = (|v(D)| - |v_ext|) / (|a| - |v_ext|); RET(D) = |v_ctrl(D)| / |v_ctrl trained|; REACQ(D) = |v_rep(D)| - |v(D)|; all per run.
+    (R9) Statistics (design 4.2): per-run quantities; the median over the 200 runs; its 95 percent bootstrap interval (5000 resamples of
+         runs, seed 20261153, percentiles 2.5 and 97.5); 'lower bound' is the interval's lower end. The module is deterministic given the
+         codes (no noise), so the per-run minimum and maximum and, for P, the exact 1 - (1 - 1/tau)^D are printed beside.
+    (R10) F6(D) in H11's form, on medians: |median v_rep(D) - median v_ext| / |median v_naive| (ph8.py:215-223); reported, no bar.
+    (R11) Order: F1 and F2 (K 500) for every arm and tau are printed and tau_ext* is fixed by the registered rule (design 4.3) before any
+         retention schedule runs; (s1) stops the bench there. SR and RET are registered at K 200 (B3, B4); K 500 is reported.
+    (R12) Configurations run in parallel processes (fork); each builds its own module; the demo checks parallel == sequential.
+    (R13) Seed scan (design section 9): the 18 numbers of section 9, digit-boundary, every file under the repository except .git and
+         __pycache__, excluded by name: ph36.py, ph36b.py, ph36_*.txt, ph36b_*.txt, h12_*.md, master_plan.md, notes/*.md, viewer/*; and
+         the (file, number) pair of decision:seed-scan-exclusion-ph31-eval (experiments/h20/ph31_eval.txt with Stage C Run 1's E1
+         evaluation agent seed, read from ph30.py's seed constants, not written here). The demo's smoke seeds (5, and 3/4 for the I4
+         instrument, as ph15's demo) are used deliberately for smoke checks only and are not part of the scan.
+    (R14) B5 is read at tau_ext* (S1 and S2 at the same tau). (s2): B3 or B4 failing stops the item.
+   seed scan (R13): 18 numbers, 243 files scanned, files containing any: none
+
+== (r) H11 reproduced: python3 ph8.py (H11's main, its own seeds) against experiments/h11/ph8_h11.txt ==
+   lines: reproduced 45, recorded 45; mismatching lines: 0 -> MATCH
+   | == Phase 7.2, H11. 200 runs per cell, K=500 ==
+   | == Criteria: record:phase7-2-success-criteria, stored before this file existed ==
+   | == Prediction on record: `gated` gives F2, `parallel` gives F3 ==
+   | 
+   |    H8 v2 baseline      (parallel=no,  gated=no )
+   |      F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 22%  rev 200/200  timing 200/200   -> pass
+   |      F2 sustained: peak 0.935 -> t400 0.003, retains 0.3%   (bound 70%)   -> FAIL
+   |         t=5:-0.485  t=10:-0.935  t=25:-0.745  t=50:-0.511  t=100:-0.240  t=200:-0.053  t=400:-0.003
+   |      F3 trace: behavioural -0.727 -> -0.158 (extinguished); acquisition site -0.727 -> -0.158 (22% kept)   -> FAIL
+   | 
+   |    gated only          (parallel=no,  gated=yes)
+   |      F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 22%  rev 200/200  timing 200/200   -> pass
+   |      F2 sustained: peak 1.000 -> t400 1.000, retains 100.0%   (bound 70%)   -> pass
+   |         t=5:-0.500  t=10:-1.000  t=25:-1.000  t=50:-1.000  t=100:-1.000  t=200:-1.000  t=400:-1.000
+   |      F3 trace: behavioural -0.727 -> -0.158 (extinguished); acquisition site -0.727 -> -0.158 (22% kept)   -> FAIL
+   | 
+   |    parallel only       (parallel=yes, gated=no )
+   |      F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 22%  rev 200/200  timing 200/200   -> pass
+   |      F2 sustained: peak 0.935 -> t400 0.003, retains 0.3%   (bound 70%)   -> FAIL
+   |         t=5:-0.485  t=10:-0.935  t=25:-0.745  t=50:-0.511  t=100:-0.240  t=200:-0.053  t=400:-0.003
+   |      F3 trace: behavioural -0.727 -> -0.158 (extinguished); acquisition site -0.997 -> -0.985 (99% kept)   -> pass
+   | 
+   |    H11 full            (parallel=yes, gated=yes)
+   |      F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 22%  rev 200/200  timing 200/200   -> pass
+   |      F2 sustained: peak 1.000 -> t400 1.000, retains 100.0%   (bound 70%)   -> pass
+   |         t=5:-0.500  t=10:-1.000  t=25:-1.000  t=50:-1.000  t=100:-1.000  t=200:-1.000  t=400:-1.000
+   |      F3 trace: behavioural -0.727 -> -0.158 (extinguished); acquisition site -0.997 -> -0.985 (99% kept)   -> pass
+   | 
+   | == Two-by-two summary ==
+   |    cell                                      F1    F2    F3   F2 retains   F3 keeps
+   |    H8 v2 baseline      (parallel=no,  gated=no )  pass  FAIL  FAIL        0.3%        22%
+   |    gated only          (parallel=no,  gated=yes)  pass  pass  FAIL      100.0%        22%
+   |    parallel only       (parallel=yes, gated=no )  pass  FAIL  pass        0.3%        99%
+   |    H11 full            (parallel=yes, gated=yes)  pass  pass  pass      100.0%        99%
+   | 
+   |    H11 SUPPORTED on all three criteria.
+   | 
+   | == F6 reacquisition savings (reported, not gated; ADDED after the two-by-two) ==
+   |    After extinction, ONE re-pairing. A preserved trace should snap back; a trace
+   |    that was erased has to be relearned from scratch like a naive animal.
+   |    cell                                trained  extinct  +1 pair  naive+1  savings  % of trained
+   |    H8 v2 baseline                       -0.727   -0.158   -0.161   -0.110     0.0x           22%
+   |    gated only                           -0.727   -0.158   -0.161   -0.110     0.0x           22%
+   |    parallel only                        -0.727   -0.158   -0.161   -0.110     0.0x           22%
+   |    H11 full                             -0.727   -0.158   -0.161   -0.110     0.0x           22%
+
+== (i) identities on H11's protocols: MB5 (tau None) == ph8.MB4, F1, F2, F3, F6 returned values (reading R4) ==
+   (I1) MB5(parallel False, tau None) == MB4(parallel False, gated True): True
+   (I2) MB5(parallel True, tau None) == MB4(parallel True, gated True) (H11 full): True
+
+== (b) F1 and F2 at K 500 for every arm and tau (ph8.py:112-155 unchanged; bounds ph8.py:180-182) ==
+   A0               F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 21.7%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   A1               F1 acq 200/200 (dA -0.727)  leak 4.0%  ext 21.7%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   P tau 2000       F1 acq 200/200 (dA -0.741)  leak 4.0%  ext 37.1%  rev 200/200  timing 200/200 -> FAIL | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   P tau 5000       F1 acq 200/200 (dA -0.733)  leak 4.0%  ext 28.4%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   P tau 10000      F1 acq 200/200 (dA -0.730)  leak 4.0%  ext 25.1%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   P tau 20000      F1 acq 200/200 (dA -0.728)  leak 4.0%  ext 23.4%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   S1 tau 2000      F1 acq 200/200 (dA -0.672)  leak 4.0%  ext 15.3%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   S1 tau 5000      F1 acq 200/200 (dA -0.704)  leak 4.0%  ext 18.8%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   S1 tau 10000     F1 acq 200/200 (dA -0.715)  leak 4.0%  ext 20.2%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   S1 tau 20000     F1 acq 200/200 (dA -0.721)  leak 4.0%  ext 20.9%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   S2 tau 2000      F1 acq 200/200 (dA -0.741)  leak 4.0%  ext 37.1%  rev 200/200  timing 200/200 -> FAIL | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   S2 tau 5000      F1 acq 200/200 (dA -0.733)  leak 4.0%  ext 28.4%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   S2 tau 10000     F1 acq 200/200 (dA -0.730)  leak 4.0%  ext 25.1%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+   S2 tau 20000     F1 acq 200/200 (dA -0.728)  leak 4.0%  ext 23.4%  rev 200/200  timing 200/200 -> pass | F2 peak 1.000 t400 1.000 retains 100.0% -> pass
+
+   tau rule (design 4.3): tau_ext* = the smallest tau in (2000, 5000, 10000, 20000) at which P passes every clause of F1 and F2 at K 500 -> 5000; P's failing clauses by tau: [(2000, ['ext'])]
+   tau_ext* = 5000, fixed here, before any retention schedule has run (reading R11)
+
+== (s) retention schedules, every arm and tau, both signs, K 500 and K 200 (reading R7) ==
+   baseline valence at w0 exactly 0 in every schedule and naive module: True
+   (I1), (I2) on the schedules: A0 and A1 == their ph8.MB4 twins, w, tc, tr bitwise at every read point: True (168 comparisons)
+   (I2') A1 vs A0 behavioural valence on every traced step and read point (5040 traced steps x 200 runs, 2 K, 2 signs): max |difference| 1.665e-16 -> True (tolerance 1e-12, reading R5)
+   P's acquisition pair == A1's bitwise (w[:, 0:2] after extinction and at D 10000; a at the end of extinction), every tau, K, sign: True
+
+== (I4) H15 Run 2's recorded streams (ph15.run_e1('intact', (1640, 1740), keep_src=True)) replayed into the adopted module and into P at tau_ext* 5000 ==
+   adopted replay == the run's end values bitwise: True; P replay == the run's end values bitwise: True; (step, row) with a code and no reinforcement: 0; P's extinction pair untouched (every weight 1.0): True; 400 rows x 5400 steps -> (I4) True
+
+== the retention measures: medians over 200 runs, 95 percent bootstrap interval of the median, per-run min and max (reading R9) ==
+
+   [K500, punishment (compartment 0), odour A] A1: trained -0.7266, extinguished -0.1576, acquisition site a -0.9853, naive one pairing -0.1102
+   A0               trained -0.7266  extinguished -0.1576  control trained -0.7266
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D   300: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  1000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  3000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  5000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D 10000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+   A1               trained -0.7266  extinguished -0.1576  control trained -0.7266
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D   300: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  1000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  3000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  5000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D 10000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+   P tau 2000       trained -0.7415  extinguished -0.2752  control trained -0.7415
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0073  F6 0.07x  v(D) -0.2752  v_rep -0.2825
+      D   300: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)  exact 1-(1-1/tau)^D 0.1393
+               RET +1.0480 [+1.0480, +1.0480] (runs min +1.0480, max +1.0480)  REACQ -0.0015  F6 0.88x  v(D) -0.3741  v_rep -0.3726
+      D  1000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1356 [+1.1356, +1.1356] (runs min +1.1356, max +1.1356)  REACQ -0.0175  F6 2.38x  v(D) -0.5546  v_rep -0.5371
+      D  3000: SR +0.7770 [+0.7770, +0.7770] (runs min +0.7770, max +0.7770)  exact 1-(1-1/tau)^D 0.7770
+               RET +1.2676 [+1.2676, +1.2676] (runs min +1.2676, max +1.2676)  REACQ -0.0417  F6 4.63x  v(D) -0.8269  v_rep -0.7852
+      D  5000: SR +0.9180 [+0.9180, +0.9180] (runs min +0.9180, max +0.9180)  exact 1-(1-1/tau)^D 0.9180
+               RET +1.3162 [+1.3162, +1.3162] (runs min +1.3162, max +1.3162)  REACQ -0.0506  F6 5.46x  v(D) -0.9270  v_rep -0.8764
+      D 10000: SR +0.9933 [+0.9933, +0.9933] (runs min +0.9933, max +0.9933)  exact 1-(1-1/tau)^D 0.9933
+               RET +1.3422 [+1.3422, +1.3422] (runs min +1.3422, max +1.3422)  REACQ -0.0554  F6 5.90x  v(D) -0.9805  v_rep -0.9251
+   P tau 5000       trained -0.7327  extinguished -0.2080  control trained -0.7327
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0051  F6 0.05x  v(D) -0.2080  v_rep -0.2131
+      D   300: SR +0.0582 [+0.0582, +0.0582] (runs min +0.0582, max +0.0582)  exact 1-(1-1/tau)^D 0.0582
+               RET +1.0210 [+1.0210, +1.0210] (runs min +1.0210, max +1.0210)  REACQ +0.0015  F6 0.42x  v(D) -0.2533  v_rep -0.2548
+      D  1000: SR +0.1813 [+0.1813, +0.1813] (runs min +0.1813, max +0.1813)  exact 1-(1-1/tau)^D 0.1813
+               RET +1.0654 [+1.0654, +1.0654] (runs min +1.0654, max +1.0654)  REACQ -0.0061  F6 1.22x  v(D) -0.3489  v_rep -0.3428
+      D  3000: SR +0.4512 [+0.4512, +0.4512] (runs min +0.4512, max +0.4512)  exact 1-(1-1/tau)^D 0.4512
+               RET +1.1627 [+1.1627, +1.1627] (runs min +1.1627, max +1.1627)  REACQ -0.0227  F6 2.98x  v(D) -0.5587  v_rep -0.5360
+      D  5000: SR +0.6322 [+0.6322, +0.6322] (runs min +0.6322, max +0.6322)  exact 1-(1-1/tau)^D 0.6322
+               RET +1.2279 [+1.2279, +1.2279] (runs min +1.2279, max +1.2279)  REACQ -0.0338  F6 4.15x  v(D) -0.6993  v_rep -0.6655
+      D 10000: SR +0.8647 [+0.8647, +0.8647] (runs min +0.8647, max +0.8647)  exact 1-(1-1/tau)^D 0.8647
+               RET +1.3118 [+1.3118, +1.3118] (runs min +1.3118, max +1.3118)  REACQ -0.0482  F6 5.66x  v(D) -0.8801  v_rep -0.8319
+   P tau 10000      trained -0.7297  extinguished -0.1834  control trained -0.7297
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0042  F6 0.04x  v(D) -0.1834  v_rep -0.1876
+      D   300: SR +0.0296 [+0.0296, +0.0296] (runs min +0.0296, max +0.0296)  exact 1-(1-1/tau)^D 0.0296
+               RET +1.0108 [+1.0108, +1.0108] (runs min +1.0108, max +1.0108)  REACQ +0.0024  F6 0.24x  v(D) -0.2071  v_rep -0.2095
+      D  1000: SR +0.0952 [+0.0952, +0.0952] (runs min +0.0952, max +0.0952)  exact 1-(1-1/tau)^D 0.0952
+               RET +1.0349 [+1.0349, +1.0349] (runs min +1.0349, max +1.0349)  REACQ -0.0016  F6 0.68x  v(D) -0.2597  v_rep -0.2582
+      D  3000: SR +0.2592 [+0.2592, +0.2592] (runs min +0.2592, max +0.2592)  exact 1-(1-1/tau)^D 0.2592
+               RET +1.0949 [+1.0949, +1.0949] (runs min +1.0949, max +1.0949)  REACQ -0.0116  F6 1.78x  v(D) -0.3912  v_rep -0.3797
+      D  5000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1441 [+1.1441, +1.1441] (runs min +1.1441, max +1.1441)  REACQ -0.0198  F6 2.68x  v(D) -0.4989  v_rep -0.4792
+      D 10000: SR +0.6321 [+0.6321, +0.6321] (runs min +0.6321, max +0.6321)  exact 1-(1-1/tau)^D 0.6321
+               RET +1.2315 [+1.2315, +1.2315] (runs min +1.2315, max +1.2315)  REACQ -0.0343  F6 4.29x  v(D) -0.6903  v_rep -0.6560
+   P tau 20000      trained -0.7281  extinguished -0.1707  control trained -0.7281
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0038  F6 0.03x  v(D) -0.1707  v_rep -0.1744
+      D   300: SR +0.0149 [+0.0149, +0.0149] (runs min +0.0149, max +0.0149)  exact 1-(1-1/tau)^D 0.0149
+               RET +1.0055 [+1.0055, +1.0055] (runs min +1.0055, max +1.0055)  REACQ +0.0029  F6 0.14x  v(D) -0.1828  v_rep -0.1857
+      D  1000: SR +0.0488 [+0.0488, +0.0488] (runs min +0.0488, max +0.0488)  exact 1-(1-1/tau)^D 0.0488
+               RET +1.0180 [+1.0180, +1.0180] (runs min +1.0180, max +1.0180)  REACQ +0.0008  F6 0.37x  v(D) -0.2104  v_rep -0.2112
+      D  3000: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)  exact 1-(1-1/tau)^D 0.1393
+               RET +1.0514 [+1.0514, +1.0514] (runs min +1.0514, max +1.0514)  REACQ -0.0047  F6 0.99x  v(D) -0.2841  v_rep -0.2795
+      D  5000: SR +0.2212 [+0.2212, +0.2212] (runs min +0.2212, max +0.2212)  exact 1-(1-1/tau)^D 0.2212
+               RET +1.0816 [+1.0816, +1.0816] (runs min +1.0816, max +1.0816)  REACQ -0.0096  F6 1.55x  v(D) -0.3509  v_rep -0.3412
+      D 10000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1452 [+1.1452, +1.1452] (runs min +1.1452, max +1.1452)  REACQ -0.0201  F6 2.73x  v(D) -0.4912  v_rep -0.4711
+   S1 tau 2000      trained -0.6717  extinguished -0.1025  control trained -0.6717
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0998  F6 0.92x  v(D) -0.1025  v_rep -0.2023
+      D   300: SR -0.0162 [-0.0162, -0.0162] (runs min -0.0162, max -0.0162)
+               RET +0.8607 [+0.8607, +0.8607] (runs min +0.8607, max +0.8607)  REACQ +0.1010  F6 0.80x  v(D) -0.0882  v_rep -0.1893
+      D  1000: SR -0.0457 [-0.0457, -0.0457] (runs min -0.0457, max -0.0457)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1033  F6 0.58x  v(D) -0.0622  v_rep -0.1655
+      D  3000: SR -0.0902 [-0.0902, -0.0902] (runs min -0.0902, max -0.0902)
+               RET +0.2230 [+0.2230, +0.2230] (runs min +0.2230, max +0.2230)  REACQ +0.1068  F6 0.25x  v(D) -0.0229  v_rep -0.1297
+      D  5000: SR -0.1066 [-0.1066, -0.1066] (runs min -0.1066, max -0.1066)
+               RET +0.0820 [+0.0820, +0.0820] (runs min +0.0820, max +0.0820)  REACQ +0.1081  F6 0.13x  v(D) -0.0084  v_rep -0.1165
+      D 10000: SR -0.1154 [-0.1154, -0.1154] (runs min -0.1154, max -0.1154)
+               RET +0.0067 [+0.0067, +0.0067] (runs min +0.0067, max +0.0067)  REACQ +0.1088  F6 0.06x  v(D) -0.0007  v_rep -0.1095
+   S1 tau 5000      trained -0.7039  extinguished -0.1327  control trained -0.7039
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0991  F6 0.90x  v(D) -0.1327  v_rep -0.2318
+      D   300: SR -0.0091 [-0.0091, -0.0091] (runs min -0.0091, max -0.0091)
+               RET +0.9418 [+0.9418, +0.9418] (runs min +0.9418, max +0.9418)  REACQ +0.0997  F6 0.84x  v(D) -0.1249  v_rep -0.2247
+      D  1000: SR -0.0282 [-0.0282, -0.0282] (runs min -0.0282, max -0.0282)
+               RET +0.8187 [+0.8187, +0.8187] (runs min +0.8187, max +0.8187)  REACQ +0.1010  F6 0.70x  v(D) -0.1086  v_rep -0.2097
+      D  3000: SR -0.0702 [-0.0702, -0.0702] (runs min -0.0702, max -0.0702)
+               RET +0.5488 [+0.5488, +0.5488] (runs min +0.5488, max +0.5488)  REACQ +0.1039  F6 0.40x  v(D) -0.0728  v_rep -0.1767
+      D  5000: SR -0.0984 [-0.0984, -0.0984] (runs min -0.0984, max -0.0984)
+               RET +0.3678 [+0.3678, +0.3678] (runs min +0.3678, max +0.3678)  REACQ +0.1058  F6 0.20x  v(D) -0.0488  v_rep -0.1546
+      D 10000: SR -0.1346 [-0.1346, -0.1346] (runs min -0.1346, max -0.1346)
+               RET +0.1353 [+0.1353, +0.1353] (runs min +0.1353, max +0.1353)  REACQ +0.1082  F6 0.06x  v(D) -0.0180  v_rep -0.1262
+   S1 tau 10000     trained -0.7151  extinguished -0.1446  control trained -0.7151
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0881  F6 0.80x  v(D) -0.1446  v_rep -0.2327
+      D   300: SR -0.0051 [-0.0051, -0.0051] (runs min -0.0051, max -0.0051)
+               RET +0.9704 [+0.9704, +0.9704] (runs min +0.9704, max +0.9704)  REACQ +0.0992  F6 0.86x  v(D) -0.1403  v_rep -0.2396
+      D  1000: SR -0.0164 [-0.0164, -0.0164] (runs min -0.0164, max -0.0164)
+               RET +0.9048 [+0.9048, +0.9048] (runs min +0.9048, max +0.9048)  REACQ +0.0999  F6 0.78x  v(D) -0.1308  v_rep -0.2308
+      D  3000: SR -0.0446 [-0.0446, -0.0446] (runs min -0.0446, max -0.0446)
+               RET +0.7408 [+0.7408, +0.7408] (runs min +0.7408, max +0.7408)  REACQ +0.1018  F6 0.58x  v(D) -0.1071  v_rep -0.2089
+      D  5000: SR -0.0677 [-0.0677, -0.0677] (runs min -0.0677, max -0.0677)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1032  F6 0.42x  v(D) -0.0877  v_rep -0.1909
+      D 10000: SR -0.1087 [-0.1087, -0.1087] (runs min -0.1087, max -0.1087)
+               RET +0.3679 [+0.3679, +0.3679] (runs min +0.3679, max +0.3679)  REACQ +0.1059  F6 0.13x  v(D) -0.0532  v_rep -0.1590
+   S1 tau 20000     trained -0.7208  extinguished -0.1510  control trained -0.7208
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0467  F6 0.42x  v(D) -0.1510  v_rep -0.1977
+      D   300: SR -0.0027 [-0.0027, -0.0027] (runs min -0.0027, max -0.0027)
+               RET +0.9851 [+0.9851, +0.9851] (runs min +0.9851, max +0.9851)  REACQ +0.0609  F6 0.53x  v(D) -0.1487  v_rep -0.2096
+      D  1000: SR -0.0088 [-0.0088, -0.0088] (runs min -0.0088, max -0.0088)
+               RET +0.9512 [+0.9512, +0.9512] (runs min +0.9512, max +0.9512)  REACQ +0.0931  F6 0.78x  v(D) -0.1436  v_rep -0.2367
+      D  3000: SR -0.0252 [-0.0252, -0.0252] (runs min -0.0252, max -0.0252)
+               RET +0.8607 [+0.8607, +0.8607] (runs min +0.8607, max +0.8607)  REACQ +0.1004  F6 0.72x  v(D) -0.1299  v_rep -0.2303
+      D  5000: SR -0.0400 [-0.0400, -0.0400] (runs min -0.0400, max -0.0400)
+               RET +0.7788 [+0.7788, +0.7788] (runs min +0.7788, max +0.7788)  REACQ +0.1013  F6 0.62x  v(D) -0.1176  v_rep -0.2189
+      D 10000: SR -0.0712 [-0.0712, -0.0712] (runs min -0.0712, max -0.0712)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1032  F6 0.40x  v(D) -0.0916  v_rep -0.1948
+   S2 tau 2000      trained -0.7415  extinguished -0.2752  control trained -0.7415
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0073  F6 0.07x  v(D) -0.2752  v_rep -0.2825
+      D   300: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)
+               RET +1.0480 [+1.0480, +1.0480] (runs min +1.0480, max +1.0480)  REACQ -0.0015  F6 0.88x  v(D) -0.3741  v_rep -0.3726
+      D  1000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)
+               RET +1.1356 [+1.1356, +1.1356] (runs min +1.1356, max +1.1356)  REACQ -0.0175  F6 2.38x  v(D) -0.5546  v_rep -0.5371
+      D  3000: SR +0.7770 [+0.7770, +0.7770] (runs min +0.7770, max +0.7770)
+               RET +1.2676 [+1.2676, +1.2676] (runs min +1.2676, max +1.2676)  REACQ -0.0417  F6 4.63x  v(D) -0.8269  v_rep -0.7852
+      D  5000: SR +0.9180 [+0.9180, +0.9180] (runs min +0.9180, max +0.9180)
+               RET +1.3162 [+1.3162, +1.3162] (runs min +1.3162, max +1.3162)  REACQ -0.0506  F6 5.46x  v(D) -0.9270  v_rep -0.8764
+      D 10000: SR +0.9933 [+0.9933, +0.9933] (runs min +0.9933, max +0.9933)
+               RET +1.3422 [+1.3422, +1.3422] (runs min +1.3422, max +1.3422)  REACQ -0.0554  F6 5.90x  v(D) -0.9805  v_rep -0.9251
+   S2 tau 5000      trained -0.7327  extinguished -0.2080  control trained -0.7327
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0051  F6 0.05x  v(D) -0.2080  v_rep -0.2131
+      D   300: SR +0.0582 [+0.0582, +0.0582] (runs min +0.0582, max +0.0582)
+               RET +1.0210 [+1.0210, +1.0210] (runs min +1.0210, max +1.0210)  REACQ +0.0015  F6 0.42x  v(D) -0.2533  v_rep -0.2548
+      D  1000: SR +0.1813 [+0.1813, +0.1813] (runs min +0.1813, max +0.1813)
+               RET +1.0654 [+1.0654, +1.0654] (runs min +1.0654, max +1.0654)  REACQ -0.0061  F6 1.22x  v(D) -0.3489  v_rep -0.3428
+      D  3000: SR +0.4512 [+0.4512, +0.4512] (runs min +0.4512, max +0.4512)
+               RET +1.1627 [+1.1627, +1.1627] (runs min +1.1627, max +1.1627)  REACQ -0.0227  F6 2.98x  v(D) -0.5587  v_rep -0.5360
+      D  5000: SR +0.6322 [+0.6322, +0.6322] (runs min +0.6322, max +0.6322)
+               RET +1.2279 [+1.2279, +1.2279] (runs min +1.2279, max +1.2279)  REACQ -0.0338  F6 4.15x  v(D) -0.6993  v_rep -0.6655
+      D 10000: SR +0.8647 [+0.8647, +0.8647] (runs min +0.8647, max +0.8647)
+               RET +1.3118 [+1.3118, +1.3118] (runs min +1.3118, max +1.3118)  REACQ -0.0482  F6 5.66x  v(D) -0.8801  v_rep -0.8319
+   S2 tau 10000     trained -0.7297  extinguished -0.1834  control trained -0.7297
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0042  F6 0.04x  v(D) -0.1834  v_rep -0.1876
+      D   300: SR +0.0296 [+0.0296, +0.0296] (runs min +0.0296, max +0.0296)
+               RET +1.0108 [+1.0108, +1.0108] (runs min +1.0108, max +1.0108)  REACQ +0.0024  F6 0.24x  v(D) -0.2071  v_rep -0.2095
+      D  1000: SR +0.0952 [+0.0952, +0.0952] (runs min +0.0952, max +0.0952)
+               RET +1.0349 [+1.0349, +1.0349] (runs min +1.0349, max +1.0349)  REACQ -0.0016  F6 0.68x  v(D) -0.2597  v_rep -0.2582
+      D  3000: SR +0.2592 [+0.2592, +0.2592] (runs min +0.2592, max +0.2592)
+               RET +1.0949 [+1.0949, +1.0949] (runs min +1.0949, max +1.0949)  REACQ -0.0116  F6 1.78x  v(D) -0.3912  v_rep -0.3797
+      D  5000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)
+               RET +1.1441 [+1.1441, +1.1441] (runs min +1.1441, max +1.1441)  REACQ -0.0198  F6 2.68x  v(D) -0.4989  v_rep -0.4792
+      D 10000: SR +0.6321 [+0.6321, +0.6321] (runs min +0.6321, max +0.6321)
+               RET +1.2315 [+1.2315, +1.2315] (runs min +1.2315, max +1.2315)  REACQ -0.0343  F6 4.29x  v(D) -0.6903  v_rep -0.6560
+   S2 tau 20000     trained -0.7281  extinguished -0.1707  control trained -0.7281
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0038  F6 0.03x  v(D) -0.1707  v_rep -0.1744
+      D   300: SR +0.0149 [+0.0149, +0.0149] (runs min +0.0149, max +0.0149)
+               RET +1.0055 [+1.0055, +1.0055] (runs min +1.0055, max +1.0055)  REACQ +0.0029  F6 0.14x  v(D) -0.1828  v_rep -0.1857
+      D  1000: SR +0.0488 [+0.0488, +0.0488] (runs min +0.0488, max +0.0488)
+               RET +1.0180 [+1.0180, +1.0180] (runs min +1.0180, max +1.0180)  REACQ +0.0008  F6 0.37x  v(D) -0.2104  v_rep -0.2112
+      D  3000: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)
+               RET +1.0514 [+1.0514, +1.0514] (runs min +1.0514, max +1.0514)  REACQ -0.0047  F6 0.99x  v(D) -0.2841  v_rep -0.2795
+      D  5000: SR +0.2212 [+0.2212, +0.2212] (runs min +0.2212, max +0.2212)
+               RET +1.0816 [+1.0816, +1.0816] (runs min +1.0816, max +1.0816)  REACQ -0.0096  F6 1.55x  v(D) -0.3509  v_rep -0.3412
+      D 10000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)
+               RET +1.1452 [+1.1452, +1.1452] (runs min +1.1452, max +1.1452)  REACQ -0.0201  F6 2.73x  v(D) -0.4912  v_rep -0.4711
+
+   [K500, reward (compartment 1), odour B] A1: trained +0.7266, extinguished +0.1576, acquisition site a +0.9853, naive one pairing +0.1102
+   A0               trained +0.7266  extinguished +0.1576  control trained +0.7266
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D   300: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  1000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  3000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  5000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D 10000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+   A1               trained +0.7266  extinguished +0.1576  control trained +0.7266
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D   300: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  1000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  3000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  5000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D 10000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+   P tau 2000       trained +0.7415  extinguished +0.2752  control trained +0.7415
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0073  F6 0.07x  v(D) +0.2752  v_rep +0.2825
+      D   300: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)  exact 1-(1-1/tau)^D 0.1393
+               RET +1.0480 [+1.0480, +1.0480] (runs min +1.0480, max +1.0480)  REACQ -0.0015  F6 0.88x  v(D) +0.3741  v_rep +0.3726
+      D  1000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1356 [+1.1356, +1.1356] (runs min +1.1356, max +1.1356)  REACQ -0.0175  F6 2.38x  v(D) +0.5546  v_rep +0.5371
+      D  3000: SR +0.7770 [+0.7770, +0.7770] (runs min +0.7770, max +0.7770)  exact 1-(1-1/tau)^D 0.7770
+               RET +1.2676 [+1.2676, +1.2676] (runs min +1.2676, max +1.2676)  REACQ -0.0417  F6 4.63x  v(D) +0.8269  v_rep +0.7852
+      D  5000: SR +0.9180 [+0.9180, +0.9180] (runs min +0.9180, max +0.9180)  exact 1-(1-1/tau)^D 0.9180
+               RET +1.3162 [+1.3162, +1.3162] (runs min +1.3162, max +1.3162)  REACQ -0.0506  F6 5.46x  v(D) +0.9270  v_rep +0.8764
+      D 10000: SR +0.9933 [+0.9933, +0.9933] (runs min +0.9933, max +0.9933)  exact 1-(1-1/tau)^D 0.9933
+               RET +1.3422 [+1.3422, +1.3422] (runs min +1.3422, max +1.3422)  REACQ -0.0554  F6 5.90x  v(D) +0.9805  v_rep +0.9251
+   P tau 5000       trained +0.7327  extinguished +0.2080  control trained +0.7327
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0051  F6 0.05x  v(D) +0.2080  v_rep +0.2131
+      D   300: SR +0.0582 [+0.0582, +0.0582] (runs min +0.0582, max +0.0582)  exact 1-(1-1/tau)^D 0.0582
+               RET +1.0210 [+1.0210, +1.0210] (runs min +1.0210, max +1.0210)  REACQ +0.0015  F6 0.42x  v(D) +0.2533  v_rep +0.2548
+      D  1000: SR +0.1813 [+0.1813, +0.1813] (runs min +0.1813, max +0.1813)  exact 1-(1-1/tau)^D 0.1813
+               RET +1.0654 [+1.0654, +1.0654] (runs min +1.0654, max +1.0654)  REACQ -0.0061  F6 1.22x  v(D) +0.3489  v_rep +0.3428
+      D  3000: SR +0.4512 [+0.4512, +0.4512] (runs min +0.4512, max +0.4512)  exact 1-(1-1/tau)^D 0.4512
+               RET +1.1627 [+1.1627, +1.1627] (runs min +1.1627, max +1.1627)  REACQ -0.0227  F6 2.98x  v(D) +0.5587  v_rep +0.5360
+      D  5000: SR +0.6322 [+0.6322, +0.6322] (runs min +0.6322, max +0.6322)  exact 1-(1-1/tau)^D 0.6322
+               RET +1.2279 [+1.2279, +1.2279] (runs min +1.2279, max +1.2279)  REACQ -0.0338  F6 4.15x  v(D) +0.6993  v_rep +0.6655
+      D 10000: SR +0.8647 [+0.8647, +0.8647] (runs min +0.8647, max +0.8647)  exact 1-(1-1/tau)^D 0.8647
+               RET +1.3118 [+1.3118, +1.3118] (runs min +1.3118, max +1.3118)  REACQ -0.0482  F6 5.66x  v(D) +0.8801  v_rep +0.8319
+   P tau 10000      trained +0.7297  extinguished +0.1834  control trained +0.7297
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0042  F6 0.04x  v(D) +0.1834  v_rep +0.1876
+      D   300: SR +0.0296 [+0.0296, +0.0296] (runs min +0.0296, max +0.0296)  exact 1-(1-1/tau)^D 0.0296
+               RET +1.0108 [+1.0108, +1.0108] (runs min +1.0108, max +1.0108)  REACQ +0.0024  F6 0.24x  v(D) +0.2071  v_rep +0.2095
+      D  1000: SR +0.0952 [+0.0952, +0.0952] (runs min +0.0952, max +0.0952)  exact 1-(1-1/tau)^D 0.0952
+               RET +1.0349 [+1.0349, +1.0349] (runs min +1.0349, max +1.0349)  REACQ -0.0016  F6 0.68x  v(D) +0.2597  v_rep +0.2582
+      D  3000: SR +0.2592 [+0.2592, +0.2592] (runs min +0.2592, max +0.2592)  exact 1-(1-1/tau)^D 0.2592
+               RET +1.0949 [+1.0949, +1.0949] (runs min +1.0949, max +1.0949)  REACQ -0.0116  F6 1.78x  v(D) +0.3912  v_rep +0.3797
+      D  5000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1441 [+1.1441, +1.1441] (runs min +1.1441, max +1.1441)  REACQ -0.0198  F6 2.68x  v(D) +0.4989  v_rep +0.4792
+      D 10000: SR +0.6321 [+0.6321, +0.6321] (runs min +0.6321, max +0.6321)  exact 1-(1-1/tau)^D 0.6321
+               RET +1.2315 [+1.2315, +1.2315] (runs min +1.2315, max +1.2315)  REACQ -0.0343  F6 4.29x  v(D) +0.6903  v_rep +0.6560
+   P tau 20000      trained +0.7281  extinguished +0.1707  control trained +0.7281
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0038  F6 0.03x  v(D) +0.1707  v_rep +0.1744
+      D   300: SR +0.0149 [+0.0149, +0.0149] (runs min +0.0149, max +0.0149)  exact 1-(1-1/tau)^D 0.0149
+               RET +1.0055 [+1.0055, +1.0055] (runs min +1.0055, max +1.0055)  REACQ +0.0029  F6 0.14x  v(D) +0.1828  v_rep +0.1857
+      D  1000: SR +0.0488 [+0.0488, +0.0488] (runs min +0.0488, max +0.0488)  exact 1-(1-1/tau)^D 0.0488
+               RET +1.0180 [+1.0180, +1.0180] (runs min +1.0180, max +1.0180)  REACQ +0.0008  F6 0.37x  v(D) +0.2104  v_rep +0.2112
+      D  3000: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)  exact 1-(1-1/tau)^D 0.1393
+               RET +1.0514 [+1.0514, +1.0514] (runs min +1.0514, max +1.0514)  REACQ -0.0047  F6 0.99x  v(D) +0.2841  v_rep +0.2795
+      D  5000: SR +0.2212 [+0.2212, +0.2212] (runs min +0.2212, max +0.2212)  exact 1-(1-1/tau)^D 0.2212
+               RET +1.0816 [+1.0816, +1.0816] (runs min +1.0816, max +1.0816)  REACQ -0.0096  F6 1.55x  v(D) +0.3509  v_rep +0.3412
+      D 10000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1452 [+1.1452, +1.1452] (runs min +1.1452, max +1.1452)  REACQ -0.0201  F6 2.73x  v(D) +0.4912  v_rep +0.4711
+   S1 tau 2000      trained +0.6717  extinguished +0.1025  control trained +0.6717
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0998  F6 0.92x  v(D) +0.1025  v_rep +0.2023
+      D   300: SR -0.0162 [-0.0162, -0.0162] (runs min -0.0162, max -0.0162)
+               RET +0.8607 [+0.8607, +0.8607] (runs min +0.8607, max +0.8607)  REACQ +0.1010  F6 0.80x  v(D) +0.0882  v_rep +0.1893
+      D  1000: SR -0.0457 [-0.0457, -0.0457] (runs min -0.0457, max -0.0457)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1033  F6 0.58x  v(D) +0.0622  v_rep +0.1655
+      D  3000: SR -0.0902 [-0.0902, -0.0902] (runs min -0.0902, max -0.0902)
+               RET +0.2230 [+0.2230, +0.2230] (runs min +0.2230, max +0.2230)  REACQ +0.1068  F6 0.25x  v(D) +0.0229  v_rep +0.1297
+      D  5000: SR -0.1066 [-0.1066, -0.1066] (runs min -0.1066, max -0.1066)
+               RET +0.0820 [+0.0820, +0.0820] (runs min +0.0820, max +0.0820)  REACQ +0.1081  F6 0.13x  v(D) +0.0084  v_rep +0.1165
+      D 10000: SR -0.1154 [-0.1154, -0.1154] (runs min -0.1154, max -0.1154)
+               RET +0.0067 [+0.0067, +0.0067] (runs min +0.0067, max +0.0067)  REACQ +0.1088  F6 0.06x  v(D) +0.0007  v_rep +0.1095
+   S1 tau 5000      trained +0.7039  extinguished +0.1327  control trained +0.7039
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0991  F6 0.90x  v(D) +0.1327  v_rep +0.2318
+      D   300: SR -0.0091 [-0.0091, -0.0091] (runs min -0.0091, max -0.0091)
+               RET +0.9418 [+0.9418, +0.9418] (runs min +0.9418, max +0.9418)  REACQ +0.0997  F6 0.84x  v(D) +0.1249  v_rep +0.2247
+      D  1000: SR -0.0282 [-0.0282, -0.0282] (runs min -0.0282, max -0.0282)
+               RET +0.8187 [+0.8187, +0.8187] (runs min +0.8187, max +0.8187)  REACQ +0.1010  F6 0.70x  v(D) +0.1086  v_rep +0.2097
+      D  3000: SR -0.0702 [-0.0702, -0.0702] (runs min -0.0702, max -0.0702)
+               RET +0.5488 [+0.5488, +0.5488] (runs min +0.5488, max +0.5488)  REACQ +0.1039  F6 0.40x  v(D) +0.0728  v_rep +0.1767
+      D  5000: SR -0.0984 [-0.0984, -0.0984] (runs min -0.0984, max -0.0984)
+               RET +0.3678 [+0.3678, +0.3678] (runs min +0.3678, max +0.3678)  REACQ +0.1058  F6 0.20x  v(D) +0.0488  v_rep +0.1546
+      D 10000: SR -0.1346 [-0.1346, -0.1346] (runs min -0.1346, max -0.1346)
+               RET +0.1353 [+0.1353, +0.1353] (runs min +0.1353, max +0.1353)  REACQ +0.1082  F6 0.06x  v(D) +0.0180  v_rep +0.1262
+   S1 tau 10000     trained +0.7151  extinguished +0.1446  control trained +0.7151
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0881  F6 0.80x  v(D) +0.1446  v_rep +0.2327
+      D   300: SR -0.0051 [-0.0051, -0.0051] (runs min -0.0051, max -0.0051)
+               RET +0.9704 [+0.9704, +0.9704] (runs min +0.9704, max +0.9704)  REACQ +0.0992  F6 0.86x  v(D) +0.1403  v_rep +0.2396
+      D  1000: SR -0.0164 [-0.0164, -0.0164] (runs min -0.0164, max -0.0164)
+               RET +0.9048 [+0.9048, +0.9048] (runs min +0.9048, max +0.9048)  REACQ +0.0999  F6 0.78x  v(D) +0.1308  v_rep +0.2308
+      D  3000: SR -0.0446 [-0.0446, -0.0446] (runs min -0.0446, max -0.0446)
+               RET +0.7408 [+0.7408, +0.7408] (runs min +0.7408, max +0.7408)  REACQ +0.1018  F6 0.58x  v(D) +0.1071  v_rep +0.2089
+      D  5000: SR -0.0677 [-0.0677, -0.0677] (runs min -0.0677, max -0.0677)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1032  F6 0.42x  v(D) +0.0877  v_rep +0.1909
+      D 10000: SR -0.1087 [-0.1087, -0.1087] (runs min -0.1087, max -0.1087)
+               RET +0.3679 [+0.3679, +0.3679] (runs min +0.3679, max +0.3679)  REACQ +0.1059  F6 0.13x  v(D) +0.0532  v_rep +0.1590
+   S1 tau 20000     trained +0.7208  extinguished +0.1510  control trained +0.7208
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0467  F6 0.42x  v(D) +0.1510  v_rep +0.1977
+      D   300: SR -0.0027 [-0.0027, -0.0027] (runs min -0.0027, max -0.0027)
+               RET +0.9851 [+0.9851, +0.9851] (runs min +0.9851, max +0.9851)  REACQ +0.0609  F6 0.53x  v(D) +0.1487  v_rep +0.2096
+      D  1000: SR -0.0088 [-0.0088, -0.0088] (runs min -0.0088, max -0.0088)
+               RET +0.9512 [+0.9512, +0.9512] (runs min +0.9512, max +0.9512)  REACQ +0.0931  F6 0.78x  v(D) +0.1436  v_rep +0.2367
+      D  3000: SR -0.0252 [-0.0252, -0.0252] (runs min -0.0252, max -0.0252)
+               RET +0.8607 [+0.8607, +0.8607] (runs min +0.8607, max +0.8607)  REACQ +0.1004  F6 0.72x  v(D) +0.1299  v_rep +0.2303
+      D  5000: SR -0.0400 [-0.0400, -0.0400] (runs min -0.0400, max -0.0400)
+               RET +0.7788 [+0.7788, +0.7788] (runs min +0.7788, max +0.7788)  REACQ +0.1013  F6 0.62x  v(D) +0.1176  v_rep +0.2189
+      D 10000: SR -0.0712 [-0.0712, -0.0712] (runs min -0.0712, max -0.0712)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1032  F6 0.40x  v(D) +0.0916  v_rep +0.1948
+   S2 tau 2000      trained +0.6575  extinguished +0.0066  control trained +0.6575
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0974  F6 0.89x  v(D) +0.0066  v_rep +0.1041
+      D   300: SR +0.0767 [+0.0767, +0.0767] (runs min +0.0767, max +0.0767)
+               RET +0.8069 [+0.8069, +0.8069] (runs min +0.8069, max +0.8069)  REACQ -0.0581  F6 0.16x  v(D) -0.0817  v_rep +0.0236
+      D  1000: SR +0.2414 [+0.2414, +0.2414] (runs min +0.2414, max +0.2414)
+               RET +0.4545 [+0.4545, +0.4545] (runs min +0.4545, max +0.4545)  REACQ -0.1196  F6 1.19x  v(D) -0.2429  v_rep -0.1233
+      D  3000: SR +0.4898 [+0.4898, +0.4898] (runs min +0.4898, max +0.4898)
+               RET +0.0770 [+0.0770, +0.0770] (runs min +0.0770, max +0.0770)  REACQ -0.1412  F6 3.23x  v(D) -0.4860  v_rep -0.3448
+      D  5000: SR +0.5812 [+0.5812, +0.5812] (runs min +0.5812, max +0.5812)
+               RET +0.2725 [+0.2725, +0.2725] (runs min +0.2725, max +0.2725)  REACQ -0.1492  F6 3.98x  v(D) -0.5754  v_rep -0.4262
+      D 10000: SR +0.6300 [+0.6300, +0.6300] (runs min +0.6300, max +0.6300)
+               RET +0.3768 [+0.3768, +0.3768] (runs min +0.3768, max +0.3768)  REACQ -0.1534  F6 4.38x  v(D) -0.6231  v_rep -0.4697
+   S2 tau 5000      trained +0.6979  extinguished +0.0863  control trained +0.6979
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0976  F6 0.89x  v(D) +0.0863  v_rep +0.1839
+      D   300: SR -0.0535 [-0.0535, -0.0535] (runs min -0.0535, max -0.0535)
+               RET +0.9198 [+0.9198, +0.9198] (runs min +0.9198, max +0.9198)  REACQ +0.1015  F6 0.49x  v(D) +0.0382  v_rep +0.1396
+      D  1000: SR -0.0254 [-0.0254, -0.0254] (runs min -0.0254, max -0.0254)
+               RET +0.7503 [+0.7503, +0.7503] (runs min +0.7503, max +0.7503)  REACQ -0.0174  F6 0.37x  v(D) -0.0634  v_rep +0.0461
+      D  3000: SR +0.2226 [+0.2226, +0.2226] (runs min +0.2226, max +0.2226)
+               RET +0.3784 [+0.3784, +0.3784] (runs min +0.3784, max +0.3784)  REACQ -0.1272  F6 2.24x  v(D) -0.2863  v_rep -0.1592
+      D  5000: SR +0.3888 [+0.3888, +0.3888] (runs min +0.3888, max +0.3888)
+               RET +0.1291 [+0.1291, +0.1291] (runs min +0.1291, max +0.1291)  REACQ -0.1390  F6 3.49x  v(D) -0.4358  v_rep -0.2967
+      D 10000: SR +0.6024 [+0.6024, +0.6024] (runs min +0.6024, max +0.6024)
+               RET +0.1912 [+0.1912, +0.1912] (runs min +0.1912, max +0.1912)  REACQ -0.1543  F6 5.11x  v(D) -0.6278  v_rep -0.4735
+   S2 tau 10000     trained +0.7121  extinguished +0.1198  control trained +0.7121
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0872  F6 0.79x  v(D) +0.1198  v_rep +0.2071
+      D   300: SR -0.0308 [-0.0308, -0.0308] (runs min -0.0308, max -0.0308)
+               RET +0.9594 [+0.9594, +0.9594] (runs min +0.9594, max +0.9594)  REACQ +0.1001  F6 0.67x  v(D) +0.0932  v_rep +0.1933
+      D  1000: SR -0.0992 [-0.0992, -0.0992] (runs min -0.0992, max -0.0992)
+               RET +0.8692 [+0.8692, +0.8692] (runs min +0.8692, max +0.8692)  REACQ +0.1046  F6 0.17x  v(D) +0.0340  v_rep +0.1386
+      D  3000: SR -0.0068 [-0.0068, -0.0068] (runs min -0.0068, max -0.0068)
+               RET +0.6437 [+0.6437, +0.6437] (runs min +0.6437, max +0.6437)  REACQ -0.1120  F6 1.07x  v(D) -0.1139  v_rep +0.0019
+      D  5000: SR +0.1331 [+0.1331, +0.1331] (runs min +0.1331, max +0.1331)
+               RET +0.4590 [+0.4590, +0.4590] (runs min +0.4590, max +0.4590)  REACQ -0.1250  F6 2.09x  v(D) -0.2351  v_rep -0.1100
+      D 10000: SR +0.3819 [+0.3819, +0.3819] (runs min +0.3819, max +0.3819)
+               RET +0.1309 [+0.1309, +0.1309] (runs min +0.1309, max +0.1309)  REACQ -0.1414  F6 3.90x  v(D) -0.4503  v_rep -0.3089
+   S2 tau 20000     trained +0.7193  extinguished +0.1382  control trained +0.7193
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0462  F6 0.42x  v(D) +0.1382  v_rep +0.1844
+      D   300: SR -0.0166 [-0.0166, -0.0166] (runs min -0.0166, max -0.0166)
+               RET +0.9796 [+0.9796, +0.9796] (runs min +0.9796, max +0.9796)  REACQ +0.0613  F6 0.43x  v(D) +0.1242  v_rep +0.1854
+      D  1000: SR -0.0543 [-0.0543, -0.0543] (runs min -0.0543, max -0.0543)
+               RET +0.9330 [+0.9330, +0.9330] (runs min +0.9330, max +0.9330)  REACQ +0.0956  F6 0.45x  v(D) +0.0922  v_rep +0.1878
+      D  3000: SR -0.1550 [-0.1550, -0.1550] (runs min -0.1550, max -0.1550)
+               RET +0.8087 [+0.8087, +0.8087] (runs min +0.8087, max +0.8087)  REACQ +0.1081  F6 0.21x  v(D) +0.0069  v_rep +0.1150
+      D  5000: SR -0.0801 [-0.0801, -0.0801] (runs min -0.0801, max -0.0801)
+               RET +0.6962 [+0.6962, +0.6962] (runs min +0.6962, max +0.6962)  REACQ -0.0268  F6 0.86x  v(D) -0.0703  v_rep +0.0435
+      D 10000: SR +0.1116 [+0.1116, +0.1116] (runs min +0.1116, max +0.1116)
+               RET +0.4596 [+0.4596, +0.4596] (runs min +0.4596, max +0.4596)  REACQ -0.1259  F6 2.23x  v(D) -0.2327  v_rep -0.1068
+
+   [K200, punishment (compartment 0), odour A] A1: trained -0.7266, extinguished -0.1576, acquisition site a -0.9853, naive one pairing -0.1102
+   A0               trained -0.7266  extinguished -0.1576  control trained -0.7266
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D   300: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  1000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  3000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  5000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D 10000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+   A1               trained -0.7266  extinguished -0.1576  control trained -0.7266
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D   300: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  1000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  3000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D  5000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+      D 10000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) -0.1576  v_rep -0.1609
+   P tau 2000       trained -0.7415  extinguished -0.2752  control trained -0.7415
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0073  F6 0.07x  v(D) -0.2752  v_rep -0.2825
+      D   300: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)  exact 1-(1-1/tau)^D 0.1393
+               RET +1.0480 [+1.0480, +1.0480] (runs min +1.0480, max +1.0480)  REACQ -0.0015  F6 0.88x  v(D) -0.3741  v_rep -0.3726
+      D  1000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1356 [+1.1356, +1.1356] (runs min +1.1356, max +1.1356)  REACQ -0.0175  F6 2.38x  v(D) -0.5546  v_rep -0.5371
+      D  3000: SR +0.7770 [+0.7770, +0.7770] (runs min +0.7770, max +0.7770)  exact 1-(1-1/tau)^D 0.7770
+               RET +1.2676 [+1.2676, +1.2676] (runs min +1.2676, max +1.2676)  REACQ -0.0417  F6 4.63x  v(D) -0.8269  v_rep -0.7852
+      D  5000: SR +0.9180 [+0.9180, +0.9180] (runs min +0.9180, max +0.9180)  exact 1-(1-1/tau)^D 0.9180
+               RET +1.3162 [+1.3162, +1.3162] (runs min +1.3162, max +1.3162)  REACQ -0.0506  F6 5.46x  v(D) -0.9270  v_rep -0.8764
+      D 10000: SR +0.9933 [+0.9933, +0.9933] (runs min +0.9933, max +0.9933)  exact 1-(1-1/tau)^D 0.9933
+               RET +1.3422 [+1.3422, +1.3422] (runs min +1.3422, max +1.3422)  REACQ -0.0554  F6 5.90x  v(D) -0.9805  v_rep -0.9251
+   P tau 5000       trained -0.7327  extinguished -0.2080  control trained -0.7327
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0051  F6 0.05x  v(D) -0.2080  v_rep -0.2131
+      D   300: SR +0.0582 [+0.0582, +0.0582] (runs min +0.0582, max +0.0582)  exact 1-(1-1/tau)^D 0.0582
+               RET +1.0210 [+1.0210, +1.0210] (runs min +1.0210, max +1.0210)  REACQ +0.0015  F6 0.42x  v(D) -0.2533  v_rep -0.2548
+      D  1000: SR +0.1813 [+0.1813, +0.1813] (runs min +0.1813, max +0.1813)  exact 1-(1-1/tau)^D 0.1813
+               RET +1.0654 [+1.0654, +1.0654] (runs min +1.0654, max +1.0654)  REACQ -0.0061  F6 1.22x  v(D) -0.3489  v_rep -0.3428
+      D  3000: SR +0.4512 [+0.4512, +0.4512] (runs min +0.4512, max +0.4512)  exact 1-(1-1/tau)^D 0.4512
+               RET +1.1627 [+1.1627, +1.1627] (runs min +1.1627, max +1.1627)  REACQ -0.0227  F6 2.98x  v(D) -0.5587  v_rep -0.5360
+      D  5000: SR +0.6322 [+0.6322, +0.6322] (runs min +0.6322, max +0.6322)  exact 1-(1-1/tau)^D 0.6322
+               RET +1.2279 [+1.2279, +1.2279] (runs min +1.2279, max +1.2279)  REACQ -0.0338  F6 4.15x  v(D) -0.6993  v_rep -0.6655
+      D 10000: SR +0.8647 [+0.8647, +0.8647] (runs min +0.8647, max +0.8647)  exact 1-(1-1/tau)^D 0.8647
+               RET +1.3118 [+1.3118, +1.3118] (runs min +1.3118, max +1.3118)  REACQ -0.0482  F6 5.66x  v(D) -0.8801  v_rep -0.8319
+   P tau 10000      trained -0.7297  extinguished -0.1834  control trained -0.7297
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0042  F6 0.04x  v(D) -0.1834  v_rep -0.1876
+      D   300: SR +0.0296 [+0.0296, +0.0296] (runs min +0.0296, max +0.0296)  exact 1-(1-1/tau)^D 0.0296
+               RET +1.0108 [+1.0108, +1.0108] (runs min +1.0108, max +1.0108)  REACQ +0.0024  F6 0.24x  v(D) -0.2071  v_rep -0.2095
+      D  1000: SR +0.0952 [+0.0952, +0.0952] (runs min +0.0952, max +0.0952)  exact 1-(1-1/tau)^D 0.0952
+               RET +1.0349 [+1.0349, +1.0349] (runs min +1.0349, max +1.0349)  REACQ -0.0016  F6 0.68x  v(D) -0.2597  v_rep -0.2582
+      D  3000: SR +0.2592 [+0.2592, +0.2592] (runs min +0.2592, max +0.2592)  exact 1-(1-1/tau)^D 0.2592
+               RET +1.0949 [+1.0949, +1.0949] (runs min +1.0949, max +1.0949)  REACQ -0.0116  F6 1.78x  v(D) -0.3912  v_rep -0.3797
+      D  5000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1441 [+1.1441, +1.1441] (runs min +1.1441, max +1.1441)  REACQ -0.0198  F6 2.68x  v(D) -0.4989  v_rep -0.4792
+      D 10000: SR +0.6321 [+0.6321, +0.6321] (runs min +0.6321, max +0.6321)  exact 1-(1-1/tau)^D 0.6321
+               RET +1.2315 [+1.2315, +1.2315] (runs min +1.2315, max +1.2315)  REACQ -0.0343  F6 4.29x  v(D) -0.6903  v_rep -0.6560
+   P tau 20000      trained -0.7281  extinguished -0.1707  control trained -0.7281
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0038  F6 0.03x  v(D) -0.1707  v_rep -0.1744
+      D   300: SR +0.0149 [+0.0149, +0.0149] (runs min +0.0149, max +0.0149)  exact 1-(1-1/tau)^D 0.0149
+               RET +1.0055 [+1.0055, +1.0055] (runs min +1.0055, max +1.0055)  REACQ +0.0029  F6 0.14x  v(D) -0.1828  v_rep -0.1857
+      D  1000: SR +0.0488 [+0.0488, +0.0488] (runs min +0.0488, max +0.0488)  exact 1-(1-1/tau)^D 0.0488
+               RET +1.0180 [+1.0180, +1.0180] (runs min +1.0180, max +1.0180)  REACQ +0.0008  F6 0.37x  v(D) -0.2104  v_rep -0.2112
+      D  3000: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)  exact 1-(1-1/tau)^D 0.1393
+               RET +1.0514 [+1.0514, +1.0514] (runs min +1.0514, max +1.0514)  REACQ -0.0047  F6 0.99x  v(D) -0.2841  v_rep -0.2795
+      D  5000: SR +0.2212 [+0.2212, +0.2212] (runs min +0.2212, max +0.2212)  exact 1-(1-1/tau)^D 0.2212
+               RET +1.0816 [+1.0816, +1.0816] (runs min +1.0816, max +1.0816)  REACQ -0.0096  F6 1.55x  v(D) -0.3509  v_rep -0.3412
+      D 10000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1452 [+1.1452, +1.1452] (runs min +1.1452, max +1.1452)  REACQ -0.0201  F6 2.73x  v(D) -0.4912  v_rep -0.4711
+   S1 tau 2000      trained -0.6717  extinguished -0.1025  control trained -0.6717
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0998  F6 0.92x  v(D) -0.1025  v_rep -0.2023
+      D   300: SR -0.0162 [-0.0162, -0.0162] (runs min -0.0162, max -0.0162)
+               RET +0.8607 [+0.8607, +0.8607] (runs min +0.8607, max +0.8607)  REACQ +0.1010  F6 0.80x  v(D) -0.0882  v_rep -0.1893
+      D  1000: SR -0.0457 [-0.0457, -0.0457] (runs min -0.0457, max -0.0457)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1033  F6 0.58x  v(D) -0.0622  v_rep -0.1655
+      D  3000: SR -0.0902 [-0.0902, -0.0902] (runs min -0.0902, max -0.0902)
+               RET +0.2230 [+0.2230, +0.2230] (runs min +0.2230, max +0.2230)  REACQ +0.1068  F6 0.25x  v(D) -0.0229  v_rep -0.1297
+      D  5000: SR -0.1066 [-0.1066, -0.1066] (runs min -0.1066, max -0.1066)
+               RET +0.0820 [+0.0820, +0.0820] (runs min +0.0820, max +0.0820)  REACQ +0.1081  F6 0.13x  v(D) -0.0084  v_rep -0.1165
+      D 10000: SR -0.1154 [-0.1154, -0.1154] (runs min -0.1154, max -0.1154)
+               RET +0.0067 [+0.0067, +0.0067] (runs min +0.0067, max +0.0067)  REACQ +0.1088  F6 0.06x  v(D) -0.0007  v_rep -0.1095
+   S1 tau 5000      trained -0.7039  extinguished -0.1327  control trained -0.7039
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0991  F6 0.90x  v(D) -0.1327  v_rep -0.2318
+      D   300: SR -0.0091 [-0.0091, -0.0091] (runs min -0.0091, max -0.0091)
+               RET +0.9418 [+0.9418, +0.9418] (runs min +0.9418, max +0.9418)  REACQ +0.0997  F6 0.84x  v(D) -0.1249  v_rep -0.2247
+      D  1000: SR -0.0282 [-0.0282, -0.0282] (runs min -0.0282, max -0.0282)
+               RET +0.8187 [+0.8187, +0.8187] (runs min +0.8187, max +0.8187)  REACQ +0.1010  F6 0.70x  v(D) -0.1086  v_rep -0.2097
+      D  3000: SR -0.0702 [-0.0702, -0.0702] (runs min -0.0702, max -0.0702)
+               RET +0.5488 [+0.5488, +0.5488] (runs min +0.5488, max +0.5488)  REACQ +0.1039  F6 0.40x  v(D) -0.0728  v_rep -0.1767
+      D  5000: SR -0.0984 [-0.0984, -0.0984] (runs min -0.0984, max -0.0984)
+               RET +0.3678 [+0.3678, +0.3678] (runs min +0.3678, max +0.3678)  REACQ +0.1058  F6 0.20x  v(D) -0.0488  v_rep -0.1546
+      D 10000: SR -0.1346 [-0.1346, -0.1346] (runs min -0.1346, max -0.1346)
+               RET +0.1353 [+0.1353, +0.1353] (runs min +0.1353, max +0.1353)  REACQ +0.1082  F6 0.06x  v(D) -0.0180  v_rep -0.1262
+   S1 tau 10000     trained -0.7151  extinguished -0.1446  control trained -0.7151
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0881  F6 0.80x  v(D) -0.1446  v_rep -0.2327
+      D   300: SR -0.0051 [-0.0051, -0.0051] (runs min -0.0051, max -0.0051)
+               RET +0.9704 [+0.9704, +0.9704] (runs min +0.9704, max +0.9704)  REACQ +0.0992  F6 0.86x  v(D) -0.1403  v_rep -0.2396
+      D  1000: SR -0.0164 [-0.0164, -0.0164] (runs min -0.0164, max -0.0164)
+               RET +0.9048 [+0.9048, +0.9048] (runs min +0.9048, max +0.9048)  REACQ +0.0999  F6 0.78x  v(D) -0.1308  v_rep -0.2308
+      D  3000: SR -0.0446 [-0.0446, -0.0446] (runs min -0.0446, max -0.0446)
+               RET +0.7408 [+0.7408, +0.7408] (runs min +0.7408, max +0.7408)  REACQ +0.1018  F6 0.58x  v(D) -0.1071  v_rep -0.2089
+      D  5000: SR -0.0677 [-0.0677, -0.0677] (runs min -0.0677, max -0.0677)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1032  F6 0.42x  v(D) -0.0877  v_rep -0.1909
+      D 10000: SR -0.1087 [-0.1087, -0.1087] (runs min -0.1087, max -0.1087)
+               RET +0.3679 [+0.3679, +0.3679] (runs min +0.3679, max +0.3679)  REACQ +0.1059  F6 0.13x  v(D) -0.0532  v_rep -0.1590
+   S1 tau 20000     trained -0.7208  extinguished -0.1510  control trained -0.7208
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0467  F6 0.42x  v(D) -0.1510  v_rep -0.1977
+      D   300: SR -0.0027 [-0.0027, -0.0027] (runs min -0.0027, max -0.0027)
+               RET +0.9851 [+0.9851, +0.9851] (runs min +0.9851, max +0.9851)  REACQ +0.0609  F6 0.53x  v(D) -0.1487  v_rep -0.2096
+      D  1000: SR -0.0088 [-0.0088, -0.0088] (runs min -0.0088, max -0.0088)
+               RET +0.9512 [+0.9512, +0.9512] (runs min +0.9512, max +0.9512)  REACQ +0.0931  F6 0.78x  v(D) -0.1436  v_rep -0.2367
+      D  3000: SR -0.0252 [-0.0252, -0.0252] (runs min -0.0252, max -0.0252)
+               RET +0.8607 [+0.8607, +0.8607] (runs min +0.8607, max +0.8607)  REACQ +0.1004  F6 0.72x  v(D) -0.1299  v_rep -0.2303
+      D  5000: SR -0.0400 [-0.0400, -0.0400] (runs min -0.0400, max -0.0400)
+               RET +0.7788 [+0.7788, +0.7788] (runs min +0.7788, max +0.7788)  REACQ +0.1013  F6 0.62x  v(D) -0.1176  v_rep -0.2189
+      D 10000: SR -0.0712 [-0.0712, -0.0712] (runs min -0.0712, max -0.0712)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1032  F6 0.40x  v(D) -0.0916  v_rep -0.1948
+   S2 tau 2000      trained -0.7415  extinguished -0.2752  control trained -0.7415
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0073  F6 0.07x  v(D) -0.2752  v_rep -0.2825
+      D   300: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)
+               RET +1.0480 [+1.0480, +1.0480] (runs min +1.0480, max +1.0480)  REACQ -0.0015  F6 0.88x  v(D) -0.3741  v_rep -0.3726
+      D  1000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)
+               RET +1.1356 [+1.1356, +1.1356] (runs min +1.1356, max +1.1356)  REACQ -0.0175  F6 2.38x  v(D) -0.5546  v_rep -0.5371
+      D  3000: SR +0.7770 [+0.7770, +0.7770] (runs min +0.7770, max +0.7770)
+               RET +1.2676 [+1.2676, +1.2676] (runs min +1.2676, max +1.2676)  REACQ -0.0417  F6 4.63x  v(D) -0.8269  v_rep -0.7852
+      D  5000: SR +0.9180 [+0.9180, +0.9180] (runs min +0.9180, max +0.9180)
+               RET +1.3162 [+1.3162, +1.3162] (runs min +1.3162, max +1.3162)  REACQ -0.0506  F6 5.46x  v(D) -0.9270  v_rep -0.8764
+      D 10000: SR +0.9933 [+0.9933, +0.9933] (runs min +0.9933, max +0.9933)
+               RET +1.3422 [+1.3422, +1.3422] (runs min +1.3422, max +1.3422)  REACQ -0.0554  F6 5.90x  v(D) -0.9805  v_rep -0.9251
+   S2 tau 5000      trained -0.7327  extinguished -0.2080  control trained -0.7327
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0051  F6 0.05x  v(D) -0.2080  v_rep -0.2131
+      D   300: SR +0.0582 [+0.0582, +0.0582] (runs min +0.0582, max +0.0582)
+               RET +1.0210 [+1.0210, +1.0210] (runs min +1.0210, max +1.0210)  REACQ +0.0015  F6 0.42x  v(D) -0.2533  v_rep -0.2548
+      D  1000: SR +0.1813 [+0.1813, +0.1813] (runs min +0.1813, max +0.1813)
+               RET +1.0654 [+1.0654, +1.0654] (runs min +1.0654, max +1.0654)  REACQ -0.0061  F6 1.22x  v(D) -0.3489  v_rep -0.3428
+      D  3000: SR +0.4512 [+0.4512, +0.4512] (runs min +0.4512, max +0.4512)
+               RET +1.1627 [+1.1627, +1.1627] (runs min +1.1627, max +1.1627)  REACQ -0.0227  F6 2.98x  v(D) -0.5587  v_rep -0.5360
+      D  5000: SR +0.6322 [+0.6322, +0.6322] (runs min +0.6322, max +0.6322)
+               RET +1.2279 [+1.2279, +1.2279] (runs min +1.2279, max +1.2279)  REACQ -0.0338  F6 4.15x  v(D) -0.6993  v_rep -0.6655
+      D 10000: SR +0.8647 [+0.8647, +0.8647] (runs min +0.8647, max +0.8647)
+               RET +1.3118 [+1.3118, +1.3118] (runs min +1.3118, max +1.3118)  REACQ -0.0482  F6 5.66x  v(D) -0.8801  v_rep -0.8319
+   S2 tau 10000     trained -0.7297  extinguished -0.1834  control trained -0.7297
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0042  F6 0.04x  v(D) -0.1834  v_rep -0.1876
+      D   300: SR +0.0296 [+0.0296, +0.0296] (runs min +0.0296, max +0.0296)
+               RET +1.0108 [+1.0108, +1.0108] (runs min +1.0108, max +1.0108)  REACQ +0.0024  F6 0.24x  v(D) -0.2071  v_rep -0.2095
+      D  1000: SR +0.0952 [+0.0952, +0.0952] (runs min +0.0952, max +0.0952)
+               RET +1.0349 [+1.0349, +1.0349] (runs min +1.0349, max +1.0349)  REACQ -0.0016  F6 0.68x  v(D) -0.2597  v_rep -0.2582
+      D  3000: SR +0.2592 [+0.2592, +0.2592] (runs min +0.2592, max +0.2592)
+               RET +1.0949 [+1.0949, +1.0949] (runs min +1.0949, max +1.0949)  REACQ -0.0116  F6 1.78x  v(D) -0.3912  v_rep -0.3797
+      D  5000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)
+               RET +1.1441 [+1.1441, +1.1441] (runs min +1.1441, max +1.1441)  REACQ -0.0198  F6 2.68x  v(D) -0.4989  v_rep -0.4792
+      D 10000: SR +0.6321 [+0.6321, +0.6321] (runs min +0.6321, max +0.6321)
+               RET +1.2315 [+1.2315, +1.2315] (runs min +1.2315, max +1.2315)  REACQ -0.0343  F6 4.29x  v(D) -0.6903  v_rep -0.6560
+   S2 tau 20000     trained -0.7281  extinguished -0.1707  control trained -0.7281
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0038  F6 0.03x  v(D) -0.1707  v_rep -0.1744
+      D   300: SR +0.0149 [+0.0149, +0.0149] (runs min +0.0149, max +0.0149)
+               RET +1.0055 [+1.0055, +1.0055] (runs min +1.0055, max +1.0055)  REACQ +0.0029  F6 0.14x  v(D) -0.1828  v_rep -0.1857
+      D  1000: SR +0.0488 [+0.0488, +0.0488] (runs min +0.0488, max +0.0488)
+               RET +1.0180 [+1.0180, +1.0180] (runs min +1.0180, max +1.0180)  REACQ +0.0008  F6 0.37x  v(D) -0.2104  v_rep -0.2112
+      D  3000: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)
+               RET +1.0514 [+1.0514, +1.0514] (runs min +1.0514, max +1.0514)  REACQ -0.0047  F6 0.99x  v(D) -0.2841  v_rep -0.2795
+      D  5000: SR +0.2212 [+0.2212, +0.2212] (runs min +0.2212, max +0.2212)
+               RET +1.0816 [+1.0816, +1.0816] (runs min +1.0816, max +1.0816)  REACQ -0.0096  F6 1.55x  v(D) -0.3509  v_rep -0.3412
+      D 10000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)
+               RET +1.1452 [+1.1452, +1.1452] (runs min +1.1452, max +1.1452)  REACQ -0.0201  F6 2.73x  v(D) -0.4912  v_rep -0.4711
+
+   [K200, reward (compartment 1), odour B] A1: trained +0.7266, extinguished +0.1576, acquisition site a +0.9853, naive one pairing +0.1102
+   A0               trained +0.7266  extinguished +0.1576  control trained +0.7266
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D   300: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  1000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  3000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  5000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D 10000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+   A1               trained +0.7266  extinguished +0.1576  control trained +0.7266
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D   300: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  1000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  3000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D  5000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+      D 10000: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0033  F6 0.03x  v(D) +0.1576  v_rep +0.1609
+   P tau 2000       trained +0.7415  extinguished +0.2752  control trained +0.7415
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0073  F6 0.07x  v(D) +0.2752  v_rep +0.2825
+      D   300: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)  exact 1-(1-1/tau)^D 0.1393
+               RET +1.0480 [+1.0480, +1.0480] (runs min +1.0480, max +1.0480)  REACQ -0.0015  F6 0.88x  v(D) +0.3741  v_rep +0.3726
+      D  1000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1356 [+1.1356, +1.1356] (runs min +1.1356, max +1.1356)  REACQ -0.0175  F6 2.38x  v(D) +0.5546  v_rep +0.5371
+      D  3000: SR +0.7770 [+0.7770, +0.7770] (runs min +0.7770, max +0.7770)  exact 1-(1-1/tau)^D 0.7770
+               RET +1.2676 [+1.2676, +1.2676] (runs min +1.2676, max +1.2676)  REACQ -0.0417  F6 4.63x  v(D) +0.8269  v_rep +0.7852
+      D  5000: SR +0.9180 [+0.9180, +0.9180] (runs min +0.9180, max +0.9180)  exact 1-(1-1/tau)^D 0.9180
+               RET +1.3162 [+1.3162, +1.3162] (runs min +1.3162, max +1.3162)  REACQ -0.0506  F6 5.46x  v(D) +0.9270  v_rep +0.8764
+      D 10000: SR +0.9933 [+0.9933, +0.9933] (runs min +0.9933, max +0.9933)  exact 1-(1-1/tau)^D 0.9933
+               RET +1.3422 [+1.3422, +1.3422] (runs min +1.3422, max +1.3422)  REACQ -0.0554  F6 5.90x  v(D) +0.9805  v_rep +0.9251
+   P tau 5000       trained +0.7327  extinguished +0.2080  control trained +0.7327
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0051  F6 0.05x  v(D) +0.2080  v_rep +0.2131
+      D   300: SR +0.0582 [+0.0582, +0.0582] (runs min +0.0582, max +0.0582)  exact 1-(1-1/tau)^D 0.0582
+               RET +1.0210 [+1.0210, +1.0210] (runs min +1.0210, max +1.0210)  REACQ +0.0015  F6 0.42x  v(D) +0.2533  v_rep +0.2548
+      D  1000: SR +0.1813 [+0.1813, +0.1813] (runs min +0.1813, max +0.1813)  exact 1-(1-1/tau)^D 0.1813
+               RET +1.0654 [+1.0654, +1.0654] (runs min +1.0654, max +1.0654)  REACQ -0.0061  F6 1.22x  v(D) +0.3489  v_rep +0.3428
+      D  3000: SR +0.4512 [+0.4512, +0.4512] (runs min +0.4512, max +0.4512)  exact 1-(1-1/tau)^D 0.4512
+               RET +1.1627 [+1.1627, +1.1627] (runs min +1.1627, max +1.1627)  REACQ -0.0227  F6 2.98x  v(D) +0.5587  v_rep +0.5360
+      D  5000: SR +0.6322 [+0.6322, +0.6322] (runs min +0.6322, max +0.6322)  exact 1-(1-1/tau)^D 0.6322
+               RET +1.2279 [+1.2279, +1.2279] (runs min +1.2279, max +1.2279)  REACQ -0.0338  F6 4.15x  v(D) +0.6993  v_rep +0.6655
+      D 10000: SR +0.8647 [+0.8647, +0.8647] (runs min +0.8647, max +0.8647)  exact 1-(1-1/tau)^D 0.8647
+               RET +1.3118 [+1.3118, +1.3118] (runs min +1.3118, max +1.3118)  REACQ -0.0482  F6 5.66x  v(D) +0.8801  v_rep +0.8319
+   P tau 10000      trained +0.7297  extinguished +0.1834  control trained +0.7297
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0042  F6 0.04x  v(D) +0.1834  v_rep +0.1876
+      D   300: SR +0.0296 [+0.0296, +0.0296] (runs min +0.0296, max +0.0296)  exact 1-(1-1/tau)^D 0.0296
+               RET +1.0108 [+1.0108, +1.0108] (runs min +1.0108, max +1.0108)  REACQ +0.0024  F6 0.24x  v(D) +0.2071  v_rep +0.2095
+      D  1000: SR +0.0952 [+0.0952, +0.0952] (runs min +0.0952, max +0.0952)  exact 1-(1-1/tau)^D 0.0952
+               RET +1.0349 [+1.0349, +1.0349] (runs min +1.0349, max +1.0349)  REACQ -0.0016  F6 0.68x  v(D) +0.2597  v_rep +0.2582
+      D  3000: SR +0.2592 [+0.2592, +0.2592] (runs min +0.2592, max +0.2592)  exact 1-(1-1/tau)^D 0.2592
+               RET +1.0949 [+1.0949, +1.0949] (runs min +1.0949, max +1.0949)  REACQ -0.0116  F6 1.78x  v(D) +0.3912  v_rep +0.3797
+      D  5000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1441 [+1.1441, +1.1441] (runs min +1.1441, max +1.1441)  REACQ -0.0198  F6 2.68x  v(D) +0.4989  v_rep +0.4792
+      D 10000: SR +0.6321 [+0.6321, +0.6321] (runs min +0.6321, max +0.6321)  exact 1-(1-1/tau)^D 0.6321
+               RET +1.2315 [+1.2315, +1.2315] (runs min +1.2315, max +1.2315)  REACQ -0.0343  F6 4.29x  v(D) +0.6903  v_rep +0.6560
+   P tau 20000      trained +0.7281  extinguished +0.1707  control trained +0.7281
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)  exact 1-(1-1/tau)^D 0.0000
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0038  F6 0.03x  v(D) +0.1707  v_rep +0.1744
+      D   300: SR +0.0149 [+0.0149, +0.0149] (runs min +0.0149, max +0.0149)  exact 1-(1-1/tau)^D 0.0149
+               RET +1.0055 [+1.0055, +1.0055] (runs min +1.0055, max +1.0055)  REACQ +0.0029  F6 0.14x  v(D) +0.1828  v_rep +0.1857
+      D  1000: SR +0.0488 [+0.0488, +0.0488] (runs min +0.0488, max +0.0488)  exact 1-(1-1/tau)^D 0.0488
+               RET +1.0180 [+1.0180, +1.0180] (runs min +1.0180, max +1.0180)  REACQ +0.0008  F6 0.37x  v(D) +0.2104  v_rep +0.2112
+      D  3000: SR +0.1393 [+0.1393, +0.1393] (runs min +0.1393, max +0.1393)  exact 1-(1-1/tau)^D 0.1393
+               RET +1.0514 [+1.0514, +1.0514] (runs min +1.0514, max +1.0514)  REACQ -0.0047  F6 0.99x  v(D) +0.2841  v_rep +0.2795
+      D  5000: SR +0.2212 [+0.2212, +0.2212] (runs min +0.2212, max +0.2212)  exact 1-(1-1/tau)^D 0.2212
+               RET +1.0816 [+1.0816, +1.0816] (runs min +1.0816, max +1.0816)  REACQ -0.0096  F6 1.55x  v(D) +0.3509  v_rep +0.3412
+      D 10000: SR +0.3935 [+0.3935, +0.3935] (runs min +0.3935, max +0.3935)  exact 1-(1-1/tau)^D 0.3935
+               RET +1.1452 [+1.1452, +1.1452] (runs min +1.1452, max +1.1452)  REACQ -0.0201  F6 2.73x  v(D) +0.4912  v_rep +0.4711
+   S1 tau 2000      trained +0.6717  extinguished +0.1025  control trained +0.6717
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0998  F6 0.92x  v(D) +0.1025  v_rep +0.2023
+      D   300: SR -0.0162 [-0.0162, -0.0162] (runs min -0.0162, max -0.0162)
+               RET +0.8607 [+0.8607, +0.8607] (runs min +0.8607, max +0.8607)  REACQ +0.1010  F6 0.80x  v(D) +0.0882  v_rep +0.1893
+      D  1000: SR -0.0457 [-0.0457, -0.0457] (runs min -0.0457, max -0.0457)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1033  F6 0.58x  v(D) +0.0622  v_rep +0.1655
+      D  3000: SR -0.0902 [-0.0902, -0.0902] (runs min -0.0902, max -0.0902)
+               RET +0.2230 [+0.2230, +0.2230] (runs min +0.2230, max +0.2230)  REACQ +0.1068  F6 0.25x  v(D) +0.0229  v_rep +0.1297
+      D  5000: SR -0.1066 [-0.1066, -0.1066] (runs min -0.1066, max -0.1066)
+               RET +0.0820 [+0.0820, +0.0820] (runs min +0.0820, max +0.0820)  REACQ +0.1081  F6 0.13x  v(D) +0.0084  v_rep +0.1165
+      D 10000: SR -0.1154 [-0.1154, -0.1154] (runs min -0.1154, max -0.1154)
+               RET +0.0067 [+0.0067, +0.0067] (runs min +0.0067, max +0.0067)  REACQ +0.1088  F6 0.06x  v(D) +0.0007  v_rep +0.1095
+   S1 tau 5000      trained +0.7039  extinguished +0.1327  control trained +0.7039
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0991  F6 0.90x  v(D) +0.1327  v_rep +0.2318
+      D   300: SR -0.0091 [-0.0091, -0.0091] (runs min -0.0091, max -0.0091)
+               RET +0.9418 [+0.9418, +0.9418] (runs min +0.9418, max +0.9418)  REACQ +0.0997  F6 0.84x  v(D) +0.1249  v_rep +0.2247
+      D  1000: SR -0.0282 [-0.0282, -0.0282] (runs min -0.0282, max -0.0282)
+               RET +0.8187 [+0.8187, +0.8187] (runs min +0.8187, max +0.8187)  REACQ +0.1010  F6 0.70x  v(D) +0.1086  v_rep +0.2097
+      D  3000: SR -0.0702 [-0.0702, -0.0702] (runs min -0.0702, max -0.0702)
+               RET +0.5488 [+0.5488, +0.5488] (runs min +0.5488, max +0.5488)  REACQ +0.1039  F6 0.40x  v(D) +0.0728  v_rep +0.1767
+      D  5000: SR -0.0984 [-0.0984, -0.0984] (runs min -0.0984, max -0.0984)
+               RET +0.3678 [+0.3678, +0.3678] (runs min +0.3678, max +0.3678)  REACQ +0.1058  F6 0.20x  v(D) +0.0488  v_rep +0.1546
+      D 10000: SR -0.1346 [-0.1346, -0.1346] (runs min -0.1346, max -0.1346)
+               RET +0.1353 [+0.1353, +0.1353] (runs min +0.1353, max +0.1353)  REACQ +0.1082  F6 0.06x  v(D) +0.0180  v_rep +0.1262
+   S1 tau 10000     trained +0.7151  extinguished +0.1446  control trained +0.7151
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0881  F6 0.80x  v(D) +0.1446  v_rep +0.2327
+      D   300: SR -0.0051 [-0.0051, -0.0051] (runs min -0.0051, max -0.0051)
+               RET +0.9704 [+0.9704, +0.9704] (runs min +0.9704, max +0.9704)  REACQ +0.0992  F6 0.86x  v(D) +0.1403  v_rep +0.2396
+      D  1000: SR -0.0164 [-0.0164, -0.0164] (runs min -0.0164, max -0.0164)
+               RET +0.9048 [+0.9048, +0.9048] (runs min +0.9048, max +0.9048)  REACQ +0.0999  F6 0.78x  v(D) +0.1308  v_rep +0.2308
+      D  3000: SR -0.0446 [-0.0446, -0.0446] (runs min -0.0446, max -0.0446)
+               RET +0.7408 [+0.7408, +0.7408] (runs min +0.7408, max +0.7408)  REACQ +0.1018  F6 0.58x  v(D) +0.1071  v_rep +0.2089
+      D  5000: SR -0.0677 [-0.0677, -0.0677] (runs min -0.0677, max -0.0677)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1032  F6 0.42x  v(D) +0.0877  v_rep +0.1909
+      D 10000: SR -0.1087 [-0.1087, -0.1087] (runs min -0.1087, max -0.1087)
+               RET +0.3679 [+0.3679, +0.3679] (runs min +0.3679, max +0.3679)  REACQ +0.1059  F6 0.13x  v(D) +0.0532  v_rep +0.1590
+   S1 tau 20000     trained +0.7208  extinguished +0.1510  control trained +0.7208
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0467  F6 0.42x  v(D) +0.1510  v_rep +0.1977
+      D   300: SR -0.0027 [-0.0027, -0.0027] (runs min -0.0027, max -0.0027)
+               RET +0.9851 [+0.9851, +0.9851] (runs min +0.9851, max +0.9851)  REACQ +0.0609  F6 0.53x  v(D) +0.1487  v_rep +0.2096
+      D  1000: SR -0.0088 [-0.0088, -0.0088] (runs min -0.0088, max -0.0088)
+               RET +0.9512 [+0.9512, +0.9512] (runs min +0.9512, max +0.9512)  REACQ +0.0931  F6 0.78x  v(D) +0.1436  v_rep +0.2367
+      D  3000: SR -0.0252 [-0.0252, -0.0252] (runs min -0.0252, max -0.0252)
+               RET +0.8607 [+0.8607, +0.8607] (runs min +0.8607, max +0.8607)  REACQ +0.1004  F6 0.72x  v(D) +0.1299  v_rep +0.2303
+      D  5000: SR -0.0400 [-0.0400, -0.0400] (runs min -0.0400, max -0.0400)
+               RET +0.7788 [+0.7788, +0.7788] (runs min +0.7788, max +0.7788)  REACQ +0.1013  F6 0.62x  v(D) +0.1176  v_rep +0.2189
+      D 10000: SR -0.0712 [-0.0712, -0.0712] (runs min -0.0712, max -0.0712)
+               RET +0.6065 [+0.6065, +0.6065] (runs min +0.6065, max +0.6065)  REACQ +0.1032  F6 0.40x  v(D) +0.0916  v_rep +0.1948
+   S2 tau 2000      trained +0.6575  extinguished +0.0066  control trained +0.6575
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0974  F6 0.89x  v(D) +0.0066  v_rep +0.1041
+      D   300: SR +0.0767 [+0.0767, +0.0767] (runs min +0.0767, max +0.0767)
+               RET +0.8069 [+0.8069, +0.8069] (runs min +0.8069, max +0.8069)  REACQ -0.0581  F6 0.16x  v(D) -0.0817  v_rep +0.0236
+      D  1000: SR +0.2414 [+0.2414, +0.2414] (runs min +0.2414, max +0.2414)
+               RET +0.4545 [+0.4545, +0.4545] (runs min +0.4545, max +0.4545)  REACQ -0.1196  F6 1.19x  v(D) -0.2429  v_rep -0.1233
+      D  3000: SR +0.4898 [+0.4898, +0.4898] (runs min +0.4898, max +0.4898)
+               RET +0.0770 [+0.0770, +0.0770] (runs min +0.0770, max +0.0770)  REACQ -0.1412  F6 3.23x  v(D) -0.4860  v_rep -0.3448
+      D  5000: SR +0.5812 [+0.5812, +0.5812] (runs min +0.5812, max +0.5812)
+               RET +0.2725 [+0.2725, +0.2725] (runs min +0.2725, max +0.2725)  REACQ -0.1492  F6 3.98x  v(D) -0.5754  v_rep -0.4262
+      D 10000: SR +0.6300 [+0.6300, +0.6300] (runs min +0.6300, max +0.6300)
+               RET +0.3768 [+0.3768, +0.3768] (runs min +0.3768, max +0.3768)  REACQ -0.1534  F6 4.38x  v(D) -0.6231  v_rep -0.4697
+   S2 tau 5000      trained +0.6979  extinguished +0.0863  control trained +0.6979
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0976  F6 0.89x  v(D) +0.0863  v_rep +0.1839
+      D   300: SR -0.0535 [-0.0535, -0.0535] (runs min -0.0535, max -0.0535)
+               RET +0.9198 [+0.9198, +0.9198] (runs min +0.9198, max +0.9198)  REACQ +0.1015  F6 0.49x  v(D) +0.0382  v_rep +0.1396
+      D  1000: SR -0.0254 [-0.0254, -0.0254] (runs min -0.0254, max -0.0254)
+               RET +0.7503 [+0.7503, +0.7503] (runs min +0.7503, max +0.7503)  REACQ -0.0174  F6 0.37x  v(D) -0.0634  v_rep +0.0461
+      D  3000: SR +0.2226 [+0.2226, +0.2226] (runs min +0.2226, max +0.2226)
+               RET +0.3784 [+0.3784, +0.3784] (runs min +0.3784, max +0.3784)  REACQ -0.1272  F6 2.24x  v(D) -0.2863  v_rep -0.1592
+      D  5000: SR +0.3888 [+0.3888, +0.3888] (runs min +0.3888, max +0.3888)
+               RET +0.1291 [+0.1291, +0.1291] (runs min +0.1291, max +0.1291)  REACQ -0.1390  F6 3.49x  v(D) -0.4358  v_rep -0.2967
+      D 10000: SR +0.6024 [+0.6024, +0.6024] (runs min +0.6024, max +0.6024)
+               RET +0.1912 [+0.1912, +0.1912] (runs min +0.1912, max +0.1912)  REACQ -0.1543  F6 5.11x  v(D) -0.6278  v_rep -0.4735
+   S2 tau 10000     trained +0.7121  extinguished +0.1198  control trained +0.7121
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0872  F6 0.79x  v(D) +0.1198  v_rep +0.2071
+      D   300: SR -0.0308 [-0.0308, -0.0308] (runs min -0.0308, max -0.0308)
+               RET +0.9594 [+0.9594, +0.9594] (runs min +0.9594, max +0.9594)  REACQ +0.1001  F6 0.67x  v(D) +0.0932  v_rep +0.1933
+      D  1000: SR -0.0992 [-0.0992, -0.0992] (runs min -0.0992, max -0.0992)
+               RET +0.8692 [+0.8692, +0.8692] (runs min +0.8692, max +0.8692)  REACQ +0.1046  F6 0.17x  v(D) +0.0340  v_rep +0.1386
+      D  3000: SR -0.0068 [-0.0068, -0.0068] (runs min -0.0068, max -0.0068)
+               RET +0.6437 [+0.6437, +0.6437] (runs min +0.6437, max +0.6437)  REACQ -0.1120  F6 1.07x  v(D) -0.1139  v_rep +0.0019
+      D  5000: SR +0.1331 [+0.1331, +0.1331] (runs min +0.1331, max +0.1331)
+               RET +0.4590 [+0.4590, +0.4590] (runs min +0.4590, max +0.4590)  REACQ -0.1250  F6 2.09x  v(D) -0.2351  v_rep -0.1100
+      D 10000: SR +0.3819 [+0.3819, +0.3819] (runs min +0.3819, max +0.3819)
+               RET +0.1309 [+0.1309, +0.1309] (runs min +0.1309, max +0.1309)  REACQ -0.1414  F6 3.90x  v(D) -0.4503  v_rep -0.3089
+   S2 tau 20000     trained +0.7193  extinguished +0.1382  control trained +0.7193
+      D     0: SR +0.0000 [+0.0000, +0.0000] (runs min +0.0000, max +0.0000)
+               RET +1.0000 [+1.0000, +1.0000] (runs min +1.0000, max +1.0000)  REACQ +0.0462  F6 0.42x  v(D) +0.1382  v_rep +0.1844
+      D   300: SR -0.0166 [-0.0166, -0.0166] (runs min -0.0166, max -0.0166)
+               RET +0.9796 [+0.9796, +0.9796] (runs min +0.9796, max +0.9796)  REACQ +0.0613  F6 0.43x  v(D) +0.1242  v_rep +0.1854
+      D  1000: SR -0.0543 [-0.0543, -0.0543] (runs min -0.0543, max -0.0543)
+               RET +0.9330 [+0.9330, +0.9330] (runs min +0.9330, max +0.9330)  REACQ +0.0956  F6 0.45x  v(D) +0.0922  v_rep +0.1878
+      D  3000: SR -0.1550 [-0.1550, -0.1550] (runs min -0.1550, max -0.1550)
+               RET +0.8087 [+0.8087, +0.8087] (runs min +0.8087, max +0.8087)  REACQ +0.1081  F6 0.21x  v(D) +0.0069  v_rep +0.1150
+      D  5000: SR -0.0801 [-0.0801, -0.0801] (runs min -0.0801, max -0.0801)
+               RET +0.6962 [+0.6962, +0.6962] (runs min +0.6962, max +0.6962)  REACQ -0.0268  F6 0.86x  v(D) -0.0703  v_rep +0.0435
+      D 10000: SR +0.1116 [+0.1116, +0.1116] (runs min +0.1116, max +0.1116)
+               RET +0.4596 [+0.4596, +0.4596] (runs min +0.4596, max +0.4596)  REACQ -0.1259  F6 2.23x  v(D) -0.2327  v_rep -0.1068
+
+== Stage 1 criteria (design 4.4) at tau_ext* = 5000 ==
+   B1 reproduction (r) and identities (i): (r) True, (I1) True, (I2) True, schedules' twins True, (I2') True, acquisition pair True, baseline True, (I4) True -> PASS
+   B2 P at tau_ext*: F1 True (every clause), F2 True -> PASS
+   punishment K 200, D 5000: SR 0.6322 [0.6322, 0.6322] (exact 0.6322; runs 0.632157..0.632157) lower >= 0.20 -> PASS; RET 1.2279 [1.2279, 1.2279] (runs 1.2279..1.2279) lower >= 0.99 -> PASS
+   reward     K 200, D 5000: SR 0.6322 [0.6322, 0.6322] (exact 0.6322; runs 0.632157..0.632157) lower >= 0.20 -> PASS; RET 1.2279 [1.2279, 1.2279] (runs 1.2279..1.2279) lower >= 0.99 -> PASS
+   B3 (SR, both signs) -> PASS; B4 (RET, both signs) -> PASS
+   B5 (reported, not a bar) at tau 5000, K 200, D 5000:
+      S1 punishment: SR -0.0984, RET 0.3678
+      S1 reward    : SR -0.0984, RET 0.3678
+      S2 punishment: SR +0.6322, RET 1.2279
+      S2 reward    : SR +0.3888, RET 0.1291
+      as predicted: S1 SR <= 0 both signs True; S2 SR > 0 for the aversive sign only False; S2 RET < 1 for the appetitive sign True
+
+   (s1) no candidate: not fired (tau_ext* 5000); (s2) B3 or B4 failing: not fired
+   STAGE 1: PASS (B1-B4); tau_ext* = 5000

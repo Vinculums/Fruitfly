@@ -1,0 +1,16 @@
+== H12 Stage 1 demo self-checks. design H12 v2 FINAL doc d27ec95924fe49be1 hash 3d3aab80cce766f4b3201c951970f4e118ddcd9506633e95a265d6a7941495f1 ==
+   smoke runs use the unregistered code seed 5 and ph15's own smoke seeds (3, 4); no registered seed is used and no number here is read for any criterion
+   ph36.py sha256 b83bd9e9d1bd9b191d771779b1cd907d9eb057797105c05e82acb15d2a99ca71; design H12 v2 FINAL doc d27ec95924fe49be1 hash 3d3aab80cce766f4b3201c951970f4e118ddcd9506633e95a265d6a7941495f1
+   imported unchanged: ph4.py d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a; ph8.py ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e; ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23
+   ph4.py, ph8.py, ph11.py sha256 prefixes equal to design v2's ({'ph4': 'd009568c', 'ph8': 'ada2fc4b', 'ph11': 'e80f40bd'}): True; experiments/h12/h12_design_v2.md sha256 equal to the design's hash: True
+   seeds: odour A 20261151 (punishment sign), odour B 20261152 (reward sign), bootstrap 20261153 (5000 resamples, 95 percent); H11's own seeds (rng 0; codes 11, 12, 101) for the reproduction; H15 Run 2's evaluation seeds (1640, 1740) for (I4) only (not in the scan); the pair of decision:seed-scan-exclusion-ph31-eval excluded by reference; 200 runs; K sets ['K500', 'K200']; tau grid (2000, 5000, 10000, 20000); D (0, 300, 1000, 3000, 5000, 10000)
+ok 1  ph4.py, ph8.py, ph11.py prefixes and the design file hash equal the record
+ok 2  seed scan clean: 18 numbers, 243 files, no hit (R13)
+ok 3  MB5 with the site inert (every tau None) == ph8.MB4 bitwise (w, tc, tr), parallel False and True, after pairing, extinction, silence, a reverse pairing
+ok 4  the relaxation line: one silent step moves compartments 2, 3 by exactly (w0 - w)/tau and leaves 0, 1 unchanged
+ok 5  P in silence recovers SR = 1 - (1 - 1/tau)^D (tau 2000 D 300, tau 5000 D 1000; 1e-9), and its acquisition site equals A1's bitwise
+ok 6  under sustained reinforcement the gate writes nothing and the decaying pair stays exactly at w0 (F2's mechanism)
+ok 7  (I2') instrument: single-site and parallel layouts' valences on every step, max |difference| 1.388e-16 (bitwise equal: False; reading R5)
+ok 8  a schedule run in a worker process == the same schedule run sequentially, bitwise (reading R12; smoke code seed 5)
+ok 9  (I4) instrument on ph15's smoke seeds (3, 4), 40 rows x 1200 steps: adopted and P replays == the run's end values bitwise, code-without-reinforcement steps 0, pair untouched True
+ok    all demo self-checks passed
