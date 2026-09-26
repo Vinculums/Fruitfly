@@ -343,10 +343,31 @@ def retention_summary(r, acquisition_value):
                              valid_signed_recovery_denominator=int(valid.sum()),
                              invalid_signed_recovery_denominator=int((~valid).sum()),
                              sign_preserved=int(((trained_sign*v) > 0).sum()),
-                             median_signed_recovery=(float(np.median(
-                                 (trained_sign*(v[valid]-ext[valid]))/denominator[valid]))
-                                 if valid.any() else None))
+                             median_signed_recovery=signed_recovery_median(
+                                 trained_sign, v, ext, denominator, valid))
     return signed
+
+
+def signed_recovery_median(trained_sign, value, ext, denominator, valid):
+    """Use the same valid-row mask on every operand; null if none qualify."""
+    if not valid.any():
+        return None
+    return float(np.median((trained_sign[valid] * (value[valid] - ext[valid])) /
+                           denominator[valid]))
+
+
+def summary_preflight():
+    """Deterministic arithmetic shape checks, with no simulation or seed use."""
+    sign = np.array([1.0, -1.0, 1.0, -1.0])
+    value = np.array([0.8, -0.6, 0.4, -0.2])
+    ext = np.array([0.2, -0.1, 0.5, -0.3])
+    denominator = np.array([0.6, 0.5, -0.1, 0.1])
+    valid = np.array([True, True, False, False])
+    require(signed_recovery_median(sign, value, ext, denominator, valid) == 1.0,
+            "mixed-validity signed recovery preflight failed")
+    require(signed_recovery_median(sign, value, ext, denominator,
+                                   np.zeros(4, bool)) is None,
+            "no-valid-denominator signed recovery preflight failed")
 
 
 def bench_arm(o):
@@ -366,6 +387,7 @@ def main():
     p.add_argument("--output", required=True, type=Path)
     p.add_argument("--reference-bench", required=True, type=Path)
     args = p.parse_args()
+    summary_preflight()
     require(digest(b.__file__) == SOURCE_SHA, "ph36b.py source hash changed")
     for name, expected in b.SHA_ON_RECORD.items():
         require(digest(Path(b.HERE, name + ".py")) == expected, f"{name}.py source hash changed")
