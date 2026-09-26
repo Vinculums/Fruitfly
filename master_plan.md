@@ -881,6 +881,34 @@ Progress log
   bootstrap 20261153; Stage 2 bench 20261151/20261152, dev 9911/9921, eval 2129/2243 (251 files scanned; one
   candidate replaced). Awaiting the owner's confirmation of section 12. Recorded by a session that resumed after a
   rate-limit cut-off (the cut-off session had written nothing).
+- **H12 OPENED on design v2 FINAL (2026-09-26; decision:h12-open; the owner's '권고안으로 확정하고 H12 진행', gloss
+  'confirm as recommended and proceed with H12': every recommended option of v1 section 12).** Design v2 FINAL doc
+  d27ec95924fe49be1 (experiments/h12/h12_design_v2.md, sha 3d3aab80...95f1, content_hash equal): v1 with section 12
+  replaced by the confirmation and Stage 2's registration completed from the confirmed outline before any run (section
+  5.5: the world exactly, the learning input, the mirror, the arms' construction, the measures, K0, bar_B, (hS), K1, K2,
+  the seeds' use). The one construction the outline left open: V is pre-acquired off-world by Stage B's training
+  (ph29.train), because with the competitor at +0.5 from step 0 a naive learning arm is the outline's own sham.
+- **H12 Stage 1 (module bench): PASS (2026-09-26; record:h12-bench-result).** src/ph36.py (MB5 = ph8.MB4 plus one
+  relaxation line per decaying compartment; sha b83bd9e9...ca71, doc d75b858c9487ed11e); ph36_demo.txt (nine checks ok),
+  ph36_bench.txt (sha 7071e2d8...b865). H11 reproduced line for line (45/45); (I1), (I2) exact; (I2') within 1.7e-16;
+  (I4) on H15 Run 2's recorded streams bitwise. F1 at K 500: P at tau 2000 fails the extinction clause (37.1 percent),
+  5000 passes (28.4 percent; predicted 28.7) -> tau_ext* = 5000; F2 100.0 percent. The module is deterministic (every run
+  equal): SR at K 200, D 5000 = 0.6322 for both signs (= 1 - (1 - 1/5000)^5000), RET 1.2279 for both signs; B1-B4 PASS.
+  B5: S1 SR -0.0984 (forgetting, no recovery); S2 recovers the aversive sign and inverts the appetitive one (v -0.4358).
+  F6 at D 5000 4.15x, all recovery (REACQ -0.0338). Stage 1 adopts nothing.
+- **H12 Stage 2: composition signed, then STOPPED at the bench, K0 UNREADABLE (2026-09-26;
+  decision:h12-stage2-composition; record:h12-stage2-bench-result).** src/ph36b.py (sha cfb9a26a...1cef, doc
+  dd4b2e56d1a576518): Agent17 with learning on in W7X, the H12 module (tau 5000) against the adopted one; every identity
+  holds ((I5) 400/400, K2(c), the supplied trajectories, the draws). On the bench seeds the P4 ceiling (V +1) reaches
+  P(V) 0.1050 against the floor's 0.0125, span +0.0925 < 0.30, and P4 ties are 0.255-0.318 (> 0.20): after P3 the agent
+  stays at N and seldom meets V's plume even at V = +1, so the read-out cannot express the recovery the module shows
+  (V 0.563 in the H12 arm against 0.317 in the gate-only arm at step 4199). By the registered rule Stage 2 is unreadable
+  as designed (redesigned, not retuned); no bar was fixed (decision:h12-k1-bar not written), (hS) not computed, no
+  development or evaluation seed run, nothing adopted. Also recorded: the single-site and parallel layouts are not
+  equivalent in Stage 2's input regime (reward and code together, then code alone: the reward trace's potentiation can
+  drive V below 0, where the single-site feedback masks it and the parallel one does not), a missed prediction of design
+  2.2 (exact only for H11's forward-pairing protocols). Awaiting the owner: close H12 (shown at the module level only)
+  or redesign Stage 2.
 
 ## Why a plan now
 
@@ -1546,7 +1574,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   form keeps its tested window 300 until a run tests it at 200. Rejected on record: keep 300; adopt 200 universally
   including the three-channel form.
 
-### H12 (queued at the Phase 7.2 close, decision:phase7-2-gate; opened for design by decision:h12-open-design; design v1 DRAFT awaiting the owner)
+### H12 (queued at the Phase 7.2 close, decision:phase7-2-gate; opened for design by decision:h12-open-design; opened by decision:h12-open; Stage 1 PASS; Stage 2 STOPPED at the bench, K0 unreadable)
 - The acquisition and extinction traces persist differently (concept:h12-differential-persistence, the node queued at
   the Phase 7.2 close, reused; the number assigned there). Opened for design by decision:h12-open-design (2026-09-26,
   the owner's '권고안으로 바로 진행' after the H28 and H29 closures), the next item in the order confirmed at
@@ -1574,7 +1602,21 @@ Four hypotheses were run in one day by picking the next most interesting candida
   minus floor) after the bench; pass probabilities unmeasured). No classification-rule relaxation; a composition record to
   sign before any Stage 2 code; adoption of the parallel site only by a separate decision after both stages. Seeds:
   Stage 1 codes 20261151/20261152, bootstrap 20261153; Stage 2 bench 20261151/20261152, dev 9911/9921, eval
-  2129/2243. Awaiting the owner's confirmation of section 12.
+  2129/2243. Confirmed by the owner 2026-09-26 (decision:h12-open, '권고안으로 확정하고 H12 진행').
+- Opened on design v2 FINAL doc d27ec95924fe49be1 (experiments/h12/h12_design_v2.md, sha 3d3aab80...95f1): section 12
+  confirmed point by point; Stage 2 registered in section 5.5 before any run (V pre-acquired off-world by Stage B's
+  training, since a naive learning arm with the competitor at +0.5 would be the sham).
+- Stage 1, src/ph36.py (MB5): PASS (record:h12-bench-result). H11 reproduced line for line; tau_ext* = 5000 (tau 2000
+  fails F1's extinction clause, 37.1 percent; 5000 gives 28.4); SR 0.6322 and RET 1.2279 at K 200, D 5000 for both signs
+  (deterministic, exact); (I4) the H12 module equals the adopted one bitwise on H15 Run 2's streams; S1 no recovery, S2
+  one-sign recovery with appetitive inversion. Close to true by construction, as the design said; the non-trivial part is
+  that a tau keeps the Phase 4 battery.
+- Stage 2, src/ph36b.py on the signed composition (decision:h12-stage2-composition): STOPPED at the bench, K0
+  UNREADABLE (record:h12-stage2-bench-result): ceiling 0.1050 against floor 0.0125 in P4 (span +0.0925 < 0.30), P4 ties
+  0.255-0.318. The value recovers in the H12 arm (0.563 against 0.317 at 4199) but W7X's P4 cannot show it in behaviour:
+  after P3 at N the agent seldom meets V's plume. No bar fixed, no task seed run, nothing adopted. The single-site and
+  parallel layouts separate in this input regime (a missed prediction of design 2.2). The parallel site stays held
+  unproven (decision:phase7-2-gate). Closure or a Stage 2 redesign is the owner's.
 
 ## The architecture as currently adopted
 
@@ -2066,18 +2108,15 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Confirmation of H12 design v1 section 12** (decision:h12-open-design; design v1 DRAFT doc dff68b78ea66ed47e,
-  experiments/h12/h12_design_v1.md, sha256 75428f1a...e79e; concept:h12-differential-persistence). Nine points, each
-  with a RECOMMENDED option: (1) candidate (c), a Stage 1 module bench now, gating a Stage 2 behavioural test completed
-  in design v2 only after Stage 1; (2) the mechanism (m1), the parallel site with only its extinction pair decaying, one
-  constant tau_ext; (3) a new src/ph36.py (MB5), ph4.py and ph8.py untouched, Stage 1 signing and adopting nothing, a
-  composition record signed before any Stage 2 code, no classification-rule relaxation; (4) the bench (H11 reproduced
-  bitwise; tau grid 2000/5000/10000/20000, the smallest keeping F1 and F2; SR >= 0.20 and RET >= 0.99 at D 5000 for both
-  signs); (5) stop rules (s1), (s2); (6) Stage 2's outline (reward withdrawn at t0 600, V masked 2400-3599, reinstated
-  3600-4199, a supplied competitor c +0.5, bars after the bench); (7) seeds; (8) the order (then H10, H18, H17); (9) the
-  adoption path (a separate decision after both stages). H28 and H29 were closed and adopted on 2026-09-26
-  (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, decision:h29-closed,
-  decision:h29-window-200-adopted-within-tested-conditions).
+- **H12: close, or redesign Stage 2** (decision:h12-open; record:h12-bench-result; record:h12-stage2-bench-result;
+  concept:h12-differential-persistence). Stage 1 PASSED at the module level (tau_ext* 5000; SR 0.6322 and RET 1.2279 for
+  both signs at D 5000; the Phase 4 battery kept). Stage 2 STOPPED at its bench, UNREADABLE as designed: in W7X's P4 the
+  supplied ceiling (V +1) reaches P(V) 0.1050 against the floor's 0.0125 (span +0.0925 < 0.30) and ties are 0.255-0.318
+  (> 0.20), because an agent that spent P3 at N seldom meets V's plume again. By the registered rule a redesign, not a
+  retune. Options for the owner: (a) close H12 as shown at the module level only, the parallel site staying held unproven
+  (no behavioural claim); (b) open a Stage 2 redesign (a world in which the agent meets V again after the retention
+  interval, for example a reinstatement from V's plume or a start near both sources, with its own readability check
+  first); (c) defer H12 and take H10 (the confirmed order: H10, H18, H17). Nothing adopted; no task seed was used.
 
 ## Queued candidates, none started
 
@@ -2095,7 +2134,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711), and CLOSED as SHOWN with the burst-ranked value tie adopted for the three-channel distractor form only (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, 2026-09-26).** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design), measured first by the T3b diagnosis (decision:t3b-diagnosis; record:t3b-diagnosis-result), opened on design v2 FINAL (decision:h29-open; doc d724287aa203d256d), evaluated once and SHOWN under its registered criteria (record:h29-result; report doc d92ffd006bdbcdc28), and CLOSED as SHOWN with the window 200 adopted, the adopted two-channel agent now Agent17 (decision:h29-closed, decision:h29-window-200-adopted-within-tested-conditions, 2026-09-26).** **H12, the differential persistence of the acquisition and extinction traces, is IN DESIGN (decision:h12-open-design, 2026-09-26; design v1 DRAFT doc dff68b78ea66ed47e awaiting the owner's confirmation of section 12).** The rest, ranked in decision:h28-open-design: (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, the T3b cast-phase dependence and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711), and CLOSED as SHOWN with the burst-ranked value tie adopted for the three-channel distractor form only (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, 2026-09-26).** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design), measured first by the T3b diagnosis (decision:t3b-diagnosis; record:t3b-diagnosis-result), opened on design v2 FINAL (decision:h29-open; doc d724287aa203d256d), evaluated once and SHOWN under its registered criteria (record:h29-result; report doc d92ffd006bdbcdc28), and CLOSED as SHOWN with the window 200 adopted, the adopted two-channel agent now Agent17 (decision:h29-closed, decision:h29-window-200-adopted-within-tested-conditions, 2026-09-26).** **H12, the differential persistence of the acquisition and extinction traces, was opened on design v2 FINAL (decision:h12-open; doc d27ec95924fe49be1): Stage 1 PASS at the module level (record:h12-bench-result; tau_ext* 5000), Stage 2 STOPPED at its bench, K0 unreadable (record:h12-stage2-bench-result); closure or a Stage 2 redesign awaits the owner.** The rest, ranked in decision:h28-open-design: (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, the T3b cast-phase dependence and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the release's scope (non-negative held values) and stays in force at negative held values under N2.
 
