@@ -1,0 +1,31 @@
+name: H12 collect result summary
+
+on:
+  push:
+    branches: [codex/h12-review-plan]
+    paths: [.github/workflows/h12-collect-summary.yml]
+
+permissions:
+  actions: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Extract compact reports from the completed remote run
+        run: |
+          gh run download 36260387653 --repo Vinculums/Fruitfly --name h12-remote-36260387653-1 --dir full
+          mkdir -p summary/diagnosis
+          cp full/runtime.json summary/runtime.json
+          cp full/diagnosis/{manifest.json,summary.json,report.md} summary/diagnosis/
+          sha256sum full/diagnosis/events.npz > summary/events-sha256.txt
+          stat --format='%s' full/diagnosis/events.npz > summary/events-size.txt
+          cat summary/diagnosis/report.md
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: h12-summary-36260387653
+          path: summary/
+          retention-days: 30
