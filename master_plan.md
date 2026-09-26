@@ -802,6 +802,21 @@ Progress log
   (222 vs 29 lost, dwell 13.957 vs 23.657, 43.4 contacts per row); M6 +0.0000 (the hold's benefit stays unmeasured);
   T3aD 0.220 vs 13.193; T4 at +1/-1/0 0.740 vs 0.932. Predictions missed: k 11 (4-8 predicted), (w) 116 (about 100),
   the W1D loss composition (89 of 110 (w) rows lost, 133 lost outside them). Closure is the owner's.
+- **H29 OPENED FOR DESIGN (2026-09-26; decision:h29-open-design; the second half of the owner's '권고안으로 진행하고
+  다음작업 설계 진행', gloss 'then proceed with the next work's design').** The next queued item, the H26 T3b limit (a loss
+  after tracking), numbered H29 (concept:h29-loss-after-tracking). Design v1 DRAFT doc dd00688c21f09b13e
+  (experiments/h29/h29_design_v1.md, sha 5078d814...1260), no code, written on Agent14N2 (two channels, no D; it holds
+  whether or not H28's rule is adopted). Central finding: the Lost world equals its T1 twin in every draw until the twin's
+  next valued whiff, so no rule on the agent's own state can shorten the post-whiff window after a loss without
+  shortening it in tracking; the only lever is the window's length. Candidates rejected on record: a burst-conditioned
+  reload, a window shrinking with neutral whiffs, the hold-end window (H26's rejection stands), cast-phase keys at 2 SAT
+  (about 284, a 16-step sliver) and SAT (about 142, T1 like N 150). The design's candidate if a run is chosen: Agent17 =
+  Agent14N2 with the window 200 and the 59-step prior unchanged (identical in W1, T3a, +1/-1 by code; T1 at N 200 on the
+  sweep DP -0.0125; predicted T3b gain about +0.9, range +0.5 to +1.3); M2(b) >= -0.05, M8(b) paired T3b dwell lower
+  bound > 0; stop rules (h), (hB); joint about 0.93 at the predictions. Recommended at section 12 point 1: a
+  measurement-only T3b diagnosis on H26's spent bench seeds before any run, then the run or closing T3b as a limit.
+  Seeds, if run: dev 9903/9913, eval 2111/2221, bench 20261141/20261142, bootstrap 20261143 (240 files scanned, no
+  collision). H28's closure and adoption remain awaiting the owner. Awaiting the owner's confirmation of section 12.
 
 ## Why a plan now
 
@@ -1391,6 +1406,30 @@ Four hypotheses were run in one day by picking the next most interesting candida
   0.220 vs 13.193; T4 +1/-1/0 0.740 vs 0.932 (no tie arises there). The residual W1D loss is not attributed to a path by
   this run. Closure, and any adoption, are the owner's.
 
+### H29 (decision:h29-open-design; in design, v1 DRAFT awaiting the owner's section 12)
+- The H26 T3b limit, a loss after tracking (concept:h29-loss-after-tracking): after the adopted agent has tracked the
+  valued odour and the odour disappears (the Lost world, t0 150), its presence counter keeps it present for a fixed 300
+  steps after the last whiff, so the filter is blind to the neutral odour until L + 300 (exact 379/379; T3b neutral dwell
+  4.412 against 5.772 at window 60, 7.048 unfiltered; first neutral surge 471/476/479 steps after L, none before 600 in
+  173/379 rows). Numbered H29 by decision:h29-open-design (the highest in use was H28). Written on Agent14N2; with D absent
+  Agent16 == Agent14N2 by code (record:h28-bench-result (I1'), (I3')), so it holds whether or not H28 is adopted.
+- Checked against the record before design (design v1 section 2.5): the Lost world is World7 until t0 and equals its T1
+  twin in every draw but the masked valued column after it (ph23.py:112-119, ph24.py:133-141; checked True at H26's bench
+  and evaluation), so until the twin's next valued whiff any rule on the agent's own state acts identically in both. No
+  own-state rule can shorten the window after a loss without shortening it in the T1 silence the row shares; the only
+  lever is the window's length. The cast loop (ph23.py:95-98, SAT 141.7) brings the agent back through the plumes at
+  about L + 170-245 and from about L + 470; the N sweep's T3a surges 213/235/243 at N 200 against 476/479/507 at N 300.
+- Design v1 DRAFT doc dd00688c21f09b13e (experiments/h29/h29_design_v1.md, sha 5078d814...1260), no code. Candidates
+  rejected on record: (a1) a burst-conditioned reload (cannot separate; below 200 it pays T1's cost), (a2) a window
+  shrinking with neutral whiffs, (b) the hold-end window (H26's rejection stands), (d1) since > 2 SAT (a 16-step sliver),
+  (d2) since > SAT (T1 like N 150); (c) closing the limit is the alternative. Candidate if run: (e1) Agent17 = Agent14N2
+  with window 200, start 140, prior 59 unchanged, no new state; the H26 relaxation re-signed with window 200 (H29 only).
+  Registered if run: T1 M2(b) DP vs Agent14N2 >= -0.05 (sweep N 200: -0.0125, pass 1.0000), M2(c), M6; T3b M8(a) window
+  exact at L + 200 and M8(b) paired dwell vs Agent14N2 lower bound > 0 (predicted +0.9, range +0.5 to +1.3, T3a analog);
+  W1 and T3a identities; stop rules (h), (hB). RECOMMENDED first (section 12 point 1): a measurement-only T3b diagnosis on
+  H26's spent bench seeds, reading stated in advance. Seeds if run: dev 9903/9913, eval 2111/2221, bench
+  20261141/20261142, bootstrap 20261143.
+
 ## The architecture as currently adopted
 
 Stated here so a later session does not have to reassemble it from decisions.
@@ -1850,19 +1889,22 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Closure of H28** (decision:h28-open; record:h28-result; report doc d29986a75ef4e9711,
+- **Closure and adoption of H28** (decision:h28-open; record:h28-result; report doc d29986a75ef4e9711,
   experiments/h28/h28_report.md; concept:h28-ubiquitous-odour-discount). H28 was evaluated once and is SHOWN under its
   registered criteria (M1, M2(b) -0.0275 [-0.0450, -0.0125], M2(c), M3, M4, M5(a') -0.445 [-0.495, -0.397] all PASS).
-  Stated beside it: H27's W1D bars against D off, reported, fail (222 vs 29 lost); M6 +0.0000 (the hold's benefit under
-  a distractor stays unmeasured); T3aD 0.220 vs 13.193; T4 at +1/-1/0 0.740 vs 0.932; predictions missed (k 11, (w) 116,
-  the W1D loss composition). Options, the interpreting assistant's: (1) RECOMMENDED: close H28 as SHOWN; the owner
-  decides whether the burst-ranked tie is adopted within the tested conditions (three channels, supplied +1/0/0, p_D
-  0.03; inert at two channels by identity (I1')), with the three H28-scoped records re-signed for any use beyond H28;
-  record:distractor-capture-limit updated with the H28 numbers; (2) close as SHOWN without adoption; (3) a follow-up on
-  the residual W1D loss (not attributed to a path by this run), not recommended before the owner's closure.
-- **The next work's design.** The owner's words of 2026-09-26 also say '다음작업 설계 진행' ('proceed with the next
-  work's design'); by the confirmed order the next item is the H26 T3b limit (then H12, H10, H18, H17). Not started in
-  the H28 session.
+  RECOMMENDED (the interpreting assistant's): close H28 as SHOWN; adoption of the burst-ranked value tie scoped to the
+  three-channel distractor condition only (supplied +1/0/0, p_D 0.03), since at two channels the rule is inert by code
+  (identity (I1'), (I3')), with the three H28-scoped records re-signed for any use beyond H28 and
+  record:distractor-capture-limit updated with the H28 numbers. The limits to record with it: W1D still loses 222 of
+  400 rows (against 29 without D; H27's W1D bars against D off all fail); T3aD 0.220 against 13.193 (a loss with a
+  distractor not shown); M6 +0.0000 (the hold's benefit under a distractor unmeasured). Alternatives: close as SHOWN
+  without adoption; a follow-up on the residual W1D loss (not attributed to a path), not recommended before the closure.
+- **H29 design v1 DRAFT, section 12** (decision:h29-open-design; doc dd00688c21f09b13e, experiments/h29/h29_design_v1.md;
+  concept:h29-loss-after-tracking). Ten points; point 1 RECOMMENDED: not yet a run, a measurement-only T3b diagnosis on
+  H26's spent bench seeds first (the blind steps, the exact surge step of any window from the adopted agent's own run,
+  Agent17 as a measurement arm), with the reading stated in advance (both pass probabilities >= 0.5: open H29 on the
+  design; otherwise close T3b as a recorded limit). Alternatives: close T3b now as a limit (the agent stays blind 300
+  steps after losing a tracked plume), or run H29 now.
 
 ## Queued candidates, none started
 
@@ -1880,7 +1922,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711); closure awaiting the owner.** The rest, ranked in decision:h28-open-design: (2) the H26 T3b limit, a loss after tracking; (3) H12; (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, T3b and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711); closure awaiting the owner.** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design; design v1 DRAFT doc dd00688c21f09b13e); in design, section 12 awaiting the owner (a measurement-only T3b diagnosis recommended before any run).** The rest, ranked in decision:h28-open-design: (3) H12; (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, T3b and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the release's scope (non-negative held values) and stays in force at negative held values under N2.
 
@@ -1941,7 +1983,9 @@ within the release's scope (non-negative held values) and stays in force at nega
   registered criteria (record:h28-result, 2026-09-26); closure awaiting the owner.**
 - **The H26 T3b limit** (a loss after tracking: the post-whiff window a fixed 300 steps, 4.412 against 5.772), ranked
   second: a measured limit of an adopted module, narrow; a fix is another counter rule with the trade-off of
-  record:h24-run2-n-sweep-result.
+  record:h24-run2-n-sweep-result. **Opened for design as H29 (decision:h29-open-design, 2026-09-26; design v1 DRAFT doc
+  dd00688c21f09b13e):** by T3b's construction no own-state rule separates a loss from a tracking silence; the lever is the
+  window's length (Agent17, window 200); a measurement-only T3b diagnosis recommended before any run.
 - **H12** the acquisition and extinction traces persist differently; this is what would make
   the parallel site earn its place. Ranked third: the memory half of the core, but no measured failure calls for it.
 - **H10** abstention and revision belong to different stages: a thresholded stage decides
