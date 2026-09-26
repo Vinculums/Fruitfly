@@ -780,6 +780,28 @@ Progress log
   three records to sign; joint about 0.97 at the predictions. Seeds dev 9907/9917, eval 2093/2197, bench
   20261131/20261132, bootstrap 20261133 (232 files scanned, one file and one graph collision replaced). Awaiting the
   owner's confirmation of section 12.
+- **H28 OPENED on design v2 FINAL (2026-09-26; decision:h28-open; owner '권고안으로 진행하고 다음작업 설계 진행', gloss
+  'proceed with the recommended options, then proceed with the next work's design').** Every recommended option of
+  section 12 confirmed (ten points). Signed before code, H14 format, H28 only:
+  decision:classification-rule-relaxed-burst-record-h28 (per odour the step of its second most recent whiff and of its
+  last burst, read only to rank odours tied at the top value), decision:evidence-release-composition-rule-h28 and
+  decision:classification-rule-relaxed-presence-prior-h28 (the two H27 records re-signed in form). vinc_decide on the
+  H28 concept: only decisions_on_same_subject on the H20 concept (reported, not resolved). Design v2 FINAL doc
+  da2c1c079a1766d3e (experiments/h28/h28_design_v2.md, sha b12137f6...6b8c); no bar, seed, arm, prediction or rule
+  changed from v1.
+- **H28 code, demo, bench, development run and one evaluation: SHOWN under its registered criteria (2026-09-26;
+  record:h28-bench-result, record:h28-dev-run, record:h28-result; report doc d29986a75ef4e9711).** src/ph33.py (sha
+  f2a29722...20b0, source doc dd7262b0c91dbc66b) composes Agent16 = Agent15 + Act16 from ph32.py imported unchanged; no
+  adopted file edited. Demo 8/8 ok (one cosmetic label fix before the recorded demo, noted in its header). Bench
+  (ph33_bench.txt sha 45b0f263...8671): M4 PASS; (m) 125, (w) 116; (h) T1D DP -0.0150 [-0.0300, -0.0025], M2(b) pass
+  probability 0.9987; (hW) W1D lost 228 vs 400, M5(a') pass probability 1.0000; both continue. Development run
+  9907/9917 (ph33_dev.txt sha e49edf3d...3c5f): no operation error, no amendment. One evaluation 2093/2197
+  (ph33_eval.txt sha 43e3a999...3dbe): M1 PASS; M2(b) DP Agent16 D on - D off -0.0275 [-0.0450, -0.0125] PASS; M2(c)
+  +0.448 [+0.397, +0.498] PASS; M3 identities PASS; M4 PASS; M5(a') W1D lost-row DP Agent16 - Agent15 (D on) -0.445
+  [-0.495, -0.397] PASS (222 vs 400 lost). Reported: M2(a) 0.915; M2(d) +0.1225; H27's W1D bars against D off all fail
+  (222 vs 29 lost, dwell 13.957 vs 23.657, 43.4 contacts per row); M6 +0.0000 (the hold's benefit stays unmeasured);
+  T3aD 0.220 vs 13.193; T4 at +1/-1/0 0.740 vs 0.932. Predictions missed: k 11 (4-8 predicted), (w) 116 (about 100),
+  the W1D loss composition (89 of 110 (w) rows lost, 133 lost outside them). Closure is the owner's.
 
 ## Why a plan now
 
@@ -1327,7 +1349,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   lapse and stay on record (the composition rule available to a future N = 3 design by a new decision). Queued as
   PROPOSED, not decided: a recognition-core mechanism for a ubiquitous odour, designed as H28 (below).
 
-### H28 (decision:h28-open-design; design v1 DRAFT, no code; awaiting the owner's confirmation of section 12)
+### H28 (decision:h28-open-design, decision:h28-open; evaluated once; SHOWN under its registered criteria (record:h28-result); closure awaiting the owner)
 - Discounting a ubiquitous, never-reinforced odour by its whiff statistics rather than its value
   (concept:h28-ubiquitous-odour-discount), the proposal queued at the H27 closure; the number H28 assigned by
   decision:h28-open-design (the highest in use was H27). Ranked first over the H26 T3b limit, H12, H10, H18 and H17 (reasons
@@ -1353,6 +1375,21 @@ Four hypotheses were run in one day by picking the next most interesting candida
   W1D registered as the recovery over H27's agent (lost-row DP <= -0.20; predicted 110-245 lost of 400); H27's W1D bars
   against D off reported (predicted to fail); M6 reported; stop rules (h), (hW); joint about 0.97 at the predictions,
   0.50 at k 13. Seeds dev 9907/9917, eval 2093/2197, bench 20261131/20261132, bootstrap 20261133.
+- Opened on design v2 FINAL (decision:h28-open, owner 2026-09-26, '권고안으로 진행하고 다음작업 설계 진행'; doc
+  da2c1c079a1766d3e, experiments/h28/h28_design_v2.md, sha b12137f6...6b8c); signed before code:
+  decision:classification-rule-relaxed-burst-record-h28, decision:evidence-release-composition-rule-h28,
+  decision:classification-rule-relaxed-presence-prior-h28. src/ph33.py (sha f2a29722...20b0, source doc
+  dd7262b0c91dbc66b); no adopted file and not ph32.py edited.
+- **Bench (record:h28-bench-result, ph33_bench.txt sha 45b0f263...8671): M4 PASS, both stop rules continue.**
+  Identities (I1')-(I6') True (Agent16's code at N 2 == Agent14N2 on every field; Agent16 D off == Agent15 D off on
+  every field, the rule never acting without D; Agent16 D on == Agent15 D on before each row's first action); the burst
+  record exact against brute force; the ranked top set, keep and nav exact on 2560 constructed rows. D-driven nav T1D 223
+  vs Agent15's 1492, W1D 2935 of 4496 vs 6392 of 6643 (E3, D the lone top odour, 1149). (h) 0.9987, (hW) 1.0000.
+- **Evaluation (record:h28-result, ph33_eval.txt sha 43e3a999...3dbe; report doc d29986a75ef4e9711): SHOWN.** T1D P(V)
+  0.915 vs 0.943 without D, DP -0.0275 [-0.0450, -0.0125] (H27's agent 0.792); W1D 222 vs 400 lost, DP -0.445
+  [-0.495, -0.397]; M1, M3, M4 PASS. Reported: H27's W1D bars against D off fail (222 vs 29 lost); M6 +0.0000; T3aD
+  0.220 vs 13.193; T4 +1/-1/0 0.740 vs 0.932 (no tie arises there). The residual W1D loss is not attributed to a path by
+  this run. Closure, and any adoption, are the owner's.
 
 ## The architecture as currently adopted
 
@@ -1378,8 +1415,10 @@ Stated here so a later session does not have to reassemble it from decisions.
   third odour D (value 0, never reinforced, background whiffs at p_D 0.03) the adopted agent composed with three channels
   loses 0.13 of P(V) in the choice task (0.787 vs 0.920) and every row in the absent-odour world (400/400 vs 22): with the
   valued odour absent, D ties the neutral odour at value 0 in the filter's top set and steers whenever nothing or D is
-  held; while V is present nothing changes. The hold's benefit under a distractor is unmeasured. A remedy is in design as
-  H28 (decision:h28-open-design); the adopted agent is unchanged.
+  held; while V is present nothing changes. The hold's benefit under a distractor is unmeasured. A remedy, the
+  burst-ranked value tie (H28, Agent16, three channels), was evaluated once and SHOWN under its registered criteria
+  (record:h28-result): T1D cost 0.0275 of P(V) against itself without D, W1D 222 vs 400 lost; it is NOT adopted (closure
+  awaiting the owner) and W1D still loses 222 rows against 29 without D. The adopted agent is unchanged.
 - **Learned values reach behaviour through the adopted read-out, with no new module (decision:h20-stage-b-closed,
   2026-09-25):** a positive value learned by the agent's own learning module (H15 E2 training off-world, neutral
   first, saturating dose), read out by the module's own function into the `known` array Agent14 already reads, is used
@@ -1433,7 +1472,8 @@ Stated here so a later session does not have to reassemble it from decisions.
   at p_D 0.03) and STOPPED at its bench (record:h27-bench-result): with D the adopted agent composed with three channels
   lost every W1 row and 0.13 of T1 P(V), and the arm whose navigation does not read the hold lost the same, so the
   question stays open. H27 was closed with the distractor condition recorded as a limit (decision:h27-closed,
-  record:distractor-capture-limit).
+  record:distractor-capture-limit). H28's evaluation (record:h28-result) reported M6 +0.0000 again: with the burst-ranked
+  tie the hold-not-read arm loses the same 222 W1D rows, so the question stays open.
   **Tested in H20 Stage A, NOT adopted:** a gain (1 + G*max(v, 0)) on the upstream output
   entering the circuit and its evidence release, for odours with a positive value. Measured: a
   single whiff of the gained channel holds at G >= 0.5 (an ungained single whiff reaches 0.756 of
@@ -1561,7 +1601,7 @@ Stated here so a later session does not have to reassemble it from decisions.
   (decision:h17-closed) and stay on record, as does the lapsed H24 Run 2 re-sign
   (decision:classification-rule-relaxed-presence-counter-run2). A new one, scoped to H26 only (one presence counter per
   odour, window 300, starting at 240 as a prior), was signed by the owner on 2026-09-24
-  (decision:classification-rule-relaxed-presence-prior-h26); H26 was closed as shown and its counter adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25), so this relaxation STAYS IN FORCE for the adopted agent's counter (Agent14), as part of the adopted state; any wider use (another counter, window or agent) is a new decision. The classification rule itself is unchanged elsewhere. A composition rule, not a relaxation, was signed in the same H14 format for H20 Stage C only (decision:release-value-gated-stage-c: the H25 release not applied while the held odour's own value is negative); it adopts nothing, and decision:release-negative-scope-on-hold stays in force outside Stage C. For H20 Stage C Run 2 that rule was re-signed in form, content unchanged, scope Stage C Run 1 and Run 2 (decision:release-value-gated-stage-c-run2), and one bar was re-signed in H14 format for Run 2 only: M4(c)'s readability read on G3+ with G3+ at least 50 (decision:h20-stage-c-m4c-readability-resigned-run2); the stored Run 1 criteria are not edited. On 2026-09-25 Stage C Run 2 was closed as shown (decision:h20-stage-c-run2-closed) and the (N2) rule was ADOPTED as the adopted agent's release rule (decision:n2-release-adopted-within-tested-conditions), which supersedes decision:release-negative-scope-on-hold; the Run 2-only M4(c) re-sign lapsed with the closure. For H27 two records were signed in the same format on 2026-09-25, H27 only: an evidence-release composition rule at N channels (decision:evidence-release-composition-rule-h27) and an in-form re-sign of the H26 relaxation for a third counter (decision:classification-rule-relaxed-presence-prior-h27); H27 stopped at its bench (record:h27-bench-result), and both stay on record, scoped to H27. H27 was closed on 2026-09-26 (decision:h27-closed): both lapse with the closure and stay on record; the composition rule stays available as a recorded composition for any future N = 3 design, by a new decision (a re-sign in form). For H28 three records are proposed for the owner's signature (H28 design v1 section 3.4): a new H28-scoped relaxation (per odour the step of its second most recent whiff and of its last burst, read only to rank odours tied at the top value) and the two H27 records re-signed in form; none is signed yet.
+  (decision:classification-rule-relaxed-presence-prior-h26); H26 was closed as shown and its counter adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25), so this relaxation STAYS IN FORCE for the adopted agent's counter (Agent14), as part of the adopted state; any wider use (another counter, window or agent) is a new decision. The classification rule itself is unchanged elsewhere. A composition rule, not a relaxation, was signed in the same H14 format for H20 Stage C only (decision:release-value-gated-stage-c: the H25 release not applied while the held odour's own value is negative); it adopts nothing, and decision:release-negative-scope-on-hold stays in force outside Stage C. For H20 Stage C Run 2 that rule was re-signed in form, content unchanged, scope Stage C Run 1 and Run 2 (decision:release-value-gated-stage-c-run2), and one bar was re-signed in H14 format for Run 2 only: M4(c)'s readability read on G3+ with G3+ at least 50 (decision:h20-stage-c-m4c-readability-resigned-run2); the stored Run 1 criteria are not edited. On 2026-09-25 Stage C Run 2 was closed as shown (decision:h20-stage-c-run2-closed) and the (N2) rule was ADOPTED as the adopted agent's release rule (decision:n2-release-adopted-within-tested-conditions), which supersedes decision:release-negative-scope-on-hold; the Run 2-only M4(c) re-sign lapsed with the closure. For H27 two records were signed in the same format on 2026-09-25, H27 only: an evidence-release composition rule at N channels (decision:evidence-release-composition-rule-h27) and an in-form re-sign of the H26 relaxation for a third counter (decision:classification-rule-relaxed-presence-prior-h27); H27 stopped at its bench (record:h27-bench-result), and both stay on record, scoped to H27. H27 was closed on 2026-09-26 (decision:h27-closed): both lapse with the closure and stay on record; the composition rule stays available as a recorded composition for any future N = 3 design, by a new decision (a re-sign in form). For H28 three records were signed on 2026-09-26, H28 only (decision:h28-open): a new H28-scoped relaxation (per odour the step of its second most recent whiff and of its last burst, read only to rank odours tied at the top value; decision:classification-rule-relaxed-burst-record-h28) and the two H27 records re-signed in form (decision:evidence-release-composition-rule-h28, decision:classification-rule-relaxed-presence-prior-h28); H28 was evaluated once and SHOWN (record:h28-result); the three stay scoped to H28 until the owner's closure decides otherwise.
 - Added after H15 Run 1: task validity has THREE clauses, not two. The probes must discriminate,
   no arm may saturate, and the intact agent (or a known-answer probe) must itself clear the
   floor in the window where the gate is read. H15's probes spanned 0.3 to 600 and every agent
@@ -1810,17 +1850,19 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Confirmation of H28 design v1 section 12** (decision:h28-open-design; doc dc81dbd5005ca164c,
-  experiments/h28/h28_design_v1.md, sha 135a28f2...6a51; concept:h28-ubiquitous-odour-discount). Ten points, each with a
-  RECOMMENDED option: (1) H28 as the burst-ranked value tie (alternatives: the H26 T3b limit first; the literal habituation
-  form, rejected by arithmetic); (2) H27's D unchanged, p_D 0.03; (3) the candidate (iv-e), three whiffs within 10 steps,
-  ties only, none steering when no tied odour has burst; (4) a new file src/ph33.py, no adopted file edited, and three
-  records to SIGN before code (the H28 relaxation for the burst record; the H27 evidence-release composition rule and the
-  H27 presence relaxation re-signed in form for H28); (5) T1D registered, W1D registered as the recovery over H27's
-  agent, H27's W1D bars reported; (6) bars M2(b) -0.05, M2(c) +0.05, M5(a') <= -0.20, M6 reported; (7) the arms; (8) stop
-  rules (h), (hW) at 0.5; (9) seeds dev 9907/9917, eval 2093/2197, bench 20261131/20261132, bootstrap 20261133; (10) the
-  order H28, then the H26 T3b limit, H12, H10, H18, H17. H27 is closed (decision:h27-closed); the distractor condition is
-  a recorded limit (record:distractor-capture-limit).
+- **Closure of H28** (decision:h28-open; record:h28-result; report doc d29986a75ef4e9711,
+  experiments/h28/h28_report.md; concept:h28-ubiquitous-odour-discount). H28 was evaluated once and is SHOWN under its
+  registered criteria (M1, M2(b) -0.0275 [-0.0450, -0.0125], M2(c), M3, M4, M5(a') -0.445 [-0.495, -0.397] all PASS).
+  Stated beside it: H27's W1D bars against D off, reported, fail (222 vs 29 lost); M6 +0.0000 (the hold's benefit under
+  a distractor stays unmeasured); T3aD 0.220 vs 13.193; T4 at +1/-1/0 0.740 vs 0.932; predictions missed (k 11, (w) 116,
+  the W1D loss composition). Options, the interpreting assistant's: (1) RECOMMENDED: close H28 as SHOWN; the owner
+  decides whether the burst-ranked tie is adopted within the tested conditions (three channels, supplied +1/0/0, p_D
+  0.03; inert at two channels by identity (I1')), with the three H28-scoped records re-signed for any use beyond H28;
+  record:distractor-capture-limit updated with the H28 numbers; (2) close as SHOWN without adoption; (3) a follow-up on
+  the residual W1D loss (not attributed to a path by this run), not recommended before the owner's closure.
+- **The next work's design.** The owner's words of 2026-09-26 also say '다음작업 설계 진행' ('proceed with the next
+  work's design'); by the confirmed order the next item is the H26 T3b limit (then H12, H10, H18, H17). Not started in
+  the H28 session.
 
 ## Queued candidates, none started
 
@@ -1838,7 +1880,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), is OPENED FOR DESIGN (decision:h28-open-design; design v1 DRAFT doc dc81dbd5005ca164c), ranked first; awaiting the owner's confirmation.** The rest, ranked in decision:h28-open-design: (2) the H26 T3b limit, a loss after tracking; (3) H12; (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, T3b and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711); closure awaiting the owner.** The rest, ranked in decision:h28-open-design: (2) the H26 T3b limit, a loss after tracking; (3) H12; (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, T3b and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the release's scope (non-negative held values) and stays in force at negative held values under N2.
 
@@ -1895,7 +1937,8 @@ within the release's scope (non-negative held values) and stays in force at nega
   the number assigned there; design v1 DRAFT doc dc81dbd5005ca164c), ranked first: it addresses a measured failure of the
   recognition core the owner named (T1D DP -0.1325, W1D every row lost); habituation in its usual sense is rejected by
   arithmetic and a burst-ranked value tie is recommended; the W1D rows in which B is never sensed before the capture stay
-  in the recorded limit. Awaiting the owner's confirmation of section 12.
+  in the recorded limit. **Opened on design v2 FINAL (decision:h28-open); DONE: evaluated once, SHOWN under its
+  registered criteria (record:h28-result, 2026-09-26); closure awaiting the owner.**
 - **The H26 T3b limit** (a loss after tracking: the post-whiff window a fixed 300 steps, 4.412 against 5.772), ranked
   second: a measured limit of an adopted module, narrow; a fix is another counter rule with the trade-off of
   record:h24-run2-n-sweep-result.

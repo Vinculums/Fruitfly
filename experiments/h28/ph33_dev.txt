@@ -1,0 +1,101 @@
+== H28, DEV. design H28 v2 FINAL doc da2c1c079a1766d3e hash b12137f684fb44d80f5a780fccfd1dc0f63669b5530d2a3eaf834b8df0316b8c; G 2.0, gate on; P 60, N_hi 300; p_D 0.03; world seed 9907, agent seed 9917; 400 rows x 600 steps; geometry C0; bootstrap seed 20261133; operation check only (not a verdict) ==
+   ph33.py sha256 f2a29722a398c81b7f73014d29c799a08c289eca1cc7366acd65e50154e720b0; design H28 v2 FINAL doc da2c1c079a1766d3e hash b12137f684fb44d80f5a780fccfd1dc0f63669b5530d2a3eaf834b8df0316b8c
+   imported modules (unchanged): ph2.py 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a; ph11.py e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23; ph14.py c6b745c60f9992934a0ccbc5584ef354a03f53f08b37a1252a694feb350be0d0; ph15.py cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc; ph16.py 33d5fdb25959fb7f9cbe465ca25a8973776b39f1e5170d645cb53bc8d906a2c2; ph17.py 4b30ddf8b1fc6dc510f23a28f09d6391003d95f0744344d237f50e3393a3689f; ph22.py 03ab8c4706b19557af5d64edd83f812abba91b618439618b35837a49dd44ca1c; ph23.py ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae; ph24.py f344f178e20380858f4d7400ef670223f90aa2927b3f7304772ae1d848bd1bef; ph25.py 5620a90819693379a53374ca3841e3bc3ddba860d8a8351da7aa1ed4dfe17d91; ph28.py 64ce7d0ce123f912aa675e86627d5b6b0ae3d89976b093666316e6b78441e7aa; ph30.py 98822834043de5f31615e73cd4a83444adcef2f1d5e56478356d70ca905059bd; ph32.py d9f585d5599ea9a4f218e87bd884fa8246a826be0111f495cfbec299a9222743
+   recorded versions (ph32's prefixes; ph32.py's full sha256 as H27 ran it) {'ph23': True, 'ph24': True, 'ph28': True, 'ph30': True, 'ph32': True}
+   seeds: dev (9907, 9917), eval (2093, 2197), bench (20261131, 20261132), bootstrap 20261133 (95 percent, 5000); D generator world + 30000; third-unit noise agent + 30000; demo seeds (5, 6) used deliberately, NOT part of the seed scan; p_D 0.03; burst: three whiffs within 10 steps
+   seed scan exclusions by name: ph33.py, ph33_*.txt, h28_*.md, master_plan.md, notes/*.md, viewer/*; the (file, number) pair of decision:seed-scan-exclusion-ph31-eval (experiments/h20/ph31_eval.txt with Stage C Run 1's E1 evaluation agent seed, read from ph30 through ph32, not written here)
+   decisions: decision:h28-open; decision:classification-rule-relaxed-burst-record-h28; decision:evidence-release-composition-rule-h28; decision:classification-rule-relaxed-presence-prior-h28; the adopted agent: decision:n2-release-adopted-within-tested-conditions
+   readings where the design is silent (file header R1-R14): R1 as H27 (D = u < p_D from default_rng(world + 30000) in every arm; Circuit3's third unit from default_rng(agent + 30000); the evidence release against the strongest non-held channel); R2 the burst record: t = the agent's own act count; the most recent whiff read from the presence counter before its update (t - 1 - c, 'never' if c > t - 1); burst_k = whiff_k and t - w2_k <= 9; b_k <- t on a burst; then w2_k <- that most recent whiff on a whiff; 'never' -1e9; no random number; R3 the ranked top set reads b after this step's update; T = present, v >= 0, v == v_max; two or more in T: those with the largest b over T, none if it is 'never'; one or none in T: T; R4 keep = hh >= 0 and (hh in the ranked top set or v_hh < 0); Agent15's T, keep and nav on the same state kept for measurement (ACT = the rule acts); R5 trajectory and every field as H27 R5, Agent16's measurement fields never compared; R6 (I2') before each row's first D whiff; (I5') V present by its counter on every step of Agent16 D off; (I6') every field (and HR) before each row's first ACT step; R7 (m) three definitions (H27 R7; H26 at-risk from 59 and from 0; literal no V whiff on 0-58); (w) no B whiff on 0-58; R8 (e) D-driven = steering set {D} alone; E2 keep with D held, E1 tie nothing held, E1b tie with a non-kept odour held, E3 D the lone top odour, E4 a D-driven nav in a tie with no burst in T (checked 0), E5 the classes in the hold-not-read arm; N1 on Agent16 D-on's own state (Agent15's law steers on a V or B whiff, Agent16 does not); R9 pass probabilities by sqrt(b - DP^2)/20, (h) M2(b) lower bar -0.05, (hW) M5(a') upper bar -0.20, STOP below 0.5; R10 H27's W1D bars reported (reach 0.80, bar_W = -0.20 x the bench's Agent16 D-off W1 dwell rounded to 0.1, contacts 0.10, lost-row DP +0.05); R11 M1 arms H26's (two channels, no D), Agent15g = H27's filter-off arm, release-off and hold-not-read = Agent16 with release off / hold not read; R12 bench (b) brute force from the recorded whiffs, (c) a per-row Python loop, H27's (b3), (c) on the new seeds, (d) on the T1D Agent16 run; R13 dev/eval re-run the bench for M4; R14 arms in parallel processes
+   seed self-check: every H28 seed and derived number in no other file (224 scanned): True
+   amendments: none
+   rows share no state: one generator per world, one for D, one per agent population and one for the third unit; the burst record draws none
+
+== T1 / T1D, the H21 choice task (+1/0 without D, +1/0/0 with D) ==
+   [T1 Agent16 D on Agent16 values (1.0, 0.0, 0.0) D on] V 372 N 26 tie 2; P(V) 0.930 [0.901, 0.951]; lost rows 19; wall contacts per row 2.248; cell 0: V 89 N 10 0 1 | cell 1: V 94 N 5 0 1 | cell 2: V 94 N 6 0 0 | cell 3: V 95 N 5 0 0
+   [T1 Agent16 D off Agent16 values (1.0, 0.0, 0.0)] V 375 N 23 tie 2; P(V) 0.938 [0.909, 0.957]; lost rows 6; wall contacts per row 0.000; cell 0: V 91 N 8 0 1 | cell 1: V 94 N 5 0 1 | cell 2: V 95 N 5 0 0 | cell 3: V 95 N 5 0 0
+   [T1 Agent15 D on Agent15 values (1.0, 0.0, 0.0) D on] V 313 N 82 tie 5; P(V) 0.782 [0.739, 0.820]; lost rows 92; wall contacts per row 21.405; cell 0: V 74 N 26 0 0 | cell 1: V 82 N 16 0 2 | cell 2: V 82 N 18 0 0 | cell 3: V 75 N 22 0 3
+   [T1 Agent15 D off Agent15 values (1.0, 0.0, 0.0)] V 375 N 23 tie 2; P(V) 0.938 [0.909, 0.957]; lost rows 6; wall contacts per row 0.000; cell 0: V 91 N 8 0 1 | cell 1: V 94 N 5 0 1 | cell 2: V 95 N 5 0 0 | cell 3: V 95 N 5 0 0
+   [T1 Agent14N2 Agent14N2 values (1.0, 0.0)] V 375 N 23 tie 2; P(V) 0.938 [0.909, 0.957]; lost rows 6; wall contacts per row 0.000; cell 0: V 91 N 8 0 1 | cell 1: V 94 N 5 0 1 | cell 2: V 95 N 5 0 0 | cell 3: V 95 N 5 0 0
+   [T1 Agent15g D on Agent15 values (1.0, 0.0, 0.0) D on] V 194 N 167 tie 39; P(V) 0.485 [0.436, 0.534]; lost rows 400; wall contacts per row 112.520; cell 0: V 49 N 40 0 11 | cell 1: V 53 N 37 0 10 | cell 2: V 50 N 41 0 9 | cell 3: V 42 N 49 0 9
+   [T1 hold-not-read D on Agent16 values (1.0, 0.0, 0.0) D on] V 372 N 26 tie 2; P(V) 0.930 [0.901, 0.951]; lost rows 19; wall contacts per row 2.248; cell 0: V 89 N 10 0 1 | cell 1: V 94 N 5 0 1 | cell 2: V 94 N 6 0 0 | cell 3: V 95 N 5 0 0
+   [T1 neutral D on Agent16 values (0.0, 0.0, 0.0) D on] V 221 N 177 tie 2; P(V) 0.552 [0.504, 0.600]; lost rows 109; wall contacts per row 19.140; cell 0: V 55 N 45 0 0 | cell 1: V 56 N 44 0 0 | cell 2: V 56 N 43 0 1 | cell 3: V 54 N 45 0 1
+   [T1 neutral Agent14N2 values (0.0, 0.0)] V 203 N 195 tie 2; P(V) 0.507 [0.459, 0.556]; lost rows 6; wall contacts per row 0.000; cell 0: V 57 N 43 0 0 | cell 1: V 43 N 56 0 1 | cell 2: V 59 N 40 0 1 | cell 3: V 44 N 56 0 0
+   [T1 pathway-off Agent8 values (1.0, 0.0)] V 206 N 189 tie 5; P(V) 0.515 [0.466, 0.564]; lost rows 9; wall contacts per row 0.000; cell 0: V 55 N 41 0 4 | cell 1: V 48 N 52 0 0 | cell 2: V 57 N 42 0 1 | cell 3: V 46 N 54 0 0
+   [T1 known-answer Agent5 values (1.0, 0.0)] V 373 N 25 tie 2; P(V) 0.932 [0.904, 0.953]; lost rows 4; wall contacts per row 0.000; cell 0: V 91 N 9 0 0 | cell 1: V 98 N 2 0 0 | cell 2: V 97 N 2 0 1 | cell 3: V 87 N 12 0 1
+      rows with V ever absent (Agent16 D off, H27 reading R7) 117; the rule acts (Agent16 D on) in 113 rows
+
+== W1 / W1D, the absent-odour world (valued column masked from step 0) ==
+   [W1 Agent16 D on Agent16] dwell at B mean 13.705 (quartiles 0/12/24); reach 269/400; lost rows 216; wall contacts per row 43.755; first surge step 96/122/157 (rows 388); rows forming a D hold 379; D whiffs per row 17.83
+   [W1 Agent16 D off Agent16] dwell at B mean 22.960 (quartiles 17/24/30); reach 380/400; lost rows 38; wall contacts per row 0.000; first surge step 113/119/151 (rows 381); rows forming a D hold 0; D whiffs per row 0.00
+   [W1 Agent15 D on Agent15] dwell at B mean 4.450 (quartiles 0/4/8); reach 210/400; lost rows 400; wall contacts per row 105.610; first surge step 71/86/108 (rows 400); rows forming a D hold 393; D whiffs per row 17.83
+   [W1 Agent15 D off Agent15] dwell at B mean 22.960 (quartiles 17/24/30); reach 380/400; lost rows 38; wall contacts per row 0.000; first surge step 113/119/151 (rows 381); rows forming a D hold 0; D whiffs per row 0.00
+   [W1 Agent14N2 Agent14N2] dwell at B mean 22.960 (quartiles 17/24/30); reach 380/400; lost rows 38; wall contacts per row 0.000; first surge step 113/119/151 (rows 381); rows forming a D hold 0; D whiffs per row 0.00
+   [W1 hold-not-read D on Agent16] dwell at B mean 13.705 (quartiles 0/12/24); reach 269/400; lost rows 216; wall contacts per row 43.755; first surge step 96/122/157 (rows 388); rows forming a D hold 389; D whiffs per row 17.83
+   [W1 release-off D on Agent16] dwell at B mean 13.705 (quartiles 0/12/24); reach 269/400; lost rows 216; wall contacts per row 43.755; first surge step 96/122/157 (rows 388); rows forming a D hold 379; D whiffs per row 17.83
+   [W1 Agent15g D on Agent15] dwell at B mean 3.490 (quartiles 0/0/7); reach 184/400; lost rows 400; wall contacts per row 115.350; first surge step 3/8/20 (rows 400); rows forming a D hold 394; D whiffs per row 17.83
+      rows with no B whiff on steps 0-58 (the population no rule of the odours' own streams reaches, design 2.4) 122; of them lost in Agent16 D on 101; lost rows of Agent16 D on outside them 115
+
+== T3a / T3aD, the constructed loss (REPORTED) ==
+   [T3a Agent16 D on Agent16] neutral dwell 100-599 mean 0.275 (quartiles 0/0/0); valued hold end step 47/47/47 (rows 400)
+   [T3a Agent16 D off Agent16] neutral dwell 100-599 mean 14.037 (quartiles 8/15/21); valued hold end step 47/47/47 (rows 400)
+   [T3a Agent15 D on Agent15] neutral dwell 100-599 mean 0.120 (quartiles 0/0/0); valued hold end step 47/47/47 (rows 400)
+   [T3a Agent14N2 Agent14N2] neutral dwell 100-599 mean 14.037 (quartiles 8/15/21); valued hold end step 47/47/47 (rows 400)
+   [T3a hold-not-read D on Agent16] neutral dwell 100-599 mean 0.275 (quartiles 0/0/0); valued hold end step 47/47/47 (rows 400)
+
+== T4, +1/-1 (World7; Agent16 +1/-1/0 with D; REPORTED, outside the verdict) ==
+   [T4 Agent14N2 Agent14N2 values (1.0, -1.0)] V 371 N 18 tie 11; P(V) 0.927 [0.898, 0.949]; lost rows (no whiff of either plume in the last third) 37; wall contacts per row 0.333; flee violations 0 of 38991 negatively-held (row, step); dwell at the negative source mean 2.710
+   [T4 Agent16 D on Agent16 values (1.0, -1.0, 0.0)] V 301 N 53 tie 46; P(V) 0.752 [0.708, 0.792]; lost rows (no whiff of either plume in the last third) 122; wall contacts per row 20.270; flee violations 0 of 5266 negatively-held (row, step); dwell at the negative source mean 2.752
+      reported: paired DP P(V) Agent16 D on - Agent14N2 at +1/-1 -0.1750 [-0.2150, -0.1350]
+
+== criteria (design v2 FINAL section 7; 95 percent, one evaluation, no extension; PASS if every part passes, FAIL if any fails, else INCONCLUSIVE; the unrounded bound decides) ==
+   M1(a) neutral: ties 2/400 = 0.005  at most 0.20 -> PASS
+   M1(a) pathway-off: ties 5/400 = 0.013  at most 0.20 -> PASS
+   M1(a) known-answer: ties 2/400 = 0.005  at most 0.20 -> PASS
+   M1(b) neutral, P(+y source majority | chose): P k 228 n 398  value 0.573  95% interval [0.524, 0.621]  within [0.35, 0.65] -> PASS
+   M1(c) floor: pathway-off, P(V | chose): P k 206 n 395  value 0.522  95% interval [0.472, 0.570]  within [0.35, 0.65] -> PASS
+   M1(d) ceiling: known-answer, P(V) over all rows: P k 373 n 400  value 0.932  95% interval [0.904, 0.953]  at least 0.85 -> PASS
+   M1 -> PASS
+      reported: Agent16 at 0/0/0 with D (the rule acts in value ties) ties 2; P(V | chose) 0.555
+   section 8: ties in Agent16 Agent16 D on 0.005, Agent16 D off 0.005 (unreadable above 0.20)
+   M2(a) REPORTED, not a gate: Agent16 D on P(V) 372/400 = 0.930 [0.901, 0.951] against 0.88 -> lower bound >= 0.88 (reported)
+   M2(b) DP = P(V) Agent16 D on - Agent16 D off, same rows: DP n 400  value -0.007  95% interval [-0.017, 0.000]  at least -0.05 -> PASS
+   M2(c) DP = P(V) Agent16 D on - Agent15g D on, same rows: DP n 400  value 0.445  95% interval [0.395, 0.495]  at least 0.05 -> PASS
+   M2 -> PASS
+   M2(d) REPORTED: DP P(V) Agent16 D on - Agent15 D on (the rule's gain over H27's agent) +0.1475 [+0.1150, +0.1825]
+      reported: DP Agent16 D on - Agent14N2 -0.0075 [-0.0175, +0.0000]
+      reported: DP Agent16 D on - hold-not-read D on +0.0000 [+0.0000, +0.0000]
+      where the value goes: into V 0, out of V 3; rows with V ever absent (Agent16 D off) 117
+      (I1') Agent16's code at N 2 == Agent14N2 on every field (reading R5): T1 +1/0 True; T1 +1/-1 True; W1 +1/0 True; W1 +1/-1 True; T3a +1/0 True; T3a +1/-1 True
+      (I2') T1 Agent16: D on == D off on every field before each row's first D whiff: rows 400/400 -> True; first D whiff step 9/24/45 (rows 400)
+      (I2') T1 hold-not-read: D on == D off on every field before each row's first D whiff: rows 400/400 -> True; first D whiff step 9/24/45 (rows 400)
+      (I2') W1 Agent16: D on == D off on every field before each row's first D whiff: rows 400/400 -> True; first D whiff step 9/24/45 (rows 400)
+      (I2') W1 hold-not-read: D on == D off on every field before each row's first D whiff: rows 400/400 -> True; first D whiff step 9/24/45 (rows 400)
+      (I2') T3a Agent16: D on == D off on every field before each row's first D whiff: rows 400/400 -> True; first D whiff step 9/24/45 (rows 400)
+      (I2') T3a hold-not-read: D on == D off on every field before each row's first D whiff: rows 400/400 -> True; first D whiff step 9/24/45 (rows 400)
+      (I3') T1: Agent16 D off == Agent15 D off on every field (and HR) True; == Agent14N2 on the trajectory fields True (rows 400/400); (step, row) on which the rule acts without D 0; (I4') hold-not-read D off == Agent16 D off on the trajectory fields True
+      (I3') W1: Agent16 D off == Agent15 D off on every field (and HR) True; == Agent14N2 on the trajectory fields True (rows 400/400); (step, row) on which the rule acts without D 0; (I4') hold-not-read D off == Agent16 D off on the trajectory fields True
+      (I3') T3a: Agent16 D off == Agent15 D off on every field (and HR) True; == Agent14N2 on the trajectory fields True (rows 400/400); (step, row) on which the rule acts without D 0; (I4') hold-not-read D off == Agent16 D off on the trajectory fields True
+      (I5') T1: rows with V present by its counter on every step of the Agent16 D-off run 283/400; of them D on == D off on the trajectory fields 283 -> True; rows with V ever absent 117, of them equal 97
+      (I6') T1D: Agent16 D on == Agent15 D on on every field (and HR) before each row's first action of the rule (reading R6): rows 400/400 -> True; rows in which the rule acts 113, first action step 59/59/59 (rows 113)
+      (I6') W1D: Agent16 D on == Agent15 D on on every field (and HR) before each row's first action of the rule (reading R6): rows 400/400 -> True; rows in which the rule acts 304, first action step 59/59/59 (rows 304)
+      (I6') T3aD: Agent16 D on == Agent15 D on on every field (and HR) before each row's first action of the rule (reading R6): rows 400/400 -> True; rows in which the rule acts 9, first action step 177/180/187 (rows 9)
+      (I6') no flee command (steps with a negatively valued read hold) in any arm at +1/0(/0): True; masked draws == the World7 twin, generator state equal, every W1/T3a run True; T3a construction (start at the valued source, valued hold s 2.0) True
+   M3 identities (I1')-(I6') on the task seeds: failed [] -> PASS
+      (h) STOP RULE (design section 4): M2(b) pass probability 0.9987 >= 0.5 -> continue
+      (hW) STOP RULE (design section 4): M5(a') pass probability 1.0000 >= 0.5 -> continue
+      == M4: identities True; failed []; implementation parts {'b': True, 'c': True, 'b3 (H27)': True, 'c (H27)': True, 'd (H27)': True, 'e': True} -> M4 PASS: the tasks may be run; stop rules (h) continue, (hW) continue ==
+   M4 mechanism bench, re-run here on the bench seeds (reading R13) -> PASS; its M4 line equals ph33_bench.txt's: True
+   M5(a') W1D lost rows (no B whiff in 400-599), DP Agent16 D on - Agent15 D on, same rows: DP n 400  value -0.460  95% interval [-0.510, -0.410]  at most -0.2 -> PASS
+   M5 -> PASS      lost rows Agent16 D on 216, Agent15 D on 400, Agent16 D off 38
+   H27's W1D bars against D off, REPORTED (no bar in this verdict; reading R10; bar_W from this run's bench re-run):
+      (a) reach within 3.0 of B by 600 269/400 = 0.672 [0.625, 0.717] against 0.80 -> below (reported)
+      (b) paired dwell at B Agent16 D on - D off -9.255 [-10.600, -7.963] against bar_W -4.7 (bench D_off 23.3875) -> lower bound below (reported)
+      (c) wall contacts per row 43.755 against 0.10 (reported)
+      (d) lost-row DP Agent16 D on - D off +0.4450 [+0.3925, +0.4975] against +0.05 -> upper bound above (reported)
+      dwell means: Agent16 D on 13.705 / D off 22.960 / Agent15 D on 4.450 / hold-not-read D on 13.705 / release-off D on 13.705 / Agent15g D on 3.490
+   M6 REPORTED: the hold's benefit, W1D lost-row DP hold-not-read D on - Agent16 D on +0.0000 [+0.0000, +0.0000] (lost 216 vs 216)
+      reported: release-off D on - Agent16 D on lost-row DP +0.0000 [+0.0000, +0.0000]; Agent15g D on lost 400
+   M7 T3aD (REPORTED): neutral dwell 100-599 Agent16 D on 0.275, Agent16 D off 14.037, Agent15 D on 0.120, Agent14N2 14.037, hold-not-read D on 0.275
+   M8 T4 (REPORTED): printed above
+
+== H28 ==  M1 PASS  M2 PASS  M3 PASS  M4 PASS  M5(a') PASS  (M2(a), M2(d), H27's W1D bars, M6, M7 T3aD, M8 T4 reported) -> PASS: with a ubiquitous, never-reinforced odour arriving as background whiffs at p_D 0.03, the adopted agent whose value ties are ranked by the recency of each odour's last burst (three whiffs within 10 steps) keeps its choice in the H21 task within 0.05 of itself without the distractor, and in the absent-odour world loses at least 20 points fewer rows than the same agent without the ranking
