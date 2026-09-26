@@ -1,0 +1,26 @@
+{
+  "status": "SMOKE_ONLY_NO_BEHAVIORAL_VERDICT",
+  "rows": 40,
+  "checkpoint_seed_pair": [
+    5,
+    6
+  ],
+  "readout_seed_pair": [
+    5,
+    6
+  ],
+  "original_field_identity_count": 22,
+  "D0_readout_identity_count": 24,
+  "D0_clone_identity": true,
+  "D5000_analytic_max_abs_error": 3.042011087472929e-14,
+  "readout_module_calls": 0,
+  "model": "gpt-6-sol",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "hostname": "runnervmtr4k5",
+  "runner_environment": "github-hosted",
+  "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]",
+  "numpy": "2.4.6",
+  "historical_ph36b_sha256": "cfb9a26a45bfd5ef9e5d781d73a772e3129db24e633c66eeb89c2d61556f1cef",
+  "harness_sha256": "ee82487e402e8e87e2fbcbca287b6dac6405971ad0643a06e49c3d68b379a13a",
+  "design_sha256": "8978e923b3bf94783821d84d75750b7fe80df6226e8007b88e7238d989e4fdfb"
+}
