@@ -741,6 +741,20 @@ Progress log
   400/400, DP +0.0000, M6 0.0000 -> STOP.** The release-off arm lost 400/400 too. The tasks were not run; no development
   or evaluation seed was used; decision:h27-w1d-dwell-bar not recorded (the bench did not pass its stop rules); nothing
   tuned. Awaiting the owner.
+- **H27 post-bench diagnosis, measurement only (2026-09-26; decision:h27-post-bench-diagnosis, owner '진단 먼저',
+  'the diagnosis first'; record:h27-post-bench-diagnosis-result).** src/ph32b.py (sha 4c8adf5e...9f10, source doc
+  de72961845e8a258b) imports ph32 unchanged; bench seeds only. ph32.bench() re-run reproduces ph32_bench.txt line for
+  line (60/60). With V absent by its counter, D (present on 0.989 of steps) is in the filter's top set with B, or alone,
+  and its whiffs steer whenever nothing or D is held: D-driven nav is 0.956 of W1D nav events and 1348 events in T1D,
+  none while V is present (D never in the top set then; the 278 V-always-present T1 rows identical with and without D).
+  Each nav resets `since`, so the cast target stays within 40 degrees of upwind on 0.630 of steps (0.243 without D) and
+  the agent runs to the upwind wall (W1D 303/400 at the wall at step 599). In W1 the initial cast takes every row upwind
+  of B at steps 42-52 with and without D; 383 rows come back downwind without D, 83 with it. The 122 (m) rows are 103
+  prior expiry (no V whiff by step 58) and 19 silences of 300 steps; H26's narrower at-risk definition gives 21 here; the
+  53 out-of-V rows are all prior expiry, 52 with a D-driven nav first. M6 is unreadable because the hold-not-read and
+  release-off arms lose all 400 rows on the same path (326/400 and 331/400 rows identical in position to Agent15).
+  Report doc ddec6582aa2fcaa83 (experiments/h27/h27_post_bench_diagnosis.md); output experiments/h27/ph32b_diag.txt
+  (sha ec3abdec...d0ae). H27's verdict unchanged; nothing adopted. Awaiting the owner.
 
 ## Why a plan now
 
@@ -1229,7 +1243,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   validated (H20 Stage B). The H26 relaxation stays in force for the adopted counter; the M5(d) re-sign applies to H26
   only.
 
-### H27 (decision:h27-open-design, decision:h27-open; STOPPED at the bench by its stop rules (h), (hW), (hH))
+### H27 (decision:h27-open-design, decision:h27-open; STOPPED at the bench by its stop rules (h), (hW), (hH); post-bench diagnosis by decision:h27-post-bench-diagnosis)
 - A proper distractor condition, the queued item 'a third, irrelevant odour, which is what the hold's benefit needs'
   (concept:h27-irrelevant-odour-distractor); the number H27 assigned by decision:h27-open-design (the highest in use was
   H26). Chosen over the H26 T3b limit, H12, H10, H18 and H17 (ranked with reasons in that decision).
@@ -1262,6 +1276,22 @@ Four hypotheses were run in one day by picking the next most interesting candida
   missed: T1D (0 to -0.025 predicted), (m) (15-20 predicted, 122 measured), (b2). **STOPPED at the bench; tasks not run;
   seeds dev 9937/9947 and eval 2083/2173 unused and registered to H27.** The mechanism is not diagnosed. Awaiting the
   owner.
+- **Post-bench diagnosis (decision:h27-post-bench-diagnosis, owner 2026-09-26 '진단 먼저'; record:h27-post-bench-diagnosis-result;
+  src/ph32b.py, report doc ddec6582aa2fcaa83, experiments/h27/h27_post_bench_diagnosis.md), measurement only, bench seeds.**
+  The bench reproduces line for line. Measured capture path: when V is absent by its counter, D joins B in the filter's
+  top set at value 0 (or is top alone) and its whiffs become nav events whenever nothing or D is held (W1D 0.956 of nav
+  events D-driven; none while V is present); every nav resets the cast clock, the target stays near upwind (0.630 of
+  steps within 40 degrees, against 0.243 without D) and the agent ends at the upwind wall. B holds, which would block D,
+  are rare under D and end mostly by the evidence release (162 of 236 in W1D). The release-off arm loses the same rows
+  (D holds then last to the row's end and D-held hits steer), so the release's 48-step end is one entry, not a
+  necessary one. In W1 the initial cast, not D, takes every row upwind of B; D prevents the return. (m): 103 prior
+  expiry, 19 silences; H26's at-risk definition gives 21; all 53 out-of-V rows are prior expiry. M6 is unreadable
+  because the hold-not-read arm takes the same path (326/400 rows identical in position). What the owner can decide
+  (listed in the report, nothing adopted): close H27 with the distractor condition recorded as a limit of the adopted
+  agent; or a Run 2 design registering one of: a top-set rule for a never-reinforced odour (new state or a value-sign
+  question; B and D carry the same value here; a signed relaxation), a lower p_D as a different condition, the release
+  (an adopted module; release-off measured as not preventing the loss), or what resets the cast clock (the H19 (a)
+  boundary). Verdict unchanged.
 
 ## The architecture as currently adopted
 
@@ -1706,12 +1736,18 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H27 STOPPED at the bench; the owner decides what follows** (decision:h27-open; record:h27-bench-result; design v2
-  FINAL doc d8c8949f2896cf1ec; src/ph32.py sha d9f585d5...2743). M4 PASS (every identity True, (b3), (c), (d) exact);
-  all three stop rules fired: (h) T1D DP -0.1325, M2(b) pass probability 0.0000; (hW) W1D paired dwell -19.7825 against
-  the rule bar -5.0 and lost rows 400/400 against 22, M5(b) and M5(d) 0.0000; (hH) M6 DP +0.0000 (the hold-not-read arm
-  also lost every row), 0.0000. No development or evaluation seed used; nothing tuned; no report beyond the bench record.
-  The registered next items after H27 are the H26 T3b limit, H12, H10, H18, H17 (decision:h27-open, point 9).
+- **H27 STOPPED at the bench; post-bench diagnosis done; the owner decides: close H27, or a Run 2 design**
+  (decision:h27-open; record:h27-bench-result; decision:h27-post-bench-diagnosis; record:h27-post-bench-diagnosis-result;
+  report doc ddec6582aa2fcaa83). Bench: M4 PASS; (h) T1D DP -0.1325, (hW) W1D dwell -19.7825 and lost rows 400/400
+  against 22, (hH) M6 DP +0.0000; all three stop rules fired. Diagnosis (measurement only, bench seeds; the bench
+  reproduces 60/60): with V absent by its counter, D whiffs steer through the filter's top set whenever nothing or D is
+  held (W1D 0.956 of nav events D-driven, none while V is present) and each resets the cast clock, so the agent runs to
+  the upwind wall; the 122 (m) rows are 103 prior expiry and 19 silences (21 by H26's definition); M6 is unreadable
+  because the hold-not-read arm takes the same path. Options listed neutrally in the report: close with the distractor
+  condition recorded as a limit of the adopted agent; or a Run 2 registering a top-set rule for a never-reinforced odour
+  (a signed relaxation), a lower p_D (a different condition), the release (an adopted module), or the cast-clock reset
+  (the H19 (a) boundary). No development or evaluation seed used; nothing tuned or adopted. The registered next items
+  after H27 are the H26 T3b limit, H12, H10, H18, H17 (decision:h27-open, point 9).
 
 ## Queued candidates, none started
 
