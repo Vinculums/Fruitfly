@@ -63,7 +63,7 @@ jobs:
         working-directory: current
         run: |
           if test -f src/h12_diagnose.py; then
-            python src/h12_diagnose.py --output ../remote-output/diagnosis
+            python src/h12_diagnose.py --output ../remote-output/diagnosis --reference-bench ../remote-output/ph36b_bench.txt
           else
             echo 'Baseline reproduction only; Package D implementation pending.'
           fi
