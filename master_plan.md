@@ -2212,7 +2212,14 @@ within the release's scope (non-negative held values) and stays in force at nega
   **Opened on design v2 FINAL (decision:h12-open, 2026-09-26; doc d27ec95924fe49be1, experiments/h12/h12_design_v2.md):**
   Stage 1 PASS at the module level (record:h12-bench-result; tau_ext* 5000; SR 0.6322, RET 1.2279 for both signs);
   Stage 2 (decision:h12-stage2-composition) STOPPED at its bench, K0 unreadable (record:h12-stage2-bench-result; ceiling
-  minus floor +0.0925 < 0.30). Awaiting the owner: close at the module level or redesign Stage 2.
+  minus floor +0.0925 < 0.30). Package D reproduced and diagnosed the old bench without changing that stop (doc
+  d8f8aa2df2f267461). The owner opened Package E on a new controlled, matched-access expression design v2 FINAL
+  (decision:h12-package-e-open; doc d5ec4848df29bd52b; experiments/h12/h12_expression_design_v2.md).
+  Calibration, development and one held-out evaluation ran remotely with 400 unfiltered rows each. The evaluation
+  passed readability and its pre-registered effect bar: decay-on minus decay-off V-majority +0.7350, paired 95%
+  interval [0.6925, 0.7775] (record:h12-package-e-result; doc d0b068a459d71a626;
+  experiments/h12/h12_expression_report.md). **SHOWN only for a reset body with matched access and frozen memory.**
+  The original continuous Stage 2 remains STOPPED; module adoption and H12 closure are still separate decisions.
 - **H10** abstention and revision belong to different stages: a thresholded stage decides
   whether to commit at all, a graded stage decides what to and revises it. Ranked fourth: a rebuild of the selection
   circuit that would reopen every adopted bench; revision via the empty state works in the adopted agent.
