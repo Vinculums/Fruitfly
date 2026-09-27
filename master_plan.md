@@ -929,11 +929,30 @@ Progress log
   follows the rank of V against +0.5 (V-majority 0.077 at V <= +0.5, 0.920 above; 1,200 memories each read under three
   retention conditions, not 3,600 independent rows). The primary effect is approximated, post hoc, by the value-level
   rank crossing times the supplied-value contrast, itself measured behaviour (evaluation 0.8900 x 0.8300 = 0.7387 against
-  0.7350; wording corrected by record:h12-package-e-erratum). What H12 established is therefore at the value level: the decaying parallel pair gives sign-symmetric
-  spontaneous recovery with the Phase 4 battery kept (Stage 1), and in 82-89% of behaviourally formed A1 memories that
-  recovery lifts V above a +0.5 competitor after 5,000 silent steps (Package E). No behavioural benefit in a continuously
-  moving, learning agent was shown. The parallel site stays held unproven (decision:phase7-2-gate), and the adopted
-  module is unchanged. Next in the confirmed order: H10, H18, H17. Opening H10 is the owner's.
+  0.7350; wording corrected by record:h12-package-e-erratum). What H12 established is therefore at the value level:
+  the decaying parallel pair gives sign-symmetric spontaneous recovery with the Phase 4 battery kept (Stage 1), and in
+  82-89% of behaviourally formed A1 memories that recovery lifts V above a +0.5 competitor after 5,000 silent steps
+  (Package E). No behavioural benefit in a continuously moving, learning agent was shown. The parallel site stays held
+  unproven (decision:phase7-2-gate), and the adopted module is unchanged. Next in the confirmed order: H10, H18, H17.
+  Opening H10 is the owner's.
+- **H12 erratum (2026-09-27; record:h12-package-e-erratum).** From a Codex review handed over with H10: the equal-value
+  control had been stratified by odour identity, not by the registered side. Recomputed by side from the preserved rows,
+  in the local session (src/h12_expression_erratum.py sha d31f1aea...e1b8), every interval lies inside [0.35, 0.65];
+  every verdict stands. Four wording faults in the interpretation note corrected (the rank-crossing product is a
+  post-hoc approximation, since the supplied contrast is itself measured behaviour; 1,200 memories under three
+  conditions; learning during choice is not the only conceivable route from the module; the call counter). An identical
+  GitHub Actions submission (run 36302405993) was withdrawn on the owner's instruction '우리는 actoon에서 하면 안되고 여기
+  ㅇ에ㅣ전트 실행해야함' (gloss 'we must not do it on Actions; run it here in the agent'): runs happen in the local session.
+- **H10 OPENED FOR DESIGN (2026-09-27; decision:h10-open-design; the owner's 'codex/h12-review-plan의 a7e615a를 받고,
+  notes/handoffs/2026-09-27-fable-h10.md부터 읽어 이어서 진행해 주세요.').** Codex's v1 DRAFT (doc de54a82b469cc43b4,
+  experiments/h10/h10_design_v1.md, kept) reviewed; design v2 candidate FINAL doc d22b49532e5dd57bd
+  (experiments/h10/h10_design_v2.md, sha c64a5763...7f78) to the owner for section 12. Design arithmetic only
+  (record:h10-design-check; src/h10_design_check.py sha 05797eb6...227d): v1's confidence ratio settles at q 0.0082 on
+  the hard cue at every input scale and 0.0573 on the easy cue, so its theta grid (0.02/0.05/0.10) would fail by
+  construction; 0.004/0.008/0.016 recommended. The wrong bar U 0.025 allows 3 of 400 (the adopted bistable's historical
+  rate passes with probability 0.04); U 0.04 (8 of 400) recommended. An ideal observer on the raw cue reaches coverage
+  0.70 at wrong 0.004. The main risk is that the graded circuit's wrong commitments fall on high-evidence rows, which
+  the gate would pass. Seeds 45101-45311 (repo clean; graph document-text scan to be repeated). No H10 arm run.
 
 ## Why a plan now
 
@@ -1679,6 +1698,23 @@ Four hypotheses were run in one day by picking the next most interesting candida
   reserved to the stopped design); Package E calibration 20261281/20261282, 21261281/21261282, 20261283; development
   31011/31012, 1031011/1031012, 31013; evaluation 71011/71012, 1071011/1071012, 71013.
 
+### H10 (queued at the Phase 7.1 close, decision:phase7-1-gate; opened for design by decision:h10-open-design)
+- Abstention and revision belong to different stages (concept:h10-abstention-and-revision-are-different-stages): a
+  thresholded stage decides whether to commit, a graded stage decides what, and neither needs a reset. Phase 7.1 found the
+  bistable circuit abstains but cannot revise (hard cue 121/4/75, D3 0/200) and the graded H9 circuit revises but never
+  abstains (156/44/0; wrong 44-61 of 200 at every scale).
+- Design v1 DRAFT by a Codex/GPT-6-sol session (doc de54a82b469cc43b4, experiments/h10/h10_design_v1.md): an evidence
+  trace e with a confidence ratio q gating the unchanged H9 circuit's output; nine settings; six arms; all-row interval
+  bars; seeds left blank. Kept as history; not an owner decision.
+- Design v2 candidate FINAL (doc d22b49532e5dd57bd, experiments/h10/h10_design_v2.md), for the owner's section 12. The
+  review's arithmetic (record:h10-design-check) found v1's theta grid above the settled hard-cue q and, at 0.10, above
+  the easy-cue q, so v1 would fail by construction; it rescales the grid to 0.004/0.008/0.016, recommends the wrong bar
+  U 0.04, states that the gate passes the graded identity even when e's leader differs (the main risk), predicts the
+  simple graded-state mask equals the ungated circuit once committed, fills the seeds (45101-45311, SeedSequence
+  children per condition), resolves the update order and read points, and puts to the owner that the queued concept
+  named the six Phase 7.1 criteria unchanged (v2 reports them and gates on all-row intervals plus an anti-trivial
+  check). Runs, once confirmed, happen in the local session; historical reproduction of ph7_h9.txt first.
+
 ## The architecture as currently adopted
 
 Stated here so a later session does not have to reassemble it from decisions.
@@ -2176,9 +2212,13 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **The next item: open H10 for design** (the confirmed order after H12's disposition: H10, H18, H17). H12 was CLOSED on
-  2026-09-27 (decision:h12-closed; MB5 not adopted, decision:h12-parallel-module-not-adopted), so nothing is pending on
-  it. H10 has not been opened; opening it is the owner's.
+- **H10 design v2, section 12** (decision:h10-open-design; doc d22b49532e5dd57bd, experiments/h10/h10_design_v2.md;
+  record:h10-design-check). Nine points to confirm: (1) theta grid 0.004/0.008/0.016 (v1's 0.02/0.05/0.10 fails by
+  construction); (2) tau_e 40/80/160; (3) hard-cue wrong bar U 0.04, at most 8 of 400 (v1's 0.025 allows 3); (4) the other
+  bars as v1; (5) no agreement requirement; (6) seeds 45101-45311, the graph's document-text scan repeated before use;
+  (7) local execution, not GitHub Actions; (8) order and stop rules (historical reproduction, calibration, freeze,
+  development, one evaluation); (9) gate on the all-row interval table, with the six Phase 7.1 criteria the queued
+  concept named reported but not gating. No H10 arm has been run.
 
 ## Queued candidates, none started
 
@@ -2283,7 +2323,9 @@ within the release's scope (non-negative held values) and stays in force at nega
   decision:h12-parallel-module-not-adopted, 2026-09-27).**
 - **H10** abstention and revision belong to different stages: a thresholded stage decides
   whether to commit at all, a graded stage decides what to and revises it. Ranked fourth: a rebuild of the selection
-  circuit that would reopen every adopted bench; revision via the empty state works in the adopted agent.
+  circuit that would reopen every adopted bench; revision via the empty state works in the adopted agent. **Opened for
+  design (decision:h10-open-design, 2026-09-27): v2 candidate FINAL doc d22b49532e5dd57bd awaits the owner's section 12;
+  a Stage A module test only, Stage B (body) separate and conditional.**
 - **H18** (concept:h18-ring-under-cue-loss) why the ring loses the plume under cue loss. The
   10 degree mean error is not taken as the cause; first the tail of large errors, how long an
   error persists, and the heading error just before a plume is lost. Ranked fifth: outside the adopted scope, where the

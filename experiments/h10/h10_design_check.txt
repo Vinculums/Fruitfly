@@ -1,0 +1,53 @@
+H10 design check (arithmetic only; no candidate circuit run; no registered seed used)
+script sha256 05797eb69595a4496b52c9aba656d947f458f7e42a19e5eeaad4bfdd8f69227d
+ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a  ph7.py sha256 636a5b3a928e161a6a77de60010e6a10ad2fced28f7ed4c8927630086d6e2742
+numpy 2.4.6
+
+(1) Wilson 95% bounds at n = 400
+  largest wrong count with upper bound <= 0.025: 3 (upper 0.0218); 4 gives 0.0254
+  smallest correct count with lower bound >= 0.90: 372 of 400 (0.9300)
+  smallest correct count with lower bound >= 0.85: 354 of 400 (0.8850)
+  smallest correct count with lower bound >= 0.98: 398 of 400 (0.9950)
+  historical bistable hard cue (ph7_h9.txt) c/w/a 121/4/75 of 200 -> at 400 rows expected 242/8/150; wrong 8/400 upper bound 0.0390
+  Poisson probability that a mechanism with the bistable's wrong rate shows <= 3 wrong of 400: 0.0424
+
+(2) noise-free steady state of the adopted upstream stage and v1's q
+  input                                   y (target first, then the other four)          q=(1st-2nd)/sum  (1st-2nd)/1st
+  hard cue x0 0.25                         [0.9854 0.9451 0.9451 0.9451 0.9451]             0.00846          0.04093
+  hard cue x0 0.5                          [1.0153 0.9747 0.9747 0.9747 0.9747]             0.00826          0.04000
+  hard cue x0 1.0                          [1.0263 0.9856 0.9856 0.9856 0.9856]             0.00819          0.03966
+  hard cue x0 2.0                          [1.0302 0.9895 0.9895 0.9895 0.9895]             0.00817          0.03954
+  hard cue x0 4.0                          [1.0316 0.9909 0.9909 0.9909 0.9909]             0.00816          0.03949
+  easy cue x0 1 (d 0.4)                    [1.2083 0.9267 0.9267 0.9267 0.9267]             0.05731          0.23310
+  B alone, amplitude 2 (revision/distractor) [1.7929 0.0000 0.0000 0.0000 0.0000]             1.00000          1.00000
+  ambiguous d 0, x0 1                      [0.9938 0.9938 0.9938 0.9938 0.9938]             0.00000          0.00000
+  v1 theta grid: 0.02, 0.05, 0.10
+
+(3) ideal observer on the raw hard cue (x0 1, d 0.05, noise_sd 0.3, 300 steps, 5 channels)
+  rows 400000; ungated accuracy 0.9347
+  all-row wrong rate <= 0.0075: best coverage 0.7705, all-row correct 0.7630
+  all-row wrong rate <= 0.0040: best coverage 0.6979, all-row correct 0.6939
+  all-row wrong rate <= 0.0020: best coverage 0.6205, all-row correct 0.6185
+  coverage 0.50: all-row wrong 0.0007, all-row correct 0.4993
+  coverage 0.60: all-row wrong 0.0017, all-row correct 0.5983
+  coverage 0.65: all-row wrong 0.0026, all-row correct 0.6474
+  coverage 0.70: all-row wrong 0.0041, all-row correct 0.6959
+
+(4) H9 graded circuit, internal noise 0, driven by the noise-free upstream output of (2)
+  hard cue x0 1, after  50 steps: s [0.9706 0.7425 0.7425 0.7425 0.7425]  committed -1  q on state 0.0579
+  hard cue x0 1, after 100 steps: s [1.1679 0.6987 0.6987 0.6987 0.6987]  committed 0  q on state 0.1184
+  hard cue x0 1, after 300 steps: s [3.0756 0.2248 0.2248 0.2248 0.2248]  committed 0  q on state 0.7173
+  easy cue x0 1, after  50 steps: s [2.5379 0.3525 0.3525 0.3525 0.3525]  committed 0  q on state 0.5535
+  easy cue x0 1, after 100 steps: s [3.2883 0.1721 0.1721 0.1721 0.1721]  committed 0  q on state 0.7836
+  easy cue x0 1, after 300 steps: s [3.3821 0.1490 0.1490 0.1490 0.1490]  committed 0  q on state 0.8127
+
+(5) effective sample size of the evidence trace over the 300-step hard cue
+  tau_e  40: weight on the cue 0.999, effective steps 78.9 of 300
+  tau_e  80: weight on the cue 0.977, effective steps 151.9 of 300
+  tau_e 160: weight on the cue 0.848, effective steps 234.6 of 300
+
+(6) all-row wrong bars at n = 400: largest passing count, and pass probability at all five scales
+  bar U    k_max   true 0.0025   true 0.0050   true 0.0100   true 0.0200
+  0.025       3        0.9093        0.4638        0.0151        0.0000
+  0.040       8        1.0000        0.9989        0.9004        0.0731
+  0.050      11        1.0000        1.0000        0.9958        0.5592
