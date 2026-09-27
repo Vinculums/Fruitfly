@@ -1,0 +1,154 @@
+{
+  "stage": "calibration",
+  "status": "EFFECT_ABOVE_BAR",
+  "task_readable": true,
+  "rows": 400,
+  "checkpoint_seed_pair": [
+    20261281,
+    20261282
+  ],
+  "readout_seed_pair": [
+    21261281,
+    21261282
+  ],
+  "bootstrap_seed": 20261283,
+  "bootstrap_resamples": 5000,
+  "checkpoint_field_identity_count": 22,
+  "D0_readout_identity_count": 24,
+  "readout_module_calls": 0,
+  "arms": {
+    "D0_off": {
+      "v_majority": 0.1725,
+      "n_majority": 0.8225,
+      "ties": 0.005
+    },
+    "D0_on": {
+      "v_majority": 0.1725,
+      "n_majority": 0.8225,
+      "ties": 0.005
+    },
+    "D1200_off": {
+      "v_majority": 0.1725,
+      "n_majority": 0.8225,
+      "ties": 0.005
+    },
+    "D1200_on": {
+      "v_majority": 0.5125,
+      "n_majority": 0.485,
+      "ties": 0.0025
+    },
+    "D5000_off": {
+      "v_majority": 0.1725,
+      "n_majority": 0.8225,
+      "ties": 0.005
+    },
+    "D5000_on": {
+      "v_majority": 0.8825,
+      "n_majority": 0.1175,
+      "ties": 0.0
+    },
+    "supplied_high": {
+      "v_majority": 0.9225,
+      "n_majority": 0.0775,
+      "ties": 0.0
+    },
+    "supplied_low": {
+      "v_majority": 0.0775,
+      "n_majority": 0.915,
+      "ties": 0.0075
+    },
+    "supplied_equal": {
+      "v_majority": 0.4925,
+      "n_majority": 0.4875,
+      "ties": 0.02
+    }
+  },
+  "primary_effect": {
+    "point": 0.71,
+    "ci95": [
+      0.6625,
+      0.755
+    ]
+  },
+  "supplied_high_minus_low": {
+    "point": 0.845,
+    "ci95": [
+      0.8075,
+      0.8800624999999991
+    ]
+  },
+  "supplied_high_v_majority_ci95": [
+    0.895,
+    0.9475
+  ],
+  "tie_ci95": {
+    "D0_off": [
+      0.0,
+      0.0125
+    ],
+    "D0_on": [
+      0.0,
+      0.0125
+    ],
+    "D1200_off": [
+      0.0,
+      0.0125
+    ],
+    "D1200_on": [
+      0.0,
+      0.0075
+    ],
+    "D5000_off": [
+      0.0,
+      0.0125
+    ],
+    "D5000_on": [
+      0.0,
+      0.0
+    ],
+    "supplied_high": [
+      0.0,
+      0.0
+    ],
+    "supplied_low": [
+      0.0,
+      0.0175
+    ],
+    "supplied_equal": [
+      0.0075,
+      0.035
+    ]
+  },
+  "equal_side_v_majority_ci95": {
+    "0": [
+      0.43684059286146404,
+      0.5741626794258373
+    ],
+    "1": [
+      0.40998936170212763,
+      0.5502392344497608
+    ]
+  },
+  "valued_side_counts": {
+    "0": 200,
+    "1": 200
+  },
+  "negative_acquisition_count": 8,
+  "rank_crossing_1200_count": 163,
+  "rank_crossing_5000_count": 335,
+  "rank_crossing_5000_above_to_below": 0,
+  "rank_crossing_5000_below_to_above": 335,
+  "value_change_positive_count": 375,
+  "value_change_negative_count": 7,
+  "value_change_zero_count": 18,
+  "model": "gpt-6-sol",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "hostname": "runnervmtr4k5",
+  "runner_environment": "github-hosted",
+  "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]",
+  "numpy": "2.4.6",
+  "historical_ph36b_sha256": "cfb9a26a45bfd5ef9e5d781d73a772e3129db24e633c66eeb89c2d61556f1cef",
+  "harness_sha256": "8469de8001791a32904c8aed81d107574ceebaff2b7248b0614a9271818b4c04",
+  "design_sha256": "db1132b28a461ffb351b2902b821e6ae7bc535bacc67d7911c7ff9733495621b",
+  "manifest_sha256": "0ac410f4cb7ea3f36883ebe71d72712530cdb5f899ea1f58534aaa5dc5d5a5c6"
+}
