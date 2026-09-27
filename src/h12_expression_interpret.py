@@ -19,10 +19,12 @@ ph16.py:88), so the transplanted module (line 146) is never read by the body.
 """
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
 
+sys.stdout.reconfigure(newline="\n")  # LF output, so the recorded sha256 equals the committed blob
 ROOT = Path(__file__).resolve().parents[1]
 H12 = ROOT / "experiments/h12"
 STAGES = {"calibration": H12 / "expression_calibration/calibration/rows.json",

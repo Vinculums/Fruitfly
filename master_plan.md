@@ -924,8 +924,8 @@ Progress log
   the owner's '권고안으로 진행하고 해석 문구 추가, 미러 동기화 진행', gloss 'proceed with the recommendation, add the
   interpretation wording, sync the mirror').** Verdicts are carried unchanged: Stage 1 PASS at the module level; Stage 2
   STOPPED, unreadable; Package E SHOWN within its conditions. The interpretation note was added from the preserved rows
-  only (src/h12_expression_interpret.py sha ac60aee2...0bf4, output experiments/h12/h12_expression_interpret.txt sha
-  33123d70...2899; record:h12-package-e-interpretation). The read-out body never reads the transplanted module. Its choice
+  only (src/h12_expression_interpret.py sha 4fb15f8c...7f30, output experiments/h12/h12_expression_interpret.txt sha
+  3304bef0...b01b, both LF; record:h12-package-e-interpretation). The read-out body never reads the transplanted module. Its choice
   follows the rank of V against +0.5 (V-majority 0.077 at V <= +0.5, 0.920 above; 3,600 pooled rows). The primary effect
   is predicted by the value-level rank crossing times the supplied-value contrast (evaluation 0.8900 x 0.8300 = 0.7387
   against 0.7350). What H12 established is therefore at the value level: the decaying parallel pair gives sign-symmetric
