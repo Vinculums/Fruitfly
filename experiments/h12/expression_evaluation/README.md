@@ -1,0 +1,7 @@
+# H12 Package E held-out evaluation, 2026-09-27
+
+The registered evaluation ran **once** on a GitHub-hosted Linux runner at [run 36284507506](https://github.com/Vinculums/Fruitfly/actions/runs/36284507506), commit `30e928891b66fb19cd50e109a272fbe8d5e102a3`. Its unmodified [`summary.json`](evaluation/summary.json), [`rows.json`](evaluation/rows.json), [`checkpoint.npz`](evaluation/checkpoint.npz), and [`stdout.log`](evaluation/stdout.log) are preserved here. Nine full trajectory files remain in the local workspace and in the downloadable run artifact. The source and design hashes match the registered manifest.
+
+All 400 assigned rows were included. The task-readability gate passed: supplied high-minus-low V-majority contrast 0.8300 (paired 95% interval 0.7925–0.8675), high-arm lower bound 0.9025, maximum tie upper bound 0.0200, and equal-value side-stratified intervals [0.4901, 0.6281] and [0.3698, 0.5078]. At D=5000, V-majority was 0.1725 without decay and 0.9075 with decay, paired difference 0.7350 (95% interval 0.6925–0.7775). The lower bound exceeds the registered +0.10 bar. Four acquisition components were negative, four V values worsened under decay, and eleven did not change; no rows were excluded.
+
+This supports a causal effect of silent retention decay **on choice in the reset, matched-access, frozen-memory read-out**. It does not establish autonomous return in the original continuous Stage 2 world, repair the stopped Stage 2 result, or authorize adoption of the parallel module.
