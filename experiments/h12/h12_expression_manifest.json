@@ -1,0 +1,43 @@
+{
+  "status": "FINAL",
+  "owner_confirmation": "2026-09-27: 확정하고 테스트 진행",
+  "design": "experiments/h12/h12_expression_design_v2.md",
+  "design_sha256": "db1132b28a461ffb351b2902b821e6ae7bc535bacc67d7911c7ff9733495621b",
+  "harness": "src/h12_expression.py",
+  "harness_sha256": "8469de8001791a32904c8aed81d107574ceebaff2b7248b0614a9271818b4c04",
+  "rows": 400,
+  "bootstrap_resamples": 5000,
+  "calibration": {
+    "bootstrap": 20261283,
+    "readout": [
+      21261281,
+      21261282
+    ],
+    "checkpoint": [
+      20261281,
+      20261282
+    ]
+  },
+  "development": {
+    "bootstrap": 31013,
+    "readout": [
+      1031011,
+      1031012
+    ],
+    "checkpoint": [
+      31011,
+      31012
+    ]
+  },
+  "evaluation": {
+    "bootstrap": 71013,
+    "readout": [
+      1071011,
+      1071012
+    ],
+    "checkpoint": [
+      71011,
+      71012
+    ]
+  }
+}
