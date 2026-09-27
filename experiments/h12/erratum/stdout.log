@@ -1,0 +1,44 @@
+H12 Package E erratum: equal-value control by physical side (no simulation; original files unchanged)
+script sha256 d31f1aea17f5395c7d9018b1d9c17e909e26de700b16a9669002c1eaba6ee1b8
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+
+== calibration
+input experiments/h12/expression_calibration/calibration/rows.json sha256 fa48dfe9312dfb897aac08e9de78c5e1033ebb8971ed291f706a6f59766246ac
+input experiments/h12/expression_calibration/calibration/summary.json sha256 37ae363ffb8af09c3951da70ae52e1ecba31a81d1f62755d020e0366eb808d35
+reproduced primary interval [0.6625, 0.755] equal to summary: True
+reproduced identity-strata intervals {'0': [0.43684059286146404, 0.5741626794258373], '1': [0.40998936170212763, 0.5502392344497608]} equal to summary: True
+  identity: valued odour index 0                       n 200  V-majority 101  point 0.5050  95% [0.4368, 0.5742]  inside [0.35, 0.65]: True
+  identity: valued odour index 1                       n 200  V-majority  96  point 0.4800  95% [0.4100, 0.5502]  inside [0.35, 0.65]: True
+  physical side: valued source at +y (cell % 2 == 0)   n 200  V-majority 101  point 0.5050  95% [0.4337, 0.5729]  inside [0.35, 0.65]: True
+  physical side: valued source at -y (cell % 2 == 1)   n 200  V-majority  96  point 0.4800  95% [0.4099, 0.5490]  inside [0.35, 0.65]: True
+  other readability clauses (as recorded) pass: True
+  equal-value clause on the physical side passes: True
+  task readable with the registered side strata: True; recorded status EFFECT_ABOVE_BAR
+
+== development
+input experiments/h12/expression_development/development/rows.json sha256 b7d6e7b6c4796cf2c3f3b64e91ef45e90e607b6e5e2d852a37d498bc78053cf9
+input experiments/h12/expression_development/development/summary.json sha256 5417e299d863372da4dffb804b51c056fcc88f834961af728d50ed8d030547ac
+reproduced primary interval [0.6575, 0.75] equal to summary: True
+reproduced identity-strata intervals {'0': [0.449994019138756, 0.5901717408274784], '1': [0.45454545454545453, 0.5951219512195122]} equal to summary: True
+  identity: valued odour index 0                       n 200  V-majority 104  point 0.5200  95% [0.4500, 0.5902]  inside [0.35, 0.65]: True
+  identity: valued odour index 1                       n 200  V-majority 105  point 0.5250  95% [0.4545, 0.5951]  inside [0.35, 0.65]: True
+  physical side: valued source at +y (cell % 2 == 0)   n 200  V-majority 104  point 0.5200  95% [0.4508, 0.5899]  inside [0.35, 0.65]: True
+  physical side: valued source at -y (cell % 2 == 1)   n 200  V-majority 105  point 0.5250  95% [0.4558, 0.5959]  inside [0.35, 0.65]: True
+  other readability clauses (as recorded) pass: True
+  equal-value clause on the physical side passes: True
+  task readable with the registered side strata: True; recorded status EFFECT_ABOVE_BAR
+
+== evaluation
+input experiments/h12/expression_evaluation/evaluation/rows.json sha256 3105b9e46fd61792109a35069db910c7ef8190636d29987cf8cffef945a9e1b7
+input experiments/h12/expression_evaluation/evaluation/summary.json sha256 a1ec2faa88e249eecae25970983174faf8f65e8106eff8996fceda725a7bf4e3
+reproduced primary interval [0.6925, 0.7775] equal to summary: True
+reproduced identity-strata intervals {'0': [0.4900990099009901, 0.6281451505314182], '1': [0.3697916666666667, 0.5077720207253886]} equal to summary: True
+  identity: valued odour index 0                       n 200  V-majority 112  point 0.5600  95% [0.4901, 0.6281]  inside [0.35, 0.65]: True
+  identity: valued odour index 1                       n 200  V-majority  88  point 0.4400  95% [0.3698, 0.5078]  inside [0.35, 0.65]: True
+  physical side: valued source at +y (cell % 2 == 0)   n 200  V-majority 102  point 0.5100  95% [0.4404, 0.5777]  inside [0.35, 0.65]: True
+  physical side: valued source at -y (cell % 2 == 1)   n 200  V-majority  98  point 0.4900  95% [0.4171, 0.5588]  inside [0.35, 0.65]: True
+  other readability clauses (as recorded) pass: True
+  equal-value clause on the physical side passes: True
+  task readable with the registered side strata: True; recorded status EFFECT_ABOVE_BAR
+
+wrote experiments/h12/erratum/result.json

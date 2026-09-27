@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """H12 Package E erratum: the equal-value control stratified by the valued source's physical side.
 
-Usage: python src/h12_expression_erratum.py --output <directory>     (GitHub-hosted Linux, .github/workflows/h12-erratum.yml)
+Usage: python src/h12_expression_erratum.py --output experiments/h12/erratum > experiments/h12/erratum/stdout.log
 
 Design v2 FINAL section 3 registers 'equal-value V-majority intervals within [0.35,0.65] in each of the two valued-side
 strata'. The harness stratified on baseline["good"] (src/h12_expression.py:333), which is the valued odour's identity
@@ -111,10 +111,10 @@ def main():
         print(f"  equal-value clause on the physical side passes: {phys_ok}")
         print(f"  task readable with the registered side strata: {readable}; recorded status {summary['status']}")
         stages[stage] = dict(rows_sha256=sha(rows_path), summary_sha256=sha(summary_path),
-                                       bootstrap_seed=BOOTSTRAP[stage], primary_ci95=prim,
-                                       identity_strata_reproduced=ident_ok, strata=strata,
-                                       physical_side_clause_passes=phys_ok, other_readability_clauses_pass=other,
-                                       readable_with_physical_side=readable, recorded_status=summary["status"])
+                             bootstrap_seed=BOOTSTRAP[stage], primary_ci95=prim,
+                             identity_strata_reproduced=ident_ok, strata=strata,
+                             physical_side_clause_passes=phys_ok, other_readability_clauses_pass=other,
+                             readable_with_physical_side=readable, recorded_status=summary["status"])
     result = dict(script_sha256=sha(__file__), numpy=np.__version__, python=sys.version, stages=stages)
     (args.output / "result.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(f"\nwrote {args.output.as_posix()}/result.json")

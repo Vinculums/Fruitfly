@@ -926,9 +926,10 @@ Progress log
   STOPPED, unreadable; Package E SHOWN within its conditions. The interpretation note was added from the preserved rows
   only (src/h12_expression_interpret.py sha 4fb15f8c...7f30, output experiments/h12/h12_expression_interpret.txt sha
   3304bef0...b01b, both LF; record:h12-package-e-interpretation). The read-out body never reads the transplanted module. Its choice
-  follows the rank of V against +0.5 (V-majority 0.077 at V <= +0.5, 0.920 above; 3,600 pooled rows). The primary effect
-  is predicted by the value-level rank crossing times the supplied-value contrast (evaluation 0.8900 x 0.8300 = 0.7387
-  against 0.7350). What H12 established is therefore at the value level: the decaying parallel pair gives sign-symmetric
+  follows the rank of V against +0.5 (V-majority 0.077 at V <= +0.5, 0.920 above; 1,200 memories each read under three
+  retention conditions, not 3,600 independent rows). The primary effect is approximated, post hoc, by the value-level
+  rank crossing times the supplied-value contrast, itself measured behaviour (evaluation 0.8900 x 0.8300 = 0.7387 against
+  0.7350; wording corrected by record:h12-package-e-erratum). What H12 established is therefore at the value level: the decaying parallel pair gives sign-symmetric
   spontaneous recovery with the Phase 4 battery kept (Stage 1), and in 82-89% of behaviourally formed A1 memories that
   recovery lifts V above a +0.5 competitor after 5,000 silent steps (Package E). No behavioural benefit in a continuously
   moving, learning agent was shown. The parallel site stays held unproven (decision:phase7-2-gate), and the adopted
@@ -1654,16 +1655,26 @@ Four hypotheses were run in one day by picking the next most interesting candida
   measurement only on the preserved rows). The read-out body takes V from `known` and never reads the transplanted
   module (h12_expression.py:146, :164; ph14.py:52-53; ph11.py:183-184). The no-decay arms, whose traces differ, give
   identical dwell in every row. Choice follows the rank of V against +0.5: V-majority 0.077 at V <= +0.5 and 0.920 above,
-  flat within each side. The primary effect equals the rank crossing times the supplied contrast to within 0.007 in all
-  three stages (evaluation 0.7387 predicted, 0.7350 observed). The new fact is at the value level: in 82-89% of
-  behaviourally formed A1 memories, 5,000 silent decay steps lift V above the +0.5 competitor.
+  flat within each side. The rank crossing times the supplied contrast (itself measured behaviour) lies within 0.007 of
+  the primary effect in all three stages (evaluation 0.7387 against 0.7350), a post-hoc approximation, not a registered
+  prediction. The new fact is at the value level: in 82-89% of behaviourally formed A1 memories, 5,000 silent decay
+  steps lift V above the +0.5 competitor.
+- Erratum (record:h12-package-e-erratum; src/h12_expression_erratum.py, output experiments/h12/erratum/, run locally,
+  no simulation). The harness stratified the equal-value control by odour identity (`good = cell // 2`,
+  h12_expression.py:333), not by the registered valued side (`cell % 2`, ph16.py:51). Recomputed on the physical side with
+  each stage's registered bootstrap draws, after reproducing the recorded intervals exactly, every interval lies inside
+  [0.35, 0.65] (evaluation 102/200 [0.4404, 0.5777] and 98/200 [0.4171, 0.5588]): readability and every verdict
+  unchanged. Also corrected: the pooled table is 1,200 memories under three conditions; learning during choice is not
+  the only conceivable route from the module to choice (a frozen module could be read with `known` absent, a different
+  task); the verified claim is that this harness's body never reads the module.
 - CLOSED (decision:h12-closed, 2026-09-27; the owner's '권고안으로 진행하고 해석 문구 추가, 미러 동기화 진행'). Shown at
   the value level: Stage 1's sign-symmetric recovery with the Phase 4 battery kept, and Package E's rank crossing in
   behaviourally formed memories, expressed in choice only through a supplied value. Not shown: a behavioural benefit
   of the module inside a continuously moving, learning agent. The original Stage 2 stays STOPPED. The parallel module
   (MB5) is NOT adopted (decision:h12-parallel-module-not-adopted); the adopted learning module and the Phase 7.2 status
-  of the parallel site are unchanged. A continuous-world test with learning on during choice, the only route by which
-  the module could change behaviour, would need a new question and registration. Seeds used and not to be reused: Stage
+  of the parallel site are unchanged. A test in which the module itself drives choice (learning on during choice in a
+  continuous world, or a frozen module read directly) would need a new question and registration (wording corrected by
+  record:h12-package-e-erratum). Seeds used and not to be reused: Stage
   1 20261151/20261152/20261153; Stage 2 bench 20261151/20261152 (dev 9911/9921 and eval 2129/2243 unused, kept
   reserved to the stopped design); Package E calibration 20261281/20261282, 21261281/21261282, 20261283; development
   31011/31012, 1031011/1031012, 31013; evaluation 71011/71012, 1071011/1071012, 71013.
@@ -2266,8 +2277,9 @@ within the release's scope (non-negative held values) and stays in force at nega
   interval [0.6925, 0.7775] (record:h12-package-e-result; doc d0b068a459d71a626;
   experiments/h12/h12_expression_report.md). **SHOWN only for a reset body with matched access and frozen memory.**
   The original continuous Stage 2 remains STOPPED. The interpretation note (record:h12-package-e-interpretation): the
-  body reads V only through `known`, and the effect equals the value-level rank crossing times the supplied contrast
-  (0.7387 predicted, 0.7350 observed). **DONE: CLOSED, MB5 NOT adopted (decision:h12-closed,
+  body reads V only through `known`; the rank crossing times the supplied contrast approximates the effect post hoc
+  (0.7387 against 0.7350); physical-side equal-value strata recomputed, all inside the gate (record:h12-package-e-erratum).
+  **DONE: CLOSED, MB5 NOT adopted (decision:h12-closed,
   decision:h12-parallel-module-not-adopted, 2026-09-27).**
 - **H10** abstention and revision belong to different stages: a thresholded stage decides
   whether to commit at all, a graded stage decides what to and revises it. Ranked fourth: a rebuild of the selection

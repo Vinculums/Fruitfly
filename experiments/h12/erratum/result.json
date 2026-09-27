@@ -1,0 +1,175 @@
+{
+  "script_sha256": "d31f1aea17f5395c7d9018b1d9c17e909e26de700b16a9669002c1eaba6ee1b8",
+  "numpy": "2.4.6",
+  "python": "3.13.12 (main, Mar 24 2026, 22:56:40) [MSC v.1944 64 bit (AMD64)]",
+  "stages": {
+    "calibration": {
+      "rows_sha256": "fa48dfe9312dfb897aac08e9de78c5e1033ebb8971ed291f706a6f59766246ac",
+      "summary_sha256": "37ae363ffb8af09c3951da70ae52e1ecba31a81d1f62755d020e0366eb808d35",
+      "bootstrap_seed": 20261283,
+      "primary_ci95": [
+        0.6625,
+        0.755
+      ],
+      "identity_strata_reproduced": true,
+      "strata": {
+        "identity: valued odour index 0": {
+          "n": 200,
+          "v_majority": 101,
+          "point": 0.505,
+          "ci95": [
+            0.43684059286146404,
+            0.5741626794258373
+          ],
+          "inside_gate": true
+        },
+        "identity: valued odour index 1": {
+          "n": 200,
+          "v_majority": 96,
+          "point": 0.48,
+          "ci95": [
+            0.40998936170212763,
+            0.5502392344497608
+          ],
+          "inside_gate": true
+        },
+        "physical side: valued source at +y (cell % 2 == 0)": {
+          "n": 200,
+          "v_majority": 101,
+          "point": 0.505,
+          "ci95": [
+            0.4336734693877551,
+            0.5728643216080402
+          ],
+          "inside_gate": true
+        },
+        "physical side: valued source at -y (cell % 2 == 1)": {
+          "n": 200,
+          "v_majority": 96,
+          "point": 0.48,
+          "ci95": [
+            0.4099060646011865,
+            0.5490246875952454
+          ],
+          "inside_gate": true
+        }
+      },
+      "physical_side_clause_passes": true,
+      "other_readability_clauses_pass": true,
+      "readable_with_physical_side": true,
+      "recorded_status": "EFFECT_ABOVE_BAR"
+    },
+    "development": {
+      "rows_sha256": "b7d6e7b6c4796cf2c3f3b64e91ef45e90e607b6e5e2d852a37d498bc78053cf9",
+      "summary_sha256": "5417e299d863372da4dffb804b51c056fcc88f834961af728d50ed8d030547ac",
+      "bootstrap_seed": 31013,
+      "primary_ci95": [
+        0.6575,
+        0.75
+      ],
+      "identity_strata_reproduced": true,
+      "strata": {
+        "identity: valued odour index 0": {
+          "n": 200,
+          "v_majority": 104,
+          "point": 0.52,
+          "ci95": [
+            0.449994019138756,
+            0.5901717408274784
+          ],
+          "inside_gate": true
+        },
+        "identity: valued odour index 1": {
+          "n": 200,
+          "v_majority": 105,
+          "point": 0.525,
+          "ci95": [
+            0.45454545454545453,
+            0.5951219512195122
+          ],
+          "inside_gate": true
+        },
+        "physical side: valued source at +y (cell % 2 == 0)": {
+          "n": 200,
+          "v_majority": 104,
+          "point": 0.52,
+          "ci95": [
+            0.45077014825834916,
+            0.5898652073732719
+          ],
+          "inside_gate": true
+        },
+        "physical side: valued source at -y (cell % 2 == 1)": {
+          "n": 200,
+          "v_majority": 105,
+          "point": 0.525,
+          "ci95": [
+            0.45580603920613666,
+            0.5958575391217878
+          ],
+          "inside_gate": true
+        }
+      },
+      "physical_side_clause_passes": true,
+      "other_readability_clauses_pass": true,
+      "readable_with_physical_side": true,
+      "recorded_status": "EFFECT_ABOVE_BAR"
+    },
+    "evaluation": {
+      "rows_sha256": "3105b9e46fd61792109a35069db910c7ef8190636d29987cf8cffef945a9e1b7",
+      "summary_sha256": "a1ec2faa88e249eecae25970983174faf8f65e8106eff8996fceda725a7bf4e3",
+      "bootstrap_seed": 71013,
+      "primary_ci95": [
+        0.6925,
+        0.7775
+      ],
+      "identity_strata_reproduced": true,
+      "strata": {
+        "identity: valued odour index 0": {
+          "n": 200,
+          "v_majority": 112,
+          "point": 0.56,
+          "ci95": [
+            0.4900990099009901,
+            0.6281451505314182
+          ],
+          "inside_gate": true
+        },
+        "identity: valued odour index 1": {
+          "n": 200,
+          "v_majority": 88,
+          "point": 0.44,
+          "ci95": [
+            0.3697916666666667,
+            0.5077720207253886
+          ],
+          "inside_gate": true
+        },
+        "physical side: valued source at +y (cell % 2 == 0)": {
+          "n": 200,
+          "v_majority": 102,
+          "point": 0.51,
+          "ci95": [
+            0.44041450777202074,
+            0.5776753915207102
+          ],
+          "inside_gate": true
+        },
+        "physical side: valued source at -y (cell % 2 == 1)": {
+          "n": 200,
+          "v_majority": 98,
+          "point": 0.49,
+          "ci95": [
+            0.41708542713567837,
+            0.5588235294117647
+          ],
+          "inside_gate": true
+        }
+      },
+      "physical_side_clause_passes": true,
+      "other_readability_clauses_pass": true,
+      "readable_with_physical_side": true,
+      "recorded_status": "EFFECT_ABOVE_BAR"
+    }
+  }
+}
