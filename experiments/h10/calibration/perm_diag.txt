@@ -1,0 +1,15 @@
+H10 calibration, label-permutation check diagnosis (measurement only; calibration seeds already spent)
+script sha256 1849613ad92d63218a1ca71934a6466bb56647af2e8d5b1deec259959b894188
+src/h10.py sha256 ba959f17c2a483659689dbcfb4e80ba141fdc1ffeb997906b0d0e96178b13697  numpy 2.4.6
+
+== ambiguous (seed 45110), first 40 rows, permutation [2, 4, 0, 3, 1] ==
+  bistable max deviation 1.334e-13; at steps 100/300/600: 4.2e-16 / 6.7e-16 / 1.3e-18; rows ever above 1e-12: 0 of 40; first step above 1e-12: None
+  graded   max deviation 1.059e-12; at steps 100/300/600: 2.2e-15 / 1.1e-14 / 8.9e-16; rows ever above 1e-12: 1 of 40; first step above 1e-12: 368
+  cand     max deviation 1.059e-12; at steps 100/300/600: 2.2e-15 / 1.1e-14 / 8.9e-16; rows ever above 1e-12: 1 of 40; first step above 1e-12: 368
+  outputs permute exactly in every stream
+
+== hard_1 (seed 45103), first 40 rows, permutation [2, 4, 0, 3, 1] ==
+  bistable max deviation 6.262e-14; at steps 100/300/600: 7.8e-16 / 5.7e-15 / 2.2e-16; rows ever above 1e-12: 0 of 40; first step above 1e-12: None
+  graded   max deviation 6.528e-14; at steps 100/300/600: 2.4e-15 / 8.9e-15 / 4.4e-16; rows ever above 1e-12: 0 of 40; first step above 1e-12: None
+  cand     max deviation 6.528e-14; at steps 100/300/600: 2.4e-15 / 8.9e-15 / 4.4e-16; rows ever above 1e-12: 0 of 40; first step above 1e-12: None
+  outputs permute exactly in every stream

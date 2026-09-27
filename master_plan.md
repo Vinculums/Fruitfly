@@ -953,6 +953,22 @@ Progress log
   rate passes with probability 0.04); U 0.04 (8 of 400) recommended. An ideal observer on the raw cue reaches coverage
   0.70 at wrong 0.004. The main risk is that the graded circuit's wrong commitments fall on high-evidence rows, which
   the gate would pass. Seeds 45101-45311 (repo clean; graph document-text scan to be repeated). No H10 arm run.
+- **H10 OPENED on design v2 FINAL and STOPPED at calibration: NOT SHOWN for this family (2026-09-27; decision:h10-open,
+  the owner's '권고안대로 확정하고 진행, 커밋 푸쉬', every recommended option; record:h10-calibration-result).** Design v2
+  FINAL doc d22b49532e5dd57bd (experiments/h10/h10_design_v2.md, sha e55cb367...478a). The graph re-put is pending,
+  because the Vinc document store refused every put that day with a _PK index error. The seeds were rescanned before use
+  and no collision was found; the search's keyword arm does not index numbers, so the 32 graph-only documents were read
+  in full. src/h10.py (sha ba959f17...3697; ph7.py and ph2.py unchanged): `ph7.py all` reproduces ph7_h9.txt byte for
+  byte, and the harness reproduces ph7's D1-D6 for both arms. The registration was pushed (90470c0) before any registered
+  seed was used. Calibration (45101-45111): every setting passes acquisition, retention, revision, distractor and idle
+  at 400/400, but none meets the hard-cue wrong bar and the anti-trivial bar together. At theta 0.004 the wrong count
+  is 23-55 of 400; where the wrong bar passes, correct falls to 0-113 against the bistable's 238-271. Arm 6 equals the
+  ungated circuit at every read, as predicted. By design 8.2 H10 stops NOT SHOWN for this family; freeze, development
+  (45201-45211) and evaluation (45301-45311) were not run, and those seeds are unused. One implementation check failed
+  and is not waived: the label-permutation tolerance, 1.059e-12 against 1e-12 in 1 of 40 rows of the descriptive
+  ambiguous condition, with the outputs exact (src/h10_perm_diag.py). Reading from the counts: the gate lowers the
+  exposed wrong fraction only with the long trace (x0 1: 0.124 and 0.084 at tau 160 against 0.178 ungated; with tau 40
+  it is at or above the ungated fraction), the risk design 2.3 named. Closure is the owner's.
 
 ## Why a plan now
 
@@ -1698,7 +1714,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   reserved to the stopped design); Package E calibration 20261281/20261282, 21261281/21261282, 20261283; development
   31011/31012, 1031011/1031012, 31013; evaluation 71011/71012, 1071011/1071012, 71013.
 
-### H10 (queued at the Phase 7.1 close, decision:phase7-1-gate; opened for design by decision:h10-open-design)
+### H10 (queued at the Phase 7.1 close, decision:phase7-1-gate; opened for design by decision:h10-open-design; opened by decision:h10-open; STOPPED at calibration, NOT SHOWN for this family, record:h10-calibration-result)
 - Abstention and revision belong to different stages (concept:h10-abstention-and-revision-are-different-stages): a
   thresholded stage decides whether to commit, a graded stage decides what, and neither needs a reset. Phase 7.1 found the
   bistable circuit abstains but cannot revise (hard cue 121/4/75, D3 0/200) and the graded H9 circuit revises but never
@@ -1714,6 +1730,17 @@ Four hypotheses were run in one day by picking the next most interesting candida
   children per condition), resolves the update order and read points, and puts to the owner that the queued concept
   named the six Phase 7.1 criteria unchanged (v2 reports them and gates on all-row intervals plus an anti-trivial
   check). Runs, once confirmed, happen in the local session; historical reproduction of ph7_h9.txt first.
+- Opened on design v2 FINAL (decision:h10-open, 2026-09-27; sha e55cb367...478a), with section 12 confirmed as
+  recommended. The seed rescan found no collision; section 9 records how, since the graph's keyword search does not
+  index numbers. The harness is src/h10.py. The historical reproduction is exact (experiments/h10/h10_repro_ph7_all.txt,
+  repro/).
+- Calibration (45101-45111), STOPPED by design 8.2 (record:h10-calibration-result). Every setting passes acquisition,
+  retention, revision, distractor and idle at 400/400; none passes the hard-cue wrong bar and the anti-trivial bar
+  together. At x0 1: bistable 258/7/135, ungated graded 329/71/0, tau 160 theta 0.004 197/28/175, theta 0.008 87/8/305,
+  theta 0.016 2/0/398. The simple mask equals the ungated circuit at every read, as predicted, so it passes nothing
+  either. H10 is NOT SHOWN for this family; development and evaluation were not run. The label-permutation tolerance
+  was exceeded in one row of the ambiguous condition (1.059e-12 against 1e-12; outputs exact) and is recorded as a
+  failed check. Where the wrong commitments sit relative to the trace margin is not measured row by row.
 
 ## The architecture as currently adopted
 
@@ -2212,13 +2239,12 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H10 design v2, section 12** (decision:h10-open-design; doc d22b49532e5dd57bd, experiments/h10/h10_design_v2.md;
-  record:h10-design-check). Nine points to confirm: (1) theta grid 0.004/0.008/0.016 (v1's 0.02/0.05/0.10 fails by
-  construction); (2) tau_e 40/80/160; (3) hard-cue wrong bar U 0.04, at most 8 of 400 (v1's 0.025 allows 3); (4) the other
-  bars as v1; (5) no agreement requirement; (6) seeds 45101-45311, the graph's document-text scan repeated before use;
-  (7) local execution, not GitHub Actions; (8) order and stop rules (historical reproduction, calibration, freeze,
-  development, one evaluation); (9) gate on the all-row interval table, with the six Phase 7.1 criteria the queued
-  concept named reported but not gating. No H10 arm has been run.
+- **H10 Stage A, STOPPED at calibration** (decision:h10-open; record:h10-calibration-result; experiments/h10/calibration/).
+  No setting of the registered family passes, so by design 8.2 it is NOT SHOWN for this family; the development and
+  evaluation seeds are unused. The owner decides between two courses: close H10 as NOT shown (the family, not the idea),
+  or first run a measurement-only diagnosis, on the spent calibration rows, of where the graded circuit's wrong
+  commitments sit relative to the trace margin. Vinc document puts for the design FINAL, src/h10.py and
+  src/h10_perm_diag.py were refused on 2026-09-27 (a _PK index error in the document store) and are to be retried.
 
 ## Queued candidates, none started
 
@@ -2324,8 +2350,9 @@ within the release's scope (non-negative held values) and stays in force at nega
 - **H10** abstention and revision belong to different stages: a thresholded stage decides
   whether to commit at all, a graded stage decides what to and revises it. Ranked fourth: a rebuild of the selection
   circuit that would reopen every adopted bench; revision via the empty state works in the adopted agent. **Opened for
-  design (decision:h10-open-design, 2026-09-27): v2 candidate FINAL doc d22b49532e5dd57bd awaits the owner's section 12;
-  a Stage A module test only, Stage B (body) separate and conditional.**
+  design (decision:h10-open-design, 2026-09-27), then opened on design v2 FINAL (decision:h10-open): a Stage A module
+  test only, Stage B (body) separate and conditional. STOPPED at calibration, NOT SHOWN for this family
+  (record:h10-calibration-result); closure is the owner's.**
 - **H18** (concept:h18-ring-under-cue-loss) why the ring loses the plume under cue loss. The
   10 degree mean error is not taken as the cause; first the tail of large errors, how long an
   error persists, and the heading error just before a plume is lost. Ranked fifth: outside the adopted scope, where the
