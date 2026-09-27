@@ -1,0 +1,44 @@
+H12 Package E interpretation note (measurement only; no simulation; verdicts unchanged)
+script sha256 ac60aee2c2138ec25a39cd21f5561205b4d264e89e9981a0c92abfa8f8580bf4
+input experiments/h12/expression_calibration/calibration/rows.json sha256 fa48dfe9312dfb897aac08e9de78c5e1033ebb8971ed291f706a6f59766246ac rows 400
+input experiments/h12/expression_development/development/rows.json sha256 b7d6e7b6c4796cf2c3f3b64e91ef45e90e607b6e5e2d852a37d498bc78053cf9 rows 400
+input experiments/h12/expression_evaluation/evaluation/rows.json sha256 3105b9e46fd61792109a35069db910c7ef8190636d29987cf8cffef945a9e1b7 rows 400
+
+(2) no-decay arms: identical dwell per row although the traces differ
+  calibration  dwell identical in all 400 rows: True; V value identical: True
+  development  dwell identical in all 400 rows: True; V value identical: True
+  evaluation   dwell identical in all 400 rows: True; V value identical: True
+
+(3) V-majority by retained V value, pooled over D0_off, D1200_on, D5000_on of the three stages
+  rows 3600
+  V in [-1.00, +0.30): n  329  V-majority 0.064
+  V in [+0.30, +0.40): n  539  V-majority 0.083
+  V in [+0.40, +0.45): n  347  V-majority 0.078
+  V in [+0.45, +0.50): n  486  V-majority 0.078
+  V in [+0.50, +0.55): n  283  V-majority 0.929
+  V in [+0.55, +0.60): n  226  V-majority 0.903
+  V in [+0.60, +0.80): n  989  V-majority 0.927
+  V in [+0.80, +1.01): n  401  V-majority 0.908
+  V <= +0.5: n 1701  V-majority 0.077
+  V >  +0.5: n 1899  V-majority 0.920
+
+(4) primary effect predicted from the value rank crossing and the supplied-value contrast
+  calibration  crossing 0.8375 x (high 0.9225 - low 0.0775 = 0.8450) = predicted 0.7077; observed 0.7100; difference +0.0023
+  development  crossing 0.8175 x (high 0.9225 - low 0.0525 = 0.8700) = predicted 0.7112; observed 0.7050; difference -0.0062
+  evaluation   crossing 0.8900 x (high 0.9300 - low 0.1000 = 0.8300) = predicted 0.7387; observed 0.7350; difference -0.0037
+
+(5) zero-contact ties (tie with dwell_v = dwell_n = 0) per arm
+  calibration  zero-contact {'D0_off': 0, 'D0_on': 0, 'D1200_off': 0, 'D1200_on': 0, 'D5000_off': 0, 'D5000_on': 0, 'supplied_high': 0, 'supplied_low': 0, 'supplied_equal': 0}
+               all ties     {'D0_off': 2, 'D0_on': 2, 'D1200_off': 2, 'D1200_on': 1, 'D5000_off': 2, 'D5000_on': 0, 'supplied_high': 0, 'supplied_low': 3, 'supplied_equal': 8}
+  development  zero-contact {'D0_off': 0, 'D0_on': 0, 'D1200_off': 0, 'D1200_on': 0, 'D5000_off': 0, 'D5000_on': 0, 'supplied_high': 0, 'supplied_low': 0, 'supplied_equal': 0}
+               all ties     {'D0_off': 5, 'D0_on': 5, 'D1200_off': 5, 'D1200_on': 4, 'D5000_off': 5, 'D5000_on': 2, 'supplied_high': 1, 'supplied_low': 4, 'supplied_equal': 3}
+  evaluation   zero-contact {'D0_off': 0, 'D0_on': 0, 'D1200_off': 0, 'D1200_on': 0, 'D5000_off': 0, 'D5000_on': 0, 'supplied_high': 0, 'supplied_low': 0, 'supplied_equal': 0}
+               all ties     {'D0_off': 0, 'D0_on': 0, 'D1200_off': 0, 'D1200_on': 1, 'D5000_off': 0, 'D5000_on': 3, 'supplied_high': 3, 'supplied_low': 0, 'supplied_equal': 4}
+
+(6) no-decay V-majority rows (D5000_off) and their overlap between stages
+  calibration  69 of 400
+  development  69 of 400
+  evaluation   69 of 400
+  calibration and development: 14 rows in common (chance expectation 11.9)
+  calibration and evaluation: 10 rows in common (chance expectation 11.9)
+  development and evaluation: 9 rows in common (chance expectation 11.9)
