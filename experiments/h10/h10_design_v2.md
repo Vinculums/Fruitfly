@@ -1,6 +1,6 @@
-# H10 design v2, candidate FINAL: abstention without losing evidence-driven revision
+# H10 design v2 FINAL: abstention without losing evidence-driven revision
 
-2026-09-27. **Status: candidate FINAL, for the owner's confirmation of section 12.** Nothing here is registered until the owner confirms. No H10 arm has been run and no seed in section 9 has been used.
+2026-09-27. **Status: FINAL, confirmed by the owner on 2026-09-27 (UTC), section 12 (decision:h10-open).** No bar, seed, arm, prediction or rule changed from the candidate put to the owner. At registration no H10 arm had been run and no seed in section 9 had been used.
 
 This version is written from Codex's v1 DRAFT (commit a7e615a; Vinc doc de54a82b469cc43b4; `experiments/h10/h10_design_v1.md`, kept unchanged as history). The owner asked this session to read the handoff `notes/handoffs/2026-09-27-fable-h10.md` and continue from it ('codex/h12-review-plan의 a7e615a를 받고, notes/handoffs/2026-09-27-fable-h10.md부터 읽어 이어서 진행해 주세요.'). The only computation behind the changes is design arithmetic: [`src/h10_design_check.py`](../../src/h10_design_check.py), output [`h10_design_check.txt`](h10_design_check.txt). That script does not run the H10 gate, does not run any arm on a noise stream, and uses no seed from section 9.
 
@@ -121,7 +121,7 @@ Single proportions use two-sided 95% Wilson intervals. Between-arm differences u
 |---|---|
 | Implementation | Historical reproduction (section 8); forced-open arm = arm 2 bitwise; forced-closed arm output always −1; no reset input anywhere; label-permutation equivariance: permuting channels of the input and internal-noise tapes permutes states and outputs (states within 1e-12, outputs exactly) on the first 40 rows of every condition; finite states; complete rows |
 | Easy acquisition | Correct A at step 100: lower bound ≥ 0.90 |
-| Hard-cue errors, every scale | All-row wrong rate at step 600: upper bound ≤ U, with **U = 0.04 recommended (≤ 8 of 400) or 0.025 as in v1 (≤ 3 of 400)** [owner, 12.3] |
+| Hard-cue errors, every scale | All-row wrong rate at step 600: upper bound ≤ U, with **U = 0.04 (≤ 8 of 400)** [owner, 12.3] |
 | Anti-trivial abstention, every scale | Candidate correct minus bistable correct at step 600: paired lower bound ≥ −0.05; raw correct/wrong/abstain counts shown |
 | Retention | Correct at 100 and the same correct identity at 400: lower bound ≥ 0.90 |
 | Revision | Correct A at 150 and correct B at 300: lower bound ≥ 0.85 |
@@ -170,7 +170,11 @@ Other seeds in use:
 - **Historical reproduction only:** ph7's hard-coded 0, 7 and 1000.
 - **Design arithmetic only:** 91919 (the ideal-observer Monte Carlo in `src/h10_design_check.py`); never a task seed.
 
-**Scan, 2026-09-27.** None of the 34 numbers appears, with digit boundaries, in any of the 310 tracked repository files, apart from the design-check script and output that introduce 91919. In the Fruit Fly graph, a per-number search found no node match for any of the 34. The graph's document-text index was being rebuilt after this session's writes. Known used seeds (71013, 20261283) were found only through node properties, not in document text, so the document-text half of the graph scan is not yet valid. [owner, 12.6] It is repeated before any seed is used, and a hit replaces the number before registration.
+**Scan, repeated before first use, 2026-09-27 (UTC) [owner, 12.6].** No number was replaced.
+
+1. **Repository:** every file under the working tree (365 files; .git and __pycache__ excluded), pattern `(^|[^0-9])(n)([^0-9]|$)` for the 34 numbers. Standalone matches appear only in this design, `master_plan.md` and `README.md`, which carry H10's own registration, and in `src/h10_design_check.py` (91919). Elsewhere the target digits occur only inside longer digit runs, such as float digits (0.43550453058969907) and hashes, never as numbers.
+2. **Graph node titles, one-liners and props:** `vinc_search` per number at limit 20. The control 71013 returns both nodes known to carry it in props (positions 1 and 4). The 34 numbers match only H10's own nodes: `concept:doc.d22b49532e5dd57bd`, `decision:h10-open-design` and `record:h10-design-check`.
+3. **Graph document text:** the search's keyword arm does not index numeric tokens. Controls known to be in document text (71013, 20261081, 20261083) returned only semantic neighbours or word matches. A per-number search therefore cannot scan document text, and the earlier designs' "no full-text match" readings for numbers carried no information. The text half was done by reading instead. The 32 documents that have no repository counterpart were fetched in full, every fetch verified, and searched for the 34 numbers both standalone and inside longer digit runs, with no match. Those 32 are the Phase 0–7.3, H14–H16 and H19 reports; the H15 Run 1 and Run 2 reports and Run 2 specification v4; the H20 Stage A report, H20 design v1 and the H20 Run 2 diagnosis; the link-check report; the two-source check; the unrecovered-excess diagnosis; the ph12c result; Exp1–Exp4; the architecture spec; and the master plan addendum. The other 123 documents mirror repository files, which scan 1 covers; a mirrored text may differ from the committed file in small edits.
 
 ## 10. Predictions and risks
 
@@ -196,16 +200,18 @@ Unchanged from v1:
 
 Stage A alone cannot adopt H10.
 
-## 12. For the owner's confirmation
+## 12. The owner's confirmation
 
-1. **θ grid:** {0.004, 0.008, 0.016} (recommended; 2.1). The alternative is v1's {0.02, 0.05, 0.10}, predicted to fail by construction.
-2. **τ_e grid:** {40, 80, 160} as v1 (recommended; effective windows 79/152/235 of 300 steps).
-3. **Hard-cue wrong bar:** U = 0.04, at most 8 of 400 (recommended; 2.6). This is no more wrong than the adopted bistable's historical point rate and stricter than Phase 2's own point bar (5 of 200). The alternative is v1's U = 0.025 (at most 3 of 400), which a mechanism with a true wrong rate of 0.5% passes at all five scales with probability 0.46.
-4. **The other bars** as v1: acquisition 0.90, retention 0.90, revision 0.85, distractor 0.90, idle 0.98, anti-trivial −0.05, added value +0.05.
-5. **No agreement requirement** (recommended; 2.3). The alternative is to register it as a second family, which doubles the multiplicity.
-6. **Seeds** as section 9, with the graph's document-text scan repeated before first use.
-7. **Execution** in the local Claude session, not GitHub Actions. This follows the owner's instruction of 2026-09-27 and supersedes the handoff's "remote".
-8. **Order and stop rules** as section 8.
-9. **Gate on the all-row interval table of section 7**, with the six Phase 7.1 criteria reported as defined but not gating (recommended; 2.10). The alternative is the queued statement: the six Phase 7.1 criteria unchanged as the gate. Under it a gate that abstains passes D2–D4 by construction, so it would need the anti-trivial check added in any case.
+The owner confirmed this section on 2026-09-27 (UTC) with the words '권고안대로 확정하고 진행, 커밋 푸쉬' (gloss 'confirm as recommended and proceed; commit, push'); decision:h10-open. Every point was confirmed as recommended:
 
-Once confirmed, this file becomes design v2 FINAL with this section replaced by the confirmation. After that no bar, seed, arm or rule changes.
+1. **θ grid: CONFIRMED** {0.004, 0.008, 0.016} (2.1). Not taken: v1's {0.02, 0.05, 0.10}.
+2. **τ_e grid: CONFIRMED** {40, 80, 160}, as v1.
+3. **Hard-cue wrong bar: CONFIRMED** U = 0.04, at most 8 of 400 (2.6). Not taken: v1's U = 0.025.
+4. **The other bars: CONFIRMED** as v1: acquisition 0.90, retention 0.90, revision 0.85, distractor 0.90, idle 0.98, anti-trivial −0.05, added value +0.05.
+5. **No agreement requirement: CONFIRMED** (2.3).
+6. **Seeds: CONFIRMED** as section 9, with the graph scan repeated before first use (done; section 9).
+7. **Execution: CONFIRMED** in the local Claude session, not GitHub Actions.
+8. **Order and stop rules: CONFIRMED** as section 8.
+9. **Gate: CONFIRMED** on the all-row interval table of section 7; the six Phase 7.1 criteria are reported as defined, not gating (2.10).
+
+This file is design v2 FINAL. From here no bar, seed, arm, prediction or rule changes. The candidate text put to the owner (sha256 c64a5763d7b6f38d7a1703aa21d8ae1b1948bb9f3237b0003bde9e5b84a57f78) differs from this file only in the title, the status line, the U cell of section 7, the scan paragraph of section 9 and this section.

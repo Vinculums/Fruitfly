@@ -1,0 +1,13 @@
+H10 Stage A (demo: self-checks on ph7's historical generators only (no registered seed)); design experiments/h10/h10_design_v2.md sha256 c64a5763d7b6f38d7a1703aa21d8ae1b1948bb9f3237b0003bde9e5b84a57f78
+src/h10.py sha256 ba959f17c2a483659689dbcfb4e80ba141fdc1ffeb997906b0d0e96178b13697
+src/ph7.py sha256 636a5b3a928e161a6a77de60010e6a10ad2fced28f7ed4c8927630086d6e2742  src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+ok  H10's graded state equals ph7.Graded bitwise over 300 steps: True
+ok  the gate consumes no randomness (generator states equal after 50 steps): True
+ok  q is invariant under a common decay of e: True (q 0.023256)
+ok  under zero input e stays 0 and every gate is closed: True
+ok  balanced targets: counts [80, 80, 80, 80, 80] of 400
+ok  two generators from one SeedSequence child draw identically: True
+ok  ChanDiv.step has no reset parameter: True; Bistable.step drives reset=0.0: True
+ok? label-permutation check on a historical revision tape: ok True; max state deviation bistable 5.33e-15, graded 1.78e-15, cand 1.78e-15; outputs exact True; plain==main True
+ok  noise-free settled q (tau_e 160): hard 0.00819, easy 0.05731 (design check: 0.0082, 0.0573)

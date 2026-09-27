@@ -1,0 +1,57 @@
+H10 Stage A (section 8.1 step 2: the harness on ph7's own generators, 200 rows); design experiments/h10/h10_design_v2.md sha256 c64a5763d7b6f38d7a1703aa21d8ae1b1948bb9f3237b0003bde9e5b84a57f78
+src/h10.py sha256 ba959f17c2a483659689dbcfb4e80ba141fdc1ffeb997906b0d0e96178b13697
+src/ph7.py sha256 636a5b3a928e161a6a77de60010e6a10ad2fced28f7ed4c8927630086d6e2742  src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+
+== ph7's D1-D6 counts: recorded (ph7_h9.txt) / ph7 functions called now / this harness ==
+  bistable
+    d1_cwa (121, 4, 75)           (121, 4, 75)           (121, 4, 75)          
+    d2     (200, 200)             (200, 200)             (200, 200)            
+    d3     (0, 200)               (0, 200)               (0, 200)              
+    d4     (200, 200)             (200, 200)             (200, 200)            
+    d6     200                    200                    200                   
+    d5     [3, 4, 4, 4, 5]        [3, 4, 4, 4, 5]        [3, 4, 4, 4, 5]       
+  graded
+    d1_cwa (156, 44, 0)           (156, 44, 0)           (156, 44, 0)          
+    d2     (200, 200)             (200, 200)             (200, 200)            
+    d3     (200, 200)             (200, 200)             (200, 200)            
+    d4     (200, 200)             (200, 200)             (200, 200)            
+    d6     200                    200                    200                   
+    d5     [61, 47, 44, 45, 45]   [61, 47, 44, 45, 45]   [61, 47, 44, 45, 45]  
+  reproduced: True
+
+== implementation checks on the historical cells ==
+  open_equals_graded_state_bitwise     True
+  open_equals_graded_output            True
+  closed_always_abstains               True
+  no_reset_input                       True
+  label_permutation_equivariance       True
+  finite_states                        True
+  complete_rows                        True
+  all                                  True
+  perm hard_0p25  ok True  max state deviation bistable 2.04e-14, graded 1.03e-13, cand 1.03e-13
+  perm hard_0p5   ok True  max state deviation bistable 1.41e-13, graded 5.42e-14, cand 5.42e-14
+  perm hard_1     ok True  max state deviation bistable 1.18e-13, graded 1.95e-14, cand 1.95e-14
+  perm hard_2     ok True  max state deviation bistable 1.14e-13, graded 1.64e-14, cand 1.64e-14
+  perm hard_4     ok True  max state deviation bistable 6.24e-14, graded 2.53e-14, cand 2.53e-14
+  perm easy       ok True  max state deviation bistable 2.66e-15, graded 1.33e-15, cand 1.33e-15
+  perm revision   ok True  max state deviation bistable 2.66e-15, graded 1.78e-15, cand 1.78e-15
+  perm distractor ok True  max state deviation bistable 2.66e-15, graded 1.78e-15, cand 1.78e-15
+  perm idle       ok True  max state deviation bistable 1.73e-18, graded 4.34e-19, cand 4.34e-19
+  perm ambiguous  ok True  max state deviation bistable 3.80e-14, graded 1.03e-13, cand 1.03e-13
+
+== the candidate and the mask on the same 200-row historical cells: Phase 7.1's six readings (reported) ==
+  h10_tau40_th0.004    D1 c/w/a 85/25/90  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [32, 26, 25, 28, 29]
+  h10_tau40_th0.008    D1 c/w/a 40/10/150  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [13, 12, 10, 11, 12]
+  h10_tau40_th0.016    D1 c/w/a 7/0/193  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [1, 0, 0, 0, 1]
+  h10_tau80_th0.004    D1 c/w/a 82/22/96  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [32, 23, 22, 24, 22]
+  h10_tau80_th0.008    D1 c/w/a 31/9/160  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [10, 8, 9, 10, 11]
+  h10_tau80_th0.016    D1 c/w/a 2/0/198  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [1, 0, 0, 0, 0]
+  h10_tau160_th0.004   D1 c/w/a 95/21/84  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [31, 22, 21, 23, 23]
+  h10_tau160_th0.008   D1 c/w/a 32/7/161  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [11, 6, 7, 6, 6]
+  h10_tau160_th0.016   D1 c/w/a 1/0/199  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [1, 0, 0, 0, 0]
+  mask_0.02            D1 c/w/a 156/44/0  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [61, 47, 44, 45, 45]
+  mask_0.05            D1 c/w/a 156/44/0  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [61, 47, 44, 45, 45]
+  mask_0.1             D1 c/w/a 156/44/0  D2 200/200  D3 200/200  D4 200/200  D6 200  D5 [61, 47, 44, 45, 45]
+
+wrote experiments/h10/repro/summary.json sha256 69a8c40f7071c71e4b6d68cee685a91ac41dc168fad0139202bc8c0c45a2b53f
