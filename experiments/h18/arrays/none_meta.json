@@ -1,0 +1,32 @@
+{
+ "arm": "none",
+ "head": "none",
+ "wind": "blocks",
+ "seconds_harness": 1.9,
+ "nocue_steps": 0,
+ "cueoff_agent_steps": 535088,
+ "max_abs_e_in_run": 179.99913745869276,
+ "mismatch": [
+  0,
+  0,
+  1080000
+ ],
+ "events": 473,
+ "bitwise_vs_run2": {
+  "score": true,
+  "whiff": true,
+  "wall": true,
+  "contact": true,
+  "events": true,
+  "gaps": true,
+  "wallfree": true,
+  "err": true,
+  "err_off": true,
+  "abs_off": true,
+  "mismatch": true,
+  "lost_end": true
+ },
+ "seconds_run2": 1.8,
+ "npz_sha256": "f07e3a120e52c95a68a18d395920bf7383971f81b12ef25a9b223cadf188395e",
+ "npz_bytes": 19662715
+}

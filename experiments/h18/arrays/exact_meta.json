@@ -1,0 +1,32 @@
+{
+ "arm": "exact",
+ "head": "exact",
+ "wind": "always",
+ "seconds_harness": 1.8,
+ "nocue_steps": 0,
+ "cueoff_agent_steps": 0,
+ "max_abs_e_in_run": 0.0,
+ "mismatch": [
+  0,
+  0,
+  1080000
+ ],
+ "events": 5848,
+ "bitwise_vs_run2": {
+  "score": true,
+  "whiff": true,
+  "wall": true,
+  "contact": true,
+  "events": true,
+  "gaps": true,
+  "wallfree": true,
+  "err": true,
+  "err_off": true,
+  "abs_off": true,
+  "mismatch": true,
+  "lost_end": true
+ },
+ "seconds_run2": 1.6,
+ "npz_sha256": "d1e05675afc00383cf59fdfa663dd931009d87806e5d8c018ba4873a7a09fbea",
+ "npz_bytes": 20371325
+}

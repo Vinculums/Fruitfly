@@ -1,0 +1,17 @@
+{
+ "arm": "ring_made",
+ "head": "ring_made",
+ "wind": "blocks",
+ "seconds_harness": 20.0,
+ "nocue_steps": 0,
+ "cueoff_agent_steps": 535088,
+ "max_abs_e_in_run": 81.85844928984386,
+ "mismatch": [
+  0,
+  0,
+  1080000
+ ],
+ "events": 2541,
+ "npz_sha256": "53aef11f7854ba5e0271496ba37aa0ce0293885515e3d7141162c90de23fe2c3",
+ "npz_bytes": 24681664
+}

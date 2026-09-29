@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 .venv/
 experiments/h12/expression_*/**/trajectory_*.npz
+experiments/h18/arrays/*.npz

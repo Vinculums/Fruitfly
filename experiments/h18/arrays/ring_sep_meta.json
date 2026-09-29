@@ -1,0 +1,17 @@
+{
+ "arm": "ring_sep",
+ "head": "ring",
+ "wind": "blocks",
+ "seconds_harness": 18.5,
+ "nocue_steps": 0,
+ "cueoff_agent_steps": 535088,
+ "max_abs_e_in_run": 73.13967305108358,
+ "mismatch": [
+  0,
+  0,
+  1080000
+ ],
+ "events": 2736,
+ "npz_sha256": "02d1f71c83ff855d8c4c461a1098b8dbdf8000c53f551a49b318cb9140df256c",
+ "npz_bytes": 24676783
+}

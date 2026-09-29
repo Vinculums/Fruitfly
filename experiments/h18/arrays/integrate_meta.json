@@ -1,0 +1,32 @@
+{
+ "arm": "integrate",
+ "head": "integrate",
+ "wind": "blocks",
+ "seconds_harness": 20.1,
+ "nocue_steps": 0,
+ "cueoff_agent_steps": 535088,
+ "max_abs_e_in_run": 0.0,
+ "mismatch": [
+  0,
+  0,
+  1080000
+ ],
+ "events": 5848,
+ "bitwise_vs_run2": {
+  "score": true,
+  "whiff": true,
+  "wall": true,
+  "contact": true,
+  "events": true,
+  "gaps": true,
+  "wallfree": true,
+  "err": true,
+  "err_off": true,
+  "abs_off": true,
+  "mismatch": true,
+  "lost_end": true
+ },
+ "seconds_run2": 1.8,
+ "npz_sha256": "0d2ca42092f494c961354fcd580744cf0276d7d566246b224eb658cdceb1f0fb",
+ "npz_bytes": 27867559
+}

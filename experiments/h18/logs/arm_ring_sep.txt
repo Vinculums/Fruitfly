@@ -1,0 +1,20 @@
+== H18 Stage A, src/ph37.py, stage `arm ring_sep` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+arm `ring_sep`: head ring, wind blocks, open plane (walls False), `return`, 200 agents x 5400 steps
+   harness 18 s; agent-steps with no cued agent 0; cue-off agent-steps 535088; mismatch (differ, at contacts, n) [0, 0, 1080000]; max abs e in run 73.1397
+   wrote experiments/h18/arrays/ring_sep.npz (24676783 bytes, sha256 02d1f71c83ff855d8c4c461a1098b8dbdf8000c53f551a49b318cb9140df256c); total 21 s

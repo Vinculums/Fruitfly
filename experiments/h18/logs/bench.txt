@@ -1,0 +1,59 @@
+== H18 Stage A, src/ph37.py, stage `bench` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+H14 standing rule (master_plan.md:2037-2039): an angular gain is measured on per-step displacement accumulated without folding. Every change of pos below is angdiff over ONE step; sums are sums of those.
+
+(b0) noise 0, 400 rings, bump formed by the cue at 6.0 for 50 agent-steps at headings 0..359.1 (spread over the wedge grid); cue off; one rotation v; then v = 0 for 49 agent-steps. noise 0: the generator's draws are multiplied by zero (ph10.py:73).
+   v      zero step  gain median  [min, max]        drift after 49 steps median |.| [max |.|]   amp end / amp formed
+      5   two          1.0000  [ 0.9999,  1.0001]      0.0006 [  0.0009]                     0.8113
+     10   two          1.0000  [ 0.9999,  1.0001]      0.0004 [  0.0005]                     0.8168
+     20   two          1.0000  [ 1.0000,  1.0000]      0.0007 [  0.0010]                     0.8065
+     30   two          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+     40   two          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8113
+     50   two          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8113
+     60   two          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+     -5   two          1.0000  [ 0.9999,  1.0001]      0.0006 [  0.0009]                     0.8113
+    -10   two          1.0000  [ 0.9999,  1.0001]      0.0004 [  0.0005]                     0.8168
+    -20   two          1.0000  [ 1.0000,  1.0000]      0.0007 [  0.0010]                     0.8065
+    -30   two          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+    -40   two          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8113
+    -50   two          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8113
+    -60   two          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+      0   two             n/a  (v = 0)                0.0007 [  0.0010]                     0.8129
+      5   one          1.0000  [ 0.9999,  1.0001]      0.0006 [  0.0008]                     0.8113
+     10   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0006]                     0.8168
+     20   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8065
+     30   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+     40   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0008]                     0.8113
+     50   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0008]                     0.8113
+     60   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+     -5   one          1.0000  [ 0.9999,  1.0001]      0.0006 [  0.0008]                     0.8113
+    -10   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0006]                     0.8168
+    -20   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8065
+    -30   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+    -40   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0008]                     0.8113
+    -50   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0008]                     0.8113
+    -60   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+      0   one             n/a  (v = 0)                0.0006 [  0.0009]                     0.8129
+
+   replay at noise 0: the first full 50-step cue-off block of each agent of the `integrate` arm (200 of 200 agents have one), formed at the heading of its last cued step, fed that block's recorded turns with the zero step; end-of-block error (unfolded: initial offset + sum of per-step changes - sum of v): median |.| 0.0011, p90 0.0014, max 0.0015, mean signed +0.0001 degrees
+
+(b1) noise 0.3, 400 rings, stream child 2 (a fresh generator from it for each variant, so both see the same formation draws); bump formed as (b0); then 50 cue-off agent-steps at v = 0
+   two step(s) per agent-step: per-step sd of the change of pos 2.5718, sd of pos at step 50 (unfolded) 18.6785, median amp at steps 1/10/25/50 5.2642/5.0640/5.0384/5.0535, single-step jumps over 30 degrees 0 of 20000
+   one step(s) per agent-step: per-step sd of the change of pos 1.8005, sd of pos at step 50 (unfolded) 12.9411, median amp at steps 1/10/25/50 5.5270/5.0357/5.0208/5.0384, single-step jumps over 30 degrees 0 of 20000
+   F-v quantity: sd of pos at step 50, two steps / one step = 1.4433
+   wrote experiments/h18/arrays/bench.json

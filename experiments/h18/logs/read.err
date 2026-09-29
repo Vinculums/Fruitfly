@@ -1,0 +1,2 @@
+D:\Projects\AIProjects\Fruit fly\src\ph12b.py:192: RuntimeWarning: invalid value encountered in scalar divide
+  e45 = ring["err"][0]/ring["err"][1]

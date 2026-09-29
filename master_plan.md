@@ -995,6 +995,21 @@ Progress log
   run: src/ph37.py, output experiments/h18/ph37_diag.txt, report experiments/h18/h18_diagnosis.md, numpy 2.4.6, one
   arm per process, R0 the whole H16 Run 2 file first. Stage A runs next in the local session (an Opus 5.5 agent
   executes, this session evaluates).
+- **H18 Stage A STOPPED at the known-answer identity I7, before any ring reading (2026-09-29;
+  record:h18-stage-a-i7-stop; src/ph37.py sha 284fede4...5815, experiments/h18/ph37_diag.txt sha ce5e1bc0...5650,
+  report experiments/h18/h18_diagnosis.md).** Run by an Opus 5.5 agent, checked here. R0: `ph12b.py eval` on numpy 2.4.6
+  reproduces the whole H16 Run 2 file, sha256 equal (48e4e73c...). R1 character for character; I1 mismatch 0 of
+  1,080,000 agent-steps; I2, I3, I4 exact; I5 measured cue-off share 0.495452 (535,088 of 1,080,000); I6 pass. Benches
+  (b0) gain 1.0000 at every rotation to 60 degrees with or without the zero step; (b1) drift sd per step 2.5718 with two
+  ring steps per agent-step against 1.8005 with one, F-v quantity 1.4433. I7: `none` on (A) reproduces the record
+  (66.146 percent over 45 degrees, mean 79.707), but on F1 reads NOT MET where the design expected MET: both its event
+  shares are 1.0000 (unrecovered n 193, recovered n 244), so F1's relative clause (unrecovered >= 2 x recovered) cannot
+  be met by a saturated arm. The registered rule treats an I7 surprise as an implementation error to repair before any
+  ring reading; none was found, so the run stopped as registered, with no ring, ring_sep or shadow reading taken. The
+  defect is in the reviewer's I7 expectation (review amendment 5), not in the harness and not in F1. Awaiting the owner:
+  (a) record the I7 expectation as mis-stated and take the registered readings unchanged from the stored arrays; (b)
+  amend F1 before any ring reading; (c) close Stage A as stopped. Arrays (136 MB) kept local, listed with sha256 in the
+  output.
 
 ## Why a plan now
 
@@ -1812,6 +1827,11 @@ Four hypotheses were run in one day by picking the next most interesting candida
   with float-formatting differences disclosed and integer differences stopping the run; gains accumulated without
   folding per the H14 rule; F3 read against the measured cue-off share; known-answer identities I7; pairing ends at
   divergence; R0 kept). No reading, threshold, candidate, arm, seed or branch changed from v1. Stage A: src/ph37.py.
+- Stage A STOPPED at I7 (2026-09-29; record:h18-stage-a-i7-stop): reproduction R0 exact (sha256 equal to the H16 Run 2
+  file), R1 and I1-I6 pass, benches (b0) gain 1.0000 to 60 degrees, (b1) F-v quantity 1.4433; the known-answer arm
+  `none` reads F1 NOT MET (both event shares 1.0000) where the review's amendment 5 expected MET, because F1's relative
+  clause cannot be met by a saturated arm. No ring reading taken. The owner chooses (a) take the readings with the I7
+  expectation recorded as mis-stated, (b) amend F1 first, or (c) close.
 
 ## The architecture as currently adopted
 
@@ -2310,11 +2330,13 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H18 Stage A is running** (decision:h18-open, 2026-09-29; design v2 FINAL experiments/h18/h18_design_v2.md). Its
-  output is a branch table, not a verdict on the ring; the branch is the owner's. Pending bookkeeping, not a decision:
-  the Vinc remote key expired (HTTP 401, 2026-09-29), so the H10 closure nodes, the H18 nodes, the document puts refused
-  on 2026-09-27, the H10 diagnosis files, the H18 designs and this mirror are to be written once the key is renewed at
-  vincs.io/account. `main` is behind codex/h12-review-plan; merging is the owner's.
+- **H18 Stage A STOPPED at I7; the owner chooses** (record:h18-stage-a-i7-stop; experiments/h18/h18_diagnosis.md
+  section 6): (a) record the I7 expectation (review amendment 5, 'none expected MET on F1') as mis-stated, since F1's
+  relative clause is unreadable on an arm whose every event window holds an error over 45 degrees, and take the
+  registered readings unchanged from the stored arrays (no threshold, definition or array changes; the readings pass
+  reads disk); (b) amend F1 itself, registered before any ring reading; (c) close Stage A as stopped with sections 2-4
+  on record. Pending bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18
+  node and document put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
 
 ## Queued candidates, none started
 
@@ -2430,6 +2452,7 @@ within the release's scope (non-negative held values) and stays in force at nega
   error persists, and the heading error just before a plume is lost. Ranked fifth: outside the adopted scope, where the
   wind is sensed every step (64.5 percent unrecovered under 50-step cue loss, concept:ring-leaks-under-cue-loss).
   **Opened for design (decision:h18-open-design, 2026-09-29); design v1 DRAFT experiments/h18/h18_design_v1.md,
-  diagnosis first; confirmed as recommended and opened on v2 FINAL (decision:h18-open, 2026-09-29); Stage A running.**
+  diagnosis first; confirmed as recommended and opened on v2 FINAL (decision:h18-open, 2026-09-29); Stage A STOPPED at
+  the known-answer identity I7 before any ring reading (record:h18-stage-a-i7-stop); the owner chooses.**
 - **An H17 re-attempt** (cold start), ranked sixth: closed twice at the bench (decision:h17-closed); the consequence that
   moved it up (the release stranding negative holds) no longer arises by code under N2; a Run 3 would need new state.
