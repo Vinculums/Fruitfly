@@ -1,0 +1,457 @@
+== H18 Stage A, src/ph37.py, stage `read` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 761902504b627bf2da789751a843cda9425773b6beb808b2fdbc034457b2151d
+  amended by decision:h18-i7-expectation-corrected (experiments/h18/h18_i7_amendment.md): only the I7 expectation for `none` on F1; sha256 before the amendment 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+
+Choices where the registered text needed a reading in code (fixed before any output existed):
+  C1  cue-off block: a maximal run of consecutive cue-off steps of one agent; k = 1.. within it.
+  C2  r_t (7 (D)) on every cue-off step t >= 1: angdiff(est_t, est_(t-1)) - turn_(t-1), the signed
+  change of est over one step (folded within that step only) minus the rotation fed at t
+  (ph12.py:106 feeds last_turn). Sums are sums of such signed per-step terms (H14 rule,
+  master_plan.md:2037-2039).
+  C3  loss events whose since reaches 143 without any whiff before (t_L < 0) have no last whiff;
+  they are counted and excluded from the event readings.
+  C4  per-block autocorrelation: Pearson r of (e_k, e_(k+L)) within one block, for blocks with at
+  least 3 pairs and non-zero variance on both sides; F2 reads the median over blocks.
+  C5  'the bench gain' at a rotation v (F-i): the median over the 400 bench rings of
+  angdiff(pos after, pos before) / v; min and max printed beside it.
+  C6  F-ii ratio: the median over cue-off blocks of length >= 50 of amp(k 50) / amp(k 1); the
+  ratio of the medians is printed beside it.
+  C7  F-iii 'the first cue-on step after t_L': literally the first step t > t_L with the cue on;
+  the first cue RETURN (cue on at t, off at t - 1) is printed beside it, reported only.
+  C8  F-vi: the cue-off blocks inside an event's windows are the blocks overlapping
+  [t_L - 50, t_L + 142]; the half-width is W0 + SLOPE * max(along, 0) at t_L's position;
+  the median is over all (event, block) pairs of the group.
+  C9  exposure 'distance at the end': the position after the last move (w.pos at the end).
+
+== logs of the earlier stages, embedded verbatim ==
+
+---- experiments/h18/logs/demo.txt (sha256 5c8017c1d957a4051491d34b0b0644946fb06b4f17693be2ddd0412a93ede53b) ----
+== H18 Stage A, src/ph37.py, stage `demo` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+
+-- python src/ph12b.py demo (its own asserts) --
+ok  arena 40 / shift 0 reproduces ph12 exactly; geometry is Run 1's frame + 60
+ok  the open plane is translation-invariant; handed == made rotation when nothing is hit
+   exit code 0
+
+-- python src/ph12c.py demo (its own asserts) --
+ok  modes construct; with no wall the rotation made equals the commanded turn on every step
+   exit code 0
+
+-- harness asserts --
+ok  SeedSequence children are spawn keys (0,), (1,), (2,) of the agent seed
+ok  demo stage complete
+
+---- experiments/h18/logs/r0.txt (sha256 0f1c81d7b08e5c43bd8c9d7fc7f897d6745081022095293fad7565c1cd9d5c50) ----
+== H18 Stage A, src/ph37.py, stage `r0` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+R0: `python src/ph12b.py eval` run unchanged (runpy, stdout to experiments/h18/r0_ph12b_eval.txt, LF); exit 0; 99 s
+   r0 output sha256 48e4e73c2a1b5b5223d3a1073533ab9de81f70637fe5d0237a3008e2e687e4e5; record experiments/h16/ph12b_h16r2.txt sha256 48e4e73c2a1b5b5223d3a1073533ab9de81f70637fe5d0237a3008e2e687e4e5
+   lines: record 190, R0 190 (split on LF; a trailing empty string counts once)
+   R0 RESULT: identical, every line (MATCH)
+
+---- experiments/h18/logs/arm_exact.txt (sha256 2609bd4b5f8a2055a7351de15f569108524e1b42671a34a29c37be0d93496dc0) ----
+== H18 Stage A, src/ph37.py, stage `arm exact` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+arm `exact`: head exact, wind always, open plane (walls False), `return`, 200 agents x 5400 steps
+   harness 2 s; agent-steps with no cued agent 0; cue-off agent-steps 0; mismatch (differ, at contacts, n) [0, 0, 1080000]; max abs e in run 0
+   run2 2 s; harness == ph12b.run2 bitwise per key: {'score': True, 'whiff': True, 'wall': True, 'contact': True, 'events': True, 'gaps': True, 'wallfree': True, 'err': True, 'err_off': True, 'abs_off': True, 'mismatch': True, 'lost_end': True}
+   R1 arrays bitwise: ALL EQUAL
+   wrote experiments/h18/arrays/exact.npz (20371325 bytes, sha256 d1e05675afc00383cf59fdfa663dd931009d87806e5d8c018ba4873a7a09fbea); total 5 s
+
+---- experiments/h18/logs/arm_none.txt (sha256 60336234a0f3422e246ac03d500d4175b14118b138e477741c513216f3272470) ----
+== H18 Stage A, src/ph37.py, stage `arm none` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+arm `none`: head none, wind blocks, open plane (walls False), `return`, 200 agents x 5400 steps
+   harness 2 s; agent-steps with no cued agent 0; cue-off agent-steps 535088; mismatch (differ, at contacts, n) [0, 0, 1080000]; max abs e in run 179.999
+   run2 2 s; harness == ph12b.run2 bitwise per key: {'score': True, 'whiff': True, 'wall': True, 'contact': True, 'events': True, 'gaps': True, 'wallfree': True, 'err': True, 'err_off': True, 'abs_off': True, 'mismatch': True, 'lost_end': True}
+   R1 arrays bitwise: ALL EQUAL
+   wrote experiments/h18/arrays/none.npz (19662715 bytes, sha256 f07e3a120e52c95a68a18d395920bf7383971f81b12ef25a9b223cadf188395e); total 5 s
+
+---- experiments/h18/logs/arm_ring.txt (sha256 c0033b97bdf2a75cabb61a8f34001325a23b83aa215235ef2965c1c140e14049) ----
+== H18 Stage A, src/ph37.py, stage `arm ring` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+arm `ring`: head ring, wind blocks, open plane (walls False), `return`, 200 agents x 5400 steps
+   harness 23 s; agent-steps with no cued agent 0; cue-off agent-steps 535088; mismatch (differ, at contacts, n) [0, 0, 1080000]; max abs e in run 81.8584
+   run2 19 s; harness == ph12b.run2 bitwise per key: {'score': True, 'whiff': True, 'wall': True, 'contact': True, 'events': True, 'gaps': True, 'wallfree': True, 'err': True, 'err_off': True, 'abs_off': True, 'mismatch': True, 'lost_end': True}
+   R1 arrays bitwise: ALL EQUAL
+   wrote experiments/h18/arrays/ring.npz (24681665 bytes, sha256 b2619b12a5dc51d29118fc9b663999cde2fd419e6ff578d7c14e1af85cd72b72); total 45 s
+
+---- experiments/h18/logs/arm_integrate.txt (sha256 6ba1df79ed3cefed4a30c319ec6d4e0bc46f4f12f49d7acb95ee4b46f80b2a26) ----
+== H18 Stage A, src/ph37.py, stage `arm integrate` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+arm `integrate`: head integrate, wind blocks, open plane (walls False), `return`, 200 agents x 5400 steps
+   harness 20 s; agent-steps with no cued agent 0; cue-off agent-steps 535088; mismatch (differ, at contacts, n) [0, 0, 1080000]; max abs e in run 0
+   run2 2 s; harness == ph12b.run2 bitwise per key: {'score': True, 'whiff': True, 'wall': True, 'contact': True, 'events': True, 'gaps': True, 'wallfree': True, 'err': True, 'err_off': True, 'abs_off': True, 'mismatch': True, 'lost_end': True}
+   R1 arrays bitwise: ALL EQUAL
+   wrote experiments/h18/arrays/integrate.npz (27867559 bytes, sha256 0d2ca42092f494c961354fcd580744cf0276d7d566246b224eb658cdceb1f0fb); total 24 s
+
+---- experiments/h18/logs/arm_ring_sep.txt (sha256 00969103a5972535c93defc584d13e76773ce4bde4a548e75c146b44344c159a) ----
+== H18 Stage A, src/ph37.py, stage `arm ring_sep` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+arm `ring_sep`: head ring, wind blocks, open plane (walls False), `return`, 200 agents x 5400 steps
+   harness 18 s; agent-steps with no cued agent 0; cue-off agent-steps 535088; mismatch (differ, at contacts, n) [0, 0, 1080000]; max abs e in run 73.1397
+   wrote experiments/h18/arrays/ring_sep.npz (24676783 bytes, sha256 02d1f71c83ff855d8c4c461a1098b8dbdf8000c53f551a49b318cb9140df256c); total 21 s
+
+---- experiments/h18/logs/arm_ring_made.txt (sha256 4de0415a6df9d0239b89a205d65130961344167b6f296d09a3b8d9577082a882) ----
+== H18 Stage A, src/ph37.py, stage `arm ring_made` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+arm `ring_made`: head ring_made, wind blocks, open plane (walls False), `return`, 200 agents x 5400 steps
+   harness 20 s; agent-steps with no cued agent 0; cue-off agent-steps 535088; mismatch (differ, at contacts, n) [0, 0, 1080000]; max abs e in run 81.8584
+   wrote experiments/h18/arrays/ring_made.npz (24681664 bytes, sha256 53aef11f7854ba5e0271496ba37aa0ce0293885515e3d7141162c90de23fe2c3); total 22 s
+
+---- experiments/h18/logs/bench.txt (sha256 b85b70cf8e18086d45bc57609ff6cfc3d92ef0060e7868c1c9e46f18f0370374) ----
+== H18 Stage A, src/ph37.py, stage `bench` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+src/ph37.py sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815
+design experiments/h18/h18_design_v2.md sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  registered de93f177: ok
+  imported src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  registered e80f40bd: ok
+  imported src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  registered e1035e09: ok
+  imported src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  registered ec6b1896: ok
+  imported src/ph12c.py sha256 bacf065f12c270b5537258d8ad72f6d2c165bc80783b7550ccc7d150cca88c31  registered bacf065f: ok
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb  registered 0b43d6f3: ok
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+  imported src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  registered 7699b4e6: ok
+seeds: world 1612, agent 1712 (ph12b.SEEDS['eval'] + 2); streams SeedSequence(1712).spawn(3)
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+H14 standing rule (master_plan.md:2037-2039): an angular gain is measured on per-step displacement accumulated without folding. Every change of pos below is angdiff over ONE step; sums are sums of those.
+
+(b0) noise 0, 400 rings, bump formed by the cue at 6.0 for 50 agent-steps at headings 0..359.1 (spread over the wedge grid); cue off; one rotation v; then v = 0 for 49 agent-steps. noise 0: the generator's draws are multiplied by zero (ph10.py:73).
+   v      zero step  gain median  [min, max]        drift after 49 steps median |.| [max |.|]   amp end / amp formed
+      5   two          1.0000  [ 0.9999,  1.0001]      0.0006 [  0.0009]                     0.8113
+     10   two          1.0000  [ 0.9999,  1.0001]      0.0004 [  0.0005]                     0.8168
+     20   two          1.0000  [ 1.0000,  1.0000]      0.0007 [  0.0010]                     0.8065
+     30   two          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+     40   two          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8113
+     50   two          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8113
+     60   two          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+     -5   two          1.0000  [ 0.9999,  1.0001]      0.0006 [  0.0009]                     0.8113
+    -10   two          1.0000  [ 0.9999,  1.0001]      0.0004 [  0.0005]                     0.8168
+    -20   two          1.0000  [ 1.0000,  1.0000]      0.0007 [  0.0010]                     0.8065
+    -30   two          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+    -40   two          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8113
+    -50   two          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8113
+    -60   two          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+      0   two             n/a  (v = 0)                0.0007 [  0.0010]                     0.8129
+      5   one          1.0000  [ 0.9999,  1.0001]      0.0006 [  0.0008]                     0.8113
+     10   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0006]                     0.8168
+     20   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8065
+     30   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+     40   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0008]                     0.8113
+     50   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0008]                     0.8113
+     60   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+     -5   one          1.0000  [ 0.9999,  1.0001]      0.0006 [  0.0008]                     0.8113
+    -10   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0006]                     0.8168
+    -20   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0009]                     0.8065
+    -30   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+    -40   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0008]                     0.8113
+    -50   one          1.0000  [ 1.0000,  1.0000]      0.0006 [  0.0008]                     0.8113
+    -60   one          1.0000  [ 1.0000,  1.0000]      0.0005 [  0.0007]                     0.8148
+      0   one             n/a  (v = 0)                0.0006 [  0.0009]                     0.8129
+
+   replay at noise 0: the first full 50-step cue-off block of each agent of the `integrate` arm (200 of 200 agents have one), formed at the heading of its last cued step, fed that block's recorded turns with the zero step; end-of-block error (unfolded: initial offset + sum of per-step changes - sum of v): median |.| 0.0011, p90 0.0014, max 0.0015, mean signed +0.0001 degrees
+
+(b1) noise 0.3, 400 rings, stream child 2 (a fresh generator from it for each variant, so both see the same formation draws); bump formed as (b0); then 50 cue-off agent-steps at v = 0
+   two step(s) per agent-step: per-step sd of the change of pos 2.5718, sd of pos at step 50 (unfolded) 18.6785, median amp at steps 1/10/25/50 5.2642/5.0640/5.0384/5.0535, single-step jumps over 30 degrees 0 of 20000
+   one step(s) per agent-step: per-step sd of the change of pos 1.8005, sd of pos at step 50 (unfolded) 12.9411, median amp at steps 1/10/25/50 5.5270/5.0357/5.0208/5.0384, single-step jumps over 30 degrees 0 of 20000
+   F-v quantity: sd of pos at step 50, two steps / one step = 1.4433
+   wrote experiments/h18/arrays/bench.json
+
+== array files (kept local, not committed) ==
+   experiments/h18/arrays/exact.npz  20371325 bytes  sha256 d1e05675afc00383cf59fdfa663dd931009d87806e5d8c018ba4873a7a09fbea
+   experiments/h18/arrays/none.npz  19662715 bytes  sha256 f07e3a120e52c95a68a18d395920bf7383971f81b12ef25a9b223cadf188395e
+   experiments/h18/arrays/ring.npz  24681665 bytes  sha256 b2619b12a5dc51d29118fc9b663999cde2fd419e6ff578d7c14e1af85cd72b72
+   experiments/h18/arrays/integrate.npz  27867559 bytes  sha256 0d2ca42092f494c961354fcd580744cf0276d7d566246b224eb658cdceb1f0fb
+   experiments/h18/arrays/ring_sep.npz  24676783 bytes  sha256 02d1f71c83ff855d8c4c461a1098b8dbdf8000c53f551a49b318cb9140df256c
+   experiments/h18/arrays/ring_made.npz  24681664 bytes  sha256 53aef11f7854ba5e0271496ba37aa0ce0293885515e3d7141162c90de23fe2c3
+   experiments/h18/arrays/bench.json  sha256 4c2c8d25dd7e1f9cf74c799e058e5935b4f028781d6ac183fa75861e9bb62dcc
+
+== R1: K5 record lines 162-189 regenerated by ph12b.stage_b's own print code from the harness arrays ==
+   regenerated 28 lines, record lines 162-189 28: CHARACTER FOR CHARACTER EQUAL
+   per-agent arrays equal ph12b.run2 bitwise: {'exact': True, 'none': True, 'ring': True, 'integrate': True}
+
+== identities ==
+   I1 mismatch count (handed != made): ring 0, integrate 0 -> PASS
+   I2 integrate == exact on every per-agent score: True
+   I3 integrate with the shadow attached == ph12b.run2 integrate, every key bitwise: True
+   I4 ring_made vs ring (reported): max |est difference| 0 deg (float32 arrays), max per-agent block-score difference 0, lost_end equal True
+   I5 steps with no cued agent {'none': 0, 'ring': 0, 'integrate': 0, 'ring_sep': 0, 'ring_made': 0}; cue-off agent-steps 535088 of 1080000 -> measured cue-off share 0.495452 (same in every dropout arm: True)
+   I6 instrument check: integrate over 45 deg on 0.00% of cue-off steps < 1: True
+
+== I7 known-answer readings (before any ring, ring_sep or shadow reading) ==
+   `none`: in-run err_off share 66.15% and mean 79.7 deg (K5 record:173: 66.15%, 79.7)
+   (A) tail, cue-off agent-steps n 535088: share over 10: 89.983% (481488), 20: 82.061% (439098), 30: 75.305% (402947), 45: 66.146% (353941), 90: 42.411% (226936), 135: 20.806% (111328)
+       |e| quantiles 50/90/99/99.9/max 75.018 / 158.249 / 177.812 / 179.773 / 179.999 deg; mean 79.707
+       per agent (n 200): with any cue-off step over 45/90/135: 200/200/200; per-agent max |e| p10/50/90/max 179.79 / 179.94 / 179.99 / 180.00; per-agent share over 20 p10/50/90/max 80.53% / 82.09% / 83.65% / 84.79%
+       by k (k: n, share>45, median, mean)  1: 10796, 0.88%, 5.58, 8.21  2: 10792, 7.64%, 9.89, 15.78  3: 10790, 13.19%, 14.26, 24.00  4: 10787, 19.11%, 19.14, 33.01  5: 10785, 26.86%, 24.95, 41.29  6: 10781, 35.87%, 31.38, 47.24  7: 10777, 44.53%, 39.20, 52.02  8: 10770, 50.07%, 45.09, 56.12  9: 10764, 53.71%, 49.33, 59.92  10: 10759, 59.17%, 56.08, 65.57
+       by k (k: n, share>45, median, mean)  11: 10753, 65.67%, 65.83, 72.31  12: 10748, 70.15%, 75.73, 79.14  13: 10746, 73.70%, 84.02, 86.05  14: 10743, 76.21%, 91.77, 91.47  15: 10739, 78.71%, 96.87, 94.33  16: 10737, 79.62%, 97.60, 95.18  17: 10733, 78.11%, 96.32, 94.71  18: 10731, 76.71%, 95.63, 93.57  19: 10729, 76.54%, 94.89, 92.98  20: 10726, 77.34%, 94.50, 93.08
+       by k (k: n, share>45, median, mean)  21: 10724, 77.64%, 95.85, 93.69  22: 10719, 77.75%, 96.92, 94.26  23: 10711, 77.01%, 96.09, 93.90  24: 10709, 76.65%, 93.88, 92.68  25: 10706, 76.15%, 90.85, 90.73  26: 10699, 74.22%, 87.86, 88.94  27: 10695, 72.86%, 86.12, 87.68  28: 10691, 73.27%, 85.95, 87.51  29: 10689, 74.07%, 87.62, 88.29  30: 10687, 74.79%, 87.83, 89.10
+       by k (k: n, share>45, median, mean)  31: 10684, 74.76%, 89.68, 89.28  32: 10683, 75.05%, 89.23, 89.15  33: 10680, 74.82%, 89.31, 89.52  34: 10674, 74.65%, 89.10, 89.53  35: 10670, 74.39%, 89.47, 89.58  36: 10666, 74.56%, 88.53, 89.20  37: 10661, 74.36%, 87.91, 88.55  38: 10660, 73.90%, 86.94, 88.00  39: 10655, 74.12%, 85.59, 87.78  40: 10646, 73.54%, 86.12, 87.44
+       by k (k: n, share>45, median, mean)  41: 10641, 73.29%, 86.97, 87.78  42: 10632, 73.61%, 86.92, 88.19  43: 10627, 73.91%, 88.55, 89.24  44: 10624, 75.09%, 89.38, 90.05  45: 10621, 75.81%, 89.94, 90.63  46: 10616, 75.61%, 92.04, 90.88  47: 10615, 75.94%, 91.45, 90.93  48: 10609, 75.42%, 90.56, 90.67  49: 10606, 74.78%, 90.88, 90.05  50: 10602, 74.88%, 89.55, 89.96
+   `none` F1 as registered: NOT MET  (unrecovered 1.0000 (n 193), recovered 1.0000 (n 244))
+   I7 as corrected (decision:h18-i7-expectation-corrected): `none` F1 absolute clause, unrecovered share 1.0000 >= 0.70: MET (known answer MET); relative clause 1.0000 against 2 x 1.0000: SATURATED (both shares 1.0000), not read
+   `integrate`: max |e| over every agent-step in the run (float64) 0.0; from the stored arrays np.float64(0.0)
+   `integrate` F rows on which e can be read: F1 UNREADABLE (unrecovered 0.0000 (n 39), recovered 0.0000 (n 5802)); F2 UNREADABLE (lag-10 median nan (blocks 0), cue-on step 3 median |e| 0.0000); F3 UNREADABLE (t_L cue-off share 0.4359 (n 39); measured cue-off share of all agent-steps 0.4955); Fii UNREADABLE (no amplitude (no ring)); Fiii UNREADABLE (cue-on step 2 median |e| 0.0000; share outside the odour 0.5641 (n 39)); Fvi UNREADABLE (median |P| / half-width unrecovered 0.0000, recovered 0.0000)
+   I7: no surprise
+
+== readings (A)-(E) ==
+
+-- ring_sep --
+   (A) tail, cue-off agent-steps n 535088: share over 10: 39.715% (212512), 20: 13.234% (70811), 30: 3.685% (19718), 45: 0.355% (1902), 90: 0.000% (0), 135: 0.000% (0)
+       |e| quantiles 50/90/99/99.9/max 7.665 / 22.361 / 38.783 / 52.767 / 73.140 deg; mean 10.078
+       per agent (n 200): with any cue-off step over 45/90/135: 151/0/0; per-agent max |e| p10/50/90/max 41.78 / 49.86 / 61.49 / 73.14; per-agent share over 20 p10/50/90/max 9.64% / 13.05% / 17.19% / 21.12%
+       by k (k: n, share>45, median, mean)  1: 10796, 0.00%, 1.66, 1.99  2: 10792, 0.00%, 2.45, 2.86  3: 10790, 0.00%, 3.01, 3.53  4: 10787, 0.00%, 3.48, 4.09  5: 10785, 0.00%, 3.92, 4.62  6: 10781, 0.00%, 4.28, 5.10  7: 10777, 0.00%, 4.65, 5.52  8: 10770, 0.00%, 5.01, 5.91  9: 10764, 0.00%, 5.29, 6.28  10: 10759, 0.00%, 5.59, 6.63
+       by k (k: n, share>45, median, mean)  11: 10753, 0.00%, 5.89, 6.99  12: 10748, 0.00%, 6.17, 7.31  13: 10746, 0.00%, 6.45, 7.63  14: 10743, 0.00%, 6.66, 7.95  15: 10739, 0.00%, 6.94, 8.21  16: 10737, 0.00%, 7.20, 8.51  17: 10733, 0.00%, 7.46, 8.79  18: 10731, 0.00%, 7.68, 8.99  19: 10729, 0.00%, 7.87, 9.20  20: 10726, 0.03%, 7.99, 9.40
+       by k (k: n, share>45, median, mean)  21: 10724, 0.03%, 8.18, 9.64  22: 10719, 0.04%, 8.31, 9.89  23: 10711, 0.07%, 8.49, 10.11  24: 10709, 0.07%, 8.60, 10.32  25: 10706, 0.08%, 8.81, 10.55  26: 10699, 0.09%, 9.00, 10.79  27: 10695, 0.17%, 9.05, 10.93  28: 10691, 0.18%, 9.34, 11.18  29: 10689, 0.17%, 9.53, 11.43  30: 10687, 0.21%, 9.77, 11.66
+       by k (k: n, share>45, median, mean)  31: 10684, 0.23%, 9.94, 11.86  32: 10683, 0.35%, 10.12, 12.03  33: 10680, 0.39%, 10.28, 12.23  34: 10674, 0.46%, 10.60, 12.46  35: 10670, 0.52%, 10.64, 12.57  36: 10666, 0.57%, 10.69, 12.70  37: 10661, 0.65%, 10.75, 12.85  38: 10660, 0.68%, 10.96, 13.03  39: 10655, 0.73%, 11.16, 13.24  40: 10646, 0.84%, 11.29, 13.40
+       by k (k: n, share>45, median, mean)  41: 10641, 0.85%, 11.40, 13.55  42: 10632, 0.86%, 11.55, 13.75  43: 10627, 0.93%, 11.67, 13.90  44: 10624, 1.01%, 11.79, 14.01  45: 10621, 1.05%, 11.97, 14.16  46: 10616, 1.06%, 12.12, 14.31  47: 10615, 1.27%, 12.28, 14.45  48: 10609, 1.32%, 12.37, 14.59  49: 10606, 1.41%, 12.48, 14.75  50: 10602, 1.57%, 12.58, 14.89
+   (B) runs of consecutive cue-off steps with |e| > 20: n 10083, length p50/p90/p99 3.0 / 20.0 / 38.0, max 46
+   (B) runs of consecutive cue-off steps with |e| > 45: n 418, length p50/p90/p99 2.0 / 12.0 / 21.0, max 31
+       autocorrelation of signed e within cue-off blocks (C4), median over blocks [blocks used]: lag 1: 0.920 [10787], lag 5: 0.599 [10770], lag 10: 0.247 [10746], lag 25: -0.000 [10691]
+       per-block mean signed e: mean -0.022, sd across blocks 10.950 (blocks 10796)
+       |e| on cue-on step j after a cue-off block (j: median, p90, share>20, n)  1: 5.485, 13.575, 1.91%, 10698  2: 2.390, 5.722, 0.00%, 10696  3: 1.221, 2.929, 0.00%, 10694  4: 0.853, 2.106, 0.00%, 10690  5: 0.779, 1.911, 0.00%, 10690  6: 0.769, 1.867, 0.00%, 10685  7: 0.757, 1.853, 0.00%, 10684  8: 0.777, 1.876, 0.00%, 10682  9: 0.765, 1.876, 0.00%, 10679  10: 0.780, 1.881, 0.00%, 10674
+       carry-over: correlation of e at a block's last cue-off step with e at the next block's first cue-off step -0.002 (pairs 10596); |e| at cue-on step 50 median 0.768, p90 1.857 (n 10600)
+   (C) loss events 2736 (since reaches 143); without a prior whiff (C3, excluded) 15; unrecovered 161, recovered 2560
+       unrecovered (n 161): |e| at t_L median 2.258; pre-loss window |e| median of medians 7.397, median of maxima 14.601; post-whiff window median of medians 3.011, median of maxima 31.466; share with any |e| > 45 in either window 0.1180; share with t_L on a cue-off step 0.6025; cast clock at t_L max 0 (0 by ph12.py:116)
+       recovered (n 2560): |e| at t_L median 1.724; pre-loss window |e| median of medians 6.214, median of maxima 14.170; post-whiff window median of medians 1.796, median of maxima 22.792; share with any |e| > 45 in either window 0.0414; share with t_L on a cue-off step 0.4934; cast clock at t_L max 0 (0 by ph12.py:116)
+       agent level: late unrecovered agents 124, recovered 76 (ph12.py:164)
+       path error P = SPEED x sum sin(e) per cue-off block: all blocks mean |P| 4.423, sd 5.529 (n 10796); |P| / half-width at t_L (C8): unrecovered median 2.9582 (pairs 381), recovered median 2.1974 (pairs 6069)
+   (D) step residual r_t (C2) on 535088 cue-off steps: by |v| bin (n, mean, sd) 0-10: 396528, +0.0022, 2.5851; 10-20: 94490, +0.0005, 2.5803; 20-30: 13224, -0.0371, 2.6013; 30-40: 16630, -0.0095, 2.5728; 40-: 14216, +0.0069, 2.5956; OLS slope of r on v -0.00070; jumps |r| > 30: 0 (0.00 per 100,000)
+       correlation of end-of-block signed e with the block's summed signed rotation -0.1424 (blocks 10796)
+       amp by cue-off step k 1/10/25/50 (median) 5.2578 / 5.0544 / 5.0499 / 5.0494; per-block amp(50)/amp(1) median (C6) 0.9586 (blocks 10602), ratio of medians 0.9604; Spearman rho |e| vs amp at k 50 -0.0043 (n 10602)
+       F-iii: unrecovered events outside the odour at the first cue-on step after t_L (C7, literal) 0.7702 (n 161); at the first cue RETURN after t_L (reported) 0.9876 (n 161)
+   (E) exposure: wall contacts 0 by construction (ph12b.py:52-53); distance from source at the end (C9) p10/50/90/max 12.6 / 102.2 / 190.6 / 230.1; max over the run p10/50/90/max 42.8 / 122.2 / 203.2 / 231.3; farther than LMAX 25 at the end 81.5% of 200
+
+-- ring --
+   (A) tail, cue-off agent-steps n 535088: share over 10: 39.388% (210763), 20: 13.128% (70247), 30: 3.604% (19286), 45: 0.350% (1871), 90: 0.000% (0), 135: 0.000% (0)
+       |e| quantiles 50/90/99/99.9/max 7.615 / 22.269 / 38.878 / 52.075 / 81.858 deg; mean 10.036
+       per agent (n 200): with any cue-off step over 45/90/135: 151/0/0; per-agent max |e| p10/50/90/max 42.47 / 49.69 / 61.09 / 81.86; per-agent share over 20 p10/50/90/max 10.14% / 13.05% / 16.44% / 19.97%
+       by k (k: n, share>45, median, mean)  1: 10796, 0.00%, 1.67, 1.98  2: 10792, 0.00%, 2.39, 2.83  3: 10790, 0.00%, 3.00, 3.54  4: 10787, 0.00%, 3.50, 4.13  5: 10785, 0.00%, 3.90, 4.62  6: 10781, 0.00%, 4.32, 5.09  7: 10777, 0.00%, 4.66, 5.48  8: 10770, 0.00%, 4.96, 5.89  9: 10764, 0.00%, 5.34, 6.27  10: 10759, 0.00%, 5.60, 6.60
+       by k (k: n, share>45, median, mean)  11: 10753, 0.00%, 5.91, 6.93  12: 10748, 0.00%, 6.07, 7.23  13: 10746, 0.00%, 6.37, 7.53  14: 10743, 0.00%, 6.53, 7.82  15: 10739, 0.00%, 6.72, 8.10  16: 10737, 0.00%, 7.04, 8.40  17: 10733, 0.00%, 7.25, 8.70  18: 10731, 0.00%, 7.51, 8.94  19: 10729, 0.00%, 7.71, 9.17  20: 10726, 0.02%, 7.94, 9.41
+       by k (k: n, share>45, median, mean)  21: 10724, 0.02%, 8.14, 9.66  22: 10719, 0.05%, 8.41, 9.94  23: 10711, 0.05%, 8.56, 10.13  24: 10709, 0.07%, 8.72, 10.34  25: 10706, 0.06%, 8.82, 10.52  26: 10699, 0.09%, 8.94, 10.70  27: 10695, 0.09%, 9.17, 10.91  28: 10691, 0.08%, 9.41, 11.14  29: 10689, 0.14%, 9.48, 11.33  30: 10687, 0.11%, 9.68, 11.54
+       by k (k: n, share>45, median, mean)  31: 10684, 0.25%, 9.79, 11.70  32: 10683, 0.32%, 10.00, 11.92  33: 10680, 0.33%, 10.27, 12.12  34: 10674, 0.36%, 10.38, 12.31  35: 10670, 0.45%, 10.52, 12.50  36: 10666, 0.48%, 10.68, 12.69  37: 10661, 0.49%, 10.76, 12.82  38: 10660, 0.55%, 10.83, 12.96  39: 10655, 0.72%, 10.95, 13.13  40: 10646, 0.75%, 10.98, 13.27
+       by k (k: n, share>45, median, mean)  41: 10641, 0.74%, 11.12, 13.46  42: 10632, 0.89%, 11.27, 13.66  43: 10627, 0.99%, 11.58, 13.85  44: 10624, 1.03%, 11.82, 14.02  45: 10621, 1.07%, 11.87, 14.17  46: 10616, 1.24%, 12.11, 14.32  47: 10615, 1.34%, 12.25, 14.49  48: 10609, 1.51%, 12.42, 14.65  49: 10606, 1.58%, 12.52, 14.84  50: 10602, 1.73%, 12.69, 15.01
+   (B) runs of consecutive cue-off steps with |e| > 20: n 9939, length p50/p90/p99 3.0 / 20.0 / 38.0, max 45
+   (B) runs of consecutive cue-off steps with |e| > 45: n 422, length p50/p90/p99 2.0 / 11.0 / 20.8, max 29
+       autocorrelation of signed e within cue-off blocks (C4), median over blocks [blocks used]: lag 1: 0.920 [10787], lag 5: 0.598 [10770], lag 10: 0.250 [10746], lag 25: -0.002 [10691]
+       per-block mean signed e: mean -0.003, sd across blocks 10.882 (blocks 10796)
+       |e| on cue-on step j after a cue-off block (j: median, p90, share>20, n)  1: 5.503, 13.658, 1.93%, 10698  2: 2.353, 5.797, 0.00%, 10696  3: 1.198, 2.933, 0.00%, 10694  4: 0.850, 2.083, 0.00%, 10690  5: 0.775, 1.890, 0.00%, 10690  6: 0.752, 1.855, 0.00%, 10685  7: 0.751, 1.836, 0.00%, 10684  8: 0.764, 1.848, 0.00%, 10682  9: 0.750, 1.858, 0.00%, 10679  10: 0.763, 1.855, 0.00%, 10674
+       carry-over: correlation of e at a block's last cue-off step with e at the next block's first cue-off step -0.008 (pairs 10596); |e| at cue-on step 50 median 0.763, p90 1.845 (n 10600)
+   (C) loss events 2541 (since reaches 143); without a prior whiff (C3, excluded) 14; unrecovered 162, recovered 2365
+       unrecovered (n 162): |e| at t_L median 2.464; pre-loss window |e| median of medians 7.151, median of maxima 14.395; post-whiff window median of medians 2.566, median of maxima 33.098; share with any |e| > 45 in either window 0.1728; share with t_L on a cue-off step 0.5494; cast clock at t_L max 0 (0 by ph12.py:116)
+       recovered (n 2365): |e| at t_L median 1.774; pre-loss window |e| median of medians 6.147, median of maxima 14.206; post-whiff window median of medians 1.802, median of maxima 22.489; share with any |e| > 45 in either window 0.0389; share with t_L on a cue-off step 0.4989; cast clock at t_L max 0 (0 by ph12.py:116)
+       agent level: late unrecovered agents 129, recovered 71 (ph12.py:164)
+       path error P = SPEED x sum sin(e) per cue-off block: all blocks mean |P| 4.404, sd 5.496 (n 10796); |P| / half-width at t_L (C8): unrecovered median 2.8516 (pairs 389), recovered median 2.1658 (pairs 5564)
+   (D) step residual r_t (C2) on 535088 cue-off steps: by |v| bin (n, mean, sd) 0-10: 396205, +0.0015, 2.5809; 10-20: 94912, +0.0027, 2.5869; 20-30: 13155, -0.0122, 2.5839; 30-40: 16492, -0.0132, 2.5705; 40-: 14324, -0.0087, 2.5712; OLS slope of r on v -0.00048; jumps |r| > 30: 0 (0.00 per 100,000)
+       correlation of end-of-block signed e with the block's summed signed rotation -0.1238 (blocks 10796)
+       amp by cue-off step k 1/10/25/50 (median) 5.2551 / 5.0523 / 5.0419 / 5.0468; per-block amp(50)/amp(1) median (C6) 0.9603 (blocks 10602), ratio of medians 0.9604; Spearman rho |e| vs amp at k 50 -0.0057 (n 10602)
+       F-iii: unrecovered events outside the odour at the first cue-on step after t_L (C7, literal) 0.7654 (n 162); at the first cue RETURN after t_L (reported) 1.0000 (n 162)
+   (E) exposure: wall contacts 0 by construction (ph12b.py:52-53); distance from source at the end (C9) p10/50/90/max 17.3 / 111.5 / 192.8 / 227.0; max over the run p10/50/90/max 44.7 / 133.8 / 206.1 / 238.8; farther than LMAX 25 at the end 81.5% of 200
+
+-- shadow --
+   (A) tail, cue-off agent-steps n 535088: share over 10: 39.816% (213049), 20: 13.100% (70096), 30: 3.564% (19071), 45: 0.321% (1720), 90: 0.000% (0), 135: 0.000% (0)
+       |e| quantiles 50/90/99/99.9/max 7.711 / 22.220 / 38.403 / 51.355 / 67.725 deg; mean 10.065
+       per agent (n 200): with any cue-off step over 45/90/135: 138/0/0; per-agent max |e| p10/50/90/max 41.12 / 48.74 / 59.08 / 67.72; per-agent share over 20 p10/50/90/max 9.77% / 12.99% / 16.94% / 21.35%
+       by k (k: n, share>45, median, mean)  1: 10796, 0.00%, 1.65, 1.98  2: 10792, 0.00%, 2.37, 2.82  3: 10790, 0.00%, 2.96, 3.50  4: 10787, 0.00%, 3.42, 4.07  5: 10785, 0.00%, 3.88, 4.59  6: 10781, 0.00%, 4.26, 5.04  7: 10777, 0.00%, 4.57, 5.47  8: 10770, 0.00%, 5.02, 5.89  9: 10764, 0.00%, 5.32, 6.25  10: 10759, 0.00%, 5.59, 6.61
+       by k (k: n, share>45, median, mean)  11: 10753, 0.00%, 5.90, 6.94  12: 10748, 0.00%, 6.10, 7.29  13: 10746, 0.00%, 6.49, 7.62  14: 10743, 0.01%, 6.67, 7.93  15: 10739, 0.01%, 6.91, 8.17  16: 10737, 0.01%, 7.15, 8.43  17: 10733, 0.01%, 7.34, 8.68  18: 10731, 0.01%, 7.56, 8.93  19: 10729, 0.01%, 7.78, 9.19  20: 10726, 0.03%, 7.99, 9.43
+       by k (k: n, share>45, median, mean)  21: 10724, 0.05%, 8.21, 9.67  22: 10719, 0.05%, 8.40, 9.94  23: 10711, 0.07%, 8.54, 10.13  24: 10709, 0.07%, 8.73, 10.36  25: 10706, 0.10%, 8.95, 10.60  26: 10699, 0.11%, 9.19, 10.81  27: 10695, 0.12%, 9.33, 11.03  28: 10691, 0.16%, 9.54, 11.23  29: 10689, 0.16%, 9.74, 11.44  30: 10687, 0.16%, 9.91, 11.68
+       by k (k: n, share>45, median, mean)  31: 10684, 0.17%, 10.04, 11.81  32: 10683, 0.22%, 10.15, 12.01  33: 10680, 0.22%, 10.33, 12.15  34: 10674, 0.26%, 10.39, 12.35  35: 10670, 0.34%, 10.64, 12.52  36: 10666, 0.39%, 10.83, 12.70  37: 10661, 0.46%, 10.96, 12.86  38: 10660, 0.51%, 11.09, 13.02  39: 10655, 0.57%, 11.18, 13.18  40: 10646, 0.67%, 11.31, 13.33
+       by k (k: n, share>45, median, mean)  41: 10641, 0.73%, 11.49, 13.51  42: 10632, 0.87%, 11.71, 13.69  43: 10627, 0.94%, 11.78, 13.84  44: 10624, 1.06%, 11.90, 14.02  45: 10621, 1.15%, 11.98, 14.18  46: 10616, 1.12%, 12.19, 14.37  47: 10615, 1.22%, 12.37, 14.53  48: 10609, 1.34%, 12.50, 14.65  49: 10606, 1.33%, 12.56, 14.79  50: 10602, 1.48%, 12.68, 14.94
+   (B) runs of consecutive cue-off steps with |e| > 20: n 10217, length p50/p90/p99 3.0 / 20.0 / 37.0, max 45
+   (B) runs of consecutive cue-off steps with |e| > 45: n 385, length p50/p90/p99 2.0 / 11.0 / 25.2, max 37
+       autocorrelation of signed e within cue-off blocks (C4), median over blocks [blocks used]: lag 1: 0.921 [10787], lag 5: 0.599 [10770], lag 10: 0.251 [10746], lag 25: -0.006 [10691]
+       per-block mean signed e: mean +0.054, sd across blocks 10.885 (blocks 10796)
+       |e| on cue-on step j after a cue-off block (j: median, p90, share>20, n)  1: 5.474, 13.706, 1.74%, 10698  2: 2.374, 5.755, 0.00%, 10696  3: 1.201, 2.917, 0.00%, 10694  4: 0.840, 2.080, 0.00%, 10690  5: 0.782, 1.885, 0.00%, 10690  6: 0.761, 1.844, 0.00%, 10685  7: 0.762, 1.857, 0.00%, 10684  8: 0.751, 1.847, 0.00%, 10682  9: 0.747, 1.837, 0.00%, 10679  10: 0.760, 1.840, 0.00%, 10674
+       carry-over: correlation of e at a block's last cue-off step with e at the next block's first cue-off step -0.016 (pairs 10596); |e| at cue-on step 50 median 0.755, p90 1.860 (n 10600)
+   (C) loss events 5848 (since reaches 143); without a prior whiff (C3, excluded) 7; unrecovered 39, recovered 5802
+       unrecovered (n 39): |e| at t_L median 1.387; pre-loss window |e| median of medians 5.773, median of maxima 17.873; post-whiff window median of medians 1.638, median of maxima 23.046; share with any |e| > 45 in either window 0.0256; share with t_L on a cue-off step 0.4359; cast clock at t_L max 0 (0 by ph12.py:116)
+       recovered (n 5802): |e| at t_L median 1.771; pre-loss window |e| median of medians 7.097, median of maxima 15.829; post-whiff window median of medians 1.775, median of maxima 23.360; share with any |e| > 45 in either window 0.0467; share with t_L on a cue-off step 0.4890; cast clock at t_L max 0 (0 by ph12.py:116)
+       agent level: late unrecovered agents 1, recovered 199 (ph12.py:164)
+       path error P = SPEED x sum sin(e) per cue-off block: all blocks mean |P| 4.435, sd 5.502 (n 10796); |P| / half-width at t_L (C8): unrecovered median 2.2371 (pairs 95), recovered median 2.5242 (pairs 13929)
+   (D) step residual r_t (C2) on 535088 cue-off steps: by |v| bin (n, mean, sd) 0-10: 396440, -0.0043, 2.5808; 10-20: 90341, +0.0053, 2.5877; 20-30: 13252, +0.0287, 2.5773; 30-40: 18547, +0.0088, 2.5936; 40-: 16508, +0.0058, 2.6046; OLS slope of r on v +0.00051; jumps |r| > 30: 0 (0.00 per 100,000)
+       correlation of end-of-block signed e with the block's summed signed rotation -0.0030 (blocks 10796)
+       amp by cue-off step k 1/10/25/50 (median) 5.2624 / 5.0501 / 5.0481 / 5.0328; per-block amp(50)/amp(1) median (C6) 0.9550 (blocks 10602), ratio of medians 0.9564; Spearman rho |e| vs amp at k 50 -0.0071 (n 10602)
+       F-iii: unrecovered events outside the odour at the first cue-on step after t_L (C7, literal) 0.5641 (n 39); at the first cue RETURN after t_L (reported) 1.0000 (n 39)
+   (E) exposure: wall contacts 0 by construction (ph12b.py:52-53); distance from source at the end (C9) p10/50/90/max 4.8 / 19.8 / 31.7 / 116.3; max over the run p10/50/90/max 33.8 / 34.5 / 44.3 / 150.1; farther than LMAX 25 at the end 34.0% of 200
+
+-- pairing (amendment 6: the only paired quantities; everything after t_div is read per arm) --
+   pairing (ring_sep vs integrate), divergence by whiff outcome: diverged agents 200 of 200; t_div p10/50/90 96 / 171 / 293; |e| at t_div p50/p90 1.490 / 16.351; t_div before ring_sep's first loss t_L in 46 of 198 agents with a loss event
+   pairing (ring_sep vs integrate), divergence by position > 1.0: diverged agents 200 of 200; t_div p10/50/90 61 / 98 / 137; |e| at t_div p50/p90 12.123 / 21.542; t_div before ring_sep's first loss t_L in 55 of 198 agents with a loss event
+
+== registered falsification readings (ring_sep reads the F rows; ring and shadow beside) ==
+   ring_sep  F1    NOT MET      unrecovered 0.1180 (n 161), recovered 0.0414 (n 2560)
+   ring_sep  F2    INCONCLUSIVE lag-10 median 0.2472 (blocks 10746), cue-on step 3 median |e| 1.2208
+   ring_sep  F3    MET          t_L cue-off share 0.6025 (n 161); measured cue-off share of all agent-steps 0.4955
+   ring_sep  Fi    INCONCLUSIVE bench gains (median, zero step) 1.0000 to 1.0000 for |v| <= 60; closed-loop slope -0.00070; end-of-block correlation -0.1424
+   ring_sep  Fii   NOT MET      amp ratio 0.9586; jumps 0.00 per 100,000; rho -0.0043
+   ring_sep  Fiii  MET          cue-on step 2 median |e| 2.3897; share outside the odour 0.7702 (n 161)
+   ring_sep  Fiv   NOT MET      mismatch count 0
+   ring_sep  Fv    MET          bench (b1) sd ratio two/one 1.4433
+   ring_sep  Fvi   INCONCLUSIVE median |P| / half-width unrecovered 2.9582, recovered 2.1974
+   ring      F1    NOT MET      unrecovered 0.1728 (n 162), recovered 0.0389 (n 2365)
+   ring      F2    INCONCLUSIVE lag-10 median 0.2504 (blocks 10746), cue-on step 3 median |e| 1.1977
+   ring      F3    INCONCLUSIVE t_L cue-off share 0.5494 (n 162); measured cue-off share of all agent-steps 0.4955
+   ring      Fi    INCONCLUSIVE bench gains (median, zero step) 1.0000 to 1.0000 for |v| <= 60; closed-loop slope -0.00048; end-of-block correlation -0.1238
+   ring      Fii   NOT MET      amp ratio 0.9603; jumps 0.00 per 100,000; rho -0.0057
+   ring      Fiii  MET          cue-on step 2 median |e| 2.3527; share outside the odour 0.7654 (n 162)
+   ring      Fiv   NOT MET      mismatch count 0
+   ring      Fv    MET          bench (b1) sd ratio two/one 1.4433
+   ring      Fvi   INCONCLUSIVE median |P| / half-width unrecovered 2.8516, recovered 2.1658
+   shadow    F1    UNREADABLE   unrecovered 0.0256 (n 39), recovered 0.0467 (n 5802)
+   shadow    F2    INCONCLUSIVE lag-10 median 0.2508 (blocks 10746), cue-on step 3 median |e| 1.2014
+   shadow    F3    UNREADABLE   t_L cue-off share 0.4359 (n 39); measured cue-off share of all agent-steps 0.4955
+   shadow    Fi    NOT MET      bench gains (median, zero step) 1.0000 to 1.0000 for |v| <= 60; closed-loop slope +0.00051; end-of-block correlation -0.0030
+   shadow    Fii   NOT MET      amp ratio 0.9550; jumps 0.00 per 100,000; rho -0.0071
+   shadow    Fiii  UNREADABLE   cue-on step 2 median |e| 2.3743; share outside the odour 0.5641 (n 39)
+   shadow    Fiv   NOT MET      mismatch count 0
+   shadow    Fv    MET          bench (b1) sd ratio two/one 1.4433
+   shadow    Fvi   UNREADABLE   median |P| / half-width unrecovered 2.2371, recovered 2.5242
+
+== branch table read from the ring_sep F rows only (design section 3) ==
+   B-i      condition not met
+   B-ii     condition not met
+   B-iii    condition met
+   B-v      condition not met
+   B-vi     condition not met
+   B-close  condition not met
+
+   wrote experiments/h18/ph37_summary.json

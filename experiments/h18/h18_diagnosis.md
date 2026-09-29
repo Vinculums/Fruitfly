@@ -1,4 +1,4 @@
-# H18 Stage A diagnosis (measurement only): STOPPED at the known-answer identity I7, before any ring reading
+# H18 Stage A diagnosis (measurement only): STOPPED at the known-answer identity I7 before any ring reading; after the I7 correction (decision:h18-i7-expectation-corrected), the registered readings
 
 Date 2026-09-29. Decision: decision:h18-open (the owner, verbatim '권고안대로 확정, v2는 opus 에이전트로 쓰고 Stage A 진행', gloss 'confirmed as recommended; v2 written by the Opus agent, then proceed with Stage A'), on experiments/h18/h18_design_v2.md (v2 FINAL, sha256 cbc2d97cb87d76002b6cef6a0680c970d4b7af4eb853cf1e5af77a26bff4d07d, commit 6b8d4c2). Script src/ph37.py (sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815; the same file ran every stage, as each stage log's header shows); output experiments/h18/ph37_diag.txt (LF, sha256 ce5e1bc01865cf62bc8c0bdd25777e112b22241520431069df83d79769445650); numbers experiments/h18/ph37_summary.json (sha256 9676c53befb6402634ec9700a1dbf65997649d740a45d57f6fb8cbb3fcca91ad). **Every number below is read from that output.** Nothing is adopted; no rule, ring, bar or adopted file is changed; no new seed is used.
 
@@ -33,22 +33,104 @@ Environment: python 3.13.12, numpy 2.4.6, Windows-10-10.0.19045-SP0, BLAS pinned
 
 The code prints the stop verbatim: "STOP at I7 ... `none` F1 reads NOT MET (unrecovered 1.0000 (n 193), recovered 1.0000 (n 244)), expected MET. No ring, ring_sep or shadow reading has been computed."
 
-## 5. Reading (interpretation, not measured)
+## 5. The I7 correction (decision:h18-i7-expectation-corrected)
 
-- The `none` arm's (A) numbers reproduce the K5 record to the printed precision, from the same arrays F1 reads. That is evidence that the error, the cue masks and the arrays are computed correctly. The unexpected F1 result is not traced to any code line.
-- The F1 result follows from how F1 is defined. For an arm whose error exceeds 45 degrees on two thirds of cue-off steps, every event window of either kind contains such a step. The recovered share is then 1.0000, as is the unrecovered share. F1's relative clause (at least twice the recovered share) cannot then be met. Its NOT MET clause (at most 1.2 times the recovered share) is met. The expectation 'MET on F1' registered for `none` in I7 (amendment 5) did not take the relative clause into account.
-- The registered rule treats any I7 surprise as an implementation error and says no ring reading is to be taken before it is repaired. No implementation error has been found to repair. Changing F1 or I7 after this output exists would change a registered definition, which section 9 forbids ('no threshold changes once the output exists'). So the run stops here, as registered and as the execution instruction requires, with everything already computed kept on record.
+The owner chose option (a) of the stopped report: the I7 expectation was mis-stated, and F1 and every other definition stay as registered (experiments/h18/h18_i7_amendment.md, sha256 aed09543768968e14b1fc2862594167ed478047d6a241b78ee89f5c7a86f0525; commit a4c48b1). The stopped output ph37_diag.txt stays on record unchanged. src/ph37.py was changed in the I7 block only, plus one header line disclosing the change: sha256 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815 before, 761902504b627bf2da789751a843cda9425773b6beb808b2fdbc034457b2151d after. The readings pass was then run once on the stored arrays, whose sha256 were checked equal to ph37_diag.txt lines 299-305 before reading. Its output is experiments/h18/ph37_read.txt (LF, 457 lines, sha256 5d4e7bd048484f45018eb7138a77577a3cf463bbbe1403e31c828b6787349080). R1, I1 to I6 and the `none` and `integrate` readings in that output repeat the stopped run's lines. The earlier keys of ph37_summary.json (meta, bench, R1, identities, I7) are identical to the stopped run's; new keys were added (sha256 now 2e543c086d1d61d1e0f554adec3c85d9e1fa33b1b4e07fd3f8407c8f7cd0682c).
 
-## 6. What the owner can decide
+- **I7 as corrected:** `none` F1 absolute clause, unrecovered share 1.0000 >= 0.70: **MET** (the known answer). The relative clause, 1.0000 against 2 x 1.0000, is **SATURATED** (both shares 1.0000) and not read. `integrate`: e identically 0; every e-reading UNREADABLE (39 unrecovered events), as before. 'I7: no surprise.'
 
-Stage A has no ring reading, so the branch table of design section 3 cannot be read: no F row was taken on `ring_sep`, `ring` or `shadow`. The choice is the owner's. The options the record allows are:
+## 6. The registered readings (A)-(E) (from ph37_read.txt)
 
-- **(a) Record the I7 result as a defect of the I7 expectation (the relative clause of F1), not of the code, and let the registered readings be taken unchanged.** F1's definition and every threshold would stay as registered. The only change is to the known-answer expectation for `none` on F1, which becomes NOT MET (a decision naming the change; the H14 rule for relaxed bounds, master_plan.md:2053 onward, gives the form).
-- **(b) Amend F1 itself before any ring reading** (for example, drop the relative clause or register a different known answer). A new registered definition would be needed, recorded before the readings pass is run. The arrays on disk would be read unchanged.
-- **(c) Close H18 Stage A as stopped at I7**, with sections 2 to 4 on record.
+Cue-off agent-steps n 535,088 in every dropout arm. `ring_sep` reads the F rows; `ring` and `shadow` are printed beside it. `shadow` is the open-loop ring on the `integrate` arm's path, so its loss events are `integrate`'s.
 
-Nothing in the arrays depends on this choice: the readings pass (`python src/ph37.py read`) reads the stored arrays and would run unchanged after (a); after (b) it would need the amended definition written into it first.
+| reading | ring_sep | ring | shadow |
+|---|---|---|---|
+| (A) share of cue-off steps over 10 / 20 / 30 / 45 / 90 / 135 deg | 39.715 / 13.234 / 3.685 / 0.355 (1,902) / 0.000 / 0.000 % | 39.388 / 13.128 / 3.604 / 0.350 (1,871) / 0.000 / 0.000 % | 39.816 / 13.100 / 3.564 / 0.321 (1,720) / 0.000 / 0.000 % |
+| (A) abs e quantiles 50 / 90 / 99 / 99.9 / max, mean (deg) | 7.665 / 22.361 / 38.783 / 52.767 / 73.140, mean 10.078 | 7.615 / 22.269 / 38.878 / 52.075 / 81.858, mean 10.036 | 7.711 / 22.220 / 38.403 / 51.355 / 67.725, mean 10.065 |
+| (A) agents (of 200) with any cue-off step over 45 / 90 / 135 | 151 / 0 / 0 | 151 / 0 / 0 | 138 / 0 / 0 |
+| (A) median abs e at cue-off step k 1 / 10 / 25 / 50; share over 45 at k 50 | 1.66 / 5.59 / 8.81 / 12.58; 1.57 % (n 10,602) | 1.67 / 5.60 / 8.82 / 12.69; 1.73 % | 1.65 / 5.59 / 8.95 / 12.68; 1.48 % |
+| (B) runs over 20 deg: n, length p50 / p90 / p99, max | 10,083; 3.0 / 20.0 / 38.0; 46 | 9,939; 3.0 / 20.0 / 38.0; 45 | 10,217; 3.0 / 20.0 / 37.0; 45 |
+| (B) runs over 45 deg: n, length p50 / p90 / p99, max | 418; 2.0 / 12.0 / 21.0; 31 | 422; 2.0 / 11.0 / 20.8; 29 | 385; 2.0 / 11.0 / 25.2; 37 |
+| (B) median within-block autocorrelation, lag 1 / 5 / 10 / 25 (blocks 10,787 / 10,770 / 10,746 / 10,691) | 0.920 / 0.599 / 0.247 / -0.000 | 0.920 / 0.598 / 0.250 / -0.002 | 0.921 / 0.599 / 0.251 / -0.006 |
+| (B) per-block mean signed e: mean, sd across 10,796 blocks | -0.022, 10.950 | -0.003, 10.882 | +0.054, 10.885 |
+| (B) median abs e on cue-on step 1 / 2 / 3 / 5 / 10 after a block (n about 10,700) | 5.485 / 2.390 / 1.221 / 0.779 / 0.780 | 5.503 / 2.353 / 1.198 / 0.775 / 0.763 | 5.474 / 2.374 / 1.201 / 0.782 / 0.760 |
+| (B) carry-over correlation, block end to next block start (10,596 pairs); median abs e at cue-on step 50 (n 10,600) | -0.002; 0.768 | -0.008; 0.763 | -0.016; 0.755 |
+| (C) loss events; no prior whiff (excluded, C3); unrecovered; recovered | 2,736; 15; 161; 2,560 | 2,541; 14; 162; 2,365 | 5,848; 7; 39; 5,802 |
+| (C) median abs e at t_L, unrecovered / recovered | 2.258 / 1.724 | 2.464 / 1.774 | 1.387 / 1.771 |
+| (C) pre-loss window, median of the per-event maxima, unrecovered / recovered | 14.601 / 14.170 | 14.395 / 14.206 | 17.873 / 15.829 |
+| (C) post-whiff window, median of the per-event maxima, unrecovered / recovered | 31.466 / 22.792 | 33.098 / 22.489 | 23.046 / 23.360 |
+| (C) share with t_L on a cue-off step, unrecovered / recovered | 0.6025 / 0.4934 | 0.5494 / 0.4989 | 0.4359 / 0.4890 |
+| (C) agents late unrecovered / recovered (of 200) | 124 / 76 | 129 / 71 | 1 / 199 (integrate's path) |
+| (C) path error P per cue-off block: mean abs P, sd (10,796 blocks); median abs P over the half-width, unrecovered (pairs) / recovered (pairs) | 4.423, 5.529; 2.9582 (381) / 2.1974 (6,069) | 4.404, 5.496; 2.8516 (389) / 2.1658 (5,564) | 4.435, 5.502; 2.2371 (95) / 2.5242 (13,929) |
+| (D) step residual r_t: sd by abs(v) bin 0-10 / 10-20 / 20-30 / 30-40 / over 40 (535,088 steps) | 2.5851 / 2.5803 / 2.6013 / 2.5728 / 2.5956 | 2.5809 / 2.5869 / 2.5839 / 2.5705 / 2.5712 | 2.5808 / 2.5877 / 2.5773 / 2.5936 / 2.6046 |
+| (D) OLS slope of r on v; jumps over 30 deg per 100,000 | -0.00070; 0.00 | -0.00048; 0.00 | +0.00051; 0.00 |
+| (D) correlation of end-of-block e with the block's summed rotation (10,796 blocks) | -0.1424 | -0.1238 | -0.0030 |
+| (D) median amp at k 1 / 50; per-block ratio (10,602 blocks); Spearman rho at k 50 | 5.2578 / 5.0494; 0.9586; -0.0043 | 5.2551 / 5.0468; 0.9603; -0.0057 | 5.2624 / 5.0328; 0.9550; -0.0071 |
+| (C, F-iii) unrecovered events outside the odour at the first cue-on step after t_L (C7); at the first cue return (reported) | 0.7702 (n 161); 0.9876 (n 161) | 0.7654 (n 162); 1.0000 (n 162) | 0.5641 (n 39); 1.0000 (n 39) |
+| (E) distance from source at the end p10 / 50 / 90 / max; share farther than 25 (of 200) | 12.6 / 102.2 / 190.6 / 230.1; 81.5 % | 17.3 / 111.5 / 192.8 / 227.0; 81.5 % | 4.8 / 19.8 / 31.7 / 116.3; 34.0 % |
 
-## 7. Not done
+Wall contacts are 0 by construction in every arm (ph12b.py:52-53). `none` was read on (A) only (section 4). `integrate`'s e is identically 0.
 
-No `ring`, `ring_sep` or `shadow` reading (A) to (E), no pairing reading, no F row on those arms, and no branch-table reading were computed. The arrays and bench results for them exist on disk and have not been read. No rule, ring, bar or adopted file is changed. No new seed is used. The per-arm arrays (experiments/h18/arrays/*.npz, 136 MB in total) are kept local and not for commit; each is listed with its sha256 in ph37_diag.txt ('array files').
+**Pairing** (amendment 6: t_div, e at t_div, and whether t_div precedes t_L of ring_sep's first loss event are the only paired quantities). ring_sep against integrate:
+- **Divergence by whiff outcome:** all 200 agents diverge; t_div p10 / 50 / 90 = 96 / 171 / 293; abs e at t_div p50 / p90 = 1.490 / 16.351. t_div precedes the first loss t_L in 46 of the 198 agents with a loss event.
+- **Divergence by position (more than 1.0 apart):** t_div 61 / 98 / 137; abs e at t_div 12.123 / 21.542. t_div precedes the first loss t_L in 55 of 198.
+
+## 7. The registered falsification readings (ring_sep reads the F rows)
+
+| row | ring_sep | numbers (ring_sep) | ring beside | shadow beside |
+|---|---|---|---|---|
+| F1 tail | **NOT MET** | unrecovered 0.1180 (n 161), recovered 0.0414 (n 2,560); NOT MET as 0.1180 <= 0.30 | NOT MET (0.1728, n 162; 0.0389, n 2,365) | UNREADABLE (39 unrecovered) |
+| F2 persistence | **INCONCLUSIVE** | lag-10 median 0.2472 (10,746 blocks), cue-on step 3 median abs e 1.2208; lag-10 is between 0.2 and 0.6 | INCONCLUSIVE (0.2504; 1.1977) | INCONCLUSIVE (0.2508; 1.2014) |
+| F3 before a loss | **MET** | t_L on a cue-off step 0.6025 (n 161) >= 0.60; measured cue-off share of all agent-steps 0.4955 (535,088 of 1,080,000) | INCONCLUSIVE (0.5494, n 162) | UNREADABLE |
+| F-i shift | **INCONCLUSIVE** | bench gains (median, zero step) 1.0000 to 1.0000 for abs(v) <= 60; closed-loop slope -0.00070; end-of-block correlation -0.1424, between 0.1 and 0.3 in abs value | INCONCLUSIVE (-0.00048; -0.1238) | NOT MET (+0.00051; -0.0030) |
+| F-ii amplitude, readout | **NOT MET** | amp ratio 0.9586 (10,602 blocks) >= 0.8; jumps 0.00 per 100,000; rho -0.0043 | NOT MET | NOT MET |
+| F-iii cue return | **MET** | cue-on step 2 median abs e 2.3897 <= 5; share outside the odour 0.7702 (n 161) >= 0.60 | MET (2.3527; 0.7654, n 162) | UNREADABLE |
+| F-iv contract | **NOT MET** | mismatch count 0 (I1) | NOT MET | NOT MET |
+| F-v second step | **MET** | bench (b1) sd ratio two steps over one 1.4433 >= 1.3 | MET (the same bench) | MET |
+| F-vi path error | **INCONCLUSIVE** | F1 NOT MET; median abs P over the half-width, unrecovered 2.9582 (381 pairs), recovered 2.1974 (6,069 pairs); 2.9582 is >= 0.5 but below 1.5 x 2.1974 = 3.296, and above 1.1 x 2.1974 = 2.417 | INCONCLUSIVE (2.8516; 2.1658) | UNREADABLE |
+
+## 8. ring_sep against ring (design section 8, reported, not a gate)
+
+From the stored per-agent arrays through ph12b.describe2, by src/ph37b.py (sha256 0ec581e6f0beb4beb7d9ee57ae62a9e627096d16d89fb4f80300720a613b4432; output experiments/h18/ph37_sep_aggregates.txt, sha256 553cc7d46736398165829f58ccf320ea11c1beae8852bfa1aa450a6518e38f5c; see section 11). The `ring` line reproduces K5 record line 174 exactly.
+
+| arm | last-third median | mean | p75 / p90 | late unrecovered (of 200) | lost at end | lost events, recovered |
+|---|---|---|---|---|---|---|
+| ring (recorded) | 0.0 | 5.5 | 11.0 / 20.7 | 64.5 % | 82.5 % | 2,541, 93.5 % |
+| ring_sep | 0.0 | 6.7 | 14.7 / 23.3 | 62.0 % | 81.5 % | 2,736, 94.0 % |
+
+ring_sep against ring on the last third: 0.0 against 0.0, ring_sep wins 33.0 percent of agents ('no' by the project's usual margin). The (A)-(D) statistics of the two arms agree to the printed precision in most cells of section 6. F3 is the one F row that differs: ring_sep 0.6025 (MET), ring 0.5494 (INCONCLUSIVE).
+
+## 9. Reading (interpretation, not measured)
+
+- **The tail is thin and is not where most losses come from.** Errors over 45 degrees cover 0.355 percent of cue-off steps, and none exceed 90. Runs over 45 degrees last 2 steps at the median and 31 at most. An error over 45 degrees appears in the windows of 11.8 percent of unrecovered events (4.1 percent of recovered ones). So about 88 percent of unrecovered losses happen without one (F1 NOT MET).
+- **The error behaves like noise summed within a block, and the cue removes it.**
+  - The median error grows from 1.66 degrees at the first cue-off step to 12.58 at the fiftieth.
+  - The one-step residual has sd 2.58 in every rotation bin, with slope near 0 and no jumps. The bench rotates with gain 1.0000.
+  - The noise-driven drift in (b1), 2.57 degrees per agent-step with the wiring as adopted, is close to the design's inferred 2.6 (design 2.5).
+  - When the cue returns, the error falls to 2.39 degrees by the second step and under 1 by the fifth. Nothing carries into the next block (correlation -0.002).
+  - The open-loop shadow ring, on paths that keep the plume, has the same error statistics. So the error process does not depend on the loss.
+  - F2 is INCONCLUSIVE. The median lag-10 within-block correlation is 0.247, below the 0.6 the design reasoned from; a Pearson correlation centred within one 50-step block reads lower than the random-walk figure the design used. That is an observation about the statistic, not a new reading.
+- **Losses begin during cue loss more often than chance, and the agent is off the plume when the cue returns.** 60.25 percent of ring_sep's unrecovered losses begin on a cue-off step, against a measured cue-off share of 49.55 percent and 49.34 percent for recovered losses (F3 MET). At the first cue-on step after the last whiff, 77.0 percent of those agents are outside the odour, and at the first cue return 98.8 percent. By then the bump is re-cued within about three steps, but the position is not (F-iii MET). For ring the timing share is 0.5494 (INCONCLUSIVE) while F-iii reads MET the same way.
+- **The path error is large in both kinds of event.** The median cue-off block moves the agent by 2.2 to 3.0 plume half-widths, recovered or not (F-vi INCONCLUSIVE). Unrecovered events sit higher, 2.96 against 2.20, a ratio of 1.35, below the registered 1.5.
+- **The rest of the (D) and bench readings.** The bump amplitude holds (0.96 over a block; F-ii NOT MET) and the input contract holds (F-iv NOT MET). The second, zero-input ring step raises the drift sd by 1.44 (F-v MET). F-i is INCONCLUSIVE only through the end-of-block correlation (-0.142). The bench gain and the closed-loop slope sit inside F-i's NOT MET bands.
+- **When the first loss happens.** In 152 of 198 agents (whiff criterion), ring_sep's first loss begins before its whiff outcomes diverge from the integrator's. Up to that point the two arms have the same whiffs, so the integrator's first loss begins at the same whiff. This is about when the first losses happen; it does not compare their outcomes.
+
+## 10. What the owner can decide (the branch table of design section 3, read from the ring_sep F rows only)
+
+| branch | registered condition | F rows | condition |
+|---|---|---|---|
+| B-i kernel or shift | F-i MET | F-i INCONCLUSIVE | not met |
+| B-ii readout gate on amplitude | F-ii MET | F-ii NOT MET | not met |
+| **B-iii cast rule on cue return** | F-iii MET (with F3 MET) | F-iii MET, F3 MET | **met** |
+| B-v one ring step per agent-step | F-v MET, F-i and F-ii NOT MET | F-v MET, F-i INCONCLUSIVE, F-ii NOT MET | not met |
+| B-vi diffusion or path error | F-vi MET, F1 NOT MET | F-vi INCONCLUSIVE, F1 NOT MET | not met |
+| B-close | no cause MET | F-iii and F-v MET | not met |
+
+The F rows support branch **B-iii** only. The margin: ring_sep's F3 is 97 of 161 unrecovered events (0.6025) against the registered 0.60, one event above the bar. On the recorded `ring` rows F3 reads 89 of 162 (0.5494), INCONCLUSIVE. So B-iii's 'met' holds on the ring_sep instrument and not on the recorded arm. (The counts are the unique integers consistent with the printed four-decimal shares; ph37_read.txt prints the shares.) As design section 3 registers, any Stage B would need its own design v1 and v2 FINAL, its own bench with identities, its own seeds, and, for any adoption, a separate decision EXTENDING the adopted scope. Stage A changes nothing in the adopted agent. The choice is the owner's.
+
+## 11. Not done
+
+- No change to the ring, the rule, any bar or any adopted file. Nothing is tuned. No new seed is used.
+- Section 8's aggregates were not printed by ph37.py's readings pass. The design registers them as printed beside ring's, and the readings pass omitted them. They were computed afterwards from the stored per-agent arrays with ph12b.describe2 and compare, unchanged, by src/ph37b.py (sha256 0ec581e6f0beb4beb7d9ee57ae62a9e627096d16d89fb4f80300720a613b4432). Its output, with the sha256 of the arrays and imported sources, is experiments/h18/ph37_sep_aggregates.txt (sha256 553cc7d46736398165829f58ccf320ea11c1beae8852bfa1aa450a6518e38f5c). A first run of the same logic from an unrecorded scratchpad script gave the same data lines; this output replaces it.
+- The per-arm arrays (experiments/h18/arrays/*.npz, 136 MB) are kept local and not for commit; their sha256 are in ph37_diag.txt lines 299-305.
+- Stage B is not designed.

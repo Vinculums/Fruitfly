@@ -1010,6 +1010,30 @@ Progress log
   (a) record the I7 expectation as mis-stated and take the registered readings unchanged from the stored arrays; (b)
   amend F1 before any ring reading; (c) close Stage A as stopped. Arrays (136 MB) kept local, listed with sha256 in the
   output.
+- **H18 I7 expectation corrected by the owner, option (a) (2026-09-29; decision:h18-i7-expectation-corrected;
+  experiments/h18/h18_i7_amendment.md).** The `none` known answer on F1 is restated: the absolute clause MET, the
+  relative clause SATURATED and not read; the reviewer's error. No threshold, definition, seed or array changes; only
+  the I7 check in src/ph37.py, disclosed and rehashed. The readings pass then runs on the stored arrays.
+- **H18 Stage A COMPLETE, measurement only (2026-09-29; record:h18-stage-a-result; src/ph37.py sha 76190250...151d,
+  src/ph37b.py sha 0ec581e6...4432, experiments/h18/ph37_read.txt sha 5d4e7bd0...9080, report
+  experiments/h18/h18_diagnosis.md sha fd2e31bb...f870).** Run by an Opus 5.5 agent after the I7 correction; the (A) tail,
+  the loss events, F1 and F3 recomputed independently in the reviewing session from the stored arrays and equal to the
+  printed values. On ring_sep (the ring with its noise on its own stream, paired with the integrator): tail 0.355 percent
+  of 535,088 cue-off agent-steps over 45 degrees, none over 90, maximum 73.1; the median error grows from 1.66 at the
+  first cue-off step to 12.58 at the fiftieth; one-step residual sd 2.58 in every rotation bin, slope near 0, no jumps;
+  at cue return the error is 2.39 by the second step and under 1 by the fifth, carry-over about 0; bump amplitude held
+  (0.96 over a block); bench gain 1.0000; 2,736 loss events, 161 unrecovered. F table: F1 NOT MET (an error over 45 in
+  the windows of 0.1180 of unrecovered against 0.0414 of recovered events); F2 INCONCLUSIVE (lag-10 median 0.247, cue-on
+  step 3 median 1.22); F3 MET (t_L on a cue-off step in 97 of 161, 0.6025, against the measured cue-off share 0.4955);
+  F-i INCONCLUSIVE (gain and slope inside the NOT MET bands, end-of-block correlation -0.142); F-ii NOT MET; F-iii MET
+  (cue-on step 2 median 2.39; 0.7702 of unrecovered events outside the odour at the first cue-on step after t_L); F-iv
+  NOT MET (mismatch 0); F-v MET (1.4433); F-vi INCONCLUSIVE (path error per half-width 2.96 against 2.20, ratio 1.35).
+  The recorded ring rows read the same everywhere except F3: 89 of 162, 0.5494, INCONCLUSIVE. Branch table: only B-iii
+  (the cast rule at cue return) is met, on the ring_sep instrument, by one event above the F3 bar, and not on the
+  recorded arm. ring_sep against ring: last third 0.0 against 0.0, late unrecovered 62.0 against 64.5 percent. Reading,
+  not a measurement: the cue-off error is per-step noise summed within a block (the residual sd 2.58 against the design's
+  inferred 2.6), doubled by the second ring step, and erased by the cue; the agent is usually off the plume when the cue
+  returns. Nothing changed in the adopted agent; the branch is the owner's.
 
 ## Why a plan now
 
@@ -1832,10 +1856,14 @@ Four hypotheses were run in one day by picking the next most interesting candida
   `none` reads F1 NOT MET (both event shares 1.0000) where the review's amendment 5 expected MET, because F1's relative
   clause cannot be met by a saturated arm. No ring reading taken. The owner chooses (a) take the readings with the I7
   expectation recorded as mis-stated, (b) amend F1 first, or (c) close.
-- **H18 I7 expectation corrected by the owner, option (a) (2026-09-29; decision:h18-i7-expectation-corrected;
-  experiments/h18/h18_i7_amendment.md).** The `none` known answer on F1 is restated: the absolute clause MET, the
-  relative clause SATURATED and not read; the reviewer's error. No threshold, definition, seed or array changes; only
-  the I7 check in src/ph37.py, disclosed and rehashed. The readings pass then runs on the stored arrays.
+- The owner chose (a) (decision:h18-i7-expectation-corrected; experiments/h18/h18_i7_amendment.md). Stage A COMPLETE
+  (record:h18-stage-a-result; report experiments/h18/h18_diagnosis.md; src/ph37.py, src/ph37b.py): the error under cue
+  loss is thin-tailed (0.355 percent over 45 degrees, none over 90), grows within a block like summed per-step noise
+  (residual sd 2.58, gain 1.0000, amplitude held), is erased within five steps of the cue's return, and the loss begins
+  during cue loss in 0.6025 of unrecovered events with the agent outside the odour at the cue's return in 0.7702. F1,
+  F-ii, F-iv NOT MET; F2, F-i, F-vi INCONCLUSIVE; F3, F-iii, F-v MET. Only branch B-iii is met, by one event above the
+  F3 bar on the ring_sep instrument (97 of 161), INCONCLUSIVE on the recorded ring rows (89 of 162). The branch is the
+  owner's: B-iii for design, or close as a recorded limit with this description.
 
 ## The architecture as currently adopted
 
@@ -2334,11 +2362,13 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H18 Stage A readings pass running** after the owner's option (a) (decision:h18-i7-expectation-corrected,
-  2026-09-29; experiments/h18/h18_i7_amendment.md): the I7 expectation restated, nothing else changed; the registered
-  readings are taken from the stored arrays. The output is a branch table; the branch is the owner's. Pending
-  bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18 node and document
-  put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
+- **H18 Stage A complete; the branch is the owner's** (record:h18-stage-a-result; experiments/h18/h18_diagnosis.md
+  section 10). Only B-iii (what the cast rule does in the first steps after the cue returns) is met, and on a margin of
+  one event on the ring_sep instrument; the recorded ring rows read F3 INCONCLUSIVE. The owner chooses between opening
+  B-iii for design (its own design v1 and v2 FINAL, bench, seeds; any adoption a separate decision extending the adopted
+  scope) and closing H18 as a recorded limit of the ring outside the adopted scope, with Stage A's description on
+  record. Pending bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18
+  node and document put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
 
 ## Queued candidates, none started
 
@@ -2455,6 +2485,7 @@ within the release's scope (non-negative held values) and stays in force at nega
   wind is sensed every step (64.5 percent unrecovered under 50-step cue loss, concept:ring-leaks-under-cue-loss).
   **Opened for design (decision:h18-open-design, 2026-09-29); design v1 DRAFT experiments/h18/h18_design_v1.md,
   diagnosis first; confirmed as recommended and opened on v2 FINAL (decision:h18-open, 2026-09-29); Stage A STOPPED at
-  the known-answer identity I7 before any ring reading (record:h18-stage-a-i7-stop); the owner chooses.**
+  the known-answer identity I7 before any ring reading (record:h18-stage-a-i7-stop), corrected by the owner (option (a));
+  Stage A COMPLETE (record:h18-stage-a-result): only branch B-iii met, by one event; the branch is the owner's.**
 - **An H17 re-attempt** (cold start), ranked sixth: closed twice at the bench (decision:h17-closed); the consequence that
   moved it up (the release stranding negative holds) no longer arises by code under N2; a Run 3 would need new state.

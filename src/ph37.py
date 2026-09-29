@@ -69,6 +69,8 @@ def header(stage):
     print(f"== H18 Stage A, src/ph37.py, stage `{stage}` ==")
     print(f"python {platform.python_version()}  numpy {np.__version__}  platform {platform.platform()}")
     print(f"src/ph37.py sha256 {sha(os.path.abspath(__file__))}")
+    print("  amended by decision:h18-i7-expectation-corrected (experiments/h18/h18_i7_amendment.md): only the I7"
+          " expectation for `none` on F1; sha256 before the amendment 284fede4cffed8a8f97192e45a68a6a3cdef285104eaabf8c73f8d372a5fc815")
     print(f"design experiments/h18/h18_design_v2.md sha256 {sha(DESIGN)}")
     bad = []
     for name, m in sorted(sys.modules.items()):
@@ -697,7 +699,12 @@ def stage_read():
         if st["on"]: P(s)
     Sn = readings(An, PA)
     Fn = ftable(Sn, B, meta["ring"]["mismatch"][0], cue_share, lambda s: None, "none")
-    print(f"   `none` F1: {Fn['F1'][0]}  ({Fn['F1'][1]}); expected MET")
+    print(f"   `none` F1 as registered: {Fn['F1'][0]}  ({Fn['F1'][1]})")
+    su, sr = Sn["C_unrecovered"]["any45"], Sn["C_recovered"]["any45"]
+    abs_ok = su >= 0.70; sat = su == 1.0 and sr == 1.0
+    print(f"   I7 as corrected (decision:h18-i7-expectation-corrected): `none` F1 absolute clause, unrecovered share"
+          f" {su:.4f} >= 0.70: {'MET' if abs_ok else 'NOT MET'} (known answer MET); relative clause {su:.4f} against"
+          f" 2 x {sr:.4f}: {'SATURATED (both shares 1.0000), not read' if sat else 'not saturated; printed, not read'}")
     del An
     Ai = Arm("integrate", amp_key="__none__")
     emax = meta["integrate"]["max_abs_e_in_run"]
@@ -709,7 +716,8 @@ def stage_read():
     SUM["I7"] = dict(none_F1=Fn["F1"], none_A_share45=Sn["A_share"][45], integrate_emax=emax,
                      integrate_rows={k: v for k, v in Fi_.items()})
     surprise = []
-    if Fn["F1"][0] != "MET": surprise.append(f"`none` F1 reads {Fn['F1'][0]} ({Fn['F1'][1]}), expected MET")
+    SUM["I7"].update(none_F1_absolute=bool(abs_ok), none_F1_relative_saturated=bool(sat))
+    if not abs_ok: surprise.append(f"`none` F1 absolute clause reads NOT MET (unrecovered share {su:.4f}), expected MET")
     if emax != 0.0: surprise.append(f"`integrate` max |e| {emax!r}, expected identically 0")
     for k, v in readable.items():
         if v[0] != "NOT MET": surprise.append(f"`integrate` {k} reads {v[0]}, expected NOT MET")
