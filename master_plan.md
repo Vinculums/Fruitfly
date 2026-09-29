@@ -1076,6 +1076,18 @@ Progress log
   the agent is still tracking anchors the loop where the agent happens to be, and it never comes back. Design v1's
   arithmetic assumed later loops stay whole and missed that the loop's anchor is what brings the agent back. Closure
   or a post-bench course is the owner's. Arrays (275 MB) kept local, listed with sha256 in the output.
+- **H18 CLOSED as NOT shown (2026-09-29; decision:h18-closed, the owner's '(a)로 H18 닫자'): nothing adopted.** Branch
+  B-iii stopped at its bench (record:h18-stage-b-bench-result); no other branch was met. The ring's leak under cue
+  loss is a recorded limit of the adopted ring outside the adopted scope (record:ring-cue-loss-limit, superseding the
+  'cause not known' of concept:ring-leaks-under-cue-loss): in an open plane with the wind cue absent 50 steps at a
+  time, the heading error is per-step noise summed within the cue-off block (one-step residual sd 2.58 degrees, gain
+  1.0000, amplitude held, no jumps, none over 90 degrees), doubled in drift by the second zero-input ring step each
+  agent-step (F-v 1.4433), erased within five steps of the cue's return, and it displaces the agent by 2 to 3 plume
+  half-widths per block whether or not the loss is recovered; 64.5 percent of agents end unrecovered where a perfect
+  integrator leaves 0.5. A cast restart at the cue's return makes it worse (200 of 200). The adopted agent, which
+  senses the wind every step, is unchanged; the H16 limited adoption stands. Seeds 18102-18103 and 18202-18203 stay
+  registered and unused. The confirmed queue (decision:h28-open-design) now holds only (6) an H17 re-attempt, which
+  would need new state; what comes next is the owner's. Graph writes pending (remote key expired).
 
 ## Why a plan now
 
@@ -1872,7 +1884,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   src/h10_perm_diag.py, src/h10_margin_diag.py, margin_diag.txt, this mirror) are pending: the remote key expired on
   2026-09-29 (HTTP 401) after the 2026-09-27 _PK refusals.
 
-### H18 (queued at the H16 close, decision:h16-close-limited-adoption; ranked fifth in decision:h28-open-design; opened for design by decision:h18-open-design; opened on design v2 FINAL by decision:h18-open)
+### H18 (queued at the H16 close, decision:h16-close-limited-adoption; ranked fifth in decision:h28-open-design; opened for design by decision:h18-open-design; opened on design v2 FINAL by decision:h18-open; Stage A complete, record:h18-stage-a-result; Stage B (B-iii) opened by decision:h18-stage-b-open and STOPPED at the bench, record:h18-stage-b-bench-result; CLOSED by decision:h18-closed: NOT shown, nothing adopted, the leak a recorded limit, record:ring-cue-loss-limit)
 - Why the ring loses the plume under cue loss (concept:h18-ring-under-cue-loss). Measured (H16 Run 2 K5(b), open plane,
   cue off 50 steps at a time): the adopted ring leaves 64.5 percent of agents unrecovered where a perfect integrator on
   the same rotations leaves 0.5, although it is over 45 degrees wrong on only 0.35 percent of cue-off steps (mean 10.0
@@ -1918,6 +1930,10 @@ Four hypotheses were run in one day by picking the next most interesting candida
   23.4 points of last-third score (M4), and loses to random restarts (M5 -0.2200). Every one of the 286 firings came
   while the agent was still tracking; whiffs collapse from the second block on. Development and evaluation seeds
   unused; nothing tuned. Closure or a post-bench course is the owner's.
+- **CLOSED as NOT shown (decision:h18-closed, 2026-09-29): nothing adopted.** The leak is a recorded limit of the
+  adopted ring outside the adopted scope, with Stage A's description (record:ring-cue-loss-limit). Stage B's
+  development and evaluation seeds stay registered and unused. Graph nodes and document puts for H18 (both designs,
+  the Stage A and Stage B outputs, the reports, the amendment) are pending on the Vinc key.
 
 ## The architecture as currently adopted
 
@@ -2055,7 +2071,11 @@ Stated here so a later session does not have to reassemble it from decisions.
   condition does not test whether heading memory is needed.
   **WARNING:** as a MEMORY it is not good enough to navigate on. With the cue absent 50 steps at
   a time it leaks agents to a median score of 0.0 where a perfect integrator keeps 24.0
-  (concept:ring-leaks-under-cue-loss). The cause is not known; H18.
+  (concept:ring-leaks-under-cue-loss). **Measured by H18 (record:ring-cue-loss-limit, 2026-09-29; H18 closed,
+  decision:h18-closed):** the cue-off error is per-step noise summed within the block (residual sd 2.58 degrees, gain
+  exact, amplitude held, no tail beyond 90 degrees), doubled in drift by the second zero-input ring step each
+  agent-step, erased within five steps of the cue's return; it displaces the agent by 2 to 3 plume half-widths per
+  block. A cast restart at the cue's return made it worse. Not repaired; a recorded limit outside the adopted scope.
 - Learning: H8 v2 with the extinction GATE, per decision:phase7-2-gate. Parallel site not adopted.
   **Read at the H12 design (2026-09-26, design v1 doc dff68b78ea66ed47e; no run):** the module receives an odour code
   only at a source and every source reinforces (ph15.py:55-61), so with the gate on extinction has never fired in any
@@ -2416,14 +2436,10 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H18 Stage B (B-iii) STOPPED at the bench; the owner chooses** (record:h18-stage-b-bench-result). The registered
-  courses: (a) close H18 as NOT shown for B-iii, nothing adopted, the ring's leak under cue loss a recorded limit outside
-  the adopted scope with Stage A's description (the cue-off error is summed per-step noise, doubled by the second ring
-  step, erased at the cue's return); (b) a measurement-only post-bench diagnosis on the bench arrays first (what the
-  286 mid-tracking firings did row by row), then closure; (c) a Run 2 design (for example a restart only while lost,
-  clock at or above SAT, as ph12.py:91-94's wall rule already does), its own v1, v2 FINAL, bench and seeds. Pending
-  bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18 node and document
-  put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
+- **H18 is closed (decision:h18-closed, 2026-09-29).** The confirmed queue (decision:h28-open-design) holds only (6) an
+  H17 re-attempt, closed twice at the bench, whose Run 3 would need new state; opening anything is the owner's, by a
+  decision node. Pending bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10
+  and H18 node and document put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
 
 ## Queued candidates, none started
 
@@ -2441,7 +2457,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711), and CLOSED as SHOWN with the burst-ranked value tie adopted for the three-channel distractor form only (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, 2026-09-26).** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design), measured first by the T3b diagnosis (decision:t3b-diagnosis; record:t3b-diagnosis-result), opened on design v2 FINAL (decision:h29-open; doc d724287aa203d256d), evaluated once and SHOWN under its registered criteria (record:h29-result; report doc d92ffd006bdbcdc28), and CLOSED as SHOWN with the window 200 adopted, the adopted two-channel agent now Agent17 (decision:h29-closed, decision:h29-window-200-adopted-within-tested-conditions, 2026-09-26).** **H12, the differential persistence of the acquisition and extinction traces, was opened on design v2 FINAL (decision:h12-open; doc d27ec95924fe49be1): Stage 1 PASS at the module level (record:h12-bench-result; tau_ext* 5000), Stage 2 STOPPED at its bench, K0 unreadable (record:h12-stage2-bench-result); Package E, a controlled supplied-value read-out, SHOWN within its conditions (decision:h12-package-e-open; record:h12-package-e-result; record:h12-package-e-interpretation); CLOSED with the parallel module not adopted (decision:h12-closed, decision:h12-parallel-module-not-adopted, 2026-09-27).** The rest, ranked in decision:h28-open-design: (4) H10, CLOSED as NOT shown (decision:h10-closed, 2026-09-29; nothing adopted); (5) H18; (6) an H17 re-attempt. H17, H18, the T3b cast-phase dependence and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711), and CLOSED as SHOWN with the burst-ranked value tie adopted for the three-channel distractor form only (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, 2026-09-26).** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design), measured first by the T3b diagnosis (decision:t3b-diagnosis; record:t3b-diagnosis-result), opened on design v2 FINAL (decision:h29-open; doc d724287aa203d256d), evaluated once and SHOWN under its registered criteria (record:h29-result; report doc d92ffd006bdbcdc28), and CLOSED as SHOWN with the window 200 adopted, the adopted two-channel agent now Agent17 (decision:h29-closed, decision:h29-window-200-adopted-within-tested-conditions, 2026-09-26).** **H12, the differential persistence of the acquisition and extinction traces, was opened on design v2 FINAL (decision:h12-open; doc d27ec95924fe49be1): Stage 1 PASS at the module level (record:h12-bench-result; tau_ext* 5000), Stage 2 STOPPED at its bench, K0 unreadable (record:h12-stage2-bench-result); Package E, a controlled supplied-value read-out, SHOWN within its conditions (decision:h12-package-e-open; record:h12-package-e-result; record:h12-package-e-interpretation); CLOSED with the parallel module not adopted (decision:h12-closed, decision:h12-parallel-module-not-adopted, 2026-09-27).** The rest, ranked in decision:h28-open-design: (4) H10, CLOSED as NOT shown (decision:h10-closed, 2026-09-29; nothing adopted); (5) H18, CLOSED as NOT shown (decision:h18-closed, 2026-09-29; nothing adopted, the ring's leak under cue loss a recorded limit, record:ring-cue-loss-limit); (6) an H17 re-attempt. H17, H18, the T3b cast-phase dependence and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the release's scope (non-negative held values) and stays in force at negative held values under N2.
 
@@ -2543,6 +2559,7 @@ within the release's scope (non-negative held values) and stays in force at nega
   the known-answer identity I7 before any ring reading (record:h18-stage-a-i7-stop), corrected by the owner (option (a));
   Stage A COMPLETE (record:h18-stage-a-result): only branch B-iii met, by one event; Stage B (B-iii) opened for design and
   confirmed as recommended (decision:h18-stage-b-iii-open-design, decision:h18-stage-b-open, 2026-09-29); Stage B STOPPED at
-  the bench (record:h18-stage-b-bench-result: 200 of 200 unrecovered against the ring's 129); the owner chooses.**
+  the bench (record:h18-stage-b-bench-result: 200 of 200 unrecovered against the ring's 129). DONE: CLOSED as NOT shown,
+  nothing adopted, the leak a recorded limit (decision:h18-closed, record:ring-cue-loss-limit, 2026-09-29).**
 - **An H17 re-attempt** (cold start), ranked sixth: closed twice at the bench (decision:h17-closed); the consequence that
   moved it up (the release stranding negative holds) no longer arises by code under N2; a Run 3 would need new state.
