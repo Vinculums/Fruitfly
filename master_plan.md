@@ -976,6 +976,17 @@ Progress log
   leader equals the target in 41-84 percent but the graded identity in 5-24. Nothing adopted; seeds 45201-45311 unused;
   the tolerance excess recorded as a failed check. Graph writes pending (remote key expired, HTTP 401). Next in the
   confirmed order: H18; opening it is the owner's.
+- **H18 OPENED FOR DESIGN (2026-09-29; decision:h18-open-design; the owner's 'H18 설계 열자, v1 초안은 opus
+  에이전트로').** Design v1 DRAFT by an Opus 5.5 agent (experiments/h18/h18_design_v1.md, sha c54e33ef...7958), reviewed
+  by this session (notes/reviews/2026-09-29-h18-design-v1-review.md): a diagnosis-first design in the T3b form. Stage A
+  is a registered measurement-only diagnosis on the recorded K5(b) rows (seeds 1612/1712, reproduced line for line
+  first): the tail of large errors, persistence within and across cue blocks, the error just before a loss, paired with
+  a perfect integrator through a `ring_sep` instrument, plus two benches; six candidate causes from cited code lines,
+  two new from the code (a second zero-input ring step per cue-off agent-step, ph12.py:106-108; a persistent small error
+  turned into a path error by the return rule, ph12.py:126-128), each with a registered falsification reading. Stage B
+  is branches only. No new seed. Nothing changes the adopted agent. Seven amendments recommended for v2 (memory, numpy
+  pin for R0, the H14 gain rule, F3's chance level measured, known-answer identities, pairing after divergence). The
+  owner's section 12 is awaited; no code, no run.
 
 ## Why a plan now
 
@@ -1772,6 +1783,23 @@ Four hypotheses were run in one day by picking the next most interesting candida
   src/h10_perm_diag.py, src/h10_margin_diag.py, margin_diag.txt, this mirror) are pending: the remote key expired on
   2026-09-29 (HTTP 401) after the 2026-09-27 _PK refusals.
 
+### H18 (queued at the H16 close, decision:h16-close-limited-adoption; ranked fifth in decision:h28-open-design; opened for design by decision:h18-open-design)
+- Why the ring loses the plume under cue loss (concept:h18-ring-under-cue-loss). Measured (H16 Run 2 K5(b), open plane,
+  cue off 50 steps at a time): the adopted ring leaves 64.5 percent of agents unrecovered where a perfect integrator on
+  the same rotations leaves 0.5, although it is over 45 degrees wrong on only 0.35 percent of cue-off steps (mean 10.0
+  degrees). The owner's standing instruction: the mean is not taken as the cause; first the tail, the persistence, and
+  the error just before a loss. Outside the adopted scope (the wind sensed every step); nothing in H18 changes the
+  adopted agent, and any adoption from it would extend scope by a separate decision.
+- Design v1 DRAFT (2026-09-29, an Opus 5.5 agent; experiments/h18/h18_design_v1.md, sha c54e33ef...7958; review
+  notes/reviews/2026-09-29-h18-design-v1-review.md). Stage A: a measurement-only diagnosis on the recorded K5(b) rows,
+  reproduced first (R0 the whole H16 Run 2 file, R1 the K5 lines character for character), with registered readings (A)
+  tail, (B) persistence, (C) before a loss with a paired integrator, (D) mechanism, (E) exposure, benches (b0) noise-0
+  rotation gain and (b1) drift, and falsification readings F1-F3 and F-i to F-vi for six candidate causes; output a
+  branch table (kernel or shift; readout gate on amplitude; the cast rule at cue return; one ring step per agent-step;
+  diffusion or path error; close as a recorded limit). Stage B: branches only, each needing its own design, bench and
+  seeds. No new integer seed (SeedSequence(1712) children for the instruments); the graph scan pending on the key.
+  Awaiting the owner's section 12.
+
 ## The architecture as currently adopted
 
 Stated here so a later session does not have to reassemble it from decisions.
@@ -2269,12 +2297,13 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H10 is closed (decision:h10-closed, 2026-09-29).** Next in the confirmed order (decision:h28-open-design): H18,
-  the ring under cue loss; opening it for design is the owner's. Pending bookkeeping, not a decision: the Vinc remote
-  key expired (HTTP 401, 2026-09-29), so the H10 decision and record nodes, the document puts refused on 2026-09-27
-  (design v2 FINAL, src/h10.py, src/h10_perm_diag.py), the diagnosis script and output, and this mirror are to be
-  written once the key is renewed at vincs.io/account. `main` is 73 commits behind codex/h12-review-plan; merging is
-  the owner's.
+- **H18 design v1 DRAFT awaits the owner's section 12** (decision:h18-open-design, 2026-09-29;
+  experiments/h18/h18_design_v1.md; review notes/reviews/2026-09-29-h18-design-v1-review.md with seven amendments for
+  v2). The owner confirms the points as recommended, with or without the amendments, or chooses alternatives; then v2
+  FINAL is written and H18 Stage A opens by decision. Pending bookkeeping, not a decision: the Vinc remote key expired
+  (HTTP 401, 2026-09-29), so the H10 closure nodes, the H18 opening node, the document puts refused on 2026-09-27, the
+  H10 diagnosis files, the H18 draft and this mirror are to be written once the key is renewed at vincs.io/account.
+  `main` is behind codex/h12-review-plan; merging is the owner's.
 
 ## Queued candidates, none started
 
@@ -2389,5 +2418,7 @@ within the release's scope (non-negative held values) and stays in force at nega
   10 degree mean error is not taken as the cause; first the tail of large errors, how long an
   error persists, and the heading error just before a plume is lost. Ranked fifth: outside the adopted scope, where the
   wind is sensed every step (64.5 percent unrecovered under 50-step cue loss, concept:ring-leaks-under-cue-loss).
+  **Opened for design (decision:h18-open-design, 2026-09-29); design v1 DRAFT experiments/h18/h18_design_v1.md,
+  diagnosis first; the owner's section 12 awaited.**
 - **An H17 re-attempt** (cold start), ranked sixth: closed twice at the bench (decision:h17-closed); the consequence that
   moved it up (the release stranding negative holds) no longer arises by code under N2; a Run 3 would need new state.

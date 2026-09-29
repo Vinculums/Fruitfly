@@ -1,0 +1,28 @@
+# Review of H18 design v1 DRAFT (2026-09-29)
+
+Reviewer: the Fable session. Draft: experiments/h18/h18_design_v1.md, sha256 c54e33ef0ad0affe8b4997ce2d88ffa2e116a68a27e8c232372f710a85ac7958, written by an Opus 5.5 agent on the owner's 'H18 설계 열자, v1 초안은 opus 에이전트로' (decision:h18-open-design). Nothing was run for this review except grep, sed and sha256sum. This note is a review, not a decision; the owner confirms by the draft's section 12, and v2 folds in what the owner accepts below.
+
+## Verified against the code and the record
+
+- K5(b) seeds are (1612, 1712): ph12b.py:23 `eval=(1610, 1710)`, :198-200 `(sw + 2, sa + 2)`; K5 record line 162. The brief given to the agent said 1614/1714; the agent followed the code and said so. Correct.
+- The ring draws its noise from the agent's generator (ph12.py:84 `rng=rng`; ph10.py:73), so the recorded `ring` and `integrate` arms share the world stream but not the turn-noise stream. The draft's 'not paired from step 0' and the `ring_sep` instrument follow.
+- Each agent-step gives the ring two steps whenever any agent is cued (ph12.py:106-108): one with v = last_turn and no input, one with v = 0 and x = cue x wind_on, a zero row for cue-off agents. For a cue-off agent the second step is a full recurrent step with noise, not a no-op. Candidate (v) is real and comes from the code. In the adopted every-step-cue agent every agent is cued on the second step, so B-v would touch the adopted wiring; the draft says so.
+- The `return` rule steers by angdiff(target, est) (ph12.py:126-128), so a heading error is a steering error of the same size on every step it persists. Candidate (vi) follows.
+- The K5 record numbers cited (lines 162-189) match the file: ring median 0.0, late unrecovered 64.5, lost at end 82.5, 2541 events, 93.5 recovered; over 45 degrees on 0.35 percent of cue-off steps, mean 10.0; integrate identical to exact.
+- The random-walk arithmetic of 2.5 checks: the mean of E|e_k| over k = 1..50 is about 3.81 s, so s about 2.6 degrees per step; the averaged share over 45 degrees comes out near 0.3 percent against the recorded 0.35. It is labelled inferred and used only to say that the two recorded aggregates cannot separate a tail from diffusion. That is the right use.
+- No new integer seed; derived streams SeedSequence(1712).spawn(3) in H10's form. Nothing to scan. The graph scan is marked PENDING (key expired), not claimed.
+- Wording: no 'structurally impossible', no 'for any', no figure carried between conditions without saying so; every threshold is stated before code and called judgment in section 13.
+
+## Amendments recommended for v2 (each a section 12 point unless the owner says otherwise)
+
+1. **Execution and memory (section 9, sizes).** Seven arms of 200 x 5400 agent-steps with per-step est, heading, position, whiff, cue, clock and amp would be several hundred MB in float64. This machine often has under 1 GB free. v2 registers: one arm per process, per-step arrays in float32 and int8 written to disk per arm, the readings computed in a separate pass from disk, the merge as in ph6.py --append / --merge. No change to any reading.
+2. **Reproduction R0 and the numpy version.** The K5 record does not print its numpy version; H10's byte-for-byte reproduction of ph7 ran on numpy 2.4.6 and the H10 margin diagnosis on 2.5.3. v2 pins the R0/R1 run to numpy 2.4.6 first. If R0 differs only in float formatting on a later numpy, that is disclosed as an environment difference with the differing lines listed, not repaired in code; a difference in any integer count is an implementation or environment error and stops the run.
+3. **F-i gain and the H14 standing rule.** master_plan.md:2009-2011: an angular gain must be measured on per-step displacement accumulated without folding. The bench (b0) gain and the closed-loop residual r_t (section 7 (D)) must cite it and accumulate signed per-step changes of pos without a single circdiff across many steps.
+4. **F3's chance level.** The draft assumes about 0.495. v2 replaces the assumption by the measured share of cue-off agent-steps among all agent-steps on the K5(b) rows (already counted by I5), printed beside F3, and reads F3 against that number.
+5. **Known-answer readings, registered as identities (I7).** The self-review asks for them; v2 registers them: `none` read on F1 and (A) (an arm whose cue-off error grows with every rotation made: over 45 degrees on 66.15 percent of cue-off steps, K5 record:173) is expected MET on F1; `integrate` on every row it can be read on is expected NOT MET, with e identically 0. Reported, no bar; a surprise there is an implementation error.
+6. **Pairing after divergence (section 7 (C)).** Once `ring_sep` and `integrate` diverge, later loss events are not the same event in the two arms. v2 states that the paired quantities are t_div, e at t_div, and whether t_div precedes t_L of the ring's first loss event; everything after t_div is unpaired and read per arm.
+7. **Section 12 point 2.** R0 (the full ph12b eval) costs about the H16 Run 2 evaluation's time. Keep it as recommended; its value is the check that this environment still reproduces the whole H16 Run 2 file, which the H18 readings are then anchored to.
+
+## Not changed
+
+The candidate list (i)-(vi), the F table's thresholds (judgment, stated before code, as section 13 says), the branches of section 3, the scope statement (nothing changes the adopted agent; any Stage B adoption EXTENDS scope by a separate decision), and the recommendation of section 12 point 1 (measure first). If the owner confirms section 12 as recommended with amendments 1-6, v2 FINAL differs from v1 only in those points and in the status and confirmation text; no reading or threshold changes.
