@@ -1099,6 +1099,16 @@ Progress log
   (d) the hold's benefit, (a) H17 Run 3). Open for the owner: whether the gain G 2 is adopted state (master_plan says
   'NOT adopted' at the H20 Stage A entry while every later scope carries it). main fast-forwarded to the working branch
   (2817eb6) the same day. The owner's section 9 is awaited.
+- **Graph bookkeeping caught up (2026-09-29).** The new Vinc key is the user environment variable VINC_SK (the
+  config's VINC_REMOTE_MCP_TOKEN still held the old one, now replaced). Written to the Fruit Fly space: the H10 design
+  v2 FINAL re-put whole (doc d22b49532e5dd57bd, content hash equal to the file, e55cb367...478a); 21 new documents
+  mirroring the H10 diagnosis, the H18 designs, reviews, harnesses, outputs and report, and the consolidation draft and
+  review, each read back identical to its file; 9 decision nodes (decision:h10-post-calibration-diagnosis,
+  decision:h10-closed, decision:h18-open-design, decision:h18-open, decision:h18-i7-expectation-corrected,
+  decision:h18-stage-b-iii-open-design, decision:h18-stage-b-open, decision:h18-closed, decision:consolidation-gate-open),
+  5 records (record:h10-margin-diagnosis-result, record:h18-stage-a-i7-stop, record:h18-stage-a-result,
+  record:h18-stage-b-bench-result, record:ring-cue-loss-limit), concept:consolidation-gate and one episode; 27 edges,
+  no warnings. This mirror re-put whole after this entry.
 
 ## Why a plan now
 
@@ -2450,9 +2460,7 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 - **Consolidation gate v1 DRAFT awaits the owner's section 9** (decision:consolidation-gate-open, 2026-09-29;
   notes/consolidation/2026-09-29-consolidation-v1.md; review notes/reviews/2026-09-29-consolidation-v1-review.md). The
   owner confirms the restatement, the four proposed standing rules, the status of the gain G 2, and the order of the
-  candidate directions; nothing is opened until then. Pending bookkeeping, not a decision: the Vinc remote key was
-  replaced on 2026-09-29 but is still rejected (HTTP 401, checked directly against the endpoint), so every H10, H18 and
-  consolidation node and document put waits on a working key. main and codex/h12-review-plan are at the same commit.
+  candidate directions; nothing is opened until then. main and codex/h12-review-plan are at the same commit.
 
 ## Queued candidates, none started
 
