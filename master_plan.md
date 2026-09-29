@@ -969,6 +969,13 @@ Progress log
   ambiguous condition, with the outputs exact (src/h10_perm_diag.py). Reading from the counts: the gate lowers the
   exposed wrong fraction only with the long trace (x0 1: 0.124 and 0.084 at tau 160 against 0.178 ungated; with tau 40
   it is at or above the ungated fraction), the risk design 2.3 named. Closure is the owner's.
+- **H10 DIAGNOSED and CLOSED as NOT shown (2026-09-29; decision:h10-post-calibration-diagnosis, decision:h10-closed;
+  record:h10-margin-diagnosis-result).** The owner chose the diagnosis-then-close course ('(B)로 진행, 진단 돌리고 닫자').
+  On the spent calibration rows, over every distinct q, no threshold meets the wrong bar and the anti-trivial bar together
+  in any hard condition, at any tau_e, at either read; P(q_wrong < q_correct) is 0.52-0.62 pooled; on the wrong rows e's
+  leader equals the target in 41-84 percent but the graded identity in 5-24. Nothing adopted; seeds 45201-45311 unused;
+  the tolerance excess recorded as a failed check. Graph writes pending (remote key expired, HTTP 401). Next in the
+  confirmed order: H18; opening it is the owner's.
 
 ## Why a plan now
 
@@ -1714,7 +1721,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   reserved to the stopped design); Package E calibration 20261281/20261282, 21261281/21261282, 20261283; development
   31011/31012, 1031011/1031012, 31013; evaluation 71011/71012, 1071011/1071012, 71013.
 
-### H10 (queued at the Phase 7.1 close, decision:phase7-1-gate; opened for design by decision:h10-open-design; opened by decision:h10-open; STOPPED at calibration, NOT SHOWN for this family, record:h10-calibration-result)
+### H10 (queued at the Phase 7.1 close, decision:phase7-1-gate; opened for design by decision:h10-open-design; opened by decision:h10-open; STOPPED at calibration, NOT SHOWN for this family, record:h10-calibration-result; post-calibration diagnosis by decision:h10-post-calibration-diagnosis, record:h10-margin-diagnosis-result; CLOSED by decision:h10-closed: NOT shown, nothing adopted)
 - Abstention and revision belong to different stages (concept:h10-abstention-and-revision-are-different-stages): a
   thresholded stage decides whether to commit, a graded stage decides what, and neither needs a reset. Phase 7.1 found the
   bistable circuit abstains but cannot revise (hard cue 121/4/75, D3 0/200) and the graded H9 circuit revises but never
@@ -1740,7 +1747,30 @@ Four hypotheses were run in one day by picking the next most interesting candida
   theta 0.016 2/0/398. The simple mask equals the ungated circuit at every read, as predicted, so it passes nothing
   either. H10 is NOT SHOWN for this family; development and evaluation were not run. The label-permutation tolerance
   was exceeded in one row of the ambiguous condition (1.059e-12 against 1e-12; outputs exact) and is recorded as a
-  failed check. Where the wrong commitments sit relative to the trace margin is not measured row by row.
+  failed check. Where the wrong commitments sit relative to the trace margin was measured afterwards (next bullet).
+- Post-calibration diagnosis, measurement only, on the spent calibration rows (decision:h10-post-calibration-diagnosis,
+  2026-09-29, the owner's '(B)로 진행, 진단 돌리고 닫자', run by an Opus 5.5 agent and checked by this session;
+  record:h10-margin-diagnosis-result; src/h10_margin_diag.py sha256 60d4d202...a272c, output
+  experiments/h10/calibration/margin_diag.txt sha256 81c7e9a7...c010; no simulation, no seed, no bar changed). Every
+  recorded count is reproduced from trace.npz, and the saved gate equals q >= theta in every row. Over every distinct q
+  of the committed rows (401 thresholds per condition), no threshold exposes at most 8 wrong and at least the
+  bistable's correct minus 20 in any of the five hard conditions, at any tau_e, at either read: at tau 160, final
+  read, the most correct kept with wrong <= 8 is 39-133 of 400 against the 218-251 the anti-trivial point needs, and
+  at the anti-trivial point 32-65 wrong are exposed. The rank statistic P(q_wrong < q_correct) is 0.47-0.58 at tau 40,
+  0.48-0.62 at tau 80 and 0.57-0.67 at tau 160 (pooled 0.516, 0.553, 0.621): the wrong commitments sit only slightly
+  lower on the margin than the correct ones. On the wrong rows e's leader equals the graded identity in 5-24 percent
+  and equals the target in 41-84 percent (tau 160: 61-84); on the correct rows it equals the identity in 47-94 percent
+  (tau 160: 84-91). The wrong rows commit earlier (median first commit 26.5-29 against 33-38). Reading, not a
+  measurement: the margin does not separate the errors, while e's identity often does, and the design (2.3, owner
+  12.5) forbids the gate to use it; what an agreement gate would expose was not computed.
+- **CLOSED as NOT shown (decision:h10-closed, 2026-09-29): nothing adopted.** The confidence-gate family on the H9
+  graded circuit is closed; the concept (concept:h10-abstention-and-revision-are-different-stages) stays a recorded
+  idea, not a limit of the adopted agent, which keeps the bistable circuit and revision via the empty state. The
+  development and evaluation seeds (45201-45311) stay registered and unused. The label-permutation tolerance excess
+  (1.059e-12 against 1e-12, outputs exact) is recorded as a failed check and not repaired, since no further seed of
+  this family is used. Stage B was never authorized. Graph nodes and the document puts (design v2 FINAL, src/h10.py,
+  src/h10_perm_diag.py, src/h10_margin_diag.py, margin_diag.txt, this mirror) are pending: the remote key expired on
+  2026-09-29 (HTTP 401) after the 2026-09-27 _PK refusals.
 
 ## The architecture as currently adopted
 
@@ -2239,12 +2269,12 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H10 Stage A, STOPPED at calibration** (decision:h10-open; record:h10-calibration-result; experiments/h10/calibration/).
-  No setting of the registered family passes, so by design 8.2 it is NOT SHOWN for this family; the development and
-  evaluation seeds are unused. The owner decides between two courses: close H10 as NOT shown (the family, not the idea),
-  or first run a measurement-only diagnosis, on the spent calibration rows, of where the graded circuit's wrong
-  commitments sit relative to the trace margin. Vinc document puts for the design FINAL, src/h10.py and
-  src/h10_perm_diag.py were refused on 2026-09-27 (a _PK index error in the document store) and are to be retried.
+- **H10 is closed (decision:h10-closed, 2026-09-29).** Next in the confirmed order (decision:h28-open-design): H18,
+  the ring under cue loss; opening it for design is the owner's. Pending bookkeeping, not a decision: the Vinc remote
+  key expired (HTTP 401, 2026-09-29), so the H10 decision and record nodes, the document puts refused on 2026-09-27
+  (design v2 FINAL, src/h10.py, src/h10_perm_diag.py), the diagnosis script and output, and this mirror are to be
+  written once the key is renewed at vincs.io/account. `main` is 73 commits behind codex/h12-review-plan; merging is
+  the owner's.
 
 ## Queued candidates, none started
 
@@ -2262,7 +2292,7 @@ NOT shown (decision:h24-run2-closed; nothing adopted, the Run 2 relaxation lapse
 STOPPED at the bench by its (h2) stop rule (record:h17-run2-bench-result); H17 is CLOSED as NOT shown
 (decision:h17-closed, 2026-09-24; nothing adopted, the relaxations lapsed, cold-start search a recorded limit); adaptive
 presence, numbered H26, was opened on design v2 FINAL (decision:h26-open) and evaluated once: SHOWN under its
-registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711), and CLOSED as SHOWN with the burst-ranked value tie adopted for the three-channel distractor form only (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, 2026-09-26).** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design), measured first by the T3b diagnosis (decision:t3b-diagnosis; record:t3b-diagnosis-result), opened on design v2 FINAL (decision:h29-open; doc d724287aa203d256d), evaluated once and SHOWN under its registered criteria (record:h29-result; report doc d92ffd006bdbcdc28), and CLOSED as SHOWN with the window 200 adopted, the adopted two-channel agent now Agent17 (decision:h29-closed, decision:h29-window-200-adopted-within-tested-conditions, 2026-09-26).** **H12, the differential persistence of the acquisition and extinction traces, was opened on design v2 FINAL (decision:h12-open; doc d27ec95924fe49be1): Stage 1 PASS at the module level (record:h12-bench-result; tau_ext* 5000), Stage 2 STOPPED at its bench, K0 unreadable (record:h12-stage2-bench-result); Package E, a controlled supplied-value read-out, SHOWN within its conditions (decision:h12-package-e-open; record:h12-package-e-result; record:h12-package-e-interpretation); CLOSED with the parallel module not adopted (decision:h12-closed, decision:h12-parallel-module-not-adopted, 2026-09-27).** The rest, ranked in decision:h28-open-design: (4) H10; (5) H18; (6) an H17 re-attempt. H17, H18, the T3b cast-phase dependence and the
+registered criteria (record:h26-result; report doc d8163e16317b251eb), and CLOSED as SHOWN with its counter and Agent14 adopted within the tested conditions (decision:h26-closed, decision:h26-adaptive-presence-adopted-within-tested-conditions, 2026-09-25); H20 Stage B was opened on design v2 FINAL (decision:h20-stage-b-open; doc d3f2ce9707790cd87), evaluated once and CLOSED as SHOWN (record:h20-stage-b-result; report doc d66ad8dea08c92116; decision:h20-stage-b-closed, 2026-09-25; nothing new adopted); H20 Stage C (integration, learning on in the H15 Run 2 world) was opened on design v2 FINAL (decision:h20-stage-c-open; doc d27e6dfe2e2c16183) and STOPPED at the bench by its (hR) stop rule (record:h20-stage-c-bench-result); after the post-bench diagnosis the owner opened Stage C Run 2 for design (decision:h20-stage-c-run2-open-design) and, by the standing instruction to follow the recommended options, on design v2 FINAL (decision:h20-stage-c-run2-open; doc d007990ab333e7194); Stage C Run 2 was evaluated once and SHOWN under its registered criteria (record:h20-stage-c-run2-result; report doc de5963e5a73875a97), and CLOSED as SHOWN with N2 adopted and H20 closed as a whole (decision:h20-stage-c-run2-closed, decision:n2-release-adopted-within-tested-conditions, decision:h20-closed, 2026-09-25). H27, the distractor condition, was opened on design v2 FINAL (decision:h27-open; doc d8c8949f2896cf1ec), STOPPED at its bench by all three stop rules (record:h27-bench-result) and CLOSED as NOT shown with the distractor condition a recorded limit (decision:h27-closed, record:distractor-capture-limit, 2026-09-26). **H28, the recognition-core discount of a ubiquitous odour (queued as proposed at the H27 closure), was opened on design v2 FINAL (decision:h28-open; doc da2c1c079a1766d3e), evaluated once and SHOWN under its registered criteria (record:h28-result; report doc d29986a75ef4e9711), and CLOSED as SHOWN with the burst-ranked value tie adopted for the three-channel distractor form only (decision:h28-closed, decision:h28-burst-tie-adopted-within-tested-conditions, 2026-09-26).** **H29, the H26 T3b limit (a loss after tracking), was opened for design (decision:h29-open-design), measured first by the T3b diagnosis (decision:t3b-diagnosis; record:t3b-diagnosis-result), opened on design v2 FINAL (decision:h29-open; doc d724287aa203d256d), evaluated once and SHOWN under its registered criteria (record:h29-result; report doc d92ffd006bdbcdc28), and CLOSED as SHOWN with the window 200 adopted, the adopted two-channel agent now Agent17 (decision:h29-closed, decision:h29-window-200-adopted-within-tested-conditions, 2026-09-26).** **H12, the differential persistence of the acquisition and extinction traces, was opened on design v2 FINAL (decision:h12-open; doc d27ec95924fe49be1): Stage 1 PASS at the module level (record:h12-bench-result; tau_ext* 5000), Stage 2 STOPPED at its bench, K0 unreadable (record:h12-stage2-bench-result); Package E, a controlled supplied-value read-out, SHOWN within its conditions (decision:h12-package-e-open; record:h12-package-e-result; record:h12-package-e-interpretation); CLOSED with the parallel module not adopted (decision:h12-closed, decision:h12-parallel-module-not-adopted, 2026-09-27).** The rest, ranked in decision:h28-open-design: (4) H10, CLOSED as NOT shown (decision:h10-closed, 2026-09-29; nothing adopted); (5) H18; (6) an H17 re-attempt. H17, H18, the T3b cast-phase dependence and the
 selection circuit's revision via the empty state stay as recorded limits; the silence timeout defect is fixed
 within the release's scope (non-negative held values) and stays in force at negative held values under N2.
 
@@ -2352,7 +2382,9 @@ within the release's scope (non-negative held values) and stays in force at nega
   circuit that would reopen every adopted bench; revision via the empty state works in the adopted agent. **Opened for
   design (decision:h10-open-design, 2026-09-27), then opened on design v2 FINAL (decision:h10-open): a Stage A module
   test only, Stage B (body) separate and conditional. STOPPED at calibration, NOT SHOWN for this family
-  (record:h10-calibration-result); closure is the owner's.**
+  (record:h10-calibration-result). Post-calibration diagnosis on the spent rows (decision:h10-post-calibration-diagnosis;
+  record:h10-margin-diagnosis-result): no threshold on the margin meets both bars in any condition. DONE: CLOSED as NOT
+  shown, nothing adopted (decision:h10-closed, 2026-09-29).**
 - **H18** (concept:h18-ring-under-cue-loss) why the ring loses the plume under cue loss. The
   10 degree mean error is not taken as the cause; first the tail of large errors, how long an
   error persists, and the heading error just before a plume is lost. Ranked fifth: outside the adopted scope, where the

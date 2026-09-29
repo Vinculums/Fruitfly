@@ -1,0 +1,520 @@
+H10 post-calibration margin diagnosis (measurement only; calibration seeds already spent; no simulation)
+script sha256 60d4d202ba88af0a5ea6409613eba7d68867bbf49fd5a18a385843e7b80a272c
+experiments/h10/calibration/trace.npz sha256 175ba8bac75ffc1da216eebead078898963dac307307dbc729e7119c1588b21a
+experiments/h10/calibration/summary.json sha256 df728e0fd5267c20106e3005fa43fdcef6cce7554bc5d4c0ee79c14228d6f017
+src/h10.py sha256 ba959f17c2a483659689dbcfb4e80ba141fdc1ffeb997906b0d0e96178b13697  numpy 2.5.3
+quantiles: min 10 25 50 75 90 max; q = e's margin at the read (float32 as saved); exposure = q >= threshold; 'first commit step' = first step with a graded output >= 0
+
+== 1. consistency with summary.json ==
+  hard_0p25 graded wrong 600 vs phase71 d5    105              recorded 105              PASS
+  hard_0p25 bistable correct 600 vs criteria  238              recorded 238              PASS
+  hard_0p25 graded c/w/a (no recorded field) 600 (295, 105, 0)  300 (289, 102, 9)
+  hard_0p25 h10_tau40_th0.004    600 (167, 55, 178)   300 (156, 53, 191)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p25 h10_tau40_th0.008    600 (90, 24, 286)    300 (80, 23, 297)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p25 h10_tau40_th0.016    600 (11, 1, 388)     300 (5, 1, 394)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p25 h10_tau80_th0.004    600 (169, 54, 177)   300 (180, 49, 171)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p25 h10_tau80_th0.008    600 (70, 17, 313)    300 (70, 21, 309)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p25 h10_tau80_th0.016    600 (1, 0, 399)      300 (1, 0, 399)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p25 h10_tau160_th0.004   600 (187, 51, 162)   300 (201, 53, 146)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p25 h10_tau160_th0.008   600 (80, 17, 303)    300 (77, 15, 308)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p25 h10_tau160_th0.016   600 (1, 0, 399)      300 (1, 0, 399)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p5  graded wrong 600 vs phase71 d5    64               recorded 64               PASS
+  hard_0p5  bistable correct 600 vs criteria  271              recorded 271              PASS
+  hard_0p5  graded c/w/a (no recorded field) 600 (336, 64, 0)  300 (333, 59, 8)
+  hard_0p5  h10_tau40_th0.004    600 (178, 34, 188)   300 (169, 30, 201)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p5  h10_tau40_th0.008    600 (88, 15, 297)    300 (73, 15, 312)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p5  h10_tau40_th0.016    600 (18, 3, 379)     300 (6, 3, 391)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p5  h10_tau80_th0.004    600 (187, 27, 186)   300 (195, 31, 174)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p5  h10_tau80_th0.008    600 (86, 8, 306)     300 (77, 11, 312)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p5  h10_tau80_th0.016    600 (3, 3, 394)      300 (2, 1, 397)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p5  h10_tau160_th0.004   600 (217, 23, 160)   300 (221, 20, 159)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p5  h10_tau160_th0.008   600 (95, 7, 298)     300 (82, 11, 307)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_0p5  h10_tau160_th0.016   600 (0, 0, 400)      300 (0, 0, 400)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_1    graded wrong 600 vs phase71 d5    71               recorded 71               PASS
+  hard_1    bistable correct 600 vs criteria  258              recorded 258              PASS
+  hard_1    graded c/w/a 600 vs phase71 d1    [329, 71, 0]     recorded [329, 71, 0]     PASS
+  hard_1    graded c/w/a (no recorded field) 600 (329, 71, 0)  300 (322, 66, 12)
+  hard_1    h10_tau40_th0.004    600 (182, 42, 176)   300 (170, 35, 195)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_1    h10_tau40_th0.008    600 (91, 24, 285)    300 (71, 15, 314)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_1    h10_tau40_th0.016    600 (19, 7, 374)     300 (5, 1, 394)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_1    h10_tau80_th0.004    600 (172, 35, 193)   300 (181, 32, 187)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_1    h10_tau80_th0.008    600 (82, 15, 303)    300 (78, 12, 310)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_1    h10_tau80_th0.016    600 (7, 3, 390)      300 (0, 0, 400)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_1    h10_tau160_th0.004   600 (197, 28, 175)   300 (216, 24, 160)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_1    h10_tau160_th0.008   600 (87, 8, 305)     300 (78, 6, 316)     gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_1    h10_tau160_th0.016   600 (2, 0, 398)      300 (0, 0, 400)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_2    graded wrong 600 vs phase71 d5    69               recorded 69               PASS
+  hard_2    bistable correct 600 vs criteria  253              recorded 253              PASS
+  hard_2    graded c/w/a (no recorded field) 600 (331, 69, 0)  300 (325, 59, 16)
+  hard_2    h10_tau40_th0.004    600 (198, 32, 170)   300 (166, 26, 208)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_2    h10_tau40_th0.008    600 (113, 15, 272)   300 (80, 12, 308)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_2    h10_tau40_th0.016    600 (28, 1, 371)     300 (3, 1, 396)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_2    h10_tau80_th0.004    600 (198, 32, 170)   300 (183, 23, 194)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_2    h10_tau80_th0.008    600 (88, 8, 304)     300 (72, 10, 318)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_2    h10_tau80_th0.016    600 (10, 0, 390)     300 (0, 0, 400)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_2    h10_tau160_th0.004   600 (205, 26, 169)   300 (217, 25, 158)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_2    h10_tau160_th0.008   600 (88, 6, 306)     300 (79, 6, 315)     gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_2    h10_tau160_th0.016   600 (2, 0, 398)      300 (0, 0, 400)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_4    graded wrong 600 vs phase71 d5    75               recorded 75               PASS
+  hard_4    bistable correct 600 vs criteria  260              recorded 260              PASS
+  hard_4    graded c/w/a (no recorded field) 600 (325, 75, 0)  300 (316, 67, 17)
+  hard_4    h10_tau40_th0.004    600 (201, 51, 148)   300 (163, 30, 207)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_4    h10_tau40_th0.008    600 (98, 27, 275)    300 (70, 16, 314)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_4    h10_tau40_th0.016    600 (21, 6, 373)     300 (3, 4, 393)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_4    h10_tau80_th0.004    600 (165, 42, 193)   300 (178, 32, 190)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_4    h10_tau80_th0.008    600 (76, 14, 310)    300 (71, 13, 316)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_4    h10_tau80_th0.016    600 (5, 2, 393)      300 (0, 1, 399)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_4    h10_tau160_th0.004   600 (171, 31, 198)   300 (196, 31, 173)   gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_4    h10_tau160_th0.008   600 (76, 13, 311)    300 (65, 10, 325)    gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  hard_4    h10_tau160_th0.016   600 (0, 0, 400)      300 (0, 0, 400)      gate*graded==out True; rows where (q >= theta) != gate at 300/600: 0/0  PASS
+  consistency: PASS
+
+== read final (step 600), tau_e 40 ==
+  x0 0.25: graded c/w/a 295/105/0
+    2. q correct quantiles 0.00003 0.00101 0.00223 0.00501 0.00888 0.01253 0.02314
+       q correct at/below theta  <= 0.004: 128/295 (0.434)  <= 0.008: 205/295 (0.695)  <= 0.016: 284/295 (0.963)
+    2. q wrong   quantiles 0.00003 0.00074 0.00203 0.00463 0.00762 0.01086 0.02047
+       q wrong   at/below theta  <= 0.004: 50/105 (0.476)  <= 0.008: 81/105 (0.771)  <= 0.016: 104/105 (0.990)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5430
+       frontier over 401 thresholds: max correct with wrong <= 8: 42 (wrong 8) at q >= 0.011695
+       anti-trivial point bar correct >= bistable 238 - 20 = 218: highest threshold q >= 0.002358 exposes correct 218, wrong 77
+       any threshold with wrong <= 8 and correct >= 218 in these rows: NO
+    4. correct leader == graded identity 184/295 (0.624);  leader == target 184/295 (0.624)
+    4. wrong   leader == graded identity 15/105 (0.143);  leader == target 58/105 (0.552)
+    5. first commit step, correct quantiles 12.00000 19.00000 24.00000 33.00000 52.00000 79.20000 192.00000
+    5. first commit step, wrong   quantiles 12.00000 16.00000 19.00000 28.00000 41.00000 56.80000 111.00000
+  x0 0.5: graded c/w/a 336/64/0
+    2. q correct quantiles 0.00004 0.00070 0.00191 0.00435 0.00839 0.01322 0.03129
+       q correct at/below theta  <= 0.004: 158/336 (0.470)  <= 0.008: 248/336 (0.738)  <= 0.016: 318/336 (0.946)
+    2. q wrong   quantiles 0.00013 0.00110 0.00240 0.00477 0.00776 0.01288 0.02252
+       q wrong   at/below theta  <= 0.004: 30/64 (0.469)  <= 0.008: 49/64 (0.766)  <= 0.016: 61/64 (0.953)
+    3. AUC P(q_wrong < q_correct), ties half: 0.4926
+       frontier over 401 thresholds: max correct with wrong <= 8: 44 (wrong 8) at q >= 0.012387
+       anti-trivial point bar correct >= bistable 271 - 20 = 251: highest threshold q >= 0.001981 exposes correct 251, wrong 51
+       any threshold with wrong <= 8 and correct >= 251 in these rows: NO
+    4. correct leader == graded identity 197/336 (0.586);  leader == target 197/336 (0.586)
+    4. wrong   leader == graded identity 8/64 (0.125);  leader == target 32/64 (0.500)
+    5. first commit step, correct quantiles 13.00000 19.50000 25.00000 35.50000 55.00000 81.50000 200.00000
+    5. first commit step, wrong   quantiles 13.00000 17.00000 20.00000 26.50000 33.50000 47.40000 81.00000
+  x0 1.0: graded c/w/a 329/71/0
+    2. q correct quantiles 0.00003 0.00090 0.00194 0.00457 0.00840 0.01330 0.02910
+       q correct at/below theta  <= 0.004: 147/329 (0.447)  <= 0.008: 238/329 (0.723)  <= 0.016: 310/329 (0.942)
+    2. q wrong   quantiles 0.00002 0.00047 0.00171 0.00548 0.00949 0.01586 0.02494
+       q wrong   at/below theta  <= 0.004: 29/71 (0.408)  <= 0.008: 47/71 (0.662)  <= 0.016: 64/71 (0.901)
+    3. AUC P(q_wrong < q_correct), ties half: 0.4837
+       frontier over 401 thresholds: max correct with wrong <= 8: 33 (wrong 8) at q >= 0.013424
+       anti-trivial point bar correct >= bistable 258 - 20 = 238: highest threshold q >= 0.002223 exposes correct 238, wrong 50
+       any threshold with wrong <= 8 and correct >= 238 in these rows: NO
+    4. correct leader == graded identity 179/329 (0.544);  leader == target 179/329 (0.544)
+    4. wrong   leader == graded identity 5/71 (0.070);  leader == target 29/71 (0.408)
+    5. first commit step, correct quantiles 11.00000 19.00000 24.00000 33.00000 52.00000 78.80000 154.00000
+    5. first commit step, wrong   quantiles 12.00000 19.00000 22.00000 29.00000 42.50000 58.00000 134.00000
+  x0 2.0: graded c/w/a 331/69/0
+    2. q correct quantiles 0.00005 0.00058 0.00221 0.00573 0.00987 0.01535 0.02861
+       q correct at/below theta  <= 0.004: 133/331 (0.402)  <= 0.008: 218/331 (0.659)  <= 0.016: 303/331 (0.915)
+    2. q wrong   quantiles 0.00000 0.00046 0.00183 0.00368 0.00740 0.01002 0.01959
+       q wrong   at/below theta  <= 0.004: 37/69 (0.536)  <= 0.008: 54/69 (0.783)  <= 0.016: 68/69 (0.986)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5822
+       frontier over 401 thresholds: max correct with wrong <= 8: 94 (wrong 8) at q >= 0.009165
+       anti-trivial point bar correct >= bistable 253 - 20 = 233: highest threshold q >= 0.002577 exposes correct 233, wrong 46
+       any threshold with wrong <= 8 and correct >= 233 in these rows: NO
+    4. correct leader == graded identity 166/331 (0.502);  leader == target 166/331 (0.502)
+    4. wrong   leader == graded identity 13/69 (0.188);  leader == target 30/69 (0.435)
+    5. first commit step, correct quantiles 13.00000 20.00000 26.00000 37.00000 56.00000 84.00000 243.00000
+    5. first commit step, wrong   quantiles 12.00000 19.80000 22.00000 28.00000 45.00000 73.40000 144.00000
+  x0 4.0: graded c/w/a 325/75/0
+    2. q correct quantiles 0.00001 0.00110 0.00266 0.00580 0.00942 0.01414 0.02461
+       q correct at/below theta  <= 0.004: 124/325 (0.382)  <= 0.008: 227/325 (0.698)  <= 0.016: 304/325 (0.935)
+    2. q wrong   quantiles 0.00009 0.00161 0.00288 0.00584 0.00996 0.01392 0.02567
+       q wrong   at/below theta  <= 0.004: 24/75 (0.320)  <= 0.008: 48/75 (0.640)  <= 0.016: 69/75 (0.920)
+    3. AUC P(q_wrong < q_correct), ties half: 0.4736
+       frontier over 401 thresholds: max correct with wrong <= 8: 36 (wrong 8) at q >= 0.013610
+       anti-trivial point bar correct >= bistable 260 - 20 = 240: highest threshold q >= 0.002772 exposes correct 240, wrong 57
+       any threshold with wrong <= 8 and correct >= 240 in these rows: NO
+    4. correct leader == graded identity 153/325 (0.471);  leader == target 153/325 (0.471)
+    4. wrong   leader == graded identity 13/75 (0.173);  leader == target 33/75 (0.440)
+    5. first commit step, correct quantiles 12.00000 20.00000 27.00000 38.00000 53.00000 80.00000 221.00000
+    5. first commit step, wrong   quantiles 13.00000 16.40000 20.00000 29.00000 40.50000 75.20000 187.00000
+  6. pooled over five x0, 2000 rows (per-condition bars not applied to the pool): graded c/w/a 1616/384/0
+    2. q correct quantiles 0.00001 0.00086 0.00218 0.00500 0.00909 0.01361 0.03129
+       q correct at/below theta  <= 0.004: 690/1616 (0.427)  <= 0.008: 1136/1616 (0.703)  <= 0.016: 1519/1616 (0.940)
+    2. q wrong   quantiles 0.00000 0.00081 0.00223 0.00482 0.00852 0.01267 0.02567
+       q wrong   at/below theta  <= 0.004: 170/384 (0.443)  <= 0.008: 279/384 (0.727)  <= 0.016: 366/384 (0.953)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5156
+    4. correct leader == graded identity 879/1616 (0.544);  leader == target 879/1616 (0.544)
+    4. wrong   leader == graded identity 54/384 (0.141);  leader == target 182/384 (0.474)
+
+== read final (step 600), tau_e 80 ==
+  x0 0.25: graded c/w/a 295/105/0
+    2. q correct quantiles 0.00003 0.00078 0.00226 0.00469 0.00789 0.01146 0.01861
+       q correct at/below theta  <= 0.004: 126/295 (0.427)  <= 0.008: 225/295 (0.763)  <= 0.016: 294/295 (0.997)
+    2. q wrong   quantiles 0.00003 0.00081 0.00220 0.00434 0.00632 0.01028 0.01382
+       q wrong   at/below theta  <= 0.004: 51/105 (0.486)  <= 0.008: 88/105 (0.838)  <= 0.016: 105/105 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5572
+       frontier over 401 thresholds: max correct with wrong <= 8: 32 (wrong 8) at q >= 0.011144
+       anti-trivial point bar correct >= bistable 238 - 20 = 218: highest threshold q >= 0.002350 exposes correct 218, wrong 76
+       any threshold with wrong <= 8 and correct >= 218 in these rows: NO
+    4. correct leader == graded identity 228/295 (0.773);  leader == target 228/295 (0.773)
+    4. wrong   leader == graded identity 12/105 (0.114);  leader == target 78/105 (0.743)
+    5. first commit step, correct quantiles 12.00000 19.00000 24.00000 33.00000 52.00000 79.20000 192.00000
+    5. first commit step, wrong   quantiles 12.00000 16.00000 19.00000 28.00000 41.00000 56.80000 111.00000
+  x0 0.5: graded c/w/a 336/64/0
+    2. q correct quantiles 0.00000 0.00105 0.00210 0.00448 0.00806 0.01132 0.01950
+       q correct at/below theta  <= 0.004: 149/336 (0.443)  <= 0.008: 250/336 (0.744)  <= 0.016: 333/336 (0.991)
+    2. q wrong   quantiles 0.00005 0.00067 0.00164 0.00361 0.00580 0.00915 0.01784
+       q wrong   at/below theta  <= 0.004: 37/64 (0.578)  <= 0.008: 56/64 (0.875)  <= 0.016: 61/64 (0.953)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5855
+       frontier over 401 thresholds: max correct with wrong <= 8: 89 (wrong 8) at q >= 0.007793
+       anti-trivial point bar correct >= bistable 271 - 20 = 251: highest threshold q >= 0.002121 exposes correct 251, wrong 41
+       any threshold with wrong <= 8 and correct >= 251 in these rows: NO
+    4. correct leader == graded identity 262/336 (0.780);  leader == target 262/336 (0.780)
+    4. wrong   leader == graded identity 9/64 (0.141);  leader == target 39/64 (0.609)
+    5. first commit step, correct quantiles 13.00000 19.50000 25.00000 35.50000 55.00000 81.50000 200.00000
+    5. first commit step, wrong   quantiles 13.00000 17.00000 20.00000 26.50000 33.50000 47.40000 81.00000
+  x0 1.0: graded c/w/a 329/71/0
+    2. q correct quantiles 0.00000 0.00069 0.00179 0.00424 0.00799 0.01122 0.02161
+       q correct at/below theta  <= 0.004: 157/329 (0.477)  <= 0.008: 247/329 (0.751)  <= 0.016: 322/329 (0.979)
+    2. q wrong   quantiles 0.00001 0.00060 0.00139 0.00360 0.00714 0.00963 0.01800
+       q wrong   at/below theta  <= 0.004: 36/71 (0.507)  <= 0.008: 56/71 (0.789)  <= 0.016: 68/71 (0.958)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5345
+       frontier over 401 thresholds: max correct with wrong <= 8: 58 (wrong 8) at q >= 0.009624
+       anti-trivial point bar correct >= bistable 258 - 20 = 238: highest threshold q >= 0.002093 exposes correct 238, wrong 46
+       any threshold with wrong <= 8 and correct >= 238 in these rows: NO
+    4. correct leader == graded identity 247/329 (0.751);  leader == target 247/329 (0.751)
+    4. wrong   leader == graded identity 9/71 (0.127);  leader == target 42/71 (0.592)
+    5. first commit step, correct quantiles 11.00000 19.00000 24.00000 33.00000 52.00000 78.80000 154.00000
+    5. first commit step, wrong   quantiles 12.00000 19.00000 22.00000 29.00000 42.50000 58.00000 134.00000
+  x0 2.0: graded c/w/a 331/69/0
+    2. q correct quantiles 0.00003 0.00072 0.00221 0.00498 0.00832 0.01177 0.02072
+       q correct at/below theta  <= 0.004: 133/331 (0.402)  <= 0.008: 243/331 (0.734)  <= 0.016: 321/331 (0.970)
+    2. q wrong   quantiles 0.00006 0.00042 0.00142 0.00349 0.00586 0.00821 0.01334
+       q wrong   at/below theta  <= 0.004: 37/69 (0.536)  <= 0.008: 61/69 (0.884)  <= 0.016: 69/69 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6192
+       frontier over 401 thresholds: max correct with wrong <= 8: 89 (wrong 8) at q >= 0.007995
+       anti-trivial point bar correct >= bistable 253 - 20 = 233: highest threshold q >= 0.002741 exposes correct 233, wrong 39
+       any threshold with wrong <= 8 and correct >= 233 in these rows: NO
+    4. correct leader == graded identity 229/331 (0.692);  leader == target 229/331 (0.692)
+    4. wrong   leader == graded identity 12/69 (0.174);  leader == target 39/69 (0.565)
+    5. first commit step, correct quantiles 13.00000 20.00000 26.00000 37.00000 56.00000 84.00000 243.00000
+    5. first commit step, wrong   quantiles 12.00000 19.80000 22.00000 28.00000 45.00000 73.40000 144.00000
+  x0 4.0: graded c/w/a 325/75/0
+    2. q correct quantiles 0.00006 0.00084 0.00192 0.00424 0.00761 0.01134 0.01734
+       q correct at/below theta  <= 0.004: 160/325 (0.492)  <= 0.008: 249/325 (0.766)  <= 0.016: 320/325 (0.985)
+    2. q wrong   quantiles 0.00008 0.00096 0.00235 0.00444 0.00665 0.01051 0.02027
+       q wrong   at/below theta  <= 0.004: 33/75 (0.440)  <= 0.008: 61/75 (0.813)  <= 0.016: 73/75 (0.973)
+    3. AUC P(q_wrong < q_correct), ties half: 0.4822
+       frontier over 401 thresholds: max correct with wrong <= 8: 40 (wrong 8) at q >= 0.010509
+       anti-trivial point bar correct >= bistable 260 - 20 = 240: highest threshold q >= 0.002039 exposes correct 240, wrong 60
+       any threshold with wrong <= 8 and correct >= 240 in these rows: NO
+    4. correct leader == graded identity 207/325 (0.637);  leader == target 207/325 (0.637)
+    4. wrong   leader == graded identity 14/75 (0.187);  leader == target 40/75 (0.533)
+    5. first commit step, correct quantiles 12.00000 20.00000 27.00000 38.00000 53.00000 80.00000 221.00000
+    5. first commit step, wrong   quantiles 13.00000 16.40000 20.00000 29.00000 40.50000 75.20000 187.00000
+  6. pooled over five x0, 2000 rows (per-condition bars not applied to the pool): graded c/w/a 1616/384/0
+    2. q correct quantiles 0.00000 0.00076 0.00206 0.00458 0.00799 0.01153 0.02161
+       q correct at/below theta  <= 0.004: 725/1616 (0.449)  <= 0.008: 1214/1616 (0.751)  <= 0.016: 1590/1616 (0.984)
+    2. q wrong   quantiles 0.00001 0.00060 0.00176 0.00393 0.00655 0.00998 0.02027
+       q wrong   at/below theta  <= 0.004: 194/384 (0.505)  <= 0.008: 322/384 (0.839)  <= 0.016: 376/384 (0.979)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5530
+    4. correct leader == graded identity 1173/1616 (0.726);  leader == target 1173/1616 (0.726)
+    4. wrong   leader == graded identity 56/384 (0.146);  leader == target 238/384 (0.620)
+
+== read final (step 600), tau_e 160 ==
+  x0 0.25: graded c/w/a 295/105/0
+    2. q correct quantiles 0.00003 0.00126 0.00300 0.00562 0.00839 0.01052 0.01631
+       q correct at/below theta  <= 0.004: 108/295 (0.366)  <= 0.008: 215/295 (0.729)  <= 0.016: 294/295 (0.997)
+    2. q wrong   quantiles 0.00008 0.00086 0.00196 0.00379 0.00606 0.00910 0.01283
+       q wrong   at/below theta  <= 0.004: 54/105 (0.514)  <= 0.008: 88/105 (0.838)  <= 0.016: 105/105 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6104
+       frontier over 401 thresholds: max correct with wrong <= 8: 39 (wrong 8) at q >= 0.010066
+       anti-trivial point bar correct >= bistable 238 - 20 = 218: highest threshold q >= 0.003141 exposes correct 218, wrong 65
+       any threshold with wrong <= 8 and correct >= 218 in these rows: NO
+    4. correct leader == graded identity 268/295 (0.908);  leader == target 268/295 (0.908)
+    4. wrong   leader == graded identity 8/105 (0.076);  leader == target 88/105 (0.838)
+    5. first commit step, correct quantiles 12.00000 19.00000 24.00000 33.00000 52.00000 79.20000 192.00000
+    5. first commit step, wrong   quantiles 12.00000 16.00000 19.00000 28.00000 41.00000 56.80000 111.00000
+  x0 0.5: graded c/w/a 336/64/0
+    2. q correct quantiles 0.00005 0.00140 0.00295 0.00526 0.00828 0.01043 0.01529
+       q correct at/below theta  <= 0.004: 119/336 (0.354)  <= 0.008: 241/336 (0.717)  <= 0.016: 336/336 (1.000)
+    2. q wrong   quantiles 0.00023 0.00095 0.00152 0.00296 0.00512 0.00801 0.01546
+       q wrong   at/below theta  <= 0.004: 41/64 (0.641)  <= 0.008: 57/64 (0.891)  <= 0.016: 64/64 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6713
+       frontier over 401 thresholds: max correct with wrong <= 8: 105 (wrong 8) at q >= 0.007649
+       anti-trivial point bar correct >= bistable 271 - 20 = 251: highest threshold q >= 0.002967 exposes correct 251, wrong 32
+       any threshold with wrong <= 8 and correct >= 251 in these rows: NO
+    4. correct leader == graded identity 305/336 (0.908);  leader == target 305/336 (0.908)
+    4. wrong   leader == graded identity 7/64 (0.109);  leader == target 49/64 (0.766)
+    5. first commit step, correct quantiles 13.00000 19.50000 25.00000 35.50000 55.00000 81.50000 200.00000
+    5. first commit step, wrong   quantiles 13.00000 17.00000 20.00000 26.50000 33.50000 47.40000 81.00000
+  x0 1.0: graded c/w/a 329/71/0
+    2. q correct quantiles 0.00002 0.00087 0.00229 0.00496 0.00814 0.01062 0.01630
+       q correct at/below theta  <= 0.004: 132/329 (0.401)  <= 0.008: 242/329 (0.736)  <= 0.016: 327/329 (0.994)
+    2. q wrong   quantiles 0.00009 0.00046 0.00108 0.00350 0.00573 0.00808 0.01469
+       q wrong   at/below theta  <= 0.004: 43/71 (0.606)  <= 0.008: 63/71 (0.887)  <= 0.016: 71/71 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6186
+       frontier over 401 thresholds: max correct with wrong <= 8: 88 (wrong 8) at q >= 0.007946
+       anti-trivial point bar correct >= bistable 258 - 20 = 238: highest threshold q >= 0.002588 exposes correct 238, wrong 43
+       any threshold with wrong <= 8 and correct >= 238 in these rows: NO
+    4. correct leader == graded identity 293/329 (0.891);  leader == target 293/329 (0.891)
+    4. wrong   leader == graded identity 9/71 (0.127);  leader == target 49/71 (0.690)
+    5. first commit step, correct quantiles 11.00000 19.00000 24.00000 33.00000 52.00000 78.80000 154.00000
+    5. first commit step, wrong   quantiles 12.00000 19.00000 22.00000 29.00000 42.50000 58.00000 134.00000
+  x0 2.0: graded c/w/a 331/69/0
+    2. q correct quantiles 0.00001 0.00093 0.00268 0.00547 0.00833 0.01031 0.01685
+       q correct at/below theta  <= 0.004: 126/331 (0.381)  <= 0.008: 243/331 (0.734)  <= 0.016: 329/331 (0.994)
+    2. q wrong   quantiles 0.00003 0.00035 0.00115 0.00314 0.00530 0.00695 0.01198
+       q wrong   at/below theta  <= 0.004: 43/69 (0.623)  <= 0.008: 63/69 (0.913)  <= 0.016: 69/69 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6650
+       frontier over 401 thresholds: max correct with wrong <= 8: 133 (wrong 8) at q >= 0.006793
+       anti-trivial point bar correct >= bistable 253 - 20 = 233: highest threshold q >= 0.003116 exposes correct 233, wrong 35
+       any threshold with wrong <= 8 and correct >= 233 in these rows: NO
+    4. correct leader == graded identity 278/331 (0.840);  leader == target 278/331 (0.840)
+    4. wrong   leader == graded identity 10/69 (0.145);  leader == target 45/69 (0.652)
+    5. first commit step, correct quantiles 13.00000 20.00000 26.00000 37.00000 56.00000 84.00000 243.00000
+    5. first commit step, wrong   quantiles 12.00000 19.80000 22.00000 28.00000 45.00000 73.40000 144.00000
+  x0 4.0: graded c/w/a 325/75/0
+    2. q correct quantiles 0.00001 0.00076 0.00203 0.00427 0.00761 0.01030 0.01498
+       q correct at/below theta  <= 0.004: 154/325 (0.474)  <= 0.008: 249/325 (0.766)  <= 0.016: 325/325 (1.000)
+    2. q wrong   quantiles 0.00009 0.00086 0.00181 0.00324 0.00579 0.00876 0.01585
+       q wrong   at/below theta  <= 0.004: 44/75 (0.587)  <= 0.008: 62/75 (0.827)  <= 0.016: 75/75 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5651
+       frontier over 401 thresholds: max correct with wrong <= 8: 60 (wrong 8) at q >= 0.008612
+       anti-trivial point bar correct >= bistable 260 - 20 = 240: highest threshold q >= 0.002110 exposes correct 240, wrong 51
+       any threshold with wrong <= 8 and correct >= 240 in these rows: NO
+    4. correct leader == graded identity 279/325 (0.858);  leader == target 279/325 (0.858)
+    4. wrong   leader == graded identity 18/75 (0.240);  leader == target 46/75 (0.613)
+    5. first commit step, correct quantiles 12.00000 20.00000 27.00000 38.00000 53.00000 80.00000 221.00000
+    5. first commit step, wrong   quantiles 13.00000 16.40000 20.00000 29.00000 40.50000 75.20000 187.00000
+  6. pooled over five x0, 2000 rows (per-condition bars not applied to the pool): graded c/w/a 1616/384/0
+    2. q correct quantiles 0.00001 0.00102 0.00252 0.00515 0.00820 0.01050 0.01685
+       q correct at/below theta  <= 0.004: 639/1616 (0.395)  <= 0.008: 1190/1616 (0.736)  <= 0.016: 1611/1616 (0.997)
+    2. q wrong   quantiles 0.00003 0.00062 0.00162 0.00335 0.00575 0.00854 0.01585
+       q wrong   at/below theta  <= 0.004: 225/384 (0.586)  <= 0.008: 333/384 (0.867)  <= 0.016: 384/384 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6205
+    4. correct leader == graded identity 1423/1616 (0.881);  leader == target 1423/1616 (0.881)
+    4. wrong   leader == graded identity 52/384 (0.135);  leader == target 277/384 (0.721)
+
+== read cue end (step 300), tau_e 40 ==
+  x0 0.25: graded c/w/a 289/102/9
+    2. q correct quantiles 0.00001 0.00076 0.00216 0.00461 0.00844 0.01159 0.02298
+       q correct at/below theta  <= 0.004: 133/289 (0.460)  <= 0.008: 209/289 (0.723)  <= 0.016: 284/289 (0.983)
+    2. q wrong   quantiles 0.00005 0.00109 0.00212 0.00412 0.00727 0.01087 0.01813
+       q wrong   at/below theta  <= 0.004: 49/102 (0.480)  <= 0.008: 79/102 (0.775)  <= 0.016: 101/102 (0.990)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5150
+       frontier over 392 thresholds: max correct with wrong <= 8: 39 (wrong 8) at q >= 0.011112
+       anti-trivial point bar correct >= bistable 235 - 20 = 215: highest threshold q >= 0.002204 exposes correct 215, wrong 76
+       any threshold with wrong <= 8 and correct >= 215 in these rows: NO
+    4. correct leader == graded identity 202/289 (0.699);  leader == target 202/289 (0.699)
+    4. wrong   leader == graded identity 10/102 (0.098);  leader == target 64/102 (0.627)
+    5. first commit step, correct quantiles 12.00000 19.00000 24.00000 33.00000 52.00000 78.40000 192.00000
+    5. first commit step, wrong   quantiles 12.00000 16.00000 19.00000 27.00000 40.00000 54.00000 111.00000
+  x0 0.5: graded c/w/a 333/59/8
+    2. q correct quantiles 0.00009 0.00085 0.00190 0.00415 0.00719 0.01103 0.01886
+       q correct at/below theta  <= 0.004: 164/333 (0.492)  <= 0.008: 260/333 (0.781)  <= 0.016: 327/333 (0.982)
+    2. q wrong   quantiles 0.00025 0.00059 0.00155 0.00417 0.00823 0.01095 0.01734
+       q wrong   at/below theta  <= 0.004: 29/59 (0.492)  <= 0.008: 44/59 (0.746)  <= 0.016: 56/59 (0.949)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5086
+       frontier over 393 thresholds: max correct with wrong <= 8: 40 (wrong 8) at q >= 0.010392
+       anti-trivial point bar correct >= bistable 271 - 20 = 251: highest threshold q >= 0.001883 exposes correct 251, wrong 40
+       any threshold with wrong <= 8 and correct >= 251 in these rows: NO
+    4. correct leader == graded identity 221/333 (0.664);  leader == target 221/333 (0.664)
+    4. wrong   leader == graded identity 6/59 (0.102);  leader == target 37/59 (0.627)
+    5. first commit step, correct quantiles 13.00000 19.20000 25.00000 36.00000 55.00000 81.80000 200.00000
+    5. first commit step, wrong   quantiles 13.00000 16.80000 19.50000 26.00000 32.00000 42.80000 69.00000
+  x0 1.0: graded c/w/a 322/66/12
+    2. q correct quantiles 0.00001 0.00078 0.00160 0.00434 0.00754 0.01093 0.01948
+       q correct at/below theta  <= 0.004: 152/322 (0.472)  <= 0.008: 251/322 (0.780)  <= 0.016: 317/322 (0.984)
+    2. q wrong   quantiles 0.00001 0.00117 0.00205 0.00415 0.00722 0.01216 0.01630
+       q wrong   at/below theta  <= 0.004: 31/66 (0.470)  <= 0.008: 51/66 (0.773)  <= 0.016: 65/66 (0.985)
+    3. AUC P(q_wrong < q_correct), ties half: 0.4844
+       frontier over 389 thresholds: max correct with wrong <= 8: 28 (wrong 8) at q >= 0.011573
+       anti-trivial point bar correct >= bistable 254 - 20 = 234: highest threshold q >= 0.001823 exposes correct 234, wrong 50
+       any threshold with wrong <= 8 and correct >= 234 in these rows: NO
+    4. correct leader == graded identity 227/322 (0.705);  leader == target 227/322 (0.705)
+    4. wrong   leader == graded identity 11/66 (0.167);  leader == target 36/66 (0.545)
+    5. first commit step, correct quantiles 11.00000 19.00000 23.25000 33.00000 50.75000 78.00000 154.00000
+    5. first commit step, wrong   quantiles 12.00000 19.00000 22.00000 29.00000 42.75000 56.00000 134.00000
+  x0 2.0: graded c/w/a 325/59/16
+    2. q correct quantiles 0.00001 0.00063 0.00185 0.00406 0.00797 0.01087 0.01754
+       q correct at/below theta  <= 0.004: 159/325 (0.489)  <= 0.008: 245/325 (0.754)  <= 0.016: 322/325 (0.991)
+    2. q wrong   quantiles 0.00007 0.00068 0.00164 0.00298 0.00682 0.01039 0.01617
+       q wrong   at/below theta  <= 0.004: 33/59 (0.559)  <= 0.008: 47/59 (0.797)  <= 0.016: 58/59 (0.983)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5494
+       frontier over 385 thresholds: max correct with wrong <= 8: 66 (wrong 8) at q >= 0.008832
+       anti-trivial point bar correct >= bistable 242 - 20 = 222: highest threshold q >= 0.002307 exposes correct 222, wrong 34
+       any threshold with wrong <= 8 and correct >= 222 in these rows: NO
+    4. correct leader == graded identity 217/325 (0.668);  leader == target 217/325 (0.668)
+    4. wrong   leader == graded identity 10/59 (0.169);  leader == target 34/59 (0.576)
+    5. first commit step, correct quantiles 13.00000 20.00000 26.00000 37.00000 56.00000 84.60000 243.00000
+    5. first commit step, wrong   quantiles 12.00000 19.80000 21.50000 26.00000 41.50000 66.20000 100.00000
+  x0 4.0: graded c/w/a 316/67/17
+    2. q correct quantiles 0.00004 0.00058 0.00185 0.00436 0.00750 0.01122 0.01936
+       q correct at/below theta  <= 0.004: 153/316 (0.484)  <= 0.008: 246/316 (0.778)  <= 0.016: 313/316 (0.991)
+    2. q wrong   quantiles 0.00011 0.00067 0.00170 0.00353 0.00759 0.01111 0.02257
+       q wrong   at/below theta  <= 0.004: 37/67 (0.552)  <= 0.008: 51/67 (0.761)  <= 0.016: 63/67 (0.940)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5196
+       frontier over 384 thresholds: max correct with wrong <= 8: 45 (wrong 8) at q >= 0.009833
+       anti-trivial point bar correct >= bistable 252 - 20 = 232: highest threshold q >= 0.001923 exposes correct 232, wrong 48
+       any threshold with wrong <= 8 and correct >= 232 in these rows: NO
+    4. correct leader == graded identity 202/316 (0.639);  leader == target 202/316 (0.639)
+    4. wrong   leader == graded identity 8/67 (0.119);  leader == target 42/67 (0.627)
+    5. first commit step, correct quantiles 12.00000 20.00000 27.00000 38.00000 53.00000 80.00000 221.00000
+    5. first commit step, wrong   quantiles 13.00000 15.60000 19.50000 29.00000 40.50000 61.80000 187.00000
+  6. pooled over five x0, 2000 rows (per-condition bars not applied to the pool): graded c/w/a 1585/353/62
+    2. q correct quantiles 0.00001 0.00072 0.00186 0.00427 0.00768 0.01117 0.02298
+       q correct at/below theta  <= 0.004: 761/1585 (0.480)  <= 0.008: 1211/1585 (0.764)  <= 0.016: 1563/1585 (0.986)
+    2. q wrong   quantiles 0.00001 0.00077 0.00174 0.00397 0.00731 0.01108 0.02257
+       q wrong   at/below theta  <= 0.004: 179/353 (0.507)  <= 0.008: 272/353 (0.771)  <= 0.016: 343/353 (0.972)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5114
+    4. correct leader == graded identity 1069/1585 (0.674);  leader == target 1069/1585 (0.674)
+    4. wrong   leader == graded identity 45/353 (0.127);  leader == target 213/353 (0.603)
+
+== read cue end (step 300), tau_e 80 ==
+  x0 0.25: graded c/w/a 289/102/9
+    2. q correct quantiles 0.00001 0.00084 0.00254 0.00509 0.00780 0.01099 0.01827
+       q correct at/below theta  <= 0.004: 109/289 (0.377)  <= 0.008: 219/289 (0.758)  <= 0.016: 288/289 (0.997)
+    2. q wrong   quantiles 0.00002 0.00076 0.00187 0.00395 0.00728 0.00988 0.01550
+       q wrong   at/below theta  <= 0.004: 53/102 (0.520)  <= 0.008: 81/102 (0.794)  <= 0.016: 102/102 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5587
+       frontier over 392 thresholds: max correct with wrong <= 8: 40 (wrong 8) at q >= 0.010044
+       anti-trivial point bar correct >= bistable 235 - 20 = 215: highest threshold q >= 0.002616 exposes correct 215, wrong 66
+       any threshold with wrong <= 8 and correct >= 215 in these rows: NO
+    4. correct leader == graded identity 244/289 (0.844);  leader == target 244/289 (0.844)
+    4. wrong   leader == graded identity 8/102 (0.078);  leader == target 78/102 (0.765)
+    5. first commit step, correct quantiles 12.00000 19.00000 24.00000 33.00000 52.00000 78.40000 192.00000
+    5. first commit step, wrong   quantiles 12.00000 16.00000 19.00000 27.00000 40.00000 54.00000 111.00000
+  x0 0.5: graded c/w/a 333/59/8
+    2. q correct quantiles 0.00000 0.00055 0.00194 0.00481 0.00775 0.01029 0.01614
+       q correct at/below theta  <= 0.004: 138/333 (0.414)  <= 0.008: 256/333 (0.769)  <= 0.016: 331/333 (0.994)
+    2. q wrong   quantiles 0.00009 0.00064 0.00148 0.00415 0.00622 0.01128 0.01691
+       q wrong   at/below theta  <= 0.004: 28/59 (0.475)  <= 0.008: 48/59 (0.814)  <= 0.016: 58/59 (0.983)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5431
+       frontier over 393 thresholds: max correct with wrong <= 8: 30 (wrong 8) at q >= 0.010917
+       anti-trivial point bar correct >= bistable 271 - 20 = 251: highest threshold q >= 0.001932 exposes correct 251, wrong 41
+       any threshold with wrong <= 8 and correct >= 251 in these rows: NO
+    4. correct leader == graded identity 274/333 (0.823);  leader == target 274/333 (0.823)
+    4. wrong   leader == graded identity 5/59 (0.085);  leader == target 45/59 (0.763)
+    5. first commit step, correct quantiles 13.00000 19.20000 25.00000 36.00000 55.00000 81.80000 200.00000
+    5. first commit step, wrong   quantiles 13.00000 16.80000 19.50000 26.00000 32.00000 42.80000 69.00000
+  x0 1.0: graded c/w/a 322/66/12
+    2. q correct quantiles 0.00005 0.00095 0.00219 0.00442 0.00786 0.01084 0.01567
+       q correct at/below theta  <= 0.004: 141/322 (0.438)  <= 0.008: 244/322 (0.758)  <= 0.016: 322/322 (1.000)
+    2. q wrong   quantiles 0.00004 0.00080 0.00149 0.00349 0.00644 0.00953 0.01387
+       q wrong   at/below theta  <= 0.004: 34/66 (0.515)  <= 0.008: 54/66 (0.818)  <= 0.016: 66/66 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5666
+       frontier over 389 thresholds: max correct with wrong <= 8: 58 (wrong 8) at q >= 0.009129
+       anti-trivial point bar correct >= bistable 254 - 20 = 234: highest threshold q >= 0.002514 exposes correct 234, wrong 37
+       any threshold with wrong <= 8 and correct >= 234 in these rows: NO
+    4. correct leader == graded identity 277/322 (0.860);  leader == target 277/322 (0.860)
+    4. wrong   leader == graded identity 12/66 (0.182);  leader == target 40/66 (0.606)
+    5. first commit step, correct quantiles 11.00000 19.00000 23.25000 33.00000 50.75000 78.00000 154.00000
+    5. first commit step, wrong   quantiles 12.00000 19.00000 22.00000 29.00000 42.75000 56.00000 134.00000
+  x0 2.0: graded c/w/a 325/59/16
+    2. q correct quantiles 0.00001 0.00077 0.00223 0.00486 0.00770 0.01060 0.01561
+       q correct at/below theta  <= 0.004: 142/325 (0.437)  <= 0.008: 253/325 (0.778)  <= 0.016: 325/325 (1.000)
+    2. q wrong   quantiles 0.00004 0.00068 0.00121 0.00286 0.00567 0.01027 0.01309
+       q wrong   at/below theta  <= 0.004: 36/59 (0.610)  <= 0.008: 49/59 (0.831)  <= 0.016: 59/59 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6015
+       frontier over 385 thresholds: max correct with wrong <= 8: 48 (wrong 8) at q >= 0.009769
+       anti-trivial point bar correct >= bistable 242 - 20 = 222: highest threshold q >= 0.002834 exposes correct 222, wrong 30
+       any threshold with wrong <= 8 and correct >= 222 in these rows: NO
+    4. correct leader == graded identity 267/325 (0.822);  leader == target 267/325 (0.822)
+    4. wrong   leader == graded identity 5/59 (0.085);  leader == target 39/59 (0.661)
+    5. first commit step, correct quantiles 13.00000 20.00000 26.00000 37.00000 56.00000 84.60000 243.00000
+    5. first commit step, wrong   quantiles 12.00000 19.80000 21.50000 26.00000 41.50000 66.20000 100.00000
+  x0 4.0: graded c/w/a 316/67/17
+    2. q correct quantiles 0.00017 0.00082 0.00202 0.00479 0.00737 0.01002 0.01481
+       q correct at/below theta  <= 0.004: 138/316 (0.437)  <= 0.008: 245/316 (0.775)  <= 0.016: 316/316 (1.000)
+    2. q wrong   quantiles 0.00000 0.00053 0.00149 0.00384 0.00609 0.00958 0.01707
+       q wrong   at/below theta  <= 0.004: 35/67 (0.522)  <= 0.008: 54/67 (0.806)  <= 0.016: 66/67 (0.985)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5645
+       frontier over 384 thresholds: max correct with wrong <= 8: 43 (wrong 8) at q >= 0.009523
+       anti-trivial point bar correct >= bistable 252 - 20 = 232: highest threshold q >= 0.002235 exposes correct 232, wrong 43
+       any threshold with wrong <= 8 and correct >= 232 in these rows: NO
+    4. correct leader == graded identity 259/316 (0.820);  leader == target 259/316 (0.820)
+    4. wrong   leader == graded identity 10/67 (0.149);  leader == target 47/67 (0.701)
+    5. first commit step, correct quantiles 12.00000 20.00000 27.00000 38.00000 53.00000 80.00000 221.00000
+    5. first commit step, wrong   quantiles 13.00000 15.60000 19.50000 29.00000 40.50000 61.80000 187.00000
+  6. pooled over five x0, 2000 rows (per-condition bars not applied to the pool): graded c/w/a 1585/353/62
+    2. q correct quantiles 0.00000 0.00077 0.00218 0.00481 0.00774 0.01051 0.01827
+       q correct at/below theta  <= 0.004: 668/1585 (0.421)  <= 0.008: 1217/1585 (0.768)  <= 0.016: 1582/1585 (0.998)
+    2. q wrong   quantiles 0.00000 0.00067 0.00162 0.00379 0.00646 0.01005 0.01707
+       q wrong   at/below theta  <= 0.004: 186/353 (0.527)  <= 0.008: 286/353 (0.810)  <= 0.016: 351/353 (0.994)
+    3. AUC P(q_wrong < q_correct), ties half: 0.5626
+    4. correct leader == graded identity 1321/1585 (0.833);  leader == target 1321/1585 (0.833)
+    4. wrong   leader == graded identity 40/353 (0.113);  leader == target 249/353 (0.705)
+
+== read cue end (step 300), tau_e 160 ==
+  x0 0.25: graded c/w/a 289/102/9
+    2. q correct quantiles 0.00008 0.00159 0.00338 0.00572 0.00822 0.01094 0.01605
+       q correct at/below theta  <= 0.004: 88/289 (0.304)  <= 0.008: 212/289 (0.734)  <= 0.016: 288/289 (0.997)
+    2. q wrong   quantiles 0.00002 0.00042 0.00170 0.00422 0.00638 0.00893 0.01240
+       q wrong   at/below theta  <= 0.004: 49/102 (0.480)  <= 0.008: 87/102 (0.853)  <= 0.016: 102/102 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6296
+       frontier over 392 thresholds: max correct with wrong <= 8: 57 (wrong 8) at q >= 0.009136
+       anti-trivial point bar correct >= bistable 235 - 20 = 215: highest threshold q >= 0.003480 exposes correct 215, wrong 64
+       any threshold with wrong <= 8 and correct >= 215 in these rows: NO
+    4. correct leader == graded identity 273/289 (0.945);  leader == target 273/289 (0.945)
+    4. wrong   leader == graded identity 8/102 (0.078);  leader == target 83/102 (0.814)
+    5. first commit step, correct quantiles 12.00000 19.00000 24.00000 33.00000 52.00000 78.40000 192.00000
+    5. first commit step, wrong   quantiles 12.00000 16.00000 19.00000 27.00000 40.00000 54.00000 111.00000
+  x0 0.5: graded c/w/a 333/59/8
+    2. q correct quantiles 0.00013 0.00110 0.00315 0.00555 0.00788 0.01037 0.01515
+       q correct at/below theta  <= 0.004: 112/333 (0.336)  <= 0.008: 251/333 (0.754)  <= 0.016: 333/333 (1.000)
+    2. q wrong   quantiles 0.00040 0.00128 0.00202 0.00324 0.00630 0.00960 0.01508
+       q wrong   at/below theta  <= 0.004: 39/59 (0.661)  <= 0.008: 48/59 (0.814)  <= 0.016: 59/59 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6328
+       frontier over 393 thresholds: max correct with wrong <= 8: 65 (wrong 8) at q >= 0.008588
+       anti-trivial point bar correct >= bistable 271 - 20 = 251: highest threshold q >= 0.003151 exposes correct 251, wrong 30
+       any threshold with wrong <= 8 and correct >= 251 in these rows: NO
+    4. correct leader == graded identity 309/333 (0.928);  leader == target 309/333 (0.928)
+    4. wrong   leader == graded identity 3/59 (0.051);  leader == target 49/59 (0.831)
+    5. first commit step, correct quantiles 13.00000 19.20000 25.00000 36.00000 55.00000 81.80000 200.00000
+    5. first commit step, wrong   quantiles 13.00000 16.80000 19.50000 26.00000 32.00000 42.80000 69.00000
+  x0 1.0: graded c/w/a 322/66/12
+    2. q correct quantiles 0.00001 0.00161 0.00310 0.00555 0.00787 0.01003 0.01427
+       q correct at/below theta  <= 0.004: 106/322 (0.329)  <= 0.008: 244/322 (0.758)  <= 0.016: 322/322 (1.000)
+    2. q wrong   quantiles 0.00012 0.00043 0.00133 0.00282 0.00603 0.00772 0.01171
+       q wrong   at/below theta  <= 0.004: 42/66 (0.636)  <= 0.008: 60/66 (0.909)  <= 0.016: 66/66 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6822
+       frontier over 389 thresholds: max correct with wrong <= 8: 92 (wrong 8) at q >= 0.007505
+       anti-trivial point bar correct >= bistable 254 - 20 = 234: highest threshold q >= 0.003509 exposes correct 234, wrong 25
+       any threshold with wrong <= 8 and correct >= 234 in these rows: NO
+    4. correct leader == graded identity 304/322 (0.944);  leader == target 304/322 (0.944)
+    4. wrong   leader == graded identity 12/66 (0.182);  leader == target 45/66 (0.682)
+    5. first commit step, correct quantiles 11.00000 19.00000 23.25000 33.00000 50.75000 78.00000 154.00000
+    5. first commit step, wrong   quantiles 12.00000 19.00000 22.00000 29.00000 42.75000 56.00000 134.00000
+  x0 2.0: graded c/w/a 325/59/16
+    2. q correct quantiles 0.00001 0.00138 0.00307 0.00578 0.00783 0.01021 0.01512
+       q correct at/below theta  <= 0.004: 108/325 (0.332)  <= 0.008: 246/325 (0.757)  <= 0.016: 325/325 (1.000)
+    2. q wrong   quantiles 0.00004 0.00038 0.00102 0.00254 0.00526 0.00780 0.01188
+       q wrong   at/below theta  <= 0.004: 34/59 (0.576)  <= 0.008: 53/59 (0.898)  <= 0.016: 59/59 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6950
+       frontier over 385 thresholds: max correct with wrong <= 8: 107 (wrong 8) at q >= 0.007168
+       anti-trivial point bar correct >= bistable 242 - 20 = 222: highest threshold q >= 0.003843 exposes correct 222, wrong 25
+       any threshold with wrong <= 8 and correct >= 222 in these rows: NO
+    4. correct leader == graded identity 298/325 (0.917);  leader == target 298/325 (0.917)
+    4. wrong   leader == graded identity 6/59 (0.102);  leader == target 44/59 (0.746)
+    5. first commit step, correct quantiles 13.00000 20.00000 26.00000 37.00000 56.00000 84.60000 243.00000
+    5. first commit step, wrong   quantiles 12.00000 19.80000 21.50000 26.00000 41.50000 66.20000 100.00000
+  x0 4.0: graded c/w/a 316/67/17
+    2. q correct quantiles 0.00001 0.00134 0.00292 0.00510 0.00772 0.00986 0.01447
+       q correct at/below theta  <= 0.004: 120/316 (0.380)  <= 0.008: 251/316 (0.794)  <= 0.016: 316/316 (1.000)
+    2. q wrong   quantiles 0.00000 0.00045 0.00153 0.00345 0.00619 0.00844 0.01285
+       q wrong   at/below theta  <= 0.004: 36/67 (0.537)  <= 0.008: 57/67 (0.851)  <= 0.016: 67/67 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6237
+       frontier over 384 thresholds: max correct with wrong <= 8: 62 (wrong 8) at q >= 0.008395
+       anti-trivial point bar correct >= bistable 252 - 20 = 232: highest threshold q >= 0.003016 exposes correct 232, wrong 36
+       any threshold with wrong <= 8 and correct >= 232 in these rows: NO
+    4. correct leader == graded identity 296/316 (0.937);  leader == target 296/316 (0.937)
+    4. wrong   leader == graded identity 8/67 (0.119);  leader == target 55/67 (0.821)
+    5. first commit step, correct quantiles 12.00000 20.00000 27.00000 38.00000 53.00000 80.00000 221.00000
+    5. first commit step, wrong   quantiles 13.00000 15.60000 19.50000 29.00000 40.50000 61.80000 187.00000
+  6. pooled over five x0, 2000 rows (per-condition bars not applied to the pool): graded c/w/a 1585/353/62
+    2. q correct quantiles 0.00001 0.00135 0.00311 0.00557 0.00788 0.01025 0.01605
+       q correct at/below theta  <= 0.004: 534/1585 (0.337)  <= 0.008: 1204/1585 (0.760)  <= 0.016: 1584/1585 (0.999)
+    2. q wrong   quantiles 0.00000 0.00044 0.00150 0.00340 0.00606 0.00869 0.01508
+       q wrong   at/below theta  <= 0.004: 200/353 (0.567)  <= 0.008: 305/353 (0.864)  <= 0.016: 353/353 (1.000)
+    3. AUC P(q_wrong < q_correct), ties half: 0.6471
+    4. correct leader == graded identity 1480/1585 (0.934);  leader == target 1480/1585 (0.934)
+    4. wrong   leader == graded identity 37/353 (0.105);  leader == target 276/353 (0.782)
