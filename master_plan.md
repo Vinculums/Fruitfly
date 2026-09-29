@@ -1162,6 +1162,19 @@ Progress log
   (Das 2011); Q2 a behavioural extinction condition with the reward withdrawn; Q3 turn direction against encounter
   timing (Demir 2020); Q4 a literature search for re-learning after extinction. Nothing adopted; nothing decided; G 2
   unsettled. Closure of the synthesis and any queueing are the owner's.
+- **LEVEL 6 SYNTHESIS CLOSED as the Phase 6 update; Q1-Q4 QUEUED; MODULE CONSOLIDATION OPENED FOR DESIGN (2026-09-29;
+  decision:level6-synthesis-closed, decision:queue-q1-q4-registered, decision:module-consolidation-open-design; the
+  owner's '권고안으로 진행, Q1~Q4 큐 등록하고 모듈 통합 열자' (gloss: 'proceed as recommended; register Q1-Q4 in the queue and open the module consolidation')).** The synthesis (record:level6-synthesis-result) stands as the record's comparison with fly behaviour:
+  navigation moved since Phase 6, holding a choice and extinction not moved; nothing adopted. Four candidates enter the
+  queue as recorded in the synthesis's section 5, unranked against each other and placed after the confirmed order
+  (b) module consolidation, (d) the hold's benefit, (a) H17 Run 3; each gets its number when opened for design: Q1 a
+  per-odour exposure-dependent reduction of response (the queued habituation item; needs new per-odour state and a
+  signed relaxation, and a measurement of response against prior exposure first); Q2 a behavioural extinction condition
+  (reward withdrawn, a positive competitor; a world change, the adopted module the reference); Q3 a turn-direction
+  statistic against encounter timing on the adopted agent in a random-encounter plume (measurement only); Q4 a
+  literature item, reacquisition after extinction in Drosophila (no run). Module consolidation, item (b): an
+  engineering step with no hypothesis; design v1 DRAFT by an Opus 5.5 agent next; acceptance is bitwise identity with
+  Agent17 and Agent16 on the same seeds (notes/module_boundary_outlook.md section 6 and its addendum). G 2 unsettled.
 
 ## Why a plan now
 
@@ -2662,12 +2675,25 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Level 6 synthesis written and checked; closure is the owner's** (record:level6-synthesis-result). The owner closes
-  the synthesis (accept as the Phase 6 update, or ask for corrections) and decides whether any of Q1-Q4 enters the queue
-  by a decision node; the confirmed order then continues with (b) module consolidation. Also the owner's, unsettled:
-  whether the gain G 2 is adopted state. main and codex/h12-review-plan are at the same commit.
+- **Module consolidation opened for design** (decision:module-consolidation-open-design, 2026-09-29): design v1 DRAFT
+  by an Opus 5.5 agent, reviewed here, then the owner's section 12. No hypothesis; acceptance is bitwise identity with
+  Agent17 and Agent16. Also the owner's, unsettled: whether the gain G 2 is adopted state. main and
+  codex/h12-review-plan are at the same commit.
 
 ## Queued candidates, none started
+
+**Order fixed at the consolidation gate (decision:consolidation-gate-closed, 2026-09-29):** (c) the Level 6 synthesis
+(done and closed, record:level6-synthesis-result, decision:level6-synthesis-closed); (b) module consolidation (opened
+for design, decision:module-consolidation-open-design); (d) the hold's benefit (L12, unmeasured twice); (a) an H17
+Run 3. **Queued after them by decision:queue-q1-q4-registered (2026-09-29), unranked, numbered when opened:**
+- **Q1** a per-odour exposure-dependent reduction of response in the recognition core (the habituation item; Das 2011
+  the fly counterpart): new per-odour state and a signed relaxation; a measurement of response against prior exposure
+  first, to make the synthesis's B11 readable.
+- **Q2** a behavioural extinction condition: reward withdrawn and a positive competitor, in a behaving run, the adopted
+  module unchanged as the reference arm; extinction has never fired in a behaving run.
+- **Q3** a turn-direction statistic against encounter timing, measured on the adopted agent in a random-encounter
+  plume (Demir 2020): a measurement, no rule change; makes B3 readable before any navigation change.
+- **Q4** a literature item: reacquisition after extinction (savings) in Drosophila; a source opened and read; no run.
 
 The order does not change without a decision node. H21 is closed (decision:h21-closed); H22 is closed
 (decision:h22-closed); H23 is closed as shown (decision:h23-closed). Next, in this order
