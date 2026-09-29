@@ -1832,6 +1832,10 @@ Four hypotheses were run in one day by picking the next most interesting candida
   `none` reads F1 NOT MET (both event shares 1.0000) where the review's amendment 5 expected MET, because F1's relative
   clause cannot be met by a saturated arm. No ring reading taken. The owner chooses (a) take the readings with the I7
   expectation recorded as mis-stated, (b) amend F1 first, or (c) close.
+- **H18 I7 expectation corrected by the owner, option (a) (2026-09-29; decision:h18-i7-expectation-corrected;
+  experiments/h18/h18_i7_amendment.md).** The `none` known answer on F1 is restated: the absolute clause MET, the
+  relative clause SATURATED and not read; the reviewer's error. No threshold, definition, seed or array changes; only
+  the I7 check in src/ph37.py, disclosed and rehashed. The readings pass then runs on the stored arrays.
 
 ## The architecture as currently adopted
 
@@ -2330,13 +2334,11 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H18 Stage A STOPPED at I7; the owner chooses** (record:h18-stage-a-i7-stop; experiments/h18/h18_diagnosis.md
-  section 6): (a) record the I7 expectation (review amendment 5, 'none expected MET on F1') as mis-stated, since F1's
-  relative clause is unreadable on an arm whose every event window holds an error over 45 degrees, and take the
-  registered readings unchanged from the stored arrays (no threshold, definition or array changes; the readings pass
-  reads disk); (b) amend F1 itself, registered before any ring reading; (c) close Stage A as stopped with sections 2-4
-  on record. Pending bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18
-  node and document put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
+- **H18 Stage A readings pass running** after the owner's option (a) (decision:h18-i7-expectation-corrected,
+  2026-09-29; experiments/h18/h18_i7_amendment.md): the I7 expectation restated, nothing else changed; the registered
+  readings are taken from the stored arrays. The output is a branch table; the branch is the owner's. Pending
+  bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18 node and document
+  put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
 
 ## Queued candidates, none started
 
