@@ -1117,6 +1117,18 @@ Progress log
   opening (c) is a separate decision. main stays in step with the working branch at every closure or adoption commit.
   Bookkeeping: ReleaseN2 is src/ph30.py:117-136, Agent14N2 :139-140; the outlook note has an addendum. Left open: whether
   the gain G 2 is adopted state.
+- **LEVEL 6 SYNTHESIS OPENED FOR DESIGN (2026-09-29; decision:level6-synthesis-open-design; the owner's '그럼 다음 이어서
+  권고안으로 진행').** Item (c) of the consolidation gate's order. Design v1 DRAFT by an Opus 5.5 agent
+  (notes/synthesis/2026-09-29-level6-synthesis-design-v1.md, sha 1947889b...19be; review
+  notes/reviews/2026-09-29-level6-synthesis-design-v1-review.md, four small amendments): the spec of the synthesis, in
+  Phase 6's form with criteria stored before the document is written. Baseline: Phase 6's six behaviours and the
+  discrete-vs-graded bias; 13 modules adopted after Phase 4 that Phase 6 did not cover. A registered comparison set of
+  14 fly behaviours (B1-B14), each with a published source, the agent's measured number and a judging rule written now
+  (MATCH / MISMATCH / UNTESTED / OUTSIDE SCOPE / PENDING; qualitative only; module-level numbers labelled); a
+  circuit-link table in Phase 1's form with explicit 'no anchor' rows; the reading rule for whether a Phase 6 mismatch
+  has moved; criteria C1-C9; what the synthesis does not claim. Sources: eleven verified at writing by DOI (abstract
+  level, labelled), six of them re-resolved by the reviewing session through Crossref; two rows PENDING ('needs a
+  source': re-learning after extinction, abstention). No run, no seed, nothing adopted. The owner's section 8 awaited.
 
 ## Why a plan now
 
@@ -2617,10 +2629,11 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Next, by the order the consolidation gate confirmed (decision:consolidation-gate-closed):** (c) a Level 6 synthesis
-  (the adopted agents against published fly behaviour, and a circuit-link table for the modules adopted after Phase 4;
-  no run). Opening it for design is the owner's. Also the owner's, unsettled: whether the gain G 2 is adopted state.
-  main and codex/h12-review-plan are at the same commit.
+- **Level 6 synthesis design v1 DRAFT awaits the owner's section 8** (decision:level6-synthesis-open-design,
+  2026-09-29; notes/synthesis/2026-09-29-level6-synthesis-design-v1.md; review with four amendments). On confirmation:
+  v2 FINAL registered with criteria record:level6-synthesis-criteria, then the synthesis document is written by an Opus
+  agent and checked here (numbers against lines, experiment files opened, DOIs resolved) before it is recorded. Also the
+  owner's, unsettled: whether the gain G 2 is adopted state. main and codex/h12-review-plan are at the same commit.
 
 ## Queued candidates, none started
 
