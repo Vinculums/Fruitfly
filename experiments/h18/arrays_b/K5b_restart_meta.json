@@ -1,0 +1,12 @@
+{
+ "task": "K5b",
+ "arm": "restart",
+ "head": "ring",
+ "mode": "cue",
+ "p": 0.0,
+ "seconds_harness": 22.7,
+ "firings": 286,
+ "whiff_free": 1078967,
+ "npz_sha256": "94ac65a0368417bc5013c07cdfd88873a16237d10e452e6edbf791d15167c941",
+ "npz_bytes": 20926659
+}

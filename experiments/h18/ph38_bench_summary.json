@@ -1,0 +1,256 @@
+{
+ "stage": "bench",
+ "p": {
+  "p": 0.00026506834778079405,
+  "firings": 286,
+  "whiff_free": 1078967,
+  "from_npz_sha256": "94ac65a0368417bc5013c07cdfd88873a16237d10e452e6edbf791d15167c941",
+  "stage": "bench"
+ },
+ "arrays": {
+  "K5b_ring": "be8fafedd17db758427ee3481d8104214864084ef6b00c6db9d48a3ba0beb3ff",
+  "K5b_restart": "94ac65a0368417bc5013c07cdfd88873a16237d10e452e6edbf791d15167c941",
+  "K5b_restart_rand": "22ee3bc3844b82585ddb95065ad4657d85441535fecc4319ad39771054b5b246",
+  "K5b_exact": "388bf53c60f149a16ffff56e6094daac26918e140439fdf200ba9a09f1af699e",
+  "K5b_exact_restart": "4a9e8bc9a84efaf2e55127907e43b229505bc2196569444be8bcf02cad16d72d",
+  "K5b_none": "8bc9a7f82679f8f24201496872787b0b86b8bb802b12ed0ff8dc349c2ab88464",
+  "K5b_integrate": "9a0f2fa1fc5c38fcda3b903c61c1120fadec155d354880c1351fdc9d7dec7697",
+  "K5a_ring": "cd8b79edaae444982020d36fd48f1a358575f519bf69455aee2cd43a1df24291",
+  "K5a_restart": "cd8b79edaae444982020d36fd48f1a358575f519bf69455aee2cd43a1df24291",
+  "K5a_restart_rand": "3aa15bb755225071e6057cae7e9f5dfdee317815b85fe8af54cc8faa3e843c70",
+  "K5a_exact": "6708f9fc70f29f07f9ba877ee504fca4501685a6dfec47c17bcbf7bd32fc557e",
+  "K5a_exact_restart": "6708f9fc70f29f07f9ba877ee504fca4501685a6dfec47c17bcbf7bd32fc557e",
+  "K5a_none": "bcc988425660c6148d7249f45f5da3ad55d841f05399dc4fd7377484172c9c91",
+  "K5a_integrate": "bcc988425660c6148d7249f45f5da3ad55d841f05399dc4fd7377484172c9c91"
+ },
+ "identities": {
+  "I-a": {
+   "grep_hits": [],
+   "p_wind_default": 1.0,
+   "world7_uses_world2_wind_on": true,
+   "ok": true
+  },
+  "I-b": {
+   "restart == ring": true,
+   "exact_restart == exact": true
+  },
+  "I-c": {
+   "restart == ring": {
+    "agents_equal": 200,
+    "of": 200,
+    "agents_firing": 200,
+    "first_firing_p10_50_90": [
+     63.900000000000006,
+     106.5,
+     149.1
+    ]
+   },
+   "exact_restart == exact": {
+    "agents_equal": 200,
+    "of": 200,
+    "agents_firing": 200,
+    "first_firing_p10_50_90": [
+     63.0,
+     106.5,
+     151.49999999999991
+    ]
+   }
+  },
+  "I-d_I-e": {
+   "K5b_ring": {
+    "score": true,
+    "whiff": true,
+    "wall": true,
+    "contact": true,
+    "events": true,
+    "gaps": true,
+    "wallfree": true,
+    "err": true,
+    "err_off": true,
+    "abs_off": true,
+    "mismatch": true,
+    "lost_end": true
+   },
+   "K5b_exact": {
+    "score": true,
+    "whiff": true,
+    "wall": true,
+    "contact": true,
+    "events": true,
+    "gaps": true,
+    "wallfree": true,
+    "err": true,
+    "err_off": true,
+    "abs_off": true,
+    "mismatch": true,
+    "lost_end": true
+   },
+   "K5b_none": {
+    "score": true,
+    "whiff": true,
+    "wall": true,
+    "contact": true,
+    "events": true,
+    "gaps": true,
+    "wallfree": true,
+    "err": true,
+    "err_off": true,
+    "abs_off": true,
+    "mismatch": true,
+    "lost_end": true
+   },
+   "K5b_integrate": {
+    "score": true,
+    "whiff": true,
+    "wall": true,
+    "contact": true,
+    "events": true,
+    "gaps": true,
+    "wallfree": true,
+    "err": true,
+    "err_off": true,
+    "abs_off": true,
+    "mismatch": true,
+    "lost_end": true
+   },
+   "K5a_ring": {
+    "score": true,
+    "whiff": true,
+    "wall": true,
+    "contact": true,
+    "events": true,
+    "gaps": true,
+    "wallfree": true,
+    "err": true,
+    "err_off": true,
+    "abs_off": true,
+    "mismatch": true,
+    "lost_end": true
+   },
+   "K5a_exact": {
+    "score": true,
+    "whiff": true,
+    "wall": true,
+    "contact": true,
+    "events": true,
+    "gaps": true,
+    "wallfree": true,
+    "err": true,
+    "err_off": true,
+    "abs_off": true,
+    "mismatch": true,
+    "lost_end": true
+   },
+   "K5a_none": {
+    "score": true,
+    "whiff": true,
+    "wall": true,
+    "contact": true,
+    "events": true,
+    "gaps": true,
+    "wallfree": true,
+    "err": true,
+    "err_off": true,
+    "abs_off": true,
+    "mismatch": true,
+    "lost_end": true
+   },
+   "K5a_integrate": {
+    "score": true,
+    "whiff": true,
+    "wall": true,
+    "contact": true,
+    "events": true,
+    "gaps": true,
+    "wallfree": true,
+    "err": true,
+    "err_off": true,
+    "abs_off": true,
+    "mismatch": true,
+    "lost_end": true
+   }
+  },
+  "I-f": {
+   "all_on_cue_returns": true,
+   "counts_equal": true
+  }
+ },
+ "identities_ok": true,
+ "b2": {
+  "firings": 286,
+  "cue_returns": 10697,
+  "per_agent_firings_q": [
+   1.0,
+   1.0,
+   1.0,
+   2.0,
+   5.0
+  ],
+  "per_agent_returns_q": [
+   53.0,
+   53.0,
+   54.0
+  ],
+  "share_of_returns": 0.026736468168645413,
+  "clock_restarted_q": [
+   27.5,
+   48.25,
+   78.5,
+   96.75,
+   114.0,
+   138.0
+  ],
+  "share_clock_over_50": 0.7307692307692307,
+  "lost_at_firing": 0
+ },
+ "b4": {
+  "unreadable": true,
+  "whiff_divergence_q": [
+   16.0,
+   165.0,
+   186.1
+  ],
+  "pos_diff_step1_median": 0.06646704989687444
+ },
+ "M": {
+  "M0": 23.666666666666668,
+  "M2": {
+   "d": -0.355,
+   "lo": -0.42,
+   "hi": -0.285,
+   "b": 0.355,
+   "pass_prob": 0.0,
+   "na": 129,
+   "nb": 200
+  },
+  "M3": {
+   "d": -5.9433333333333325,
+   "lo": -7.2316666666666665,
+   "hi": -4.679958333333333,
+   "sd": 9.276799615767882
+  },
+  "M4": {
+   "d": -23.421666666666667,
+   "lo": -24.17004166666667,
+   "hi": -22.629916666666666,
+   "wording": "upper bound < 0: the restart costs a perfect-heading agent"
+  },
+  "M5": {
+   "d": -0.22,
+   "lo": -0.275,
+   "hi": -0.165,
+   "b": 0.22,
+   "pass_prob": 0.0,
+   "na": 156,
+   "nb": 200
+  }
+ },
+ "stop": {
+  "decision": "STOP: stopped at the bench",
+  "reasons": [
+   "M2 bench point estimate -0.3550 <= 0",
+   "M2 pass probability at the bench d and b 0.0000 < 0.5",
+   "M5 bench point estimate -0.2200 <= 0"
+  ]
+ }
+}

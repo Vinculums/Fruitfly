@@ -1,0 +1,27 @@
+{
+ "task": "K5b",
+ "arm": "integrate",
+ "head": "integrate",
+ "mode": "off",
+ "p": 0.0,
+ "seconds_harness": 1.8,
+ "firings": 0,
+ "whiff_free": 1062348,
+ "bitwise_vs_run2": {
+  "score": true,
+  "whiff": true,
+  "wall": true,
+  "contact": true,
+  "events": true,
+  "gaps": true,
+  "wallfree": true,
+  "err": true,
+  "err_off": true,
+  "abs_off": true,
+  "mismatch": true,
+  "lost_end": true
+ },
+ "seconds_run2": 1.8,
+ "npz_sha256": "9a0f2fa1fc5c38fcda3b903c61c1120fadec155d354880c1351fdc9d7dec7697",
+ "npz_bytes": 20433558
+}

@@ -1,0 +1,27 @@
+{
+ "task": "K5b",
+ "arm": "exact",
+ "head": "exact",
+ "mode": "off",
+ "p": 0.0,
+ "seconds_harness": 1.7,
+ "firings": 0,
+ "whiff_free": 1062348,
+ "bitwise_vs_run2": {
+  "score": true,
+  "whiff": true,
+  "wall": true,
+  "contact": true,
+  "events": true,
+  "gaps": true,
+  "wallfree": true,
+  "err": true,
+  "err_off": true,
+  "abs_off": true,
+  "mismatch": true,
+  "lost_end": true
+ },
+ "seconds_run2": 1.4,
+ "npz_sha256": "388bf53c60f149a16ffff56e6094daac26918e140439fdf200ba9a09f1af699e",
+ "npz_bytes": 20433550
+}

@@ -1,0 +1,12 @@
+{
+ "task": "K5a",
+ "arm": "restart_rand",
+ "head": "ring",
+ "mode": "rand",
+ "p": 0.00026506834778079405,
+ "seconds_harness": 26.2,
+ "firings": 276,
+ "whiff_free": 1067108,
+ "npz_sha256": "3aa15bb755225071e6057cae7e9f5dfdee317815b85fe8af54cc8faa3e843c70",
+ "npz_bytes": 20781594
+}

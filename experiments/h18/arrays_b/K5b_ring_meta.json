@@ -1,0 +1,27 @@
+{
+ "task": "K5b",
+ "arm": "ring",
+ "head": "ring",
+ "mode": "off",
+ "p": 0.0,
+ "seconds_harness": 21.4,
+ "firings": 0,
+ "whiff_free": 1069882,
+ "bitwise_vs_run2": {
+  "score": true,
+  "whiff": true,
+  "wall": true,
+  "contact": true,
+  "events": true,
+  "gaps": true,
+  "wallfree": true,
+  "err": true,
+  "err_off": true,
+  "abs_off": true,
+  "mismatch": true,
+  "lost_end": true
+ },
+ "seconds_run2": 20.1,
+ "npz_sha256": "be8fafedd17db758427ee3481d8104214864084ef6b00c6db9d48a3ba0beb3ff",
+ "npz_bytes": 21035949
+}

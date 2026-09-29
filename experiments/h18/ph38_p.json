@@ -1,0 +1,7 @@
+{
+ "p": 0.00026506834778079405,
+ "firings": 286,
+ "whiff_free": 1078967,
+ "from_npz_sha256": "94ac65a0368417bc5013c07cdfd88873a16237d10e452e6edbf791d15167c941",
+ "stage": "bench"
+}

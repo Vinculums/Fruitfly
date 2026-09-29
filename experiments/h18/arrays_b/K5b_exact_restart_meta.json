@@ -1,0 +1,12 @@
+{
+ "task": "K5b",
+ "arm": "exact_restart",
+ "head": "exact",
+ "mode": "cue",
+ "p": 0.0,
+ "seconds_harness": 1.5,
+ "firings": 294,
+ "whiff_free": 1078975,
+ "npz_sha256": "4a9e8bc9a84efaf2e55127907e43b229505bc2196569444be8bcf02cad16d72d",
+ "npz_bytes": 20842127
+}

@@ -1056,6 +1056,26 @@ Progress log
   the bench stop rule is the likely end, that B-iii does not repair the memory, and that Stage B's test does not rest
   on Stage A's one-event F3 margin. New seeds 18101-18106, 18201-18203: repository scan 0 hits each; graph scan PENDING
   (key expired). Nothing changes the adopted agent; any adoption would extend scope by a separate decision.
+- **H18 Stage B (B-iii) STOPPED at the bench by its registered stop rules (2026-09-29; record:h18-stage-b-bench-result;
+  src/ph38.py sha 94f2f43a...9d05, experiments/h18/ph38_bench.txt sha 35ca866f...ac5de; v2 FINAL
+  experiments/h18/h18_stage_b_design_v2.md sha 6b00a506...4301).** Run by an Opus 5.5 agent on the bench seeds
+  18101/18201; the late-unrecovered counts and the whiffs per block recounted independently in the reviewing session
+  from the stored arrays and equal to the printed values. Identities (I-a) to (I-f) all pass (the adopted agent
+  identical by code; K5(a) bitwise equal to the recorded ring; K5(b) equal before each agent's first firing, 200 of
+  200; every firing on a cue-return step). The rule fired 286 times in 10,697 cue returns (one per agent at the
+  median, at most 5), at clock 27.5/78.5/114 (p10/50/90), and in 0 of 286 firings was the agent lost (since over
+  142): every firing came while it was still tracking. p for the random-restart control frozen at 286/1,078,967. Bench
+  readings: M0 23.7 (readable); **M2 late unrecovered, ring minus restart, d = -0.3550 [-0.4200, -0.2850], 129
+  against 200 of 200 flagged**, pass probability 0.0000; M3 last-third mean restart minus ring -5.943 [-7.232,
+  -4.680]; M4 exact_restart minus exact -23.422 [-24.170, -22.630] (the restart costs a perfect-heading agent);
+  M5 restart_rand minus restart -0.2200 [-0.2750, -0.1650] (156 against 200). Whiffs per block: ring 2356, 1625,
+  1410, 1129, 956, 859, 651, 604, 528; restart 1012, 21, 0, 0, 0, 0, 0, 0, 0; exact_restart 1007, 18, 0, ...; the
+  agents end a median 192 units from the source (ring 98, exact 21). STOP: stopped at the bench; development
+  (18102/18202) and evaluation (18103/18203) seeds unused; nothing tuned. Reading, not a registered diagnosis: the
+  cast loop returns to its own starting point, which after a whiff is near the source; a restart taken mid-loop while
+  the agent is still tracking anchors the loop where the agent happens to be, and it never comes back. Design v1's
+  arithmetic assumed later loops stay whole and missed that the loop's anchor is what brings the agent back. Closure
+  or a post-bench course is the owner's. Arrays (275 MB) kept local, listed with sha256 in the output.
 
 ## Why a plan now
 
@@ -1892,6 +1912,12 @@ Four hypotheses were run in one day by picking the next most interesting candida
   at the first cue-on step after the last whiff; paired against the unchanged ring on new seeds 18101-18106 and
   18201-18203; a random-restart control; a perfect-heading body check; bench stop rules. No measured counterfactual
   predicts a gain; the bench decides first. v2 FINAL and src/ph38.py follow; the adopted agent is untouched.
+- Opened on design v2 FINAL (decision:h18-stage-b-open; experiments/h18/h18_stage_b_design_v2.md, sha 6b00a506...4301)
+  and **STOPPED at the bench** (record:h18-stage-b-bench-result): every identity passes; the restart leaves 200 of 200
+  agents unrecovered against the ring's 129 (M2 d = -0.3550 [-0.4200, -0.2850]), costs a perfect-heading agent
+  23.4 points of last-third score (M4), and loses to random restarts (M5 -0.2200). Every one of the 286 firings came
+  while the agent was still tracking; whiffs collapse from the second block on. Development and evaluation seeds
+  unused; nothing tuned. Closure or a post-bench course is the owner's.
 
 ## The architecture as currently adopted
 
@@ -2390,10 +2416,14 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H18 Stage B (B-iii) confirmed; v2 FINAL and the bench next** (decision:h18-stage-b-open, 2026-09-29). The bench's
-  stop rules decide whether a development seed is used; a stop is reported as 'stopped at the bench' and closure is the
-  owner's. Pending bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18
-  node and document put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
+- **H18 Stage B (B-iii) STOPPED at the bench; the owner chooses** (record:h18-stage-b-bench-result). The registered
+  courses: (a) close H18 as NOT shown for B-iii, nothing adopted, the ring's leak under cue loss a recorded limit outside
+  the adopted scope with Stage A's description (the cue-off error is summed per-step noise, doubled by the second ring
+  step, erased at the cue's return); (b) a measurement-only post-bench diagnosis on the bench arrays first (what the
+  286 mid-tracking firings did row by row), then closure; (c) a Run 2 design (for example a restart only while lost,
+  clock at or above SAT, as ph12.py:91-94's wall rule already does), its own v1, v2 FINAL, bench and seeds. Pending
+  bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18 node and document
+  put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
 
 ## Queued candidates, none started
 
@@ -2512,6 +2542,7 @@ within the release's scope (non-negative held values) and stays in force at nega
   diagnosis first; confirmed as recommended and opened on v2 FINAL (decision:h18-open, 2026-09-29); Stage A STOPPED at
   the known-answer identity I7 before any ring reading (record:h18-stage-a-i7-stop), corrected by the owner (option (a));
   Stage A COMPLETE (record:h18-stage-a-result): only branch B-iii met, by one event; Stage B (B-iii) opened for design and
-  confirmed as recommended (decision:h18-stage-b-iii-open-design, decision:h18-stage-b-open, 2026-09-29).**
+  confirmed as recommended (decision:h18-stage-b-iii-open-design, decision:h18-stage-b-open, 2026-09-29); Stage B STOPPED at
+  the bench (record:h18-stage-b-bench-result: 200 of 200 unrecovered against the ring's 129); the owner chooses.**
 - **An H17 re-attempt** (cold start), ranked sixth: closed twice at the bench (decision:h17-closed); the consequence that
   moved it up (the release stranding negative holds) no longer arises by code under N2; a Run 3 would need new state.

@@ -1,0 +1,27 @@
+== H18 Stage B (B-iii), src/ph38.py, stage `arm K5b exact_restart`, seeds of stage `bench` ==
+python 3.13.12  numpy 2.4.6  platform Windows-10-10.0.19045-SP0
+HEAD b3c3f09673e7d5ca72a43ae737658ad65760548c
+src/ph38.py sha256 94f2f43a230126cd643143146c35bb977fac040fa704b4efe157503c04b59d05
+design experiments/h18/h18_stage_b_design_v2.md sha256 6b00a506f56bc75ce576ce37a2334835860a33aac966a437667a27b3dbca4301
+  registered src/ph12.py sha256 e1035e098c3b828998b99b05f89b7e3b8bca15f302533ea27fcc4139bad3a1c7  prefix e1035e09: ok
+  registered src/ph12b.py sha256 ec6b1896f60ef2e250d092e0f9f9f4105c06b38f6998de90700ca371213e0faa  prefix ec6b1896: ok
+  registered src/ph9.py sha256 7699b4e6fb47a1bee5f7e4e991a88aac8fa5af3a940297fbd4e441441f4d9706  prefix 7699b4e6: ok
+  registered src/ph10.py sha256 de93f177cd5f5225fd5e62011658c25597338a5ac2d7a31e597f1591b63404ba  prefix de93f177: ok
+  registered src/ph11.py sha256 e80f40bd710aca43252f04329846ffa29943251d19e718450e9a7ff49e947a23  prefix e80f40bd: ok
+  registered src/ph16.py sha256 33d5fdb25959fb7f9cbe465ca25a8973776b39f1e5170d645cb53bc8d906a2c2  prefix 33d5fdb2: ok
+  registered src/ph23.py sha256 ae180492eece93739da4d1b5d83a13a2b42c5e952445a92ab75f95c6fb2eb5ae  prefix ae180492: ok
+  registered src/ph35.py sha256 e4a3ceda25628e7026a64861ad51f84974f1e2a720794276df706d006a52b1b1  prefix e4a3ceda: ok
+  registered src/ph37.py sha256 761902504b627bf2da789751a843cda9425773b6beb808b2fdbc034457b2151d  prefix 76190250: ok
+  imported src/ffcore.py sha256 0e84836254dc0ba13936d8b87fca96432e73f1dbd4eb41f396500c54c917e537
+  imported src/ph13.py sha256 2d75fae8e8c31e1c6ddf6577782fafde3099f10fe8f50fe382f53d09e9ef1f2d
+  imported src/ph14.py sha256 c6b745c60f9992934a0ccbc5584ef354a03f53f08b37a1252a694feb350be0d0
+  imported src/ph15.py sha256 cc9399965e5cbc30cb7f35e8ce296d8d43e4657cf644d1ec350931e594403fdc
+  imported src/ph2.py sha256 9e0ef833d3f5957da341cfeb9edd77fe9adb11de5354c71162c7569e83e30a4a
+  imported src/ph3.py sha256 0b43d6f3d9bb87b383d8369297e7b443788151492563f77561f48ad5ce573feb
+  imported src/ph4.py sha256 d009568cda4dba358f1857268e21a105ad8eac10add665b40792c1c82238646a
+  imported src/ph8.py sha256 ada2fc4b38c9d0083d083667ae3fbeb615f544b45f80199ec5b2bc86e6d3b43e
+seeds: world 18101, agent 18201, bootstrap 18104; restart_rand stream SeedSequence(18201).spawn(1)[0]
+BLAS threads: OPENBLAS 1 OMP 1 MKL 1
+task K5b ({'walls': False, 'wind': 'blocks'}), arm `exact_restart`: head exact, rule cue, `return`, 200 agents x 5400 steps
+   harness 1 s; firings 294; whiff-free agent-steps 1078975
+   wrote experiments/h18/arrays_b/K5b_exact_restart.npz (20842127 bytes, sha256 4a9e8bc9a84efaf2e55127907e43b229505bc2196569444be8bcf02cad16d72d); 3 s

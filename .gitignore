@@ -3,3 +3,4 @@ __pycache__/
 .venv/
 experiments/h12/expression_*/**/trajectory_*.npz
 experiments/h18/arrays/*.npz
+experiments/h18/arrays_b/*.npz
