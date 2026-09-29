@@ -1109,6 +1109,14 @@ Progress log
   5 records (record:h10-margin-diagnosis-result, record:h18-stage-a-i7-stop, record:h18-stage-a-result,
   record:h18-stage-b-bench-result, record:ring-cue-loss-limit), concept:consolidation-gate and one episode; 27 edges,
   no warnings. This mirror re-put whole after this entry.
+- **CONSOLIDATION GATE CLOSED (2026-09-29; decision:consolidation-gate-closed; the owner's '권고안으로 진행' (gloss: 'proceed with the recommended options')).** Every
+  section 9 point confirmed as recommended (notes/consolidation/2026-09-29-consolidation-v2.md). The reviewing session
+  checked the 101 numbers of sections 2 to 4 against their cited lines: all found. Written into this file: the section
+  'Consolidated record, 2026-09-29' (before the architecture section, replacing nothing) and the standing rules P1-P4.
+  Order of the next directions: (c) Level 6 synthesis, (b) module consolidation, (d) the hold's benefit, (a) H17 Run 3;
+  opening (c) is a separate decision. main stays in step with the working branch at every closure or adoption commit.
+  Bookkeeping: ReleaseN2 is src/ph30.py:117-136, Agent14N2 :139-140; the outlook note has an addendum. Left open: whether
+  the gain G 2 is adopted state.
 
 ## Why a plan now
 
@@ -1956,6 +1964,146 @@ Four hypotheses were run in one day by picking the next most interesting candida
   development and evaluation seeds stay registered and unused. Graph nodes and document puts for H18 (both designs,
   the Stage A and Stage B outputs, the reports, the amendment) are pending on the Vinc key.
 
+## Consolidated record, 2026-09-29
+
+Accepted by the owner at the consolidation gate (decision:consolidation-gate-closed, 2026-09-29). Copied verbatim from
+sections 2 to 4 of notes/consolidation/2026-09-29-consolidation-v2.md. **Every bare number in parentheses is a line
+of master_plan.md at commit 2817eb6**, before this section was inserted; later lines have moved. It restates and
+replaces nothing: where it and a section below differ, the section below is the record. The gain G 2 is carried in
+every adopted scope with no adopting decision in the record; whether it is adopted state is the owner's, unsettled.
+
+### 2. The adopted architecture, restated in one place
+
+Source: `## The architecture as currently adopted` (master_plan.md:1938-2155). Nothing is added. 'Within the tested
+conditions' is kept wherever master_plan uses it.
+
+#### 2.1 The two forms (master_plan.md:1942-1960)
+
+| Form | Agent | Built at (as master_plan cites) | Adopting decision | Tested scope, one line |
+|---|---|---|---|---|
+| two-channel, THE adopted agent | Agent17 = Agent14N2 built with N_hi 200 | src/ph35.py:104-105 through src/ph28.py:95-97; N17 = 200 at src/ph35.py:89 (1945-1947) | decision:h29-window-200-adopted-within-tested-conditions (862-870) | supplied +1/0, G 2, C0, gate on, N2, learning off, World7 T1, W1, T3a, T3b at t0 150 (1949-1951) |
+| three-channel distractor form | Agent16 as composed in src/ph33.py | Act16 src/ph33.py:116-177; Agent16 src/ph33.py:180 (855, 1681-1682, 1955-1957) | decision:h28-burst-tie-adopted-within-tested-conditions (852-861) | supplied +1/0 with D at value 0, p_D 0.03, G 2, C0, gate on, N2, learning off, T1D and W1D; window 300 (1957-1959) |
+| lineage reference | Agent14N2 = ReleaseN2 + Agent14 | src/ph30.py:117-140 (1962); cited as :117-136 at 2023 (see section 10) | decision:n2-release-adopted-within-tested-conditions (1961-1976) | the reference Agent17 was tested against (1953-1954) |
+
+'A future design must say which form it composes' (master_plan.md:1943-1944). At two channels the H28 tie rule is inert
+by code, so the three-channel form adds nothing to the two-channel form (master_plan.md:1959-1960).
+
+#### 2.2 Module by module (both forms unless stated)
+
+| Module | What is adopted | Adopting decision | Tested scope, one line | Built at (as cited) |
+|---|---|---|---|---|
+| Upstream stage | Phase 2.1 Heeger stage, unchanged; also the amplifier and pulse-stretcher for a single whiff; 'whole stage removed' and 'cross-channel division term removed' are different controls (2000-2006) | Phase 2 (H6 adopted, 10); no decision id in the record | Phase 2 gate conditions (1121) | ph2.Upstream (2000); no line cited |
+| Selection circuit (Select-and-Hold) | Phase 2 bistable circuit, unchanged; needs an external release (2007-2009) | Phase 2; no decision id in the record | Phase 2 gate; revision only via the empty state under sparse input (2026-2034) | Phase 2 circuit; no file or line cited in master_plan |
+| H19 (a) | while nothing is held, a whiff of an odour whose valence is not negative is handed to navigation (2009-2011) | decision:h19a-adopt-and-run2-direction (72-80) | two-source 160x160 world, wind every step; not covered: whiffs of B while A is held, any distractor (2009-2011) | README lists ph14.py for H19(a); no line cited |
+| Value gain G 2 | a gain (1 + G*max(v, 0)) on the stage output into the circuit and its evidence release; 'Tested in H20 Stage A, NOT adopted' (2043-2052), yet 'carried' by Agent14 (1969-1970) and named in every scope | no adopting decision in the record; G 2 fixed post hoc by decision:h20-stage-a-run-g2 (140-141) | G 2 appears in every adopted scope (1949, 1957, 2057) | ph16.py for H20 Stage A (README); no line cited |
+| H21 gate | while a higher-valued odour is held, a lower-valued non-negative odour's response is zeroed into the circuit and the evidence release (2053-2056) | decision:h21-gate-adopted-within-tested-conditions (266-270); the H21 verdict is NOT shown | supplied value, +1/0, G 2, C0, dwell majority, learning off (2056-2057) | Agent6, ph19.py; the gate flag is the `rule` attribute, ph19.py:42 (612) |
+| Release (N2) | H25's (S)+(Z) only while the held odour's own value is non-negative; off at a negative held value, where the frozen timeout defect stays in force (2016-2025) | decision:h25-release-adopted-within-tested-conditions (396-398), then decision:n2-release-adopted-within-tested-conditions superseding decision:release-negative-scope-on-hold (703-712) | (S)+(Z): +1/0, G 2, C0, T1/W1/T3a/T3b, learning off, gate on (2018-2019); off at negatives tested in World6 with learned values, H20 Stage C Run 2 (1965-1966) | Release mixin ph24.py (2017); ReleaseN2 src/ph30.py:117-140, the gate :128-132 (703-704, 1962-1963) |
+| Heading ring | RingExact at tau 1.0, sigma 0.5, vgain = tau, n 16, wind at amplitude 6.0 (2067-2068) | decision:h14-adopt-tau1 (26-29) | wind sensed every step; 'equivalence was not tested' (2069-2071) | no file or line cited for RingExact; the second zero-input ring step at ph12.py:106-108 (985) |
+| Ring input contract | fed the rotation made, not the commanded turn (2069) | decision:heading-input-rotation-made (54-57) | heading error over 45 degrees 4.30 -> 0.00 percent with the cue on every step (56-57) | no line cited |
+| Navigation | surge-and-cast on a wind reference with the RETURN cast (triangle wave) (2107-2108) | decision:h16-close-limited-adoption (49-53) | little boundary influence, heading information every step, tracking a plume already entered and reacquiring after loss (2108-2110) | cast loop ph23.py:95-98, SAT 141.7 (1703); return rule ph12.py:126-128 (986) |
+| H23 value filter | the upwind surge follows the top-valued non-negative odour in the agent's own read-out; a top-valued or negative held odour steers as before (2131-2136) | decision:h23-filter-adopted-within-tested-conditions (342-354) | supplied value, +1/0, G 2, C0, dwell majority, learning off, the H21 gate on (2136-2137) | Agent8, ph21.py (ph19.py line 63 replaced, 323); nav top present odour ph23.py:88-92 (1583) |
+| Presence counter | present_k = (c_k < N_hi) or k held; start N_hi - 60 (a PRIOR: a never-sensed odour present on steps 0-58) (2142-2148) | decision:h26-adaptive-presence-adopted-within-tested-conditions (553-560); window 200 / start 140 for the two-channel form by decision:h29-window-200-adopted-within-tested-conditions (2152-2155) | two-channel: window 200, start 140 (1947-1948); three-channel: window 300, start 240 as tested (2154-2155) | counters ph23.py:83-85, start ph28.py:97 (2145); Agent14 src/ph28.py:92-97, constants :72 (1968-1969) |
+| Three-channel additions | H27 composition rule (evidence release against the strongest non-held channel), three presence counters, the H28 burst-ranked value tie (1955-1957) | decision:h28-burst-tie-adopted-within-tested-conditions, re-signing the H28-scoped records for 'the adopted three-channel agent' (2189) | T1D and W1D at p_D 0.03 (1957-1959) | Act16 src/ph33.py:116-177; burst record :145-149, ranked top set :155-158, keep :161 (1681-1682) |
+| Flee | a held negative odour drives the flee; negative avoidance overrides (1165-1167) | part of the adopted act; no separate decision in the record | 0 flee violations in every run where read (for example 160-161, 209, 1426) | the act reads `known` for the flee, ph23.py:77 (610, 1218) |
+| Learning | H8 v2 with the extinction GATE; parallel site not adopted (2079) | decision:phase7-2-gate (21-22, 2079) | 'learning off' in every adopted agent scope; learned values reach behaviour through `known` within H20 Stage B's conditions and Stage C Run 2's (1988-1998) | acquisition ph4.py:58 (1764); extinction ph8.py:74-91, single-site :88-90 (1766-1767); read-out chan_valence ph14.py:52-55 (603) |
+| Learning loop | every agent's learning state updated once per world step from its own position (2092-2095) | from H15 Run 2 (2092); no separate decision id in the record | H15 Run 2 world (2092-2095) | not cited |
+
+Scope statements carried unchanged: 'a success inside that scope is not read as evidence for anything outside it'
+(standing rule, master_plan.md:2222-2224).
+
+### 3. Shown, not shown, and adopted: the ledger since Phase 7
+
+Verdict wording is copied as recorded. Dates are the ones master_plan gives; entries before 2026-09-23 carry no date in
+master_plan (not in the record; the git history starts 2026-09-23, commit 49e0bb6). Count class (last column): S =
+shown-class (SHOWN / SUPPORTED / PASS / gate passed), N = evaluated or judged and not shown-class, B = stopped before
+evaluation (bench, calibration, readability), M = mixed or split verdict, C = check or measurement only, no verdict.
+
+| # | Item | Verdict as recorded | Adopted | Closing decision | Date | Lines | Class |
+|---|---|---|---|---|---|---|---|
+| 1 | H9 (Phase 7.1) | 'H9 rejected as stated; its mechanism claim accepted'; graded substrate revises 200/200 vs 0/200, cannot abstain | nothing; H10 queued | decision:phase7-1-gate (1836) | not in the record | 18-20 | N |
+| 2 | H11 (Phase 7.2) | 'complete'; extinction gate ADOPTED; parallel site 'held unproven' | extinction gate | decision:phase7-2-gate | not in the record | 21-22 | M |
+| 3 | H13 (Phase 7.3) | 'complete, gate passed'; two claims later qualified | none recorded; its saturating cast later superseded (2115-2116) | decision:phase7-3-gate-h14-promoted (1146) | not in the record | 23-25 | S |
+| 4 | H14 | 'Not supported under its stored criteria' | exact-kernel ring tau 1, sigma 0.5, n 16 | decision:h14-adopt-tau1 | not in the record | 26-29 | N |
+| 5 | H15 Run 1 | 'NOT supported'; 92 percent absorbed at the downwind wall | nothing | not in the record (H16 opened, decision:h16-open) | not in the record | 30-35 | N |
+| 6 | H16 Run 1 | 'NOT supported as registered'; return 9.7 vs random walk 10.0 in 40x40 | nothing at Run 1 | decision:h16-close-limited-adoption | not in the record | 36-40 | N |
+| 7 | H16 Run 2 | 'NOT supported under K1-K4 on one clause' (K3 cold start 52 percent) | return cast, limited scope, by a separate decision | decision:h16-close-limited-adoption | not in the record | 41-53 | N |
+| 8 | two-source check | 'JUDGED': M1 pass, M2 pass on equality, M3(a) FAIL | nothing; world kept | decision:two-source-check-judged | not in the record | 58-65 | C |
+| 9 | H19 (a) | 'SUPPORTED on N1-N5, the distractor condition N6 UNREADABLE' | H19 (a) within the tested conditions | decision:h19a-adopt-and-run2-direction | not in the record | 72-80 | S |
+| 10 | H15 Run 2 | 'E1 ... NOT DECIDED BY THIS RUN. E2 ... PASS'; Q5 PASS | none recorded | decision:h15-run2-closed | not in the record | 93-109 | M |
+| 11 | H20 Stage A | 'NOT SHOWN under the registered criteria'; A1 PASS, A2 FAIL, A3 PASS, A4 INCONCLUSIVE | nothing (gain 'NOT adopted', 2043) | decision:h20-stage-a-closed | not in the record | 140-175 | N |
+| 12 | link check | 'complete, one run'; a check | nothing | record:h20-linkcheck-result | not in the record | 176-199 | C |
+| 13 | H20 Run 2 | 'NOT SHOWN under the registered criteria'; R2 FAIL | nothing | decision:h20-run2-closed | 2026-09-23 | 200-232 | N |
+| 14 | H21 | 'NOT shown under the registered criteria on an INCONCLUSIVE M2'; no criterion failed | the gate, within the tested conditions, separate record | decision:h21-closed | 2026-09-23 | 245-295 | N |
+| 15 | H22 | bench 'NO CANDIDATE', task not run; 'CLOSED as NOT shown' | nothing | decision:h22-closed | 2026-09-23 | 296-329 | B |
+| 16 | H23 | 'PASS under the registered criteria, M1-M6 all PASS'; 'CLOSED as SHOWN' | the value filter, within the tested conditions | decision:h23-closed | 2026-09-23 | 330-354 | S |
+| 17 | absent-odour check | run once; 'reach kept' (0.860), cost in dwell (8 vs 25) | nothing; led to option (v) | decision:absent-odour-check-open (run) | 2026-09-23 | 355-365 | C |
+| 18 | H24 | M4 FAIL, no candidate; 'CLOSED as NOT shown' | nothing; relaxation lapsed | decision:h24-closed | 2026-09-23 | 383-388 | B |
+| 19 | H25 | 'SHOWN under the registered criteria'; 'CLOSED as SHOWN' | the release (S)+(Z) at +1/0; negatives ON HOLD | decision:h25-closed | 2026-09-24 | 389-398 | S |
+| 20 | avoidance check | run once, 'a check, no verdict'; R3 'avoidance changed'; 'Not every reading clean' | nothing; negatives ON HOLD (decision:release-negative-scope-on-hold) | not a closure | 2026-09-24 | 399-411 | C |
+| 21 | H24 Run 2 | 'STOPPED at the bench by its registered stop rule'; 'CLOSED as NOT shown' | nothing; relaxation lapsed | decision:h24-run2-closed | 2026-09-24 | 412-435 | B |
+| 22 | H17 Run 1 | 'STOPPED at the bench: no candidate by the registered rule' ((d) 18/400) | nothing | decision:h17-closed | 2026-09-24 | 451-468 | B |
+| 23 | H17 Run 2 | 'STOPPED at the bench by the registered (h2) stop rule'; H17 'CLOSED as NOT shown under its registered criteria' | nothing; relaxations lapsed | decision:h17-closed | 2026-09-24 | 490-521 | B |
+| 24 | H26 | 'SHOWN under the registered criteria (M1-M7 PASS)'; 'CLOSED as SHOWN' | presence counter and Agent14, within the tested conditions | decision:h26-closed | 2026-09-25 | 546-560 | S |
+| 25 | H20 Stage B | 'SHOWN under the registered criteria'; 'CLOSED as SHOWN' | nothing new (module and read-out already adopted) | decision:h20-stage-b-closed | 2026-09-25 | 586-605 | S |
+| 26 | H20 Stage C Run 1 | 'STOPPED at the bench by the (hR) stop rule' | nothing | closed with H20 (1271) | 2026-09-25 | 628-652 | B |
+| 27 | H20 Stage C Run 2 | 'SHOWN under its registered criteria', M1-M9 PASS; 'CLOSED as SHOWN'; H20 'CLOSED as a whole' | N2, within the tested conditions | decision:h20-stage-c-run2-closed, decision:h20-closed | 2026-09-25 | 685-724 | S |
+| 28 | H27 | 'STOPPED at the bench by all three stop rules, NOT shown under its registered criteria' | nothing; the distractor condition a recorded limit | decision:h27-closed | 2026-09-26 | 732-769 | B |
+| 29 | H28 | 'SHOWN under its registered criteria'; 'CLOSED as SHOWN' | burst-ranked value tie, three-channel form only | decision:h28-closed | 2026-09-26 | 792-804, 852-861 | S |
+| 30 | T3b diagnosis | measurement only; F1 MET, F2 NOT MET, F3 NOT MET, F4 INCONCLUSIVE, F5 MET, F6 INCONCLUSIVE | nothing | decision:t3b-diagnosis (opening) | 2026-09-26 | 820-830 | C |
+| 31 | H29 | 'SHOWN under its registered criteria'; 'CLOSED as SHOWN' | window 200, Agent17 the adopted two-channel agent | decision:h29-closed | 2026-09-26 | 838-851, 862-870 | S |
+| 32 | H12 Stage 1 | 'PASS' (module bench) | nothing ('Stage 1 adopts nothing') | decision:h12-closed | 2026-09-26 | 891-898 | S |
+| 33 | H12 Stage 2 | 'STOPPED at the bench, K0 UNREADABLE' | nothing | decision:h12-closed | 2026-09-26 | 899-911 | B |
+| 34 | H12 Package E | 'SHOWN within its controlled conditions' (reset, matched-access, frozen-memory read-out) | nothing; MB5 NOT adopted (decision:h12-parallel-module-not-adopted) | decision:h12-closed | 2026-09-27 | 912-945 | S |
+| 35 | H10 | 'STOPPED at calibration: NOT SHOWN for this family'; 'CLOSED as NOT shown' | nothing | decision:h10-closed | 2026-09-29 | 956-978 | B |
+| 36 | H18 Stage A | stopped at I7, corrected (option (a)), then 'COMPLETE, measurement only'; only B-iii met, by one event | nothing | (Stage A has no verdict) | 2026-09-29 | 998-1036 | C |
+| 37 | H18 Stage B (B-iii) | 'STOPPED at the bench by its registered stop rules'; H18 'CLOSED as NOT shown' | nothing; the leak a recorded limit | decision:h18-closed | 2026-09-29 | 1059-1090 | B |
+
+Diagnoses run between items (measurement only, no verdict) are cited inside their rows and not counted:
+unrecovered-excess (66-71), the two defects (81-88), H20 G bench diagnosis (124-139), H20 Run 2 (216-232), H22
+(300-311), option-v (366-375), R3 (403-406), H24 Run 2 N sweep (423-428), H17 (458-468, 499-512), H20 Stage C (640-652),
+H27 (744-757), H10 margin (972-978, 1862-1876).
+
+**Counts, by this table's grouping** (37 rows; section 10 lists how grouping changes them):
+- S (shown-class): 11 (H13, H19 (a), H23, H25, H26, H20 Stage B, H20 Stage C Run 2, H28, H29, H12 Stage 1, H12 Package E).
+- N (evaluated or judged, not shown-class): 8 (H9, H14, H15 Run 1, H16 Run 1, H16 Run 2, H20 Stage A, H20 Run 2, H21).
+- B (stopped before evaluation): 10 (H22, H24, H24 Run 2, H17 Run 1, H17 Run 2, H20 Stage C Run 1, H27, H12 Stage 2, H10,
+  H18 Stage B).
+- M (mixed or split): 2 (H11, H15 Run 2).
+- C (checks and measurement-only stages): 6 (two-source check, link check, absent-odour check, avoidance check, T3b
+  diagnosis, H18 Stage A).
+- Total 11 + 8 + 10 + 2 + 6 = 37. Verdict-bearing rows (S + N + B + M) 31; of those, NOT shown or stopped (N + B) 18.
+- **Adoption decisions since Phase 7: 11** (extinction gate; ring tau 1; return cast; H19 (a); H21 gate; H23 filter; H25
+  release at +1/0; H26 counter and Agent14; N2; H28 tie for the three-channel form; H29 window 200), plus one owner
+  contract change (decision:heading-input-rotation-made) not counted. Three of the 11 followed a verdict that was not
+  shown-class (H14, H16, H21), each by a separate record, as the rule at master_plan.md:2222-2224 requires. Not adopted
+  though shown-class: H13 (none recorded), H20 Stage B (nothing new), H12 Stage 1 and Package E (MB5 not adopted).
+
+### 4. Recorded limits of the adopted agent
+
+'Status' uses master_plan's own label. 'In scope?' answers whether the adopted scope already excludes the condition.
+
+| # | Limit | Record id / status | Defining number(s) | In scope? |
+|---|---|---|---|---|
+| L1 | Cold-start search | 'recorded limit', record:release-negative-cost-limit unchanged (1533, 2458) | from an odour-free start 52 percent find the plume (45-46); H17 search not adopted: (c1) 0.542 and 0.578 vs 0/400 (1525-1526), task whiff fraction after engagement 18/84 = 0.214 vs 0.5-0.7 predicted (1528) | excluded: navigation 'Not validated: finding a plume from an odour-free start' (2110) |
+| L2 | Ring under cue loss | 'recorded limit of the adopted ring outside the adopted scope', record:ring-cue-loss-limit (1080-1082) | 64.5 percent unrecovered vs 0.5 for a perfect integrator; residual sd 2.58 degrees, gain 1.0000; F-v 1.4433; 2 to 3 plume half-widths per block; restart 200 of 200 (1083-1088); cue absent 50 steps at a time | excluded: the adopted agent senses the wind every step (1088-1089, 2078) |
+| L3 | Distractor capture, H27's agent | 'LIMIT of the adopted agent', record:distractor-capture-limit (761-764, 1977-1982) | T1D P(V) 0.787 vs 0.920; W1D 400/400 lost vs 22 (763-764) | the two-channel form has no D; superseded in the three-channel form by L4 |
+| L4 | Distractor capture under the H28 tie | record:distractor-capture-limit-under-h28-tie (860-861, 1984-1986) | T1D DP -0.0275; W1D 222/400 lost vs 29 without D; T3aD 0.220 vs 13.193 (857-859) | NOT excluded: W1D is inside the three-channel form's tested scope (1957-1959) |
+| L5 | T3b cast-phase dependence | a stated limit of decision:h29-window-200-adopted-within-tested-conditions; no record id (867-869, 1950-1953) | F2 NOT MET, 0.990 upwind at L + 300 (825-826); t0 100 +0.70 [+0.26, +1.14], t0 150 +1.95 [+1.45, +2.45], t0 200 +3.82 [+3.34, +4.31] (867-868) | partly: scope names T3b at t0 150 only (1951); other geometries and cast parameters untested (1952) |
+| L6 | Loss whose second pass falls after the row's end | stated limit (F3), no record id (869, 1952-1953) | F3 recovery within 200 steps 0.478 (826) | not excluded by the scope's wording |
+| L7 | The window acts in T1 silences | 'a trade' (1953) | T1 DP -0.0075 [-0.0200, +0.0025] (1950) | inside scope, within the registered bar |
+| L8 | Selection circuit revises only via the empty state | 'RECORDED LIMIT', record:selection-circuit-revision-via-empty-state (2026-2034) | 0 of 319 isolated valued whiffs flipped a neutral hold; 156/156, 123/123; H23 bench 217/217, 71/71; dense input p 0.30 revised 400/400 by a route not recorded (2028-2034) | not excluded: a property of the adopted circuit, stated for sparse input only |
+| L9 | Silence timeout defect at negative held values | 'KNOWN DEFECT, frozen', record:silence-timeout-chain-result (81-84, 2012-2015); in force at negatives under N2 (2023-2025, 2461-2462) | reset delivered for one step, held unit 1.99 -> 1.49, never releases (82-83) | fixed within N2 at non-negative values; in force at negative held values |
+| L10 | Release at negative values | record:release-negative-cost-limit (406-407, 2020-2021); on-hold decision SUPERSEDED by N2 (2022-2025) | at +1/-1 as composed: P(V) -0.160, lost rows +0.235 (2020-2021); 131/131 no whiff after a drive-ended negative hold (406) | the release is off at negatives; 'supplied +1/-1 in World7 not run with N2 (read, not measured)' (1966-1967) |
+| L11 | Parallel extinction site | 'held unproven' (21-22, 936); MB5 NOT adopted (decision:h12-parallel-module-not-adopted) | Package E +0.7350 [0.6925, 0.7775] at the value level only; 'No behavioural benefit in a continuously moving, learning agent was shown' (920-921, 933-935) | not adopted |
+| L12 | Hold's benefit | '**Open:**' (2035), not a limit record | H15 Run 2 without the hold 132 of 400 unrecovered vs 21 (2035-2036); M6 DP 0 in H27 (1608) and +0.0000 in H28 (802) | unmeasured under a distractor (2041-2042) |
+| L13 | Walls inside the rule's loop | concept:h15-arena-occupancy-floor, 'Not validated' (2113-2114) | 40x40: return 9.7 vs random walk 10.0 (38); 10.3 with 524 contacts per agent (44) | excluded: 'little boundary influence' (2108) |
+| L14 | First source reached in C0 | link check reading (190-199, 2124-2130) | fixed identity reaches its source first in 0.060 (C0) and 0.087 (C1), 0.743 in C2 (186-192) | adopted scopes use the dwell-majority measure |
+| L15 | Initial cast side | 'Found in H20 Stage A' (2117-2119) | 94 percent to one side with cast_sign +1 (2118-2119) | the harness draws it per row; the agent is unchanged (2119) |
+| L16 | H26 prior cost in W1 | 'Measured cost' (2150) | W1 lost rows vs the unfiltered agent +0.0475 (2150) | inside scope |
+| L17 | Learned values | stated boundary (1996-1998) | learned valued value exactly +1.0 at the saturating dose (579, 604) | 'Sub-saturating learned values are not shown; negative learned values are shown only in World6 with learning on, under N2' (1997-1998) |
+| L18 | H7, commitment calibration to option count | 'closed as a recorded limit' (10) | not in the record (master_plan gives no number) | not stated |
+| L19 | Fixed per-row odour codes | standing rule (2277-2279) | results conditional on the fixed code set | a condition on every result |
+
 ## The architecture as currently adopted
 
 Stated here so a later session does not have to reassemble it from decisions.
@@ -2399,6 +2547,18 @@ Stated here so a later session does not have to reassemble it from decisions.
   decision id) without writing the number; ph30.py and ph31.py are not edited, so ph30's self-check lists ph31_eval.txt and
   ph31's demo check 6 would fail on re-run, both known.
 
+- Set by the owner at the consolidation gate (decision:consolidation-gate-closed, 2026-09-29), P1: a known-answer
+  expectation is checked for saturation before it is registered: where the known-answer arm sits at a ceiling or a
+  floor, a relative clause of the criterion (a ratio or multiple between two shares) is recorded as SATURATED and not
+  read, never as MET or NOT MET. (From H18 I7, decision:h18-i7-expectation-corrected.)
+- P2: a design's arithmetic about a behavioural loop (a cast loop, a return path) states where the loop is anchored and
+  checks whether the proposed change moves that anchor, before any prediction for the change is registered. (From H18
+  Stage B, record:h18-stage-b-bench-result.)
+- P3: when a run is executed by a delegated agent, the reviewing session recomputes the registered headline readings
+  from the stored outputs or arrays before the result is recorded.
+- P4: simulations run in the local session, never on GitHub Actions or other hosted runners; runs made on hosted runners
+  before 2026-09-27 keep their records.
+
 ## A standing caution about bench gates
 
 Six times now something has passed its own gate and then failed in a behaving agent, in a way
@@ -2457,10 +2617,10 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Consolidation gate v1 DRAFT awaits the owner's section 9** (decision:consolidation-gate-open, 2026-09-29;
-  notes/consolidation/2026-09-29-consolidation-v1.md; review notes/reviews/2026-09-29-consolidation-v1-review.md). The
-  owner confirms the restatement, the four proposed standing rules, the status of the gain G 2, and the order of the
-  candidate directions; nothing is opened until then. main and codex/h12-review-plan are at the same commit.
+- **Next, by the order the consolidation gate confirmed (decision:consolidation-gate-closed):** (c) a Level 6 synthesis
+  (the adopted agents against published fly behaviour, and a circuit-link table for the modules adopted after Phase 4;
+  no run). Opening it for design is the owner's. Also the owner's, unsettled: whether the gain G 2 is adopted state.
+  main and codex/h12-review-plan are at the same commit.
 
 ## Queued candidates, none started
 

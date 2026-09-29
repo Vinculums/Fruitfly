@@ -73,3 +73,10 @@ The core's measured properties hold under the fly world's input statistics: spar
 ## 7. What the project still has to show about the core itself
 
 The end-to-end chain "reinforcement arrives → credited to the held odour → later read out → the agent goes there" has not run in one body: learning was validated in H15, readout in H20–H23, separately. H20 Stage B is that chain. H24 stands in front of it because a filter that removes a zero-valued odour from navigation also removes the chance to attach a value to it (the two-source check already found natural exposure to both sources insufficient, 17.5 percent).
+
+## Addendum 2026-09-29 (consolidation gate, decision:consolidation-gate-closed)
+
+The acceptance target in section 5 ('bitwise identity with ph21.Agent8') predates the later adoptions. The adopted
+agents are now Agent17 (two-channel, src/ph35.py:104-105) and Agent16 (three-channel distractor form, src/ph33.py:180);
+a module built from this outlook would be accepted by bitwise identity with those, on the same seeds, over 600 steps.
+The text above is unchanged.
