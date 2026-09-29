@@ -1175,6 +1175,21 @@ Progress log
   literature item, reacquisition after extinction in Drosophila (no run). Module consolidation, item (b): an
   engineering step with no hypothesis; design v1 DRAFT by an Opus 5.5 agent next; acceptance is bitwise identity with
   Agent17 and Agent16 on the same seeds (notes/module_boundary_outlook.md section 6 and its addendum). G 2 unsettled.
+- **MODULE CONSOLIDATION design v1 DRAFT (2026-09-29; notes/module/2026-09-29-module-consolidation-design-v1.md, sha
+  9ee44834...61d2, an Opus 5.5 agent; review notes/reviews/2026-09-29-module-consolidation-design-v1-review.md).** The
+  chain read: ph35 -> ph34b -> ph30 -> ph28 -> ph25 -> ph24 -> ph23 -> ph22 -> ph21 -> ph19 -> ph18, ph17 -> ph16 ->
+  ph15 -> ph14 -> ph13 -> ph12b -> ph12 -> ph11 -> ph10, ph9, ph8 -> ph4, ph3, ph2 -> ffcore; Agent16 through ph33 ->
+  ph32 -> ph30; 99 constants (55 core, 23 body, 21 world and harness); eleven places where the core/body boundary is
+  unclear in code. Recommended: one file src/fly.py holding the agent only, both forms by a channel-count argument
+  with the three-channel additions under explicit branches; every constant a module constant (G 2 carried, flagged
+  unsettled); acceptance rows T1, W1, T3a, T3b (+1/0), +1/-1 and 0/0 coverage, a learning-on row, T1D, W1D, T1D at
+  +1/-1/0; three comparison layers at zero tolerance (recorded fields, per-step hashes of all agent and generator
+  state, per-row scores); recorded evaluation seeds reused, named by constant, no digits written. Three readings that
+  contradict recorded wording, verified in this session against the code: learning is credited to the source the row
+  stands at (ph15.py:55-61), not 'what is held' as the outlook note says; the agent's sparse code is K 200
+  (ph11.py:53), not the outlook's K 500; the H28 tie rule is inert at two channels only for the tested value pairs
+  (+1/0, +1/-1), not for equal non-negative values (ph33.py:154-157), so master_plan's 'inert by code' at 857 and 1773
+  is a wording correction for the owner. Four amendments for v2. The owner's section 10 awaited.
 
 ## Why a plan now
 
@@ -2675,10 +2690,11 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Module consolidation opened for design** (decision:module-consolidation-open-design, 2026-09-29): design v1 DRAFT
-  by an Opus 5.5 agent, reviewed here, then the owner's section 12. No hypothesis; acceptance is bitwise identity with
-  Agent17 and Agent16. Also the owner's, unsettled: whether the gain G 2 is adopted state. main and
-  codex/h12-review-plan are at the same commit.
+- **Module consolidation design v1 DRAFT awaits the owner's section 10** (decision:module-consolidation-open-design;
+  notes/module/2026-09-29-module-consolidation-design-v1.md; review with four amendments, including a wording
+  correction of 'inert by code' at two channels and a proposed standing note P5 on seed digits in notes). On
+  confirmation: v2 FINAL, then src/fly.py by an Opus agent and the identity run, checked here. Also the owner's,
+  unsettled: whether the gain G 2 is adopted state. main and codex/h12-review-plan are at the same commit.
 
 ## Queued candidates, none started
 
