@@ -1138,6 +1138,30 @@ Progress log
   changed (checked by diff). Criteria C1-C9 stored as record:level6-synthesis-criteria before the document is written.
   The synthesis (notes/synthesis/2026-09-29-level6-synthesis.md, with notes/synthesis/2026-09-29-level6-sources.md)
   is written next by an Opus 5.5 agent and checked here before it is recorded (record:level6-synthesis-result).
+- **LEVEL 6 SYNTHESIS WRITTEN and CHECKED (2026-09-29; record:level6-synthesis-result;
+  notes/synthesis/2026-09-29-level6-synthesis.md sha 8d9e3020...53b9, sources notes/synthesis/2026-09-29-level6-sources.md
+  sha 6e1d58d9...da67).** Written by an Opus 5.5 agent against design v2 FINAL; the reviewing session's three-part check
+  passed: 55 record numbers against their cited lines, 30 experiment-file and graph-report citations opened, 13 DOIs
+  resolved through Crossref with title, first author, journal, year and volume matching. Verdicts, all within the tested
+  conditions of the form named: B1 upwind surge MATCH; B2 search after loss and reacquisition MATCH (the crosswind cast
+  resembles the flying fly more than the walking fly's local search); B3 random-encounter plumes UNTESTED for behaviour,
+  a mechanism MISMATCH stated apart; B4 wind cue lost OUTSIDE SCOPE (L2); B5 heading memory in darkness and B6 update
+  from self-motion MATCH at module level; B7 learned valence drives approach and avoidance MATCH for Agent14 and
+  Agent14N2, not measured for Agent17 with learning on; B8 aversive conditioning MATCH carried; B9 extinction MISMATCH
+  at module level, UNTESTED in the behaving agent; B10 re-learning PENDING (no source); B11 ubiquitous odour UNTESTED
+  (three-channel form), OUTSIDE SCOPE (two-channel, L3); B12 persistence and revision MISMATCH on revision; B13
+  declining to commit UNTESTED (source found at writing reports evidence accumulation, not abstention); B14 sparse
+  coding MATCH carried; B15 spontaneous recovery after extinction, added at writing, MISMATCH at module level. Circuit
+  links: no anchor for the extinction gate, the return cast (behavioural anchor only), G 2, the H21 gate, the release,
+  the presence counter, the three-channel additions and the learning loop; partial anchors for the rest. Phase 6's
+  three mismatches: navigation MOVED (decision:h16-close-limited-adoption, within the adopted scope; random-encounter
+  plumes unmoved); holding a choice NOT moved (revision only via the empty state, L8); extinction NOT moved (the gate
+  repaired erasure under sustained reinforced pairing, a related defect; the module still depresses the trained site,
+  22 percent kept, no opposing trace, no spontaneous recovery). The updated bias table: two of three rows still take the
+  discrete or destructive form. Criteria C1-C9 met. Candidates for the queue, proposals only: Q1 per-odour habituation
+  (Das 2011); Q2 a behavioural extinction condition with the reward withdrawn; Q3 turn direction against encounter
+  timing (Demir 2020); Q4 a literature search for re-learning after extinction. Nothing adopted; nothing decided; G 2
+  unsettled. Closure of the synthesis and any queueing are the owner's.
 
 ## Why a plan now
 
@@ -2638,12 +2662,10 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Level 6 synthesis being written** (decision:level6-synthesis-open, 2026-09-29; design v2 FINAL
-  notes/synthesis/2026-09-29-level6-synthesis-design-v2.md; criteria record:level6-synthesis-criteria). An Opus 5.5
-  agent writes it against the registered comparison set; the reviewing session checks numbers against lines, opens the
-  experiment-file citations and resolves every DOI before it is recorded. Its output proposes queue candidates and
-  decides nothing. Also the owner's, unsettled: whether the gain G 2 is adopted state. main and codex/h12-review-plan
-  are at the same commit.
+- **Level 6 synthesis written and checked; closure is the owner's** (record:level6-synthesis-result). The owner closes
+  the synthesis (accept as the Phase 6 update, or ask for corrections) and decides whether any of Q1-Q4 enters the queue
+  by a decision node; the confirmed order then continues with (b) module consolidation. Also the owner's, unsettled:
+  whether the gain G 2 is adopted state. main and codex/h12-review-plan are at the same commit.
 
 ## Queued candidates, none started
 
