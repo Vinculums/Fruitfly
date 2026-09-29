@@ -1088,6 +1088,17 @@ Progress log
   senses the wind every step, is unchanged; the H16 limited adoption stands. Seeds 18102-18103 and 18202-18203 stay
   registered and unused. The confirmed queue (decision:h28-open-design) now holds only (6) an H17 re-attempt, which
   would need new state; what comes next is the owner's. Graph writes pending (remote key expired).
+- **CONSOLIDATION GATE OPENED (2026-09-29; decision:consolidation-gate-open; the owner's '정리 게이트 열자, 초안은 opus
+  에이전트로').** No new hypothesis, no run, no change to the adopted architecture. v1 DRAFT by an Opus 5.5 agent
+  (notes/consolidation/2026-09-29-consolidation-v1.md, sha 26dc2b9d...4dd2), reviewed by this session
+  (notes/reviews/2026-09-29-consolidation-v1-review.md): the plan's Phases and Levels against where the project stands;
+  the adopted architecture restated in one place; a 37-row ledger since Phase 7 (11 shown, 8 not shown, 10 stopped
+  before evaluation, 2 mixed, 6 checks; 11 adoption decisions); the recorded limits; the standing rules with four
+  proposed additions (P1 known-answer saturation, P2 a loop's anchor, P3 recompute when execution is delegated, P4
+  local execution only); candidate directions in a recommended order ((c) Level 6 synthesis, (b) module consolidation,
+  (d) the hold's benefit, (a) H17 Run 3). Open for the owner: whether the gain G 2 is adopted state (master_plan says
+  'NOT adopted' at the H20 Stage A entry while every later scope carries it). main fast-forwarded to the working branch
+  (2817eb6) the same day. The owner's section 9 is awaited.
 
 ## Why a plan now
 
@@ -2436,10 +2447,12 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H18 is closed (decision:h18-closed, 2026-09-29).** The confirmed queue (decision:h28-open-design) holds only (6) an
-  H17 re-attempt, closed twice at the bench, whose Run 3 would need new state; opening anything is the owner's, by a
-  decision node. Pending bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10
-  and H18 node and document put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
+- **Consolidation gate v1 DRAFT awaits the owner's section 9** (decision:consolidation-gate-open, 2026-09-29;
+  notes/consolidation/2026-09-29-consolidation-v1.md; review notes/reviews/2026-09-29-consolidation-v1-review.md). The
+  owner confirms the restatement, the four proposed standing rules, the status of the gain G 2, and the order of the
+  candidate directions; nothing is opened until then. Pending bookkeeping, not a decision: the Vinc remote key was
+  replaced on 2026-09-29 but is still rejected (HTTP 401, checked directly against the endpoint), so every H10, H18 and
+  consolidation node and document put waits on a working key. main and codex/h12-review-plan are at the same commit.
 
 ## Queued candidates, none started
 
