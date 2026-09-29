@@ -987,6 +987,14 @@ Progress log
   is branches only. No new seed. Nothing changes the adopted agent. Seven amendments recommended for v2 (memory, numpy
   pin for R0, the H14 gain rule, F3's chance level measured, known-answer identities, pairing after divergence). The
   owner's section 12 is awaited; no code, no run.
+- **H18 OPENED on design v2 FINAL (2026-09-29; decision:h18-open; the owner's '권고안대로 확정, v2는 opus 에이전트로
+  쓰고 Stage A 진행').** Every section 12 point confirmed as recommended, the review's seven amendments folded in; v2
+  (experiments/h18/h18_design_v2.md, sha cbc2d97c...4d07d, an Opus 5.5 agent) differs from v1 only in the status and
+  confirmation text, section 12, the amendment points and master_plan line renumbering; the F table's thresholds,
+  candidates, arms, seeds and branches are unchanged (checked by diff in the reviewing session). Registered before any
+  run: src/ph37.py, output experiments/h18/ph37_diag.txt, report experiments/h18/h18_diagnosis.md, numpy 2.4.6, one
+  arm per process, R0 the whole H16 Run 2 file first. Stage A runs next in the local session (an Opus 5.5 agent
+  executes, this session evaluates).
 
 ## Why a plan now
 
@@ -1783,7 +1791,7 @@ Four hypotheses were run in one day by picking the next most interesting candida
   src/h10_perm_diag.py, src/h10_margin_diag.py, margin_diag.txt, this mirror) are pending: the remote key expired on
   2026-09-29 (HTTP 401) after the 2026-09-27 _PK refusals.
 
-### H18 (queued at the H16 close, decision:h16-close-limited-adoption; ranked fifth in decision:h28-open-design; opened for design by decision:h18-open-design)
+### H18 (queued at the H16 close, decision:h16-close-limited-adoption; ranked fifth in decision:h28-open-design; opened for design by decision:h18-open-design; opened on design v2 FINAL by decision:h18-open)
 - Why the ring loses the plume under cue loss (concept:h18-ring-under-cue-loss). Measured (H16 Run 2 K5(b), open plane,
   cue off 50 steps at a time): the adopted ring leaves 64.5 percent of agents unrecovered where a perfect integrator on
   the same rotations leaves 0.5, although it is over 45 degrees wrong on only 0.35 percent of cue-off steps (mean 10.0
@@ -1798,7 +1806,12 @@ Four hypotheses were run in one day by picking the next most interesting candida
   branch table (kernel or shift; readout gate on amplitude; the cast rule at cue return; one ring step per agent-step;
   diffusion or path error; close as a recorded limit). Stage B: branches only, each needing its own design, bench and
   seeds. No new integer seed (SeedSequence(1712) children for the instruments); the graph scan pending on the key.
-  Awaiting the owner's section 12.
+  Confirmed as recommended on 2026-09-29.
+- Opened on design v2 FINAL (decision:h18-open, 2026-09-29; experiments/h18/h18_design_v2.md, sha cbc2d97c...4d07d):
+  the seven review amendments folded in (one arm per process with float32/int8 arrays on disk; R0/R1 on numpy 2.4.6
+  with float-formatting differences disclosed and integer differences stopping the run; gains accumulated without
+  folding per the H14 rule; F3 read against the measured cue-off share; known-answer identities I7; pairing ends at
+  divergence; R0 kept). No reading, threshold, candidate, arm, seed or branch changed from v1. Stage A: src/ph37.py.
 
 ## The architecture as currently adopted
 
@@ -2297,13 +2310,11 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H18 design v1 DRAFT awaits the owner's section 12** (decision:h18-open-design, 2026-09-29;
-  experiments/h18/h18_design_v1.md; review notes/reviews/2026-09-29-h18-design-v1-review.md with seven amendments for
-  v2). The owner confirms the points as recommended, with or without the amendments, or chooses alternatives; then v2
-  FINAL is written and H18 Stage A opens by decision. Pending bookkeeping, not a decision: the Vinc remote key expired
-  (HTTP 401, 2026-09-29), so the H10 closure nodes, the H18 opening node, the document puts refused on 2026-09-27, the
-  H10 diagnosis files, the H18 draft and this mirror are to be written once the key is renewed at vincs.io/account.
-  `main` is behind codex/h12-review-plan; merging is the owner's.
+- **H18 Stage A is running** (decision:h18-open, 2026-09-29; design v2 FINAL experiments/h18/h18_design_v2.md). Its
+  output is a branch table, not a verdict on the ring; the branch is the owner's. Pending bookkeeping, not a decision:
+  the Vinc remote key expired (HTTP 401, 2026-09-29), so the H10 closure nodes, the H18 nodes, the document puts refused
+  on 2026-09-27, the H10 diagnosis files, the H18 designs and this mirror are to be written once the key is renewed at
+  vincs.io/account. `main` is behind codex/h12-review-plan; merging is the owner's.
 
 ## Queued candidates, none started
 
@@ -2419,6 +2430,6 @@ within the release's scope (non-negative held values) and stays in force at nega
   error persists, and the heading error just before a plume is lost. Ranked fifth: outside the adopted scope, where the
   wind is sensed every step (64.5 percent unrecovered under 50-step cue loss, concept:ring-leaks-under-cue-loss).
   **Opened for design (decision:h18-open-design, 2026-09-29); design v1 DRAFT experiments/h18/h18_design_v1.md,
-  diagnosis first; the owner's section 12 awaited.**
+  diagnosis first; confirmed as recommended and opened on v2 FINAL (decision:h18-open, 2026-09-29); Stage A running.**
 - **An H17 re-attempt** (cold start), ranked sixth: closed twice at the bench (decision:h17-closed); the consequence that
   moved it up (the release stranding negative holds) no longer arises by code under N2; a Run 3 would need new state.
