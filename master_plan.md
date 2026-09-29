@@ -1129,6 +1129,15 @@ Progress log
   has moved; criteria C1-C9; what the synthesis does not claim. Sources: eleven verified at writing by DOI (abstract
   level, labelled), six of them re-resolved by the reviewing session through Crossref; two rows PENDING ('needs a
   source': re-learning after extinction, abstention). No run, no seed, nothing adopted. The owner's section 8 awaited.
+- **LEVEL 6 SYNTHESIS OPENED on design v2 FINAL (2026-09-29; decision:level6-synthesis-open; the owner's '확정').** Every
+  section 8 point confirmed as recommended; the review's four amendments folded in (the checker resolves every (ii) DOI
+  and stores the abstract quote read; B4's fly side stated as no measured cue-loss behaviour; B12's Kim 2017 claim
+  marked as carried from Phase 6; the three-part check named in section 7). v2
+  (notes/synthesis/2026-09-29-level6-synthesis-design-v2.md, sha 6bee4b45...b71d) differs from v1 only in the status
+  and confirmation text, section 8, the amendment points and line renumbering; no row, rule, criterion or source
+  changed (checked by diff). Criteria C1-C9 stored as record:level6-synthesis-criteria before the document is written.
+  The synthesis (notes/synthesis/2026-09-29-level6-synthesis.md, with notes/synthesis/2026-09-29-level6-sources.md)
+  is written next by an Opus 5.5 agent and checked here before it is recorded (record:level6-synthesis-result).
 
 ## Why a plan now
 
@@ -2629,11 +2638,12 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Level 6 synthesis design v1 DRAFT awaits the owner's section 8** (decision:level6-synthesis-open-design,
-  2026-09-29; notes/synthesis/2026-09-29-level6-synthesis-design-v1.md; review with four amendments). On confirmation:
-  v2 FINAL registered with criteria record:level6-synthesis-criteria, then the synthesis document is written by an Opus
-  agent and checked here (numbers against lines, experiment files opened, DOIs resolved) before it is recorded. Also the
-  owner's, unsettled: whether the gain G 2 is adopted state. main and codex/h12-review-plan are at the same commit.
+- **Level 6 synthesis being written** (decision:level6-synthesis-open, 2026-09-29; design v2 FINAL
+  notes/synthesis/2026-09-29-level6-synthesis-design-v2.md; criteria record:level6-synthesis-criteria). An Opus 5.5
+  agent writes it against the registered comparison set; the reviewing session checks numbers against lines, opens the
+  experiment-file citations and resolves every DOI before it is recorded. Its output proposes queue candidates and
+  decides nothing. Also the owner's, unsettled: whether the gain G 2 is adopted state. main and codex/h12-review-plan
+  are at the same commit.
 
 ## Queued candidates, none started
 
