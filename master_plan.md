@@ -1200,6 +1200,27 @@ Progress log
   differs from v1 only in the status and confirmation text, section 10 and the amendment points; no acceptance row,
   field, layer, seed or constant changed (checked by diff). Next: src/fly.py and src/module_identity.py by an Opus 5.5
   agent, the identity run in the local session, the reviewing session's recount, then record:module-identity-result.
+- **MODULE CONSOLIDATION: src/fly.py IDENTICAL to the adopted class trees on every registered row (2026-09-29;
+  record:module-identity-result; src/fly.py sha 3b360b29...efc4, src/module_identity.py sha 14558ac0...03d5,
+  experiments/module/identity.txt sha ddddee27...6efc, report experiments/module/module_report.md sha c1d6ffa4...a089).**
+  Written and run by an Opus 5.5 agent on Python 3.11.15 and numpy 2.4.6 (the recorded H28 and H29 evaluations'
+  versions), one process, BLAS and the harness workers pinned to one. Rows S0 (smoke, 40 rows), A1 T1, A2 W1, A3 T3a,
+  A4 T3b at t0 150 (all +1/0), A5 T1 +1/-1, A6 T1 0/0, A7 Agent17 learning on (5400 steps, coverage), A7r Agent14N2
+  learning on in the H20 Stage C Run 2 harness (recorded reference), B1 T1D, B2 W1D, B3 T1D at +1/-1/0: every row
+  IDENTICAL on all three layers at zero tolerance (L1 the harness's recorded fields, 16 or 17 per row, 4.8 to 5.5
+  million elements at 600 steps and 1.77 billion at 5400; L2 per-step hashes of every attribute of the agent and its
+  generator state, 75 attributes at two channels and 81 at three, 90,000 to 810,000 hashes per row; L3 per-row
+  scores). No fix to fly.py during the run (one sha256 in all 22 headers). A perturbation check before the recorded
+  run: a one-ulp change to TURN_NOISE is caught by L2 at the first event; a one-ulp change to a constant that changes
+  no state (MARGIN) is not, since constants are seen only through their effects. Rows A1 and B1 re-run independently in
+  the reviewing session: IDENTICAL, same counts. 99 constants: 77 in fly.py (54 core, 23 body), 21 world and harness
+  constants and the rng3 offset stay in the ph chain. Test-only setting for A7r: N, N_hi and c set to 300, 300, 240
+  after construction (no draw moved, no constructor argument). Found, not caused by this work: the ph35 and ph33 demos
+  fail their seed-scan assertion at HEAD because nine files committed after H28 and H29 carry those harnesses' seed
+  digits (listed in the report); with the scan reported instead of asserted, both demos reproduce every recorded line.
+  Nothing adopted or changed in the agent's behaviour; whether fly.py becomes the reference implementation for later
+  designs, and how the nine files are handled (an exclusion decision in the form of decision:seed-scan-exclusion-ph31-eval,
+  or redaction), are the owner's.
 
 ## Why a plan now
 
@@ -2706,10 +2727,13 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Module consolidation: src/fly.py and the identity run next** (decision:module-consolidation-open, 2026-09-29;
-  design v2 FINAL notes/module/2026-09-29-module-consolidation-design-v2.md). Acceptance is bitwise identity at zero
-  tolerance; any difference is an implementation error, fixed and rerun; nothing tuned. Also the owner's, unsettled:
-  whether the gain G 2 is adopted state. main and codex/h12-review-plan are at the same commit.
+- **Module consolidation done; two decisions are the owner's** (record:module-identity-result): (1) whether src/fly.py
+  becomes the reference implementation that later designs compose against (closing item (b); nothing changes in the
+  adopted behaviour either way); (2) the seed-scan finding: nine files committed after H28 and H29 carry ph33/ph35 seed
+  digits, so their demos fail the scan assertion at HEAD; an exclusion decision in the form of
+  decision:seed-scan-exclusion-ph31-eval, or redaction of the digits, restores the demos. Next in the confirmed order:
+  (d) the hold's benefit. Also the owner's, unsettled: whether the gain G 2 is adopted state. main and
+  codex/h12-review-plan are at the same commit.
 
 ## Queued candidates, none started
 
