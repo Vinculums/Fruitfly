@@ -1034,6 +1034,28 @@ Progress log
   not a measurement: the cue-off error is per-step noise summed within a block (the residual sd 2.58 against the design's
   inferred 2.6), doubled by the second ring step, and erased by the cue; the agent is usually off the plume when the cue
   returns. Nothing changed in the adopted agent; the branch is the owner's.
+- **H18 Stage B (branch B-iii) OPENED FOR DESIGN and CONFIRMED (2026-09-29; decision:h18-stage-b-iii-open-design, the
+  owner's 'B-iii 설계 열자, v1 초안은 opus 에이전트로'; confirmation decision:h18-stage-b-open on v2 FINAL, the owner's
+  '권고안대로 확정, v2는 opus 에이전트로 쓰고 Stage B 진행', given before the v1 draft arrived under the standing
+  instruction to follow the recommended options, applied after this session's review).** Design v1 DRAFT by an Opus
+  5.5 agent (experiments/h18/h18_stage_b_design_v1.md, sha 43cf6da3...a16d; review
+  notes/reviews/2026-09-29-h18-stage-b-design-v1-review.md, five small amendments, no bar, seed, arm or rule changed).
+  The lever (1b): the cast clock set to 0 once per silence, at the first cue-on step after the last whiff if no whiff
+  falls there; `since` untouched; no free parameter (the reset value is the rule's own post-whiff value, the firing
+  step is fixed by the estimate's recovery within 2.4 degrees by the second cue-on step, once-per-silence by the
+  arithmetic that an every-return restart would push a lost agent upwind about 7 times faster, past the source).
+  Rejected: every-return restart, k upwind steps (no record fixes k), a side chosen toward the displacement (needs a
+  position-like record, excluded by H29's precedent), a `none`-like hold (a known floor). Identities: the adopted agent
+  identical by code (no cue return in any adopted world, p_wind 1.0; Nav5 outside every adopted class tree); K5(a)
+  bitwise equal to the recorded ring; K5(b) equal before each agent's first firing. Arms: ring (paired reference),
+  restart, restart_rand (the same restarts at random whiff-free steps at a bench-frozen rate; anti-trivial), exact,
+  exact_restart (a body check, wording rule), none, integrate. Bars: M2 paired late-unrecovered share ring minus restart,
+  lower bound > 0; M5 restart_rand minus restart > 0; M3 last-third score lower bound > -1.0; M0 readability; stop
+  rules at the bench (d <= 0 or pass probability < 0.5). The draft states that no measured counterfactual predicts a
+  gain (Stage A never ran a restarted cast), that the pass probability at a central guess of d 0.05 is about 0.2 and
+  the bench stop rule is the likely end, that B-iii does not repair the memory, and that Stage B's test does not rest
+  on Stage A's one-event F3 margin. New seeds 18101-18106, 18201-18203: repository scan 0 hits each; graph scan PENDING
+  (key expired). Nothing changes the adopted agent; any adoption would extend scope by a separate decision.
 
 ## Why a plan now
 
@@ -1864,6 +1886,12 @@ Four hypotheses were run in one day by picking the next most interesting candida
   F-ii, F-iv NOT MET; F2, F-i, F-vi INCONCLUSIVE; F3, F-iii, F-v MET. Only branch B-iii is met, by one event above the
   F3 bar on the ring_sep instrument (97 of 161), INCONCLUSIVE on the recorded ring rows (89 of 162). The branch is the
   owner's: B-iii for design, or close as a recorded limit with this description.
+- Stage B (branch B-iii) opened for design (decision:h18-stage-b-iii-open-design, 2026-09-29) and confirmed as
+  recommended (decision:h18-stage-b-open): design v1 DRAFT experiments/h18/h18_stage_b_design_v1.md (an Opus 5.5
+  agent; review notes/reviews/2026-09-29-h18-stage-b-design-v1-review.md). One restart of the cast clock per silence
+  at the first cue-on step after the last whiff; paired against the unchanged ring on new seeds 18101-18106 and
+  18201-18203; a random-restart control; a perfect-heading body check; bench stop rules. No measured counterfactual
+  predicts a gain; the bench decides first. v2 FINAL and src/ph38.py follow; the adopted agent is untouched.
 
 ## The architecture as currently adopted
 
@@ -2362,12 +2390,9 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **H18 Stage A complete; the branch is the owner's** (record:h18-stage-a-result; experiments/h18/h18_diagnosis.md
-  section 10). Only B-iii (what the cast rule does in the first steps after the cue returns) is met, and on a margin of
-  one event on the ring_sep instrument; the recorded ring rows read F3 INCONCLUSIVE. The owner chooses between opening
-  B-iii for design (its own design v1 and v2 FINAL, bench, seeds; any adoption a separate decision extending the adopted
-  scope) and closing H18 as a recorded limit of the ring outside the adopted scope, with Stage A's description on
-  record. Pending bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18
+- **H18 Stage B (B-iii) confirmed; v2 FINAL and the bench next** (decision:h18-stage-b-open, 2026-09-29). The bench's
+  stop rules decide whether a development seed is used; a stop is reported as 'stopped at the bench' and closure is the
+  owner's. Pending bookkeeping, not a decision: the Vinc remote key expired (HTTP 401, 2026-09-29); every H10 and H18
   node and document put waits on its renewal at vincs.io/account. `main` is behind codex/h12-review-plan.
 
 ## Queued candidates, none started
@@ -2486,6 +2511,7 @@ within the release's scope (non-negative held values) and stays in force at nega
   **Opened for design (decision:h18-open-design, 2026-09-29); design v1 DRAFT experiments/h18/h18_design_v1.md,
   diagnosis first; confirmed as recommended and opened on v2 FINAL (decision:h18-open, 2026-09-29); Stage A STOPPED at
   the known-answer identity I7 before any ring reading (record:h18-stage-a-i7-stop), corrected by the owner (option (a));
-  Stage A COMPLETE (record:h18-stage-a-result): only branch B-iii met, by one event; the branch is the owner's.**
+  Stage A COMPLETE (record:h18-stage-a-result): only branch B-iii met, by one event; Stage B (B-iii) opened for design and
+  confirmed as recommended (decision:h18-stage-b-iii-open-design, decision:h18-stage-b-open, 2026-09-29).**
 - **An H17 re-attempt** (cold start), ranked sixth: closed twice at the bench (decision:h17-closed); the consequence that
   moved it up (the release stranding negative holds) no longer arises by code under N2; a Run 3 would need new state.
