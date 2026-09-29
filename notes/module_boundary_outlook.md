@@ -80,3 +80,11 @@ The acceptance target in section 5 ('bitwise identity with ph21.Agent8') predate
 agents are now Agent17 (two-channel, src/ph35.py:104-105) and Agent16 (three-channel distractor form, src/ph33.py:180);
 a module built from this outlook would be accepted by bitwise identity with those, on the same seeds, over 600 steps.
 The text above is unchanged.
+
+## Addendum 2026-09-29 (module consolidation, decision:module-consolidation-open; record:module-chain-readings)
+
+Two statements in section 2 do not describe the adopted agent's code and are corrected here; the text above is
+unchanged. (1) Section 2.2 says reinforcement is credited to what is held: in the agent, src/ph15.py:55-61 builds the
+odour code and the reinforcement vector from the source the row stands at (the learning loop updates each agent from
+its own position, as the master plan's consolidated record states). (2) Section 2.2 says K 500: the agent's learning
+module is built with K 200 (src/ph11.py:53); K 500 is the Phase 4 and Phase 7.2 module-level constant (src/ph8.py:37).

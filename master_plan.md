@@ -854,8 +854,9 @@ Progress log
   'proceed right away with the recommended options').** Not re-judged. Adopted within the tested conditions only: Act16
   (src/ph33.py:116-177) in Agent16 as composed, supplied +1/0, D at value 0 and p_D 0.03, G 2, C0, gate on, N2, learning
   off, T1D and W1D; the H27 composition rule, the three-counter presence relaxation and the H28 burst-record relaxation
-  become adopted state for the three-channel form only (in form). At two channels the rule is inert by code, so the
-  two-channel adopted agent is unchanged. Limits: W1D 222/400 rows still lost (29 without D); T3aD 0.220 vs 13.193; M6
+  become adopted state for the three-channel form only (in form). At two channels the rule is inert for the tested value
+  pairs (+1/0, +1/-1; corrected 2026-09-29 by decision:module-consolidation-open, record:module-chain-readings: at equal
+  non-negative values both channels are top and the rule acts, ph33.py:154-157), so the two-channel adopted agent is unchanged. Limits: W1D 222/400 rows still lost (29 without D); T3aD 0.220 vs 13.193; M6
   (the hold's benefit under a distractor) unmeasured; other p_D, a non-zero-valued D, learning, the H15 world untested.
   The distractor limit under the adopted rule: record:distractor-capture-limit-under-h28-tie (T1D DP -0.0275, W1D
   222/400); record:distractor-capture-limit unchanged. Rejected on record: no adoption; adoption as the universal rule.
@@ -1190,6 +1191,15 @@ Progress log
   (ph11.py:53), not the outlook's K 500; the H28 tie rule is inert at two channels only for the tested value pairs
   (+1/0, +1/-1), not for equal non-negative values (ph33.py:154-157), so master_plan's 'inert by code' at 857 and 1773
   is a wording correction for the owner. Four amendments for v2. The owner's section 10 awaited.
+- **MODULE CONSOLIDATION OPENED on design v2 FINAL (2026-09-29; decision:module-consolidation-open; the owner's '확정').**
+  Every section 10 point confirmed as recommended; the review's four amendments folded in: U7 and U8 as an addendum to
+  the outlook note and in the module header; U10 as the wording correction above (lines 857 and 1788, 'inert for the
+  tested value pairs'); a recorded-reference learning-on row A7r (the module against Agent14N2's class tree in the H20
+  Stage C Run 2 harness) beside the coverage row A7; the per-step hash's attribute list in the output header; the
+  seed-digit rule as standing note P5. v2 (notes/module/2026-09-29-module-consolidation-design-v2.md, sha 0bffc40c...dc9a)
+  differs from v1 only in the status and confirmation text, section 10 and the amendment points; no acceptance row,
+  field, layer, seed or constant changed (checked by diff). Next: src/fly.py and src/module_identity.py by an Opus 5.5
+  agent, the identity run in the local session, the reviewing session's recount, then record:module-identity-result.
 
 ## Why a plan now
 
@@ -1785,8 +1795,8 @@ Four hypotheses were run in one day by picking the next most interesting candida
   0.03, G 2, C0, gate on, N2, learning off, T1D and W1D. The H27 composition rule (decision:evidence-release-composition-rule-h28),
   the three-counter presence relaxation (decision:classification-rule-relaxed-presence-prior-h28) and the burst-record
   relaxation (decision:classification-rule-relaxed-burst-record-h28) are adopted state for the three-channel form, in form,
-  scope 'the adopted three-channel agent'. At two channels the rule is inert by code (I1'), so the two-channel adopted agent
-  is unchanged and does not carry them. Limits: W1D 222/400 lost (29 without D); T3aD 0.220 vs 13.193; M6 unmeasured;
+  scope 'the adopted three-channel agent'. At two channels the rule is inert for the tested value pairs (+1/0, +1/-1; I1';
+  corrected 2026-09-29, record:module-chain-readings), so the two-channel adopted agent is unchanged and does not carry them. Limits: W1D 222/400 lost (29 without D); T3aD 0.220 vs 13.193; M6 unmeasured;
   other p_D, a non-zero-valued D, learning with D, the H15 world. record:distractor-capture-limit-under-h28-tie records
   the limit under the adopted rule (T1D DP -0.0275, W1D 222/400); record:distractor-capture-limit is unchanged (H27's
   agent). Rejected on record: no adoption; adoption as the universal rule.
@@ -2059,7 +2069,8 @@ conditions' is kept wherever master_plan uses it.
 | lineage reference | Agent14N2 = ReleaseN2 + Agent14 | src/ph30.py:117-140 (1962); cited as :117-136 at 2023 (see section 10) | decision:n2-release-adopted-within-tested-conditions (1961-1976) | the reference Agent17 was tested against (1953-1954) |
 
 'A future design must say which form it composes' (master_plan.md:1943-1944). At two channels the H28 tie rule is inert
-by code, so the three-channel form adds nothing to the two-channel form (master_plan.md:1959-1960).
+for the tested value pairs (+1/0, +1/-1; corrected 2026-09-29, record:module-chain-readings), so the three-channel form
+adds nothing to the two-channel form within them (master_plan.md:1959-1960).
 
 #### 2.2 Module by module (both forms unless stated)
 
@@ -2198,8 +2209,9 @@ Stated here so a later session does not have to reassemble it from decisions.
   H27 composition rule, three presence counters at window 300 and start 240, and the H28 burst-ranked value tie, Act16,
   src/ph33.py:116-177). **Scope:** supplied +1/0 with a background distractor D at value 0, p_D 0.03, G 2, C0, gate on,
   N2, learning off, T1D and W1D (T1D DP -0.0275 against itself without D; W1D 222/400 lost against 400 for H27's agent
-  and 29 without D). It keeps the window 300 (200 untested at three channels). At two channels its tie rule is inert by
-  code, so it adds nothing to the two-channel form.
+  and 29 without D). It keeps the window 300 (200 untested at three channels). At two channels its tie rule is inert for
+  the tested value pairs (+1/0, +1/-1; corrected 2026-09-29, record:module-chain-readings), so it adds nothing to the
+  two-channel form within them.
 - **Before 2026-09-26 (kept for the lineage): the adopted agent, as composed (decision:n2-release-adopted-within-tested-conditions, 2026-09-25): Agent14N2 =
   ReleaseN2 + Agent14** (src/ph30.py:117-140; ReleaseN2 applies the H25 release (S) and (Z) only while the held odour's
   own value is non-negative, :128-132). At non-negative values it is Agent14 by code and by the Stage C bench identity
@@ -2631,6 +2643,10 @@ Stated here so a later session does not have to reassemble it from decisions.
   from the stored outputs or arrays before the result is recorded.
 - P4: simulations run in the local session, never on GitHub Actions or other hosted runners; runs made on hosted runners
   before 2026-09-27 keep their records.
+- P5 (set by the owner at the module consolidation opening, decision:module-consolidation-open, 2026-09-29): no design,
+  review or report under notes/ or experiments/module/ carries the digits of a registered seed of a harness whose seed
+  scan reads those folders (src/ph33.py, src/ph35.py read every .md except those directly under a folder named notes);
+  seeds are named by constant and report line instead.
 
 ## A standing caution about bench gates
 
@@ -2690,11 +2706,10 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Module consolidation design v1 DRAFT awaits the owner's section 10** (decision:module-consolidation-open-design;
-  notes/module/2026-09-29-module-consolidation-design-v1.md; review with four amendments, including a wording
-  correction of 'inert by code' at two channels and a proposed standing note P5 on seed digits in notes). On
-  confirmation: v2 FINAL, then src/fly.py by an Opus agent and the identity run, checked here. Also the owner's,
-  unsettled: whether the gain G 2 is adopted state. main and codex/h12-review-plan are at the same commit.
+- **Module consolidation: src/fly.py and the identity run next** (decision:module-consolidation-open, 2026-09-29;
+  design v2 FINAL notes/module/2026-09-29-module-consolidation-design-v2.md). Acceptance is bitwise identity at zero
+  tolerance; any difference is an implementation error, fixed and rerun; nothing tuned. Also the owner's, unsettled:
+  whether the gain G 2 is adopted state. main and codex/h12-review-plan are at the same commit.
 
 ## Queued candidates, none started
 
