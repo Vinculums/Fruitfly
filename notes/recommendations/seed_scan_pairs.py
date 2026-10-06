@@ -2,8 +2,12 @@
 
 Run from the repository root on the machine that holds the working tree to be checked (the scan, like the
 harnesses' own, walks the working tree, tracked or not):  python notes/recommendations/seed_scan_pairs.py
-Output carries no seed digits (P5): seeds by alias, every digit in a context masked as '#'."""
+Seed values are shown by alias and every digit in a context is masked as '#'.
+Console summary counts remain numeric; review summaries before copying into P5-covered documents."""
 import os, re, sys
+# Binary contexts may contain replacement characters unsupported by Windows cp949.
+if callable(getattr(sys.stdout, "reconfigure", None)):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(REPO, "src")); os.chdir(REPO)
 import ph33, ph35
@@ -25,7 +29,7 @@ for name, mod in (("ph35", ph35), ("ph33", ph33)):
     for n, l in zip(nums, labs): alias.setdefault(n, []).append(l)
     hits, _, nf = mod.seeds_unused()
     files = sorted((h if isinstance(h, str) else h[0]).replace("\\", "/") for h in hits)
-    print(f"== {name}: {len(set(nums))} distinct numbers, {mask(str(nf))} files scanned, {len(files)} files hit")
+    print(f"== {name}: {len(set(nums))} distinct numbers, {nf} files scanned, {len(files)} files hit")
     for rel in files:
         union.setdefault(rel, set()).add(name)
         data = open(rel, "rb").read()
