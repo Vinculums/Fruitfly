@@ -1,18 +1,26 @@
-# R2 1단계: seed-scan 허용 후보 (파일, 숫자) 쌍 목록 (2026-10-06, rev 2)
+# R2 1단계: seed-scan 허용 후보 (파일, 숫자) 쌍 목록 (2026-10-06, rev 3)
 
-상태: 측정 결과(제안). 결정 노드가 아니며 아무것도 등록하거나 채택하지 않는다. 검사기와 기록 파일은 수정하지 않았다.
+상태: owner 로컬 결과를 반영한 측정 목록(제안). 결정 노드가 아니며 아무것도 등록하거나 채택하지 않는다. 이번 개정은 이 문서만 수정하며 검사기와 실험 기록 파일은 수정하지 않는다.
 P5에 따라 이 문서에는 seed 숫자를 적지 않는다. 숫자는 각 harness의 seed_numbers() 안의 이름으로 부른다
 (예: eval_w = SEEDS['eval'][0], dev_a = SEEDS['dev'][1], bench_w = BENCH['seed_w']).
 
-## 방법
+## 방법과 출처
 
-- 기준: 현재 브랜치(main ec6d442 + 권고 문서 커밋), 이 클론의 작업 트리.
+- 기존 클론 기준: main ec6d442 + 권고 문서 커밋의 작업 트리. 두 harness 모두 419개 파일을 검사한 rev 2 측정이다.
+- owner 로컬 기준: origin/main ec6d442 + PR #2 파일 + 로컬 untracked/ignored 파일. 두 harness 모두 492개 파일을 검사했다.
+  이는 아래 결과 파일이 기록한 당시 작업 트리의 범위이며, 결과 파일과 rev 3 자체를 추가한 뒤의 재검사 결과는 아니다.
+- 로컬 결과 원본: [2026-10-07-r2-step1-owner-local-scan.txt](https://github.com/Vinculums/Fruitfly/blob/b65a083ed6f8322b8e89817662d0f8f09062f93c/notes/recommendations/2026-10-07-r2-step1-owner-local-scan.txt).
+  원본의 실행일 표기 2026-10-07을 유지한다. 이 문서는 그 결과를 대조·집계했으며 owner 로컬 파일 자체를 독립적으로 재검사하지 않았다.
 - ph35.seeds_unused(), ph33.seeds_unused()를 수정 없이 호출해 걸린 파일을 얻고, 각 파일에서 seed_numbers()의 숫자별로
-  같은 숫자 경계 규칙(앞뒤가 숫자가 아님)으로 다시 세어 (파일, 숫자) 단위로 분해했다. 문맥은 숫자를 가린 채로 확인했다.
-- 분해 스크립트: notes/recommendations/seed_scan_pairs.py (읽기 전용, 출력에 seed 숫자 없음). owner의 로컬 작업 트리에서 같은 방식으로 다시 돌릴 수 있다.
-- 스캔 규모: 두 harness 모두 419개 파일. ph35는 18개 숫자, ph33은 24개 숫자.
+  같은 숫자 경계 규칙(앞뒤가 숫자가 아님)으로 다시 세어 (파일, seed 별칭) 단위로 분해한다.
+  ph35는 18개 숫자, ph33은 24개 숫자이며 별칭은 검사기별로 해석한다.
+- 분해 스크립트: notes/recommendations/seed_scan_pairs.py. seed 값은 별칭으로, 문맥의 모든 숫자는 #으로 표시한다.
+  출력의 집계 숫자는 별도로 P5 충돌 여부를 확인해야 한다.
+- 실행 확인과 쌍 목록의 근거는 구분한다. owner의 채팅 확인은 helper 7b9f379, Windows cp949 콘솔, 정상 종료,
+  로컬 포함 전체 검사 및 숫자 없는 문맥 출력에 대한 보고다. 위 원본도 같은 환경에서 PYTHONUTF8 없이 exit 0을 기록하고,
+  PYTHONUTF8=1로 실행한 98231db 결과와 쌍·합집합 줄이 같다고 보고한다. 쌍의 실제 내용은 위 원본에서 읽었다.
 
-## 결과: 저장소에 있는 파일
+## 결과: 추적 파일
 
 | 파일 | ph35에서 걸린 seed | ph33에서 걸린 seed | 문맥 | 성격 |
 |---|---|---|---|---|
@@ -25,34 +33,53 @@ P5에 따라 이 문서에는 seed 숫자를 적지 않는다. 숫자는 각 har
 | notes/synthesis/2026-09-29-level6-synthesis-design-v2.md | 없음 | eval_w (1회) | master_plan.md 줄 번호 범위 인용 | 우연 일치 |
 | notes/synthesis/2026-09-29-level6-synthesis.md | eval_w (1회) | 없음 | master_plan.md 줄 번호 인용 | 우연 일치 |
 
-요약 (이 클론의 작업 트리 기준):
+추적 파일 부분집합 요약 (기존 클론 측정과 owner 로컬 결과에서 일치):
 - 검사기별: ph35는 5개 파일 13개 쌍, ph33은 6개 파일 22개 쌍(파일별 seed 별칭 기준).
 - 전체 중복 제거: 8개 파일. ph35와 ph33이 겹치는 파일은 3개(h12 설계 v1, v2, h12 diagnosis summary.json).
 - 걸린 숫자는 모두 base seed(dev, eval, bench)이며 derived 또는 extra 숫자는 없었다.
 
-## 결과: 이 클론에 없는 파일 (목록 미완)
+## 결과: owner 로컬 파일
 
-모듈 보고서(experiments/module/module_report.md 6절)가 든 항목 중 다음 2개 항목, 파일 4개는 이 클론에 없다.
-- experiments/h18/arrays_b/K5b_restart_rand.npz (1개): .gitignore 대상. owner의 로컬 작업 트리에만 있다.
-- notes/reviews/remote-runs/ 아래 summary.json (3개): git이 추적하지 않는다.
+기존 클론에 없던 아래 4개 파일의 (검사기, 파일, seed 별칭, 횟수)를 owner 결과 파일로 보완했다.
+성격은 예외 검토를 위한 분류이며 승인된 예외가 아니다.
 
-'9개 중 몇 개'는 완성도 기준으로 쓰지 않는다. 보고서의 항목 단위와 파일 단위가 다르기 때문이다. 완성 기준은 다음 두 목록이다.
-1. 검사기별 (파일, seed 별칭) 쌍 목록 (ph35, ph33 각각)
-2. 전체 중복 제거 파일 목록
-현재 확정: 추적 파일 8개. 미확정: 로컬 파일 4개.
+| 파일 | ph35에서 걸린 seed | ph33에서 걸린 seed | 문맥·추가 확인의 출처 | 성격 |
+|---|---|---|---|---|
+| experiments/h18/arrays_b/K5b_restart_rand.npz | dev_a (1회) | 없음 | owner가 ZIP member 경계를 확인한 결과 head.npy의 deflate 압축 데이터 안이며 header나 파일명은 아니라고 보고. 압축 바이트 문맥은 원본에서 생략 | 압축 바이트의 우연 일치 후보 |
+| notes/reviews/remote-runs/36260387653-summary/diagnosis/summary.json | eval_w (1회) | eval_a (2회) | 숫자를 가린 배열 문맥. owner의 sha256 비교에 따르면 추적된 h12 diagnosis summary.json과 byte-identical | 수치 배열의 우연 일치 |
+| notes/reviews/remote-runs/36260387653/h12-remote-36260387653-1/diagnosis/summary.json | eval_w (1회) | eval_a (2회) | 위와 같은 문맥 및 owner의 동일성 확인 | 수치 배열의 우연 일치 |
+| notes/reviews/remote-runs/36261176952-summary/diagnosis/summary.json | eval_w (1회) | eval_a (2회) | 위와 같은 문맥 및 owner의 동일성 확인 | 수치 배열의 우연 일치 |
 
-검사 범위는 줄이지 않는다. 검사기는 추적 여부와 관계없이 작업 트리를 검사하며, git 추적 파일로 한정하면 지금까지 잡던 로컬
-파일의 문제를 놓친다. 로컬 4개 파일은 파일 자체를 공유하지 않고, owner의 로컬에서 seed_scan_pairs.py를 돌려 다음 항목만 받는다.
-- 상대 경로와 해당 검사기
-- seed 별칭
-- 발견 횟수와 숫자를 가린 문맥
-- 예외가 필요한 이유
+- 원본의 추가 확인에 따르면 remote-runs/는 owner 클론의 .git/info/exclude 대상이고 NPZ는 .gitignore 대상이다.
+  git에서 제외되어도 두 검사기의 작업 트리 검사 대상이다.
+- NPZ는 압축 바이트에서의 매치다. 이를 압축 해제된 배열의 seed 값이나 실제 seed 사용으로 해석하지 않는다.
+- 원본에는 NPZ의 실제 offset·member 경계 수치와 sha256 digest 자체가 없으므로, 경계 판정과 byte-identical 여부는
+  owner의 추가 확인 보고로 기록한다. 이 문서에서 파일 원본을 받아 독립 재검증했다는 뜻은 아니다.
+
+## 전체 집계와 목록의 범위
+
+| 범위 | ph35 파일 / 쌍 | ph33 파일 / 쌍 | 중복 제거 파일 | 두 검사기 공통 파일 |
+|---|---|---|---|---|
+| 추적 파일 부분집합 | 5 / 13 | 6 / 22 | 8 | 3 |
+| owner 로컬 파일 추가분 | 4 / 4 | 3 / 3 | 4 | 3 |
+| owner 실행 전체 | 9 / 17 | 9 / 25 | 12 | 6 |
+
+- 위 두 파일 표의 모든 행이 전체 중복 제거 목록이다. 공통 파일은 h12 설계 v1·v2, 추적된 h12 diagnosis summary.json,
+  그리고 remote-runs 아래 summary.json 세 개다. 나머지는 ph35만 NPZ와 synthesis v1·본편, ph33만 h29 설계 v1·v2와 synthesis v2다.
+- 쌍 수는 검사기별 (파일, seed 별칭) 수다. 한 쌍에 여러 번 등장해도 한 쌍이다.
+  ph33의 summary.json 네 파일에서 eval_a가 각각 두 번 등장하는 것을 쌍 수에 중복 합산하지 않는다.
+- owner 결과의 기존 추적 파일 쌍은 rev 2와 일치하고, 로컬 추가분까지 모두 base seed(dev, eval, bench) 별칭이다.
+  derived 또는 extra 별칭의 적중은 없다.
+- 모듈 보고서의 항목 수를 파일 수나 완성도 분모로 쓰지 않는다. 해당 owner 실행에 대한 검사기별 쌍 목록과
+  전체 중복 제거 파일 목록은 이제 위 표로 정리되었다. 향후 작업 트리에 대한 완전성이나 예외 승인을 뜻하지 않는다.
+- 검사 범위는 줄이지 않는다. git 추적 파일로 한정하면 이번에 보완한 로컬 파일의 적중을 놓친다.
 
 ## 해석 (결정은 owner)
 
 1. 예외 근거는 두 종류로 따로 기록한다. 둘 다 쌍 단위 예외 후보다.
-   - 의도적 인용(h12, h29 설계 문서): 과거 실험 기록을 보존해야 해서 예외.
-   - 우연한 일치(summary.json의 측정값, synthesis 문서의 master_plan 줄 번호): 값이 seed 숫자와 같을 뿐이라 예외.
+   - 의도적 인용(h12, h29 설계 문서): 과거 실험 기록을 보존해야 한다는 근거로 개별 예외를 검토한다.
+   - 우연한 일치(summary.json의 측정값과 로컬 복제본, synthesis 문서의 master_plan 줄 번호, NPZ 압축 바이트):
+     실제 seed 사용이 아닌 숫자·바이트 일치라는 근거로 개별 예외를 검토한다. NPZ의 압축 영역 판정은 owner 보고에 근거한다.
 2. P5에는 줄 번호를 자동으로 허용하는 조항이 없다. 기존 줄 번호 인용 3건은 개별 예외로 검토한다. 새 문서는 줄 번호 대신
    절 제목이나 안정적인 참조를 쓰는 것이 좋다. '모든 줄 번호 허용'은 별도 규칙 변경이다.
 3. 쌍 예외의 범위: 현재 구현(ph32.EXCLUDED_PAIRS, ph35의 단일 pair)은 특정 위치가 아니라 '그 파일 안의 해당 숫자 전체'를 허용한다.
@@ -80,7 +107,6 @@ P5에 따라 이 문서에는 seed 숫자를 적지 않는다. 숫자는 각 har
 
 ## 다음 순서
 
-1. owner 로컬에서 seed_scan_pairs.py 실행, 로컬 4개 파일 목록 확정
-2. 검사기별 쌍 목록과 전체 중복 제거 목록 확정, 쌍마다 근거 종류 기재
-3. P5를 유지한 개별 예외와 두 검사기의 적용 경로 설계 (ph32 보존)
-4. 그 뒤 구현. 아직 예외 등록이나 코드 변경은 하지 않았다.
+1. 위 검사기별 쌍 목록과 전체 중복 제거 목록을 기준으로 owner가 각 예외 후보의 근거와 범위를 검토한다.
+2. P5를 유지한 개별 예외와 두 검사기의 적용 경로를 설계한다 (ph32 보존).
+3. 승인된 범위에 한해 그 뒤 구현한다. 예외 등록, 검사 범위 축소, 해시 검사 변경은 아직 승인하거나 적용하지 않았다.
