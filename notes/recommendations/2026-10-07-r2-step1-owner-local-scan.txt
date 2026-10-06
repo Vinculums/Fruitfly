@@ -1,0 +1,88 @@
+# seed_scan_pairs.py at 7b9f379, run on the owner's local working tree (Windows, cp949 console, no PYTHONUTF8), 2026-10-07
+# tree = origin/main ec6d442 + PR #2 files + local untracked/ignored files; exit 0
+# occurrence contexts kept only for the 4 files absent from Codex's clone; NPZ context dropped (compressed bytes)
+
+== ph35: 18 distinct numbers, 492 files scanned, 9 files hit
+  ph35 | experiments/h12/diagnosis/summary.json | eval_w | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v1.md | dev_w | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v1.md | dev_a | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v1.md | eval_w | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v1.md | eval_a | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v1.md | bench_w | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v2.md | dev_w | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v2.md | dev_a | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v2.md | eval_w | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v2.md | eval_a | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h12/h12_design_v2.md | bench_w | 1 occurrence(s) | reason: (owner)
+  ph35 | experiments/h18/arrays_b/K5b_restart_rand.npz | dev_a | 1 occurrence(s) | reason: (owner)
+  ph35 | notes/reviews/remote-runs/36260387653-summary/diagnosis/summary.json | eval_w | 1 occurrence(s) | reason: (owner)
+  ph35 | notes/reviews/remote-runs/36260387653/h12-remote-36260387653-1/diagnosis/summary.json | eval_w | 1 occurrence(s) | reason: (owner)
+  ph35 | notes/reviews/remote-runs/36261176952-summary/diagnosis/summary.json | eval_w | 1 occurrence(s) | reason: (owner)
+  ph35 | notes/synthesis/2026-09-29-level6-synthesis-design-v1.md | eval_w | 1 occurrence(s) | reason: (owner)
+  ph35 | notes/synthesis/2026-09-29-level6-synthesis.md | eval_w | 1 occurrence(s) | reason: (owner)
+== ph33: 24 distinct numbers, 492 files scanned, 9 files hit
+  ph33 | experiments/h12/diagnosis/summary.json | eval_a | 2 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v1.md | dev_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v1.md | dev_a | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v1.md | eval_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v1.md | eval_a | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v1.md | bench_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v2.md | dev_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v2.md | dev_a | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v2.md | eval_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v2.md | eval_a | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h12/h12_design_v2.md | bench_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v1.md | dev_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v1.md | dev_a | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v1.md | eval_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v1.md | eval_a | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v1.md | bench_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v2.md | dev_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v2.md | dev_a | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v2.md | eval_w | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v2.md | eval_a | 1 occurrence(s) | reason: (owner)
+  ph33 | experiments/h29/h29_design_v2.md | bench_w | 1 occurrence(s) | reason: (owner)
+  ph33 | notes/reviews/remote-runs/36260387653-summary/diagnosis/summary.json | eval_a | 2 occurrence(s) | reason: (owner)
+  ph33 | notes/reviews/remote-runs/36260387653/h12-remote-36260387653-1/diagnosis/summary.json | eval_a | 2 occurrence(s) | reason: (owner)
+  ph33 | notes/reviews/remote-runs/36261176952-summary/diagnosis/summary.json | eval_a | 2 occurrence(s) | reason: (owner)
+  ph33 | notes/synthesis/2026-09-29-level6-synthesis-design-v2.md | eval_w | 1 occurrence(s) | reason: (owner)
+== union: 12 distinct files
+  experiments/h12/diagnosis/summary.json | ph33, ph35
+  experiments/h12/h12_design_v1.md | ph33, ph35
+  experiments/h12/h12_design_v2.md | ph33, ph35
+  experiments/h18/arrays_b/K5b_restart_rand.npz | ph35
+  experiments/h29/h29_design_v1.md | ph33
+  experiments/h29/h29_design_v2.md | ph33
+  notes/reviews/remote-runs/36260387653-summary/diagnosis/summary.json | ph33, ph35
+  notes/reviews/remote-runs/36260387653/h12-remote-36260387653-1/diagnosis/summary.json | ph33, ph35
+  notes/reviews/remote-runs/36261176952-summary/diagnosis/summary.json | ph33, ph35
+  notes/synthesis/2026-09-29-level6-synthesis-design-v1.md | ph35
+  notes/synthesis/2026-09-29-level6-synthesis-design-v2.md | ph33
+  notes/synthesis/2026-09-29-level6-synthesis.md | ph35
+
+## contexts, the 4 local files
+  ph35 | notes/reviews/remote-runs/36260387653-summary/diagnosis/summary.json | eval_w | 1 occurrence(s) | reason: (owner)
+      occurrence 1: ...  ####,       ####,       ####,       ####,       ####,       ####,       -#,       ####,       ####,   ...
+  ph35 | notes/reviews/remote-runs/36260387653/h12-remote-36260387653-1/diagnosis/summary.json | eval_w | 1 occurrence(s) | reason: (owner)
+      occurrence 1: ...  ####,       ####,       ####,       ####,       ####,       ####,       -#,       ####,       ####,   ...
+  ph35 | notes/reviews/remote-runs/36261176952-summary/diagnosis/summary.json | eval_w | 1 occurrence(s) | reason: (owner)
+      occurrence 1: ...  ####,       ####,       ####,       ####,       ####,       ####,       -#,       ####,       ####,   ...
+  ph35 | notes/synthesis/2026-09-29-level6-synthesis-design-v1.md | eval_w | 1 occurrence(s) | reason: (owner)
+      occurrence 1: ...Which agent.** Both adopted forms (master_plan.md:####-####): Agent##, the two-channel adopted agent, an...
+  ph33 | notes/reviews/remote-runs/36260387653-summary/diagnosis/summary.json | eval_a | 2 occurrence(s) | reason: (owner)
+      occurrence 1: ...  ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####, ...
+      occurrence 2: ...  ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####, ...
+  ph33 | notes/reviews/remote-runs/36260387653/h12-remote-36260387653-1/diagnosis/summary.json | eval_a | 2 occurrence(s) | reason: (owner)
+      occurrence 1: ...  ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####, ...
+      occurrence 2: ...  ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####, ...
+  ph33 | notes/reviews/remote-runs/36261176952-summary/diagnosis/summary.json | eval_a | 2 occurrence(s) | reason: (owner)
+      occurrence 1: ...  ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####, ...
+      occurrence 2: ...  ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####,       ####, ...
+  ph33 | notes/synthesis/2026-09-29-level6-synthesis-design-v2.md | eval_w | 1 occurrence(s) | reason: (owner)
+  experiments/h18/arrays_b/K5b_restart_rand.npz | ph35 | dev_a | 1 occurrence | offset lies inside the deflate-compressed data of zip member head.npy (member boundaries checked), not in any header or filename
+
+## extra checks
+  the three notes/reviews/remote-runs/**/diagnosis/summary.json are byte-identical (sha256) to experiments/h12/diagnosis/summary.json
+  remote-runs/ is excluded by .git/info/exclude (this clone only), the NPZ by .gitignore line 6
+  totals: ph35 9 files 17 pairs; ph33 9 files 25 pairs; union 12 files; in both checkers 6 (h12 summary.json, h12 design v1/v2, 3 remote summary.json)
+  pair and union lines identical to the 98231db run made with PYTHONUTF8=1
