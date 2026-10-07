@@ -1,0 +1,384 @@
+{
+  "schema": "r2-v1",
+  "decision": "decision:seed-scan-exception-pairs-r2",
+  "entries": [
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/diagnosis/summary.json",
+      "alias": "eval_a",
+      "occurrences": 2,
+      "file_sha256_ap": "hfegkcoojndiogecgddpdbbfapaecddfoglheopflhoenameghgdcjgkpdjhbncb",
+      "reason": "incidental_match",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "bench_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "dev_a",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "dev_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "eval_a",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "bench_w",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "dev_a",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "dev_w",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "eval_a",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v1.md",
+      "alias": "bench_w",
+      "occurrences": 1,
+      "file_sha256_ap": "fahinibepfbijgagheajbcflfjkidiekenloehpjkebjonhkeipgehcnockdbcga",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v1.md",
+      "alias": "dev_a",
+      "occurrences": 1,
+      "file_sha256_ap": "fahinibepfbijgagheajbcflfjkidiekenloehpjkebjonhkeipgehcnockdbcga",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v1.md",
+      "alias": "dev_w",
+      "occurrences": 1,
+      "file_sha256_ap": "fahinibepfbijgagheajbcflfjkidiekenloehpjkebjonhkeipgehcnockdbcga",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v1.md",
+      "alias": "eval_a",
+      "occurrences": 1,
+      "file_sha256_ap": "fahinibepfbijgagheajbcflfjkidiekenloehpjkebjonhkeipgehcnockdbcga",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v1.md",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "fahinibepfbijgagheajbcflfjkidiekenloehpjkebjonhkeipgehcnockdbcga",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v2.md",
+      "alias": "bench_w",
+      "occurrences": 1,
+      "file_sha256_ap": "ffcocoobhnpdegkeoioljpnagfcfoklnfbnlckiniiaeangoeengdchaapkfgkkh",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v2.md",
+      "alias": "dev_a",
+      "occurrences": 1,
+      "file_sha256_ap": "ffcocoobhnpdegkeoioljpnagfcfoklnfbnlckiniiaeangoeengdchaapkfgkkh",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v2.md",
+      "alias": "dev_w",
+      "occurrences": 1,
+      "file_sha256_ap": "ffcocoobhnpdegkeoioljpnagfcfoklnfbnlckiniiaeangoeengdchaapkfgkkh",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v2.md",
+      "alias": "eval_a",
+      "occurrences": 1,
+      "file_sha256_ap": "ffcocoobhnpdegkeoioljpnagfcfoklnfbnlckiniiaeangoeengdchaapkfgkkh",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "experiments/h29/h29_design_v2.md",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "ffcocoobhnpdegkeoioljpnagfcfoklnfbnlckiniiaeangoeengdchaapkfgkkh",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph33",
+      "path": "notes/reviews/remote-runs/36260387653-summary/diagnosis/summary.json",
+      "alias": "eval_a",
+      "occurrences": 2,
+      "file_sha256_ap": "hfegkcoojndiogecgddpdbbfapaecddfoglheopflhoenameghgdcjgkpdjhbncb",
+      "reason": "incidental_match",
+      "presence": "owner_local_optional"
+    },
+    {
+      "checker": "ph33",
+      "path": "notes/reviews/remote-runs/36260387653/h12-remote-36260387653-1/diagnosis/summary.json",
+      "alias": "eval_a",
+      "occurrences": 2,
+      "file_sha256_ap": "hfegkcoojndiogecgddpdbbfapaecddfoglheopflhoenameghgdcjgkpdjhbncb",
+      "reason": "incidental_match",
+      "presence": "owner_local_optional"
+    },
+    {
+      "checker": "ph33",
+      "path": "notes/reviews/remote-runs/36261176952-summary/diagnosis/summary.json",
+      "alias": "eval_a",
+      "occurrences": 2,
+      "file_sha256_ap": "hfegkcoojndiogecgddpdbbfapaecddfoglheopflhoenameghgdcjgkpdjhbncb",
+      "reason": "incidental_match",
+      "presence": "owner_local_optional"
+    },
+    {
+      "checker": "ph33",
+      "path": "notes/synthesis/2026-09-29-level6-synthesis-design-v2.md",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "glooelefbcimejhhegmjblkcfkngajmgoiplipdfokfjildiohcjiclhcicclhbn",
+      "reason": "incidental_match",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/diagnosis/summary.json",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfegkcoojndiogecgddpdbbfapaecddfoglheopflhoenameghgdcjgkpdjhbncb",
+      "reason": "incidental_match",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "bench_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "dev_a",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "dev_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "eval_a",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v1.md",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfecipbkpmafenbhblpnnaikehbgomjhegodlecccgknjkbjgpapiioalghiohjo",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "bench_w",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "dev_a",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "dev_w",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "eval_a",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h12/h12_design_v2.md",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+      "reason": "historical_quotation",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "experiments/h18/arrays_b/K5b_restart_rand.npz",
+      "alias": "dev_a",
+      "occurrences": 1,
+      "file_sha256_ap": "ccoodlmdieelicfifnnljfagfknegfhnifeebfdfpommedbjkndjhhbafelflceg",
+      "reason": "incidental_match",
+      "presence": "owner_local_optional"
+    },
+    {
+      "checker": "ph35",
+      "path": "notes/reviews/remote-runs/36260387653-summary/diagnosis/summary.json",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfegkcoojndiogecgddpdbbfapaecddfoglheopflhoenameghgdcjgkpdjhbncb",
+      "reason": "incidental_match",
+      "presence": "owner_local_optional"
+    },
+    {
+      "checker": "ph35",
+      "path": "notes/reviews/remote-runs/36260387653/h12-remote-36260387653-1/diagnosis/summary.json",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfegkcoojndiogecgddpdbbfapaecddfoglheopflhoenameghgdcjgkpdjhbncb",
+      "reason": "incidental_match",
+      "presence": "owner_local_optional"
+    },
+    {
+      "checker": "ph35",
+      "path": "notes/reviews/remote-runs/36261176952-summary/diagnosis/summary.json",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "hfegkcoojndiogecgddpdbbfapaecddfoglheopflhoenameghgdcjgkpdjhbncb",
+      "reason": "incidental_match",
+      "presence": "owner_local_optional"
+    },
+    {
+      "checker": "ph35",
+      "path": "notes/synthesis/2026-09-29-level6-synthesis-design-v1.md",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "bjehiijlljboidpcaobkfpmcolpmklacahmlinflhdilakaiacnolppdfdkkbjlo",
+      "reason": "incidental_match",
+      "presence": "required"
+    },
+    {
+      "checker": "ph35",
+      "path": "notes/synthesis/2026-09-29-level6-synthesis.md",
+      "alias": "eval_w",
+      "occurrences": 1,
+      "file_sha256_ap": "injodacapkpamhnmfojjnldijikjobjocjcggdmnbjjphcoegemlbaibmgdhfdlj",
+      "reason": "incidental_match",
+      "presence": "required"
+    }
+  ]
+}
