@@ -1,6 +1,6 @@
 # R2 2단계 seed scan 예외 설계 v1 DRAFT
 
-개정: rev 2. owner가 선택한 B(기존 ph35 보존 + 별도 R2 검증 명령)를 반영한다. 파일 읽기 계약은 한 번 읽은 버퍼의 hash·count 계산으로 줄였다.
+개정: rev 3. owner가 선택한 B(기존 ph35 보존 + 별도 R2 검증 명령)를 스캔 검증기만의 범위로 정의한다. legacy demo가 기존 seed scan에서 멈추는 것은 owner가 승인한 결과다.
 
 상태: 검토용 설계 초안. `decision:seed-scan-exception-pairs-r2`의 승인 범위를 구현 가능한 계약으로 옮긴다. 이 문서의 배치는 예외 등록, 검사기 구현, 세부 구현 설계 확정, 모듈 채택 또는 PR 병합을 뜻하지 않는다. 이번 변경은 이 문서 하나뿐이다.
 
@@ -44,9 +44,7 @@
 
 ## 제안하는 배치와 형식
 
-하나의 데이터 manifest `config/seed-scan-exceptions-r2.json`과 독립 명령 `python tools/verify_seed_scan_r2.py`를 제안한다. 이 명령은 ph33·ph35 두 검사 프로필과 두 행동 검증 묶음을 모두 수행해야 정상 종료한다. 경로·파일 분할·스키마는 DRAFT이며 아직 구현하지 않았다. B 보존 경로는 owner가 선택했다.
-
-어댑터 복제는 두 구현의 동기화 검사가 필요하고, 공유 모듈은 중복을 줄이는 대신 import·소스 무결성 검증이 필요하므로 이 초안은 독립 R2 명령 안의 공통 검사 코어와 검사기별 얇은 프로필을 제안한다.
+하나의 데이터 manifest `config/seed-scan-exceptions-r2.json`과 독립 명령 `python tools/verify_seed_scan_r2.py`를 제안한다. 이 명령은 ph33·ph35의 기존 스캔 규칙에 따라 R2 예외를 검증하는 스캔 검증기다. 경로·스키마는 DRAFT이며 아직 구현하지 않았다. B 보존 경로는 owner가 선택했다.
 
 manifest는 UTF-8 JSON, BOM 없음, LF, 마지막 개행 하나로 고정한다. 최상위 필드는 `schema`, `decision`, `entries`로 제한하고 schema 값은 `r2-v1`이다. 중복 JSON key, 알 수 없는 필드, 중복 행, 비정상 타입을 거부한다. 행은 `(checker, path, alias)` 사전순으로 정렬한다. 각 행은 다음 필드를 갖는다.
 
@@ -62,7 +60,7 @@ manifest는 UTF-8 JSON, BOM 없음, LF, 마지막 개행 하나로 고정한다.
 
 결정의 예외 키는 `(checker, path, alias, occurrences, file sha256)`이다. reason은 근거 설명이며 비교를 완화하지 않는다. presence의 optional은 위 owner 로컬 네 파일에만 허용한다. 빈 digest, 자리표시자, 임의 별칭, 식, 정규식, glob, 디렉터리 단위 행을 허용하지 않는다. 실행 manifest에는 이 표를 펼친 검사기별 행 전체가 필요하다.
 
-별칭은 외부 문자열을 eval하지 않고 R2 프로필의 고정 매핑으로 해석한다. hash가 확인된 원래 검사기의 상수를 참조하며 seed 숫자 상수와 파생 seed 정의를 새 파일에 복제하지 않는다. `dev_w/dev_a`와 `eval_w/eval_a`는 각각 그 검사기의 `SEEDS` 쌍, `bench_w`는 그 검사기의 `BENCH` 상수에서 얻는다. 해석된 값이 해당 `seed_numbers()`에 있는지도 확인한다. 다른 검사기의 숫자를 재사용하지 않는다. alias 중복 해석 등 seed 정의가 바뀌면 검토 없이 행을 재해석하지 않는다. 소스 변경 검토에서 seed 상수와 seed_numbers 정의의 불변을 별도 확인한다.
+별칭은 외부 문자열을 eval하지 않고 R2 검증기의 고정 매핑으로 해석한다. hash가 확인된 원래 검사기의 상수를 참조하며 seed 숫자 상수와 파생 seed 정의를 새 파일에 복제하지 않는다. `dev_w/dev_a`와 `eval_w/eval_a`는 각각 그 검사기의 `SEEDS` 쌍, `bench_w`는 그 검사기의 `BENCH` 상수에서 얻는다. 해석된 값이 해당 `seed_numbers()`에 있는지도 확인한다. 다른 검사기의 숫자를 재사용하지 않는다. alias 중복 해석 등 seed 정의가 바뀌면 검토 없이 행을 재해석하지 않는다. 소스 변경 검토에서 seed 상수와 seed_numbers 정의의 불변을 별도 확인한다.
 
 ## manifest 자체의 무결성과 P5
 
@@ -70,7 +68,7 @@ hex digest는 hex 문자 사이의 숫자 덩어리가 seed와 우연히 같을 
 
 manifest 바이트 전체의 SHA-256도 이 문자 형식으로 독립 R2 진입점에 pin한다. ph33·ph35 원본에는 pin을 추가하지 않는다. 별도 R2 지원 모듈을 두면 진입점이 그 소스 digest도 검증한 뒤 import한다. manifest 안에 자기 digest를 넣지 않으므로 순환 계산이 없다. 먼저 파일의 원시 바이트 hash를 pin과 비교한 뒤 JSON과 스키마를 해석한다. pin 불일치, manifest 없음, 읽기 실패, 디코딩·스키마 오류는 명시적 실패다. 빈 목록으로 fallback하거나 이전 목록을 사용하지 않는다. pin 검증은 assertion에만 맡기지 않는다.
 
-manifest는 양쪽 검사기의 기존 파일 순회에 그대로 포함한다. 이름으로 제외하거나 manifest 자신의 예외를 만들지 않는다. 문자 digest만 안전하다고 가정하지 말고 경로·별칭·집계 숫자·버전·메타데이터까지 **manifest 원문 전체**에 양쪽 실제 seed 집합과 기존 숫자 경계 규칙을 적용한다. 충돌하면 출하하지 않는다. 필요한 경우 digit-free 문자열 표현을 새 설계 개정으로 검토하며 blanket 예외를 추가하지 않는다. 새 R2 소스도 양쪽 검사 프로필의 대상이므로 동일하게 검사한다. 진입점의 자기 digest는 실행 보고에 남기고 승인된 커밋으로 고정하며 자기 hash를 자기 안에 pin하지 않는다.
+manifest는 양쪽 검사기의 기존 파일 순회에 그대로 포함한다. 이름으로 제외하거나 manifest 자신의 예외를 만들지 않는다. 문자 digest만 안전하다고 가정하지 말고 경로·별칭·집계 숫자·버전·메타데이터까지 **manifest 원문 전체**에 양쪽 실제 seed 집합과 기존 숫자 경계 규칙을 적용한다. 충돌하면 출하하지 않는다. 필요한 경우 digit-free 문자열 표현을 새 설계 개정으로 검토하며 blanket 예외를 추가하지 않는다. 새 R2 소스도 양쪽 스캔 규칙의 대상이므로 동일하게 검사한다. 진입점의 자기 digest는 실행 보고에 남기고 승인된 커밋으로 고정하며 자기 hash를 자기 안에 pin하지 않는다.
 
 새 노트와 보고서는 seed를 별칭으로만 적는다. 새 인용은 절 제목·커밋 고정 링크 등 안정적인 참조를 사용한다. 줄 번호·날짜·경로·commit hash·집계 수·digest도 P5 검사 대상이다. 기존 synthesis 줄 번호 세 건의 승인은 새 줄 번호 일반 허용이 아니다. 보고서에 digest가 필요하면 문자 전용 표현을 쓰고, 링크를 포함한 문서 최종 바이트를 실제 seed 집합으로 검사한다.
 
@@ -78,8 +76,8 @@ manifest는 양쪽 검사기의 기존 파일 순회에 그대로 포함한다. 
 
 - **ph32·ph33·ph35**: 원본 바이트를 보존한다. ph32의 `EXCLUDED_PAIRS`, ph33의 `PH32_SHA` 및 header guard, ph35의 ph31_eval pair와 기존 import guard를 수정하지 않는다. ph33 보존은 B를 구현하는 이 초안의 제안 범위다.
 - **ph36b·ph38**: ph35를 가리키는 기존 pin과 guard를 그대로 둔다. 새로운 hash로 갱신하지 않는다.
-- **독립 R2 명령**: 원본에서 참조한 검사 프로필에 승인된 R2 count·hash 예외만 적용하고 행동 동등성 검증을 함께 수행한다. 원본의 agent, world, seed, RNG 순서, 통계, bar, 측정 필드를 변경하지 않는다.
-- FINAL 설계와 기록 demo는 비교 기준으로 보존한다. 새 명령과 manifest 및 새 결과 보고만 추가 대상으로 제안한다. 원본 함수를 런타임 교체하거나 소스를 잘라 exec하는 방식, pin/예외의 환경변수 override, `-O`/`-OO` 우회는 허용하지 않는다. 기존 demo 안의 검증용 hook은 동등성 테스트의 일부로 재현하되 seed scan·hash guard를 바꾸는 새 hook은 금지한다.
+- **독립 R2 명령**: 원본의 스캔 규칙에 승인된 R2 count·hash 예외만 적용하는 스캔 검증기다. 원본의 agent, world, seed, RNG 순서, 통계, bar, 측정 필드를 변경하거나 실행 검증하지 않는다.
+- FINAL 설계와 기록 demo는 비교 기준으로 보존한다. 새 명령과 manifest 및 새 결과 보고만 추가 대상으로 제안한다. 원본 함수를 런타임 교체하거나 소스를 잘라 exec하는 방식, pin/예외의 환경변수 override, `-O`/`-OO` 우회는 허용하지 않는다.
 
 ## ph35 hash 고정과 owner의 B 선택
 
@@ -91,17 +89,13 @@ manifest는 양쪽 검사기의 기존 파일 순회에 그대로 포함한다. 
 
 ### 별도 명령의 정상 경로
 
-`python tools/verify_seed_scan_r2.py` 한 번으로 다음 단계를 모두 수행한다. scan-only 진단이나 행동 검사 단독 결과를 전체 R2 합격으로 표시하지 않는다.
+`python tools/verify_seed_scan_r2.py`는 다음 스캔 검증만 수행한다.
 
-1. 최적화 실행이면 명시적으로 실패한다. assertion ON을 확인하고 ph32·ph33·ph35 및 행동 검증이 의존하는 원본 source의 승인 digest를 확인한다. ph36b의 전체 pin, ph38의 prefix가 보존된 ph35와 맞는지도 검사한다.
-2. manifest 무결성을 확인하고 아래 계약으로 두 검사 프로필을 수행한다. 기존 제외 규칙과 ph31_eval pair는 그대로, R2 예외는 count·hash 동시 일치 때만 적용한다. profile별 hits·적용·unused·오류를 따로 보고한다.
-3. 보존된 ph33·ph35의 계산 함수와 클래스에 대해 **독립된 명시적 행동 테스트 어댑터**를 실행한다. 각 어댑터는 원래 demo의 모든 행동 assertion, 입력·순서·RNG·측정 줄을 일대일로 대응시키고 원본 demo 구문/검사 항목과 대응표를 검토한다. 원본 source hash가 달라지면 대응표 재검토 전 실패한다. 테스트 어댑터는 프로세스를 분리해 원본 모듈의 전역 hook이 서로 영향을 주지 않게 한다.
-4. 기존 demo의 seed scan assertion은 원본에 그대로 남는다. 새 명령은 기존 demo를 그대로 호출한 뒤 실패를 잡아 성공으로 바꾸지 않는다. 새 행동 어댑터에서 legacy scan 호출·출력은 R2 scan 단계로 명시적으로 대체하며 **scan 외 assertion과 source guard를 모두 보존**한다. assertion을 건너뛴 파생 함수를 동적으로 생성하거나 monkeypatch하지 않는다.
-5. 원래 recorded demo와 행동·측정 결과를 비교하고 음성 검사를 실행한다. 둘 중 한 프로필이라도 실패하면 전체 명령은 nonzero로 끝난다. optional 파일이 없으면 종료 성공과 별개로 `local coverage incomplete`를 남기며 owner 전체 검증 완료로 표시하지 않는다.
+1. 최적화 실행이면 명시적으로 실패한다. assertion ON을 확인하고 ph32·ph33·ph35 등 스캔 규칙과 상수를 참조하는 원본 source의 승인 digest를 확인한다. ph36b의 전체 pin, ph38의 prefix가 보존된 ph35와 맞는지도 검사한다.
+2. manifest 무결성을 확인하고 아래 계약으로 ph33·ph35 각각의 기존 스캔 규칙을 적용한다. 기존 제외 규칙과 ph31_eval pair는 그대로, R2 예외는 count·hash 동시 일치 때만 적용한다. 검사기별 hits·적용·unused·오류를 따로 보고한다.
+3. 스캔 검증과 아래 음성 검사가 모두 통과하면 정상 종료한다. 어느 한 검사기 규칙에서라도 실패하면 전체 명령은 nonzero로 끝난다. optional 파일이 없으면 종료 성공과 별개로 `local coverage incomplete`를 남기며 owner 전체 검증 완료로 표시하지 않는다.
 
-ph33 쪽은 구조·MRO, ph32 bitwise 대응, 순차/병렬, identities, bench, entry classification, 확률 계산을 포함한다. ph35 쪽은 import guard, 이전 agent hook 불변, construction/MRO, 모든 identity·t0·counter·확률 계산 검사를 포함한다. 이 목록만으로 충분하다고 가정하지 않고 구현 검토에서 원본 demo의 모든 assertion·출력 줄과 대응을 확인한다.
-
-이 구조에서 기존 `ph33.py demo`와 `ph35.py demo`는 R2 예외를 알지 못하므로 기존 적중 때문에 계속 실패할 수 있다. 그것을 통과했다고 보고하지 않는다. 새 R2 명령의 합격과 legacy 실행 결과를 분리한다. ph36b·ph38도 hash guard 보존을 넘어 전체 실험 결과까지 통과했다는 뜻은 아니다.
+**승인된 legacy 결과:** 기존 `ph33.py demo`와 `ph35.py demo`는 원본과 기존 seed scan assertion을 보존하므로 R2 예외를 알지 못하며, 승인된 예외 대상의 적중 때문에 멈추는 것을 owner가 허용했다. 이 멈춤은 R2 수용 실패 조건이 아니며 통과로 바꿔 보고하지 않는다. 그 밖의 오류까지 허용하는 뜻은 아니다. 별도 R2 명령은 legacy demo를 호출하거나 실패를 가로채지 않는다. 측정·행동 재검증은 이 설계의 범위에 없고, ph36b·ph38의 hash guard 보존은 전체 실험 결과의 검증을 뜻하지 않는다.
 
 ## 파일 비교와 실패 계약
 
@@ -121,7 +115,7 @@ ph33 쪽은 구조·MRO, ph32 bitwise 대응, 순차/병렬, identities, bench, 
 
 1. 3단계 실행 승인을 별도로 받은 뒤, 기준 source와 승인 행 목록을 확인한다. owner 로컬 파일을 가진 환경에서 파일별 count와 실제 SHA-256을 수집한다. tracked 파일도 원시 바이트 기준이며 Git blob SHA와 혼동하지 않는다.
 2. 모든 행을 rev 3와 대조한다. owner 로컬 digest가 없는 상태에서는 production manifest를 완성했다고 하지 않는다. JSON 복제본은 동일하다는 과거 보고만으로 digest를 대입하지 않고 각 파일을 직접 측정한다.
-3. canonical manifest를 만들고 문자 전용 digest를 넣는다. 전체 원문 seed scan, 스키마 검증, 행·횟수 합계를 검사한 후 manifest pin을 계산한다. 그 pin을 독립 R2 진입점에 넣는다. 새 manifest·R2 코드·테스트 대응표를 한 검토 단위로 제출한다. 원본 harness와 downstream pin의 바이트 불변도 함께 대조한다.
+3. canonical manifest를 만들고 문자 전용 digest를 넣는다. 전체 원문 seed scan, 스키마 검증, 행·횟수 합계를 검사한 후 manifest pin을 계산한다. 그 pin을 독립 R2 진입점에 넣는다. 새 manifest·R2 코드·스캔 검증 결과를 한 검토 단위로 제출한다. 원본 harness와 downstream pin의 바이트 불변도 함께 대조한다.
 4. 파일 또는 count drift가 생기면 자동 갱신하지 않는다. 변경 내용, 기존 승인 근거가 유지되는지, 새 count·digest를 owner가 검토해야 한다. 새 쌍 추가나 범위 확장은 별도 승인이 필요하다.
 5. 재승인 후에만 manifest와 R2 진입점의 대응 pin을 함께 갱신하고 전체 수용·음성 검사를 다시 한다. manifest만 갱신하거나 pin check를 끄는 방법은 없다. rollback도 승인된 manifest와 대응 pin의 일치된 세트로 한다.
 
@@ -129,20 +123,21 @@ ph33 쪽은 구조·MRO, ph32 bitwise 대응, 순차/병렬, identities, bench, 
 
 ## 3단계 수용 검사 계획
 
-기준 출력은 [ph33 기록 demo](https://github.com/Vinculums/Fruitfly/blob/eaa149f57449a1827a8acf6227f69dab6763a4ae/experiments/h28/ph33_demo.txt)와 [ph35 기록 demo](https://github.com/Vinculums/Fruitfly/blob/eaa149f57449a1827a8acf6227f69dab6763a4ae/experiments/h29/ph35_demo.txt)다. 기준 파일을 수정하지 않는다. 신규 실행 출력과 대조 보고서를 별도로 둔다.
+보존하는 역사 기록은 [ph33 기록 demo](https://github.com/Vinculums/Fruitfly/blob/eaa149f57449a1827a8acf6227f69dab6763a4ae/experiments/h28/ph33_demo.txt)와 [ph35 기록 demo](https://github.com/Vinculums/Fruitfly/blob/eaa149f57449a1827a8acf6227f69dab6763a4ae/experiments/h29/ph35_demo.txt)다. 기록 파일을 수정하지 않는다. 이 단계에서 기록 demo의 측정·행동 출력을 재현하거나 대조하지 않는다. R2 스캔 검증 보고서를 별도로 둔다.
 
 | 검사 | 합격 조건 |
 |---|---|
-| 정상 R2 명령 | assertion ON, 두 scan 프로필·두 행동 어댑터·음성 검사 모두 통과, 정상 종료; legacy demo 통과로 표기하지 않음 |
-| 측정 출력 | seed-scan 줄 이외의 모든 측정 줄이 기록 demo와 정확히 일치 |
-| 행동·필드 | 기존 identity, trajectory, RNG, 모든 recorded field 검증을 유지하고 모두 통과 |
+| 정상 R2 명령 | assertion ON, ph33·ph35 규칙의 R2 스캔 검증 및 음성 검사 통과, 정상 종료 |
+| legacy demo | 기존 seed scan에서 승인 예외 대상의 적중으로 멈춤: owner가 승인한 결과이며 R2 수용 실패가 아님; legacy 통과로 표기하지 않음 |
+| 측정 출력 | 해당 없음 |
+| 행동·필드 | 해당 없음 |
 | downstream hash | ph35·ph36b·ph38 바이트 불변, 기존 전체/prefix pin 일치와 변조 시 실패 확인; 전체 downstream 실험 재실행과 구분 |
 | 원본 보존 | ph32·ph33·ph35 전체 바이트가 기준과 동일; ph32는 기존 PH32_SHA와 일치하고 scratch 변조 시 guard 실패 |
 | 승인 목록 대조 | owner 전체 작업 트리에서 ph35 17쌍 17회, ph33 25쌍 29회; 12파일·공통 6파일을 별도 대조 |
 | 제한 클론 | 없는 local 행은 unused로 명시; 전체 owner 검증을 대신하지 않음 |
 | P5 | manifest, 새 R2 소스, 새 문서·보고서가 각 실제 seed 집합의 숫자 경계 검사에 새 적중을 만들지 않음 |
 
-출처 변경은 행동 차이와 분리해 **허용 목록을 좁게** 작성한다. 변경 가능한 항목은 별도 R2 명령·어댑터의 식별과 digest, manifest 검증 상태와 적용/unused 통계, seed-scan 설명·파일 수·적중 결과다. ph33·ph35의 자기 소스 digest는 변경 허용 항목이 아니다. 기존 header 전체를 통째로 무시하지 않는다. 기존 source hash guard의 boolean, import 대상 digest, design digest, seeds, readings 및 그 밖의 문구는 그대로 비교한다. 새로운 provenance 항목도 줄 단위로 나열해 검토하고 숫자 충돌을 검사한다. 환경 차이로 다른 측정 줄이 바뀌면 허용 차이로 밀어 넣지 않고 원인을 해결하거나 실패로 보고한다.
+R2 보고서는 명령 식별·digest, 원본 source와 manifest의 pin 확인, 검사기별 스캔 파일 수·적중·예외 적용·unused·오류를 기록한다. ph33·ph35의 자기 소스 digest는 바뀌지 않아야 한다. 원본과 downstream pin의 보존을 확인하며, 측정·행동 출력 비교나 legacy header 전체의 재실행 대조를 요구하지 않는다. 새 보고서의 최종 바이트도 숫자 충돌 검사를 한다.
 
 ### scratch 음성 검사
 
@@ -164,7 +159,7 @@ fixture 통과와 실제 owner 로컬 파일 검증은 다른 증거다. NPZ와 
 
 ## 검토할 제안과 다음 단계
 
-owner가 B 경로를 선택했다. 남은 설계 검토 대상은 중앙 JSON 경로·스키마, 문자 전용 digest 표현, 독립 R2 진입점의 pin과 공통 scan 코어, 행동 어댑터의 원본 demo 대응표, 정확한 byte/count 결합, 수용 결과의 출처 차이 목록이다. 결정이 이미 승인한 예외 근거와 쌍 범위를 새로 넓히지 않는다.
+owner가 B 경로를 선택했다. 남은 설계 검토 대상은 중앙 JSON 경로·스키마, 문자 전용 digest 표현, 독립 R2 진입점의 pin, 정확한 byte/count 결합, 스캔 검증 보고 형식이다. 결정이 이미 승인한 예외 근거와 쌍 범위를 새로 넓히지 않는다.
 
 현재는 이 설계 문서만 수정한다. 구현용 manifest, digest 등록, checker 변경, demo 재실행 결과는 아직 없다. 설계 검토와 owner의 다음 단계 지시 후에만 3단계로 진행한다.
 
