@@ -1222,6 +1222,48 @@ Progress log
   designs, and how the nine files are handled (an exclusion decision in the form of decision:seed-scan-exclusion-ph31-eval,
   or redaction), are the owner's.
 
+- **R2 CLOSED and merged (2026-10-07; decision:seed-scan-exception-pairs-r2; PR #2, merge 0ee20d9).**
+  The scan-only verifier and r2-v1 manifest preserve the approved checker/path/alias/count/digest rows; ph32, ph33,
+  ph35 and the ph36b/ph38 pins remain unchanged. The owner's Windows verification at a18c0bc applied all approved
+  rows, including the four owner-local files, after normalising ph35 hit paths; see
+  notes/recommendations/2026-10-07-r2-step3-owner-verification.md and record:r2-step3-verification-result.
+  Cloud checks with those files absent report unused rows, not owner-local verification. The unchanged legacy demos'
+  seed-scan stops are the approved outcome, not demo passes. Measurement and behavior acceptance are N/A.
+  Any edit to a registered file or count requires owner review before a manifest/pin update; no broader exclusion.
+- **MODULE CONSOLIDATION item (b) CLOSED; src/fly.py is the scoped REFERENCE IMPLEMENTATION (2026-10-07;
+  decision:fly-reference-implementation).** Eleven real conditions plus one smoke row, three layers at zero tolerance;
+  Agent17 learning-on is included. Three-channel learning and conditions outside those identity rows remain unverified;
+  a later design depending on them needs its own identity row. Existing experiment code is preserved; no behavior,
+  performance or speed improvement is claimed. The earlier module report and source header retain their historical wording.
+- **G 2 ADOPTED as the baseline within the recorded conditions of Agent17 and Agent16 (2026-10-07;
+  decision:gain-g2-adopted-within-tested-conditions).** Status correction only: values and code are unchanged; not an
+  optimum or a general advantage. H20 Stage A remains NOT SHOWN, and the G bench remains no-candidate. Different G,
+  world or learning conditions require separate design and verification.
+- **(d) hold benefit: STAGE ONE OPENED and MEASURED (2026-10-07; decision:hold-benefit-stage1-open, '보완 넣어 확정,
+  승인, 여기서 진행'; record:hold-stage1-replay-result).** Design v1 (notes/hold/2026-10-07-hold-benefit-stage1-design-v1.md,
+  rev 2) confirmed with two amendments: the read identity feeds silence and so the next step's timeout reset, so
+  'circuit unchanged' holds per step only; H27/H28/H29 archive no per-step arrays, so every stratum is replayed.
+  Passive replay (src/hold_stage1_instrument.py, tools/replay_hold_stage1.py; output experiments/hold/hold_stage1_replay.json,
+  report experiments/hold/hold_stage1_report.md) run once locally: every passivity and coupling gate passed in all nine
+  strata (L1, L2 1200 events, L3, draws, per-step inputs and returns, H projection equal to the actual). Primary strata
+  A1-A4 (two-channel +1/0) and B1-B2 (three-channel +1/0/0): the read identity differs from the hold in 20-46 percent of
+  row-steps, the next-step silence differs in 1 905 to 7 177 row-steps per stratum, and NO command differs in any of
+  240 000 row-steps per stratum; by code reading the two-channel +1/0 form has no command branch while the presence sets
+  agree (they never differed), and the three-channel form's tied-burst branch was not reached. Coverage strata, apart:
+  A5 (+1/-1) 43 352 row-steps on 331 rows and B3 (+1/-1/0) 10 319 on 355 rows differ through the negative-value flee
+  route; A6 (0/0) 64 on 33 rows through the tied-top route. No benefit verdict, no stage two, no world change; the
+  owner chooses among the decision's gates (a condition-change design for the adopted scope, a stage-two proposal on
+  the out-of-scope coverage conditions, constructed witnesses for the two-channel reading, or deferral of (d)).
+- **(d) hold benefit: the owner's choice after stage one (2026-10-07, verbatim '1. 열도록 한다. 2. 허용한다.', gloss
+  '1. open it. 2. allow it.'; decision:hold-branch-exposure-design-open, decision:hold-stage2-coverage-proposal-allowed).**
+  (1) A condition-change design that exposes a documented read-out branch in the adopted scope is OPENED FOR DESIGN
+  (notes/hold/2026-10-07-hold-branch-exposure-design-v1.md, v1 DRAFT by an Opus 5.5 agent, reviewed here; measurement
+  first, a stage-one style replay on the new condition before any benefit trial; any new condition needs its own identity
+  row). (2) A stage-two benefit proposal on the coverage conditions A5 (+1/-1), A6 (0/0), B3 (+1/-1/0), outside the
+  adopted scope, is ALLOWED (notes/hold/2026-10-07-hold-stage2-coverage-design-v1.md, v1 DRAFT; the R arm's identity rows
+  and preregistered benefit and cost measures first). Constructed witnesses were not ordered; (d) is not deferred. No
+  code, no run, no bar fixed, nothing adopted; both drafts await the owner's section 12.
+
 ## Why a plan now
 
 Four hypotheses were run in one day by picking the next most interesting candidate after each result. That produced a usable architecture (N units with thresholded saturating self-excitation plus one global inhibitory unit) but left three structural gaps: no hypothesis is tied to a real fly circuit, there is no behavioural benchmark, and success criteria were written after seeing results. From here the order is fixed in advance and changed only by a recorded decision.
@@ -1308,6 +1350,9 @@ Four hypotheses were run in one day by picking the next most interesting candida
   initial cast side (A1(b) FAIL on dev) -> amendment: initial cast side drawn per row -> one
   evaluation: NOT shown (A2 FAIL; A4 INCONCLUSIVE); the value moves selection, the first source
   reached does not follow it. CLOSED. Report db2f39472a3eed143.
+  Later status decision: G 2 is the adopted baseline within Agent17/Agent16's recorded application conditions
+  (decision:gain-g2-adopted-within-tested-conditions, 2026-10-07), without changing code, the no-candidate bench result
+  or this NOT SHOWN verdict. This is neither an optimum claim nor approval of another value/world/learning condition.
 - Link check (owner's next step, value and learning excluded): complete. The tracked identity
   controls where the agent ends up (dwell 0.95 to 0.97 in every geometry) and the first source
   reached only when the separated stretch is long enough (C2 0.743, partial; C0 and C1 0.060 and
@@ -2070,11 +2115,13 @@ Four hypotheses were run in one day by picking the next most interesting candida
 
 ## Consolidated record, 2026-09-29
 
-Accepted by the owner at the consolidation gate (decision:consolidation-gate-closed, 2026-09-29). Copied verbatim from
+Accepted by the owner at the consolidation gate (decision:consolidation-gate-closed, 2026-09-29). Originally copied verbatim from
 sections 2 to 4 of notes/consolidation/2026-09-29-consolidation-v2.md. **Every bare number in parentheses is a line
 of master_plan.md at commit 2817eb6**, before this section was inserted; later lines have moved. It restates and
-replaces nothing: where it and a section below differ, the section below is the record. The gain G 2 is carried in
-every adopted scope with no adopting decision in the record; whether it is adopted state is the owner's, unsettled.
+replaces nothing: where it and a section below differ, the section below is the record. Status annotations updated
+2026-10-07: decision:gain-g2-adopted-within-tested-conditions supplies the later scoped G 2 adoption;
+decision:fly-reference-implementation closes item (b) and designates fly.py within the identity-tested conditions.
+Historical line references and hypothesis verdicts remain as recorded; the original consolidation note is preserved.
 
 ### 2. The adopted architecture, restated in one place
 
@@ -2100,7 +2147,7 @@ adds nothing to the two-channel form within them (master_plan.md:1959-1960).
 | Upstream stage | Phase 2.1 Heeger stage, unchanged; also the amplifier and pulse-stretcher for a single whiff; 'whole stage removed' and 'cross-channel division term removed' are different controls (2000-2006) | Phase 2 (H6 adopted, 10); no decision id in the record | Phase 2 gate conditions (1121) | ph2.Upstream (2000); no line cited |
 | Selection circuit (Select-and-Hold) | Phase 2 bistable circuit, unchanged; needs an external release (2007-2009) | Phase 2; no decision id in the record | Phase 2 gate; revision only via the empty state under sparse input (2026-2034) | Phase 2 circuit; no file or line cited in master_plan |
 | H19 (a) | while nothing is held, a whiff of an odour whose valence is not negative is handed to navigation (2009-2011) | decision:h19a-adopt-and-run2-direction (72-80) | two-source 160x160 world, wind every step; not covered: whiffs of B while A is held, any distractor (2009-2011) | README lists ph14.py for H19(a); no line cited |
-| Value gain G 2 | a gain (1 + G*max(v, 0)) on the stage output into the circuit and its evidence release; 'Tested in H20 Stage A, NOT adopted' (2043-2052), yet 'carried' by Agent14 (1969-1970) and named in every scope | no adopting decision in the record; G 2 fixed post hoc by decision:h20-stage-a-run-g2 (140-141) | G 2 appears in every adopted scope (1949, 1957, 2057) | ph16.py for H20 Stage A (README); no line cited |
+| Value gain G 2 | baseline gain (1 + G*max(v, 0)) on the stage output into the circuit and evidence release; value/code unchanged | decision:gain-g2-adopted-within-tested-conditions (2026-10-07); separate from the post hoc Stage A execution decision | Agent17/Agent16's recorded application conditions only; not optimal or generally superior; H20 Stage A stays NOT SHOWN; other G/world/learning conditions need separate verification | G_STAR in src/fly.py; historical Stage A implementation in ph16.py |
 | H21 gate | while a higher-valued odour is held, a lower-valued non-negative odour's response is zeroed into the circuit and the evidence release (2053-2056) | decision:h21-gate-adopted-within-tested-conditions (266-270); the H21 verdict is NOT shown | supplied value, +1/0, G 2, C0, dwell majority, learning off (2056-2057) | Agent6, ph19.py; the gate flag is the `rule` attribute, ph19.py:42 (612) |
 | Release (N2) | H25's (S)+(Z) only while the held odour's own value is non-negative; off at a negative held value, where the frozen timeout defect stays in force (2016-2025) | decision:h25-release-adopted-within-tested-conditions (396-398), then decision:n2-release-adopted-within-tested-conditions superseding decision:release-negative-scope-on-hold (703-712) | (S)+(Z): +1/0, G 2, C0, T1/W1/T3a/T3b, learning off, gate on (2018-2019); off at negatives tested in World6 with learned values, H20 Stage C Run 2 (1965-1966) | Release mixin ph24.py (2017); ReleaseN2 src/ph30.py:117-140, the gate :128-132 (703-704, 1962-1963) |
 | Heading ring | RingExact at tau 1.0, sigma 0.5, vgain = tau, n 16, wind at amplitude 6.0 (2067-2068) | decision:h14-adopt-tau1 (26-29) | wind sensed every step; 'equivalence was not tested' (2069-2071) | no file or line cited for RingExact; the second zero-input ring step at ph12.py:106-108 (985) |
@@ -2135,7 +2182,7 @@ evaluation (bench, calibration, readability), M = mixed or split verdict, C = ch
 | 8 | two-source check | 'JUDGED': M1 pass, M2 pass on equality, M3(a) FAIL | nothing; world kept | decision:two-source-check-judged | not in the record | 58-65 | C |
 | 9 | H19 (a) | 'SUPPORTED on N1-N5, the distractor condition N6 UNREADABLE' | H19 (a) within the tested conditions | decision:h19a-adopt-and-run2-direction | not in the record | 72-80 | S |
 | 10 | H15 Run 2 | 'E1 ... NOT DECIDED BY THIS RUN. E2 ... PASS'; Q5 PASS | none recorded | decision:h15-run2-closed | not in the record | 93-109 | M |
-| 11 | H20 Stage A | 'NOT SHOWN under the registered criteria'; A1 PASS, A2 FAIL, A3 PASS, A4 INCONCLUSIVE | nothing (gain 'NOT adopted', 2043) | decision:h20-stage-a-closed | not in the record | 140-175 | N |
+| 11 | H20 Stage A | 'NOT SHOWN under the registered criteria'; A1 PASS, A2 FAIL, A3 PASS, A4 INCONCLUSIVE | later, separate scoped G 2 baseline adoption: decision:gain-g2-adopted-within-tested-conditions; no verdict change | decision:h20-stage-a-closed | closure date not in this table; gain adoption 2026-10-07 | 140-175 | N |
 | 12 | link check | 'complete, one run'; a check | nothing | record:h20-linkcheck-result | not in the record | 176-199 | C |
 | 13 | H20 Run 2 | 'NOT SHOWN under the registered criteria'; R2 FAIL | nothing | decision:h20-run2-closed | 2026-09-23 | 200-232 | N |
 | 14 | H21 | 'NOT shown under the registered criteria on an INCONCLUSIVE M2'; no criterion failed | the gate, within the tested conditions, separate record | decision:h21-closed | 2026-09-23 | 245-295 | N |
@@ -2177,10 +2224,12 @@ H27 (744-757), H10 margin (972-978, 1862-1876).
 - C (checks and measurement-only stages): 6 (two-source check, link check, absent-odour check, avoidance check, T3b
   diagnosis, H18 Stage A).
 - Total 11 + 8 + 10 + 2 + 6 = 37. Verdict-bearing rows (S + N + B + M) 31; of those, NOT shown or stopped (N + B) 18.
-- **Adoption decisions since Phase 7: 11** (extinction gate; ring tau 1; return cast; H19 (a); H21 gate; H23 filter; H25
-  release at +1/0; H26 counter and Agent14; N2; H28 tie for the three-channel form; H29 window 200), plus one owner
-  contract change (decision:heading-input-rotation-made) not counted. Three of the 11 followed a verdict that was not
-  shown-class (H14, H16, H21), each by a separate record, as the rule at master_plan.md:2222-2224 requires. Not adopted
+- **Adoption decisions since Phase 7: 12**, including the later scoped G 2 baseline adoption (2026-10-07,
+  decision:gain-g2-adopted-within-tested-conditions), alongside the original eleven: extinction gate; ring tau 1;
+  return cast; H19 (a); H21 gate; H23 filter; H25 release at +1/0; H26 counter and Agent14; N2; H28 tie for the
+  three-channel form; H29 window 200. The heading-input contract change and fly.py reference designation are not
+  additional mechanism adoptions. Four followed a verdict that was not shown-class (H14, H16, H21, H20 Stage A),
+  each by a separate decision; none changes its hypothesis verdict. Not adopted
   though shown-class: H13 (none recorded), H20 Stage B (nothing new), H12 Stage 1 and Package E (MB5 not adopted).
 
 ### 4. Recorded limits of the adopted agent
@@ -2210,6 +2259,11 @@ H27 (744-757), H10 margin (972-978, 1862-1876).
 | L19 | Fixed per-row odour codes | standing rule (2277-2279) | results conditional on the fixed code set | a condition on every result |
 
 ## The architecture as currently adopted
+
+Reference implementation for subsequent designs: `src/fly.py`, within the eleven identity-tested conditions only
+(decision:fly-reference-implementation, 2026-10-07). Agent17 learning-on is included; three-channel learning and
+other conditions remain unverified. The ph-chain below remains the unchanged experiment and lineage record.
+This designation adds no performance claim and extends no adoption scope.
 
 Stated here so a later session does not have to reassemble it from decisions.
 
@@ -2315,8 +2369,11 @@ Stated here so a later session does not have to reassemble it from decisions.
   question stays open. H27 was closed with the distractor condition recorded as a limit (decision:h27-closed,
   record:distractor-capture-limit). H28's evaluation (record:h28-result) reported M6 +0.0000 again: with the burst-ranked
   tie the hold-not-read arm loses the same 222 W1D rows, so the question stays open.
-  **Tested in H20 Stage A, NOT adopted:** a gain (1 + G*max(v, 0)) on the upstream output
-  entering the circuit and its evidence release, for odours with a positive value. Measured: a
+  **G 2 baseline ADOPTED within the recorded conditions of Agent17 and Agent16
+  (decision:gain-g2-adopted-within-tested-conditions, 2026-10-07):** a gain (1 + G*max(v, 0)) on the upstream output
+  entering the circuit and its evidence release, for odours with a positive value. The value and code are unchanged;
+  this is not an optimum or general advantage, and different G/world/learning conditions need separate verification.
+  H20 Stage A stays NOT SHOWN and its no-candidate G bench result stands. Historically measured: a
   single whiff of the gained channel holds at G >= 0.5 (an ungained single whiff reaches 0.756 of
   threshold); the first hold is carried by the circuit-input entry alone; in the moving agent at
   G 2 the gain moved the first hold to the valued odour in 277 of 400 rows against 200 without
@@ -2727,19 +2784,22 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **Module consolidation done; two decisions are the owner's** (record:module-identity-result): (1) whether src/fly.py
-  becomes the reference implementation that later designs compose against (closing item (b); nothing changes in the
-  adopted behaviour either way); (2) the seed-scan finding: nine files committed after H28 and H29 carry ph33/ph35 seed
-  digits, so their demos fail the scan assertion at HEAD; an exclusion decision in the form of
-  decision:seed-scan-exclusion-ph31-eval, or redaction of the digits, restores the demos. Next in the confirmed order:
-  (d) the hold's benefit. Also the owner's, unsettled: whether the gain G 2 is adopted state. main and
-  codex/h12-review-plan are at the same commit.
+- **(d) two design v1 DRAFTs await the owner's section 12** (decision:hold-branch-exposure-design-open,
+  decision:hold-stage2-coverage-proposal-allowed; stage one measured, record:hold-stage1-replay-result): the
+  branch-exposure condition design (notes/hold/2026-10-07-hold-branch-exposure-design-v1.md) and the stage-two proposal
+  on the coverage conditions (notes/hold/2026-10-07-hold-stage2-coverage-design-v1.md). No code, no run, no bar fixed,
+  no benefit verdict on record. PR #3 (docs/hold-stage1-and-r2-closure) is a draft.
+- R2 is closed (decision:seed-scan-exception-pairs-r2); fly.py is the scoped reference and item (b) is closed
+  (decision:fly-reference-implementation); G 2's scoped baseline adoption is recorded
+  (decision:gain-g2-adopted-within-tested-conditions). These are no longer pending choices.
+- Q3 parallel work remains held; the recorded order continues with (d), then (a), then Q1–Q4.
 
 ## Queued candidates, none started
 
 **Order fixed at the consolidation gate (decision:consolidation-gate-closed, 2026-09-29):** (c) the Level 6 synthesis
-(done and closed, record:level6-synthesis-result, decision:level6-synthesis-closed); (b) module consolidation (opened
-for design, decision:module-consolidation-open-design); (d) the hold's benefit (L12, unmeasured twice); (a) an H17
+(done and closed, record:level6-synthesis-result, decision:level6-synthesis-closed); (b) module consolidation (CLOSED,
+decision:fly-reference-implementation; fly.py scoped reference); (d) the hold's benefit (L12; stage one measured,
+record:hold-stage1-replay-result, no command branch reached in the adopted scope; the owner's gate pending); (a) an H17
 Run 3. **Queued after them by decision:queue-q1-q4-registered (2026-09-29), unranked, numbered when opened:**
 - **Q1** a per-odour exposure-dependent reduction of response in the recognition core (the habituation item; Das 2011
   the fly counterpart): new per-odour state and a signed relaxation; a measurement of response against prior exposure
