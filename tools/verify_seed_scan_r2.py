@@ -198,7 +198,7 @@ def scan_checker(root, name, checker, entries):
     applied = set()
     hit_pairs = 0
     for hit in hits:
-        path = hit[0] if name == "ph33" else hit
+        path = (hit[0] if name == "ph33" else hit).replace("\\", "/")   # ph35 returns os-native separators; ph33 already uses /
         data = read(path)
         if name == "ph33":
             numbers = [n for n in nums if (path, n) not in checker.ph32.EXCLUDED_PAIRS
