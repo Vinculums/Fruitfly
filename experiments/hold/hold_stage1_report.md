@@ -100,9 +100,14 @@ Constructed witnesses: not run; every count above is a naturally reached snapsho
    W1D this did not occur; latent silence differences did (7 177 and 7 136 row-steps). Zero here means none in this
    fixed sample, not impossibility.
 3. **Coverage strata (A5, A6, B3), reported apart: the comparison can branch and does.** A5 and B3 branch through the
-   negative-value route (H flees from a held negative channel while R, reading nothing or the valued channel, surges
-   or casts), A6 through the tied-top route (equal values 0/0, 64 row-steps on 33 rows). These conditions are not in
-   the adopted scope (supplied negative value; equal values) and this stage registers no benefit measure for them.
+   negative-value route in both directions: H flees from a held negative channel while R, reading nothing or the
+   valued channel, surges or casts; and R flees on a whiffing negative channel before the circuit has formed a hold,
+   while H surges or casts (the first command difference falls at step 0, where no hold can exist yet, in 15 A5 rows
+   and 23 B3 rows; in B3 H's negatively held row-steps are 6 084 on these rows, so at least 4 389 of the 10 473
+   flee-differing row-steps are R fleeing alone). A6 branches through the tied-top route (equal values 0/0, 64
+   row-steps on 33 rows). These conditions are not in the adopted scope (supplied negative value; equal values) and
+   this stage registers no benefit measure for them. (Wording corrected 2026-10-07 at the stage-two design review:
+   the first version named the H-flees direction only.)
 4. **What follows from amendment one:** in every stratum the R read-out changes the next-step silence counter in
    1 905 to 7 177 row-steps, so a freely evolving hold-not-read arm would reset its circuit at different steps even
    where the current commands agree. That is a latent-state difference, not a measured action effect, and it is why

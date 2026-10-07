@@ -1254,6 +1254,15 @@ Progress log
   route; A6 (0/0) 64 on 33 rows through the tied-top route. No benefit verdict, no stage two, no world change; the
   owner chooses among the decision's gates (a condition-change design for the adopted scope, a stage-two proposal on
   the out-of-scope coverage conditions, constructed witnesses for the two-channel reading, or deferral of (d)).
+- **(d) hold benefit: the owner's choice after stage one (2026-10-07, verbatim '1. 열도록 한다. 2. 허용한다.', gloss
+  '1. open it. 2. allow it.'; decision:hold-branch-exposure-design-open, decision:hold-stage2-coverage-proposal-allowed).**
+  (1) A condition-change design that exposes a documented read-out branch in the adopted scope is OPENED FOR DESIGN
+  (notes/hold/2026-10-07-hold-branch-exposure-design-v1.md, v1 DRAFT by an Opus 5.5 agent, reviewed here; measurement
+  first, a stage-one style replay on the new condition before any benefit trial; any new condition needs its own identity
+  row). (2) A stage-two benefit proposal on the coverage conditions A5 (+1/-1), A6 (0/0), B3 (+1/-1/0), outside the
+  adopted scope, is ALLOWED (notes/hold/2026-10-07-hold-stage2-coverage-design-v1.md, v1 DRAFT; the R arm's identity rows
+  and preregistered benefit and cost measures first). Constructed witnesses were not ordered; (d) is not deferred. No
+  code, no run, no bar fixed, nothing adopted; both drafts await the owner's section 12.
 
 ## Why a plan now
 
@@ -2775,13 +2784,11 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **(d) stage one measured; the gate is the owner's** (record:hold-stage1-replay-result,
-  experiments/hold/hold_stage1_report.md): in the adopted-scope strata no command differed (two-channel: no branch while
-  presence sets agree, by code reading; three-channel: branch not reached); in the coverage strata outside the adopted
-  scope (negative supplied value, equal values) commands did differ. Choices per decision:hold-benefit-stage1-open:
-  a condition-change design that exposes a documented branch in the adopted scope, a stage-two proposal on the coverage
-  conditions (their own identity rows and preregistered measures first), constructed witnesses to check the two-channel
-  reading, or defer (d). No benefit verdict is on record. PR #3 (docs/hold-stage1-and-r2-closure) is a draft.
+- **(d) two design v1 DRAFTs await the owner's section 12** (decision:hold-branch-exposure-design-open,
+  decision:hold-stage2-coverage-proposal-allowed; stage one measured, record:hold-stage1-replay-result): the
+  branch-exposure condition design (notes/hold/2026-10-07-hold-branch-exposure-design-v1.md) and the stage-two proposal
+  on the coverage conditions (notes/hold/2026-10-07-hold-stage2-coverage-design-v1.md). No code, no run, no bar fixed,
+  no benefit verdict on record. PR #3 (docs/hold-stage1-and-r2-closure) is a draft.
 - R2 is closed (decision:seed-scan-exception-pairs-r2); fly.py is the scoped reference and item (b) is closed
   (decision:fly-reference-implementation); G 2's scoped baseline adoption is recorded
   (decision:gain-g2-adopted-within-tested-conditions). These are no longer pending choices.
