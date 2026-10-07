@@ -1239,11 +1239,21 @@ Progress log
   decision:gain-g2-adopted-within-tested-conditions).** Status correction only: values and code are unchanged; not an
   optimum or a general advantage. H20 Stage A remains NOT SHOWN, and the G bench remains no-candidate. Different G,
   world or learning conditions require separate design and verification.
-- **(d) hold benefit: stage-one design v1 DRAFT, measurement only on fly.py.**
-  notes/hold/2026-10-07-hold-benefit-stage1-design-v1.md separates code-level branch existence, reachability in fixed
-  recorded conditions, and local observation/random-draw control. Identical local inputs are not identical endogenous
-  observations after diverging actions. No experiment or world change is implemented or run; final design and execution
-  remain owner gates. If the comparison cannot branch, propose a world-change design or defer (d) for the owner.
+- **(d) hold benefit: STAGE ONE OPENED and MEASURED (2026-10-07; decision:hold-benefit-stage1-open, '보완 넣어 확정,
+  승인, 여기서 진행'; record:hold-stage1-replay-result).** Design v1 (notes/hold/2026-10-07-hold-benefit-stage1-design-v1.md,
+  rev 2) confirmed with two amendments: the read identity feeds silence and so the next step's timeout reset, so
+  'circuit unchanged' holds per step only; H27/H28/H29 archive no per-step arrays, so every stratum is replayed.
+  Passive replay (src/hold_stage1_instrument.py, tools/replay_hold_stage1.py; output experiments/hold/hold_stage1_replay.json,
+  report experiments/hold/hold_stage1_report.md) run once locally: every passivity and coupling gate passed in all nine
+  strata (L1, L2 1200 events, L3, draws, per-step inputs and returns, H projection equal to the actual). Primary strata
+  A1-A4 (two-channel +1/0) and B1-B2 (three-channel +1/0/0): the read identity differs from the hold in 20-46 percent of
+  row-steps, the next-step silence differs in 1 905 to 7 177 row-steps per stratum, and NO command differs in any of
+  240 000 row-steps per stratum; by code reading the two-channel +1/0 form has no command branch while the presence sets
+  agree (they never differed), and the three-channel form's tied-burst branch was not reached. Coverage strata, apart:
+  A5 (+1/-1) 43 352 row-steps on 331 rows and B3 (+1/-1/0) 10 319 on 355 rows differ through the negative-value flee
+  route; A6 (0/0) 64 on 33 rows through the tied-top route. No benefit verdict, no stage two, no world change; the
+  owner chooses among the decision's gates (a condition-change design for the adopted scope, a stage-two proposal on
+  the out-of-scope coverage conditions, constructed witnesses for the two-channel reading, or deferral of (d)).
 
 ## Why a plan now
 
@@ -2765,9 +2775,13 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **(d) stage-one hold-benefit design awaits confirmation**, not a benefit verdict or execution approval:
-  notes/hold/2026-10-07-hold-benefit-stage1-design-v1.md. Decide the read-out intervention and fixed sample;
-  if no branch or exposure exists, choose a world-change design or defer (d). No world change is made here.
+- **(d) stage one measured; the gate is the owner's** (record:hold-stage1-replay-result,
+  experiments/hold/hold_stage1_report.md): in the adopted-scope strata no command differed (two-channel: no branch while
+  presence sets agree, by code reading; three-channel: branch not reached); in the coverage strata outside the adopted
+  scope (negative supplied value, equal values) commands did differ. Choices per decision:hold-benefit-stage1-open:
+  a condition-change design that exposes a documented branch in the adopted scope, a stage-two proposal on the coverage
+  conditions (their own identity rows and preregistered measures first), constructed witnesses to check the two-channel
+  reading, or defer (d). No benefit verdict is on record. PR #3 (docs/hold-stage1-and-r2-closure) is a draft.
 - R2 is closed (decision:seed-scan-exception-pairs-r2); fly.py is the scoped reference and item (b) is closed
   (decision:fly-reference-implementation); G 2's scoped baseline adoption is recorded
   (decision:gain-g2-adopted-within-tested-conditions). These are no longer pending choices.
@@ -2777,8 +2791,8 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 **Order fixed at the consolidation gate (decision:consolidation-gate-closed, 2026-09-29):** (c) the Level 6 synthesis
 (done and closed, record:level6-synthesis-result, decision:level6-synthesis-closed); (b) module consolidation (CLOSED,
-decision:fly-reference-implementation; fly.py scoped reference); (d) the hold's benefit (L12; stage-one design DRAFT,
-no new measurement); (a) an H17
+decision:fly-reference-implementation; fly.py scoped reference); (d) the hold's benefit (L12; stage one measured,
+record:hold-stage1-replay-result, no command branch reached in the adopted scope; the owner's gate pending); (a) an H17
 Run 3. **Queued after them by decision:queue-q1-q4-registered (2026-09-29), unranked, numbered when opened:**
 - **Q1** a per-odour exposure-dependent reduction of response in the recognition core (the habituation item; Das 2011
   the fly counterpart): new per-odour state and a signed relaxation; a measurement of response against prior exposure
