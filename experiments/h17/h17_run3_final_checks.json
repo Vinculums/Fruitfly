@@ -1,0 +1,239 @@
+{
+  "format": "h17-run3-final-static-checks-v3",
+  "date": "2026-10-10",
+  "complete": true,
+  "passed": true,
+  "scope": "FINAL/specification/reservation only; not implementation/H0/execution/efficacy clearance",
+  "owner_instruction": "위 권고안에 따라 작업 착수 진행한다.",
+  "decision": "decision:h17-run3-design-final",
+  "q_contract_decision": "decision:classification-rule-relaxed-any-odour-silence-counter-h17-run3",
+  "episode": "episode:h17-run3-design-final",
+  "candidate": "GS250",
+  "candidate_confirmed": true,
+  "q_contract_signed": true,
+  "independent_reviews": {
+    "seed_claim": "PASS",
+    "schema_coherence": "PASS",
+    "adversarial_final": "PASS",
+    "scope": "Static read-only audits; no RNG/imports/tests/simulation by reviewers"
+  },
+  "root_static_checks": {
+    "README_sha256_alpha": "dhjibhepdilmmpnmphcimafcochankfdogpohijkefadpmlamocipogckjpggfgk",
+    "master_sha256_alpha": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+    "documents_checked": 8,
+    "pins_checked": 112,
+    "R0_source_pins_unchanged": 96,
+    "R0_ledger_immutable_files_unchanged": 10,
+    "runtime": "PASS",
+    "R2_sources_manifest": "PASS",
+    "R2_manifest_pairs": 42,
+    "specification_closure_sha256_alpha": "eindoefagglhglgdlcnjagkmnicapomnjhndceikbdjllnjikmgbalhoogmakdpc",
+    "array_counts": {
+      "MAIN": 5580,
+      "H0": 5556
+    },
+    "protected_tokens": "PASS",
+    "fresh_generators_created": 0,
+    "fresh_random_draws": 0,
+    "claims_created": 0,
+    "execution_opened": false
+  },
+  "documents": [
+    {
+      "path": "config/h17-run3-seeds.json",
+      "sha256_alpha": "ppeengejcehflajckhoiefblfgoiibgacbgpkglepjmdjcicnjocgjfohdlamjlc",
+      "doc_id": "db73cd95c357e7c63",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_run3_seed_registration.json",
+      "sha256_alpha": "eebgnlmbfjnflojbfefbbdjefbbnjlajmbnllcobkaknebhfgfppogicfkgifcab",
+      "doc_id": "d47f07cd42242efa1",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_run3_array_keysets.json",
+      "sha256_alpha": "ihjaclekfppfhlkjkgmkchbgnhfadbogifkjphhmkppahnanenebljcllpephpmk",
+      "bytes": 383270,
+      "doc_id": "dc1dee4488863d6ce",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_run3_evidence_schema.json",
+      "sha256_alpha": "hfhgafgkdkiopcbjmaailjdlepnlcpggmbidhhknjfmeodfeicacblnmbalgbaib",
+      "metadata_grammar_fixed": true,
+      "doc_id": "de7a0ecbae0d8640a",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_run3_runtime.json",
+      "sha256_alpha": "dhkhgbcnodhnjejeibigpagjoegnnjelndolgbjpghnocgjciojenioahpemiboh",
+      "bytes": 1944,
+      "doc_id": "dcdcdc74a6f415241",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_run3_design_v3.md",
+      "doc_id": "d528fa87b2f4f63d2",
+      "verified_text_match": true,
+      "sha256_alpha": "oibjjpnikgaejokpgfpfoffoaiapnngnfjcknhfhmbojheoopgnamoimaajjjnmh"
+    },
+    {
+      "path": "notes/reviews/2026-10-10-h17-run3-final-review.md",
+      "doc_id": "def3ec101d5152b03",
+      "verified_text_match": true,
+      "sha256_alpha": "jeflfafbgglhdgidampndjdceejipdnmcgdggienmhghbnhmebnmapohafihmkai"
+    },
+    {
+      "path": "config/h17-run3-specification-pins.json",
+      "doc_id": "db6d963e5743977b8",
+      "verified_text_match": true,
+      "sha256_alpha": "cehggphheofbcajdjflnbefghmflionoobgfdibmjoalhkfdjfagiblhcipfjfpf"
+    }
+  ],
+  "graph": [
+    {
+      "id": "decision:h17-run3-design-final",
+      "props_exact": true,
+      "rev": 6
+    },
+    {
+      "id": "decision:classification-rule-relaxed-any-odour-silence-counter-h17-run3",
+      "props_exact": true
+    },
+    {
+      "id": "episode:h17-run3-design-final",
+      "props_exact": true
+    },
+    {
+      "id": "decision:h17-run3-open-design",
+      "props_exact": true,
+      "rev": 12
+    }
+  ],
+  "graph_warning_resolution": "Initial unsupported Decision top-level date and Episode claim-field measured_at warnings resolved: decision dates stay in props, Episode top-level date and reviewed_at retained; clean re-ingest and exact own-seed props readback.",
+  "master_mirrors": [
+    {
+      "part": 1,
+      "doc_id": "d1867092e4263d16c",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "iheebilcbbgpfilenhpfdfkhjnphpdgphmmlghhkifajilkdggphfbkjhnknhngk",
+      "verified_text_match": true
+    },
+    {
+      "part": 2,
+      "doc_id": "dd1bc59fff2843f4c",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "ajlbbjnddkdchddlllichieafpancchfoglojhjclamandecdmahkabkipeldcgi",
+      "verified_text_match": true
+    },
+    {
+      "part": 3,
+      "doc_id": "dff556eaf7e0cf994",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "pijgkogooenojhngaaopfeamlganjlccocebmnpodclbdpofnccfbdmojngloebo",
+      "verified_text_match": true
+    },
+    {
+      "part": 4,
+      "doc_id": "d3c890077450be5a4",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "bejhknfkdecajebjojgbhlfcmodklmcjjmhkljalpegbacogcdgbmpedadlofaje",
+      "verified_text_match": true
+    },
+    {
+      "part": 5,
+      "doc_id": "d86e1618aadf644d7",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "opbojggmhnogmajjcpnpllpfplbnjaajhhhhehobammebgpnghklbffinephmeha",
+      "verified_text_match": true
+    },
+    {
+      "part": 6,
+      "doc_id": "d8542f76ede325585",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "adcgoaapekebmnjeehjgemiomhednhihneakopfmmjoijnpephhanceldfihjflb",
+      "verified_text_match": true
+    },
+    {
+      "part": 7,
+      "doc_id": "dc811d089a183a6e0",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "cgmbpdjfhddjgcgogfbhppocmccgjkjiibgmlfooooilcklicomjjelhacolhihc",
+      "verified_text_match": true
+    },
+    {
+      "part": 8,
+      "doc_id": "d3bd8a60ed6a10c75",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "ngihohapkomeaideiocadpakphlamkccnlnghhkllmkbikljdknhicngipcnlmnk",
+      "verified_text_match": true
+    },
+    {
+      "part": 9,
+      "doc_id": "d4a755cf5a2e6ef8f",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "dljnccllcfoilifckkoobpcmnmgapgdigfogpffhbcljbpdjfhdkncfcildbobil",
+      "verified_text_match": true
+    },
+    {
+      "part": 10,
+      "doc_id": "d391977fec42e5387",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "ednmpjgjninhcdhefincoamipmjdmghplnjihaljepnbeeekgamkgnmecpiahcck",
+      "verified_text_match": true
+    },
+    {
+      "part": 11,
+      "doc_id": "d0ab8ab7761a1adb1",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "bhajkpkfgdlakppegoodfameacaplakgoembdkfjdllcgnlepjkmkebkmncfjged",
+      "verified_text_match": true
+    },
+    {
+      "part": 12,
+      "doc_id": "d106aff2c86bfac6c",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "mdfpeaockgihdkcjpgdhommppdkeoidnlmpcnhhfkdkcpmcngmacopnippifphkm",
+      "verified_text_match": true
+    },
+    {
+      "part": 13,
+      "doc_id": "dc0444894b71c04d5",
+      "full_sha256_ap": "iekgmnolfjflmoolipaocjiobdpdecennmcjndmjbdkejghjepafljbhckhgmejp",
+      "slice_sha256_ap": "ellellpopdoccpbbeaodojopmkdenbbkaefmoglkkefcihcfddbclpmodafnlcjd",
+      "verified_text_match": true
+    }
+  ],
+  "master_protected_delta": "PASS",
+  "master_historical_protected_counts_unchanged": true,
+  "historical_v1_v2_and_R0_immutable": true,
+  "historical_draft_props_unchanged": true,
+  "reservation": {
+    "distinct_role_count": 18,
+    "predeclaration_local_files": 655,
+    "predeclaration_local_bytes": 3964969793,
+    "predeclaration_graph_documents": 258,
+    "individual_literal_searches": 18,
+    "literal_hits": 0,
+    "unresolved_reads": 0,
+    "source": "experiments/h17/h17_run3_seed_registration.json; exact verified canonical doc d47f07cd42242efa1",
+    "numbers": "Stored only in config/registration; reservation is not consumption"
+  },
+  "implementation_complete": false,
+  "H0_complete": false,
+  "execution_opened": false,
+  "BENCH_complete": false,
+  "DEV_opened": false,
+  "EVAL_opened": false,
+  "fresh_generators_created": 0,
+  "fresh_random_draws": 0,
+  "bootstrap_performed": false,
+  "simulation_performed": false,
+  "claims_created": 0,
+  "new_protected_exceptions": 0,
+  "adoption": "none",
+  "historical_dispositions": "H17 NOT shown; hold D0 UNRESOLVED; A5/B3 bench stops; E1 below-screen; no adoption; Q1-Q4 order unchanged; Q3 held",
+  "next_step": "Separate owner execution opening, isolated implementation/review, stable implementation closure, spent-input H0 and one BENCH; DEV operation and EVAL retain separate owner gates",
+  "tests": "No candidate executable/source change; meaningful static closure, runtime, exact keyset/grammar, seed and canonical readback checks used. No candidate tests or simulation executed."
+}

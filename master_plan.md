@@ -1264,6 +1264,182 @@ Progress log
   and preregistered benefit and cost measures first). Constructed witnesses were not ordered; (d) is not deferred. No
   code, no run, no bar fixed, nothing adopted; both drafts await the owner's section 12.
 
+- **(d) recommended options confirmed and implemented (2026-10-09; decision:hold-branch-exposure-d0-open,
+  decision:hold-stage2-coverage-open).** The owner instructed continuation with the recommendations. Both v1
+  section-12 recommended lists were confirmed in v2 FINAL before implementation or new-seed draws:
+  notes/hold/2026-10-09-hold-branch-exposure-design-v2.md and
+  notes/hold/2026-10-09-hold-stage2-coverage-design-v2.md. All stage-two seed roles and derived streams were
+  scanned locally and in the graph before registration (config/hold-stage2-seeds.json;
+  experiments/hold/hold_seed_registration.json). Historical v1 drafts and reference agent files are preserved.
+- **(d) D0 completed locally, candidate screen UNRESOLVED (record:hold-d0-result).** Six strata, each 400 rows
+  x 600 steps, all passive L1/L2/L3, input/return/draw and actual-H projection gates PASS; zero differing
+  commands in 1 440 000 row-steps. Natural held counters reach at most 58 at two channels and 57 at three;
+  inherited A3 reaches 187 below its window 200. These are observed sample bounds, not a universal theorem
+  (notes/hold/2026-10-09-hold-bound-reading-review.md). B1/B2 each have four simultaneous B-D burst steps,
+  twelve raw latest-burst-tie steps, and zero qualifying tied-single steps; f_id is undefined. Frozen-path
+  probability upper bounds for at least 40 exposed rows are 1.0 in W1Dp and 0.003015 in W1N. The former is
+  uninformative, so the deferral rule is not established for both candidates. No E1 or new world opened;
+  no benefit verdict from D0. Report: experiments/hold/hold_d0_report.md.
+- **(d) coverage stage two STOPPED at the bench in A5 and B3 (record:hold-stage2-coverage-result).**
+  Full identities I1-I7 PASS, 29 recorded gates at 400 x 600. The first full run stopped at an I4 W1
+  score gate that incorrectly included allowed hold diagnostics; its incomplete receipt is preserved.
+  A reviewed correction excludes only those diagnostics, retains every trajectory score, and passed
+  fresh smoke and full identities before any bench draw
+  (notes/hold/2026-10-09-hold-stage2-i4-gate-correction.md). Bench primary M2 negative-source dwell R-H:
+  A5 -1.1525, interval [-1.6675, -0.6849375], FAIL, stop h1; B3 -1.4500,
+  interval [-1.8825, -1.0349375], FAIL, stops h1 and M1/ties (R ties 0.245 above 0.20).
+  No surviving benefit condition; no A5/B3 development or evaluation trajectory. Positive choice/lost
+  differences are reported separately and do not replace the failed primary criterion. A6 remains
+  reported only on bench and one evaluation, without a hypothesis or verdict. Headline statistics,
+  stop decisions and physical-side mapping are independently recomputed from saved rows in
+  experiments/hold/hold_results_verification.json. Report: experiments/hold/hold_stage2_report.md.
+  Nothing adopted; the owner's final reading and any separate E1 opening remain pending.
+
+- **(d) W1Dp E1 OPENED FOR DESIGN (2026-10-09; decision:hold-e1-w1dp-open-design).**
+  Owner: '**W1Dp의 분기 노출만 검사하는 E1 설계** 진행' (proceed with the W1Dp E1
+  branch-exposure design). Reviewed v1 DRAFT: notes/hold/2026-10-09-hold-e1-w1dp-design-v1.md;
+  review: notes/hold/2026-10-09-hold-e1-w1dp-design-review.md. H alone advances; passive H/R
+  clipped commands are compared in W1Dp, with D independently drawn from B's exact plume law.
+  Proposed main +1/0/0 and control +1/-1/0 are each 400 x 600. Complete H0/B4/B5 identities
+  precede counting. X1-X4 unchanged: identities pass, control exposes at least one row, main
+  exposes at least 40 rows of 400, H loss count inclusively 20-380. Route attribution is separate.
+  Design only: execution FINAL and a fresh screened pair remain pending; no seed selected,
+  runner implemented or simulation performed. D0 UNRESOLVED and coverage bench stops unchanged;
+  nothing adopted. Final reading of the completed reports remains pending.
+
+- **(d) W1Dp E1 MEASURED: REACHED, BELOW REGISTERED SCREEN (2026-10-09;
+  record:hold-e1-w1dp-result).** Owner confirmed all five recommendations with '권고안으로 작업 진행'
+  (decision:hold-e1-w1dp-open); v2 FINAL and fresh screen-role registration preceded the one claimed run.
+  H0 reproduces 55 output fields, 107 states and all eleven generator phase checkpoints. B4/B5 full
+  lineage/Fly/Passive identity and passivity gates pass, including historical and complete W1 diagnostics.
+  Main B4 +1/0/0: five exposed rows of 400, seven differing clipped-command steps of 240000;
+  X3 fails its unchanged threshold 40. Positive control B5 +1/-1/0: 397 exposed rows and 62042 command
+  steps; X2 passes. B4 H loss 38/400 meets inclusive 20-380; X4 passes. X1 passes. All seven B4
+  command differences occur on the tied-burst route: 170 qualifying T1-T4 observations, seven T1-T5,
+  f_id 7/170. B5's empty qualifying denominator is null. Saved-evidence verifier and root's independent
+  direct-array recomputation agree; 43 tests pass. Report: experiments/hold/hold_e1/hold_e1_report.md.
+  Nothing adopted; no separate benefit trial, new seed, extension or repeat follows. Existing D0 and
+  coverage verdicts unchanged; completed-report final reading and later disposition await the owner.
+
+- **(d) final disposition COMPLETE; further hold trials DEFERRED (2026-10-09;
+  decision:hold-followup-deferred).** Owner accepted the recommended sequence with
+  '해당 순서로 작업 진행'. D0 remains UNRESOLVED, coverage A5/B3 remain stopped, and E1
+  remains REACHED, BELOW REGISTERED SCREEN. The pending completed-report disposition is
+  resolved operationally; no absence-of-benefit verdict, new adoption, criterion substitution,
+  repeated screen, new seed or further benefit trial. Record:
+  notes/hold/2026-10-09-hold-followup-disposition.md (source_doc df19c467cb5c854ec).
+- **(a) H17 Run 3 OPENED FOR DESIGN ONLY (2026-10-09; decision:h17-run3-open-design).**
+  Reviewed v1 DRAFT: experiments/h17/h17_run3_design_v1.md (source_doc dac20b7f7a9bbc737);
+  review: notes/reviews/2026-10-09-h17-run3-design-v1-review.md (source_doc d819485fe84d9a84d).
+  Current reference is two-channel Fly/Agent17, including N2 and presence window 200.
+  Historical Agent10/Agent13 negative-timeout-release stranding is not presumed to persist:
+  N2 withholds negative sustain and formation reset, without proving that every negative
+  hold ending or cold-search loss is impossible. The 13/19 versus 5/65 first-leg association
+  is historical, not a causal intervention or current effect prediction. Recommendation:
+  passive R0 current-baseline measurement before selecting a performance candidate.
+  R0 needs its own FINAL, fresh role/derived-stream registration and execution decision;
+  none is opened here. No controller code, simulation or new seed; no relaxation revived.
+  H17's earlier closure remains unchanged. Episode: episode:hold-followup-h17-run3-design.
+- **H17 R0 measurement design v2 FINAL and seed reservation COMPLETE (2026-10-09;
+  decision:h17-r0-design-final).** Owner requested '구체화 진행'. Standalone contract:
+  experiments/h17/h17_r0_design_v2.md (source_doc db4aadf3b4101cef9); independent read-only
+  review PASS: notes/reviews/2026-10-09-h17-r0-design-v2-review.md (source_doc d7b5131b6bce2ec12).
+  Four matched conditions C0/T1/W1/T3, each 400 rows x 600 steps; current two-channel Fly/N2
+  unchanged, supplied values, learning off, walls off. C0 position-only outer geometry uses
+  an independent stream and balanced sides; original construction, source and wind draws stay.
+  q_obs is passive; first possible no-whiff marker is sensing index 249, post-act/pre-move.
+  Strict post-marker windows preserve censoring and both source identities. N2 is reconstructed
+  from pre-hold and pre/base/post silence; concurrent flags are not transition causes.
+  Config source_doc dd55bb416417db809; reservation source_doc da530d67874549e2c. All five
+  base/derived roles passed pre-declaration repository and graph checks; no RNG draws.
+  FINAL/config/source closure, complete identity/raw evidence, a pair-only durable claim and
+  independent recomputation are fixed requirements. No implementation, simulation, candidate,
+  relaxation or adoption. Execution needs a separate opening, then code/pins/H0 before one
+  measurement. Episode: episode:h17-r0-design-final. Historical closures remain unchanged.
+- **H17 R0 execution COMPLETE, one passive measurement verified (2026-10-09;
+  decision:h17-r0-open).** Owner accepted the next recommended sequence with
+  '다음 권고 사항 작업 진행'. Opening: config/h17-r0-execution-opening.json
+  (source_doc d539fa523228ae7f7). Authorized: implement/review runner and independent
+  verifier, freeze source/schema/runtime, pass spent-input H0, claim the reserved pair,
+  measure once, then independently recompute stored evidence. Three pre-fixed identity
+  arms in each of C0/T1/W1/T3; no candidate, new state relaxation or adoption.
+  All pre-draw gates passed before the only durable reserved-pair claim. The one main
+  measurement passed all twelve identity gates, independent verification and root
+  saved-array arithmetic. Current Fly/ph sources, FINAL, reservation and historical
+  measurements remained immutable. Report: experiments/h17/h17_r0_report.md
+  (source_doc d38fa7b26f04fc52c; record:h17-r0-current-baseline).
+  Tests: 39 PASS; final H0 PASS; original R2 checkers: 621 files each, no extra hits/errors.
+  This closes passive R0 work only; no candidate, efficacy criterion, new state or adoption.
+
+- **H17 R0 current baseline (2026-10-09; descriptive, no efficacy PASS).** C0 0/400 any-whiff by step 299; T1 3/400 lost over last 200 steps; T3 139/400 lost over last 200 steps; W1 35/400 lost over last 200 steps. C0 is constructed geometric stress. Rows are matched across conditions, not 1600 independent rows. Strict-window conditional groups below 50 are UNREADABLE; zero denominators UNDEFINED. Historical H17 NOT shown, hold D0 UNRESOLVED and A5/B3/E1 dispositions remain unchanged.
+
+- **H17 Run 3 candidate v2 DRAFT reviewed (2026-10-10;
+  decision:h17-run3-candidate-design-draft).** Owner requested
+  '권고안에 따라 작업 이어 진행'. GS250 is the single proposed candidate:
+  q-only delivered-any-whiff clock, threshold 250, derived age u=q-250,
+  alternating legs of 30k command steps, slant 15 degrees with 150-step half-period.
+  Current Fly.act runs once; the returned-turn residual, move and bump order stay fixed.
+  Delayed entry uses the existing q phase; holds do not pause or restart it.
+  R0 saved arrays were read directly for the actual pre-command anchor.
+  Ideal command geometry is descriptive, with no controller trajectory or effect forecast.
+  All-row C0 by step 599: Wilson lower bound at least .50 and paired improvement
+  lower bound at least .10; T1/W1/T3 regression clauses and interval stop rules fixed
+  as proposals in experiments/h17/h17_run3_design_v2.md (source_doc d73d7de44ea288ca0).
+  Anchor: experiments/h17/h17_run3_anchor_audit.json (source_doc da13f38d62551dccd).
+  Review: notes/reviews/2026-10-10-h17-run3-design-v2-review.md
+  (source_doc dbc7068ac14107ae1), CLEAR for proposal only.
+  Existing source pins and R0 evidence are unchanged; no RNG draw, bootstrap or simulation.
+  Candidate confirmation, renewed q signature, FINAL, fresh roles and execution remain
+  unopened. Next: confirm GS250 and its q-only old/new/anchor/scope contract, then
+  finalize runtime/schema/reservations before a separate implementation/H0/bench opening.
+  Historical H17 and hold dispositions, adoption status and Q1-Q4 order are unchanged.
+
+- **H17 Run 3 v3 FINAL confirmed and fresh roles reserved (2026-10-10;
+  decision:h17-run3-design-final).** Owner requested
+  '위 권고안에 따라 작업 착수 진행한다.' on the candidate-confirmation and
+  FINAL/reservation recommendation. GS250 is confirmed, and
+  decision:classification-rule-relaxed-any-odour-silence-counter-h17-run3 signs
+  exactly one q-only engineering navigation state for Run3/spent validity fixtures.
+  Historical H17/Run2 signatures stay lapsed; original N2 and presence/window
+  remain fixed. No adoption. The immutable v2 criteria carry into v3 FINAL:
+  all-row C0 whole600 success/improvement plus seven T1/W1/T3 regression clauses.
+  FINAL: experiments/h17/h17_run3_design_v3.md sha256(a-p)
+  oibjjpnikgaejokpgfpfoffoaiapnngnfjcknhfhmbojheoopgnamoimaajjjnmh
+  (source_doc d528fa87b2f4f63d2).
+  Review: notes/reviews/2026-10-10-h17-run3-final-review.md sha256(a-p)
+  jeflfafbgglhdgidampndjdceejipdnmcgdggienmhghbnhmebnmapohafihmkai
+  (source_doc def3ec101d5152b03), PASS for specification/reservation only.
+  Specification pins: config/h17-run3-specification-pins.json sha256(a-p)
+  cehggphheofbcajdjflnbefghmflionoobgfdibmjoalhkfdjfagiblhcipfjfpf
+  (source_doc db6d963e5743977b8):112 files including96 unchanged R0 source pins.
+  Runtime is pinned to R0. MAIN5580/H05556 exact arrays, typed evidence grammar,
+  own GS250 primitive transcript and field-specific BASE/executed-command anchors
+  are fixed. Seed configuration source_doc db73cd95c357e7c63; registration
+  source_doc d47f07cd42242efa1. All18 roles reserved after655 local file and258
+  complete verified canonical-document checks; zero unresolved reads/literal hits.
+  No new generator, random draw, bootstrap, trajectory or claim. Candidate
+  implementation, stable implementation pins, spent-input H0 and BENCH remain
+  unopened. Next: separate owner execution opening, isolated implementation/review,
+  stable implementation closure, spent-input H0, then one BENCH. BENCH all-nine PASS
+  precedes DEV operation gate; EVAL retains its own owner gate and one claim.
+  Historical H17/hold outcomes, Q1-Q4 order and held Q3 remain unchanged.
+
+- **H17 Run3 implementation/H0/BENCH OPENED (2026-10-10; decision:h17-run3-open).**
+  Owner instruction '다음 작업 이어서 실행' accepts the separate execution
+  recommendation on immutable v3 FINAL (source_doc d528fa87b2f4f63d2).
+  Opening: config/h17-run3-execution-opening.json sha256(a-p)
+  hhmmdmecifipakknbgkjoohopphomgpdcigckdnnaeoihjlcfabejcolcpigclig
+  (source_doc d6d6278e624bb86d9).
+  Authorized: isolated GS250 implementation and independent saved-evidence verifier,
+  meaningful mechanism/passivity/claim tests and review, stable implementation
+  closure, spent-input H0, then one fresh BENCH after H0 PASS and MAIN pins.
+  All112 specification files and9 completion documents were unchanged at opening.
+  No fresh generator/claim at opening. Durable pair-only claim precedes every
+  stage generator, including inference. INVALID, FAIL or unresolved INCONCLUSIVE
+  stops; no retune, reseed, replacement, horizon extension or changed margin.
+  DEV/EVAL remain separate owner gates; no adoption. Historical H17/hold
+  outcomes, Q1-Q4 order and held Q3 remain unchanged.
+
 ## Why a plan now
 
 Four hypotheses were run in one day by picking the next most interesting candidate after each result. That produced a usable architecture (N units with thresholded saturating self-excitation plus one global inhibitory unit) but left three structural gaps: no hypothesis is tied to a real fly circuit, there is no behavioural benchmark, and success criteria were written after seeing results. From here the order is fixed in advance and changed only by a recorded decision.
@@ -2784,23 +2960,76 @@ Phase 0 makes later comparison trustworthy. Phase 1 comes before further modelli
 
 ## Awaiting the owner
 
-- **(d) two design v1 DRAFTs await the owner's section 12** (decision:hold-branch-exposure-design-open,
-  decision:hold-stage2-coverage-proposal-allowed; stage one measured, record:hold-stage1-replay-result): the
-  branch-exposure condition design (notes/hold/2026-10-07-hold-branch-exposure-design-v1.md) and the stage-two proposal
-  on the coverage conditions (notes/hold/2026-10-07-hold-stage2-coverage-design-v1.md). No code, no run, no bar fixed,
-  no benefit verdict on record. PR #3 (docs/hold-stage1-and-r2-closure) is a draft.
+- **(a) H17 R0 is complete; GS250 v3 FINAL implementation/H0/BENCH is opened.**
+  The completed hold disposition remains decision:hold-followup-deferred: further
+  trials deferred, D0 UNRESOLVED, A5/B3 bench stops and E1 below-screen retained,
+  nothing adopted. Passive R0 completed once with twelve identity gates,
+  independent verification and root saved-array recomputation passed
+  (record:h17-r0-current-baseline; report source_doc d38fa7b26f04fc52c).
+  Owner instruction '위 권고안에 따라 작업 착수 진행한다.' confirms the GS250
+  q-only contract and FINAL/reservation phase (decision:h17-run3-design-final).
+  FINAL experiments/h17/h17_run3_design_v3.md (source_doc d528fa87b2f4f63d2),
+  final review source_doc def3ec101d5152b03, specification pins source_doc
+  db6d963e5743977b8 and fresh-role registration source_doc d47f07cd42242efa1
+  are complete. Original N2 and presence/window stay fixed; the historical q
+  signatures remain lapsed and the new signature is scoped to Run3/spent fixtures.
+  Owner instruction '다음 작업 이어서 실행' now opens implementation/review,
+  stable implementation pins, spent H0 and one conditional BENCH
+  (decision:h17-run3-open; opening source_doc d6d6278e624bb86d9).
+  No fresh generator/claim at opening; implementation and evidence verification
+  must pass before spent H0 and the durable BENCH claim.
+  DEV/EVAL retain separate owner gates; no adoption or candidate-effect forecast.
+  PR #3 remains recorded as a draft; no merge in this execution phase.
 - R2 is closed (decision:seed-scan-exception-pairs-r2); fly.py is the scoped reference and item (b) is closed
   (decision:fly-reference-implementation); G 2's scoped baseline adoption is recorded
   (decision:gain-g2-adopted-within-tested-conditions). These are no longer pending choices.
-- Q3 parallel work remains held; the recorded order continues with (d), then (a), then Q1–Q4.
+- Q3 parallel work remains held; (d)'s operational disposition and (a)'s passive R0 are
+  complete. Run3 implementation/H0/BENCH and DEV operation passed; EVAL remains gated. Q1–Q4 retain the recorded order.
 
-## Queued candidates, none started
+## Candidate queue: H17 passive R0 and Run3 DEV operation complete; EVAL gated
 
 **Order fixed at the consolidation gate (decision:consolidation-gate-closed, 2026-09-29):** (c) the Level 6 synthesis
 (done and closed, record:level6-synthesis-result, decision:level6-synthesis-closed); (b) module consolidation (CLOSED,
 decision:fly-reference-implementation; fly.py scoped reference); (d) the hold's benefit (L12; stage one measured,
-record:hold-stage1-replay-result, no command branch reached in the adopted scope; the owner's gate pending); (a) an H17
-Run 3. **Queued after them by decision:queue-q1-q4-registered (2026-09-29), unranked, numbered when opened:**
+record:hold-stage1-replay-result; D0 UNRESOLVED, coverage A5/B3 stopped at the bench, E1 measured five
+exposed rows below forty-row screen; completed-report disposition resolved and further trials deferred
+by decision:hold-followup-deferred); (a) H17 Run 3 design opened by decision:h17-run3-open-design,
+R0 v2 FINAL reviewed and streams reserved (decision:h17-r0-design-final), passive execution
+completed once with all identity, verifier and root-recomputation gates passed
+(record:h17-r0-current-baseline; report doc d38fa7b26f04fc52c). Immutable v2 DRAFT
+remains historical (decision:h17-run3-candidate-design-draft; doc d73d7de44ea288ca0).
+Run3 GS250 v3 FINAL is confirmed, q contract signed and18 fresh roles reserved
+(decision:h17-run3-design-final; source_doc d528fa87b2f4f63d2).
+Implementation/H0/one-BENCH opened by decision:h17-run3-open and completed PASS.
+DEV operation was separately opened by decision:h17-run3-dev-open and completed PASS; EVAL remains gated.
+Implementation review PASS:107 tests and19 source-valid native fixtures; all112
+immutable specification files unchanged. Corrected133-file implementation closure
+is fixed (review source_doc d1eb54bbc80ef554b; checks source_doc d8dda08311218039c;
+base pins source_doc ddfc554ab2f9cda0b). The first spent H0 completed twenty runner
+gates but its independent verifier returned INVALID after conflating inherited
+source index with position. That attempt and exact old sources are preserved in
+experiments/h17/run3_H0_attempt1 (invalid receipt source_doc d475af50c62749fec).
+The verifier now reconstructs the native constructor index; the archive worklist
+has byte-equivalent three-way tests. The full spent H0 rerun on the new closure passed all twenty runner gates,
+independent verification of86082 saved arrays and parent recalculation of488
+arrays (source_docs d7416abc425ce82f0 and d8543ef69a89133ba). H0 is VALIDITY_ONLY,
+with no inference or fresh RNG. MAIN pins bind all five H0 artifacts and the
+same133-file closure (source_doc d26e41a82a3c983ee); both preflights passed.
+The single authorized fresh BENCH is complete: all20 native validity gates,
+independent verification of105577 saved arrays and ROOT recalculation of510
+arrays passed. All9 frozen clauses are PASS, with exact runner/verifier/ROOT
+agreement and no RNG or draws in ROOT. Four conditions retain400 rows and600
+ticks each. The completed exclusive claim binds identity, metrics and raw;
+there was no retry, reseed, replacement, extension or retuning. Final report
+source_doc d174ae279839d2dba; execution checks source_doc d0d5a90fc014248f5;
+independent verification source_doc dc30750c9210e863f; ROOT source_doc
+ d97176ee4a5564e85. Result record:h17-run3-bench-result and episode:h17-run3-bench
+are registered only after ROOT PASS. C0 GS250 delivered-whiff success is324/400
+(0.81; Wilson95 [0.7686762283551013,0.845426149157635]); the PASS is limited to
+the fixed constructed Run3 engineering scope. No adoption is authorized.
+DEV operation verification is now owner-opened (2026-10-10, '승인 한다 권고안 작업 진행'), decision:h17-run3-dev-open. Opening source_doc d199f6b863d26a1e3; DEV pins d65980f43c28a90ee; independent execution review de60574c8db032e61; opening checks d7e8de2321309350b. The separate six-file DEV closure is frozen; all original 133 implementation files and 112 specification files remain byte-identical. All 26 pure tests and actual runner, frozen independent verifier and ROOT stage-binding preflights passed. DEV is complete with operation PASS and all9 frozen statistical clauses PASS. All20 native validity gates, independent verification of102473 saved arrays and ROOT recomputation of510 arrays passed; runner/verifier/ROOT agree on every clause. Each condition retains400 rows and600 ticks. ROOT created no RNG and drew no samples. The single durable DEV claim is complete and binds identity, metrics and raw evidence; the claim and saved stage binding preceded every DEV generator. Registry path: experiments/h17/run3_registry/gnhlhibmpgklhlkeblghphgkdjgjicpgdeobikdmecojfkkmhmlcpkimipnnplmc.json. No retry, reseed, replacement, extension or retuning occurred. Closing checks confirm unchanged112 specifications,133 original implementation files,six DEV stage files and H0/BENCH evidence,with one DEV claim and zero EVAL claims. C0 GS250 delivered-whiff success is318/400 (0.795;Wilson95 [0.7527205845205713,0.8316671618221938]);this is the fixed constructed engineering scope. Final DEV report source_doc d60929b82c419fa4b;closing checks ddb17486db34c642d;independent verification dab64524e906adc27;ROOT d2a731eda75693af0;metrics d53377ead269da536. Result record:h17-run3-dev-result and episode:h17-run3-dev were registered only after ROOT operation PASS,and all five closing/authority nodes were read back exactly. Next recommendation:review and pin a separate EVAL execution package before its own owner opening and one exclusive unused pair;retain the frozen sample,clauses and stop labels,then independent verification,ROOT recomputation and a report. Its nine frozen clauses will be reported for transparency; DEV operation PASS requires complete fixed-sample evidence, all validity/schema/runtime/source/draw/claim checks, independent verification and ROOT saved-array recomputation without error. EVAL remains unopened behind its separate owner gate and DEV operation PASS; no adoption is authorized. All existing historical dispositions and the Q1-Q4 order remain unchanged.
+**Queued after them by decision:queue-q1-q4-registered
+(2026-09-29), unranked, numbered when opened:**
 - **Q1** a per-odour exposure-dependent reduction of response in the recognition core (the habituation item; Das 2011
   the fly counterpart): new per-odour state and a signed relaxation; a measurement of response against prior exposure
   first, to make the synthesis's B11 readable.
@@ -2928,5 +3157,16 @@ within the release's scope (non-negative held values) and stays in force at nega
   confirmed as recommended (decision:h18-stage-b-iii-open-design, decision:h18-stage-b-open, 2026-09-29); Stage B STOPPED at
   the bench (record:h18-stage-b-bench-result: 200 of 200 unrecovered against the ring's 129). DONE: CLOSED as NOT shown,
   nothing adopted, the leak a recorded limit (decision:h18-closed, record:ring-cue-loss-limit, 2026-09-29).**
-- **An H17 re-attempt** (cold start), ranked sixth: closed twice at the bench (decision:h17-closed); the consequence that
-  moved it up (the release stranding negative holds) no longer arises by code under N2; a Run 3 would need new state.
+- **An H17 re-attempt** (cold start), historically ranked sixth: closed twice at the bench
+  (decision:h17-closed). The N1 sustained-negative-timeout route that produced the old stranded
+  population is disabled under N2; this does not rule out other hold endings or cold losses.
+  In the consolidation order, Run3 follows the completed hold disposition
+  (decision:h17-run3-open-design). The passive current-Fly R0 bridge completed once
+  with all validity gates and independent saved-array recomputation
+  (record:h17-r0-current-baseline; report source_doc d38fa7b26f04fc52c).
+  The readable C0 population and stored loop anchor supported the immutable v2
+  proposal. GS250 is now v3 FINAL, with a new Run3-only q signature and18 reserved
+  roles (decision:h17-run3-design-final; source_doc d528fa87b2f4f63d2).
+  Candidate efficacy remains unmeasured at the implementation/H0/BENCH opening
+  (decision:h17-run3-open; opening source_doc d6d6278e624bb86d9).
+  Historical closure and adoption status stay unchanged.

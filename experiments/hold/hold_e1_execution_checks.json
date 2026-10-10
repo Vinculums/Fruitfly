@@ -1,0 +1,345 @@
+{
+  "schema": "hold-e1-execution-v1",
+  "complete": true,
+  "owner_instruction": "권고안으로 작업 진행",
+  "scope": "W1Dp B4/B5 passive actual-H branch exposure only",
+  "measurement": {
+    "completed_screen_invocations": 1,
+    "simulation_performed": true,
+    "automatic_repeat": false,
+    "pair_claim": "durable exclusive pair-keyed claim retained",
+    "output": "experiments/hold/hold_e1"
+  },
+  "validation": {
+    "canonical_H0": {
+      "H0": "PASS",
+      "output_fields": 55,
+      "state_fields": 107,
+      "events": 400,
+      "provenance": {
+        "python": "3.13.12",
+        "numpy": "2.5.3",
+        "platform": "Windows-10-10.0.19045-SP0",
+        "execution_pins_sha256_alpha": "lnjcngojjjddhpdjfpjcjiecgppajbkmckhhgeadeahbnifallekpcdkihfodckf",
+        "threads": {
+          "OPENBLAS_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "PH30_PROCS": "1",
+          "PH32_PROCS": "1",
+          "PH33_PROCS": "1"
+        },
+        "smoke": true
+      },
+      "raw_array_count": 373
+    },
+    "unique_tests_passed": 43,
+    "runner_and_existing_tests": 31,
+    "independent_verifier_tests": 12,
+    "full_passive_identities": "PASS",
+    "independent_stored_array_verification": "PASS",
+    "root_independent_NumPy_recomputation": "PASS",
+    "verification_simulation_performed": false,
+    "verification_fresh_random_draws": false,
+    "read_only_final_review": {
+      "passed": true,
+      "simulation_performed": false,
+      "files_edited": false,
+      "summary": "No mathematical or schema blocker. B plume, burst timing, H/R commands, T1-T5 denominator, original-source loss, physical mapping, full W1, arrays, RNG transcript, H0, claim and pins match FINAL."
+    },
+    "r2": {
+      "command": "python tools/verify_seed_scan_r2.py",
+      "verifier_sha256_ap": "emfhapidcjidpgaofpbkefkbbkhdihknflepbhakdhkfceganepjhpiaobhiccac",
+      "manifest_sha256_ap": "gkkeiinehcdkdajmgdhpcagkffdhjojkglbljnmefphakmogknnljmloeaacligg",
+      "source_pins": "PASS",
+      "downstream_pins": "PASS",
+      "measurement": "N/A",
+      "behavior": "N/A",
+      "checks": [
+        {
+          "checker": "ph33",
+          "scanned_files": 566,
+          "hit_files": 9,
+          "hit_pairs": 25,
+          "applied_rows": 25,
+          "unused": [],
+          "errors": []
+        },
+        {
+          "checker": "ph35",
+          "scanned_files": 567,
+          "hit_files": 9,
+          "hit_pairs": 17,
+          "applied_rows": 17,
+          "unused": [],
+          "errors": []
+        }
+      ],
+      "local_coverage": "present files checked"
+    },
+    "post_output_validation": {
+      "protected_token_files": 15,
+      "protected_tokens": "PASS",
+      "source_and_downstream_pins": "PASS",
+      "manifest": "PASS",
+      "measurement_pins": "PASS"
+    }
+  },
+  "result": {
+    "verified": true,
+    "screen": {
+      "X1": true,
+      "X2": true,
+      "X3": false,
+      "X4": true
+    },
+    "verdict": "REACHED, BELOW REGISTERED SCREEN",
+    "verifier_sha256_ap": "meijnlanaenhhehlnklpnomhidpaojicopchpnhlpgmdhnbgbihlllkeanflpjoj",
+    "evidence": {
+      "exposure.json": "jkjjkhacajafeflonfepanapmjbhmjlcadcjjjbjmlgnokohkcdcglmahnimidoe",
+      "identity.json": "bpnhhealninlekipjhceehkalbpikbjgalfjgjppkgppahmodkfgaehkakkbcpeg",
+      "raw.npz.ap": "ceibpfgncfojgkkghfeeanhlfhipobckonnccbhljoooicmkfgcchjemhocmbkea"
+    },
+    "readings": {
+      "B4": {
+        "exposed_rows": 5,
+        "command_steps": 7,
+        "lost_rows": 38,
+        "rows": 400,
+        "steps": 600,
+        "simultaneous_bursts": 222,
+        "raw_ties": 14463,
+        "eligible_tied_single": 170,
+        "T1_T5_steps": 7,
+        "f_id": 0.041176470588235294,
+        "tied_route_command_steps": 7,
+        "outside_route_command_steps": 0
+      },
+      "B5": {
+        "exposed_rows": 397,
+        "command_steps": 62042,
+        "lost_rows": 75,
+        "rows": 400,
+        "steps": 600,
+        "simultaneous_bursts": 192,
+        "raw_ties": 14086,
+        "eligible_tied_single": 0,
+        "T1_T5_steps": 0,
+        "f_id": null,
+        "tied_route_command_steps": 0,
+        "outside_route_command_steps": 62042
+      }
+    }
+  },
+  "measurement_pins": {
+    "closed": true,
+    "files": 91,
+    "pin_sha256_ap": "lnjcngojjjddhpdjfpjcjiecgppajbkmckhhgeadeahbnifallekpcdkihfodckf",
+    "runtime": {
+      "python": "3.13.12",
+      "numpy": "2.5.3",
+      "threads": 1
+    }
+  },
+  "canonical_documents": [
+    {
+      "path": "notes/hold/2026-10-09-hold-e1-w1dp-design-v2.md",
+      "sha256_ap": "kpifbfmiichggombhgdoblalmolplpjedakiadinppbckfnemeninjmhcclcgipc",
+      "doc_id": "d4b0986e0e18d05c4",
+      "created": true,
+      "verified_text_match": true,
+      "clarified_before_measurement": true
+    },
+    {
+      "path": "config/hold-e1-seeds.json",
+      "sha256_ap": "lfnncpjoeaajgccgfeljpgfdibimcmjnikcdiijkejggiokdmohlgoojfhanjgpg",
+      "doc_id": "d60fcedbefe44318c",
+      "created": true,
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/hold/hold_e1_seed_registration.json",
+      "sha256_ap": "nhadmpojolmgiaibbpoddhoaekkcalolkemkpfhbbondnfmpokgjogckedcbipco",
+      "doc_id": "dd37b464a64f1a8b2",
+      "created": true,
+      "verified_text_match": true
+    },
+    {
+      "path": "tools/replay_hold_e1.py",
+      "doc_id": "d48bcd23fd7ccf2af",
+      "sha256_ap": "mbalaacgcmpnlioefkempidhmgolhpmdchjgacdiiledmgbdicobcpbeopcpldjg",
+      "verified_text_match": true
+    },
+    {
+      "path": "tests/test_hold_e1.py",
+      "doc_id": "d4c455220b38fe49f",
+      "sha256_ap": "keafoilddenfcjdpccobkenajcbkckcchfbgpnobbgcplpeeijmbfobbldpblchk",
+      "verified_text_match": true
+    },
+    {
+      "path": "config/hold-e1-execution-pins.json",
+      "doc_id": "db985bc6317c5651e",
+      "sha256_ap": "lnjcngojjjddhpdjfpjcjiecgppajbkmckhhgeadeahbnifallekpcdkihfodckf",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/hold/hold_e1/hold_e1_report.md",
+      "doc_id": "d6b87119b7107f056",
+      "sha256_ap": "cfbjgjcngldlidnjkkcdonalifejgoonmiihhfbmfiimhoklhnheaohcphnpplbd",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/hold/hold_e1/verification_summary.json",
+      "doc_id": "d0288b952e4ed7867",
+      "sha256_ap": "kenpjcclkjceoomlfnmppfdmgiomnojmjbhfapclonpbnfkjjfpagcanighofelg",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/hold/hold_e1/root_recomputation.json",
+      "doc_id": "da31ab70a0ecc4f67",
+      "sha256_ap": "cjboojabgcmjdjhdpafinfephmdnkcmllbjdmeglkaollgfakopnnblelanahili",
+      "verified_text_match": true
+    },
+    {
+      "path": "notes/hold/2026-10-09-hold-e1-execution-review.md",
+      "doc_id": "dcb96b731880ab0f8",
+      "sha256_ap": "bccnaickopbchnjdkdgppginemcneammnhbipkpfecpnpnlhchkmcginlklpfoje",
+      "verified_text_match": true
+    },
+    {
+      "path": "tools/verify_hold_e1.py",
+      "doc_id": "d8749a4113a33d97c",
+      "sha256_ap": "meijnlanaenhhehlnklpnomhidpaojicopchpnhlpgmdhnbgbihlllkeanflpjoj",
+      "verified_text_match": true
+    },
+    {
+      "path": "tests/test_verify_hold_e1.py",
+      "doc_id": "df0e4e64f0fe92d66",
+      "sha256_ap": "eocpdndmbafebffnffeeinlnieogdfpgknkcjemkpjamjmeaapaihelekmmbolcc",
+      "verified_text_match": true
+    }
+  ],
+  "master_plan_mirrors": [
+    {
+      "part": 1,
+      "doc_id": "d1867092e4263d16c",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "nhlkncnmakajeoaihmfjbihngdfkledaeagkeicheioclklangjaldbemiifcign",
+      "verified_text_match": true
+    },
+    {
+      "part": 2,
+      "doc_id": "dd1bc59fff2843f4c",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "mfmbfeebadjbmnbecphdniadjjgeoodididcclgojhnfbgeaendfkleenffkejkd",
+      "verified_text_match": true
+    },
+    {
+      "part": 3,
+      "doc_id": "dff556eaf7e0cf994",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "hldjhjbigdbmfgndpifmfnfcnjiiefagicbaenlaamgidkjjnjffegabnfmojknd",
+      "verified_text_match": true
+    },
+    {
+      "part": 4,
+      "doc_id": "d3c890077450be5a4",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "bnhekkmbaheonicfnpeabckoaigfgflmdajblamipifidnjbbbeaofnmmdmacoho",
+      "verified_text_match": true
+    },
+    {
+      "part": 5,
+      "doc_id": "d86e1618aadf644d7",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "cahenpggbkinkjcnficonljlailjgagipkldkebjdpiaehfdjmobgdepmagfejdg",
+      "verified_text_match": true
+    },
+    {
+      "part": 6,
+      "doc_id": "d8542f76ede325585",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "cnffpopdhedldfgabjdggbfjkgpkbkigogmidckjbfpcahlfcicmhboemmlnobji",
+      "verified_text_match": true
+    },
+    {
+      "part": 7,
+      "doc_id": "dc811d089a183a6e0",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "npfdfnegkfjmbopchnkganjfkbfjcndbgccppaplbplhpljgmgfeipgfjjdehjcd",
+      "verified_text_match": true
+    },
+    {
+      "part": 8,
+      "doc_id": "d3bd8a60ed6a10c75",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "aokhgonpfkokcodpnadegoklbfpohbjgfpkicinfbgcfinnlgngahbbmknhiinpo",
+      "verified_text_match": true
+    },
+    {
+      "part": 9,
+      "doc_id": "d4a755cf5a2e6ef8f",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "bkjihemlkigghmkeneggdipcigjdhlgfgchgnlbdopfkpfapbknbnnledknllmlj",
+      "verified_text_match": true
+    },
+    {
+      "part": 10,
+      "doc_id": "d391977fec42e5387",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "iejmeidegbcehjagonplnglgkjfpoehiphhfpfiakacccphpgljcaopbfadlmblm",
+      "verified_text_match": true
+    },
+    {
+      "part": 11,
+      "doc_id": "d0ab8ab7761a1adb1",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "igijpmoilneclidbjbmghhnecbhfgodckhjalbdbeeoaebmbcimkikmnjpmpjiee",
+      "verified_text_match": true
+    },
+    {
+      "part": 12,
+      "doc_id": "d106aff2c86bfac6c",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "jmdjpljedaekmlmdihljfajappdaccbdkibpnkflpcpdonkfecicchjjmdlgoakg",
+      "verified_text_match": true
+    },
+    {
+      "part": 13,
+      "doc_id": "dc0444894b71c04d5",
+      "created": false,
+      "full_sha256_ap": "oidgncmmegkmeabholkaklblcacdhfmfdgpbhkbjlhedlbglfpneklmpmlafaikc",
+      "slice_sha256_ap": "fhgfhjngjmljlhlchihfohdbnjgchojllleaibfkoolboooniaefflnmlamkhpbj",
+      "verified_text_match": true
+    }
+  ],
+  "graph": {
+    "space": "01a0b944-ecb4-737b-b3e6-5cc99ff37654",
+    "decision": "decision:hold-e1-w1dp-open",
+    "record": "record:hold-e1-w1dp-result",
+    "episode": "episode:hold-e1-w1dp-execution",
+    "readback_verified": true,
+    "warnings": [],
+    "edges_created": 3,
+    "episode_date_schema_corrected": true
+  },
+  "disposition": {
+    "status": "REACHED, BELOW REGISTERED SCREEN",
+    "benefit_trial_opened": false,
+    "adoption": "none",
+    "further_execution_authorized": false,
+    "owner_reading": "pending"
+  }
+}

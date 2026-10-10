@@ -1,0 +1,62 @@
+{
+  "format": "h17-run3-execution-opening-v3",
+  "date": "2026-10-10",
+  "complete": true,
+  "decision": "decision:h17-run3-open",
+  "owner_instruction": "다음 작업 이어서 실행",
+  "basis": "Owner accepts the immediately preceding concrete implementation/H0/one-BENCH recommendation on verified v3 FINAL",
+  "final_decision": "decision:h17-run3-design-final",
+  "final_doc": "d528fa87b2f4f63d2",
+  "q_contract_decision": "decision:classification-rule-relaxed-any-odour-silence-counter-h17-run3",
+  "candidate": "GS250",
+  "authorized": {
+    "isolated_implementation": true,
+    "meaningful_tests_and_independent_review": true,
+    "stable_implementation_pins": true,
+    "spent_input_H0": true,
+    "one_fresh_BENCH_after_H0_PASS": true
+  },
+  "DEV_opened": false,
+  "EVAL_opened": false,
+  "adoption": "none",
+  "conditions": [
+    "C0",
+    "T1",
+    "W1",
+    "T3"
+  ],
+  "MAIN_rows": 400,
+  "H0_rows": 40,
+  "ticks": 600,
+  "required_clauses": 9,
+  "immutable_specification_files_sha256_alpha": {
+    "config/h17-run3-seeds.json": "ppeengejcehflajckhoiefblfgoiibgacbgpkglepjmdjcicnjocgjfohdlamjlc",
+    "experiments/h17/h17_run3_seed_registration.json": "eebgnlmbfjnflojbfefbbdjefbbnjlajmbnllcobkaknebhfgfppogicfkgifcab",
+    "experiments/h17/h17_run3_array_keysets.json": "ihjaclekfppfhlkjkgmkchbgnhfadbogifkjphhmkppahnanenebljcllpephpmk",
+    "experiments/h17/h17_run3_evidence_schema.json": "hfhgafgkdkiopcbjmaailjdlepnlcpggmbidhhknjfmeodfeicacblnmbalgbaib",
+    "experiments/h17/h17_run3_runtime.json": "dhkhgbcnodhnjejeibigpagjoegnnjelndolgbjpghnocgjciojenioahpemiboh",
+    "experiments/h17/h17_run3_design_v3.md": "oibjjpnikgaejokpgfpfoffoaiapnngnfjcknhfhmbojheoopgnamoimaajjjnmh",
+    "notes/reviews/2026-10-10-h17-run3-final-review.md": "jeflfafbgglhdgidampndjdceejipdnmcgdggienmhghbnhmebnmapohafihmkai",
+    "config/h17-run3-specification-pins.json": "cehggphheofbcajdjflnbefghmflionoobgfdibmjoalhkfdjfagiblhcipfjfpf",
+    "experiments/h17/h17_run3_final_checks.json": "cpgljjhojfipnomobhhnfmbkgkieomaaapdghclceldjjabpfjcfdhihalddbigf",
+    "experiments/h17/h17_run3_final_publication_receipt.json": "oojghlhgfhagdahehfipokjenpkpghnhmmagcjoffopnpjfnlhimicopkelfldii"
+  },
+  "specification_closure_sha256_alpha": "eindoefagglhglgdlcnjagkmnicapomnjhndceikbdjllnjikmgbalhoogmakdpc",
+  "registry": "experiments/h17/run3_registry",
+  "pair_key": "SHA(a-p) canonical([WORLD,AGENT]); no stage/design/output/inference in key",
+  "claim_rule": "Exclusive create+fsync before any stage generator incl inference; failure consumes claim, no replacement/retry",
+  "prerequisites": "112 specification pins unchanged, runtime exact, implementation source/test review PASS, stable base closure excluding H0 result hashes, spent H0 verified then MAIN pins add H0 receipts; source/runtime/schema/draw/claim gates before fresh generators",
+  "stop_rule": "INVALID, FAIL or unresolved INCONCLUSIVE stops before the next owner gate; no retune/reseed/extension/margin change",
+  "implementation_paths": [
+    "src/h17_run3_arm.py",
+    "tools/h17_run3_recording.py",
+    "tools/measure_h17_run3.py",
+    "tools/verify_h17_run3.py",
+    "tests/test_h17_run3.py",
+    "tests/test_verify_h17_run3.py"
+  ],
+  "fresh_generators_created_at_opening": 0,
+  "fresh_random_draws_at_opening": 0,
+  "claims_created_at_opening": 0,
+  "historical_dispositions": "H17 NOT shown; hold D0 UNRESOLVED; A5/B3 bench stops; E1 below-screen; no adoption; Q1-Q4 order unchanged; Q3 held"
+}

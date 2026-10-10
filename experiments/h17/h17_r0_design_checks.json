@@ -1,0 +1,414 @@
+{
+  "schema": "h17-r0-measurement-design-v2",
+  "complete": true,
+  "date": "2026-10-09",
+  "owner_instruction": "구체화 진행",
+  "authorized_scope": "R0 measurement FINAL, reviewed contract and fresh stream reservation only",
+  "design": {
+    "decision": "decision:h17-r0-design-final",
+    "status": "v2 FINAL independently reviewed",
+    "predecessor": "decision:h17-run3-open-design",
+    "conditions": [
+      "C0",
+      "T1",
+      "W1",
+      "T3"
+    ],
+    "rows_per_condition": 400,
+    "sensing_steps": 600,
+    "matched_constructions": true,
+    "current_baseline": "Fly nch2, N2 and adopted presence/window unchanged",
+    "execution_opened": false,
+    "implementation": false,
+    "candidate_selected": false,
+    "relaxation_signed": false,
+    "adoption": "none",
+    "historical_closures_unchanged": true
+  },
+  "canonical_documents": [
+    {
+      "path": "experiments/h17/h17_r0_design_v2.md",
+      "doc_id": "db4aadf3b4101cef9",
+      "created": true,
+      "sha256_ap": "aoloibneomoabagmcfmmfbelodbmcdoapmaopeaoodlnjhiajglghflgegbeggbk",
+      "verified_text_match": true
+    },
+    {
+      "path": "notes/reviews/2026-10-09-h17-r0-design-v2-review.md",
+      "doc_id": "d7b5131b6bce2ec12",
+      "created": true,
+      "sha256_ap": "nepeofheekdihckepbhgeeangpioknbjgamnpeldejehkblcbbbfjfnjclhoejem",
+      "verified_text_match": true
+    },
+    {
+      "path": "config/h17-r0-seeds.json",
+      "doc_id": "dd55bb416417db809",
+      "created": true,
+      "sha256_ap": "iejnjbleicghhinmedadflphnnpibopmflpapajejgedijjeigaooblhdajnhmed",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_r0_seed_registration.json",
+      "doc_id": "da530d67874549e2c",
+      "created": true,
+      "sha256_ap": "pleafleiefdijfpbghcliihcofebdemeeeicldggpgbmnokandimckjgbkajibji",
+      "verified_text_match": true
+    }
+  ],
+  "source_snapshot": [
+    {
+      "path": "src/fly.py",
+      "sha256_ap": "dldgalcjabghimlmdbdmmkiihedfcpmhagniaolfepgnokfigimkbbpebjnbopme"
+    },
+    {
+      "path": "src/ph21.py",
+      "sha256_ap": "dkbnhjnjkancdfpblophoedfomfjemppeaeibiaochlcinmnijcfjimfiebdmpmb"
+    },
+    {
+      "path": "src/ph23.py",
+      "sha256_ap": "kobiaejcoomojdhdjnkenblfnidkbdkclecmfojfceefkjcklhfpjfmgplcolfko"
+    },
+    {
+      "path": "src/ph24.py",
+      "sha256_ap": "pdeepbhiocadiaifipenheaaopghaccdpjakkcjchldphdaehhckobnieilnblop"
+    },
+    {
+      "path": "src/ph26.py",
+      "sha256_ap": "bmjlgpflgodpadebogamhahmnfhhnheicjcomnlhcaagcomknkddddgbabobghmp"
+    },
+    {
+      "path": "src/ph27.py",
+      "sha256_ap": "nbcpkgfbheojgiimjjmnkilaamhehmbpgjnfeaoanicoihnlgkfcioinfbimbedk"
+    },
+    {
+      "path": "src/ph30.py",
+      "sha256_ap": "jiiccideaednofpdbgbfohdmnekideeeknmopcpbnfofgehidfgnhamkjafafjln"
+    },
+    {
+      "path": "src/ph33.py",
+      "sha256_ap": "pckcjhcckdjimiblhphdabencjmhjjkaimcijomkbmmhdggkmngfofabfeohcala"
+    },
+    {
+      "path": "src/ph35.py",
+      "sha256_ap": "oekdmonkcfgciohacgkgeigbknfbpiejhepbockhcahjechgnphagnaagkfclblb"
+    },
+    {
+      "path": "src/ph9.py",
+      "sha256_ap": "hgjjleogplehkbloofphoeojjbkiikkmipkfkpdkjeacjhplneoeebeebpenjhag"
+    },
+    {
+      "path": "src/ph11.py",
+      "sha256_ap": "oiapealnhbakmkedcfcpaedcjiegppkcjjedcfbnbjohbiefaojkhppejojehkcd"
+    },
+    {
+      "path": "src/ph12.py",
+      "sha256_ap": "obadfoajimdlicijjiljjlafpijlhodlilmkbfpdacfddokchpmmebdjlkndkbmh"
+    },
+    {
+      "path": "src/ph12b.py",
+      "sha256_ap": "omglbijgpgaopcocfanajcoapjpjpebafmagldipgjjinojahaamkdhbcbdoapkk"
+    },
+    {
+      "path": "src/ph16.py",
+      "sha256_ap": "ddnfpnlcfjfjplhpjmloegfmkcfkijhdhhgldjpbofbhangefmlfdlminjagkcmc"
+    },
+    {
+      "path": "src/module_identity.py",
+      "sha256_ap": "beffikmapflgbkekhbjhcmmnbkegbcdifocabgmlgkhfmoodemcpkmfhlbadnglf"
+    },
+    {
+      "path": "experiments/module/identity.json",
+      "sha256_ap": "diogkenmdgfnejioblllfllplmiakpoegjjgbnnjbkompnpmelhdbilmpddfjlci"
+    },
+    {
+      "path": "experiments/h17/ph26_bench.txt",
+      "sha256_ap": "omjnphickkecjejcegciejmjfhhoifdlknojgoopnbijbhgcgoojkaiojgedppgn"
+    },
+    {
+      "path": "experiments/h17/ph27_bench.txt",
+      "sha256_ap": "hbhgchikmlppchjfgfoockhlmikiimifhndmjlhiahdccapoikienfpoaimgjlhb"
+    },
+    {
+      "path": "experiments/h17/ph26b_diag.txt",
+      "sha256_ap": "baecjpflcmgjpbdnjdffhjckchaakblbokinihnkdblhfnjmefbglgiagkonnpbj"
+    },
+    {
+      "path": "experiments/h17/ph27b_diag.txt",
+      "sha256_ap": "hkcoooofdomlmgnnahhledgpjmnfccamalamlilfjbniipiiihcfjnnefppneebo"
+    },
+    {
+      "path": "experiments/h17/h17_post_bench_diagnosis.md",
+      "sha256_ap": "fcbcgolodkgcodofoabiakeiklcdmminaimfghibnfjalaknnokjhlbkneemonhf"
+    },
+    {
+      "path": "experiments/h17/h17_run2_post_bench_diagnosis.md",
+      "sha256_ap": "mlicenmegdfhdfaenkdkbbjofokamdpohencodcelcghhkkajgcglenebplhfooa"
+    },
+    {
+      "path": "experiments/h17/h17_run2_design_v2.md",
+      "sha256_ap": "ncdhemfodajbbiemggjkpfpioajkfgbljnhkmpgiaoglbaplmcbbhfapnanhnfoj"
+    },
+    {
+      "path": "experiments/h18/h18_stage_b_design_v2.md",
+      "sha256_ap": "glaakfagpfglmhfmofhgmodhkcddeidfigakddkkmjggkedhgghkchldnlmkedab"
+    },
+    {
+      "path": "experiments/hold/hold_d0_report.md",
+      "sha256_ap": "ikcbmaenbhpkndpkdhpkpnbfpjdgfpehephlfnknonikgfgpdjkdhelbckmpbnno"
+    },
+    {
+      "path": "experiments/hold/hold_stage2_report.md",
+      "sha256_ap": "lfmmdhodaimcjkhahodijcnlimbolkhbnmbgmlmkklhbkpdojmappapolpgkomoa"
+    },
+    {
+      "path": "experiments/hold/hold_e1/hold_e1_report.md",
+      "sha256_ap": "cfbjgjcngldlidnjkkcdonalifejgoonmiihhfbmfiimhoklhnheaohcphnpplbd"
+    },
+    {
+      "path": "src/ph13.py",
+      "sha256_ap": "cnhfpkoioimdbobmgnnpgfhhhicpkpnodajjpbapoipfapodicpfdnajojopbpcn"
+    },
+    {
+      "path": "src/ph14.py",
+      "sha256_ap": "mglhefmgapjjjcjdekammlmffieopdfekadpfdpaildhkbcfckgjepoldfaloana"
+    },
+    {
+      "path": "src/ph22.py",
+      "sha256_ap": "adklimehaglbjffhkpfngeonnidpibckllkjblgbiedjgbildfidhkejnneemkbm"
+    }
+  ],
+  "reservation": {
+    "config": "config/h17-r0-seeds.json",
+    "receipt": "experiments/h17/h17_r0_seed_registration.json",
+    "roles": [
+      "W",
+      "A",
+      "W+10000 balance",
+      "W+20000 C0 geometry",
+      "A+20000 cast"
+    ],
+    "streams_checked": 5,
+    "local_predeclaration_scan_files": 589,
+    "local": "PASS",
+    "graph_individual_literal_queries": "PASS, both search arms operational",
+    "fresh_generators_created": 0,
+    "fresh_random_draws": 0,
+    "simulation_performed": false
+  },
+  "review": {
+    "passed": true,
+    "independent": true,
+    "read_only": true,
+    "source_hashes_checked": 30,
+    "corrections": [
+      "Module-level CODE_SEEDS reference",
+      "Pair-only durable claim key; design ID metadata",
+      "W1 primary fixed",
+      "Marker and strict post-marker censor windows",
+      "N2 intermediate silence and multi-unit classification",
+      "Independent balanced C0 position-only geometry",
+      "Original source and wind draw ordering"
+    ],
+    "files_edited_by_reviewers": 0,
+    "trajectories": 0
+  },
+  "validation": {
+    "passed": true,
+    "source_and_downstream_pins": "PASS",
+    "unchanged_R2_manifest": "PASS",
+    "registered_exception_rows": 42,
+    "protected_token_delta": "PASS",
+    "canonical_doc_local_hashes": "PASS",
+    "source_snapshot_files": 30,
+    "previous_design_docs_unchanged": "PASS",
+    "prior_E1_measurement_pins": 91,
+    "seed_registration": "PASS",
+    "owner_quote_UTF8": "PASS",
+    "runner_implementation": false,
+    "simulation_performed": false,
+    "fresh_random_draws": false,
+    "master_full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+    "master_slice_sha256_ap": [
+      "dhdhajidlafhclmjchgilejpebkpjnmepdmklpciahbibaalhembemcnkdjhledl",
+      "aflfhbcifmncpfajcejmegoepjlihccglladcpkngngjcjaoomfkphlidkjideen",
+      "jbiakpkdlgcoojfboddackebdleafiidgpknmdnamnbgebgolkjoloblpdpcionc",
+      "egoaeggncbjpniijbncofdbnodjlbgelfcdbbpgiompghhcbmmpbnolldpfpifbc",
+      "bkcganbpbjengjmicglnbigakpgdhafgepplncgodlhlhkjacdpghodkohcincnb",
+      "mloppbooaifemfjhabonbdkbpadhecllalgbgobbmgpkdfeiiaiofbllmcfabhod",
+      "ndjakmkpjpeffhbaifejhbdepcjcibfkchnhbbihlbihgaepohkhepkdfmnfnkdn",
+      "kfdooedgagfcajdndcajjjklddgbapoobnchpepkhgmaenkalmcbnhklbpbbecae",
+      "pklklgdhkngelnklnmhofiieghheingeeibjlgdjcaepkibcmbhnohhdeldfjkdp",
+      "plihpighlgnhehlgefleapmcbikfljngpbdofjabimfcnbgojbjpmaonikfelkgg",
+      "hgkenflnhplolghjonjmaebmgdahngignnbemkpogmpopfkejcdoemdhaocighpj",
+      "gjglokifjbkpcoeokjaajfpjfpcmkphdbfecjifomkfpgjnoklcgdonbdhggcabj",
+      "mflkhlcoppdjndpiknhjpdhpbhakncdlncadpikefoihdffolhjpadcechmaedlm"
+    ],
+    "file_hashes": {
+      "experiments/h17/h17_r0_design_v2.md": "aoloibneomoabagmcfmmfbelodbmcdoapmaopeaoodlnjhiajglghflgegbeggbk",
+      "notes/reviews/2026-10-09-h17-r0-design-v2-review.md": "nepeofheekdihckepbhgeeangpioknbjgamnpeldejehkblcbbbfjfnjclhoejem",
+      "config/h17-r0-seeds.json": "iejnjbleicghhinmedadflphnnpibopmflpapajejgedijjeigaooblhdajnhmed",
+      "experiments/h17/h17_r0_seed_registration.json": "pleafleiefdijfpbghcliihcofebdemeeeicldggpgbmnokandimckjgbkajibji",
+      "README.md": "dhjcjpgbelgneidoffnadenaknailkfkpcgmjfkndecaedlcgkcijdjiapdlngaj"
+    },
+    "master_mirrors_independently_verified": 13
+  },
+  "r2": {
+    "baseline_receipt": "experiments/hold/hold_followup_h17_design_checks.json",
+    "previous_full_scan": {
+      "command": "python tools/verify_seed_scan_r2.py",
+      "verifier_sha256_ap": "emfhapidcjidpgaofpbkefkbbkhdihknflepbhakdhkfceganepjhpiaobhiccac",
+      "manifest_sha256_ap": "gkkeiinehcdkdajmgdhpcagkffdhjojkglbljnmefphakmogknnljmloeaacligg",
+      "source_pins": "PASS",
+      "downstream_pins": "PASS",
+      "measurement": "N/A",
+      "behavior": "N/A",
+      "checks": [
+        {
+          "checker": "ph33",
+          "scanned_files": 572,
+          "hit_files": 9,
+          "hit_pairs": 25,
+          "applied_rows": 25,
+          "unused": [],
+          "errors": []
+        },
+        {
+          "checker": "ph35",
+          "scanned_files": 572,
+          "hit_files": 9,
+          "hit_pairs": 17,
+          "applied_rows": 17,
+          "unused": [],
+          "errors": []
+        }
+      ],
+      "local_coverage": "present files checked"
+    },
+    "current_full_scan_performed": false,
+    "current_validation": "New/changed text protected-token checks; master historical counts unchanged; source/downstream pins and all exact manifest exception rows revalidated",
+    "exceptions_added": false
+  },
+  "master_plan_mirrors": [
+    {
+      "part": 1,
+      "doc_id": "d1867092e4263d16c",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "dhdhajidlafhclmjchgilejpebkpjnmepdmklpciahbibaalhembemcnkdjhledl",
+      "verified_text_match": true
+    },
+    {
+      "part": 2,
+      "doc_id": "dd1bc59fff2843f4c",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "aflfhbcifmncpfajcejmegoepjlihccglladcpkngngjcjaoomfkphlidkjideen",
+      "verified_text_match": true
+    },
+    {
+      "part": 3,
+      "doc_id": "dff556eaf7e0cf994",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "jbiakpkdlgcoojfboddackebdleafiidgpknmdnamnbgebgolkjoloblpdpcionc",
+      "verified_text_match": true
+    },
+    {
+      "part": 4,
+      "doc_id": "d3c890077450be5a4",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "egoaeggncbjpniijbncofdbnodjlbgelfcdbbpgiompghhcbmmpbnolldpfpifbc",
+      "verified_text_match": true
+    },
+    {
+      "part": 5,
+      "doc_id": "d86e1618aadf644d7",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "bkcganbpbjengjmicglnbigakpgdhafgepplncgodlhlhkjacdpghodkohcincnb",
+      "verified_text_match": true
+    },
+    {
+      "part": 6,
+      "doc_id": "d8542f76ede325585",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "mloppbooaifemfjhabonbdkbpadhecllalgbgobbmgpkdfeiiaiofbllmcfabhod",
+      "verified_text_match": true
+    },
+    {
+      "part": 7,
+      "doc_id": "dc811d089a183a6e0",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "ndjakmkpjpeffhbaifejhbdepcjcibfkchnhbbihlbihgaepohkhepkdfmnfnkdn",
+      "verified_text_match": true
+    },
+    {
+      "part": 8,
+      "doc_id": "d3bd8a60ed6a10c75",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "kfdooedgagfcajdndcajjjklddgbapoobnchpepkhgmaenkalmcbnhklbpbbecae",
+      "verified_text_match": true
+    },
+    {
+      "part": 9,
+      "doc_id": "d4a755cf5a2e6ef8f",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "pklklgdhkngelnklnmhofiieghheingeeibjlgdjcaepkibcmbhnohhdeldfjkdp",
+      "verified_text_match": true
+    },
+    {
+      "part": 10,
+      "doc_id": "d391977fec42e5387",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "plihpighlgnhehlgefleapmcbikfljngpbdofjabimfcnbgojbjpmaonikfelkgg",
+      "verified_text_match": true
+    },
+    {
+      "part": 11,
+      "doc_id": "d0ab8ab7761a1adb1",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "hgkenflnhplolghjonjmaebmgdahngignnbemkpogmpopfkejcdoemdhaocighpj",
+      "verified_text_match": true
+    },
+    {
+      "part": 12,
+      "doc_id": "d106aff2c86bfac6c",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "gjglokifjbkpcoeokjaajfpjfpcmkphdbfecjifomkfpgjnoklcgdonbdhggcabj",
+      "verified_text_match": true
+    },
+    {
+      "part": 13,
+      "doc_id": "dc0444894b71c04d5",
+      "created": false,
+      "full_sha256_ap": "ocnndbaiknoehkadhfilbajpcfoigbficdkhmdhfmloldgbmonnjkgocbkbcoekh",
+      "slice_sha256_ap": "mflkhlcoppdjndpiknhjpdhpbhakncdlncadpikefoihdffolhjpadcechmaedlm",
+      "verified_text_match": true
+    }
+  ],
+  "graph": {
+    "space": "01a0b944-ecb4-737b-b3e6-5cc99ff37654",
+    "decision": "decision:h17-r0-design-final",
+    "episode": "episode:h17-r0-design-final",
+    "predecessor_metadata_updated": true,
+    "readback_verified": true,
+    "warnings": [],
+    "semantic_search_limitation": "Later episode search encoder-build mismatch; full-text and exact-ID reads used. Earlier five seed searches fully operational."
+  },
+  "next_recommendation": "Separate R0 execution opening -> implement/pin/review -> spent-input H0 -> durable pair claim -> one measurement -> independent saved-array recomputation -> current-population review",
+  "git": {
+    "diff_check": "PASS",
+    "commit": false,
+    "push": false,
+    "merge": false,
+    "publish": false
+  }
+}

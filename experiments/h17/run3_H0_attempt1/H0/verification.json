@@ -1,0 +1,1 @@
+{"checked_arrays":0,"clauses":{},"complete":false,"date":"2026-10-10","first_failure":{"arm":"Fly","condition":"C0","field":"efficacy/C0/Fly/source field start/shape","index":null,"phase":null},"format":"h17-run3-verification-v3","gates":{},"passed":false,"provenance":null,"raw_sha256_alpha":null,"smoke":true,"stage":"H0","verdict":"INVALID"}

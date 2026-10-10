@@ -1,0 +1,112 @@
+{
+  "schema": "h17-r0-seed-reservation-v2",
+  "complete": true,
+  "date": "2026-10-09",
+  "owner_instruction": "구체화 진행",
+  "purpose": "Reserve one matched passive measurement pair; no execution opening",
+  "config": "config/h17-r0-seeds.json",
+  "config_key": "measurement",
+  "numbers": [
+    86610001,
+    86610002,
+    86620001,
+    86630001,
+    86630002
+  ],
+  "roles": {
+    "world": 86610001,
+    "agent": 86610002,
+    "world_balance": 86620001,
+    "c0_geometry": 86630001,
+    "cast": 86630002
+  },
+  "derivation": {
+    "world_balance": "W+10000",
+    "c0_geometry": "W+20000",
+    "cast": "A+20000"
+  },
+  "same_pair_reset_for_each_condition": true,
+  "bootstrap_role": false,
+  "local_scan": {
+    "passed": true,
+    "files": 589,
+    "numbers": [
+      86610001,
+      86610002,
+      86620001,
+      86630001,
+      86630002
+    ],
+    "hits": [],
+    "errors": [],
+    "prior_hold_roles_disjoint": true,
+    "exclusions": [
+      ".git",
+      "__pycache__"
+    ],
+    "candidate_declaration_written_before_scan": false,
+    "method": "All repository file bytes; streaming literal digit-boundary scan; no simulation"
+  },
+  "graph_scan": {
+    "passed": true,
+    "space": "01a0b944-ecb4-737b-b3e6-5cc99ff37654",
+    "method": "Each base and derived number queried individually; no keyword or literal chunk/node match. Semantic neighbors are not a seed occurrence.",
+    "queries": [
+      {
+        "number": 86610001,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "keyword_rows": 0,
+        "literal_hit": false,
+        "has_more": true,
+        "arms": "fts+vector"
+      },
+      {
+        "number": 86610002,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "keyword_rows": 0,
+        "literal_hit": false,
+        "has_more": true,
+        "arms": "fts+vector"
+      },
+      {
+        "number": 86620001,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "keyword_rows": 0,
+        "literal_hit": false,
+        "has_more": true,
+        "arms": "fts+vector"
+      },
+      {
+        "number": 86630001,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "keyword_rows": 0,
+        "literal_hit": false,
+        "has_more": true,
+        "arms": "fts+vector"
+      },
+      {
+        "number": 86630002,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "keyword_rows": 0,
+        "literal_hit": false,
+        "has_more": true,
+        "arms": "fts+vector"
+      }
+    ]
+  },
+  "fresh_generators_created": 0,
+  "fresh_random_draws": 0,
+  "simulation_performed": false,
+  "execution_opened": false,
+  "protected_seed_exceptions_added": false
+}

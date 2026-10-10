@@ -1,0 +1,310 @@
+{
+  "H0": {
+    "identity_sha256_alpha": "hokobehkilcakbahjjbmpjlgjjiigonjhickajcnhhjphjbbhkoiipfeflmmbcpo",
+    "metrics_sha256_alpha": "pefohkgmgkkmgkmaojecdagibojbjnbnlacnkbliochomilameacjcanbhjoplpa",
+    "parent_recomputation_sha256_alpha": "jeklanpofeigpbifibajalkblgfkgcekhhhcdikjgnlalpcakaccbahbikmjdjkg",
+    "raw_sha256_alpha": "nbmmkhinhcojjgpomhlflgahgiffahjphjjlfopeehfkeeidldehikfmdpobimik",
+    "source_closure_sha256_alpha": "ipnbbdcgnhimipkghbaefggdkdidknipflgdijhihabegkmnfjbbilgceglgpbgd",
+    "verification_sha256_alpha": "bofliogeoooeaammfaemldedenbgfdoelbeflkhihkljhkdanjmbfgnjdgiodpfa"
+  },
+  "R2_pre_main": "Both original checkers: 621 files each; only 42 registered exception pairs; no extra hit, unused exception or error",
+  "complete": true,
+  "conditions": [
+    "C0",
+    "T1",
+    "W1",
+    "T3"
+  ],
+  "date": "2026-10-09",
+  "decision": "decision:h17-r0-open",
+  "episode": "episode:h17-r0-measurement",
+  "files_sha256_alpha": {
+    "README.md": "dflhjckgidpiompmocogchicdfkkcaokphmdhmeakmjbmjdjiebbdepkdgaokebn",
+    "config/h17-r0-execution-opening.json": "lfipkapplbgcalgjifgbfcnjkpiondgfkoingpjfnjmklaodkcjmclmkoljfophc",
+    "config/h17-r0-execution-pins.json": "dcoacgfhhbjnacpfgohmaelnfdbckjoegliincphdmhkldlodbdjenhhlgggadkh",
+    "experiments/h17/h17_r0_post_main_checks.json": "kjcamegpbjonoplbiknlkmoacjciahghpbgahlnnmnihbfmafcmlehmeehgoeflh",
+    "experiments/h17/h17_r0_pre_draw_checks.json": "cdfndanbnaiaehpfgkbjfeoebilihefnamaeokibaofcjonkidagcdoicefpabci",
+    "experiments/h17/h17_r0_r2_pre_main.json": "alnbndcokbjknnmknbkpeooimamblhpehgbdmhgkjncbcbafohnggedoplpoepfo",
+    "experiments/h17/r0/identity.json": "ojkekmagcnglcbfceaighkjnnigkdnkbpnpjhcfelcmnpbomdgnkokgcefokokkg",
+    "experiments/h17/r0/metrics.json": "mmdgdhkpiophlkhddebbgfojkopjahcfeomcnimobacnbchajcibodanikochjel",
+    "experiments/h17/r0/parent_recomputation.json": "hflbddioikfncoclcnbgcdhaaklhegmheancdmbkhfpfiohikhnbnalaokihaagp",
+    "experiments/h17/r0/verification.json": "fnfkpbdicfmkjegnbogodpbfjlkefldckhcgbdclmaodgchlnniohlacedphdbjc",
+    "experiments/h17/r0_registry/pkookeefaaipdcfjpcgoeggjcnpddaelaicchabjkldijgoeackkialacjgehoij.json": "mdfdonmkaklbhdgafngfheeekcgipbpegelkgmjbniphflgeljhcjblojnhdkncb",
+    "master_plan.md": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd"
+  },
+  "graph_warning_resolved": "Initial Episode measured_at claim-field warning removed; date remains the Episode top-level date and measured_at remains on Record; all four final node props read back exactly",
+  "identity_gates": 12,
+  "main_claims_used": 1,
+  "main_rerun": false,
+  "marker_rows": {
+    "C0": 400,
+    "T1": 4,
+    "T3": 16,
+    "W1": 70
+  },
+  "matched_rows": 400,
+  "owner_instruction": "\ub2e4\uc74c \uad8c\uace0 \uc0ac\ud56d \uc791\uc5c5 \uc9c4\ud589",
+  "passed": true,
+  "post_main_checks": {
+    "new_files_checked": 60,
+    "old_source_snapshot_files": 30,
+    "path": "experiments/h17/h17_r0_post_main_checks.json",
+    "pinned_files": 96,
+    "prior_E1_pinned_files": 91,
+    "protected_token_delta": "PASS; AP archives a-p alphabet and byte hash PASS; README/master new delta PASS; this ledger pre-write and canonical text checked",
+    "sha256_alpha": "kjcamegpbjonoplbiknlkmoacjciahghpbgahlnnmnihbfmafcmlehmeehgoeflh",
+    "source_manifest": "Unchanged and PASS"
+  },
+  "pre_draw_checks_historical": "Passed before one claim; reserved_generators_created zero is the historical pre-draw state, not the final state",
+  "primary": {
+    "C0": {
+      "denominator": 400,
+      "estimate": 0.0,
+      "interval": [
+        8.673617379884035e-19,
+        0.009512294334296508
+      ],
+      "numerator": 0,
+      "status": "READABLE"
+    },
+    "T1": {
+      "denominator": 400,
+      "estimate": 0.0075,
+      "interval": [
+        0.0025538891952499396,
+        0.021815720724032123
+      ],
+      "numerator": 3,
+      "status": "READABLE"
+    },
+    "T3": {
+      "denominator": 400,
+      "estimate": 0.3475,
+      "interval": [
+        0.3024860405122664,
+        0.39541520925969403
+      ],
+      "numerator": 139,
+      "status": "READABLE"
+    },
+    "W1": {
+      "denominator": 400,
+      "estimate": 0.0875,
+      "interval": [
+        0.06358691021150324,
+        0.11926073261429136
+      ],
+      "numerator": 35,
+      "status": "READABLE"
+    }
+  },
+  "raw_sha256_alpha": "bdjliepfoneecapofbnelegdajohjcfekcckfofdmnkoophdcgooinfccggfdopc",
+  "receipts": {
+    "execution_review": {
+      "doc_id": "d22a8acd2b108796a",
+      "sha256_alpha": "ehbdaffikhjdhjkbjmjlcokfadnoljabggalmlpafdcicfhbofcoljoagodicboh",
+      "verified_text_match": true
+    },
+    "final_report_review": {
+      "finding": "No factual issue: registered readings, denominators/censoring/readability, W1 complement/source dwell, T3 event/row/concurrence, 96 files/3096 arrays and scope match independent saved-array evidence.",
+      "no_tests_or_rng": true,
+      "passed": true,
+      "read_only": true,
+      "reviewer": "/root/hold_review"
+    },
+    "graph_readbacks": [
+      {
+        "id": "record:h17-r0-current-baseline",
+        "source_doc": "d38fa7b26f04fc52c",
+        "verified": true
+      },
+      {
+        "id": "episode:h17-r0-measurement",
+        "source_doc": "d38fa7b26f04fc52c",
+        "verified": true
+      },
+      {
+        "id": "decision:h17-r0-open",
+        "source_doc": "d539fa523228ae7f7",
+        "verified": true
+      },
+      {
+        "id": "decision:h17-run3-open-design",
+        "source_doc": "dac20b7f7a9bbc737",
+        "verified": true
+      }
+    ],
+    "master_mirrors": [
+      {
+        "created": false,
+        "doc_id": "d1867092e4263d16c",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 1,
+        "slice_sha256_ap": "lnoocadkdcdaokncicmighabjmfoagaoakicdflookdapbbpadlljpinignlpkld",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "dd1bc59fff2843f4c",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 2,
+        "slice_sha256_ap": "efkhlfkbabjbdnnfniaifboilkfkjjncaepgodacnbnfnnohkdhodnemjhbhailk",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "dff556eaf7e0cf994",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 3,
+        "slice_sha256_ap": "cfjohppmckildmgkfbhbcmeiamngmkljklnjdmfhnffgjagoeadhgbiabfiojilp",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "d3c890077450be5a4",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 4,
+        "slice_sha256_ap": "gdkjnlcpcoipdklangkbecnhiokgifnkdbopjdoapjmflldmpanoelcemcefohce",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "d86e1618aadf644d7",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 5,
+        "slice_sha256_ap": "dpacgfaijpdbdehkakoighlbckdnjfakchifalodhgibigdjeindglgegkdmccaj",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "d8542f76ede325585",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 6,
+        "slice_sha256_ap": "ncniajlbfoajejdddhnefaojedmpkcebccljodkkgcfkeabnjplglcbadedelpao",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "dc811d089a183a6e0",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 7,
+        "slice_sha256_ap": "molopomgmibibafbdcakickdcjkedhanbpdmokbgcnceigaddbfaclcneomecmjm",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "d3bd8a60ed6a10c75",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 8,
+        "slice_sha256_ap": "kkaefcahoeiccljfmenhankcepgcenfcpokbnimhgagnapdfeabaiknmgeimbfnj",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "d4a755cf5a2e6ef8f",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 9,
+        "slice_sha256_ap": "okdjgbjnekcapcnekpjdonoejilalbfdaeabkaobnokhmkcjomhhjniijngedoge",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "d391977fec42e5387",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 10,
+        "slice_sha256_ap": "mfjcgkjbfmbkhbameldcjnnmnpphfjcbbapfoecgljaocgndgneoooljpneeikmp",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "d0ab8ab7761a1adb1",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 11,
+        "slice_sha256_ap": "bffijnlehenaepnfcfknogffpedcnfahhdjbbmndgnbdaffalggfipobkpjfmneo",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "d106aff2c86bfac6c",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 12,
+        "slice_sha256_ap": "lkbljecpakhgnfhfpmpkimghhfboiblajjjmmcfalpkaaeohmjledpakejbiilai",
+        "verified_text_match": true
+      },
+      {
+        "created": false,
+        "doc_id": "dc0444894b71c04d5",
+        "full_sha256_ap": "mbidapcebhkefahiccfcopehklfkdgblbhecadflpgjaibhjgkpmaplenehemimd",
+        "part": 13,
+        "slice_sha256_ap": "gaglghjhgalghhjenknkpbkbfibfgbjfbfaekkpbicedoeifladgjdmfpdjlaobo",
+        "verified_text_match": true
+      }
+    ],
+    "parent_recomputation_program": {
+      "instructions": "Decode a-p to hex 0-f, then decode UTF8; uses stored arrays, no RNG; all six numerical thread limits set to one",
+      "sha256_alpha": "ppnmcbchfmkelngmfekajokhidkjdpglamacmkaommcffobhcmimdnlnabjaiiok",
+      "utf8_alpha": "gjgnhagphchecagphdakgggphccaglcagjgocacichepfaefeoecemebfdfpeoffenfpfeeifcefebeefdchcmchepenfafpeoffenfpfeeifcefebeefdchcmchenelemfpeoffenfpfeeifcefebeefdchcmcheoffeneffifafcfpeoffenfpfeeifcefebeefdchcmchecemejfdfpeoffenfpfeeifcefebeefdchcmchfgefedemejecfpenebfiejenffenfpfeeifcefebeefdchcjdkgphdcogfgohggjhcgpgoflglfndnchdbchakgghcgpgncahagbhegigmgjgccagjgnhagphchecafagbhegiakgjgnhagphchecagkhdgpgocmgigbhdgigmgjgccmgngbhegicmhegfgnhagggjgmgfcmhkgjhagggjgmgfcmgjgpcmhdhjhdakgjgnhagphchecagohfgnhahjcagbhdcagohaakhcgpgphednfagbhegicogdhhgecicjdlgegjhcgfgdhegphchjdnhcgpgphecpchgfhihagfhcgjgngfgohehdcpgidbdhcphcdachdlgjgegfgohegjhehjdngkhdgpgocogmgpgbgehdcicigegjhcgfgdhegphchjcpchgjgegfgohegjhehjcogkhdgpgochcjcohcgfgbgefphegfhihecicjcjdlgngfhehcgjgddngkhdgpgocogmgpgbgehdcicigegjhcgfgdhegphchjcpchgngfhehcgjgdhdcogkhdgpgochcjcohcgfgbgefphegfhihecicjcjakhcgfhgdngchjhegfhdcogngbglgfhehcgbgohdcigcchgbgcgdgegfggghgigjgkglgmgngogphachcmgcchdadbdcdddedfdgdhdidjgbgcgdgegfggchcjdlgbhadnhdhehccogngbglgfhehcgbgohdcichdadbdcdddedfdgdhdidjgbgcgdgegfggchcmchgbgcgdgegfggghgigjgkglgmgngogphachcjakhegnhadnhegfgnhagggjgmgfcofegfgnhagphcgbhchjeggjgmgfcichhhclgcchcjdlgigbhdgigfhcdngigbhdgigmgjgccohdgigbdcdfdgcicjakhhgjhegicacigegjhcgfgdhegphchjcpchhcgbhhcogohahkcogbhachcjcogphagfgocichhcgcchcjcagbhdcahdhehcgfgbgndkakcahhgigjgmgfcagdgihfgogldkdnhdhehcgfgbgncohcgfgbgecidbdmdmdbdicjdkakcacagbhdhdgfhchecagogphecagdgihfgoglcohehcgbgohdgmgbhegfcieogpgogfcmgcchgbgcgdgegfggghgigjgkglgmgngogphachcjakcacagigbhdgigfhccohfhagegbhegfcigdgihfgoglcjdlhegnhacohhhcgjhegfcigchjhegfhdcogghcgpgngigfhicigdgihfgoglcohehcgbgohdgmgbhegfcihcgfhgcjcogegfgdgpgegfcichgbhdgdgjgjchcjcjcjakgbhdhdgfhchecagigbhdgigfhccogigfhigegjghgfhdhecicjcohehcgbgohdgmgbhegfcigbhacjdndngjgegfgohegjhehjflchhcgbhhfpgbhchcgbhjhdchfnflchhdgigbdcdfdgfpgbgmhagigbchfndlhegnhacohdgfgfglcidacjakhkdngohacogmgpgbgecihegnhacmgbgmgmgphhfphagjgdglgmgfdneggbgmhdgfcjakfkdndbcodjdfdjdjdgdddjdidedfdedadadfdeakgegfggcahhgjgmhdgpgocigfhggfgohehdcmhdgfgmgfgdhegfgedneogpgogfcmgdgpgogegjhegjgpgogbgmdneggbgmhdgfcjdkakcahdgfgmgfgdhegfgedngohacogpgogfhdcigfhggfgohehdcohdgigbhagfcmgcgpgpgmcjcagjggcahdgfgmgfgdhegfgecagjhdcaeogpgogfcagfgmhdgfcahdgfgmgfgdhegfgeakcagodngjgohecihdgfgmgfgdhegfgecohdhfgncicjcjdlgldngjgohecicigfhggfgohehdcghdgfgmgfgdhegfgecjcohdhfgncicjcjakcagjggcagogphecagodkhcgfhehfhcgocahlchgohfgngfhcgbhegphcchdkglcmchgegfgogpgngjgogbhegphcchdkgocmchgfhdhegjgngbhegfchdkeogpgogfcmchgjgohegfhchggbgmchdkeogpgogfcmchhdhegbhehfhdchdkchffeoeeefegejeoefeechhnakcahadnglcpgodlgedndbclfkckfkcpgodlgddncihaclfkckfkcpcidcckgocjcjcpgedlgcdnfkckgngbhegicohdhbhchecihackcidbcnhacjcpgoclfkckfkcpcideckgockgocjcjcpgeakcahcgfhehfhcgocahlchgohfgngfhcgbhegphcchdkglcmchgegfgogpgngjgogbhegphcchdkgocmchgfhdhegjgngbhegfchdkhacmchgjgohegfhchggbgmchdkflgdcngccmgdclgcfncmchhdhegbhehfhdchdkchffeofcefebeeebecemefchcagjggcagdgpgogegjhegjgpgogbgmcagbgogecagodmdfdacagfgmhdgfcachfcefebeeebecemefchhnakgdgigfgdglhddnhlhndlgggbgdhehddnhlhnakgggphccagdgpgogegjhegjgpgocagjgocacicheddachcmchfedbchcmchfhdbchcmchfeddchcjdkakcahahcgfgggjhidngdgpgogegjhegjgpgoclchcpfagbhdhdgjhggfcpchdlhhdnhkflhahcgfgggjhiclchhdgbgnhagmgfcpfhfpgegfgmgjhggfhcgfgechfndlgbhednhkflhahcgfgggjhiclchhdgbgnhagmgfcpebfedcchfndlgidnhkflhahcgfgggjhiclchhdgbgnhagmgfcpeifphagphdhechfndlgihadnhkflhahcgfgggjhiclchhdgbgnhagmgfcpeifphahcgfchfndlgogbhgdnhkflhahcgfgggjhiclchhdgbgnhagmgfcpeoebfgchfndlglgogphhgodnhkflhahcgfgggjhiclchgdgpgohdhehchfgdhegjgpgocpglgogphhgochfndlhcgphhhddnhhcohdgigbhagffldbfndlhchcdngohacogbhcgbgoghgfcihcgphhhdcjfleogpgogfcmdkfndlhehedngohacogbhcgbgoghgfcidgdadacjfldkcmeogpgogffndlgbdnhhcogbgohjcidccjdlhbdngohacohkgfhcgphdfpgmgjglgfcigicjdlgdgmgpgdgldngohacohkgfhcgphdcihcgphhhdcmgohacogjgohedgdecjakcagggphccahecagjgocahcgbgoghgfcidgdadacjdkakcacagdgmgpgdglflhogbflhefnfncldndbdlgdgmgpgdglflgbflhefnfndndadlhbflhefndngdgmgpgdglakcagngbhcgldncihbdodndcdfdacjcgcigidndncndbcjdlgndngohacogghfgmgmcihcgphhhdcmcndbcmgohacogjgohedgdecjakcagggphccahccagjgocahcgbgoghgfcihcgphhhdcjdkakcacagigjhehddngohacogggmgbhegogpgohkgfhcgpcigngbhcglfldkcmhcfncjakcacagjggcagmgfgocigigjhehdcjdkgnflhcfndngigjhehdfldafnakcagbhdhdgfhchecagohacogbhchcgbhjfpgfhbhfgbgmcigncmhkflhahcgfgggjhiclchhcgfgbgegjgoghcpgngbhcglgfhcfphdhegfhachfncjdlgbhdhdgfhchecagohacogbhchcgbhjfpgfhbhfgbgmcihbcmhkflhahcgfgggjhiclchhcgfgbgegjgoghcphbfpgpgchdchfncjdlhggbgmgjgedngndodndadlgmgbhegfhcdncihehedogncjcghggbgmgjgedlgmgphdhednhogbfldedadadkfncogbgohjcidacjdlhcgfgbgdgidngbhecogbgohjcidccjdlhcgfgbgegjgoghdngngfhehcgjgdflchhcgfgbgegjgoghhdchfnflgdgpgogegjhegjgpgofnflchfagbhdhdgjhggfchfnakcahahcgjgngbhchjdnhhgjgmhdgpgocigbfldkdddadafncogbgohjcidacjcagjggcagdgpgogegjhegjgpgodndncheddachcagfgmhdgfcagmgphdhecjdlgbhdhdgfhchecahahcgjgngbhchjdndnhcgfgbgegjgoghflchhahcgjgngbhchjchfnakcagggjgfgmgehddnhlchgngbhcglgfhchdchdkhhgjgmhdgpgocihggbgmgjgecjcmchgogpfpgngbhcglgfhcchdkhhgjgmhdgpgocihohggbgmgjgecjcmchgmgphdhefpgmgbhdhedcdadachdkhhgjgmhdgpgocigmgphdhecjcmchgbgohjfphhgigjggggfpdgdadachdkhhgjgmhdgpgocigbcogbgohjcidacjcjcmchhcgfgbgdgifpdgdadachdkhhgjgmhdgpgocihcgfgbgdgicogbgohjcidacjcjcmchgigphcgjhkgpgofphhgigjggggchdkhhgjgmhdgpgocicigbcggmgbhegfhccjcogbgohjcidacjcmhggbgmgjgecmfehchfgfcjcmchgigphcgjhkgpgofphcgfgbgdgichdkhhgjgmhdgpgocicihcgfgbgdgicggmgbhegfhccjcogbgohjcidacjcmhggbgmgjgecmfehchfgfcjcmchgngbhcglgfhcfpgcgbhdgfgmgjgogffphcgfgbgdgichdkhhgjgmhdgpgocihkflhahcgfgggjhiclchhcgfgbgegjgoghcpgngbhcglgfhcfphcgfgbgdgifpgcgjhehdchfncbdndacmhggbgmgjgecmfehchfgfcjhnakcagggphccaglcmhgcagjgocagggjgfgmgehdcogjhegfgnhdcicjdkgbhdhdgfhchecahgdndnhcgfgbgegjgoghflglfnakcahhgjgogegphhhddnhlhnakcagggphccaglcagjgocacidbdadacmdcdadacmdddadacjdkakcacagghfgmgmdnhggbgmgjgecgcignclgldmdndfdjdjcjdlgjgohdgjgegfdngmgbhegfhccgcihehedmdngnclglcjdlhhgjdnhlchgghfgmgmchdkgjgohecigghfgmgmcohdhfgncicjcjcmchgdgfgohdgphcgfgechdkgjgohecicihggbgmgjgecghogghfgmgmcjcohdhfgncicjcjcmchhhgigjggggchdkhhgjgmhdgpgocicigbcggjgohdgjgegfcjcogbgohjcidacjcggghfgmgmcmgghfgmgmcmfehchfgfcjcmchhcgfgbgdgichdkhhgjgmhdgpgocicihcgfgbgdgicggjgohdgjgegfcjcogbgohjcidacjcggghfgmgmcmgghfgmgmcmfehchfgfcjhnakcacagggphccaglgfhjcmhggbgmhfgfcagjgocahhgjcogjhegfgnhdcicjdkgbhdhdgfhchecahggbgmhfgfdndnhcgfgbgegjgoghflchhhgjgogegphhhdchfnflhdhehcciglcjfnflglgfhjfnakcacagggphccahdgphfhcgdgfcagjgocacidacmdbcjdkakcacacagggphccagogbgngfcmgfhggfgohehdcagjgocacicichhhgigjggggchcmhhfldkcmdkcmhdgphfhcgdgffncjcmcichhcgfgbgdgichcmgbhefldkcmdkcmhdgphfhcgdgffncjcjdkakcacacacagbhdhdgfhchecahhgjgmhdgpgocicigfhggfgohehdcggjgohdgjgegfcjcogbgohjcidacjcggghfgmgmcmgghfgmgmcmfehchfgfcjdndnhcgfgbgegjgoghflchhhgjgogegphhhdchfnflhdhehcciglcjfnflchhdgphfhcgdgfhdchfnflhdhehccihdgphfhcgdgfcjfnflgogbgngffnakcacahhgjgogegphhhdflhdhehcciglcjfndnhhgjakcahdhadnhkflhahcgfgggjhiclchhdgbgnhagmgfcpfdfphagphdhechfndlhdgjgmdnhkflhahcgfgggjhiclchhdgbgnhagmgfcpfdejemfphahcgfchfndlfjdnhkflhahcgfgggjhiclchhdgbgnhagmgfcpfjchfndlhagphdhedngohacogngbhigjgnhfgncigicmdacjdlhahcgfdngohacogngbhigjgnhfgncigihacmdacjdlgogfghfddncigihadodndacjcgciglgogphhgoflhchccmhahcgffndmdacjdlgogfghfkdncigidodndacjcgciglgogphhgoflhchccmhagphdhefndmdacjdlgigjhedncigidodndacjcghhflhehecmhchccmhagphdhefndlfeepdnhdgjgmdodedadleffgdncigihadodndacjcgcicifjflhehecmhchccmdbcnhahcgffncnfjflhehecmhchccmhahcgffncjdocodccjdlhfgogjhehddncihdhadodbcjcohdhfgncidccjdlgcgbhdgfdnfeepcghoeffgcgcihfgogjhehddodacjcghogigjhedlhdhfhdhegbgjgodngcgbhdgfcghogogfghfddlgogfhhdncigidodndacjcgcigicbdngihacjdlgogfhhhkdngogfhhcghogogfghfkdlhdgjgmgcgbhdgfdngohacohhgigfhcgfcigigjhecmdacocmgohacohhgigfhcgfcifeephmeffgcmdacocmhdgjgmcjcldbcocjdlhkhcgfhdgfhedngogfhhhkcghohdhfhdhegbgjgocgcihdgjgmgcgbhdgfdodacjdlgfgnhahehjdngogfghfdcgcigidndncndbcjdlgdgigbgoghgfdngogfghfdcgcigidodndacjcgcigicbdngihacjakcahehcgbgohddnhlchgogfghgbhegjhggffphegpfphfgogigfgmgechdkgfgnhahehjcmchgogfghgbhegjhggffphkgfhcgpfphfgogjhehdchdkgfgnhahehjcgcihfgogjhehddndndacjcmchgogfghgbhegjhggffpgnhfgmhegjhagmgffphfgogjhehdchdkgfgnhahehjcgcihfgogjhehddodbcjcmchgogfghgbhegjhggffpgjgegfgohegjhehjfpgdgigbgoghgfchdkgdgigbgoghgfcmchgogfghgbhegjhggffpgfgogechdkgfgnhahehjhmgdgigbgoghgfcmchgogfghgbhegjhggffphdgbgngfchdkgogfghfdcgcigidndngihacjcmchgcgbhdgfchdkgcgbhdgfcmchhdhfhdhegbgjgochdkhdhfhdhegbgjgocmchhkhcgfhdgfhechdkhkhcgfhdgfhecmchhhgjhegigigfgmgefpeodbfpfdchdkgcgbhdgfcggogfghfdcmchhhgjhegigigfgmgefpeodbfpfkchdkgogfhhcggogfghfkhnakcagdgphfgohehddnhlhnakcagggphccagogbgngfcmgngbhdglcagjgocahehcgbgohdcogjhegfgnhdcicjdkakcacahdhegphcgfgednhcgfgbgegjgoghflchhehcgbgohdgjhegjgpgohdchfnflgogbgngffndlgbhdhdgfhchecagjgohecigngbhdglcohdhfgncicjcjdndnhdhegphcgfgeflchgfhggfgohehdchfndlgbhdhdgfhchecahhgjgmhdgpgocigngbhdglcogbgohjcidacjcjdndnhdhegphcgfgeflchgjgogdgjgegfgogdgfchfndlgbhdhdgfhchecagohacogbhchcgbhjfpgfhbhfgbgmcigngbhdglcmhkflhahcgfgggjhiclchgngbhdglcpchclgogbgngffncjakcacagggphccagggmgbghcmgdhcgjhegfhcgjgpgocagjgocacicichgogfgjhegigfhcchcmhofeepcghoeffgcjcmcichhegjgngfgphfhefpgpgogmhjchcmfeepcghoeffgcjcmcichgfhggjgegfgogdgffpgpgogmhjchcmhofeepcgeffgcjcmcichgcgphegichcmfeepcgeffgcjcjdkakcacacagcgphegidngngbhdglcggdhcgjhegfhcgjgpgodlgbhdhdgfhchecahlchgfhggfgohehdchdkgjgohecigcgphegicohdhfgncicjcjcmchhcgphhhdchdkgjgohecigcgphegicogbgohjcidacjcohdhfgncicjcjhndndnhdhegphcgfgeflchgdgpgogdhfhchcgfgogdgfchfnflgggmgbghfnakcacagdgphfgohehdflgogbgngffndnhlchgfhggfgohehdchdkgjgohecigngbhdglcohdhfgncicjcjcmchhcgphhhdchdkgjgohecigngbhdglcogbgohjcidacjcohdhfgncicjcjhnakcahdgphfhcgdgfhddnhlhnakcagggphccahdgphfhcgdgfcagjgocacidacmdbcjdkakcacahdgphfhcgdgfhdflhdhehccihdgphfhcgdgfcjfndnhlhnakcacagggphccahdhagbgocmgmgpcagjgocacicichgghfgmgmchcmdacjcmcichgmgbhdhedcdadachcmdedadacjcjdkakcacacagdgphfgohehdfpdngbheflgmgpdkcmdkcmhdgphfhcgdgffncohdhfgncidacmgehehjhagfdngohacogjgohedgdecjdlhgdnhlchhhgigjggggchdkhhgjgmhdgpgocihhflgmgpdkcmdkcmhdgphfhcgdgffncogbgohjcidacjcjcmchhcgfgbgdgichdkhhgjgmhdgpgocigbheflgmgpdkcmdkcmhdgphfhcgdgffncogbgohjcidacjcjcmchgehhgfgmgmfpgngfgbgochdkgggmgpgbhecicigdgphfgohehdfpcpcidgdadacngmgpcjcjcogngfgbgocicjcjcmchgehhgfgmgmfpgdgphfgohechdkgjgohecigdgphfgohehdfpcohdhfgncicjcjcmchhcgphhfpgegfgogpgngjgogbhegphcchdkhcgphhhdcmchhdhegfhafpgegfgogpgngjgogbhegphcchdkdgdadacngmgphndlgbhdhdgfhchecahgdndnhcgfgbgegjgoghflchhdgphfhcgdgfhdchfnflhdhehccihdgphfhcgdgfcjfnflhdhagbgofndlhdgphfhcgdgfhdflhdhehccihdgphfhcgdgfcjfnflhdhagbgofndnhgakcagdgfgmgmhddnhlhnakcagggphccagdgfgmgmcagjgocahcgbgoghgfcidecjdkakcacahdgfgmgfgdhegfgednhkflhahcgfgggjhiclchgdgpgohdhehchfgdhegjgpgocpgdgfgmgmchfndndngdgfgmgmakcacahgdnhlchhcgphhhdchdkgjgohecihdgfgmgfgdhegfgecohdhfgncicjcjcmchhahcgjgngbhchjchdkhhgjgmhdgpgocigbfldkdddadafncogbgohjcidacjcagjggcagdgpgogegjhegjgpgodndncheddachcagfgmhdgfcagmgphdhecmhdgfgmgfgdhegfgecjcmchgngbhcglgfhchdchdkhhgjgmhdgpgocihggbgmgjgecmhdgfgmgfgdhegfgecjcmchgmgphdhefpgmgbhdhedcdadachdkhhgjgmhdgpgocigmgphdhecmhdgfgmgfgdhegfgecjhndlgbhdhdgfhchecahgdndnhcgfgbgegjgoghflchgdgfgmgmhdchfnflhdhehccigdgfgmgmcjfndlgdgfgmgmhdflhdhehccigdgfgmgmcjfndnhgakcagdgpgohegbgdhehddnhlchgfhggfgohehdchdkgjgohecihkflhahcgfgggjhiclchhdgbgnhagmgfcpedchfncohdhfgncicjcjcmchhcgphhhdchdkgjgohecihkflhahcgfgggjhiclchhdgbgnhagmgfcpedchfncogbgohjcidacjcohdhfgncicjcjhndlgbhdhdgfhchecagdgpgohegbgdhehddndnhcgfgbgegjgoghflchgdgpgohegbgdhehdchfnakcahdgfgngbgohegjgddnhlhnakcagggphccagmgbgcgfgmcmgjgogegfhicagjgocacicichgogpgngjgogbgmfpghgpgpgechcmhkflhahcgfgggjhiclchgdgpgohdhehchfgdhegjgpgocpghgpgpgechfncjcmcichgogpgngjgogbgmfpgphegigfhcchcmdbcnhkflhahcgfgggjhiclchgdgpgohdhehchfgdhegjgpgocpghgpgpgechfncjcjdkakcacahdgfgngbgohegjgdflgmgbgcgfgmfndnhlhnakcacagggphccahdhagbgocmgmgpcagjgocacicichgghfgmgmchcmdacjcmcichgmgbhdhedcdadachcmdedadacjcjdkakcacacahhhhdnhhflgmgpdkcmgohacogbhcgbgoghgfcihcgphhhdcjcmgjgogegfhifndlgbgbdngbheflgmgpdkcmgohacogbhcgbgoghgfcihcgphhhdcjcmgjgogegfhifndlgehhdngbgbcohdhfgncidacmgehehjhagfdngohacogjgohedgdecjakcacacahdgfgngbgohegjgdflgmgbgcgfgmfnflhdhagbgofndnhlchhhgigjggggchdkhhgjgmhdgpgocihhhhcogbgohjcidacjcjcmchhcgfgbgdgichdkhhgjgmhdgpgocigbgbcogbgohjcidacjcjcmchgehhgfgmgmfpgdgphfgohechdkgjgohecigehhcohdhfgncicjcjcmchgehhgfgmgmfpgngfgbgochdkgggmgpgbhecicigehhcpcidgdadacngmgpcjcjcogngfgbgocicjcjcmchhcgphhfpgegfgogpgngjgogbhegphcchdkhcgphhhdcmchhdhegfhafpgegfgogpgngjgogbhegphcchdkdgdadacngmgphnakcagjggcagdgpgogegjhegjgpgodndnchfhdbchdkakcacagbhdhdgfhchecagogphecahhfldkcmgohacogbhcgbgoghgfcihcgphhhdcjcmhkflhahcgfgggjhiclchgdgpgohdhehchfgdhegjgpgocpghgpgpgechfnfncogbgohjcicjakcacagbhdhdgfhchecahdgfgngbgohegjgdflchgogpgngjgogbgmfpgphegigfhcchfnflchgmgbhdhedcdadachfnflchhhgigjggggchfnflchgohfgngfhcgbhegphcchfnclhahcgjgngbhchjflchgohfgngfhcgbhegphcchfndndnhcgphhhdakcacagbhdhdgfhchecagohacogbhchcgbhjfpgfhbhfgbgmcigbhefldkcmgohacogbhcgbgoghgfcihcgphhhdcjcmdbcnhkflhahcgfgggjhiclchgdgpgohdhehchfgdhegjgpgocpghgpgpgechfnfncohdhfgncidacjcmhkflhahcgfgggjhiclchemddcphhdbhdhfgncpgehhgfgmgmchfncjakcagggbgdhehdflgdgpgogegjhegjgpgofndnhlchhahcgjgngbhchjchdkhahcgjgngbhchjcmckckgggjgfgmgehdcmchhhgjgogegphhhdchdkhhgjgogegphhhdcmchhehcgbgohdgjhegjgpgohdchdkgdgphfgohehdcmchhdgphfhcgdgfhdchdkhdgphfhcgdgfhdcmchhdgfgngbgohegjgdfphdgphfhcgdgfhdchdkhdgfgngbgohegjgdcmchgdgfgmgmhdchdkgdgfgmgmhdcmchgdgpgohegbgdhehdchdkgdgpgohegbgdhehdhnakcagdgigfgdglhdflgdgpgogegjhegjgpgofndnhlchhdgbhggfgefpgbhchcgbhjfphcgfgdgpgnhahfhegbhegjgpgochdkfehchfgfcmchhcgphhhdchdkhcgphhhdcmchhdhegfhahdchdkdgdadacmchhahcgjgngbhchjfphhgjgogegphhhdfpgdgfgmgmhdfpeodcfphdgphfhcgdgfhdfpgdgpgohegbgdhehdfpgngbhegdgichdkfehchfgfhnakhkcogdgmgphdgfcicjdlhegnhacogdgmgphdgfcicjakgphfhednhlchgdgpgnhagmgfhegfchdkfehchfgfcmchhagbhdhdgfgechdkfehchfgfcmchhdgngpglgfchdkgjgegfgohegjhehjflchhdgngpglgfchfncmchgngfhegigpgechdkchfagbhcgfgohecagbhcgjhegigngfhegjgdcagghcgpgncaebfacaeofafkdlcagogpcahchfgogogfhccpgigfgmhagfhccpgdgpgohehcgpgmgmgfhccagjgnhagphchehdcagphccafceoehcagdgbgmgmhddlcahggfhcgjgggjgfhccahfhdgfgecagpgogmhjcagbgghegfhccagbhcgjhegigngfhegjgdcagggphccafadfcagphfhehahfhecaghhfgbhcgechcmchhdgphfhcgdgffpgdgmgphdhfhcgffphdgigbdcdfdgfpgbgmhagigbchdkgjgegfgohegjhehjflchhahcgphggfgogbgogdgfchfnflchhdgphfhcgdgffpgdgmgphdhfhcgffphdgigbdcdfdgfpgbgmhagigbchfncmchgjgegfgohegjhehjfphdgigbdcdfdgfpgbgmhagigbchdkgigbhdgigmgjgccohdgigbdcdfdgcicigegjhcgfgdhegphchjcpchgjgegfgohegjhehjcogkhdgpgochcjcohcgfgbgefpgchjhegfhdcicjcjcogigfhigegjghgfhdhecicjcohehcgbgohdgmgbhegfcigbhacjcmchhcgbhhfphdgigbdcdfdgfpgbgmhagigbchdkgjgegfgohegjhehjflchhcgbhhfpgbhchcgbhjhdchfnflchhdgigbdcdfdgfpgbgmhagigbchfncmchgdgigfgdglhdchdkgdgigfgdglhdcmchgggbgdhehdchdkgggbgdhehdhnakhagbhjgmgpgbgedngkhdgpgocogehfgnhahdcigphfhecmhdgphchefpglgfhjhddnfehchfgfcmhdgfhagbhcgbhegphchddncichcmchcmchdkchcjcmgfgohdhfhcgffpgbhdgdgjgjdnfehchfgfcmgbgmgmgphhfpgogbgodneggbgmhdgfcjcogfgogdgpgegfcicjclgcchfmgochakhdhjhdcohagbhegicogjgohdgfhchecidacmhdhehccihcgpgphecpchhegpgpgmhdchcjcjdlgjgnhagphchecahggfhcgjgghjfpgidbdhfphcdaakhggfhcgjgghjfpgidbdhfphcdacogogpfphahcgphegfgdhegfgefphegpglgfgohdcihagbhjgmgpgbgecmhcgpgphecjdlhegbhcghgfhedngegjhcgfgdhegphchjcpchhagbhcgfgohefphcgfgdgpgnhahfhegbhegjgpgocogkhdgpgochdlgbhdhdgfhchecagogphecahegbhcghgfhecogfhigjhdhehdcicjdlhegbhcghgfhecohhhcgjhegffpgchjhegfhdcihagbhjgmgpgbgecjakhahcgjgohecigkhdgpgocogehfgnhahdcihlchgdgpgnhagmgfhegfchdkfehchfgfcmchhagbhdhdgfgechdkfehchfgfcmchgdgpgogegjhegjgpgohdchdkhlgldkhlchhahcgjgngbhchjchdkhgflchhahcgjgngbhchjchfncmchgngbhcglgfhchdchdkhgflchgngbhcglgfhchdchfncmchhhgjgogegphhhdchdkhgflchhhgjgogegphhhdchfncmchfeddfphehcgbgohdgjhegjgpgohdchdkhgflchhehcgbgohdgjhegjgpgohdchfncagjggcagldndnchfeddchcagfgmhdgfcaeogpgogfhncagggphccaglcmhgcagjgocagggbgdhehdcogjhegfgnhdcicjhncmchhcgfgdgfgjhahefphdgigbdcdfdgfpgbgmhagigbchdkgigbhdgigmgjgccohdgigbdcdfdgcihagbhjgmgpgbgecjcogigfhigegjghgfhdhecicjcohehcgbgohdgmgbhegfcigbhacjhncmgfgohdhfhcgffpgbhdgdgjgjdnfehchfgfcjcjak"
+    },
+    "pin_index": {
+      "doc_id": "d98d4328ae709a589",
+      "parts": [
+        {
+          "doc_id": "d83c4691f06c42c23",
+          "part": 1,
+          "slice_sha256_alpha": "icfkhkkjfhmfaemplhmgplfimbineeeicclnofdflplgmbcjbloejcblknkakfih",
+          "verified_text_match": true
+        },
+        {
+          "doc_id": "d87fda4cc8ca429a0",
+          "part": 2,
+          "slice_sha256_alpha": "ohgofnbfkgikgnalahonmnaddlnmjgbjkfpgccmbakmdmihkblmoghcicnfgolpf",
+          "verified_text_match": true
+        },
+        {
+          "doc_id": "dcb05ea9704c01147",
+          "part": 3,
+          "slice_sha256_alpha": "npdcefaonljbakeflbcfmohlmbacnnhofojnmngdcjnmipkfhimjpmomhcphfjcp",
+          "verified_text_match": true
+        },
+        {
+          "doc_id": "d9aa82ff4453c0aa2",
+          "part": 4,
+          "slice_sha256_alpha": "dfkonlbnkinkimmhekiapkhdljeffnoianihkilmkilmbbhbdfkcabpdlefeobec",
+          "verified_text_match": true
+        }
+      ],
+      "path": "experiments/h17/h17_r0_execution_pin_index.json",
+      "pin_sha256_alpha": "dcoacgfhhbjnacpfgohmaelnfdbckjoegliincphdmhkldlodbdjenhhlgggadkh",
+      "sha256_alpha": "eknhohbepihdikjcjlhlldohojhdfldgbkcndikbmibjdcmipgnbfkhonnhdlljm",
+      "verified_text_match": true
+    },
+    "report": {
+      "created": true,
+      "doc_id": "d38fa7b26f04fc52c",
+      "path": "experiments/h17/h17_r0_report.md",
+      "sha256_alpha": "cdelcpinooglialeanmifbhdjodohmpphajanejebiehlonmepddjebckfmifafk",
+      "verified_text_match": true
+    },
+    "tests": {
+      "count": 39,
+      "output_sha256_alpha": "mhmjngedlphjnmcnjcpcfhdodajpnagedcpnobpibejdpllojgphecgjefjeeokj",
+      "output_utf8_alpha": "hegfhdhefpgcgmgpgcfpghgfgogfhcgbhegphcfphdhegbhegffphegbghfphcgfhegbgjgohdfpgegjgdhegjgpgogbhchjfpgjgohdgfhchegjgpgofpgphcgegfhccacihegfhdhefpgidbdhfphcdacoefhggjgegfgogdgffegfhdhehdcohegfhdhefpgcgmgpgcfpghgfgogfhcgbhegphcfphdhegbhegffphegbghfphcgfhegbgjgohdfpgegjgdhegjgpgogbhchjfpgjgohdgfhchegjgpgofpgphcgegfhccjcacocococagpglanakhegfhdhefpgfhbhfgbgmfpgegfhegfgdhehdfphdgjghgogfgefphkgfhcgpfpgbgogefpgehehjhagffpgdgphchchfhahegjgpgocacihegfhdhefpgidbdhfphcdacoefhggjgegfgogdgffegfhdhehdcohegfhdhefpgfhbhfgbgmfpgegfhegfgdhehdfphdgjghgogfgefphkgfhcgpfpgbgogefpgehehjhagffpgdgphchchfhahegjgpgocjcacocococagpglanakhegfhdhefpgogbhegjhggffpgggbgjgmhfhcgffphcgfhdhegphcgfhdfpgegfhahegifpgbgogefphcgfgdgphcgehdfphahcgfgdgjhdgffpgdgpgohegfhihecacihegfhdhefpgidbdhfphcdacoefhggjgegfgogdgffegfhdhehdcohegfhdhefpgogbhegjhggffpgggbgjgmhfhcgffphcgfhdhegphcgfhdfpgegfhahegifpgbgogefphcgfgdgphcgehdfphahcgfgdgjhdgffpgdgpgohegfhihecjcacocococagpglanakhegfhdhefpgogfhdhegfgefpgogbhegjhggffpgehehjhagffpgegjhdhagbhegdgifpgmgpghhdfpgpgogmhjfpgphfhegfhcfpgjgohegfhchggbgmcacihegfhdhefpgidbdhfphcdacoefhggjgegfgogdgffegfhdhehdcohegfhdhefpgogfhdhegfgefpgogbhegjhggffpgehehjhagffpgegjhdhagbhegdgifpgmgpghhdfpgpgogmhjfpgphfhegfhcfpgjgohegfhchggbgmcjcacocococagpglanakhegfhdhefphagbgjhcfpgdgmgbgjgnfphdhfhchggjhggfhdfpgegjgggggfhcgfgohefpgphfhehahfhefphagbhegicacihegfhdhefpgidbdhfphcdacoefhggjgegfgogdgffegfhdhehdcohegfhdhefphagbgjhcfpgdgmgbgjgnfphdhfhchggjhggfhdfpgegjgggggfhcgfgohefpgphfhehahfhefphagbhegicjcacocococagpglanakhegfhdhefphchfgohegjgngffpgogbgngfhdhagbgdgffphcgfhdgpgmhggfhdfpgbghgfgohedjfphegihcgphfghgifpgfhihagphchegfgefpgigbhcgogfhdhdcacihegfhdhefpgidbdhfphcdacoefhggjgegfgogdgffegfhdhehdcohegfhdhefphchfgohegjgngffpgogbgngfhdhagbgdgffphcgfhdgpgmhggfhdfpgbghgfgohedjfphegihcgphfghgifpgfhihagphchegfgefpgigbhcgogfhdhdcjcacocococagpglanakhegfhdhefphdgdgigfgngbfpgdgmgphdhfhcgffpgigbhdfpgogpfpgidafpgdhjgdgmgffpgbgogefpgdgpgnhagmgfhegffphegfgnhagmgbhegfhdcacihegfhdhefpgidbdhfphcdacoefhggjgegfgogdgffegfhdhehdcohegfhdhefphdgdgigfgngbfpgdgmgphdhfhcgffpgigbhdfpgogpfpgidafpgdhjgdgmgffpgbgogefpgdgpgnhagmgfhegffphegfgnhagmgbhegfhdcjcacocococagpglanakhegfhdhefphdgogbhahdgigphefpgggbgjgmhfhcgffpgogbgngfhdfpgphcgjghgjgogbgmfpgbhehehcgjgchfhegffpgbgogefphagigbhdgfcacihegfhdhefpgidbdhfphcdacoefhggjgegfgogdgffegfhdhehdcohegfhdhefphdgogbhahdgigphefpgggbgjgmhfhcgffpgogbgngfhdfpgphcgjghgjgogbgmfpgbhehehcgjgchfhegffpgbgogefphagigbhdgfcjcacocococagpglanakhegfhdhefphehjhagfgefphdgdgbgmgbhcfphdgigbhagffpgbgogefpgdgpgohdhegbgohefpgegfgehfhacacihegfhdhefpgidbdhfphcdacoefhggjgegfgogdgffegfhdhehdcohegfhdhefphehjhagfgefphdgdgbgmgbhcfphdgigbhagffpgbgogefpgdgpgohdhegbgohefpgegfgehfhacjcacocococagpglanakhegfhdhefpgogfhhfpgogfghgbhegjhggffpgigpgmgefpgegpgfhdfpgogphefphkgfhcgpfpgbgogefpgogfghgbhegjhggffphahcgffpgcgmgpgdglhdfphdhfhdhegbgjgocacihegfhdhefpgidbdhfphcdacoeodcfegfhdhehdcohegfhdhefpgogfhhfpgogfghgbhegjhggffpgigpgmgefpgegpgfhdfpgogphefphkgfhcgpfpgbgogefpgogfghgbhegjhggffphahcgffpgcgmgpgdglhdfphdhfhdhegbgjgocjcacocococagpglanakhegfhdhefphahcgjgphcfpgogfghgbhegjhggffphegpfphfgogigfgmgefphcgfhegbgjgohdfpgcgbhdgffpgdgmgpgdglcacihegfhdhefpgidbdhfphcdacoeodcfegfhdhehdcohegfhdhefphahcgjgphcfpgogfghgbhegjhggffphegpfphfgogigfgmgefphcgfhegbgjgohdfpgcgbhdgffpgdgmgpgdglcjcacocococagpglanakhegfhdhefphegjgngfgphfhefpgbgogefpgfhggjgegfgogdgffpgbhcgffpgjgogegfhagfgogegfgohefphdhehcgjgdhefpgggmgbghhdcacihegfhdhefpgidbdhfphcdacoeodcfegfhdhehdcohegfhdhefphegjgngfgphfhefpgbgogefpgfhggjgegfgogdgffpgbhcgffpgjgogegfhagfgogegfgohefphdhehcgjgdhefpgggmgbghhdcjcacocococagpglanakhegfhdhefphfgogigfgmgefpgjgogegfhifpgogfhggfhcfphcgfgbgehdfpgogfghgbhegjhggffpgmgbhdhefpgdgpgmhfgngocacihegfhdhefpgidbdhfphcdacoeodcfegfhdhehdcohegfhdhefphfgogigfgmgefpgjgogegfhifpgogfhggfhcfphcgfgbgehdfpgogfghgbhegjhggffpgmgbhdhefpgdgpgmhfgngocjcacocococagpglanakhegfhdhefpgegfgmgjhggfhcgfgefpgpgogmhjfpgdgmgpgdglfpgegpgfhdfpgogphefpgdgpgohdhfgmhefphcgbhhfpgngbhdglgfgefpgdgpgmhfgngocacihegfhdhefpgidbdhfphcdacoepgchdgfhchggbhegjgpgofegfhdhehdcohegfhdhefpgegfgmgjhggfhcgfgefpgpgogmhjfpgdgmgpgdglfpgegpgfhdfpgogphefpgdgpgohdhfgmhefphcgbhhfpgngbhdglgfgefpgdgpgmhfgngocjcacocococagpglanakhegfhdhefpgggjhchdhefphagphdhdgjgcgmgffpgngbhcglgfhcfpgjhdfphdhegfhafpgcgfgggphcgffpgdgmgpgdglfphggbgmhfgfcacihegfhdhefpgidbdhfphcdacoepgchdgfhchggbhegjgpgofegfhdhehdcohegfhdhefpgggjhchdhefphagphdhdgjgcgmgffpgngbhcglgfhcfpgjhdfphdhegfhafpgcgfgggphcgffpgdgmgpgdglfphggbgmhfgfcjcacocococagpglanakhegfhdhefpgghfgmgmfphhgjgogegphhfpgfhigbgdhefpgcgphfgogegbhchjfpgbgogefphcgjghgihefpgdgfgohdgphccacihegfhdhefpgidbdhfphcdacoepgchdgfhchggbhegjgpgofegfhdhehdcohegfhdhefpgghfgmgmfphhgjgogegphhfpgfhigbgdhefpgcgphfgogegbhchjfpgbgogefphcgjghgihefpgdgfgohdgphccjcacocococagpglanakhegfhdhefpgngbhcglgfhcfphcgfgbgdgifpgjhdfpgfhigdgmhfgegfgefpgbgogefphdgjgnhfgmhegbgogfgphfhdfphdgphfhcgdgffpgcgjhehdfphdhfhchggjhggfcacihegfhdhefpgidbdhfphcdacoepgchdgfhchggbhegjgpgofegfhdhehdcohegfhdhefpgngbhcglgfhcfphcgfgbgdgifpgjhdfpgfhigdgmhfgegfgefpgbgogefphdgjgnhfgmhegbgogfgphfhdfphdgphfhcgdgffpgcgjhehdfphdhfhchggjhggfcjcacocococagpglanakhegfhdhefpgogpfpgngbhcglgfhcfpgegpgfhdfpgogphefpgfgohegfhcfpgdgpgogegjhegjgpgogbgmfpgegfgogpgngjgogbhegphccacihegfhdhefpgidbdhfphcdacoepgchdgfhchggbhegjgpgofegfhdhehdcohegfhdhefpgogpfpgngbhcglgfhcfpgegpgfhdfpgogphefpgfgohegfhcfpgdgpgogegjhegjgpgogbgmfpgegfgogpgngjgogbhegphccjcacocococagpglanakhegfhdhefpgbhcgdgigjhggffpgpgcgkgfgdhefpgbgogefphfgoglgogphhgofpglgfhjhdfphcgfgkgfgdhegfgefpgcgfgggphcgffphagbhjgmgpgbgecacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgbhcgdgigjhggffpgpgcgkgfgdhefpgbgogefphfgoglgogphhgofpglgfhjhdfphcgfgkgfgdhegfgefpgcgfgggphcgffphagbhjgmgpgbgecjcacocococagpglanakhegfhdhefpgcgjhegfhigbgdhefpgggmgpgbhefpgbgogefpgggjhchdhefpgggbgjgmhfhcgffpgjgogegfhicacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgcgjhegfhigbgdhefpgggmgpgbhefpgbgogefpgggjhchdhefpgggbgjgmhfhcgffpgjgogegfhicjcacocococagpglanakhegfhdhefpgdgigbgoghgfgefphdgphfhcgdgffpgchjhegfhdfpgbhcgffphcgfgkgfgdhegfgecacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgdgigbgoghgfgefphdgphfhcgdgffpgchjhegfhdfpgbhcgffphcgfgkgfgdhegfgecjcacocococagpglanakhegfhdhefpgdgmgbgjgnfpgegfhdgjghgofphagbgjhcfpgbgogefpgphfhehahfhefphahcgphggfgogbgogdgffpgbhcgffpgdgigfgdglgfgecacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgdgmgbgjgnfpgegfhdgjghgofphagbgjhcfpgbgogefpgphfhehahfhefphahcgphggfgogbgogdgffpgbhcgffpgdgigfgdglgfgecjcacocococagpglanakhegfhdhefpgdgpgmgefpgngbhcglgfhcfpgjhdfphdgfgohdgjgoghfpgjgogegfhifpdcdedjcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgdgpgmgefpgngbhcglgfhcfpgjhdfphdgfgohdgjgoghfpgjgogegfhifpdcdedjcjcacocococagpglanakhegfhdhefpgegbhegbfpgpgogmhjfpgdgpgohdhegbgohehdfpgogfhggfhcfpgfhggbgmhfgbhegffpgdgbgmgmcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgegbhegbfpgpgogmhjfpgdgpgohdhegbgohehdfpgogfhggfhcfpgfhggbgmhfgbhegffpgdgbgmgmcjcacocococagpglanakhegfhdhefpgegfgmgjhggfhcgfgefphhgigjggggfphcgfhdhegbhchehdfpgdgmgpgdglfpgbgogefpgogpfpgngbhcglgfhccacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgegfgmgjhggfhcgfgefphhgigjggggfphcgfhdhegbhchehdfpgdgmgpgdglfpgbgogefpgogpfpgngbhcglgfhccjcacocococagpglanakhegfhdhefpgehfhagmgjgdgbhegffpgkhdgpgofpgbgogefpgogpgogggjgogjhegffphcgfgkgfgdhegfgecacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgehfhagmgjgdgbhegffpgkhdgpgofpgbgogefpgogpgogggjgogjhegffphcgfgkgfgdhegfgecjcacocococagpglanakhegfhdhefpgmddfpgjhdfpgehhgfgmgmfpgngbgkgphcgjhehjfpgogphefpgggjhchdhefpgbhchcgjhggbgmcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgmddfpgjhdfpgehhgfgmgmfpgngbgkgphcgjhehjfpgogphefpgggjhchdhefpgbhchcgjhggbgmcjcacocococagpglanakhegfhdhefpgodcfpgogfghgbhegjhggffpgnhfgmhegjgbgdhegjhggffpgogphefphfgogjhbhfgffpgigpgmgecacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgodcfpgogfghgbhegjhggffpgnhfgmhegjgbgdhegjhggffpgogphefphfgogjhbhfgffpgigpgmgecjcacocococagpglanakhegfhdhefpgogbhegjhggffpgbhchcgbhjfphdgdgigfgngbfphcgfgkgfgdhehdfphfgohagjgogogfgefpgbgogefpgegjgngfgohdgjgpgofpgehcgjgghecacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgogbhegjhggffpgbhchcgbhjfphdgdgigfgngbfphcgfgkgfgdhehdfphfgohagjgogogfgefpgbgogefpgegjgngfgohdgjgpgofpgehcgjgghecjcacocococagpglanakhegfhdhefpgogfhdhegfgefpgogbhegjhggffpgdgbgmgmfphehcgbgohdgdhcgjhahefpgphggfhcgmgbhafpgjhdfphcgfgkgfgdhegfgecacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefpgogfhdhegfgefpgogbhegjhggffpgdgbgmgmfphehcgbgohdgdhcgjhahefpgphggfhcgmgbhafpgjhdfphcgfgkgfgdhegfgecjcacocococagpglanakhegfhdhefphagigbhdgffpgdgpgohehcgbgdhefphcgfgkgfgdhehdfphahcgffpgbgghegfhcfpgcgbhdgfcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefphagigbhdgffpgdgpgohehcgbgdhefphcgfgkgfgdhehdfphahcgffpgbgghegfhcfpgcgbhdgfcjcacocococagpglanakhegfhdhefphdgjgnhfgmhegbgogfgphfhdfpgggjhchdhefpgfhggfgohehdfpglgfgfhafpgcgphegifpgcgjhehdcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefphdgjgnhfgmhegbgogfgphfhdfpgggjhchdhefpgfhggfgohehdfpglgfgfhafpgcgphegifpgcgjhehdcjcacocococagpglanakhegfhdhefphdhegphcgfgefpgdgpgohdhehchfgdhegphcfpgdgphchchfhahegjgpgofpgjhdfphcgfgkgfgdhegfgefphhgjhegigphfhefpgphggfhchhhcgjhegfcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefphdhegphcgfgefpgdgpgohdhehchfgdhegphcfpgdgphchchfhahegjgpgofpgjhdfphcgfgkgfgdhegfgefphhgjhegigphfhefpgphggfhchhhcgjhegfcjcacocococagpglanakhegfhdhefphegfhcgngjgogbgmfpgngbhcglgfhcfphcgfhegbgjgohdfphkgfhcgpfpgggpgmgmgphhhfhafpgbgogefpgdgfgohdgphcgjgoghcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefphegfhcgngjgogbgmfpgngbhcglgfhcfphcgfhegbgjgohdfphkgfhcgpfpgggpgmgmgphhhfhafpgbgogefpgdgfgohdgphcgjgoghcjcacocococagpglanakhegfhdhefphehjhagfgefpgcgmgpgcfphcgphfgogehehcgjhafpgbgogefphegbgnhagfhcgjgoghcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefphehjhagfgefpgcgmgpgcfphcgphfgogehehcgjhafpgbgogefphegbgnhagfhcgjgoghcjcacocococagpglanakhegfhdhefphehjhagfgefpgkhdgpgofphcgfgkgfgdhehdfphfgoglgogphhgofpgbgogefphhhcgpgoghfphdgdgbgmgbhcfphehjhagfcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefphehjhagfgefpgkhdgpgofphcgfgkgfgdhehdfphfgoglgogphhgofpgbgogefphhhcgpgoghfphdgdgbgmgbhcfphehjhagfcjcacocococagpglanakhegfhdhefphhgjgogegphhhdfpgfhigdgmhfgegffpgngbhcglgfhcfpgjgogdgmhfgegffpgfgogehagpgjgohefpgdgfgohdgphcfpgmgbhegfcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefphhgjgogegphhhdfpgfhigdgmhfgegffpgngbhcglgfhcfpgjgogdgmhfgegffpgfgogehagpgjgohefpgdgfgohdgphcfpgmgbhegfcjcacocococagpglanakhegfhdhefphkgfhcgpfpgdgpgogegjhegjgpgogbgmfpgjhdfphfgogegfgggjgogfgefpgogphefphkgfhcgpcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefphkgfhcgpfpgdgpgogegjhegjgpgogbgmfpgjhdfphfgogegfgggjgogfgefpgogphefphkgfhcgpcjcacocococagpglanakhegfhdhefphkhcgfhdgfhefphcgfgbgehdfpgcgbhdgffpgogphefphagphdhefpgdgmgpgdglcacihegfhdhefphggfhcgjgghjfpgidbdhfphcdacofggfhcgjgghjfegfhdhehdcohegfhdhefphkhcgfhdgfhefphcgfgbgehdfpgcgbhdgffpgogphefphagphdhefpgdgmgpgdglcjcacocococagpglanakanakcncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncncnanakfcgbgocadddjcahegfhdhehdcagjgocadacodgdedjhdanakanakepelanakhlcchegfhdhehdccdkcadddjcmcacchagbhdhdgfgeccdkcahehchfgfcmcaccgggbgjgmhfhcgfhdccdkcadacmcaccgfhchcgphchdccdkcadacmcacchdhjgohegbhifpfadffpfcdcfphdgphfhcgdgffpgngbgogjgggfhdheccdkcahehchfgfhnak",
+      "passed": true
+    }
+  },
+  "result_record": "record:h17-r0-current-baseline",
+  "schema": "h17-r0-execution-completion",
+  "scope": {
+    "N2_presence_window_original_Fly_unchanged": true,
+    "Q1_Q4_order_unchanged": true,
+    "Q3_parallel_held": true,
+    "adoption": "none",
+    "candidate_selected": false,
+    "efficacy_execution_opened": false,
+    "historical_closures_unchanged": true,
+    "next_recommendation": "Refine one cold-search candidate design from the readable current C0 population and saved own-loop anchors; no candidate or state relaxation execution opened",
+    "state_relaxation_signed": false
+  },
+  "source_closure_sha256_alpha": "ipnbbdcgnhimipkghbaefggdkdidknipflgdijhihabegkmnfjbbilgceglgpbgd",
+  "steps": 600
+}

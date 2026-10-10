@@ -1,0 +1,30 @@
+{
+  "command": "python tools/verify_seed_scan_r2.py",
+  "verifier_sha256_ap": "emfhapidcjidpgaofpbkefkbbkhdihknflepbhakdhkfceganepjhpiaobhiccac",
+  "manifest_sha256_ap": "gkkeiinehcdkdajmgdhpcagkffdhjojkglbljnmefphakmogknnljmloeaacligg",
+  "source_pins": "PASS",
+  "downstream_pins": "PASS",
+  "measurement": "N/A",
+  "behavior": "N/A",
+  "checks": [
+    {
+      "checker": "ph33",
+      "scanned_files": 621,
+      "hit_files": 9,
+      "hit_pairs": 25,
+      "applied_rows": 25,
+      "unused": [],
+      "errors": []
+    },
+    {
+      "checker": "ph35",
+      "scanned_files": 621,
+      "hit_files": 9,
+      "hit_pairs": 17,
+      "applied_rows": 17,
+      "unused": [],
+      "errors": []
+    }
+  ],
+  "local_coverage": "present files checked"
+}

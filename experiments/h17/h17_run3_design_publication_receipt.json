@@ -1,0 +1,98 @@
+{
+  "format": "h17-run3-design-publication-receipt-v2",
+  "date": "2026-10-10",
+  "complete": true,
+  "scope": "Reviewed unsigned design DRAFT and knowledge registration only.",
+  "documents": [
+    {
+      "path": "experiments/h17/h17_run3_design_v2.md",
+      "sha256_alpha": "nddceljahjnfddednpihcigbiooacjgloacoebmfcnabnnjjfoaepambjjgoknjf",
+      "doc_id": "d73d7de44ea288ca0",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_run3_anchor_audit.json",
+      "doc_id": "da13f38d62551dccd",
+      "sha256_alpha": "jackbmmkbgpbikomfcagiomanioebhbpbddigbpoipcmgcnnabgngbonlfkibfhi",
+      "verified_text_match": true
+    },
+    {
+      "path": "notes/reviews/2026-10-10-h17-run3-design-v2-review.md",
+      "sha256_alpha": "jjgkoppjpmjfjbhmokacajlfgpokbelcgbggpkidmdlijolepcedkijdjfikofda",
+      "doc_id": "dbc7068ac14107ae1",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_run3_design_checks.json",
+      "sha256_alpha": "ldkffedobdmfbahddlchceklgapfbmhdhlebdkdfcijafdggmnchoaohbpaiajpa",
+      "checks_passed": true,
+      "doc_id": "df9986998a759bb62",
+      "verified_text_match": true
+    }
+  ],
+  "initial_graph_readback": [
+    {
+      "id": "decision:h17-run3-candidate-design-draft",
+      "verified": true,
+      "source_doc": "d73d7de44ea288ca0"
+    },
+    {
+      "id": "record:h17-run3-anchor-audit",
+      "verified": true,
+      "source_doc": "da13f38d62551dccd"
+    },
+    {
+      "id": "episode:h17-run3-candidate-design",
+      "verified": true,
+      "source_doc": "d73d7de44ea288ca0"
+    },
+    {
+      "id": "decision:h17-run3-open-design",
+      "verified": true,
+      "source_doc": "dac20b7f7a9bbc737"
+    }
+  ],
+  "checks_attachment_readback": [
+    {
+      "id": "decision:h17-run3-candidate-design-draft",
+      "checks_doc": "df9986998a759bb62",
+      "verified_props": true,
+      "candidate_confirmed": false,
+      "execution_opened": false
+    },
+    {
+      "id": "episode:h17-run3-candidate-design",
+      "checks_doc": "df9986998a759bb62",
+      "verified_props": true,
+      "candidate_confirmed": false,
+      "execution_opened": false
+    }
+  ],
+  "master": {
+    "path": "master_plan.md",
+    "sha256_alpha": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+    "mirror_count": 13,
+    "verified_text_match": true,
+    "receipt_document": "df9986998a759bb62"
+  },
+  "readme": {
+    "path": "README.md",
+    "sha256_alpha": "ocgoodpcbjeckphfkafohphaejnmighbnpnkepnflmmbjhkmjlncdgalbapbffob",
+    "new_delta_protected_tokens": "PASS"
+  },
+  "review": "CLEAR_FOR_PROPOSAL_ONLY",
+  "candidate": "GS250",
+  "candidate_confirmed": false,
+  "new_state_signature": false,
+  "FINAL": false,
+  "execution_opened": false,
+  "candidate_implementation": false,
+  "new_simulation": false,
+  "RNG_draws": false,
+  "bootstrap_run": false,
+  "fresh_numeric_seeds": false,
+  "R0_rerun": false,
+  "adoption": "none",
+  "protected_token_checks": "PASS",
+  "next": "Confirm GS250 and q-only contract, then finalize runtime/schema/fresh roles before separate implementation/H0/bench opening."
+}

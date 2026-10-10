@@ -1,0 +1,8 @@
+{
+  "screen_pair_sha256_alpha": "chjflpdfbdbjbiejkcadofacckpbpkpgjajkdbfjnilgclkmjaceipecaindblam",
+  "provenance_sha256_alpha": "addpnekajhpmdoboiickkpfblbcbfnhpgfhamdeeejbeleigpodcdcfemggphoem",
+  "execution_pins_sha256_alpha": "lnjcngojjjddhpdjfpjcjiecgppajbkmckhhgeadeahbnifallekpcdkihfodckf",
+  "output_path_sha256_alpha": "liglkmbfnalfppfcbiamijajbebggeokgaenmkoflkpakhoglnlgpcacdggeenco",
+  "complete": false,
+  "policy": "One screen; failure retains claim; output path does not authorize another run."
+}

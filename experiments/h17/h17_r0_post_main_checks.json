@@ -1,0 +1,317 @@
+{
+  "complete": true,
+  "immutable_pin_sha256_alpha": "dcoacgfhhbjnacpfgohmaelnfdbckjoegliincphdmhkldlodbdjenhhlgggadkh",
+  "main_claims": 1,
+  "new_evidence": [
+    {
+      "path": "config/h17-r0-execution-opening.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "lfipkapplbgcalgjifgbfcnjkpiondgfkoingpjfnjmklaodkcjmclmkoljfophc"
+    },
+    {
+      "path": "config/h17-r0-execution-pins.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "dcoacgfhhbjnacpfgohmaelnfdbckjoegliincphdmhkldlodbdjenhhlgggadkh"
+    },
+    {
+      "path": "config/h17-r0-seeds.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "iejnjbleicghhinmedadflphnnpibopmflpapajejgedijjeigaooblhdajnhmed"
+    },
+    {
+      "path": "experiments/h17/h17_r0_design_checks.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "imffjpimaboemfcopphfepjhpcogdbbacgedkpkkjgegpehadckngidbdepaghlj"
+    },
+    {
+      "path": "experiments/h17/h17_r0_design_v2.md",
+      "protected_token_hits": 0,
+      "sha256_alpha": "aoloibneomoabagmcfmmfbelodbmcdoapmaopeaoodlnjhiajglghflgegbeggbk"
+    },
+    {
+      "path": "experiments/h17/h17_r0_execution_pin_index.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "eknhohbepihdikjcjlhlldohojhdfldgbkcndikbmibjdcmipgnbfkhonnhdlljm"
+    },
+    {
+      "path": "experiments/h17/h17_r0_pre_draw_checks.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "cdfndanbnaiaehpfgkbjfeoebilihefnamaeokibaofcjonkidagcdoicefpabci"
+    },
+    {
+      "path": "experiments/h17/h17_r0_r2_pre_main.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "alnbndcokbjknnmknbkpeooimamblhpehgbdmhgkjncbcbafohnggedoplpoepfo"
+    },
+    {
+      "path": "experiments/h17/h17_r0_report.md",
+      "protected_token_hits": 0,
+      "sha256_alpha": "cdelcpinooglialeanmifbhdjodohmpphajanejebiehlonmepddjebckfmifafk"
+    },
+    {
+      "path": "experiments/h17/h17_r0_seed_registration.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "pleafleiefdijfpbghcliihcofebdemeeeicldggpgbmnokandimckjgbkajibji"
+    },
+    {
+      "path": "experiments/h17/h17_run3_design_v1.md",
+      "protected_token_hits": 0,
+      "sha256_alpha": "pinadgnedlldjlchbnedmpcejibfkkchdplajmgljiokmgplmmlgebmckoapcaen"
+    },
+    {
+      "path": "experiments/h17/r0/identity.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "ojkekmagcnglcbfceaighkjnnigkdnkbpnpjhcfelcmnpbomdgnkokgcefokokkg"
+    },
+    {
+      "path": "experiments/h17/r0/metrics.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "mmdgdhkpiophlkhddebbgfojkopjahcfeomcnimobacnbchajcibodanikochjel"
+    },
+    {
+      "path": "experiments/h17/r0/parent_recomputation.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "hflbddioikfncoclcnbgcdhaaklhegmheancdmbkhfpfiohikhnbnalaokihaagp"
+    },
+    {
+      "alphabet": "a-p only",
+      "byte_count_utf8_alpha": "dbdidjdgdjdcdgdddfdi",
+      "path": "experiments/h17/r0/raw.npz.ap",
+      "sha256_alpha": "bdjliepfoneecapofbnelegdajohjcfekcckfofdmnkoophdcgooinfccggfdopc"
+    },
+    {
+      "path": "experiments/h17/r0/verification.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "fnfkpbdicfmkjegnbogodpbfjlkefldckhcgbdclmaodgchlnniohlacedphdbjc"
+    },
+    {
+      "path": "experiments/h17/r0_registry/pkookeefaaipdcfjpcgoeggjcnpddaelaicchabjkldijgoeackkialacjgehoij.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "mdfdonmkaklbhdgafngfheeekcgipbpegelkgmjbniphflgeljhcjblojnhdkncb"
+    },
+    {
+      "path": "experiments/h17/r0_smoke/execution_pins_base.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "kogjmhfmbidjakpjiecficdciccekblghljlgpcmdonneehdcihlkdaeaikgkhoh"
+    },
+    {
+      "path": "experiments/h17/r0_smoke/identity.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "hokobehkilcakbahjjbmpjlgjjiigonjhickajcnhhjphjbbhkoiipfeflmmbcpo"
+    },
+    {
+      "path": "experiments/h17/r0_smoke/metrics.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "pefohkgmgkkmgkmaojecdagibojbjnbnlacnkbliochomilameacjcanbhjoplpa"
+    },
+    {
+      "path": "experiments/h17/r0_smoke/parent_recomputation.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "jeklanpofeigpbifibajalkblgfkgcekhhhcdikjgnlalpcakaccbahbikmjdjkg"
+    },
+    {
+      "alphabet": "a-p only",
+      "byte_count_utf8_alpha": "dcdedhdbdhdjdadfda",
+      "path": "experiments/h17/r0_smoke/raw.npz.ap",
+      "sha256_alpha": "nbmmkhinhcojjgpomhlflgahgiffahjphjjlfopeehfkeeidldehikfmdpobimik"
+    },
+    {
+      "path": "experiments/h17/r0_smoke/verification.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "bofliogeoooeaammfaemldedenbgfdoelbeflkhihkljhkdanjmbfgnjdgiodpfa"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt1/execution_pins_base.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "bpkhabddljgnhfdchcafkbfogedoodilebkbflaodnkgbhghpbfjiacgfddaofhm"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt1/execution_review_base.md",
+      "protected_token_hits": 0,
+      "sha256_alpha": "hfbkddeflilgpcpnnejchkbjilceoaclhcmlkfnoodhekdijbjclmkmilapnjmfj"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt1/identity.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "jmoconomohdghjjlpfemkhbljpgbhpagooobmiodikhpnhfplbnjjpfbefmhbmag"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/h17_r0_recording.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "gbcbighpdbbpkbhnhpiianloblcgkldddfaeilkoihhhijhgengjhekfpoefopbl"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/measure_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "cmjoakicmcojecedblhiaabbnjlddoiakacbgmfnocdbplfhhcahkadmkplhjhgl"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/test_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "cgdlnmcklolajlkakkfbhalpiljjdjmlajbaoafbhlfdecnfblkiahjhmmffncke"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/test_verify_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "fpjkbiandebhhnadfbgjpgaadhpaamlbojngegodggmokimhcegccaebpdafljmc"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/verify_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "laphplabgeljndhdjeilpppaihfegdoklpfifdmbcffhhdfjjkofmnccfegghhip"
+    },
+    {
+      "alphabet": "a-p only",
+      "byte_count_utf8_alpha": "didedfdfdg",
+      "path": "experiments/h17/r0_smoke_attempt1/raw.npz.ap",
+      "sha256_alpha": "olaoeocedobaogabpmmfkmjffclijahkkblfpdjmlfilonmjnbaeggajpgbapegl"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt2/execution_pins_base.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "hpfflnoblnjelofpadjeojihlfleodmhicgcokepdfkdodngganadlkjfbpcijen"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt2/execution_review_base.md",
+      "protected_token_hits": 0,
+      "sha256_alpha": "cocdcfeihclnkcfbdjkaghjehlelodneonkmoghdlimfddmcjaaflmknihkjpgek"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt2/identity.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "lmoineeiepkbmofhljndophdhameeicndjojmaboclmmdojmiageokjdoldgclcp"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/h17_r0_recording.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "gbcbighpdbbpkbhnhpiianloblcgkldddfaeilkoihhhijhgengjhekfpoefopbl"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/measure_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "jgjipdnibknmdfgplleldgebbjkngeijajlmlmnelljjkgkjalfgacfodhoepben"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/test_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "pbmnkcfdbmonclfmonojmcaegkdiognjheojoeaenomomcgblhncffeocbjkhffd"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/test_verify_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "fpjkbiandebhhnadfbgjpgaadhpaamlbojngegodggmokimhcegccaebpdafljmc"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/verify_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "laphplabgeljndhdjeilpppaihfegdoklpfifdmbcffhhdfjjkofmnccfegghhip"
+    },
+    {
+      "alphabet": "a-p only",
+      "byte_count_utf8_alpha": "dbdgdcdidadhdddg",
+      "path": "experiments/h17/r0_smoke_attempt2/raw.npz.ap",
+      "sha256_alpha": "kjfmihmbnfemjbiaoomkicdnepmpoehbdlehnijobdhcgakcljleijiloaccenfk"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/execution_pins_base.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "hdaifniemkighjhlkdmbchbmicigjkoodnjlgfmhlemhkcpafpcbbebcipfkkiic"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/execution_review_base.md",
+      "protected_token_hits": 0,
+      "sha256_alpha": "hakppclcgblgipgelmkjbonpdlgiecjegjldlaognflccjglidahhciaobhfiahk"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/identity.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "bcobdiaejjldlnmokjjieicgbmhloaplfogcpkmfmpmhcaiidlmaclfcgaekkjjn"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/h17_r0_recording.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "kboiicmmndlholgnnjhhfecocleckcfipgngchpemndmahgjjmackgmifbekkmgp"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/measure_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "achgifnjbcafanjonfglemoaponkcbgjbeadoiblobgmnjbefpmejehmckpjhdhd"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/test_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "mmlelegdghpklgdafgikjjcldpeobamicndjojfhboblgompccicefmaeaackcgd"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/test_verify_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "logiilldifnamhoegkoognohfibjcodjigmfpbekmnngbdmabjgkemelgfedmkjk"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/verify_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "laphplabgeljndhdjeilpppaihfegdoklpfifdmbcffhhdfjjkofmnccfegghhip"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/metrics.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "jojafnmmdidloocmhiblcfkknhpcaamcbphijagpdlledlfpcjkackeojokkbdmn"
+    },
+    {
+      "alphabet": "a-p only",
+      "byte_count_utf8_alpha": "dcdedhdbdhdjdadfda",
+      "path": "experiments/h17/r0_smoke_pre_index/raw.npz.ap",
+      "sha256_alpha": "nbmmkhinhcojjgpomhlflgahgiffahjphjjlfopeehfkeeidldehikfmdpobimik"
+    },
+    {
+      "path": "experiments/h17/r0_smoke_pre_index/verification.json",
+      "protected_token_hits": 0,
+      "sha256_alpha": "llpmonhbicmnbjkldmlacegaaooajkacgcmadednkajpiiiidfaoinlonjgfclkd"
+    },
+    {
+      "path": "notes/reviews/2026-10-09-h17-r0-design-v2-review.md",
+      "protected_token_hits": 0,
+      "sha256_alpha": "nepeofheekdihckepbhgeeangpioknbjgamnpeldejehkblcbbbfjfnjclhoejem"
+    },
+    {
+      "path": "notes/reviews/2026-10-09-h17-r0-execution-review.md",
+      "protected_token_hits": 0,
+      "sha256_alpha": "ehbdaffikhjdhjkbjmjlcokfadnoljabggalmlpafdcicfhbofcoljoagodicboh"
+    },
+    {
+      "path": "notes/reviews/2026-10-09-h17-run3-design-v1-review.md",
+      "protected_token_hits": 0,
+      "sha256_alpha": "kdppgfcgdhhohjnkeekhchfmfnbgpipnjefemgjlonmbommpenglemnncfnegnnm"
+    },
+    {
+      "path": "tests/test_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "mmlelegdghpklgdafgikjjcldpeobamicndjojfhboblgompccicefmaeaackcgd"
+    },
+    {
+      "path": "tests/test_verify_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "logiilldifnamhoegkoognohfibjcodjigmfpbekmnngbdmabjgkemelgfedmkjk"
+    },
+    {
+      "path": "tools/h17_r0_recording.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "kboiicmmndlholgnnjhhfecocleckcfipgngchpemndmahgjjmackgmifbekkmgp"
+    },
+    {
+      "path": "tools/measure_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "achgifnjbcafanjonfglemoaponkcbgjbeadoiblobgmnjbefpmejehmckpjhdhd"
+    },
+    {
+      "path": "tools/verify_h17_r0.py",
+      "protected_token_hits": 0,
+      "sha256_alpha": "mpnkojngnbhpdocdhbnhiccimdifiehfihlobdeefcalfhejappdgbegmckiopnd"
+    }
+  ],
+  "old_source_snapshot_files": 30,
+  "passed": true,
+  "pinned_files": 96,
+  "prior_E1_pinned_files": 91,
+  "r2_sources_and_manifest": "PASS"
+}

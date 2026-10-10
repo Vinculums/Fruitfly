@@ -1,0 +1,33 @@
+{
+  "files": 532,
+  "numbers": [
+    86240001,
+    86240002,
+    86240101,
+    86240102,
+    86240201,
+    86240202,
+    86240301,
+    86250001,
+    86250101,
+    86250201,
+    86260002,
+    86260102,
+    86260202,
+    86270001,
+    86270002,
+    86270101,
+    86270102,
+    86270201,
+    86270202
+  ],
+  "hits": [],
+  "exclusions": [
+    ".git",
+    "__pycache__",
+    "tools/prepare_hold_final.py (candidate declaration)"
+  ],
+  "derived_streams": "world + balance; world + D_OFF; agent + cast; agent + A3_OFF",
+  "graph_scan": "Vinc Fruit Fly: all base and derived values queried individually before registration; no keyword rows or literal node matches, fts+vector operational. Semantic neighbors are not literal seed hits.",
+  "date": "2026-10-09"
+}

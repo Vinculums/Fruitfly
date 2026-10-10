@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-09",
+  "space": "01a0b944-ecb4-737b-b3e6-5cc99ff37654",
+  "docs": [
+    {
+      "path": "notes/hold/2026-10-09-hold-branch-exposure-design-v2.md",
+      "doc_id": "d248dbe4ce559adc6",
+      "sha256": "edmabfimdkgccbfommfnajgcomghbemkmelgnmhcjfdjjjllejkhejmgllkhiijl"
+    },
+    {
+      "path": "notes/hold/2026-10-09-hold-stage2-coverage-design-v2.md",
+      "doc_id": "d7abe10701b52c497",
+      "sha256": "oklandmmkkemmacfmkbkclnkmmbpcffflbogcpcbpjciadgpokeaekgehppfacnj"
+    },
+    {
+      "path": "src/hold_d0_metrics.py",
+      "doc_id": "d7172e5f5e36b71f4",
+      "sha256": "dnemlgalhbclcdckmkabaoodgnegphhggcfjjlnbellgcfehkecgiaegbnceeijf"
+    },
+    {
+      "path": "tools/replay_hold_d0.py",
+      "doc_id": "dbd3686dffc2411f2",
+      "sha256": "agdcbgcajdmdpdnefljfocdgaiaengjngheamkmikefodfbnphagmibnegjpnhnh"
+    },
+    {
+      "path": "experiments/hold/hold_d0_report.md",
+      "doc_id": "da4415de5eb025b17",
+      "sha256": "ikcbmaenbhpkndpkdhpkpnbfpjdgfpehephlfnknonikgfgpdjkdhelbckmpbnno"
+    },
+    {
+      "path": "notes/hold/2026-10-09-hold-stage2-i4-gate-correction.md",
+      "doc_id": "d207165c00c6e1c45",
+      "sha256": "kkdpdklahpkoadialgccjfbmafkdmkmnjkaamjeclbkimacbeimcefcdbgepgkjj"
+    },
+    {
+      "path": "src/hold_stage2_arm.py",
+      "doc_id": "dd8d870e400a082bd",
+      "sha256": "jhmiekjcmcdaimkeakbiggmnkaceohkgonlbahdbncmbmjogjgenlpphfhmdfiia"
+    },
+    {
+      "path": "src/hold_stage2_harness.py",
+      "doc_id": "dc15a8fabec1d7457",
+      "sha256": "bpebjkepednfakicgcjcejfkicjhpnpjeljapahmdehpiamendpjfiolgjapmfcl"
+    },
+    {
+      "path": "tools/run_hold_stage2.py",
+      "doc_id": "d07c725ca856c083a",
+      "sha256": "fepfmpapnjpaplngkkepjmphmjkljbfjgccjjnbeoklpchhcnnoblegiohhnaoph"
+    },
+    {
+      "path": "experiments/hold/hold_stage2_report.md",
+      "doc_id": "d94196eabcdb39bee",
+      "sha256": "lfmmdhodaimcjkhahodijcnlimbolkhbnmbgmlmkklhbkpdojmappapolpgkomoa"
+    },
+    {
+      "path": "experiments/hold/hold_verification_summary.json",
+      "doc_id": "d67fd9816d29fd64b",
+      "sha256": "cdnbcihihfbpjkcbdfahndgnpbofmjiocnmgggmijeclifeijnjkakmkflbklnpj"
+    },
+    {
+      "path": "notes/hold/2026-10-09-hold-results-next-step.md",
+      "doc_id": "d089cb41fd10a1aaf",
+      "sha256": "heiabikjpccpoopbpgcnmkdpbilgdoildjdanakgpnjobmlohlnkiljbocleodhp"
+    },
+    {
+      "path": "tools/verify_hold_results.py",
+      "doc_id": "d40dfc1681bd42204",
+      "sha256": "mlnpaglkabkbedgajebebnchemgjoonghnoehmhbhimokhlebhloklibhpabdbgi"
+    }
+  ],
+  "nodes": [
+    "decision:hold-branch-exposure-d0-open",
+    "decision:hold-stage2-coverage-open",
+    "record:hold-d0-result",
+    "record:hold-stage2-coverage-result",
+    "episode:hold-approved-recommendations-execution"
+  ],
+  "master_plan_mirror": [
+    {
+      "part": 1,
+      "doc_id": "d1867092e4263d16c",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "golhbokddacnpbceobognchcdfkmkobhfnbjjgmiajbnincobpdmcbmhjoakebnd",
+      "body_sha256": "emhfnhggfkgobbiimgbkmdfekahlpllagffeigflejpkhakadhflalalmdpipckf",
+      "slice_length": 24817
+    },
+    {
+      "part": 2,
+      "doc_id": "dd1bc59fff2843f4c",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "nkhdgnnginbjejbfjilmgpebllnjgjoikaaeklkejncpknbbccdahnhbblajpopn",
+      "body_sha256": "kjdnphceenbphghabjdmolfkegeefcojalocbejaollflooffkgjggkpcmponbgl",
+      "slice_length": 24817
+    },
+    {
+      "part": 3,
+      "doc_id": "dff556eaf7e0cf994",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "aacioegckigickddniepakaifompijbdgbmaofbkaomockpcnodhdpblbkciolpe",
+      "body_sha256": "kjfgpbiilclofnoppiklhmllkioldkplibdjchoahjgpbbpdbbpljohljnfebacb",
+      "slice_length": 24817
+    },
+    {
+      "part": 4,
+      "doc_id": "d3c890077450be5a4",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "kcjnjhbdnpikdfljabiakipdhpdllhnicjpcaaaaknfjdonhhifkkccggnihpdep",
+      "body_sha256": "eidloecincpkfpgllpiefigppeiokopjihiljkkkpkplafaoecgmdiphlcdhjame",
+      "slice_length": 24817
+    },
+    {
+      "part": 5,
+      "doc_id": "d86e1618aadf644d7",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "kpmemjghbclpnemhfdhkclccgecfbbffjjapnbgaonkfgjkfphhpglbkbgkdjppl",
+      "body_sha256": "iohonhmegbalpdbinflbjjlfjoojlklhdffionfjjgpdkjpnibafegepipildenk",
+      "slice_length": 24817
+    },
+    {
+      "part": 6,
+      "doc_id": "d8542f76ede325585",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "ifphakdmdndoadifcbcbcgekbigfgchdlbhbachnfcdanccpakmgmfgbnncdnbhk",
+      "body_sha256": "nkecpmnenpdhancjkkejeblcaighpmofhecghdlhdabgmcjagfaejoimkoahgbdi",
+      "slice_length": 24817
+    },
+    {
+      "part": 7,
+      "doc_id": "dc811d089a183a6e0",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "gaoimojpdbhopbjcpkgpfkheaodapjphcgifkomfefmfgcldkefmldkkckcmlieb",
+      "body_sha256": "lflbpndikpcnphkacfiflahcipfpbnccanblcnlbcpmgmnaejojdblebfnbnnffm",
+      "slice_length": 24817
+    },
+    {
+      "part": 8,
+      "doc_id": "d3bd8a60ed6a10c75",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "gddnnleiohbhloleldihomogcjnafkbiepnjlpgcehknakeofmojkcpgmbjnnogp",
+      "body_sha256": "ikknkmaloifchibgnlmdkjkfoppdlkcfkabejaelpjnnnglpijgpgnnpnoeaacfb",
+      "slice_length": 24817
+    },
+    {
+      "part": 9,
+      "doc_id": "d4a755cf5a2e6ef8f",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "mnblacpjjllhcdellfbcogcggpbiknjcmcaogoddddelcbkiiigckkmjjlogfjnn",
+      "body_sha256": "mddmmeikejkggfoacdgaepkddglgkpgmnbmiakakfclgknkcalpnhpabikbccdao",
+      "slice_length": 24817
+    },
+    {
+      "part": 10,
+      "doc_id": "d391977fec42e5387",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "jpgiffiagjegmfmijmahdgdabfchnadmanelhiihdijgjjbkhgabpjnmeofkogco",
+      "body_sha256": "dpphpcomeicfigcmflgikhpmnihjahalhbgnnmnicbmkjghnlpokbnfalfgdnhfn",
+      "slice_length": 24817
+    },
+    {
+      "part": 11,
+      "doc_id": "d0ab8ab7761a1adb1",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "jcgclpbdbflfemjjipnokoaefeccejbnbiabffncmdneobkipgfpljmgkkdabnfo",
+      "body_sha256": "einngkgkbbigkinkhcmjkcdcnhiildobciamgklaabkapcnanepajbbdpkmhbfnj",
+      "slice_length": 24817
+    },
+    {
+      "part": 12,
+      "doc_id": "d106aff2c86bfac6c",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "chpjljpfpeibnfiaknpjglfikjjnmhippjjgeboinbgaaibeggomnceebocamooj",
+      "body_sha256": "depkmdgdallfbehmgjaliokpfebpooofpajfhoonppaicifpegijnoadjfmpelmp",
+      "slice_length": 24817
+    },
+    {
+      "part": 13,
+      "doc_id": "dc0444894b71c04d5",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "jmhmedneahgghmkogfikegmnfdhchpmoloipfapgjegnljnohghapnmjopmmgeed",
+      "body_sha256": "ncfglpfpohfcpkfimfblfgbnbcpmjmflmhgfohllmmililmkecopapbagddackdi",
+      "slice_length": 24808
+    }
+  ],
+  "write_validation": "Doc hashes matched local bytes. Full stage-two report text recovered via verified doc_get after incomplete put response. Result/episode ingest stored readback matched, warnings empty.",
+  "hash_alphabet": "abcdefghijklmnop maps to 0123456789abcdef"
+}

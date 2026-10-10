@@ -1,0 +1,22 @@
+{
+  "H0": {
+    "L2_fields": 107,
+    "RNG_checkpoints": 1400,
+    "RNG_generators": 11,
+    "all_output_fields": 55,
+    "passed": true,
+    "rows": 40,
+    "steps": 200
+  },
+  "complete": true,
+  "evidence_sha256_alpha": {
+    "identity.json": "pgbnjneienoklfmgbanmklelbbmnakdnomjpgiolfebcbaiklepfhholmjlfefml",
+    "raw.npz.ap": "cjdkkbgohblhgbcjoonlmlahdhhamamebibncjelggdglflchipahhpmpojoglne"
+  },
+  "execution_pins_sha256_alpha": "lnjcngojjjddhpdjfpjcjiecgppajbkmckhhgeadeahbnifallekpcdkihfodckf",
+  "fresh_random_draws": false,
+  "passed": true,
+  "read_only_evidence": true,
+  "simulation_performed": false,
+  "verifier_sha256_alpha": "meijnlanaenhhehlnklpnomhidpaojicopchpnhlpgmdhnbgbihlllkeanflpjoj"
+}

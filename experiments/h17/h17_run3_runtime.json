@@ -1,0 +1,44 @@
+{
+  "format": "h17-run3-runtime-v3",
+  "complete": true,
+  "date": "2026-10-10",
+  "runtime": {
+    "python": "3.13.12",
+    "numpy": "2.5.3",
+    "implementation": "CPython",
+    "executable": "C:\\Users\\weg1456\\AppData\\Roaming\\uv\\python\\cpython-3.13.12-windows-x86_64-none\\python.exe",
+    "executable_sha256_alpha": "cgekjdfbhommagjoofhnppefblggonbmhlinifedjbbpdnigoejekmeeojgngkba",
+    "numpy_path": "D:\\Cache\\uv\\archive-v0\\MRpmGRylnoMLdqXKFTnGd\\Lib\\site-packages\\numpy\\__init__.py",
+    "numpy_init_sha256_alpha": "kgjfimldgeggdlhkmmoibmmpnfioolgfkcldenfdhgbfhpjcehhhljhcbbkhdloe",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "machine": "AMD64",
+    "pointer_bits": 64,
+    "byteorder": "little",
+    "threads": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "processes": 1,
+    "optimize": 0,
+    "assertions_enabled": true,
+    "native_libraries": {
+      "numpy._core._multiarray_umath": {
+        "path": "D:\\Cache\\uv\\archive-v0\\MRpmGRylnoMLdqXKFTnGd\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd",
+        "sha256_alpha": "nldflpjdkolellafemihlfcfmmidoinlmlpaamgfffklifjjmfmlidpglaggcnkj"
+      },
+      "numpy.random._generator": {
+        "path": "D:\\Cache\\uv\\archive-v0\\MRpmGRylnoMLdqXKFTnGd\\Lib\\site-packages\\numpy\\random\\_generator.cp313-win_amd64.pyd",
+        "sha256_alpha": "ijokekikplhmgpeagjikebajphnoammhcepdjnpfdcaggknnmlccpklfkneogadg"
+      }
+    },
+    "numpy_config_sha256_alpha": "pmmfidpilhkcagghgkaeaaijebkfemfdfjmommfmjmpendokacdmhficogoneffa"
+  },
+  "actual_environment_matches_R0": true,
+  "fresh_generators_created": 0,
+  "new_trajectories": 0,
+  "future_drift_rule": "Mismatch stops before any reserved generator. Implementation closure and H0 remain future execution prerequisites."
+}

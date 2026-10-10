@@ -1,0 +1,45 @@
+{
+  "schema": "h17-r0-execution-opening-v2",
+  "complete": true,
+  "date": "2026-10-09",
+  "decision": "decision:h17-r0-open",
+  "owner_instruction": "다음 권고 사항 작업 진행",
+  "authorized_scope": "Implement and review R0 runner/verifier, spent-input H0, then one claimed passive measurement and independent recomputation",
+  "design": "experiments/h17/h17_r0_design_v2.md",
+  "design_doc": "db4aadf3b4101cef9",
+  "design_sha256_alpha": "aoloibneomoabagmcfmmfbelodbmcdoapmaopeaoodlnjhiajglghflgegbeggbk",
+  "seed_config": "config/h17-r0-seeds.json",
+  "seed_config_sha256_alpha": "iejnjbleicghhinmedadflphnnpibopmflpapajejgedijjeigaooblhdajnhmed",
+  "seed_registration": "experiments/h17/h17_r0_seed_registration.json",
+  "seed_registration_sha256_alpha": "pleafleiefdijfpbghcliihcofebdemeeeicldggpgbmnokandimckjgbkajibji",
+  "conditions": [
+    "C0",
+    "T1",
+    "W1",
+    "T3"
+  ],
+  "rows": 400,
+  "steps": 600,
+  "execution_opened": true,
+  "baseline": "Fly nch2, supplied values, no learning, N2/window/presence unchanged",
+  "main_claims_allowed": 1,
+  "claim_key": "Canonical pair digest only; output path/design ID cannot bypass",
+  "runtime": {
+    "python": "3.13.12",
+    "numpy": "2.5.3",
+    "threads": 1,
+    "processes": 1,
+    "location": "local session"
+  },
+  "pre_draw_requirements": [
+    "Complete immutable source/schema/runtime closure",
+    "Independent implementation review",
+    "Meaningful tests",
+    "Spent-input H0 and independent verification",
+    "Exclusive durable main pair claim"
+  ],
+  "candidate_selected": false,
+  "relaxation_signed": false,
+  "adoption": "none",
+  "historical_closures_unchanged": true
+}

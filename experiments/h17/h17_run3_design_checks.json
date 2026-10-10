@@ -1,0 +1,234 @@
+{
+  "format": "h17-run3-design-checks-v2",
+  "date": "2026-10-10",
+  "complete": true,
+  "passed": true,
+  "owner_instruction": "권고안에 따라 작업 이어 진행",
+  "authorized_scope": "Concrete reviewed Run 3 candidate DRAFT from current C0 and stored loop anchors; design only.",
+  "status": "REVIEWED_DRAFT_UNSIGNED_NOT_EXECUTED",
+  "candidate": "GS250",
+  "candidate_confirmed": false,
+  "new_q_relaxation_signed": false,
+  "FINAL": false,
+  "execution_opened": false,
+  "adoption": "none",
+  "documents": [
+    {
+      "path": "experiments/h17/h17_run3_design_v2.md",
+      "sha256_alpha": "nddceljahjnfddednpihcigbiooacjgloacoebmfcnabnnjjfoaepambjjgoknjf",
+      "doc_id": "d73d7de44ea288ca0",
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_run3_anchor_audit.json",
+      "doc_id": "da13f38d62551dccd",
+      "sha256_alpha": "jackbmmkbgpbikomfcagiomanioebhbpbddigbpoipcmgcnnabgngbonlfkibfhi",
+      "verified_text_match": true
+    },
+    {
+      "path": "notes/reviews/2026-10-10-h17-run3-design-v2-review.md",
+      "sha256_alpha": "jjgkoppjpmjfjbhmokacajlfgpokbelcgbggpkidmdlijolepcedkijdjfikofda",
+      "doc_id": "dbc7068ac14107ae1",
+      "verified_text_match": true
+    }
+  ],
+  "graph_write_readback": [
+    {
+      "id": "decision:h17-run3-candidate-design-draft",
+      "verified": true,
+      "source_doc": "d73d7de44ea288ca0"
+    },
+    {
+      "id": "record:h17-run3-anchor-audit",
+      "verified": true,
+      "source_doc": "da13f38d62551dccd"
+    },
+    {
+      "id": "episode:h17-run3-candidate-design",
+      "verified": true,
+      "source_doc": "d73d7de44ea288ca0"
+    },
+    {
+      "id": "decision:h17-run3-open-design",
+      "verified": true,
+      "source_doc": "dac20b7f7a9bbc737"
+    }
+  ],
+  "source_preservation": {
+    "complete": true,
+    "passed": true,
+    "R0_pinned_files": 96,
+    "R0_nonmutable_ledger_files": 10,
+    "historical_v1_unchanged": true,
+    "protected_token_new_docs": "PASS",
+    "R2_sources_and_exact_manifest": "PASS",
+    "new_docs_sha256_alpha": {
+      "experiments/h17/h17_run3_design_v2.md": "nddceljahjnfddednpihcigbiooacjgloacoebmfcnabnnjjfoaepambjjgoknjf",
+      "experiments/h17/h17_run3_anchor_audit.json": "jackbmmkbgpbikomfcagiomanioebhbpbddigbpoipcmgcnnabgngbonlfkibfhi",
+      "notes/reviews/2026-10-10-h17-run3-design-v2-review.md": "jjgkoppjpmjfjbhmokacajlfgpokbelcgbggpkidmdlijolepcedkijdjfikofda"
+    },
+    "source_closure_sha256_alpha": "ipnbbdcgnhimipkghbaefggdkdidknipflgdijhihabegkmnfjbbilgceglgpbgd",
+    "R0_no_rerun": true,
+    "candidate_trajectory": false,
+    "fresh_generator": false
+  },
+  "anchor_method": {
+    "basis": "Immutable R0 saved AP-encoded arrays, direct root reading with raw archive SHA validation; actual pre-command first-marker rows.",
+    "raw_sha256_alpha": "bdjliepfoneecapofbnelegdajohjcfekcckfofdmnkoophdcgooinfccggfdopc",
+    "measurement_date": "2026-10-09",
+    "audit_date": "2026-10-10",
+    "controller_executed": false,
+    "ideal_command_geometry": "Deterministic zero-noise/perfect-heading arithmetic only. Final U150 geometry recomputed after the initial reader; not a candidate trajectory, effect estimate or power calculation.",
+    "candidate_effect": "unmeasured"
+  },
+  "review": {
+    "verdict": "CLEAR_FOR_PROPOSAL_ONLY",
+    "first_entry_denominators": "Distinct first-entry rows only; later entries diagnostics.",
+    "slant_coverage": "Both signs guaranteed only across uninterrupted eligibility with no whiff reset.",
+    "q_phase": "q-only persistent state, u=q-250 derived; holds do not pause/restart; delayed entries retain phase.",
+    "motor_residual": "Rounded returned-turn residual retained; not bitwise reconstruction of the original Gaussian draw.",
+    "future_stops": "All required clauses PASS before continuation; FAIL/INCONCLUSIVE/INVALID bench stops."
+  },
+  "this_turn_execution": {
+    "R0_rerun": false,
+    "candidate_implementation": false,
+    "candidate_trajectory": false,
+    "RNG_draws": false,
+    "bootstrap_run": false,
+    "fresh_seed_registration": false,
+    "new_runtime_tests": false,
+    "deterministic_design_arithmetic": true
+  },
+  "master": {
+    "path": "master_plan.md",
+    "sha256_alpha": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+    "mirror_count": 13,
+    "mirrors": [
+      {
+        "part": 1,
+        "doc_id": "d1867092e4263d16c",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "nleleagnhhnnpekbbpdlkhclogghnakeiipkehliippilnapnmcgofhemccclihp",
+        "verified_text_match": true
+      },
+      {
+        "part": 2,
+        "doc_id": "dd1bc59fff2843f4c",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "folflnnielhichnaogpjiihoeljgjhcmdkiklpddponjjfjffgdeoglcoojkpfie",
+        "verified_text_match": true
+      },
+      {
+        "part": 3,
+        "doc_id": "dff556eaf7e0cf994",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "eonkfeilkmbfkifmnihhapnjhfochhhdafhigkpgghjhffmanlncdeellbeadjim",
+        "verified_text_match": true
+      },
+      {
+        "part": 4,
+        "doc_id": "d3c890077450be5a4",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "pknkhheoedbocekbnmmmadngabdpaffadacmdjfkhnlcgjgkfmemkjccngjajdfe",
+        "verified_text_match": true
+      },
+      {
+        "part": 5,
+        "doc_id": "d86e1618aadf644d7",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "ofemfecahmjipbglmcogmikfhomlcjghcdagdeepodlhgacimjfpgpmofophmdba",
+        "verified_text_match": true
+      },
+      {
+        "part": 6,
+        "doc_id": "d8542f76ede325585",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "odogkdknklagbieniobcedohplbeceogiecmghbeeaaapmofonegbnagajgmhjii",
+        "verified_text_match": true
+      },
+      {
+        "part": 7,
+        "doc_id": "dc811d089a183a6e0",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "hohhafjpdgnibhapljghfdflolmniccblgojicmpmodcgdpdaiabnodgdnbomhpi",
+        "verified_text_match": true
+      },
+      {
+        "part": 8,
+        "doc_id": "d3bd8a60ed6a10c75",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "fipgcbcafekhgncmjiekjacgpeiinogmhggnahjnpbnklekgldppamcanlkcabcl",
+        "verified_text_match": true
+      },
+      {
+        "part": 9,
+        "doc_id": "d4a755cf5a2e6ef8f",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "ehipijmhlofkicmhbeelaeknngnldnkchkkjcbhccfdjhacfamaikcaaoajojpml",
+        "verified_text_match": true
+      },
+      {
+        "part": 10,
+        "doc_id": "d391977fec42e5387",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "emnhgoaifcknmgenmpoodipginfhpmincahoppmpmgcammanpgejicheelplbglf",
+        "verified_text_match": true
+      },
+      {
+        "part": 11,
+        "doc_id": "d0ab8ab7761a1adb1",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "iibignmhbhhpnhegofmklklkjbpaphlhooonpibnfoakbbkeoiadefpdhibmeblk",
+        "verified_text_match": true
+      },
+      {
+        "part": 12,
+        "doc_id": "d106aff2c86bfac6c",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "jnfamnckdpikbkmampiakckpdejcmgjkghkhjdbhbkmbjeejleihkapfljbmebif",
+        "verified_text_match": true
+      },
+      {
+        "part": 13,
+        "doc_id": "dc0444894b71c04d5",
+        "created": false,
+        "full_sha256_ap": "dehihlcbnplknhcklinpopiemdbemfdlldccjglidnnepkgfdcnjmpifdpbgpgee",
+        "slice_sha256_ap": "laoohjmmejnihahgiljoeafmekefjncngkccbalempnobgpfodmephhdobfpcenb",
+        "verified_text_match": true
+      }
+    ]
+  },
+  "readme": {
+    "path": "README.md",
+    "sha256_alpha": "ocgoodpcbjeckphfkafohphaejnmighbnpnkepnflmmbjhkmjlncdgalbapbffob",
+    "new_delta_protected_tokens": "PASS"
+  },
+  "protected_tokens": {
+    "new_documents": "PASS",
+    "master_inserted_and_replacement_lines": "PASS",
+    "master_historical_alias_counts": "UNCHANGED",
+    "readme_delta": "PASS",
+    "this_receipt": "PASS"
+  },
+  "historical_disposition": {
+    "H17": "NOT shown unchanged",
+    "hold_D0": "UNRESOLVED unchanged",
+    "coverage": "A5/B3 bench stops unchanged",
+    "E1": "Below registered screen unchanged",
+    "Q1_Q4": "Order unchanged",
+    "Q3_parallel": "HELD"
+  },
+  "next": "Confirm GS250 and its q-only old/new/anchor/scope contract; then FINAL/runtime/schema/fresh-role reservation before a separate implementation/H0/bench opening."
+}

@@ -1,0 +1,139 @@
+{
+  "format": "h17-run3-execution-opening-checks-v3",
+  "date": "2026-10-10",
+  "complete": true,
+  "passed": true,
+  "scope": "Execution opening and baseline preservation before implementation is frozen; no implementation/H0/BENCH clearance",
+  "owner_instruction": "다음 작업 이어서 실행",
+  "opening": {
+    "path": "config/h17-run3-execution-opening.json",
+    "doc_id": "d6d6278e624bb86d9",
+    "verified_text_match": true,
+    "sha256_alpha": "hhmmdmecifipakknbgkjoohopphomgpdcigckdnnaeoihjlcfabejcolcpigclig"
+  },
+  "baseline": {
+    "specification_files": 112,
+    "previous_completion_documents": 9,
+    "immutable_specification_and_R0": true
+  },
+  "graph": [
+    {
+      "id": "decision:h17-run3-open",
+      "props_exact": true
+    },
+    {
+      "id": "episode:h17-run3-execution-opening",
+      "props_exact": true
+    }
+  ],
+  "master_mirrors": [
+    {
+      "part": 1,
+      "doc_id": "d1867092e4263d16c",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "acjdeagdflbggcpgckdohkifpjghkpnnjbacmnpabmiillcbflkjcpnpgdangpna",
+      "verified_text_match": true
+    },
+    {
+      "part": 2,
+      "doc_id": "dd1bc59fff2843f4c",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "jkcfnjefdihjcbdmccdfakljlmjipojckjkahckheplmpplolfpkodingjigmpka",
+      "verified_text_match": true
+    },
+    {
+      "part": 3,
+      "doc_id": "dff556eaf7e0cf994",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "kgoblhacnphnacpamljopinmlhpldiejgipljhhbmmfljhfgomkjilinajdajegp",
+      "verified_text_match": true
+    },
+    {
+      "part": 4,
+      "doc_id": "d3c890077450be5a4",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "hbjifanpjppglpipkhcngkipdgohdkfkdceigdinigleebeggiinehlmdaojhlpj",
+      "verified_text_match": true
+    },
+    {
+      "part": 5,
+      "doc_id": "d86e1618aadf644d7",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "feamljadhldabckfmndkagmdojeemoaioiciggikeegbompfhgcjanoipnjlmgok",
+      "verified_text_match": true
+    },
+    {
+      "part": 6,
+      "doc_id": "d8542f76ede325585",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "deajeaiejjlfllhnhjfbheokmpndebhjdgkkfpbfkmdpijcoohepjnejfefgipdj",
+      "verified_text_match": true
+    },
+    {
+      "part": 7,
+      "doc_id": "dc811d089a183a6e0",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "obbgnpfcolnhjokoghlnaeoeijhjeemladjbmkmekaomfdpecggpcjkhlafpmnjj",
+      "verified_text_match": true
+    },
+    {
+      "part": 8,
+      "doc_id": "d3bd8a60ed6a10c75",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "ncocomohkiejogfhbkgpoakhpblchppbokengamngdgcgffpajgbdnfkbocblkcb",
+      "verified_text_match": true
+    },
+    {
+      "part": 9,
+      "doc_id": "d4a755cf5a2e6ef8f",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "ggnlongejlcabfaecmngkdekecanmjjfdbgkfmgeobkhoabfajfoabjgofopeanb",
+      "verified_text_match": true
+    },
+    {
+      "part": 10,
+      "doc_id": "d391977fec42e5387",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "lbccjmiblnhnaoadjpmklpbhomaalkgoaibbgadlglnagonakfpkekdpncdbpbne",
+      "verified_text_match": true
+    },
+    {
+      "part": 11,
+      "doc_id": "d0ab8ab7761a1adb1",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "epogomgfkidomhbklkenhaieonnbhapeipllhlndjiiefhhdaagceopdinophbnj",
+      "verified_text_match": true
+    },
+    {
+      "part": 12,
+      "doc_id": "d106aff2c86bfac6c",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "eifbhojjkimmhaiinihakfcijjpgpabkppbhiefpfmgiocjpkelbeleiofcgbecn",
+      "verified_text_match": true
+    },
+    {
+      "part": 13,
+      "doc_id": "dc0444894b71c04d5",
+      "full_sha256_ap": "ekigflkdcamemdnalbhfpjbidddbpifigmbnanffcjmonmdnooogmphdenmifblo",
+      "slice_sha256_ap": "hapilnglaegehhlceapkldffhleekiemphgeahialpnjcekkdpnkakdaopaagnid",
+      "verified_text_match": true
+    }
+  ],
+  "master_protected_delta": "PASS",
+  "historical_protected_counts_unchanged": true,
+  "README": {
+    "README_sha256_alpha": "dacahkggphncabmkcjaimiigmgbcefdgdojibbmmamfnbomhdhemhbmachmeknif",
+    "protected_delta": "PASS"
+  },
+  "runtime": "Pinned original R0 runtime; every execution preflight must independently recheck exact stamp",
+  "execution_opened": true,
+  "implementation_complete": false,
+  "H0_complete": false,
+  "BENCH_complete": false,
+  "DEV_opened": false,
+  "EVAL_opened": false,
+  "claims_created": 0,
+  "fresh_generators_created": 0,
+  "adoption": "none",
+  "next_step": "Complete isolated implementation and independent verifier with meaningful tests and review; close stable base pins before spent H0 and one BENCH"
+}

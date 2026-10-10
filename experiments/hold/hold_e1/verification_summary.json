@@ -1,0 +1,70 @@
+{
+  "complete": true,
+  "passed": true,
+  "screen": {
+    "X1": true,
+    "X2": true,
+    "X3": false,
+    "X4": true
+  },
+  "verdict": "REACHED, BELOW REGISTERED SCREEN",
+  "simulation_performed": false,
+  "verifier_sha256_ap": "meijnlanaenhhehlnklpnomhidpaojicopchpnhlpgmdhnbgbihlllkeanflpjoj",
+  "evidence_sha256_ap": {
+    "identity.json": "bpnhhealninlekipjhceehkalbpikbjgalfjgjppkgppahmodkfgaehkakkbcpeg",
+    "exposure.json": "jkjjkhacajafeflonfepanapmjbhmjlcadcjjjbjmlgnokohkcdcglmahnimidoe",
+    "raw.npz.ap": "ceibpfgncfojgkkghfeeanhlfhipobckonnccbhljoooicmkfgcchjemhocmbkea",
+    "verification.json": "hnejigdplmpgffgcclkbhbacedppacmimdngdabijmgodmoabepkbikoijfingof",
+    "root_recomputation.json": "cjboojabgcmjdjhdpafinfephmdnkcmllbjdmeglkaollgfakopnnblelanahili"
+  },
+  "root_recomputed": {
+    "B4": {
+      "exposed_rows": 5,
+      "command_steps": 7,
+      "lost_rows": 38,
+      "rows": 400,
+      "steps": 600,
+      "simultaneous_bursts": 222,
+      "raw_ties": 14463,
+      "eligible_tied_single": 170,
+      "T1_T5_steps": 7,
+      "f_id": 0.041176470588235294,
+      "tied_route_command_steps": 7,
+      "outside_route_command_steps": 0
+    },
+    "B5": {
+      "exposed_rows": 397,
+      "command_steps": 62042,
+      "lost_rows": 75,
+      "rows": 400,
+      "steps": 600,
+      "simultaneous_bursts": 192,
+      "raw_ties": 14086,
+      "eligible_tied_single": 0,
+      "T1_T5_steps": 0,
+      "f_id": null,
+      "tied_route_command_steps": 0,
+      "outside_route_command_steps": 62042
+    }
+  },
+  "provenance": "91 immutable measurement files; original references unchanged; one exclusive claimed screen",
+  "tests": {
+    "original_and_runner": 31,
+    "independent_verifier": 12,
+    "total": 43
+  },
+  "plume_observations": {
+    "B4": {
+      "denominator_row_steps": 240000,
+      "nonzero_B_probability_steps": 27654,
+      "B_whiff_steps": 4699,
+      "D_whiff_steps": 4751
+    },
+    "B5": {
+      "denominator_row_steps": 240000,
+      "nonzero_B_probability_steps": 23087,
+      "B_whiff_steps": 3986,
+      "D_whiff_steps": 3985
+    }
+  }
+}

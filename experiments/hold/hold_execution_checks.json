@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-09",
+  "runtime": {
+    "python": "3.13.12",
+    "numpy": "2.5.3",
+    "threads": "one"
+  },
+  "tests": {
+    "command": "python tools/run_local_tests.py",
+    "cases": 22,
+    "passed": true,
+    "fixture_adapter": "Windows inherited ACLs; assertions unchanged",
+    "optimized_verifier_negative_check": "exit 1, refused disabled assertions"
+  },
+  "identity": {
+    "path": "experiments/hold/hold_stage2_corrected/hold_stage2_identity.json",
+    "gates": 29,
+    "rows": 400,
+    "steps": 600,
+    "parent_review": "Source pins, all compared field/gate results, per-row I5 coupled counts independently reviewed; PASS"
+  },
+  "R2": {
+    "command": "python tools/verify_seed_scan_r2.py",
+    "source_pins": "PASS",
+    "downstream_pins": "PASS",
+    "ph33": {
+      "scanned_files": 539,
+      "applied": 25,
+      "unused": 0,
+      "errors": 0
+    },
+    "ph35": {
+      "scanned_files": 539,
+      "applied": 17,
+      "unused": 0,
+      "errors": 0
+    },
+    "new_final_report_note_P5": "Direct protected-token scan PASS after final report write"
+  },
+  "independent_result": "experiments/hold/hold_results_verification.json",
+  "master_plan_mirror": [
+    {
+      "part": 1,
+      "doc_id": "d1867092e4263d16c",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "golhbokddacnpbceobognchcdfkmkobhfnbjjgmiajbnincobpdmcbmhjoakebnd",
+      "body_sha256": "emhfnhggfkgobbiimgbkmdfekahlpllagffeigflejpkhakadhflalalmdpipckf",
+      "slice_length": 24817
+    },
+    {
+      "part": 2,
+      "doc_id": "dd1bc59fff2843f4c",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "nkhdgnnginbjejbfjilmgpebllnjgjoikaaeklkejncpknbbccdahnhbblajpopn",
+      "body_sha256": "kjdnphceenbphghabjdmolfkegeefcojalocbejaollflooffkgjggkpcmponbgl",
+      "slice_length": 24817
+    },
+    {
+      "part": 3,
+      "doc_id": "dff556eaf7e0cf994",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "aacioegckigickddniepakaifompijbdgbmaofbkaomockpcnodhdpblbkciolpe",
+      "body_sha256": "kjfgpbiilclofnoppiklhmllkioldkplibdjchoahjgpbbpdbbpljohljnfebacb",
+      "slice_length": 24817
+    },
+    {
+      "part": 4,
+      "doc_id": "d3c890077450be5a4",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "kcjnjhbdnpikdfljabiakipdhpdllhnicjpcaaaaknfjdonhhifkkccggnihpdep",
+      "body_sha256": "eidloecincpkfpgllpiefigppeiokopjihiljkkkpkplafaoecgmdiphlcdhjame",
+      "slice_length": 24817
+    },
+    {
+      "part": 5,
+      "doc_id": "d86e1618aadf644d7",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "kpmemjghbclpnemhfdhkclccgecfbbffjjapnbgaonkfgjkfphhpglbkbgkdjppl",
+      "body_sha256": "iohonhmegbalpdbinflbjjlfjoojlklhdffionfjjgpdkjpnibafegepipildenk",
+      "slice_length": 24817
+    },
+    {
+      "part": 6,
+      "doc_id": "d8542f76ede325585",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "ifphakdmdndoadifcbcbcgekbigfgchdlbhbachnfcdanccpakmgmfgbnncdnbhk",
+      "body_sha256": "nkecpmnenpdhancjkkejeblcaighpmofhecghdlhdabgmcjagfaejoimkoahgbdi",
+      "slice_length": 24817
+    },
+    {
+      "part": 7,
+      "doc_id": "dc811d089a183a6e0",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "gaoimojpdbhopbjcpkgpfkheaodapjphcgifkomfefmfgcldkefmldkkckcmlieb",
+      "body_sha256": "lflbpndikpcnphkacfiflahcipfpbnccanblcnlbcpmgmnaejojdblebfnbnnffm",
+      "slice_length": 24817
+    },
+    {
+      "part": 8,
+      "doc_id": "d3bd8a60ed6a10c75",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "gddnnleiohbhloleldihomogcjnafkbiepnjlpgcehknakeofmojkcpgmbjnnogp",
+      "body_sha256": "ikknkmaloifchibgnlmdkjkfoppdlkcfkabejaelpjnnnglpijgpgnnpnoeaacfb",
+      "slice_length": 24817
+    },
+    {
+      "part": 9,
+      "doc_id": "d4a755cf5a2e6ef8f",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "mnblacpjjllhcdellfbcogcggpbiknjcmcaogoddddelcbkiiigckkmjjlogfjnn",
+      "body_sha256": "mddmmeikejkggfoacdgaepkddglgkpgmnbmiakakfclgknkcalpnhpabikbccdao",
+      "slice_length": 24817
+    },
+    {
+      "part": 10,
+      "doc_id": "d391977fec42e5387",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "jpgiffiagjegmfmijmahdgdabfchnadmanelhiihdijgjjbkhgabpjnmeofkogco",
+      "body_sha256": "dpphpcomeicfigcmflgikhpmnihjahalhbgnnmnicbmkjghnlpokbnfalfgdnhfn",
+      "slice_length": 24817
+    },
+    {
+      "part": 11,
+      "doc_id": "d0ab8ab7761a1adb1",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "jcgclpbdbflfemjjipnokoaefeccejbnbiabffncmdneobkipgfpljmgkkdabnfo",
+      "body_sha256": "einngkgkbbigkinkhcmjkcdcnhiildobciamgklaabkapcnanepajbbdpkmhbfnj",
+      "slice_length": 24817
+    },
+    {
+      "part": 12,
+      "doc_id": "d106aff2c86bfac6c",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "chpjljpfpeibnfiaknpjglfikjjnmhippjjgeboinbgaaibeggomnceebocamooj",
+      "body_sha256": "depkmdgdallfbehmgjaliokpfebpooofpajfhoonppaicifpegijnoadjfmpelmp",
+      "slice_length": 24817
+    },
+    {
+      "part": 13,
+      "doc_id": "dc0444894b71c04d5",
+      "full_sha256": "jbmapmacfclcngfedhddcmepdmfegaifiafdmapabnppkejailkijdmbcjjgnffm",
+      "slice_sha256": "jmhmedneahgghmkogfikegmnfdhchpmoloipfapgjegnljnohghapnmjopmmgeed",
+      "body_sha256": "ncfglpfpohfcpkfimfblfgbnbcpmjmflmhgfohllmmililmkecopapbagddackdi",
+      "slice_length": 24808
+    }
+  ],
+  "limitations": {
+    "cleanup": "Automatic approval review rejected removal of 22 empty workspace tmp directories from failed unadapted fixtures. Left in place; no bypass.",
+    "delivery": "Local working tree and Vinc; no commit, PR merge or publication."
+  },
+  "hash_alphabet": "abcdefghijklmnop maps to 0123456789abcdef"
+}

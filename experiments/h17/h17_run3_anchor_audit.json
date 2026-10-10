@@ -1,0 +1,821 @@
+{
+  "basis": "Stored R0 arrays only; no controller execution, RNG or new trajectory",
+  "complete": true,
+  "conditions": {
+    "C0": {
+      "anchor_phase": "after complete original act, before any move or proposed override; PRE_POS/PRE_HEAD with post-act EST/clock/circuit",
+      "rows": 400,
+      "statistics": {
+        "C_post": {
+          "maximum": 390.0,
+          "median": 390.0,
+          "minimum": 390.0,
+          "quartiles": [
+            390.0,
+            390.0
+          ],
+          "shape": [
+            400,
+            2
+          ]
+        },
+        "EST": {
+          "maximum": 241.6490089242566,
+          "median": 153.95715557707666,
+          "minimum": 122.03705809917884,
+          "quartiles": [
+            137.95853299005552,
+            221.4061547558562
+          ],
+          "shape": [
+            400
+          ]
+        },
+        "PRES_post": {
+          "true_values": 0
+        },
+        "PRE_HEAD": {
+          "maximum": 241.49662281775895,
+          "median": 152.9697481286744,
+          "minimum": 122.26521862188358,
+          "quartiles": [
+            138.17265110304146,
+            221.93963173397484
+          ],
+          "shape": [
+            400
+          ]
+        },
+        "PRE_POS": {
+          "maximum": 121.60079725760474,
+          "median": 89.58256615452989,
+          "minimum": 31.470647472229764,
+          "quartiles": [
+            74.3406144620888,
+            98.41682839489455
+          ],
+          "shape": [
+            400,
+            2
+          ]
+        },
+        "SIL_post": {
+          "maximum": 4.0,
+          "median": 4.0,
+          "minimum": 4.0,
+          "quartiles": [
+            4.0,
+            4.0
+          ],
+          "shape": [
+            400
+          ]
+        },
+        "SINCE_post": {
+          "maximum": 250.0,
+          "median": 250.0,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            250.0
+          ],
+          "shape": [
+            400
+          ]
+        },
+        "S_post": {
+          "maximum": 0.0048359018257394535,
+          "median": 0.001735487487230316,
+          "minimum": 0.00015230277088566722,
+          "quartiles": [
+            0.0012078697909147001,
+            0.002366841467233519
+          ],
+          "shape": [
+            400,
+            2
+          ]
+        },
+        "cast_sign": {
+          "maximum": 1.0,
+          "median": -1.0,
+          "minimum": -1.0,
+          "quartiles": [
+            -1.0,
+            1.0
+          ],
+          "shape": [
+            400
+          ]
+        },
+        "cast_sign_counts": {
+          "-1": 202,
+          "1": 198
+        },
+        "cast_vs_flee_positive_crosswind_concordance": 207,
+        "entry_pose_array_sha256_alpha": "jfdnlmcnfflemhifpbhfkbpbbblamnamlgobjljcomoldfmkafmfklgnldcobpge",
+        "flee_side": {
+          "maximum": 270.0,
+          "median": 90.0,
+          "minimum": 90.0,
+          "quartiles": [
+            90.0,
+            270.0
+          ],
+          "shape": [
+            400
+          ]
+        },
+        "flee_side_counts": {
+          "270": 197,
+          "90": 203
+        },
+        "full_marker_array_sha256_alpha": "ffdmdbdinhbecfagoicmnakhakpjmnindgipomoljplkglnankppphogbdjpbkea",
+        "last_nav_absent_rows": 400,
+        "last_whiff_absent_rows": 400,
+        "marker_step": {
+          "maximum": 249.0,
+          "median": 249.0,
+          "minimum": 249.0,
+          "quartiles": [
+            249.0,
+            249.0
+          ],
+          "shape": [
+            400
+          ]
+        },
+        "q_obs": {
+          "maximum": 250.0,
+          "median": 250.0,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            250.0
+          ],
+          "shape": [
+            400
+          ]
+        },
+        "relative_to_pair_midpoint": {
+          "along": {
+            "maximum": 28.183693295046936,
+            "median": 18.521806924589725,
+            "minimum": 9.845322293393991,
+            "quartiles": [
+              16.10391812353425,
+              21.208029824115894
+            ],
+            "shape": [
+              400
+            ]
+          },
+          "cross": {
+            "maximum": 44.03965657583883,
+            "median": -0.6625611923854464,
+            "minimum": -44.64699880492804,
+            "quartiles": [
+              -32.62096968067399,
+              33.23007093851936
+            ],
+            "shape": [
+              400
+            ]
+          }
+        }
+      }
+    },
+    "T1": {
+      "anchor_phase": "after complete original act, before any move or proposed override; PRE_POS/PRE_HEAD with post-act EST/clock/circuit",
+      "rows": 4,
+      "statistics": {
+        "C_post": {
+          "maximum": 498.0,
+          "median": 365.5,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            494.0
+          ],
+          "shape": [
+            4,
+            2
+          ]
+        },
+        "EST": {
+          "maximum": 224.17199451187798,
+          "median": 218.46258516017403,
+          "minimum": 143.1085784288856,
+          "quartiles": [
+            198.2045889319284,
+            221.30943204352354
+          ],
+          "shape": [
+            4
+          ]
+        },
+        "PRES_post": {
+          "true_values": 0
+        },
+        "PRE_HEAD": {
+          "maximum": 225.14339861924486,
+          "median": 217.56411929241318,
+          "minimum": 141.054359741062,
+          "quartiles": [
+            198.1705482322049,
+            219.72507029649154
+          ],
+          "shape": [
+            4
+          ]
+        },
+        "PRE_POS": {
+          "maximum": 87.95890412498422,
+          "median": 83.18537125494697,
+          "minimum": 59.47939934090459,
+          "quartiles": [
+            76.5848429155508,
+            86.99728065163727
+          ],
+          "shape": [
+            4,
+            2
+          ]
+        },
+        "SIL_post": {
+          "maximum": 39.0,
+          "median": 39.0,
+          "minimum": 38.0,
+          "quartiles": [
+            38.75,
+            39.0
+          ],
+          "shape": [
+            4
+          ]
+        },
+        "SINCE_post": {
+          "maximum": 250.0,
+          "median": 250.0,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            250.0
+          ],
+          "shape": [
+            4
+          ]
+        },
+        "S_post": {
+          "maximum": 0.004407136596785753,
+          "median": 0.0033397903977784448,
+          "minimum": 0.002352998095955801,
+          "quartiles": [
+            0.0027213428313853975,
+            0.0037751675312334967
+          ],
+          "shape": [
+            4,
+            2
+          ]
+        },
+        "cast_sign": {
+          "maximum": 1.0,
+          "median": 1.0,
+          "minimum": -1.0,
+          "quartiles": [
+            0.5,
+            1.0
+          ],
+          "shape": [
+            4
+          ]
+        },
+        "cast_sign_counts": {
+          "-1": 1,
+          "1": 3
+        },
+        "cast_vs_flee_positive_crosswind_concordance": 2,
+        "entry_pose_array_sha256_alpha": "ihnbfmiidmnleajafokjeeenkflefhieabahkbcnakeocpaefolmnoccpbccjkno",
+        "flee_side": {
+          "maximum": 270.0,
+          "median": 270.0,
+          "minimum": 90.0,
+          "quartiles": [
+            225.0,
+            270.0
+          ],
+          "shape": [
+            4
+          ]
+        },
+        "flee_side_counts": {
+          "270": 3,
+          "90": 1
+        },
+        "full_marker_array_sha256_alpha": "bakadnmkgpjphdplhkjholdbgdkpfgokjjficegamljnoolpkkkipleeafmaeeep",
+        "last_nav_absent_rows": 0,
+        "last_whiff_absent_rows": 0,
+        "marker_step": {
+          "maximum": 530.0,
+          "median": 528.0,
+          "minimum": 515.0,
+          "quartiles": [
+            524.0,
+            529.25
+          ],
+          "shape": [
+            4
+          ]
+        },
+        "q_obs": {
+          "maximum": 250.0,
+          "median": 250.0,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            250.0
+          ],
+          "shape": [
+            4
+          ]
+        },
+        "relative_to_pair_midpoint": {
+          "along": {
+            "maximum": 11.550767582428918,
+            "median": 9.627244471917244,
+            "minimum": 6.673926575573333,
+            "quartiles": [
+              8.084506575057706,
+              10.912533672318723
+            ],
+            "shape": [
+              4
+            ]
+          },
+          "cross": {
+            "maximum": 14.495796925748635,
+            "median": 12.929793832097971,
+            "minimum": -13.57625103830651,
+            "quartiles": [
+              5.801001741199446,
+              13.823575478808042
+            ],
+            "shape": [
+              4
+            ]
+          }
+        }
+      }
+    },
+    "T3": {
+      "anchor_phase": "after complete original act, before any move or proposed override; PRE_POS/PRE_HEAD with post-act EST/clock/circuit",
+      "rows": 16,
+      "statistics": {
+        "C_post": {
+          "maximum": 270.0,
+          "median": 255.0,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            267.0
+          ],
+          "shape": [
+            16,
+            2
+          ]
+        },
+        "EST": {
+          "maximum": 206.68819260614617,
+          "median": 180.95930157922942,
+          "minimum": 142.18849579321093,
+          "quartiles": [
+            158.65651652681873,
+            196.88409849536782
+          ],
+          "shape": [
+            16
+          ]
+        },
+        "PRES_post": {
+          "true_values": 0
+        },
+        "PRE_HEAD": {
+          "maximum": 207.6240169699627,
+          "median": 180.75110341432816,
+          "minimum": 142.92771495286482,
+          "quartiles": [
+            158.1031929956664,
+            197.00924422576523
+          ],
+          "shape": [
+            16
+          ]
+        },
+        "PRE_POS": {
+          "maximum": 93.23348145739801,
+          "median": 85.90065522614186,
+          "minimum": 57.55076685913007,
+          "quartiles": [
+            76.11994431028373,
+            89.83989677654492
+          ],
+          "shape": [
+            16,
+            2
+          ]
+        },
+        "SIL_post": {
+          "maximum": 40.0,
+          "median": 39.0,
+          "minimum": 1.0,
+          "quartiles": [
+            4.0,
+            39.0
+          ],
+          "shape": [
+            16
+          ]
+        },
+        "SINCE_post": {
+          "maximum": 270.0,
+          "median": 267.0,
+          "minimum": 260.0,
+          "quartiles": [
+            265.75,
+            268.25
+          ],
+          "shape": [
+            16
+          ]
+        },
+        "S_post": {
+          "maximum": 0.0062228177560671675,
+          "median": 0.002416927879410717,
+          "minimum": 0.0004913558332795156,
+          "quartiles": [
+            0.0013898136458375902,
+            0.0036426459654032386
+          ],
+          "shape": [
+            16,
+            2
+          ]
+        },
+        "cast_sign": {
+          "maximum": 1.0,
+          "median": 0.0,
+          "minimum": -1.0,
+          "quartiles": [
+            -1.0,
+            1.0
+          ],
+          "shape": [
+            16
+          ]
+        },
+        "cast_sign_counts": {
+          "-1": 8,
+          "1": 8
+        },
+        "cast_vs_flee_positive_crosswind_concordance": 16,
+        "entry_pose_array_sha256_alpha": "ckdmgihbpkeaalomaogjfihopijipfgaggfnfedndjjlfchneijajhfnojbibfae",
+        "flee_side": {
+          "maximum": 270.0,
+          "median": 180.0,
+          "minimum": 90.0,
+          "quartiles": [
+            90.0,
+            270.0
+          ],
+          "shape": [
+            16
+          ]
+        },
+        "flee_side_counts": {
+          "270": 8,
+          "90": 8
+        },
+        "full_marker_array_sha256_alpha": "kbeonkjafejphcoaanpheomipmpiaekejhcachaolmkbaabgbddempoegloofpen",
+        "last_nav_absent_rows": 0,
+        "last_whiff_absent_rows": 0,
+        "marker_step": {
+          "maximum": 308.0,
+          "median": 301.0,
+          "minimum": 281.0,
+          "quartiles": [
+            298.5,
+            302.25
+          ],
+          "shape": [
+            16
+          ]
+        },
+        "q_obs": {
+          "maximum": 250.0,
+          "median": 250.0,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            250.0
+          ],
+          "shape": [
+            16
+          ]
+        },
+        "relative_to_pair_midpoint": {
+          "along": {
+            "maximum": 21.03293368682951,
+            "median": 14.540050899632561,
+            "minimum": 8.861036152016396,
+            "quartiles": [
+              10.25047894451129,
+              18.92173497997174
+            ],
+            "shape": [
+              16
+            ]
+          },
+          "cross": {
+            "maximum": 16.635026580054202,
+            "median": -0.538366705684048,
+            "minimum": -17.948916643290936,
+            "quartiles": [
+              -15.455501018596449,
+              14.1899647641898
+            ],
+            "shape": [
+              16
+            ]
+          }
+        }
+      }
+    },
+    "W1": {
+      "anchor_phase": "after complete original act, before any move or proposed override; PRE_POS/PRE_HEAD with post-act EST/clock/circuit",
+      "rows": 70,
+      "statistics": {
+        "C_post": {
+          "maximum": 734.0,
+          "median": 390.0,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            424.25
+          ],
+          "shape": [
+            70,
+            2
+          ]
+        },
+        "EST": {
+          "maximum": 236.42175199266742,
+          "median": 179.8708581473934,
+          "minimum": 125.96315234038667,
+          "quartiles": [
+            146.9751487565083,
+            189.00161233057867
+          ],
+          "shape": [
+            70
+          ]
+        },
+        "PRES_post": {
+          "true_values": 0
+        },
+        "PRE_HEAD": {
+          "maximum": 236.72323002394546,
+          "median": 179.76650378239975,
+          "minimum": 126.9335485982491,
+          "quartiles": [
+            147.33323760246338,
+            189.1856735350131
+          ],
+          "shape": [
+            70
+          ]
+        },
+        "PRE_POS": {
+          "maximum": 106.12881993358721,
+          "median": 79.05253338441568,
+          "minimum": 57.91810825571361,
+          "quartiles": [
+            75.21317644887145,
+            86.38040764571502
+          ],
+          "shape": [
+            70,
+            2
+          ]
+        },
+        "SIL_post": {
+          "maximum": 40.0,
+          "median": 37.0,
+          "minimum": 2.0,
+          "quartiles": [
+            21.25,
+            39.0
+          ],
+          "shape": [
+            70
+          ]
+        },
+        "SINCE_post": {
+          "maximum": 290.0,
+          "median": 277.5,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            285.0
+          ],
+          "shape": [
+            70
+          ]
+        },
+        "S_post": {
+          "maximum": 0.006341055576099396,
+          "median": 0.0021315601988957785,
+          "minimum": 0.0005464063325921488,
+          "quartiles": [
+            0.001574861996951369,
+            0.003161039065260324
+          ],
+          "shape": [
+            70,
+            2
+          ]
+        },
+        "cast_sign": {
+          "maximum": 1.0,
+          "median": -1.0,
+          "minimum": -1.0,
+          "quartiles": [
+            -1.0,
+            1.0
+          ],
+          "shape": [
+            70
+          ]
+        },
+        "cast_sign_counts": {
+          "-1": 38,
+          "1": 32
+        },
+        "cast_vs_flee_positive_crosswind_concordance": 36,
+        "entry_pose_array_sha256_alpha": "ohhjfhhfpnddchmmanofnfbbbjmioiffpadhllojobnciicmompbbnpeciblomcp",
+        "flee_side": {
+          "maximum": 270.0,
+          "median": 270.0,
+          "minimum": 90.0,
+          "quartiles": [
+            90.0,
+            270.0
+          ],
+          "shape": [
+            70
+          ]
+        },
+        "flee_side_counts": {
+          "270": 40,
+          "90": 30
+        },
+        "full_marker_array_sha256_alpha": "jogldpjpgjjmidkakmppinhdjjliloinikamckecemliaolgdnbcfejfaichhgpn",
+        "last_nav_absent_rows": 54,
+        "last_whiff_absent_rows": 12,
+        "marker_step": {
+          "maximum": 593.0,
+          "median": 283.5,
+          "minimum": 249.0,
+          "quartiles": [
+            274.5,
+            288.75
+          ],
+          "shape": [
+            70
+          ]
+        },
+        "q_obs": {
+          "maximum": 250.0,
+          "median": 250.0,
+          "minimum": 250.0,
+          "quartiles": [
+            250.0,
+            250.0
+          ],
+          "shape": [
+            70
+          ]
+        },
+        "relative_to_pair_midpoint": {
+          "along": {
+            "maximum": 35.932705602223834,
+            "median": 13.503596689333854,
+            "minimum": 3.262702075750582,
+            "quartiles": [
+              7.832104198336044,
+              26.02681760021434
+            ],
+            "shape": [
+              70
+            ]
+          },
+          "cross": {
+            "maximum": 14.396697584342789,
+            "median": -0.2125918966199123,
+            "minimum": -15.186058279164932,
+            "quartiles": [
+              -3.237078070190776,
+              2.036493477919368
+            ],
+            "shape": [
+              70
+            ]
+          }
+        }
+      }
+    }
+  },
+  "criterion_precision_arithmetic": {
+    "absolute_bar": 0.5,
+    "first_passing_point": 0.55,
+    "first_passing_success_count": 220,
+    "half_width_at_bar_point": 0.048765495830290995,
+    "interval": [
+      0.5010009985806122,
+      0.5980477719859582
+    ],
+    "method": "Wilson two-sided95, n400; candidate-majority requirement is normative, not effect/power prediction",
+    "paired_Wald_halfwidth_upper_bound_context_only": 0.0979981992270027,
+    "paired_binary_difference_SE_upper_bound": 0.05,
+    "paired_interval_method_selected": "row-paired percentile bootstrap, 5000, not executed in this design",
+    "previous_count_interval": [
+      0.49850112055362783,
+      0.5955952114846139
+    ]
+  },
+  "date": "2026-10-10",
+  "ideal_command_geometry": {
+    "along_max": 2.4868995751603507e-14,
+    "along_min": -23.29371405922693,
+    "assumptions": "Unit cast sign +1, instantaneous perfect heading, zero motor noise; not controller trajectory and not probability",
+    "candidate_anchor": "C0 observed entry PRE_POS at q=250 gives derived u=0; other delayed entries start at their actual PRE_POS and existing u=q-250, never a reset episode phase",
+    "changes_anchor": true,
+    "constant_choice": "One DRAFT choice from phase coverage: guaranteed execution of both slants across a300-command cycle requires uninterrupted eligibility without a whiff reset; an interrupted observed K300 window need not execute both. No effect tuning or parameter sweep.",
+    "crosswind_max": 34.77332974640646,
+    "crosswind_min": -34.77332974640646,
+    "final_along": -7.919862780137109,
+    "final_crosswind": 5.215999461960969,
+    "first_crosswind_direction": "negative y for cast_sign +1",
+    "first_target_degrees": 255.0,
+    "leg_ranges": [
+      [
+        1,
+        0,
+        29
+      ],
+      [
+        2,
+        30,
+        89
+      ],
+      [
+        3,
+        90,
+        179
+      ],
+      [
+        4,
+        180,
+        299
+      ],
+      [
+        5,
+        300,
+        350
+      ]
+    ],
+    "slant_cycle": 300,
+    "slant_half_period": 150,
+    "slant_switches": [
+      150,
+      300
+    ],
+    "timing": "351 commands at indices249..599; only positions before moves through599 can yield registered whiffs; final move only contributes to reach",
+    "u_range": [
+      0,
+      350
+    ]
+  },
+  "immutable_R0_source_closure": {
+    "files": 96,
+    "passed": true,
+    "sha256_alpha": "ipnbbdcgnhimipkghbaefggdkdidknipflgdijhihabegkmnfjbbilgceglgpbgd"
+  },
+  "raw_sha256_alpha": "bdjliepfoneecapofbnelegdajohjcfekcckfofdmnkoophdcgooinfccggfdopc",
+  "state_proposal": {
+    "episode_counter": "not selected",
+    "pose_heading_memory": "diagnostic only, not controller state",
+    "q": "one new controller counter, renewed relaxation DRAFT",
+    "u": "derived only, q-250; phase continues through hold interruptions"
+  }
+}

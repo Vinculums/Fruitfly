@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-09",
+  "scope": "W1Dp E1 design only; v1 DRAFT",
+  "decision": "decision:hold-e1-w1dp-open-design",
+  "episode": "episode:hold-e1-w1dp-design",
+  "documents": [
+    {
+      "path": "notes/hold/2026-10-09-hold-e1-w1dp-design-v1.md",
+      "doc_id": "dfcf3e996925abf2e",
+      "sha256_ap": "bnbpkfggfnmmfhjbclfbopcjbjcpdhjbaklipgfbcfalhfcgkpfhfdndanajmina",
+      "created": true,
+      "verified_text_match": true
+    },
+    {
+      "path": "notes/hold/2026-10-09-hold-e1-w1dp-design-review.md",
+      "doc_id": "de5d7e9663bbe3c77",
+      "sha256_ap": "pmmhiaioanjijookhjhlgghbdbmjiabpekaajgkkceemhbjifjdiieodiokepcce",
+      "created": true,
+      "verified_text_match": true
+    }
+  ],
+  "validation": {
+    "source_appendix": "PASS",
+    "source_count": 12,
+    "source_pins": "PASS",
+    "downstream_pins": "PASS",
+    "manifest_pin": "PASS",
+    "protected_number_scan": "PASS",
+    "simulation_performed": false,
+    "new_seed_selected": false,
+    "diff_whitespace": "PASS",
+    "r2_full_scan": "PASS"
+  },
+  "mirror": [
+    {
+      "doc_id": "d1867092e4263d16c",
+      "created": false,
+      "part": 1,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "bpedaihgmpcgikjagplokhcebnghgagallcbnijfkhaekdloldbkiohgfmelkanj",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "dd1bc59fff2843f4c",
+      "created": false,
+      "part": 2,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "aijaboiddadjnbncmimpfkpkpoaogipnjkpankpapjlghboinoplbieoaibcalak",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "dff556eaf7e0cf994",
+      "created": false,
+      "part": 3,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "hoopfaelkkeookdokmianjikdohbbnfmmcombbgogmjeopljmmhghjeapfiflefp",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "d3c890077450be5a4",
+      "created": false,
+      "part": 4,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "lcjcaagnfhbokfhhfijlejhhpjgolojhkfcffocpjgmneaejlhadnolmnihollii",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "d86e1618aadf644d7",
+      "created": false,
+      "part": 5,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "jmlfdhnbhikagoljjcbjmjncjiacbmbacbhgcinnhdlfcdkcfhckkiolfdgmcmdg",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "d8542f76ede325585",
+      "created": false,
+      "part": 6,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "pojfapcmcikfmeallkjpmhackecinpdlnhodcjhhacphaodgkahnfjnacapdpgdi",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "dc811d089a183a6e0",
+      "created": false,
+      "part": 7,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "chbkgmcdmjmoaknaeejbmelbhbaejclllmaeiainfnmpgnmclnmfodndnikcdaid",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "d3bd8a60ed6a10c75",
+      "created": false,
+      "part": 8,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "apbkigofgnbhnglhmbnpbcpkhkdgdahepnhnagfjfnlohjjnkiignnjhfioainii",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "d4a755cf5a2e6ef8f",
+      "created": false,
+      "part": 9,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "edeflfgjddgdiijmijaoehacdnklakfnocbnbpnaapcjcmjfkdlbdonbpjknolak",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "d391977fec42e5387",
+      "created": false,
+      "part": 10,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "ppepbehgjihkokpoiglhdefnnjngoghfoiddncmaaccngfkjfmplfbhndnjoilnj",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "d0ab8ab7761a1adb1",
+      "created": false,
+      "part": 11,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "pgkfnopmmmihdhacakohfmgbonggekbgmcipcmchdljgedllddnlhkeembihjghp",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "d106aff2c86bfac6c",
+      "created": false,
+      "part": 12,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "gncpnllghkgiijeeckgbhomjfjfhjnadkciajldjofgpcfpnjkbcdccomoglmeap",
+      "verified_text_match": true
+    },
+    {
+      "doc_id": "dc0444894b71c04d5",
+      "created": false,
+      "part": 13,
+      "full_sha256_ap": "mgmfgdeookffkjoanklbnilgmkmghkbcelapjfiohoddggcgncbgnkdiibclbofa",
+      "slice_sha256_ap": "dajmnnmceobbnbplopcclpbokbacjdcagjlhkaaiojmbkimanamcgldblgkeopai",
+      "verified_text_match": true
+    }
+  ],
+  "execution_final_confirmed": false,
+  "runner_implemented": false,
+  "simulation_performed": false,
+  "new_seed_selected": false,
+  "r2": {
+    "command": "python tools/verify_seed_scan_r2.py",
+    "verifier_sha256_ap": "emfhapidcjidpgaofpbkefkbbkhdihknflepbhakdhkfceganepjhpiaobhiccac",
+    "manifest_sha256_ap": "gkkeiinehcdkdajmgdhpcagkffdhjojkglbljnmefphakmogknnljmloeaacligg",
+    "source_pins": "PASS",
+    "downstream_pins": "PASS",
+    "measurement": "N/A",
+    "behavior": "N/A",
+    "checks": [
+      {
+        "checker": "ph33",
+        "scanned_files": 545,
+        "hit_files": 9,
+        "hit_pairs": 25,
+        "applied_rows": 25,
+        "unused": [],
+        "errors": []
+      },
+      {
+        "checker": "ph35",
+        "scanned_files": 545,
+        "hit_files": 9,
+        "hit_pairs": 17,
+        "applied_rows": 17,
+        "unused": [],
+        "errors": []
+      }
+    ],
+    "local_coverage": "present files checked"
+  },
+  "registered_at_utc": "2026-10-09 09:17:46 UTC"
+}

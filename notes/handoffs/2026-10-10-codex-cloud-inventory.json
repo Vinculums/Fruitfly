@@ -1,0 +1,1761 @@
+{
+  "EVAL_opened": false,
+  "Vinc_cloud_access_verified": false,
+  "artifact_cloud_access_verified": false,
+  "branch": "docs/hold-stage1-and-r2-closure",
+  "canonical_evidence": {
+    "DEV_artifact_hashes": {
+      "identity.json": "nadboimbidhnpafllnjgbodddblmgmpoikikledfajfjmheiehfelcbhedfepjbb",
+      "metrics.json": "acedmkmohiclfakmgpelkjafblnlohdohbcpmehobahadmfggojllmmpgakghnch",
+      "parent_recomputation.json": "dknhibelknldbndplgdfjhbcdadcphbbkbfljbjecdfpmcakeoiigcediiiffkmc",
+      "raw.npz.ap": "mohhcmpljbeljgficdhohdnfopkkgpfjoflpfcdbajndnabljjpgnemfahhnenfe",
+      "stage_binding.json": "hjamionbfabljkkoegoknbfinonheefodcghgifbggpmbkppjpojolfdckheenpn",
+      "verification.json": "oeeokmanhmdiopffkkgpmplciojanmbglgckdcmfcnmkkhngejgpadfeimohilnp"
+    },
+    "canonical_documents": {
+      "config/h17-run3-dev-opening.json": {
+        "doc_id": "d199f6b863d26a1e3",
+        "path": "config/h17-run3-dev-opening.json",
+        "verified_text_match": true
+      },
+      "config/h17-run3-dev-pins.json": {
+        "doc_id": "d65980f43c28a90ee",
+        "path": "config/h17-run3-dev-pins.json",
+        "verified_text_match": true
+      },
+      "config/h17-run3-execution-pins.json": {
+        "doc_id": "d26e41a82a3c983ee",
+        "path": "config/h17-run3-execution-pins.json",
+        "verified_text_match": true
+      },
+      "experiments/h17/h17_run3_bench_report.md": {
+        "doc_id": "d174ae279839d2dba",
+        "path": "experiments/h17/h17_run3_bench_report.md",
+        "verified_text_match": true
+      },
+      "experiments/h17/h17_run3_design_v3.md": {
+        "doc_id": "d528fa87b2f4f63d2",
+        "path": "experiments/h17/h17_run3_design_v3.md",
+        "sha256_alpha": "oibjjpnikgaejokpgfpfoffoaiapnngnfjcknhfhmbojheoopgnamoimaajjjnmh",
+        "verified_text_match": true
+      },
+      "experiments/h17/h17_run3_dev_implementation_checks.json": {
+        "doc_id": "de6ea6eab9baf0194",
+        "path": "experiments/h17/h17_run3_dev_implementation_checks.json",
+        "verified_text_match": true
+      },
+      "experiments/h17/h17_run3_dev_opening_checks.json": {
+        "doc_id": "d7e8de2321309350b",
+        "path": "experiments/h17/h17_run3_dev_opening_checks.json",
+        "verified_text_match": true
+      },
+      "experiments/h17/h17_run3_dev_report.md": {
+        "doc_id": "d60929b82c419fa4b",
+        "path": "experiments/h17/h17_run3_dev_report.md",
+        "verified_text_match": true
+      },
+      "experiments/h17/run3/dev/execution_checks.json": {
+        "doc_id": "ddb17486db34c642d",
+        "path": "experiments/h17/run3/dev/execution_checks.json",
+        "verified_text_match": true
+      },
+      "experiments/h17/run3/dev/metrics.json": {
+        "chars": 219414,
+        "doc_id": "d53377ead269da536",
+        "path": "experiments/h17/run3/dev/metrics.json",
+        "verified_text_match": true
+      },
+      "experiments/h17/run3/dev/parent_recomputation.json": {
+        "doc_id": "d2a731eda75693af0",
+        "path": "experiments/h17/run3/dev/parent_recomputation.json",
+        "verified_text_match": true
+      },
+      "experiments/h17/run3/dev/stage_binding.json": {
+        "doc_id": "d6de740df9499cf20",
+        "path": "experiments/h17/run3/dev/stage_binding.json",
+        "verified_text_match": true
+      },
+      "experiments/h17/run3/dev/verification.json": {
+        "doc_id": "dab64524e906adc27",
+        "path": "experiments/h17/run3/dev/verification.json",
+        "verified_text_match": true
+      },
+      "notes/reviews/2026-10-10-h17-run3-dev-execution-review.md": {
+        "doc_id": "de60574c8db032e61",
+        "path": "notes/reviews/2026-10-10-h17-run3-dev-execution-review.md",
+        "verified_text_match": true
+      },
+      "src/h17_run3_arm.py": {
+        "doc_id": "d5689184eb372a917",
+        "path": "src/h17_run3_arm.py",
+        "verified_text_match": true
+      },
+      "tests/test_measure_h17_run3_dev.py": {
+        "doc_id": "dd457f2ae6edb72c2",
+        "path": "tests/test_measure_h17_run3_dev.py",
+        "verified_text_match": true
+      },
+      "tests/test_recompute_h17_run3_dev.py": {
+        "doc_id": "debaf36d62e2a8459",
+        "path": "tests/test_recompute_h17_run3_dev.py",
+        "verified_text_match": true
+      },
+      "tools/measure_h17_run3_dev.py": {
+        "doc_id": "da95cac51068d1c5e",
+        "path": "tools/measure_h17_run3_dev.py",
+        "verified_text_match": true
+      },
+      "tools/recompute_h17_run3_dev.py": {
+        "doc_id": "dd6400fb88c3202f1",
+        "path": "tools/recompute_h17_run3_dev.py",
+        "verified_text_match": true
+      }
+    },
+    "master_sha256_alpha": "pjcceocgpbgmkbpjbcdgebppfehobokmehemebklcdjhdkofnlielcopmbgegibg",
+    "publication_doc_id": "decef2d816309d16e"
+  },
+  "cloud_ready": false,
+  "date": "2026-10-10",
+  "expected_DEV_sources_sha256_alpha": {
+    "experiments/h17/h17_run3_dev_implementation_checks.json": "bnlnnomeblhaflaobfcdigfminogpceohkapoeehglgpolllienfdkephcpbggce",
+    "notes/reviews/2026-10-10-h17-run3-dev-execution-review.md": "pdnijlfmdikidnncmkgdgiegdocenfiijgbipaokhbjgpkcdgboffpmkmoiellhh",
+    "tests/test_measure_h17_run3_dev.py": "gjgfdbbniifabnhhndpgmbkhnjmkjpjoeajhpglhamfbijdidnkbdenahbhbgbca",
+    "tests/test_recompute_h17_run3_dev.py": "cjpmbjaijdceenjiagdeemdjalnhbbohnjaagfcojaolllpiinddmbjbjmjfjcjk",
+    "tools/measure_h17_run3_dev.py": "npjojgmabdlimfaochnfgijbeidclnnmokbhopgebpefnolahcblflijkoefmmmo",
+    "tools/recompute_h17_run3_dev.py": "hoaohlpjmhfjmplbbffdflhcpmidnkcpokdgfcjoimlailmgiahpemngdapcpali"
+  },
+  "expected_MAIN_sources_sha256_alpha": {
+    "config/h17-r0-execution-opening.json": "lfipkapplbgcalgjifgbfcnjkpiondgfkoingpjfnjmklaodkcjmclmkoljfophc",
+    "config/h17-r0-execution-pins.json": "dcoacgfhhbjnacpfgohmaelnfdbckjoegliincphdmhkldlodbdjenhhlgggadkh",
+    "config/h17-r0-seeds.json": "iejnjbleicghhinmedadflphnnpibopmflpapajejgedijjeigaooblhdajnhmed",
+    "config/h17-run3-execution-opening.json": "hhmmdmecifipakknbgkjoohopphomgpdcigckdnnaeoihjlcfabejcolcpigclig",
+    "config/h17-run3-seeds.json": "ppeengejcehflajckhoiefblfgoiibgacbgpkglepjmdjcicnjocgjfohdlamjlc",
+    "config/h17-run3-specification-pins.json": "cehggphheofbcajdjflnbefghmflionoobgfdibmjoalhkfdjfagiblhcipfjfpf",
+    "config/seed-scan-exceptions-r2.json": "gkkeiinehcdkdajmgdhpcagkffdhjojkglbljnmefphakmogknnljmloeaacligg",
+    "experiments/h17/h17_r0_design_v2.md": "aoloibneomoabagmcfmmfbelodbmcdoapmaopeaoodlnjhiajglghflgegbeggbk",
+    "experiments/h17/h17_r0_report.md": "cdelcpinooglialeanmifbhdjodohmpphajanejebiehlonmepddjebckfmifafk",
+    "experiments/h17/h17_r0_seed_registration.json": "pleafleiefdijfpbghcliihcofebdemeeeicldggpgbmnokandimckjgbkajibji",
+    "experiments/h17/h17_run3_anchor_audit.json": "jackbmmkbgpbikomfcagiomanioebhbpbddigbpoipcmgcnnabgngbonlfkibfhi",
+    "experiments/h17/h17_run3_array_keysets.json": "ihjaclekfppfhlkjkgmkchbgnhfadbogifkjphhmkppahnanenebljcllpephpmk",
+    "experiments/h17/h17_run3_design_checks.json": "ldkffedobdmfbahddlchceklgapfbmhdhlebdkdfcijafdggmnchoaohbpaiajpa",
+    "experiments/h17/h17_run3_design_publication_receipt.json": "jopijnokljlbmmepiohfjeilcmdknppgpfalhealbgmmbhijipgofpecdlkfkmhf",
+    "experiments/h17/h17_run3_design_v1.md": "pinadgnedlldjlchbnedmpcejibfkkchdplajmgljiokmgplmmlgebmckoapcaen",
+    "experiments/h17/h17_run3_design_v2.md": "nddceljahjnfddednpihcigbiooacjgloacoebmfcnabnnjjfoaepambjjgoknjf",
+    "experiments/h17/h17_run3_design_v3.md": "oibjjpnikgaejokpgfpfoffoaiapnngnfjcknhfhmbojheoopgnamoimaajjjnmh",
+    "experiments/h17/h17_run3_evidence_schema.json": "hfhgafgkdkiopcbjmaailjdlepnlcpggmbidhhknjfmeodfeicacblnmbalgbaib",
+    "experiments/h17/h17_run3_execution_opening_checks.json": "iakdmmfkklpfafjddnoaokpabbikdnancpkpglolnohnhbnmnhhpoblolmelkcgg",
+    "experiments/h17/h17_run3_final_checks.json": "cpgljjhojfipnomobhhnfmbkgkieomaaapdghclceldjjabpfjcfdhihalddbigf",
+    "experiments/h17/h17_run3_final_publication_receipt.json": "oojghlhgfhagdahehfipokjenpkpghnhmmagcjoffopnpjfnlhimicopkelfldii",
+    "experiments/h17/h17_run3_implementation_amendment_v1.md": "eenflaoghflgdcjfhcapfaabgikgmkgnpfolfmfngafifgealpjfdpldomaoofod",
+    "experiments/h17/h17_run3_implementation_checks.json": "igkefhplpioecmgmmfdlgecllgpeoijkmgaacbkblmnjppiplinlafoabldhhlpl",
+    "experiments/h17/h17_run3_native_boundary_checks.json": "ijaggnnfnjbmfbddlliodjcnmnekdggopkkgjpciiffeepaecndghefmoombngal",
+    "experiments/h17/h17_run3_runtime.json": "dhkhgbcnodhnjejeibigpagjoegnnjelndolgbjpghnocgjciojenioahpemiboh",
+    "experiments/h17/h17_run3_seed_registration.json": "eebgnlmbfjnflojbfefbbdjefbbnjlajmbnllcobkaknebhfgfppogicfkgifcab",
+    "experiments/h17/r0/execution_checks.json": "oehnneknhheanhnbehclchbfhkljlimhclhjogelmbgnmbcejijdgjfdglnaklah",
+    "experiments/h17/run3_H0_attempt1/sources/h17_run3_recording.py": "ncpgianhliihpijoabglmmnjbcmmgoneemgkffhnellnnmfjggbalkkohiadckcl",
+    "experiments/module/identity.json": "diogkenmdgfnejioblllfllplmiakpoegjjgbnnjbkompnpmelhdbilmpddfjlci",
+    "notes/reviews/2026-10-09-h17-r0-execution-review.md": "ehbdaffikhjdhjkbjmjlcokfadnoljabggalmlpafdcicfhbofcoljoagodicboh",
+    "notes/reviews/2026-10-10-h17-run3-design-v2-review.md": "jjgkoppjpmjfjbhmokacajlfgpokbelcgbggpkidmdlijolepcedkijdjfikofda",
+    "notes/reviews/2026-10-10-h17-run3-execution-review.md": "hcecbmbhpcmmgbeoojjhdelecmdfpkjilkkimlfnebojjkmggccemmcpedkichph",
+    "notes/reviews/2026-10-10-h17-run3-final-review.md": "jeflfafbgglhdgidampndjdceejipdnmcgdggienmhghbnhmebnmapohafihmkai",
+    "src/ffcore.py": "aoieidgcfenmalkbdjdgnilihpmkjgedcohdpbnlneolebpdjgfaamfemjbhofdh",
+    "src/fly.py": "dldgalcjabghimlmdbdmmkiihedfcpmhagniaolfepgnokfigimkbbpebjnbopme",
+    "src/h10.py": "lkjfjpbhmckeidgfjgijnlmpleoialkbebpnmbppoljjhjaglanaojgbhilbdgjh",
+    "src/h10_design_check.py": "afhjholgjfjfkeejglfcmjklkgfgnjehpefiphoeckbjofookknelpnnipgjcchn",
+    "src/h10_margin_diag.py": "ganencaclkiikpakfokgeajgbdolkhngiighllpejpnfkbikdifiedohliakchcm",
+    "src/h10_perm_diag.py": "biejgbdknjcngdcbikbmkhbjdekgeggllfggehkpcoinflbnoomcfjjfjlijebii",
+    "src/h12_diagnose.py": "edllnogmagilkpcnbgmodibckjllaekhkgpjpkchbgkmbjobikjeiknbelbmieop",
+    "src/h12_expression.py": "iegjnoiaabhjbkdcjaemikonibnbahfhemoolkppclhceilagbekjchbibilemae",
+    "src/h12_expression_erratum.py": "ndbpbkokbhpfdjfmhnjabilbnjmbhojajocgnohaalbgkjggjaacmboklkgoobli",
+    "src/h12_expression_interpret.py": "eplbfpimcjocciicgklelgakgajnfgjcebpfpjjhonnaijdfbgenofplpeaehpda",
+    "src/h17_run3_arm.py": "kedhfjfpjnnkaigdldnkgjjikifimhjoegmbpmjninfifooidolfechelmacpfof",
+    "src/hold_d0_metrics.py": "dnemlgalhbclcdckmkabaoodgnegphhggcfjjlnbellgcfehkecgiaegbnceeijf",
+    "src/hold_stage1_instrument.py": "eboabjljipmeijcipdohcjebbpgpacnblkkocodhebjdadjelogdiagbjbijokgk",
+    "src/hold_stage2_arm.py": "jhmiekjcmcdaimkeakbiggmnkaceohkgonlbahdbncmbmjogjgenlpphfhmdfiia",
+    "src/hold_stage2_harness.py": "bpebjkepednfakicgcjcejfkicjhpnpjeljapahmdehpiamendpjfiolgjapmfcl",
+    "src/module_identity.py": "beffikmapflgbkekhbjhcmmnbkegbcdifocabgmlgkhfmoodemcpkmfhlbadnglf",
+    "src/ph10.py": "nojdpbhhmnfpfccfpnfogcabbgfimcffjhddikfkmcnhkdbofjhpbfjblgdeaelk",
+    "src/ph10_adopt.py": "oeipdflmblnonoicceojhioplkmelglbigankkilabccajpbfaapmkmcglcjbeli",
+    "src/ph11.py": "oiapealnhbakmkedcfcpaedcjiegppkcjjedcfbnbjohbiefaojkhppejojehkcd",
+    "src/ph12.py": "obadfoajimdlicijjiljjlafpijlhodlilmkbfpdacfddokchpmmebdjlkndkbmh",
+    "src/ph12b.py": "omglbijgpgaopcocfanajcoapjpjpebafmagldipgjjinojahaamkdhbcbdoapkk",
+    "src/ph12c.py": "lkmpagfpbcmchalffdhcfiniknhcpgncmbgflmiahidlhffammmhnbfammkiimdb",
+    "src/ph13.py": "cnhfpkoioimdbobmgnnpgfhhhicpkpnodajjpbapoipfapodicpfdnajojopbpcn",
+    "src/ph13b.py": "bmbdcacchfpdbdfmhkdaehpkbgoloocmklplffccalejmbnbehkbinannnblneld",
+    "src/ph14.py": "mglhefmgapjjjcjdekammlmffieopdfekadpfdpaildhkbcfckgjepoldfaloana",
+    "src/ph14b.py": "opbioppiddmmpbgaandjhfinhckfalpghanhncabdncbdhnenbggadpagnbfdbco",
+    "src/ph15.py": "mmjdjjjgfofmlmdamlhpdfoimocjgninedoegfhmpgeenbomdfajdbofjeeadpnm",
+    "src/ph15_bar_check.py": "ppopkcohcnamdcgakeaaohobhbhifahmeanhpknokmmpcabcjaeillmejfogfiak",
+    "src/ph15_check.py": "kaaieegegleffeamaplgggkglcjficogjhiikkenjpbdmokekdfpjmfhkdfnkfpb",
+    "src/ph15_gatebench.py": "nbfffoodkeaoigmgcadjpkdcnkbjohnbgbknbfikpkijchjelnledipigkjipcba",
+    "src/ph15_visits.py": "bmgcdkdibhhibaodjffodjfbdibmcpjlnabmgnpjhoenjpekgpaemnaghhhbnkmm",
+    "src/ph16.py": "ddnfpnlcfjfjplhpjmloegfmkcfkijhdhhgldjpbofbhangefmlfdlminjagkcmc",
+    "src/ph16b.py": "lakjbilbhdpjfphnboaadffpekmejcahjiiefcjcbejbdkkogcnpdhokjgojnknb",
+    "src/ph16c.py": "aajgkhchbdeopgliahibijjiaeboklknbefjpopakgcenlalpbhamlapolfefnci",
+    "src/ph17.py": "eldannpilbpmgnmfbapcdkcipajngdjbaadnjfpaheedeencdhpfaoddjdkdgijp",
+    "src/ph18.py": "cgknenoplhfjaobgobadalalgpiahdndcfifielkoomaglkggocdddbfnkhmjhmd",
+    "src/ph18b.py": "fflchlhbmgdnpmjcapcbejlglmehhdgolbbdmkdndimnapcjhkibhgokpdlnledd",
+    "src/ph19.py": "aamgkdldcpiapkojpfilgnlncdkioadlbhbaloefpmpddfcdipcijfghpmodehjb",
+    "src/ph2.py": "joaopiddndpfjfhnkdebmpoljonnhhpojknlbbnofdfemhbbgcmhfgjoidodakek",
+    "src/ph20.py": "onomgnideigammgmemakmdgbjjipoajeafdeelcoejekopcbkcilaemkhlgmoplo",
+    "src/ph20b.py": "elgmaejhjhgeglbhpoigdcbafdhagjgdmbmgepgpfbabiphikfkefcpheomnejnb",
+    "src/ph21.py": "dkbnhjnjkancdfpblophoedfomfjemppeaeibiaochlcinmnijcfjimfiebdmpmb",
+    "src/ph21b.py": "epdlhahonfnoginmkibgdbgddlffijogmikndecnnkfkhiglamgkedphkoihalbc",
+    "src/ph22.py": "adklimehaglbjffhkpfngeonnidpibckllkjblgbiedjgbildfidhkejnneemkbm",
+    "src/ph23.py": "kobiaejcoomojdhdjnkenblfnidkbdkclecmfojfceefkjcklhfpjfmgplcolfko",
+    "src/ph24.py": "pdeepbhiocadiaifipenheaaopghaccdpjakkcjchldphdaehhckobnieilnblop",
+    "src/ph24b.py": "llklknbfomlbhahimajkhiignidhfldimjmnhbnoioemncdfcagcldbdeaeaoopm",
+    "src/ph24c.py": "bhknklifpgephfogeolhkjpolloplebhicjkbgomoemdjbnmbfohhcbkcbkhgkef",
+    "src/ph25.py": "fgcakjaibjgjddhjkfddhemkdiebodlmdnnlkiganikidfbnkhkkbonenpobhnjb",
+    "src/ph25b.py": "knbckjbccmbhbnndcmdpmokmjegknnjnaoladiaoiifoapaihcnnjhmmnfjookpg",
+    "src/ph26.py": "bmjlgpflgodpadebogamhahmnfhhnheicjcomnlhcaagcomknkddddgbabobghmp",
+    "src/ph26b.py": "glefnihmjegjdkjhgpnmnaacilheondhllkjaebopgmedmeecmbpadkalgndoako",
+    "src/ph27.py": "nbcpkgfbheojgiimjjmnkilaamhehmbpgjnfeaoanicoihnlgkfcioinfbimbedk",
+    "src/ph27b.py": "kgcdcmajemgmiooepkdoljlddnfjheeklmcmhibfmgpnebeoiooangpecobhhjkm",
+    "src/ph28.py": "gemohnamobcdpjbckkghfoiggchnflglakodnijjhglajdgggdbgoglhieebohkk",
+    "src/ph29.py": "bccmbjcfaokfnghnanlnjjhpkcaejdmgdmgmbbabpkppidndmmgldojahnemhjjm",
+    "src/ph2_run.py": "lmaljpehloedbcfmdmnabpfldjoljmgkpgcihciofoaebgnpkihialpimboddddj",
+    "src/ph3.py": "aledngpdnjllihldidnidgjcjhohleedhiibfbejcfgdphhfgbpeiknfmofhdpol",
+    "src/ph30.py": "jiiccideaednofpdbgbfohdmnekideeeknmopcpbnfofgehidfgnhamkjafafjln",
+    "src/ph30b.py": "eoebccmilkjefeghngbpdcdflinhokmdnciohiipifbkocldgcjnbpehgkbclofj",
+    "src/ph31.py": "hheeaadhdgmjldlledokdelhjoihcelknebmjcmjgdpdkpkmkgkhedghaihaomia",
+    "src/ph32.py": "njpfifnffjjokjkepcbioihlniiepkicegkicgloabbbpejfmplomcjjkjccched",
+    "src/ph32b.py": "emiknpfoemeoggbckkkcgdbehgiafpmbipamcnoohikafmbglbjneiklialijpba",
+    "src/ph33.py": "pckcjhcckdjimiblhphdabencjmhjjkaimcijomkbmmhdggkmngfofabfeohcala",
+    "src/ph34b.py": "bnohabghmblnnnahkffjmhdaddpdgiglfpphbnldncminnggcnkmiaieahpdlpcf",
+    "src/ph35.py": "oekdmonkcfgciohacgkgeigbknfbpiejhepbockhcahjechgnphagnaagkfclblb",
+    "src/ph36.py": "lidlnjojnblnjlbjbnhhbhhjlbmnjahnjolafhhjhbafmafoickmlbfnckjjmkhb",
+    "src/ph36b.py": "mpljkcgkeflpnfopjofnhibnhdkhhcodbcjnlceogddmggoolijmcngbffgpbmop",
+    "src/ph37.py": "hgbjacfaelgchlpcnkhijhfbkiedmnkjecfhhdlgloliailcpnlmadeefhlcbfbn",
+    "src/ph37b.py": "aomfibogpalolelolhnjoofhkogckjogchajgnbgnijplepiadaahcakgbdleedc",
+    "src/ph38.py": "jepcpedkcdabcgmngedbedbegmdflljhhpkmaeapkhaeleopobfhfadmaelfjnaf",
+    "src/ph3_run.py": "clbfbcmpnflakmgeocbodmbhaiiidncnhndgfnpannkbjnjklangmhgodmfcccbo",
+    "src/ph4.py": "naajfgimnkenlkdfipbifhcgiocbkbafkniokmbaknnggfleahjcmbmiccdigegk",
+    "src/ph4_run.py": "lhnchlcknjaojjldcdbfcbhnbdccabkfhhgmnlfnhcaajbdeecifinoclhfdgecn",
+    "src/ph5.py": "giecdjpjkhnemcgpkopgbpgmlgphdenlaedonnpjpmgkhkfgekghmlbklobgjfen",
+    "src/ph5_run.py": "lclmbieaeahfbjafkdgaiepehldggfkmbncabjaebbglploibfllhlekobcdbjoi",
+    "src/ph5b.py": "nlbjkpdacmnkilecpbdhdhmonmneefjofcgkldkjbaodkbkacmhfeppncpcenabp",
+    "src/ph5b_run.py": "mponeoaccklmlkplebdbbmomkglinjjnecbehccianlnfaabnpkgonpfibfbejaf",
+    "src/ph6.py": "dilcbebocpcnlbmfmfckcojjjcomfpedhhokdnimgjkmbiiaokgnlabhiafknnkf",
+    "src/ph7.py": "gdgkfldkjciobgbkgkhhnogaabaogkbakncpmonciphonemijchgdaaigngochec",
+    "src/ph8.py": "knkcpmeldimjnaaidnaidgghkodplolgbfpfeelefpiabjjomflclmigogndledo",
+    "src/ph9.py": "hgjjleogplehkbloofphoeojjbkiikkmipkfkpdkjeacjhplneoeebeebpenjhag",
+    "src/regress.py": "dhaibloknckhkmfmnagoaancgeloomfffppfilplebokjnpcjclgnblfbhmijnle",
+    "tests/test_h17_r0.py": "mmlelegdghpklgdafgikjjcldpeobamicndjojfhboblgompccicefmaeaackcgd",
+    "tests/test_h17_run3.py": "cikmffoblnbmihkmmgjkgbekgcpdmnogabaajoklnonibmkhmjjmddohmgdcmihm",
+    "tests/test_h17_run3_archive_candidate.py": "hilpijiajfjpdlblifdiejbchnciaeibcpbhgfceajeggeikfiplhplhmnngdlbf",
+    "tests/test_recompute_h17_run3.py": "iapgnlohianajfpdmfciaadjifgejbmcjbfbgkfhhgoeoodmonnenhldnhpnpmof",
+    "tests/test_verify_h17_r0.py": "logiilldifnamhoegkoognohfibjcodjigmfpbekmnngbdmabjgkemelgfedmkjk",
+    "tests/test_verify_h17_run3.py": "abadkhoeegfkobmabpjepinfnagpkkogmobopgmabgpcboefdgckapooejbncjlk",
+    "tools/check_h17_run3_boundaries.py": "blfolcpkpaidoelkhgljhiocdlfkpfionklbhmafdngdgbcfifodnbfglkpellli",
+    "tools/h17_r0_recording.py": "kboiicmmndlholgnnjhhfecocleckcfipgngchpemndmahgjjmackgmifbekkmgp",
+    "tools/h17_run3_archive_candidate.py": "gfnemcogleknlidonafbijpclgijpiabggjhcppippmidpbabhoibihgeibhhjcb",
+    "tools/h17_run3_recording.py": "ihcdgdkdeaacekdkeklbnfjkcojafnolbmmgmgmabhcmofeonnepimmcpgahecek",
+    "tools/measure_h17_r0.py": "achgifnjbcafanjonfglemoaponkcbgjbeadoiblobgmnjbefpmejehmckpjhdhd",
+    "tools/measure_h17_run3.py": "ooinaeikokkfhaocoolnalnpefadenkmifjggajkfjcedijibaoaejnilbdpcdoa",
+    "tools/recompute_h17_run3.py": "haaalnghjmjceomomehhopkdjngmibnhjoepheonfngpbenfghebhplmmhblcgel",
+    "tools/replay_hold_stage1.py": "mkniffjmpboaodpkkkoomjneomdijabhbodaecdmbabcfbdnfobihiekffccbfng",
+    "tools/verify_h17_r0.py": "mpnkojngnbhpdocdhbnhiccimdifiehfihlobdeefcalfhejappdgbegmckiopnd",
+    "tools/verify_h17_run3.py": "hkkdlgndgbdlibbpikiikcihajiophpgckhiomgfkfffeikejehanjlidbfjboig",
+    "tools/verify_seed_scan_r2.py": "emfhapidcjidpgaofpbkefkbbkhdihknflepbhakdhkfceganepjhpiaobhiccac"
+  },
+  "format": "fruitfly-codex-cloud-readiness-inventory-v1",
+  "large_evidence_hashes_recomputed_by_this_audit": false,
+  "local_head": "82d8b962e3dd3c594450b30883137fa2aba17bdb",
+  "pending_files": [
+    {
+      "bytes": 1662,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-r0-execution-opening.json",
+      "sha256_alpha": "lfipkapplbgcalgjifgbfcnjkpiondgfkoingpjfnjmklaodkcjmclmkoljfophc"
+    },
+    {
+      "bytes": 201693,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-r0-execution-pins.json",
+      "sha256_alpha": "dcoacgfhhbjnacpfgohmaelnfdbckjoegliincphdmhkldlodbdjenhhlgggadkh"
+    },
+    {
+      "bytes": 42,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-r0-seeds.json",
+      "sha256_alpha": "iejnjbleicghhinmedadflphnnpibopmflpapajejgedijjeigaooblhdajnhmed"
+    },
+    {
+      "bytes": 1497,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-run3-dev-opening.json",
+      "sha256_alpha": "fknddjaiamhpfnoomplfcikbboaccdfkkkcjcdmbmhoiahiboaplbmjdhpcddlan"
+    },
+    {
+      "bytes": 1592,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-run3-dev-pins.json",
+      "sha256_alpha": "ldbdealfhdgogndfkjamnafmandbdeecjkcejjkcoadcjfomngoplhocajicljhl"
+    },
+    {
+      "bytes": 3468,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-run3-execution-opening.json",
+      "sha256_alpha": "hhmmdmecifipakknbgkjoohopphomgpdcigckdnnaeoihjlcfabejcolcpigclig"
+    },
+    {
+      "bytes": 14837,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-run3-execution-pins.json",
+      "sha256_alpha": "kmlmecemionbinjlgfaiminbefhonppaphdffoncehhcnbcnnihllkioklbojjji"
+    },
+    {
+      "bytes": 14176,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-run3-implementation-pins.json",
+      "sha256_alpha": "callhhomcelgdnkdjjiijcpnblhdofdpifgcapppclniedkbpamcegkippdmogko"
+    },
+    {
+      "bytes": 255,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-run3-seeds.json",
+      "sha256_alpha": "ppeengejcehflajckhoiefblfgoiibgacbgpkglepjmdjcicnjocgjfohdlamjlc"
+    },
+    {
+      "bytes": 13105,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/h17-run3-specification-pins.json",
+      "sha256_alpha": "cehggphheofbcajdjflnbefghmflionoobgfdibmjoalhkfdjfagiblhcipfjfpf"
+    },
+    {
+      "bytes": 8722,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/hold-e1-execution-pins.json",
+      "sha256_alpha": "lnjcngojjjddhpdjfpjcjiecgppajbkmckhhgeadeahbnifallekpcdkihfodckf"
+    },
+    {
+      "bytes": 37,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/hold-e1-seeds.json",
+      "sha256_alpha": "lfnncpjoeaajgccgfeljpgfdibimcmjnikcdiijkejggiokdmohlgoojfhanjgpg"
+    },
+    {
+      "bytes": 160,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "config/hold-stage2-seeds.json",
+      "sha256_alpha": "hgnjkbbopcldilgkmembapilenobhbgggfenncmbkicmcinmkbnjcdacpebhjakm"
+    },
+    {
+      "bytes": 15428,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_r0_design_checks.json",
+      "sha256_alpha": "imffjpimaboemfcopphfepjhpcogdbbacgedkpkkjgegpehadckngidbdepaghlj"
+    },
+    {
+      "bytes": 21435,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_r0_design_v2.md",
+      "sha256_alpha": "aoloibneomoabagmcfmmfbelodbmcdoapmaopeaoodlnjhiajglghflgegbeggbk"
+    },
+    {
+      "bytes": 1997,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_r0_execution_pin_index.json",
+      "sha256_alpha": "eknhohbepihdikjcjlhlldohojhdfldgbkcndikbmibjdcmipgnbfkhonnhdlljm"
+    },
+    {
+      "bytes": 12796,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_r0_post_main_checks.json",
+      "sha256_alpha": "kjcamegpbjonoplbiknlkmoacjciahghpbgahlnnmnihbfmafcmlehmeehgoeflh"
+    },
+    {
+      "bytes": 1632,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_r0_pre_draw_checks.json",
+      "sha256_alpha": "cdfndanbnaiaehpfgkbjfeoebilihefnamaeokibaofcjonkidagcdoicefpabci"
+    },
+    {
+      "bytes": 753,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_r0_r2_pre_main.json",
+      "sha256_alpha": "alnbndcokbjknnmknbkpeooimamblhpehgbdmhgkjncbcbafohnggedoplpoepfo"
+    },
+    {
+      "bytes": 13477,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_r0_report.md",
+      "sha256_alpha": "cdelcpinooglialeanmifbhdjodohmpphajanejebiehlonmepddjebckfmifafk"
+    },
+    {
+      "bytes": 2763,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_r0_seed_registration.json",
+      "sha256_alpha": "pleafleiefdijfpbghcliihcofebdemeeeicldggpgbmnokandimckjgbkajibji"
+    },
+    {
+      "bytes": 20553,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_anchor_audit.json",
+      "sha256_alpha": "jackbmmkbgpbikomfcagiomanioebhbpbddigbpoipcmgcnnabgngbonlfkibfhi"
+    },
+    {
+      "bytes": 383270,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_array_keysets.json",
+      "sha256_alpha": "ihjaclekfppfhlkjkgmkchbgnhfadbogifkjphhmkppahnanenebljcllpephpmk"
+    },
+    {
+      "bytes": 11187,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_bench_publication_receipt.json",
+      "sha256_alpha": "dpcppcmlddjhcbhdkkhjjpbiafkjlkhmmpgdccdbjodjekikeiampaioakmadahe"
+    },
+    {
+      "bytes": 9074,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_bench_report.md",
+      "sha256_alpha": "kdapndonkiccbfgpgcgcofjgdonkhaaichhbeipkclfgadomlggebjlfbbhjpafp"
+    },
+    {
+      "bytes": 9396,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_design_checks.json",
+      "sha256_alpha": "ldkffedobdmfbahddlchceklgapfbmhdhlebdkdfcijafdggmnchoaohbpaiajpa"
+    },
+    {
+      "bytes": 3101,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_design_publication_receipt.json",
+      "sha256_alpha": "jopijnokljlbmmepiohfjeilcmdknppgpfalhealbgmmbhijipgofpecdlkfkmhf"
+    },
+    {
+      "bytes": 19166,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_design_v1.md",
+      "sha256_alpha": "pinadgnedlldjlchbnedmpcejibfkkchdplajmgljiokmgplmmlgebmckoapcaen"
+    },
+    {
+      "bytes": 20175,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_design_v2.md",
+      "sha256_alpha": "nddceljahjnfddednpihcigbiooacjgloacoebmfcnabnnjjfoaepambjjgoknjf"
+    },
+    {
+      "bytes": 29752,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_design_v3.md",
+      "sha256_alpha": "oibjjpnikgaejokpgfpfoffoaiapnngnfjcknhfhmbojheoopgnamoimaajjjnmh"
+    },
+    {
+      "bytes": 3630,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_dev_implementation_checks.json",
+      "sha256_alpha": "bnlnnomeblhaflaobfcdigfminogpceohkapoeehglgpolllienfdkephcpbggce"
+    },
+    {
+      "bytes": 2737,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_dev_opening_checks.json",
+      "sha256_alpha": "ieejnkofpipoijabkpdjeabjlmhipghpinchhjgcdmekkmflpfgifggmjdhmmeol"
+    },
+    {
+      "bytes": 11255,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_dev_publication_receipt.json",
+      "sha256_alpha": "diaghdldajdnilgfmhiekffgoaimoniffdcjhjfddkmpjdbbdgbmbecdibdkbcfb"
+    },
+    {
+      "bytes": 9628,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_dev_report.md",
+      "sha256_alpha": "iknnddnjkpllejcpielhlhpeahkpfaadhmedfgpcpkkocmkdjkclincjhnigflcc"
+    },
+    {
+      "bytes": 25902,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_evidence_schema.json",
+      "sha256_alpha": "hfhgafgkdkiopcbjmaailjdlepnlcpggmbidhhknjfmeodfeicacblnmbalgbaib"
+    },
+    {
+      "bytes": 5339,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_execution_opening_checks.json",
+      "sha256_alpha": "iakdmmfkklpfafjddnoaokpabbikdnancpkpglolnohnhbnmnhhpoblolmelkcgg"
+    },
+    {
+      "bytes": 9505,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_final_checks.json",
+      "sha256_alpha": "cpgljjhojfipnomobhhnfmbkgkieomaaapdghclceldjjabpfjcfdhihalddbigf"
+    },
+    {
+      "bytes": 8555,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_final_publication_receipt.json",
+      "sha256_alpha": "oojghlhgfhagdahehfipokjenpkpghnhmmagcjoffopnpjfnlhimicopkelfldii"
+    },
+    {
+      "bytes": 2894,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_implementation_amendment_v1.md",
+      "sha256_alpha": "eenflaoghflgdcjfhcapfaabgikgmkgnpfolfmfngafifgealpjfdpldomaoofod"
+    },
+    {
+      "bytes": 15408,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_implementation_checks.json",
+      "sha256_alpha": "igkefhplpioecmgmmfdlgecllgpeoijkmgaacbkblmnjppiplinlafoabldhhlpl"
+    },
+    {
+      "bytes": 176330835,
+      "git_tracked": false,
+      "hash_basis": "frozen source pins",
+      "path": "experiments/h17/h17_run3_native_boundary_checks.json",
+      "sha256_alpha": "ijaggnnfnjbmfbddlliodjcnmnekdggopkkgjpciiffeepaecndghefmoombngal"
+    },
+    {
+      "bytes": 1944,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_runtime.json",
+      "sha256_alpha": "dhkhgbcnodhnjejeibigpagjoegnnjelndolgbjpghnocgjciojenioahpemiboh"
+    },
+    {
+      "bytes": 10398,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/h17_run3_seed_registration.json",
+      "sha256_alpha": "eebgnlmbfjnflojbfefbbdjefbbnjlajmbnllcobkaknebhfgfppogicfkgifcab"
+    },
+    {
+      "bytes": 39682,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0/execution_checks.json",
+      "sha256_alpha": "oehnneknhheanhnbehclchbfhkljlimhclhjogelmbgnmbcejijdgjfdglnaklah"
+    },
+    {
+      "bytes": 35095654,
+      "git_tracked": false,
+      "path": "experiments/h17/r0/identity.json"
+    },
+    {
+      "bytes": 130990,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0/metrics.json",
+      "sha256_alpha": "mmdgdhkpiophlkhddebbgfojkopjahcfeomcnimobacnbchajcibodanikochjel"
+    },
+    {
+      "bytes": 30025,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0/parent_recomputation.json",
+      "sha256_alpha": "hflbddioikfncoclcnbgcdhaaklhegmheancdmbkhfpfiohikhnbnalaokihaagp"
+    },
+    {
+      "bytes": 5789,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0/publication_receipt.json",
+      "sha256_alpha": "lcaehldkfefeaidigghcelimmeifghfpcphjglmadiiaihmmbmdkhkjmlhejfljl"
+    },
+    {
+      "bytes": 1896926358,
+      "git_tracked": false,
+      "path": "experiments/h17/r0/raw.npz.ap"
+    },
+    {
+      "bytes": 132918,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0/verification.json",
+      "sha256_alpha": "fnfkpbdicfmkjegnbogodpbfjlkefldckhcgbdclmaodgchlnniohlacedphdbjc"
+    },
+    {
+      "bytes": 853,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_registry/pkookeefaaipdcfjpcgoeggjcnpddaelaicchabjkldijgoeackkialacjgehoij.json",
+      "sha256_alpha": "mdfdonmkaklbhdgafngfheeekcgipbpegelkgmjbniphflgeljhcjblojnhdkncb"
+    },
+    {
+      "bytes": 201124,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke/execution_pins_base.json",
+      "sha256_alpha": "kogjmhfmbidjakpjiecficdciccekblghljlgpcmdonneehdcihlkdaeaikgkhoh"
+    },
+    {
+      "bytes": 29701099,
+      "git_tracked": false,
+      "path": "experiments/h17/r0_smoke/identity.json"
+    },
+    {
+      "bytes": 123357,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke/metrics.json",
+      "sha256_alpha": "pefohkgmgkkmgkmaojecdagibojbjnbnlacnkbliochomilameacjcanbhjoplpa"
+    },
+    {
+      "bytes": 28333,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke/parent_recomputation.json",
+      "sha256_alpha": "jeklanpofeigpbifibajalkblgfkgcekhhhcdikjgnlalpcakaccbahbikmjdjkg"
+    },
+    {
+      "bytes": 247179050,
+      "git_tracked": false,
+      "path": "experiments/h17/r0_smoke/raw.npz.ap"
+    },
+    {
+      "bytes": 125285,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke/verification.json",
+      "sha256_alpha": "bofliogeoooeaammfaemldedenbgfdoelbeflkhihkljhkdanjmbfgnjdgiodpfa"
+    },
+    {
+      "bytes": 200998,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt1/execution_pins_base.json",
+      "sha256_alpha": "bpkhabddljgnhfdchcafkbfogedoodilebkbflaodnkgbhghpbfjiacgfddaofhm"
+    },
+    {
+      "bytes": 6875,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt1/execution_review_base.md",
+      "sha256_alpha": "hfbkddeflilgpcpnnejchkbjilceoaclhcmlkfnoodhekdijbjclmkmilapnjmfj"
+    },
+    {
+      "bytes": 34711,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt1/identity.json",
+      "sha256_alpha": "jmoconomohdghjjlpfemkhbljpgbhpagooobmiodikhpnhfplbnjjpfbefmhbmag"
+    },
+    {
+      "bytes": 15447,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/h17_r0_recording.py",
+      "sha256_alpha": "gbcbighpdbbpkbhnhpiianloblcgkldddfaeilkoihhhijhgengjhekfpoefopbl"
+    },
+    {
+      "bytes": 42301,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/measure_h17_r0.py",
+      "sha256_alpha": "cmjoakicmcojecedblhiaabbnjlddoiakacbgmfnocdbplfhhcahkadmkplhjhgl"
+    },
+    {
+      "bytes": 7872,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/test_h17_r0.py",
+      "sha256_alpha": "cgdlnmcklolajlkakkfbhalpiljjdjmlajbaoafbhlfdecnfblkiahjhmmffncke"
+    },
+    {
+      "bytes": 11861,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/test_verify_h17_r0.py",
+      "sha256_alpha": "fpjkbiandebhhnadfbgjpgaadhpaamlbojngegodggmokimhcegccaebpdafljmc"
+    },
+    {
+      "bytes": 86780,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt1/implementation_snapshot/verify_h17_r0.py",
+      "sha256_alpha": "laphplabgeljndhdjeilpppaihfegdoklpfifdmbcffhhdfjjkofmnccfegghhip"
+    },
+    {
+      "bytes": 84556,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt1/raw.npz.ap",
+      "sha256_alpha": "olaoeocedobaogabpmmfkmjffclijahkkblfpdjmlfilonmjnbaeggajpgbapegl"
+    },
+    {
+      "bytes": 200998,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt2/execution_pins_base.json",
+      "sha256_alpha": "hpfflnoblnjelofpadjeojihlfleodmhicgcokepdfkdodngganadlkjfbpcijen"
+    },
+    {
+      "bytes": 7474,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt2/execution_review_base.md",
+      "sha256_alpha": "cocdcfeihclnkcfbdjkaghjehlelodneonkmoghdlimfddmcjaaflmknihkjpgek"
+    },
+    {
+      "bytes": 3913026,
+      "git_tracked": false,
+      "path": "experiments/h17/r0_smoke_attempt2/identity.json"
+    },
+    {
+      "bytes": 15447,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/h17_r0_recording.py",
+      "sha256_alpha": "gbcbighpdbbpkbhnhpiianloblcgkldddfaeilkoihhhijhgengjhekfpoefopbl"
+    },
+    {
+      "bytes": 42469,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/measure_h17_r0.py",
+      "sha256_alpha": "jgjipdnibknmdfgplleldgebbjkngeijajlmlmnelljjkgkjalfgacfodhoepben"
+    },
+    {
+      "bytes": 8414,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/test_h17_r0.py",
+      "sha256_alpha": "pbmnkcfdbmonclfmonojmcaegkdiognjheojoeaenomomcgblhncffeocbjkhffd"
+    },
+    {
+      "bytes": 11861,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/test_verify_h17_r0.py",
+      "sha256_alpha": "fpjkbiandebhhnadfbgjpgaadhpaamlbojngegodggmokimhcegccaebpdafljmc"
+    },
+    {
+      "bytes": 86780,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_attempt2/implementation_snapshot/verify_h17_r0.py",
+      "sha256_alpha": "laphplabgeljndhdjeilpppaihfegdoklpfifdmbcffhhdfjjkofmnccfegghhip"
+    },
+    {
+      "bytes": 16280736,
+      "git_tracked": false,
+      "path": "experiments/h17/r0_smoke_attempt2/raw.npz.ap"
+    },
+    {
+      "bytes": 201124,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_pre_index/execution_pins_base.json",
+      "sha256_alpha": "hdaifniemkighjhlkdmbchbmicigjkoodnjlgfmhlemhkcpafpcbbebcipfkkiic"
+    },
+    {
+      "bytes": 8872,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_pre_index/execution_review_base.md",
+      "sha256_alpha": "hakppclcgblgipgelmkjbonpdlgiecjegjldlaognflccjglidahhciaobhfiahk"
+    },
+    {
+      "bytes": 29701099,
+      "git_tracked": false,
+      "path": "experiments/h17/r0_smoke_pre_index/identity.json"
+    },
+    {
+      "bytes": 16348,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/h17_r0_recording.py",
+      "sha256_alpha": "kboiicmmndlholgnnjhhfecocleckcfipgngchpemndmahgjjmackgmifbekkmgp"
+    },
+    {
+      "bytes": 43743,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/measure_h17_r0.py",
+      "sha256_alpha": "achgifnjbcafanjonfglemoaponkcbgjbeadoiblobgmnjbefpmejehmckpjhdhd"
+    },
+    {
+      "bytes": 11760,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/test_h17_r0.py",
+      "sha256_alpha": "mmlelegdghpklgdafgikjjcldpeobamicndjojfhboblgompccicefmaeaackcgd"
+    },
+    {
+      "bytes": 13168,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/test_verify_h17_r0.py",
+      "sha256_alpha": "logiilldifnamhoegkoognohfibjcodjigmfpbekmnngbdmabjgkemelgfedmkjk"
+    },
+    {
+      "bytes": 86780,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_pre_index/implementation_snapshot/verify_h17_r0.py",
+      "sha256_alpha": "laphplabgeljndhdjeilpppaihfegdoklpfifdmbcffhhdfjjkofmnccfegghhip"
+    },
+    {
+      "bytes": 123357,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_pre_index/metrics.json",
+      "sha256_alpha": "jojafnmmdidloocmhiblcfkknhpcaamcbphijagpdlledlfpcjkackeojokkbdmn"
+    },
+    {
+      "bytes": 247179050,
+      "git_tracked": false,
+      "path": "experiments/h17/r0_smoke_pre_index/raw.npz.ap"
+    },
+    {
+      "bytes": 125285,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/r0_smoke_pre_index/verification.json",
+      "sha256_alpha": "llpmonhbicmnbjkldmlacegaaooajkacgcmadednkajpiiiidfaoinlonjgfclkd"
+    },
+    {
+      "bytes": 55803819,
+      "git_tracked": false,
+      "path": "experiments/h17/run3/H0/identity.json"
+    },
+    {
+      "bytes": 206711,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/H0/metrics.json",
+      "sha256_alpha": "mpoepomdodoimnikohlifckikfdnfgibdbnkjfmpnpdbmpddkhdkjkafiabccecc"
+    },
+    {
+      "bytes": 3149,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/H0/parent_recomputation.json",
+      "sha256_alpha": "iocmpaidmkladgnmbgooedjoldnfpjfgobehligliffknocjalahpcolighbgbip"
+    },
+    {
+      "bytes": 459196160,
+      "git_tracked": false,
+      "path": "experiments/h17/run3/H0/raw.npz.ap"
+    },
+    {
+      "bytes": 5978,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/H0/verification.json",
+      "sha256_alpha": "abcoiadjhbhkbkmbnkncgnjgdjnmamegcblabbpbhnacipdlppkelfkladnpabef"
+    },
+    {
+      "bytes": 8037,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/bench/execution_checks.json",
+      "sha256_alpha": "hlfoafnkoglkkijnipefoofjicnbcmahmakciflnblagecdicgldhpkabbkekkoi"
+    },
+    {
+      "bytes": 65963381,
+      "git_tracked": false,
+      "path": "experiments/h17/run3/bench/identity.json"
+    },
+    {
+      "bytes": 220791,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/bench/metrics.json",
+      "sha256_alpha": "pepdomenkhgnbobikdohpoooihloimemlbjmmfmnlmolepnahdmpkfhibakiaeck"
+    },
+    {
+      "bytes": 4222,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/bench/parent_recomputation.json",
+      "sha256_alpha": "ihfkbnifclbdakpokmpaeofgndoecmpfdpoimnpifmnhilpakoapnjlebnehmiba"
+    },
+    {
+      "bytes": 3240114646,
+      "git_tracked": false,
+      "path": "experiments/h17/run3/bench/raw.npz.ap"
+    },
+    {
+      "bytes": 6975,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/bench/verification.json",
+      "sha256_alpha": "pcfkknnbfcidefaicgnebcbljanhhdmanmpicepnkdjpdagkgcojcbcpadhhgjif"
+    },
+    {
+      "bytes": 11003,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/dev/execution_checks.json",
+      "sha256_alpha": "ccgcmlinkjbhapdhdhkkbhbnnflfhcpncpcfjoiiakifpedbamiinndglhicnnmn"
+    },
+    {
+      "bytes": 64780609,
+      "git_tracked": false,
+      "hash_basis": "DEV closing receipt",
+      "path": "experiments/h17/run3/dev/identity.json",
+      "sha256_alpha": "nadboimbidhnpafllnjgbodddblmgmpoikikledfajfjmheiehfelcbhedfepjbb"
+    },
+    {
+      "bytes": 219414,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/dev/metrics.json",
+      "sha256_alpha": "acedmkmohiclfakmgpelkjafblnlohdohbcpmehobahadmfggojllmmpgakghnch"
+    },
+    {
+      "bytes": 4884,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/dev/parent_recomputation.json",
+      "sha256_alpha": "dknhibelknldbndplgdfjhbcdadcphbbkbfljbjecdfpmcakeoiigcediiiffkmc"
+    },
+    {
+      "bytes": 3212371516,
+      "git_tracked": false,
+      "hash_basis": "DEV closing receipt",
+      "path": "experiments/h17/run3/dev/raw.npz.ap",
+      "sha256_alpha": "mohhcmpljbeljgficdhohdnfopkkgpfjoflpfcdbajndnabljjpgnemfahhnenfe"
+    },
+    {
+      "bytes": 741,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/dev/stage_binding.json",
+      "sha256_alpha": "hjamionbfabljkkoegoknbfinonheefodcghgifbggpmbkppjpojolfdckheenpn"
+    },
+    {
+      "bytes": 6962,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3/dev/verification.json",
+      "sha256_alpha": "oeeokmanhmdiopffkkgpmplciojanmbglgckdcmfcnmkkhngejgpadfeimohilnp"
+    },
+    {
+      "bytes": 5086,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/2026-10-10-h17-run3-execution-review.md",
+      "sha256_alpha": "jcnjjfcjdfaipdkjdiljggegjccmhfiinpcdnjojhhfjnifcgnfblkohgkefeknh"
+    },
+    {
+      "bytes": 55803819,
+      "git_tracked": false,
+      "path": "experiments/h17/run3_H0_attempt1/H0/identity.json"
+    },
+    {
+      "bytes": 206711,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/H0/metrics.json",
+      "sha256_alpha": "iklolcehfalfjlembgiakgokeikoalackdeidbedogmcpecjlgkidceihlagpaje"
+    },
+    {
+      "bytes": 459196160,
+      "git_tracked": false,
+      "path": "experiments/h17/run3_H0_attempt1/H0/raw.npz.ap"
+    },
+    {
+      "bytes": 345,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/H0/verification.json",
+      "sha256_alpha": "ialokkplnohaigjlkifgfjojabpgdagndenjfaiplhjelkjjacmicbpekpfcekef"
+    },
+    {
+      "bytes": 13829,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/h17-run3-implementation-pins.json",
+      "sha256_alpha": "kphejjflchbniibabidkkcihfgnempnkolbmnpfjccahkmoiboadblgphkgndolp"
+    },
+    {
+      "bytes": 11705,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/h17_run3_implementation_checks.json",
+      "sha256_alpha": "ikdmbbchanbbfgogbhgkgflnblddpfddknkadeoopggjhamdhdjpijhmgkkffhcl"
+    },
+    {
+      "bytes": 11026,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/sources/check_h17_run3_boundaries.py",
+      "sha256_alpha": "blfolcpkpaidoelkhgljhiocdlfkpfionklbhmafdngdgbcfifodnbfglkpellli"
+    },
+    {
+      "bytes": 2638,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/sources/h17_run3_arm.py",
+      "sha256_alpha": "kedhfjfpjnnkaigdldnkgjjikifimhjoegmbpmjninfifooidolfechelmacpfof"
+    },
+    {
+      "bytes": 38160,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/sources/h17_run3_recording.py",
+      "sha256_alpha": "ncpgianhliihpijoabglmmnjbcmmgoneemgkffhnellnnmfjggbalkkohiadckcl"
+    },
+    {
+      "bytes": 18229,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/sources/measure_h17_run3.py",
+      "sha256_alpha": "cmpiiiabieaiokjkhdogbkpljadigbnmnfphdedaohkbmnkaiebiloibgmpcbeco"
+    },
+    {
+      "bytes": 16048,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/sources/recompute_h17_run3.py",
+      "sha256_alpha": "haaalnghjmjceomomehhopkdjngmibnhjoepheonfngpbenfghebhplmmhblcgel"
+    },
+    {
+      "bytes": 18543,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/sources/test_h17_run3.py",
+      "sha256_alpha": "cikmffoblnbmihkmmgjkgbekgcpdmnogabaajoklnonibmkhmjjmddohmgdcmihm"
+    },
+    {
+      "bytes": 5749,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/sources/test_recompute_h17_run3.py",
+      "sha256_alpha": "iapgnlohianajfpdmfciaadjifgejbmcjbfbgkfhhgoeoodmonnenhldnhpnpmof"
+    },
+    {
+      "bytes": 19561,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/sources/test_verify_h17_run3.py",
+      "sha256_alpha": "piedfjaiocdhcicigmnpgdbkigaocfjcmnfmipaelfbiojdgbiedpljapbkcjppe"
+    },
+    {
+      "bytes": 119694,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_H0_attempt1/sources/verify_h17_run3.py",
+      "sha256_alpha": "fanaddnpmgmogimjddedkgdllkbjcnfnbcbpbijcdpkgidejglelfinaojnjelng"
+    },
+    {
+      "bytes": 4397,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_preflight_attempt1/2026-10-10-h17-run3-execution-review.md",
+      "sha256_alpha": "gpdmgmncfihandlkffidgfkolemchkhmmljldiddlfjiogdolbkomijehfccfaep"
+    },
+    {
+      "bytes": 13829,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_preflight_attempt1/h17-run3-implementation-pins.json",
+      "sha256_alpha": "noocmjojnecnaaobbefafpgdmolnoigceeepmkffbddkpakejpekicaggbcffcgg"
+    },
+    {
+      "bytes": 10047,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_preflight_attempt1/h17_run3_implementation_checks.json",
+      "sha256_alpha": "ggfgaanhooakookjnlibdjglcnbdiolicoegiojmopcflmfhijdopalofnfgpjpi"
+    },
+    {
+      "bytes": 2574,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_registry/gnhlhibmpgklhlkeblghphgkdjgjicpgdeobikdmecojfkkmhmlcpkimipnnplmc.json",
+      "sha256_alpha": "hcpindpffjoaidfgfjncnfacggglnhhfdjbiecclgbegahmjilgfgddhllipalea"
+    },
+    {
+      "bytes": 2576,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/h17/run3_registry/jhlgijlpacnjmpllhjhbgifmepmfpbobkfkaoidmaapjcmlllbgloamghjppneea.json",
+      "sha256_alpha": "inmbohkdakamhckoepgapkmonegpaalcmkjfnnnindobocldlpkihobakhfckmfk"
+    },
+    {
+      "bytes": 17802353,
+      "git_tracked": false,
+      "path": "experiments/hold/hold_d0_replay.json"
+    },
+    {
+      "bytes": 7503,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_d0_report.md",
+      "sha256_alpha": "ikcbmaenbhpkndpkdhpkpnbfpjdgfpehephlfnknonikgfgpdjkdhelbckmpbnno"
+    },
+    {
+      "bytes": 906216,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_d0_smoke.json",
+      "sha256_alpha": "lejnlgknpbnighbbohapllhfadnljfdnoaibppelaighfonjfhopjhehdlhepeoj"
+    },
+    {
+      "bytes": 385302,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1/exposure.json",
+      "sha256_alpha": "jkjjkhacajafeflonfepanapmjbhmjlcadcjjjbjmlgnokohkcdcglmahnimidoe"
+    },
+    {
+      "bytes": 5806,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1/hold_e1_report.md",
+      "sha256_alpha": "cfbjgjcngldlidnjkkcdonalifejgoonmiihhfbmfiimhoklhnheaohcphnpplbd"
+    },
+    {
+      "bytes": 34408934,
+      "git_tracked": false,
+      "path": "experiments/hold/hold_e1/identity.json"
+    },
+    {
+      "bytes": 608444168,
+      "git_tracked": false,
+      "path": "experiments/hold/hold_e1/raw.npz.ap"
+    },
+    {
+      "bytes": 20136,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1/root_recomputation.json",
+      "sha256_alpha": "cjboojabgcmjdjhdpafinfephmdnkcmllbjdmeglkaollgfakopnnblelanahili"
+    },
+    {
+      "bytes": 685489,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1/verification.json",
+      "sha256_alpha": "hnejigdplmpgffgcclkbhbacedppacmimdngdabijmgodmoabepkbikoijfingof"
+    },
+    {
+      "bytes": 2083,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1/verification_summary.json",
+      "sha256_alpha": "kenpjcclkjceoomlfnmppfdmgiomnojmjbhfapclonpbnfkjjfpagcanighofelg"
+    },
+    {
+      "bytes": 6089,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1_design_checks.json",
+      "sha256_alpha": "ibhkniedfeojfoobgfbmghambeeaodfkfmbiemkanbhfbmnmjcgkjbecclljlfpa"
+    },
+    {
+      "bytes": 11919,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1_execution_checks.json",
+      "sha256_alpha": "dneilfmpmieapklnhdajbadokbbkiildenmfpecnbhdchbigkanmkglfnnkjikih"
+    },
+    {
+      "bytes": 512,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1_registry/chjflpdfbdbjbiejkcadofacckpbpkpgjajkdbfjnilgclkmjaceipecaindblam.claim",
+      "sha256_alpha": "acbagbokijcphdgdhjfjdddbmljnlaehimfeclbcnbahiblplcijhejlkipepjil"
+    },
+    {
+      "bytes": 3122,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1_seed_registration.json",
+      "sha256_alpha": "nhadmpojolmgiaibbpoddhoaekkcalolkemkpfhbbondnfmpokgjogckedcbipco"
+    },
+    {
+      "bytes": 3501118,
+      "git_tracked": false,
+      "path": "experiments/hold/hold_e1_smoke/identity.json"
+    },
+    {
+      "bytes": 7356568,
+      "git_tracked": false,
+      "path": "experiments/hold/hold_e1_smoke/raw.npz.ap"
+    },
+    {
+      "bytes": 713,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_e1_smoke/verification.json",
+      "sha256_alpha": "abccjbmhiilbjnknieaagmnoofagcafalafgjoogjkccmenljebpahncbhnfppck"
+    },
+    {
+      "bytes": 2103628,
+      "git_tracked": false,
+      "path": "experiments/hold/hold_e1_smoke_impl/identity.json"
+    },
+    {
+      "bytes": 7356568,
+      "git_tracked": false,
+      "path": "experiments/hold/hold_e1_smoke_impl/raw.npz.ap"
+    },
+    {
+      "bytes": 6236,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_execution_checks.json",
+      "sha256_alpha": "onkemgpmojfiogabkddngpledllgffinlhkkmgefijlpliagjfhchenopdlnaaka"
+    },
+    {
+      "bytes": 13736,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_followup_h17_design_checks.json",
+      "sha256_alpha": "fpejjlecijeejjcichcicfmpokfoigeeecebaimmaopkenomjghmbnlndncdeiag"
+    },
+    {
+      "bytes": 93505,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_results_verification.json",
+      "sha256_alpha": "baapfealkkfkmagcjcmoebkemiogkibbnjgoekgkdmcomnfjojnkgalmbkfnjhen"
+    },
+    {
+      "bytes": 755,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_seed_registration.json",
+      "sha256_alpha": "adejndocmlehpkhiekidlabafnolgfnfhgeafgnannmeoknfoopgogmmlnfaknhp"
+    },
+    {
+      "bytes": 17896,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2/hold_stage2_identity.json",
+      "sha256_alpha": "napgmdheiidnadnklnpiebaeepciaaojinlehcollldnaikjoomniegebjgjgkgp"
+    },
+    {
+      "bytes": 1043886,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_corrected/hold_stage2_bench.json",
+      "sha256_alpha": "hjjcdkpmghdblmolcagpemagedlclffbdoflnandbpimjhogikfbbplenhpagdcc"
+    },
+    {
+      "bytes": 5122,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_corrected/hold_stage2_dev.json",
+      "sha256_alpha": "jmkkhcinahnebfimomlffeekdoomdhbgeooeclebkgeffhlnjnpnhcdejndbcnmn"
+    },
+    {
+      "bytes": 274484,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_corrected/hold_stage2_eval.json",
+      "sha256_alpha": "fkaakgfennkbieclobpbmbhbpjnjjgalkfdidkjjcicbbbhjhpakefjjfcoandka"
+    },
+    {
+      "bytes": 69888,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_corrected/hold_stage2_identity.json",
+      "sha256_alpha": "ajnglmfahbnmolngioklfdmfejohkkjbbfdbhhfgmkkfjedklmfijeakckipkpjd"
+    },
+    {
+      "bytes": 5063,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_eval_registry/hbnhapfhggdonpodghcdbobifobmfapmfncenlghhcjmlhhkfagbihaaohkkfong.claim",
+      "sha256_alpha": "mhibjgeafnoenciekahcaoipjalkildiibjhelbiglmjkdnlgpfloeleldgmeada"
+    },
+    {
+      "bytes": 11123,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_report.md",
+      "sha256_alpha": "lfmmdhodaimcjkhahodijcnlimbolkhbnmbgmlmkklhbkpdojmappapolpgkomoa"
+    },
+    {
+      "bytes": 22575,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_smoke/hold_stage2_smoke.json",
+      "sha256_alpha": "pcnbllmegipalakbgdicchdjalheohdeffbmidimgailapafoclgdlffhabeplpe"
+    },
+    {
+      "bytes": 24240,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_smoke_corrected/hold_stage2_smoke.json",
+      "sha256_alpha": "blommcijhmeoemeahigebjgfeljobfkacfajfgcaggccdkdlpdlbkmnefpaknkaa"
+    },
+    {
+      "bytes": 23109,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_smoke_final/hold_stage2_smoke.json",
+      "sha256_alpha": "lehphkghlccegcihdgaphmnajnegjdfifhhbalfloboidcfkiejmocbjcllbfjii"
+    },
+    {
+      "bytes": 23007,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_stage2_smoke_verified/hold_stage2_smoke.json",
+      "sha256_alpha": "jnkcgojonfcncmekipobajmogokaljolcdibggefknengeaoheihiofhkmogpidd"
+    },
+    {
+      "bytes": 11655,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_verification_summary.json",
+      "sha256_alpha": "cdnbcihihfbpjkcbdfahndgnpbofmjiocnmgggmijeclifeijnjkakmkflbklnpj"
+    },
+    {
+      "bytes": 7789,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "experiments/hold/hold_vinc_receipts.json",
+      "sha256_alpha": "lcbmgjgameijcglnoappnhpkjjmogadgmeonibmdggnnkolglnnmdppdjfgcojee"
+    },
+    {
+      "bytes": 1134,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-bound-reading-review.md",
+      "sha256_alpha": "cbbooplehhnjeahceaphjmknkddljejmhdpcdicpokbmheicckgjgddiglgghoib"
+    },
+    {
+      "bytes": 35811,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-branch-exposure-design-v2.md",
+      "sha256_alpha": "edmabfimdkgccbfommfnajgcomghbemkmelgnmhcjfdjjjllejkhejmgllkhiijl"
+    },
+    {
+      "bytes": 4183,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-e1-execution-review.md",
+      "sha256_alpha": "bccnaickopbchnjdkdgppginemcneammnhbipkpfecpnpnlhchkmcginlklpfoje"
+    },
+    {
+      "bytes": 2408,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-e1-w1dp-design-review.md",
+      "sha256_alpha": "pmmhiaioanjijookhjhlgghbdbmjiabpekaajgkkceemhbjifjdiieodiokepcce"
+    },
+    {
+      "bytes": 19144,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-e1-w1dp-design-v1.md",
+      "sha256_alpha": "bnbpkfggfnmmfhjbclfbopcjbjcpdhjbaklipgfbcfalhfcgkpfhfdndanajmina"
+    },
+    {
+      "bytes": 23287,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-e1-w1dp-design-v2.md",
+      "sha256_alpha": "kpifbfmiichggombhgdoblalmolplpjedakiadinppbckfnemeninjmhcclcgipc"
+    },
+    {
+      "bytes": 3555,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-followup-disposition.md",
+      "sha256_alpha": "gbkiakaibpldhjalifeojoojckfnaphhdnefjmidphhmgdmiebbnlhhommjcjmcl"
+    },
+    {
+      "bytes": 2726,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-results-next-step.md",
+      "sha256_alpha": "heiabikjpccpoopbpgcnmkdpbilgdoildjdanakgpnjobmlohlnkiljbocleodhp"
+    },
+    {
+      "bytes": 32111,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-stage2-coverage-design-v2.md",
+      "sha256_alpha": "oklandmmkkemmacfmkbkclnkmmbpcffflbogcpcbpjciadgpokeaekgehppfacnj"
+    },
+    {
+      "bytes": 1513,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/hold/2026-10-09-hold-stage2-i4-gate-correction.md",
+      "sha256_alpha": "kkdpdklahpkoadialgccjfbmafkdmkmnjkaamjeclbkimacbeimcefcdbgepgkjj"
+    },
+    {
+      "bytes": 3779,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/reviews/2026-10-09-h17-r0-design-v2-review.md",
+      "sha256_alpha": "nepeofheekdihckepbhgeeangpioknbjgamnpeldejehkblcbbbfjfnjclhoejem"
+    },
+    {
+      "bytes": 9816,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/reviews/2026-10-09-h17-r0-execution-review.md",
+      "sha256_alpha": "ehbdaffikhjdhjkbjmjlcokfadnoljabggalmlpafdcicfhbofcoljoagodicboh"
+    },
+    {
+      "bytes": 3084,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/reviews/2026-10-09-h17-run3-design-v1-review.md",
+      "sha256_alpha": "kdppgfcgdhhohjnkeekhchfmfnbgpipnjefemgjlonmbommpenglemnncfnegnnm"
+    },
+    {
+      "bytes": 3214,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/reviews/2026-10-10-h17-run3-design-v2-review.md",
+      "sha256_alpha": "jjgkoppjpmjfjbhmokacajlfgpokbelcgbggpkidmdlijolepcedkijdjfikofda"
+    },
+    {
+      "bytes": 3732,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/reviews/2026-10-10-h17-run3-dev-execution-review.md",
+      "sha256_alpha": "pdnijlfmdikidnncmkgdgiegdocenfiijgbipaokhbjgpkcdgboffpmkmoiellhh"
+    },
+    {
+      "bytes": 6700,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/reviews/2026-10-10-h17-run3-execution-review.md",
+      "sha256_alpha": "hcecbmbhpcmmgbeoojjhdelecmdfpkjilkkimlfnebojjkmggccemmcpedkichph"
+    },
+    {
+      "bytes": 4851,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "notes/reviews/2026-10-10-h17-run3-final-review.md",
+      "sha256_alpha": "jeflfafbgglhdgidampndjdceejipdnmcgdggienmhghbnhmebnmapohafihmkai"
+    },
+    {
+      "bytes": 2638,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "src/h17_run3_arm.py",
+      "sha256_alpha": "kedhfjfpjnnkaigdldnkgjjikifimhjoegmbpmjninfifooidolfechelmacpfof"
+    },
+    {
+      "bytes": 9357,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "src/hold_d0_metrics.py",
+      "sha256_alpha": "dnemlgalhbclcdckmkabaoodgnegphhggcfjjlnbellgcfehkecgiaegbnceeijf"
+    },
+    {
+      "bytes": 3617,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "src/hold_stage2_arm.py",
+      "sha256_alpha": "jhmiekjcmcdaimkeakbiggmnkaceohkgonlbahdbncmbmjogjgenlpphfhmdfiia"
+    },
+    {
+      "bytes": 14642,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "src/hold_stage2_harness.py",
+      "sha256_alpha": "bpebjkepednfakicgcjcejfkicjhpnpjeljapahmdehpiamendpjfiolgjapmfcl"
+    },
+    {
+      "bytes": 11760,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_h17_r0.py",
+      "sha256_alpha": "mmlelegdghpklgdafgikjjcldpeobamicndjojfhboblgompccicefmaeaackcgd"
+    },
+    {
+      "bytes": 18543,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_h17_run3.py",
+      "sha256_alpha": "cikmffoblnbmihkmmgjkgbekgcpdmnogabaajoklnonibmkhmjjmddohmgdcmihm"
+    },
+    {
+      "bytes": 5712,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_h17_run3_archive_candidate.py",
+      "sha256_alpha": "hilpijiajfjpdlblifdiejbchnciaeibcpbhgfceajeggeikfiplhplhmnngdlbf"
+    },
+    {
+      "bytes": 3550,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_hold_d0.py",
+      "sha256_alpha": "pgigfocbgadlhmjcbmafobilmihhaddcbbjkppkiplceckcbefjiehliacbiagoj"
+    },
+    {
+      "bytes": 6699,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_hold_e1.py",
+      "sha256_alpha": "keafoilddenfcjdpccobkenajcbkckcchfbgpnobbgcplpeeijmbfobbldpblchk"
+    },
+    {
+      "bytes": 4048,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_hold_stage2.py",
+      "sha256_alpha": "mioomigpiaanlbkhdlpfgdjbgadgipmfjiapglnllncgonmbkjggaegnhajjdnig"
+    },
+    {
+      "bytes": 17171,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_measure_h17_run3_dev.py",
+      "sha256_alpha": "gjgfdbbniifabnhhndpgmbkhnjmkjpjoeajhpglhamfbijdidnkbdenahbhbgbca"
+    },
+    {
+      "bytes": 5749,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_recompute_h17_run3.py",
+      "sha256_alpha": "iapgnlohianajfpdmfciaadjifgejbmcjbfbgkfhhgoeoodmonnenhldnhpnpmof"
+    },
+    {
+      "bytes": 10366,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_recompute_h17_run3_dev.py",
+      "sha256_alpha": "cjpmbjaijdceenjiagdeemdjalnhbbohnjaagfcojaolllpiinddmbjbjmjfjcjk"
+    },
+    {
+      "bytes": 13168,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_verify_h17_r0.py",
+      "sha256_alpha": "logiilldifnamhoegkoognohfibjcodjigmfpbekmnngbdmabjgkemelgfedmkjk"
+    },
+    {
+      "bytes": 22707,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_verify_h17_run3.py",
+      "sha256_alpha": "abadkhoeegfkobmabpjepinfnagpkkogmobopgmabgpcboefdgckapooejbncjlk"
+    },
+    {
+      "bytes": 6736,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tests/test_verify_hold_e1.py",
+      "sha256_alpha": "eocpdndmbafebffnffeeinlnieogdfpgknkcjemkpjamjmeaapaihelekmmbolcc"
+    },
+    {
+      "bytes": 11026,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/check_h17_run3_boundaries.py",
+      "sha256_alpha": "blfolcpkpaidoelkhgljhiocdlfkpfionklbhmafdngdgbcfifodnbfglkpellli"
+    },
+    {
+      "bytes": 16348,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/h17_r0_recording.py",
+      "sha256_alpha": "kboiicmmndlholgnnjhhfecocleckcfipgngchpemndmahgjjmackgmifbekkmgp"
+    },
+    {
+      "bytes": 2709,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/h17_run3_archive_candidate.py",
+      "sha256_alpha": "gfnemcogleknlidonafbijpclgijpiabggjhcppippmidpbabhoibihgeibhhjcb"
+    },
+    {
+      "bytes": 38347,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/h17_run3_recording.py",
+      "sha256_alpha": "ihcdgdkdeaacekdkeklbnfjkcojafnolbmmgmgmabhcmofeonnepimmcpgahecek"
+    },
+    {
+      "bytes": 43743,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/measure_h17_r0.py",
+      "sha256_alpha": "achgifnjbcafanjonfglemoaponkcbgjbeadoiblobgmnjbefpmejehmckpjhdhd"
+    },
+    {
+      "bytes": 18404,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/measure_h17_run3.py",
+      "sha256_alpha": "ooinaeikokkfhaocoolnalnpefadenkmifjggajkfjcedijibaoaejnilbdpcdoa"
+    },
+    {
+      "bytes": 15894,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/measure_h17_run3_dev.py",
+      "sha256_alpha": "npjojgmabdlimfaochnfgijbeidclnnmokbhopgebpefnolahcblflijkoefmmmo"
+    },
+    {
+      "bytes": 7337,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/prepare_hold_final.py",
+      "sha256_alpha": "mmljgdohdfgmmnaicpgjnfikckhfkmckgoenhdoflbbbhdhcinobjohhnikkcglg"
+    },
+    {
+      "bytes": 16048,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/recompute_h17_run3.py",
+      "sha256_alpha": "haaalnghjmjceomomehhopkdjngmibnhjoepheonfngpbenfghebhplmmhblcgel"
+    },
+    {
+      "bytes": 14512,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/recompute_h17_run3_dev.py",
+      "sha256_alpha": "hoaohlpjmhfjmplbbffdflhcpmidnkcpokdgfcjoimlailmgiahpemngdapcpali"
+    },
+    {
+      "bytes": 13593,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/replay_hold_d0.py",
+      "sha256_alpha": "agdcbgcajdmdpdnefljfocdgaiaengjngheamkmikefodfbnphagmibnegjpnhnh"
+    },
+    {
+      "bytes": 38029,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/replay_hold_e1.py",
+      "sha256_alpha": "mbalaacgcmpnlioefkempidhmgolhpmdchjgacdiiledmgbdicobcpbeopcpldjg"
+    },
+    {
+      "bytes": 13720,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/run_hold_stage2.py",
+      "sha256_alpha": "fepfmpapnjpaplngkkepjmphmjkljbfjgccjjnbeoklpchhcnnoblegiohhnaoph"
+    },
+    {
+      "bytes": 821,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/run_local_tests.py",
+      "sha256_alpha": "phajgmjpoeblgoemaekpbagnimfbdldmgldclmjnaignlglphocjdnklpebbacch"
+    },
+    {
+      "bytes": 86829,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/verify_h17_r0.py",
+      "sha256_alpha": "mpnkojngnbhpdocdhbnhiccimdifiehfihlobdeefcalfhejappdgbegmckiopnd"
+    },
+    {
+      "bytes": 120667,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/verify_h17_run3.py",
+      "sha256_alpha": "hkkdlgndgbdlibbpikiikcihajiophpgckhiomgfkfffeikejehanjlidbfjboig"
+    },
+    {
+      "bytes": 46516,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/verify_hold_e1.py",
+      "sha256_alpha": "meijnlanaenhhehlnklpnomhidpaojicopchpnhlpgmdhnbgbihlllkeanflpjoj"
+    },
+    {
+      "bytes": 11544,
+      "git_tracked": false,
+      "hash_basis": "fresh local byte hash",
+      "path": "tools/verify_hold_results.py",
+      "sha256_alpha": "mlnpaglkabkbedgajebebnchemgjoonghnoehmhbhimokhlebhloklibhpabdbgi"
+    }
+  ],
+  "remote_heads": [
+    "a18c0bc361010dbf05a3044cbefd4b13467f482f\trefs/heads/ccr-d9d57e22-v8wbdp",
+    "6870b4d7e50629b5362ab40454251ef94183bd83\trefs/heads/claude/fruit-fly-progress-check-23rwvc",
+    "ec6d442be6f4baa6a0c5a02ad0c3426393e72139\trefs/heads/codex/h12-review-plan",
+    "82d8b962e3dd3c594450b30883137fa2aba17bdb\trefs/heads/docs/hold-stage1-and-r2-closure",
+    "0ee20d9b8f7c4577c1f6cfcec45daba0700390bf\trefs/heads/main"
+  ],
+  "repository": "https://github.com/Vinculums/Fruitfly",
+  "runtime": {
+    "assertions_enabled": true,
+    "byteorder": "little",
+    "executable": "C:\\Users\\weg1456\\AppData\\Roaming\\uv\\python\\cpython-3.13.12-windows-x86_64-none\\python.exe",
+    "executable_sha256_alpha": "cgekjdfbhommagjoofhnppefblggonbmhlinifedjbbpdnigoejekmeeojgngkba",
+    "implementation": "CPython",
+    "machine": "AMD64",
+    "native_libraries": {
+      "numpy._core._multiarray_umath": {
+        "path": "D:\\Cache\\uv\\archive-v0\\MRpmGRylnoMLdqXKFTnGd\\Lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd",
+        "sha256_alpha": "nldflpjdkolellafemihlfcfmmidoinlmlpaamgfffklifjjmfmlidpglaggcnkj"
+      },
+      "numpy.random._generator": {
+        "path": "D:\\Cache\\uv\\archive-v0\\MRpmGRylnoMLdqXKFTnGd\\Lib\\site-packages\\numpy\\random\\_generator.cp313-win_amd64.pyd",
+        "sha256_alpha": "ijokekikplhmgpeagjikebajphnoammhcepdjnpfdcaggknnmlccpklfkneogadg"
+      }
+    },
+    "numpy": "2.5.3",
+    "numpy_config_sha256_alpha": "pmmfidpilhkcagghgkaeaaijebkfemfdfjmommfmjmpendokacdmhficogoneffa",
+    "numpy_init_sha256_alpha": "kgjfimldgeggdlhkmmoibmmpnfioolgfkcldenfdhgbfhpjcehhhljhcbbkhdloe",
+    "numpy_path": "D:\\Cache\\uv\\archive-v0\\MRpmGRylnoMLdqXKFTnGd\\Lib\\site-packages\\numpy\\__init__.py",
+    "optimize": 0,
+    "platform": "Windows-10-10.0.19045-SP0",
+    "pointer_bits": 64,
+    "processes": 1,
+    "python": "3.13.12",
+    "threads": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "scope": "snapshot before handoff creation;not a backup or EVAL opening",
+  "source_pin_counts": {
+    "DEV": 6,
+    "MAIN": 133,
+    "specification": 112
+  },
+  "status_entries": 130,
+  "untracked_bytes": 10985510558,
+  "untracked_files": 212
+}

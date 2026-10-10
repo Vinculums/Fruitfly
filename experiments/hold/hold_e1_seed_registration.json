@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "date": "2026-10-09",
+  "decision": "decision:hold-e1-w1dp-open",
+  "config": "config/hold-e1-seeds.json",
+  "role": "screen",
+  "numbers": [
+    86410001,
+    86410002,
+    86420001,
+    86440001,
+    86430002,
+    86440002
+  ],
+  "repository_scan": {
+    "files": 562,
+    "numbers": [
+      86410001,
+      86410002,
+      86420001,
+      86440001,
+      86430002,
+      86440002
+    ],
+    "hits": [],
+    "errors": [],
+    "prior_stage2_roles_disjoint": true,
+    "exclusions": [
+      ".git",
+      "__pycache__"
+    ],
+    "passed": true
+  },
+  "graph_scan": {
+    "passed": true,
+    "space": "01a0b944-ecb4-737b-b3e6-5cc99ff37654",
+    "method": "Individual base/derived literal digit queries; full-text chunk and graph title/property matches checked. Semantic neighbors are not literal hits. Index rebuild is benign for literal lookup.",
+    "queries": [
+      {
+        "number": 86410001,
+        "executed": true,
+        "vector_note": null,
+        "literal_hit": false,
+        "error": null,
+        "keyword_rows": 0,
+        "rows": 30,
+        "node_hits": 30,
+        "arms": "fts+vector",
+        "has_more": true
+      },
+      {
+        "number": 86410002,
+        "executed": true,
+        "rows": 0,
+        "node_hits": 30,
+        "arms": "fts",
+        "vector_note": "vector index is being rebuilt after a write: full-text results only for now",
+        "literal_hit": false,
+        "error": null,
+        "has_more": false,
+        "keyword_rows": 0
+      },
+      {
+        "number": 86420001,
+        "executed": true,
+        "rows": 0,
+        "node_hits": 30,
+        "arms": "fts",
+        "vector_note": "vector index is being rebuilt after a write: full-text results only for now",
+        "literal_hit": false,
+        "error": null,
+        "has_more": false,
+        "keyword_rows": 0
+      },
+      {
+        "number": 86440001,
+        "executed": true,
+        "rows": 0,
+        "node_hits": 30,
+        "arms": "fts",
+        "vector_note": "vector index is being rebuilt after a write: full-text results only for now",
+        "literal_hit": false,
+        "error": null,
+        "has_more": false,
+        "keyword_rows": 0
+      },
+      {
+        "number": 86430002,
+        "executed": true,
+        "rows": 0,
+        "node_hits": 30,
+        "arms": "fts",
+        "vector_note": "vector index is being rebuilt after a write: full-text results only for now",
+        "literal_hit": false,
+        "error": null,
+        "has_more": false,
+        "keyword_rows": 0
+      },
+      {
+        "number": 86440002,
+        "executed": true,
+        "vector_note": null,
+        "literal_hit": false,
+        "error": null,
+        "keyword_rows": 0,
+        "rows": 30,
+        "node_hits": 30,
+        "arms": "fts+vector",
+        "has_more": true
+      }
+    ]
+  },
+  "runtime": {
+    "python": "3.13.12",
+    "numpy": "2.5.3",
+    "threads": 1
+  },
+  "source_of_authorization": "Owner: 권고안으로 작업 진행; confirms all five recommendations in the immediately preceding response and v1 section 12.",
+  "simulation_performed": false
+}

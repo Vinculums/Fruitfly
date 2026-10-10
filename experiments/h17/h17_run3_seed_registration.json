@@ -1,0 +1,360 @@
+{
+  "schema": "h17-run3-seed-reservation-v3",
+  "complete": true,
+  "date": "2026-10-10",
+  "owner_instruction": "위 권고안에 따라 작업 착수 진행한다.",
+  "purpose": "Reserve BENCH/DEV/EVAL roles for accepted GS250 FINAL; no execution opening",
+  "config": "config/h17-run3-seeds.json",
+  "stages": {
+    "bench": {
+      "world": 87710011,
+      "agent": 87710012,
+      "inference": 87710013,
+      "world_balance": 87720011,
+      "c0_geometry": 87730011,
+      "cast": 87730012
+    },
+    "dev": {
+      "world": 87810011,
+      "agent": 87810012,
+      "inference": 87810013,
+      "world_balance": 87820011,
+      "c0_geometry": 87830011,
+      "cast": 87830012
+    },
+    "eval": {
+      "world": 87910011,
+      "agent": 87910012,
+      "inference": 87910013,
+      "world_balance": 87920011,
+      "c0_geometry": 87930011,
+      "cast": 87930012
+    }
+  },
+  "numbers": [
+    87710011,
+    87710012,
+    87710013,
+    87720011,
+    87730011,
+    87730012,
+    87810011,
+    87810012,
+    87810013,
+    87820011,
+    87830011,
+    87830012,
+    87910011,
+    87910012,
+    87910013,
+    87920011,
+    87930011,
+    87930012
+  ],
+  "derivation": {
+    "world_balance": "WORLD+10000",
+    "c0_geometry": "WORLD+20000",
+    "cast": "AGENT+20000",
+    "inference": "Independently reserved stage role"
+  },
+  "local_scan": {
+    "passed": true,
+    "files": 655,
+    "bytes_scanned": 3964969793,
+    "hits": [],
+    "errors": [],
+    "exclusions": [
+      ".git",
+      "__pycache__"
+    ],
+    "declaration_written_before_scan": false,
+    "method": "All repository bytes, streaming exact literal digit-boundary scan with overlapping blocks; complete file/hash inventory; no simulation",
+    "elapsed_seconds": 85.24
+  },
+  "graph_scan": {
+    "passed": true,
+    "space": "01a0b944-ecb4-737b-b3e6-5cc99ff37654",
+    "canonical_documents": 258,
+    "all_canonical_read_verified": true,
+    "literal_hits": [],
+    "read_transport_fallbacks": [
+      {
+        "doc_id": "d1387f0e2c517626c",
+        "verified": true,
+        "chars": 109573,
+        "role_hits": [],
+        "sha256_alpha": "nnnnoocheeknjkkeakdhifbjakmjncofpkfikcfipohncdkbfdabegjodacbgopm",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      },
+      {
+        "doc_id": "d27ec95924fe49be1",
+        "verified": true,
+        "chars": 71159,
+        "role_hits": [],
+        "sha256_alpha": "dndkkliammohggpeldcabmjfbjhapeobbinnmnjfaggddojfkcgfngkhjebejfpb",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      },
+      {
+        "doc_id": "dd7262b0c91dbc66b",
+        "verified": true,
+        "chars": 70526,
+        "role_hits": [],
+        "sha256_alpha": "pckcjhcckdjimiblhphdabencjmhjjkaimcijomkbmmhdggkmngfofabfeohcala",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      },
+      {
+        "doc_id": "ddec6582aa2fcaa83",
+        "verified": true,
+        "chars": 72160,
+        "role_hits": [],
+        "sha256_alpha": "pocnlpifjknmenmkcmjhdkhmjemalmmdipngeapgmhbmkjliondkipffhgaendhl",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      },
+      {
+        "doc_id": "d5a2b6526d40efbef",
+        "verified": true,
+        "chars": 72114,
+        "role_hits": [],
+        "sha256_alpha": "njpfifnffjjokjkepcbioihlniiepkicegkicgloabbbpejfmplomcjjkjccched",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      },
+      {
+        "doc_id": "d3a2e1142563d7b38",
+        "verified": true,
+        "chars": 84988,
+        "role_hits": [],
+        "sha256_alpha": "jiiccideaednofpdbgbfohdmnekideeeknmopcpbnfofgehidfgnhamkjafafjln",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      },
+      {
+        "doc_id": "d27e6dfe2e2c16183",
+        "verified": true,
+        "chars": 76737,
+        "role_hits": [],
+        "sha256_alpha": "pbobjajfggdbaomkpkolfijejbnjegljnjfcgkipbkfnmjnelgooegnckochefdk",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      },
+      {
+        "doc_id": "dc7e62aeab81c347b",
+        "verified": true,
+        "chars": 77048,
+        "role_hits": [],
+        "sha256_alpha": "lijojppjklkgcbbfblhllpemmimmfkpiphbecfbebimgaadolablafaelealhckj",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      },
+      {
+        "doc_id": "dd1ba5b405811ef4a",
+        "verified": true,
+        "chars": 111319,
+        "role_hits": [],
+        "sha256_alpha": "mlicenmegdfhdfaenkdkbbjofokamdpohencodcelcghhkkajgcglenebplhfooa",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      },
+      {
+        "doc_id": "d6f5ab6a423f8ba16",
+        "verified": true,
+        "chars": 86315,
+        "role_hits": [],
+        "sha256_alpha": "fcbcgolodkgcodofoabiakeiklcdmminaimfghibnfjalaknnokjhlbkneemonhf",
+        "method": "Authenticated v1 document read API; full canonical text/hash checked; MCP response-size fallback"
+      }
+    ],
+    "queries": [
+      {
+        "role_index": 0,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 1,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 2,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 3,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 4,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 5,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 6,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 7,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 8,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 9,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 10,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 11,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 12,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 13,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 14,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 15,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 16,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      },
+      {
+        "role_index": 17,
+        "executed": true,
+        "error": null,
+        "vector_note": null,
+        "literal_hit": false,
+        "arms": "fts+vector",
+        "keyword_rows": 0,
+        "has_more": true
+      }
+    ],
+    "method": "Paginated full canonical text inventory with integrity checking and literal digit-boundary scan; individual role searches including historical nodes. Four transient reads retried successfully; ten oversized documents read by authenticated v1 API. No unresolved read/search error."
+  },
+  "distinct_role_count": 18,
+  "all_stage_roles_disjoint": true,
+  "prior_roles_disjoint": true,
+  "code_streams": "Original src/fly.py CODE_SEEDS, referenced unchanged",
+  "same_roles_reset_per_condition_and_arm": true,
+  "W1_twin_matched_reuse": true,
+  "inference_matrix_once_per_stage": true,
+  "execution_opened": false,
+  "fresh_generators_created": 0,
+  "fresh_random_draws": 0,
+  "bootstrap_performed": false,
+  "simulation_performed": false,
+  "claims_created": 0,
+  "protected_seed_exceptions_added": false
+}

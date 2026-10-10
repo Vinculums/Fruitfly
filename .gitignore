@@ -4,3 +4,17 @@ __pycache__/
 experiments/h12/expression_*/**/trajectory_*.npz
 experiments/h18/arrays/*.npz
 experiments/h18/arrays_b/*.npz
+# Large evidence is restored from the pinned release manifest.
+experiments/h17/h17_run3_native_boundary_checks.json
+experiments/h17/r0/raw.npz.ap
+experiments/h17/r0_smoke/raw.npz.ap
+experiments/h17/r0_smoke_pre_index/raw.npz.ap
+experiments/h17/run3/H0/identity.json
+experiments/h17/run3/H0/raw.npz.ap
+experiments/h17/run3/bench/identity.json
+experiments/h17/run3/bench/raw.npz.ap
+experiments/h17/run3/dev/identity.json
+experiments/h17/run3/dev/raw.npz.ap
+experiments/h17/run3_H0_attempt1/H0/identity.json
+experiments/h17/run3_H0_attempt1/H0/raw.npz.ap
+experiments/hold/hold_e1/raw.npz.ap

@@ -1,0 +1,362 @@
+{
+  "schema": "hold-followup-h17-run3-design-v1",
+  "complete": true,
+  "date": "2026-10-09",
+  "owner_instruction": "해당 순서로 작업 진행",
+  "authorized_scope": "Operational hold follow-up deferral then reviewed H17 Run3 DRAFT only",
+  "simulation_performed": false,
+  "fresh_seed_selected": false,
+  "fresh_random_draws": false,
+  "controller_implementation": false,
+  "hold_disposition": {
+    "decision": "decision:hold-followup-deferred",
+    "complete": true,
+    "further_trials": "DEFERRED",
+    "D0": "UNRESOLVED",
+    "coverage": "A5/B3 STOPPED at bench; A6 report only",
+    "E1": "REACHED, BELOW REGISTERED SCREEN",
+    "adoption": "none",
+    "measurement_verdicts_changed": false
+  },
+  "h17_design": {
+    "decision": "decision:h17-run3-open-design",
+    "status": "v1 DRAFT reviewed",
+    "baseline": "Fly nch2 / Agent17 equivalent; N2 and adopted presence kept",
+    "candidate_selected": false,
+    "relaxation_signed": false,
+    "R0_execution_opened": false,
+    "recommendation": "Separately finalize passive R0 current-baseline measurement before choosing a performance candidate",
+    "historical_closed_decision": "decision:h17-closed",
+    "historical_verdict_changed": false
+  },
+  "canonical_documents": [
+    {
+      "path": "notes/hold/2026-10-09-hold-followup-disposition.md",
+      "doc_id": "df19c467cb5c854ec",
+      "sha256_ap": "gbkiakaibpldhjalifeojoojckfnaphhdnefjmidphhmgdmiebbnlhhommjcjmcl",
+      "created": true,
+      "verified_text_match": true
+    },
+    {
+      "path": "experiments/h17/h17_run3_design_v1.md",
+      "doc_id": "dac20b7f7a9bbc737",
+      "created": true,
+      "sha256_ap": "pinadgnedlldjlchbnedmpcejibfkkchdplajmgljiokmgplmmlgebmckoapcaen",
+      "verified_text_match": true
+    },
+    {
+      "path": "notes/reviews/2026-10-09-h17-run3-design-v1-review.md",
+      "doc_id": "d819485fe84d9a84d",
+      "created": true,
+      "sha256_ap": "kdppgfcgdhhohjnkeekhchfmfnbgpipnjefemgjlonmbommpenglemnncfnegnnm",
+      "verified_text_match": true
+    }
+  ],
+  "source_snapshot": [
+    {
+      "path": "src/fly.py",
+      "sha256_ap": "dldgalcjabghimlmdbdmmkiihedfcpmhagniaolfepgnokfigimkbbpebjnbopme"
+    },
+    {
+      "path": "src/ph21.py",
+      "sha256_ap": "dkbnhjnjkancdfpblophoedfomfjemppeaeibiaochlcinmnijcfjimfiebdmpmb"
+    },
+    {
+      "path": "src/ph23.py",
+      "sha256_ap": "kobiaejcoomojdhdjnkenblfnidkbdkclecmfojfceefkjcklhfpjfmgplcolfko"
+    },
+    {
+      "path": "src/ph24.py",
+      "sha256_ap": "pdeepbhiocadiaifipenheaaopghaccdpjakkcjchldphdaehhckobnieilnblop"
+    },
+    {
+      "path": "src/ph26.py",
+      "sha256_ap": "bmjlgpflgodpadebogamhahmnfhhnheicjcomnlhcaagcomknkddddgbabobghmp"
+    },
+    {
+      "path": "src/ph27.py",
+      "sha256_ap": "nbcpkgfbheojgiimjjmnkilaamhehmbpgjnfeaoanicoihnlgkfcioinfbimbedk"
+    },
+    {
+      "path": "src/ph30.py",
+      "sha256_ap": "jiiccideaednofpdbgbfohdmnekideeeknmopcpbnfofgehidfgnhamkjafafjln"
+    },
+    {
+      "path": "src/ph33.py",
+      "sha256_ap": "pckcjhcckdjimiblhphdabencjmhjjkaimcijomkbmmhdggkmngfofabfeohcala"
+    },
+    {
+      "path": "src/ph35.py",
+      "sha256_ap": "oekdmonkcfgciohacgkgeigbknfbpiejhepbockhcahjechgnphagnaagkfclblb"
+    },
+    {
+      "path": "src/ph9.py",
+      "sha256_ap": "hgjjleogplehkbloofphoeojjbkiikkmipkfkpdkjeacjhplneoeebeebpenjhag"
+    },
+    {
+      "path": "src/ph11.py",
+      "sha256_ap": "oiapealnhbakmkedcfcpaedcjiegppkcjjedcfbnbjohbiefaojkhppejojehkcd"
+    },
+    {
+      "path": "src/ph12.py",
+      "sha256_ap": "obadfoajimdlicijjiljjlafpijlhodlilmkbfpdacfddokchpmmebdjlkndkbmh"
+    },
+    {
+      "path": "src/ph12b.py",
+      "sha256_ap": "omglbijgpgaopcocfanajcoapjpjpebafmagldipgjjinojahaamkdhbcbdoapkk"
+    },
+    {
+      "path": "src/ph16.py",
+      "sha256_ap": "ddnfpnlcfjfjplhpjmloegfmkcfkijhdhhgldjpbofbhangefmlfdlminjagkcmc"
+    },
+    {
+      "path": "src/module_identity.py",
+      "sha256_ap": "beffikmapflgbkekhbjhcmmnbkegbcdifocabgmlgkhfmoodemcpkmfhlbadnglf"
+    },
+    {
+      "path": "experiments/module/identity.json",
+      "sha256_ap": "diogkenmdgfnejioblllfllplmiakpoegjjgbnnjbkompnpmelhdbilmpddfjlci"
+    },
+    {
+      "path": "experiments/h17/ph26_bench.txt",
+      "sha256_ap": "omjnphickkecjejcegciejmjfhhoifdlknojgoopnbijbhgcgoojkaiojgedppgn"
+    },
+    {
+      "path": "experiments/h17/ph27_bench.txt",
+      "sha256_ap": "hbhgchikmlppchjfgfoockhlmikiimifhndmjlhiahdccapoikienfpoaimgjlhb"
+    },
+    {
+      "path": "experiments/h17/ph26b_diag.txt",
+      "sha256_ap": "baecjpflcmgjpbdnjdffhjckchaakblbokinihnkdblhfnjmefbglgiagkonnpbj"
+    },
+    {
+      "path": "experiments/h17/ph27b_diag.txt",
+      "sha256_ap": "hkcoooofdomlmgnnahhledgpjmnfccamalamlilfjbniipiiihcfjnnefppneebo"
+    },
+    {
+      "path": "experiments/h17/h17_post_bench_diagnosis.md",
+      "sha256_ap": "fcbcgolodkgcodofoabiakeiklcdmminaimfghibnfjalaknnokjhlbkneemonhf"
+    },
+    {
+      "path": "experiments/h17/h17_run2_post_bench_diagnosis.md",
+      "sha256_ap": "mlicenmegdfhdfaenkdkbbjofokamdpohencodcelcghhkkajgcglenebplhfooa"
+    },
+    {
+      "path": "experiments/h17/h17_run2_design_v2.md",
+      "sha256_ap": "ncdhemfodajbbiemggjkpfpioajkfgbljnhkmpgiaoglbaplmcbbhfapnanhnfoj"
+    },
+    {
+      "path": "experiments/h18/h18_stage_b_design_v2.md",
+      "sha256_ap": "glaakfagpfglmhfmofhgmodhkcddeidfigakddkkmjggkedhgghkchldnlmkedab"
+    },
+    {
+      "path": "experiments/hold/hold_d0_report.md",
+      "sha256_ap": "ikcbmaenbhpkndpkdhpkpnbfpjdgfpehephlfnknonikgfgpdjkdhelbckmpbnno"
+    },
+    {
+      "path": "experiments/hold/hold_stage2_report.md",
+      "sha256_ap": "lfmmdhodaimcjkhahodijcnlimbolkhbnmbgmlmkklhbkpdojmappapolpgkomoa"
+    },
+    {
+      "path": "experiments/hold/hold_e1/hold_e1_report.md",
+      "sha256_ap": "cfbjgjcngldlidnjkkcdonalifejgoonmiihhfbmfiimhoklhnheaohcphnpplbd"
+    }
+  ],
+  "validation": {
+    "protected_tokens": "PASS",
+    "source_and_downstream_pins": "PASS",
+    "manifest": "PASS",
+    "prior_E1_measurement_pins": "PASS",
+    "draft_source_pins": 24,
+    "owner_quote_UTF8": "PASS",
+    "strict_reach": "PASS",
+    "source_file_hashes": {
+      "notes/hold/2026-10-09-hold-followup-disposition.md": "gbkiakaibpldhjalifeojoojckfnaphhdnefjmidphhmgdmiebbnlhhommjcjmcl",
+      "experiments/h17/h17_run3_design_v1.md": "pinadgnedlldjlchbnedmpcejibfkkchdplajmgljiokmgplmmlgebmckoapcaen",
+      "notes/reviews/2026-10-09-h17-run3-design-v1-review.md": "kdppgfcgdhhohjnkeekhchfmfnbgpipnjefemgjlonmbommpenglemnncfnegnnm",
+      "README.md": "gfifbgibhmhnmjgjeeaoileamdmeffenlabjpkeckdgobdijmlopoeoojdofeiib"
+    },
+    "master_full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+    "master_slice_sha256_ap": [
+      "dlpdheedajmknobgddkmdogbcjhegiobekmmblakmfeblkifbcpgijbeocehmeig",
+      "eifollaffpickbpopamfllajlpfflijidcdjfdooakepkemijhifdbbhmlllfnhd",
+      "mejjepeanblmcfekbndhjgfpkheelejmgcefffdgpmoilbjhedgfgeeglheeonhn",
+      "imfdngpakicfbkbfniloinolkajebhgghanlfcmoeifceifplndgcjgkeeodjdhp",
+      "lgogfjbmhbdhednemijghneoeanhammbccelohdnmbnneokifoihicnpojlfchfj",
+      "feecpedphaofkkekbppjmmaggagbdlpomlkfojcbejgmcponpkknmaphgfbkgbfh",
+      "ppbdnccljbpbekmfnklhanlhaicncpofcobkjjkfmgnfpepmdpdaibgmigoflmop",
+      "pflgnnfmhfcpenabhbjicofgmnciedkpcjjoeopnffcmchmhkmpanlhamknimpeo",
+      "cbgfegamdfcgfjoaagjfjlecibngfmpoljlkdkkoobebpahcamfcmiahkejecigf",
+      "aklbgbhoddbpahmnfkdgcccjnmmheefhbpejecieacjnaionnmmnoaklnbjkppcg",
+      "iiigffpiepnodibapfkcekeegejkjijogmebfikdmjhdppddjinhidflphpaflij",
+      "ekhaelhljkeoedmhdllbpaogocfgnhmpmiacnojfchnhlklfmlgceeicegolhnfd",
+      "anmiemmjbmncdkaabcgglmpbnjnnhkbcddmpgjamihhidgonlefdlpkeindockam"
+    ],
+    "simulation_performed": false,
+    "master_mirrors": 13,
+    "canonical_doc_hashes": "PASS"
+  },
+  "review": {
+    "independent": true,
+    "read_only": true,
+    "passed": true,
+    "correction": "Draft reach corrected from inclusive distance 3 to strict distance <3 before registration",
+    "UTF8_owner_quote": "Exact owner quote independently confirmed; shell garbling only",
+    "simulations": 0,
+    "files_edited_by_reviewer": 0
+  },
+  "r2": {
+    "command": "python tools/verify_seed_scan_r2.py",
+    "verifier_sha256_ap": "emfhapidcjidpgaofpbkefkbbkhdihknflepbhakdhkfceganepjhpiaobhiccac",
+    "manifest_sha256_ap": "gkkeiinehcdkdajmgdhpcagkffdhjojkglbljnmefphakmogknnljmloeaacligg",
+    "source_pins": "PASS",
+    "downstream_pins": "PASS",
+    "measurement": "N/A",
+    "behavior": "N/A",
+    "checks": [
+      {
+        "checker": "ph33",
+        "scanned_files": 572,
+        "hit_files": 9,
+        "hit_pairs": 25,
+        "applied_rows": 25,
+        "unused": [],
+        "errors": []
+      },
+      {
+        "checker": "ph35",
+        "scanned_files": 572,
+        "hit_files": 9,
+        "hit_pairs": 17,
+        "applied_rows": 17,
+        "unused": [],
+        "errors": []
+      }
+    ],
+    "local_coverage": "present files checked"
+  },
+  "post_scan_ledger_protected_tokens": "Checked separately after writing; no new exception",
+  "master_plan_mirrors": [
+    {
+      "part": 1,
+      "doc_id": "d1867092e4263d16c",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "dlpdheedajmknobgddkmdogbcjhegiobekmmblakmfeblkifbcpgijbeocehmeig",
+      "verified_text_match": true
+    },
+    {
+      "part": 2,
+      "doc_id": "dd1bc59fff2843f4c",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "eifollaffpickbpopamfllajlpfflijidcdjfdooakepkemijhifdbbhmlllfnhd",
+      "verified_text_match": true
+    },
+    {
+      "part": 3,
+      "doc_id": "dff556eaf7e0cf994",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "mejjepeanblmcfekbndhjgfpkheelejmgcefffdgpmoilbjhedgfgeeglheeonhn",
+      "verified_text_match": true
+    },
+    {
+      "part": 4,
+      "doc_id": "d3c890077450be5a4",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "imfdngpakicfbkbfniloinolkajebhgghanlfcmoeifceifplndgcjgkeeodjdhp",
+      "verified_text_match": true
+    },
+    {
+      "part": 5,
+      "doc_id": "d86e1618aadf644d7",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "lgogfjbmhbdhednemijghneoeanhammbccelohdnmbnneokifoihicnpojlfchfj",
+      "verified_text_match": true
+    },
+    {
+      "part": 6,
+      "doc_id": "d8542f76ede325585",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "feecpedphaofkkekbppjmmaggagbdlpomlkfojcbejgmcponpkknmaphgfbkgbfh",
+      "verified_text_match": true
+    },
+    {
+      "part": 7,
+      "doc_id": "dc811d089a183a6e0",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "ppbdnccljbpbekmfnklhanlhaicncpofcobkjjkfmgnfpepmdpdaibgmigoflmop",
+      "verified_text_match": true
+    },
+    {
+      "part": 8,
+      "doc_id": "d3bd8a60ed6a10c75",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "pflgnnfmhfcpenabhbjicofgmnciedkpcjjoeopnffcmchmhkmpanlhamknimpeo",
+      "verified_text_match": true
+    },
+    {
+      "part": 9,
+      "doc_id": "d4a755cf5a2e6ef8f",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "cbgfegamdfcgfjoaagjfjlecibngfmpoljlkdkkoobebpahcamfcmiahkejecigf",
+      "verified_text_match": true
+    },
+    {
+      "part": 10,
+      "doc_id": "d391977fec42e5387",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "aklbgbhoddbpahmnfkdgcccjnmmheefhbpejecieacjnaionnmmnoaklnbjkppcg",
+      "verified_text_match": true
+    },
+    {
+      "part": 11,
+      "doc_id": "d0ab8ab7761a1adb1",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "iiigffpiepnodibapfkcekeegejkjijogmebfikdmjhdppddjinhidflphpaflij",
+      "verified_text_match": true
+    },
+    {
+      "part": 12,
+      "doc_id": "d106aff2c86bfac6c",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "ekhaelhljkeoedmhdllbpaogocfgnhmpmiacnojfchnhlklfmlgceeicegolhnfd",
+      "verified_text_match": true
+    },
+    {
+      "part": 13,
+      "doc_id": "dc0444894b71c04d5",
+      "created": false,
+      "full_sha256_ap": "dmfkemifdehociaofgfpkanlglhhgjgegjcnahbcdaecpaiojkibbmioifhhpmkp",
+      "slice_sha256_ap": "anmiemmjbmncdkaabcgglmpbnjnnhkbcddmpgjamihhidgonlefdlpkeindockam",
+      "verified_text_match": true
+    }
+  ],
+  "graph": {
+    "space": "01a0b944-ecb4-737b-b3e6-5cc99ff37654",
+    "decision_hold": "decision:hold-followup-deferred",
+    "decision_h17": "decision:h17-run3-open-design",
+    "episode": "episode:hold-followup-h17-run3-design",
+    "readback_verified": true,
+    "warnings": [],
+    "E1_disposition_metadata_updated": true,
+    "E1_measurements_preserved": true,
+    "search_limitation": "Semantic searches timed out; used full-text search, known canonical references and exact-node neighborhood reads; exact new decision ids absent before creation"
+  },
+  "git": {
+    "commit": false,
+    "push": false,
+    "merge": false,
+    "publish": false
+  }
+}
