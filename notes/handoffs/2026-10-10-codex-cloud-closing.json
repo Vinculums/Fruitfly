@@ -1,0 +1,176 @@
+{
+  "format": "fruitfly-codex-cloud-closing-v1",
+  "date": "2026-10-10",
+  "scope": "Source/evidence transfer and hosted preparation; no scientific execution",
+  "repository": "https://github.com/Vinculums/Fruitfly",
+  "branch": "codex/cloud-handoff-2026-10-10",
+  "prepared_source_commit": "75ab82c54da049e2623867117cc8420315ea78de",
+  "release_url": "https://github.com/Vinculums/Fruitfly/releases/tag/fruitfly-evidence-2026-10-10",
+  "github": {
+    "assets_verified": 17,
+    "parts": 16,
+    "originals": 13,
+    "original_bytes": 10789289571,
+    "compressed_bytes": 5949077102,
+    "all_server_sizes_and_sha256_match": true
+  },
+  "prepared_runtime": {
+    "source_commit": "78068b9c6eb902f57d8c9287f9c5d3fbc4afd3d7",
+    "observed_setup_task": "https://chatgpt.com/local/01a1259f-1733-72dc-a3c6-f576207a1010",
+    "source_map_counts": [
+      112,
+      133,
+      6
+    ],
+    "unique_source_files": 139,
+    "archived_originals": 13,
+    "union_checked_paths": 151,
+    "errors": 0,
+    "deferred": 0,
+    "archival_bytes_complete": true,
+    "plan_ready": true,
+    "pure_tests_passed": 42,
+    "scientific_acceptance_checked": false,
+    "execution_ready": false,
+    "claims_added": 0,
+    "EVAL_opened": false,
+    "cloud_vinc_status": "owner-managed/unverified",
+    "prior_receipts_preserved": 3,
+    "tracked_diff": "none",
+    "runtime": {
+      "system": "Linux",
+      "python": "3.12.14",
+      "numpy_observed_only": "2.3.5",
+      "assertions": true,
+      "optimize": 0,
+      "six_numeric_threads": 1
+    },
+    "final_source_commit": "75ab82c54da049e2623867117cc8420315ea78de",
+    "final_union_recheck_pass": true,
+    "prior_receipts_preserved_final": 6
+  },
+  "environment": {
+    "config_id": "cedeeaab-1606-4fd4-8ba9-ce0de1554b1e~cecfg_6aca249d73e88197b677eab3dcc94229",
+    "name": "Fruitfly H17 준비",
+    "visibility": "Only me",
+    "draft_revision": 5,
+    "prepared_commit": "75ab82c54da049e2623867117cc8420315ea78de",
+    "install_sha256_alpha": "gfkienmojcdaipcnpelnlmhoinmclcjmpmpccmgkdfncieikieloelkemgpgogee",
+    "start_sha256_alpha": "cdhhkobnfmejieihjkeidejonjanciklhjaijemjojheeicneiekahbioobfjfho",
+    "reviewed_sections": [
+      "install/start",
+      "restricted internet with four required custom domains",
+      "Vinculums/Fruitfly only"
+    ],
+    "publication_started": true,
+    "publication_complete": true,
+    "credential_handling": "Owner-managed; no credential provisioned, no new request; latest saved configuration has no proxy secret",
+    "canonical_Vinc_read_optional": true,
+    "publication_proof": ".git/cloud-transfer/environment-published.jpg"
+  },
+  "fresh_task": {
+    "url": "https://chatgpt.com/local/01a125c6-e394-750a-8993-1e035a777038",
+    "verified": true,
+    "summary": {
+      "fresh_snapshot_used": true,
+      "HEAD": "75ab82c54da049e2623867117cc8420315ea78de",
+      "151_paths": "PASS",
+      "MAIN_spec_DEV": [
+        133,
+        112,
+        6
+      ],
+      "originals_verified": 13,
+      "restored": 0,
+      "errors": 0,
+      "defer": 0,
+      "runtime": "Linux / Python 3.12.14",
+      "assertions": true,
+      "optimize": 0,
+      "six_threads": 1,
+      "environment": "ready",
+      "network": "restricted/enforced; API 200; asset HEAD 200",
+      "git_read": "PASS",
+      "existing_files_and_42_PASS_receipt": "preserved",
+      "P5_AST": "PASS",
+      "Vinc": "owner-managed; key absent exit 2; nonblocking",
+      "scientific_execution": false,
+      "execution_ready": false,
+      "EVAL": "unopened",
+      "adoption": "none"
+    },
+    "status": {
+      "environment_id": "ccarenv_b64_Y2NhcmVudl80MDgzMmQzZThjMDA4MTkxYjg2NDVjM2FiYTBkNThlNw",
+      "source_config_id": "cedeeaab-1606-4fd4-8ba9-ce0de1554b1e~cecfg_6aca249d73e88197b677eab3dcc94229",
+      "source_config_version_id": "cedeeaab-1606-4fd4-8ba9-ce0de1554b1e~cecfgver_6aca2d3b16d08197866832da4fc0bfac",
+      "observations_current": true,
+      "observed_phase": "running",
+      "connectivity": "connected",
+      "network_policy": {
+        "mode": "restricted",
+        "state": "enforced",
+        "allowed_hosts": [
+          "api.github.com",
+          "mcp.vincs.io",
+          "release-assets.githubusercontent.com",
+          "vincs.io"
+        ]
+      },
+      "runtime_variables": [
+        {
+          "environment_variable": "OMP_NUM_THREADS",
+          "optional": false,
+          "state": "ready"
+        },
+        {
+          "environment_variable": "OPENBLAS_NUM_THREADS",
+          "optional": false,
+          "state": "ready"
+        },
+        {
+          "environment_variable": "MKL_NUM_THREADS",
+          "optional": false,
+          "state": "ready"
+        },
+        {
+          "environment_variable": "VECLIB_MAXIMUM_THREADS",
+          "optional": false,
+          "state": "ready"
+        },
+        {
+          "environment_variable": "NUMEXPR_NUM_THREADS",
+          "optional": false,
+          "state": "ready"
+        },
+        {
+          "environment_variable": "BLIS_NUM_THREADS",
+          "optional": false,
+          "state": "ready"
+        }
+      ]
+    }
+  },
+  "Vinc": {
+    "migration_doc": "de44c0706a368a6b4",
+    "asset_receipt_doc": "d55b62e20ff745303",
+    "next_task_doc": "d2a3955297da0ff7f",
+    "desktop_two_canonical_reads_verified": true,
+    "cloud_credentials": "Owner-managed; excluded from remaining work by owner instruction",
+    "cloud_reads_verified": false
+  },
+  "next_task_path": "notes/handoffs/2026-10-10-next-cloud-task.md",
+  "EVAL_opened": false,
+  "scientific_execution": false,
+  "adoption": false,
+  "historical_authority_preserved": true,
+  "original_work_branch_and_index_preserved": true,
+  "status": "PREPARATION_COMPLETE",
+  "metadata_limits": {
+    "snapshot_id_exposed": false,
+    "active_start_skill_raw_retrieved_in_fresh_task": false,
+    "legacy_helper_startup_document_contains_historical_HEAD": true,
+    "published_UI_install_and_start_reviewed": true,
+    "note": "Use the published environment configuration and pinned source, not the historical helper startup text. Functional fresh-start integrity and actual config/version/network observations were verified; unavailable snapshot metadata was not invented."
+  },
+  "next": "Prepare the isolated EVAL and execution-location/runtime package from next-cloud-task.md; separate scientific execution decision remains required."
+}

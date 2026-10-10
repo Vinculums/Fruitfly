@@ -1,6 +1,6 @@
 # Fruitfly cloud migration — 2026-10-10
 
-Status: IN PROGRESS. The owner authorized source publication, evidence transfer and cloud setup: "그럼 모두 해야지". This record does not open EVAL.
+Status: PREPARATION COMPLETE. Source and evidence publication, environment publication and functional fresh-task startup checks passed. See notes/handoffs/2026-10-10-codex-cloud-closing.md and .json. The owner authorized source publication, evidence transfer and cloud setup: "그럼 모두 해야지". This record does not open EVAL.
 
 ## Source and archive
 
@@ -59,4 +59,4 @@ Next cloud work: prepare the isolated EVAL design and runtime migration proposal
 
 ## Closing evidence
 
-Record the final remote commit, source hashes, server asset sizes/digests, restored originals, cloud runtime/network observations, Vinc canonical read outcome, environment publication and fresh task startup. Explicitly state unresolved credentials or approvals. This progress record does not claim those checks are complete.
+Closing receipts record all seventeen matching server assets, thirteen restored originals, 151 cloud byte checks, 42 passing pure tests, the published personal environment and a fresh-task PASS with GitHub HTTP 200 and actual enforced network observations. Cloud Vinc credentials are owner-managed by explicit owner instruction; no additional request or wait is required. Scientific execution and EVAL remain separately gated. Snapshot-ID/startup-source metadata not exposed to the fresh task is explicitly unverified.
