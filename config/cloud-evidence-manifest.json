@@ -1,0 +1,224 @@
+{
+  "EVAL_opened": false,
+  "compression": "gzip",
+  "date": "2026-10-10",
+  "files": [
+    {
+      "bytes": 176330835,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 2375778,
+          "name": "evidence-01.gz.part01",
+          "sha256_alpha": "okkolbbffanoapjhokmkimohlbldnjhbcllmjfgldieopplipbmockdgjfaganng",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-01.gz.part01"
+        }
+      ],
+      "path": "experiments/h17/h17_run3_native_boundary_checks.json",
+      "sha256_alpha": "ijaggnnfnjbmfbddlliodjcnmnekdggopkkgjpciiffeepaecndghefmoombngal",
+      "source_recorded_pin_match": true
+    },
+    {
+      "bytes": 1896926358,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 1073741824,
+          "name": "evidence-02.gz.part01",
+          "sha256_alpha": "mhopmpboeihgfihfgfagghkenpkkclimnpoliolhdjeefbefekojfalbbcfkglbh",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-02.gz.part01"
+        },
+        {
+          "bytes": 10359173,
+          "name": "evidence-02.gz.part02",
+          "sha256_alpha": "cnjkbgdllnojnmlaokfemefmplkafndblfcnkhdpppinecclgimnkadejkohikoi",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-02.gz.part02"
+        }
+      ],
+      "path": "experiments/h17/r0/raw.npz.ap",
+      "sha256_alpha": "bdjliepfoneecapofbnelegdajohjcfekcckfofdmnkoophdcgooinfccggfdopc",
+      "source_recorded_pin_match": null
+    },
+    {
+      "bytes": 247179050,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 131633039,
+          "name": "evidence-03.gz.part01",
+          "sha256_alpha": "ckdkjdgpjknimpkglhcjdnpgdeldlmnknbdopnepoefboonjogjibppgpdjjkaop",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-03.gz.part01"
+        }
+      ],
+      "path": "experiments/h17/r0_smoke/raw.npz.ap",
+      "sha256_alpha": "nbmmkhinhcojjgpomhlflgahgiffahjphjjlfopeehfkeeidldehikfmdpobimik",
+      "source_recorded_pin_match": null
+    },
+    {
+      "bytes": 247179050,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 131633039,
+          "name": "evidence-04.gz.part01",
+          "sha256_alpha": "ckdkjdgpjknimpkglhcjdnpgdeldlmnknbdopnepoefboonjogjibppgpdjjkaop",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-04.gz.part01"
+        }
+      ],
+      "path": "experiments/h17/r0_smoke_pre_index/raw.npz.ap",
+      "sha256_alpha": "nbmmkhinhcojjgpomhlflgahgiffahjphjjlfopeehfkeeidldehikfmdpobimik",
+      "source_recorded_pin_match": null
+    },
+    {
+      "bytes": 55803819,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 19065008,
+          "name": "evidence-05.gz.part01",
+          "sha256_alpha": "nijnlianlpmglgbakemjbenpdijafglbddlkenjjmgealglnekglamdkbbjemcal",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-05.gz.part01"
+        }
+      ],
+      "path": "experiments/h17/run3/H0/identity.json",
+      "sha256_alpha": "kknbcicjlfcaoninmpacgeoediigbkjfgilldnobdfcghmajadjgpgmcchncghok",
+      "source_recorded_pin_match": true
+    },
+    {
+      "bytes": 459196160,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 245079661,
+          "name": "evidence-06.gz.part01",
+          "sha256_alpha": "jmhlppofbdngidmmcgfeehgcajodljggoemgneklmpjdnjknpojpaambeffjchio",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-06.gz.part01"
+        }
+      ],
+      "path": "experiments/h17/run3/H0/raw.npz.ap",
+      "sha256_alpha": "cgpdcagbepbnloknfekcigpdildgbhdnibdojpmdppfgpiigpnaomfgbmpcjghec",
+      "source_recorded_pin_match": true
+    },
+    {
+      "bytes": 65963381,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 22905521,
+          "name": "evidence-07.gz.part01",
+          "sha256_alpha": "pmoffinopmfmagkccfdgcomeaclggadhdmjecigoikhicgepijmfnhpmmkkbjgkl",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-07.gz.part01"
+        }
+      ],
+      "path": "experiments/h17/run3/bench/identity.json",
+      "sha256_alpha": "ccljdnpfnafgkhoopcblpccmmjjhjeikpbemgbgoobbjkclokjhpicnljabnigmb",
+      "source_recorded_pin_match": true
+    },
+    {
+      "bytes": 3240114646,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 1073741824,
+          "name": "evidence-08.gz.part01",
+          "sha256_alpha": "gfinmhjfecgbdlldcojnkkidmneibjmancdpjepiepmlegmjhdgkjfjdmghcapfe",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-08.gz.part01"
+        },
+        {
+          "bytes": 774627173,
+          "name": "evidence-08.gz.part02",
+          "sha256_alpha": "kjcmneiblpokbkjkagadhelodidpbfagljnlbodimmabbpgakhgaknlieajnaccl",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-08.gz.part02"
+        }
+      ],
+      "path": "experiments/h17/run3/bench/raw.npz.ap",
+      "sha256_alpha": "fpcnbmlmdbmfcdjklmbjbgplpaiafdaaaajmedahgjmjebikgnpdianelimofdeg",
+      "source_recorded_pin_match": true
+    },
+    {
+      "bytes": 64780609,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 22388115,
+          "name": "evidence-09.gz.part01",
+          "sha256_alpha": "fekmkfolidennfgojefojgpkipfomfkojfljildpcjppmojejjjccbkepflhnabk",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-09.gz.part01"
+        }
+      ],
+      "path": "experiments/h17/run3/dev/identity.json",
+      "sha256_alpha": "nadboimbidhnpafllnjgbodddblmgmpoikikledfajfjmheiehfelcbhedfepjbb",
+      "source_recorded_pin_match": true
+    },
+    {
+      "bytes": 3212371516,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 1073741824,
+          "name": "evidence-10.gz.part01",
+          "sha256_alpha": "ibmaeeojamblnmiafbeeegkhkeicekclgaanfcedclplohempfdoakheelpmclgh",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-10.gz.part01"
+        },
+        {
+          "bytes": 759077643,
+          "name": "evidence-10.gz.part02",
+          "sha256_alpha": "pdmhidbmjlpdhlojggimcojgeeoajafeonddpdhafiahbhkdnefmddnbipncnlac",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-10.gz.part02"
+        }
+      ],
+      "path": "experiments/h17/run3/dev/raw.npz.ap",
+      "sha256_alpha": "mohhcmpljbeljgficdhohdnfopkkgpfjoflpfcdbajndnabljjpgnemfahhnenfe",
+      "source_recorded_pin_match": true
+    },
+    {
+      "bytes": 55803819,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 19065008,
+          "name": "evidence-11.gz.part01",
+          "sha256_alpha": "bmfbflijhodkkndcbdblbjkgolaimmbajapdpdgpfiejbnfoidpeoicimkjhmbnp",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-11.gz.part01"
+        }
+      ],
+      "path": "experiments/h17/run3_H0_attempt1/H0/identity.json",
+      "sha256_alpha": "banmollempielfoolpbfomhbaadpafmihfpbflljgbngapmhgadchmfnjfmojbek",
+      "source_recorded_pin_match": null
+    },
+    {
+      "bytes": 459196160,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 245079661,
+          "name": "evidence-12.gz.part01",
+          "sha256_alpha": "jmhlppofbdngidmmcgfeehgcajodljggoemgneklmpjdnjknpojpaambeffjchio",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-12.gz.part01"
+        }
+      ],
+      "path": "experiments/h17/run3_H0_attempt1/H0/raw.npz.ap",
+      "sha256_alpha": "cgpdcagbepbnloknfekcigpdildgbhdnibdojpmdppfgpiigpnaomfgbmpcjghec",
+      "source_recorded_pin_match": null
+    },
+    {
+      "bytes": 608444168,
+      "defer_allowed": true,
+      "parts": [
+        {
+          "bytes": 344562811,
+          "name": "evidence-13.gz.part01",
+          "sha256_alpha": "nhfflahcjailopcbbfhohilmedeopnncefcomniedhpljfcalncknobmpkibpnbh",
+          "url": "https://github.com/Vinculums/Fruitfly/releases/download/fruitfly-evidence-2026-10-10/evidence-13.gz.part01"
+        }
+      ],
+      "path": "experiments/hold/hold_e1/raw.npz.ap",
+      "sha256_alpha": "ceibpfgncfojgkkghfeeanhlfhipobckonnccbhljoooicmkfgcchjemhocmbkea",
+      "source_recorded_pin_match": null
+    }
+  ],
+  "format": "fruitfly-cloud-evidence-v1",
+  "release_tag": "fruitfly-evidence-2026-10-10",
+  "repository": "Vinculums/Fruitfly",
+  "sha256_encoding": "hex-nibbles-as-a-p"
+}

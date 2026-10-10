@@ -305,3 +305,5 @@ tools/verify_h17_run3.py -text
 tools/verify_hold_e1.py -text
 tools/verify_hold_results.py -text
 tools/verify_seed_scan_r2.py -text
+config/cloud-evidence-manifest.json -text
+notes/handoffs/2026-10-10-codex-cloud-* -text

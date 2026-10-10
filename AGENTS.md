@@ -85,3 +85,5 @@ When work exceeds fifty files or complexity exceeds the project's delegation
 threshold, parallel agents may take separate explicit ownership. They must not
 revert one another's edits. Final verification and scientific authority remain
 with the reviewing ROOT session.
+
+Current migration progress and restoration instructions: `notes/handoffs/2026-10-10-codex-cloud-migration.md`. Read its closing receipt when available before relying on cloud readiness.
