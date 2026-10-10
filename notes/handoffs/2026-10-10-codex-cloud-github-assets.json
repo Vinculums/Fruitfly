@@ -1,0 +1,18 @@
+{
+  "format": "fruitfly-cloud-github-assets-v1",
+  "date": "2026-10-10",
+  "repository": "Vinculums/Fruitfly",
+  "branch": "codex/cloud-handoff-2026-10-10",
+  "source_tools_commit": "78068b9c6eb902f57d8c9287f9c5d3fbc4afd3d7",
+  "release_url": "https://github.com/Vinculums/Fruitfly/releases/tag/fruitfly-evidence-2026-10-10",
+  "assets_verified": 17,
+  "evidence_parts_verified": 16,
+  "original_files": 13,
+  "original_bytes": 10789289571,
+  "compressed_bytes": 5949077102,
+  "manifest_sha256_alpha": "icgegfjakjanipabhllnjnpnlfahniapidpmilimbknignjnaiimchejofmcpcjm",
+  "all_server_sizes_and_sha256_match": true,
+  "EVAL_opened": false,
+  "scientific_execution": false,
+  "runtime_comparability_accepted": false
+}

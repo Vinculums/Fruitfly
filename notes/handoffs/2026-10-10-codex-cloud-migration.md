@@ -9,9 +9,9 @@ Branch: `codex/cloud-handoff-2026-10-10`.
 Initial source commit: `8b0c9c94882b6d7aaa98fa41a0c87e581f7bed81`.
 Evidence release: https://github.com/Vinculums/Fruitfly/releases/tag/fruitfly-evidence-2026-10-10 .
 
-The initial commit publishes 211 added/updated small files and verifies 138 committed frozen sources byte for byte. The three maps retain 112 / 133 / 6 entries, 139 unique files. The one large frozen source evidence file h17_run3_native_boundary_checks.json is external. A subsequent branch update supplies config/cloud-evidence-manifest.json and this guide. The owner's original working branch/index were preserved.
+The initial commit publishes 211 added/updated small files and verifies 138 committed frozen sources byte for byte. The three maps retain 112 / 133 / 6 entries, 139 unique files. The one large frozen source evidence file h17_run3_native_boundary_checks.json is external. The branch supplies config/cloud-evidence-manifest.json and this guide. The published tool update is 78068b9c6eb902f57d8c9287f9c5d3fbc4afd3d7. The owner's original working branch/index were preserved.
 
-Manifest: 13 originals, 10789289571 bytes; 16 gzip parts, 5949077102 bytes. All parts are below the release asset limit. Original hashes were freshly calculated during packing and all available frozen bindings matched. The manifest distinguishes matches to prior bindings from fresh transfer hashes. Uploads remain in progress; release existence is not transfer completion.
+Manifest: 13 originals, 10789289571 bytes; 16 gzip parts, 5949077102 bytes. All parts are below the release asset limit. Original hashes were freshly calculated during packing and all available frozen bindings matched. The manifest distinguishes matches to prior bindings from fresh transfer hashes. All sixteen parts and the original manifest are uploaded. All seventeen server-reported sizes and SHA256 digests match the transfer manifest; see 2026-10-10-codex-cloud-github-assets.json. Cloud reconstruction remains separately verified.
 
 ## Restore
 
@@ -27,7 +27,7 @@ python3 -B tools/check_cloud_readiness.py --full
 
 Restoration uses .git/cloud-evidence-cache, retaining existing scanner exclusions. It validates HTTPS, strict relative paths, every compressed part and final original size/SHA256(a-p). Exact originals are hash-verified and skipped; different existing files are never overwritten. Publication is exclusive and atomic after verification. Use --only with an exact relative artifact path to restore one file. --verify-only checks existing originals without downloading. --sources-only explicitly defers large archival bytes.
 
-Pure tests: restore 18 PASS, source checker 10 PASS. Original P5 new-byte checks PASS. Local source check: plan_ready true, execution_ready false, no errors, thirteen explicit deferrals. No scientific arithmetic or runtime acceptance was rerun.
+Pure tests: restore 22 PASS, source checker 10 PASS, safe Vinc reader 10 PASS; combined 42 PASS. Original P5 new-byte checks PASS. Local source check: plan_ready true, execution_ready false, no errors, thirteen explicit deferrals. No scientific arithmetic or runtime acceptance was rerun.
 
 .gitattributes disables normalization for frozen/transferred bytes; verify actual committed/checkout hashes. .gitignore lists thirteen external artifact paths for Git bookkeeping, without adding scanner exclusions.
 
@@ -47,7 +47,7 @@ Only the required api.github.com, mcp.vincs.io, vincs.io and release-assets.gith
 Team space: 01a0b944-ecb4-737b-b3e6-5cc99ff37654.
 Historical handoff d0d04637cd9ba7a6b; inventory d84950d0651c03934; DEV report d60929b82c419fa4b; DEV closing receipt decef2d816309d16e.
 
-Desktop canonical reads were verified. The initial cloud task has no callable Vinc connector and did not verify these documents. Reachability alone does not supply authorization. Verify actual canonical text through an authorized connector or configured credential route. Store credentials only through environment secrets; never Git, reports, prompts or terminal output.
+Desktop canonical reads were verified. The new stdlib check_vinc_cloud.py also read both fixed documents via the exact REST route: HTTP 200, verified true, canonical text equals checked-out local text. Run python3 -B tools/check_vinc_cloud.py in the target after the personal secret is available. The initial cloud task has no callable Vinc connector and did not verify these documents. Reachability alone does not supply authorization. Verify actual canonical text through an authorized connector or configured credential route. Store credentials only through environment secrets; never Git, reports, prompts or terminal output.
 
 ## Scientific boundary
 
