@@ -157,6 +157,53 @@ class RestoreTests(unittest.TestCase):
             with self.assertRaises(R.EvidenceError):
                 R.validate_manifest(value)
 
+    def test_declared_optional_metadata_restores_exact_bytes(self):
+        self.manifest.update(date='2026-10-10', compression='gzip',
+                             sha256_encoding='hex-nibbles-as-a-p', EVAL_opened=False)
+        self.manifest['files'][0].update(defer_allowed=True, source_recorded_pin_match=None)
+        self.assertEqual(self.run_restore()[0]['status'], 'restored')
+        self.assertEqual((self.root / 'evidence/saved.bin').read_bytes(), self.data)
+        for value in (False, True, None):
+            self.manifest['files'][0]['source_recorded_pin_match'] = value
+            R.validate_manifest(self.manifest)
+
+    def test_current_published_manifest_schema_is_supported(self):
+        path = Path(__file__).resolve().parents[1] / 'config/cloud-evidence-manifest.json'
+        manifest = R.read_manifest(path)
+        self.assertEqual(manifest['compression'], 'gzip')
+        self.assertEqual(manifest['sha256_encoding'], 'hex-nibbles-as-a-p')
+        self.assertIs(manifest['EVAL_opened'], False)
+        self.assertGreater(len(manifest['files']), 0)
+        self.assertTrue(all('defer_allowed' in entry and 'source_recorded_pin_match' in entry
+                            for entry in manifest['files']))
+
+    def test_invalid_declared_optional_metadata_is_rejected(self):
+        for field, value in (('date', '2026-02-31'), ('date', '20261010'), ('date', None),
+                             ('compression', 'zip'), ('sha256_encoding', 'hex'),
+                             ('EVAL_opened', True), ('EVAL_opened', 0)):
+            with self.subTest(field=field, value=value):
+                manifest = copy.deepcopy(self.manifest)
+                manifest[field] = value
+                with self.assertRaises(R.EvidenceError):
+                    R.validate_manifest(manifest)
+        for field, value in (('defer_allowed', 1), ('defer_allowed', None),
+                             ('source_recorded_pin_match', 1),
+                             ('source_recorded_pin_match', 'true')):
+            with self.subTest(field=field, value=value):
+                manifest = copy.deepcopy(self.manifest)
+                manifest['files'][0][field] = value
+                with self.assertRaises(R.EvidenceError):
+                    R.validate_manifest(manifest)
+
+    def test_unknown_optional_metadata_stays_rejected(self):
+        for location in ('manifest', 'file', 'part'):
+            manifest = copy.deepcopy(self.manifest)
+            target = {'manifest': manifest, 'file': manifest['files'][0],
+                      'part': manifest['files'][0]['parts'][0]}[location]
+            target['undeclared_metadata'] = None
+            with self.assertRaises(R.EvidenceError):
+                R.validate_manifest(manifest)
+
     def test_non_https_credentials_and_redirect_rejected(self):
         for url in ('http://github.com/part', 'https://name:secret@github.com/part',
                     'https://github.com/part#fragment', 'https://github.com:bad/part'):

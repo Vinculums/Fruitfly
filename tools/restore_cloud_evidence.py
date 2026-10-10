@@ -5,6 +5,7 @@ This utility uses only the standard library. It never imports an experiment,
 creates a scientific claim, or changes an existing different evidence file.
 """
 import argparse
+from datetime import date
 import gzip
 import hashlib
 import io
@@ -77,8 +78,9 @@ class HTTPSRedirect(HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
-def _metadata(record, keys, label):
-    require(isinstance(record, dict) and set(record) == set(keys), label + ': invalid keys')
+def _metadata(record, keys, label, optional=()):
+    require(isinstance(record, dict) and set(keys) <= set(record) <= set(keys) | set(optional),
+            label + ': invalid keys')
 
 
 def _size_and_hash(record, label):
@@ -89,8 +91,24 @@ def _size_and_hash(record, label):
 
 
 def validate_manifest(manifest):
-    _metadata(manifest, ('format', 'release_tag', 'repository', 'files'), 'Manifest')
+    _metadata(manifest, ('format', 'release_tag', 'repository', 'files'), 'Manifest',
+              ('date', 'compression', 'sha256_encoding', 'EVAL_opened'))
     require(manifest['format'] == FORMAT, 'Unsupported manifest format')
+    if 'date' in manifest:
+        require(isinstance(manifest['date'], str) and
+                re.fullmatch(r'\d{4}-\d{2}-\d{2}', manifest['date']) is not None,
+                'Manifest: invalid date')
+        try:
+            date.fromisoformat(manifest['date'])
+        except ValueError as error:
+            raise EvidenceError('Manifest: invalid date') from error
+    if 'compression' in manifest:
+        require(manifest['compression'] == 'gzip', 'Manifest: unsupported compression')
+    if 'sha256_encoding' in manifest:
+        require(manifest['sha256_encoding'] == 'hex-nibbles-as-a-p',
+                'Manifest: unsupported SHA256 encoding')
+    if 'EVAL_opened' in manifest:
+        require(manifest['EVAL_opened'] is False, 'Manifest must leave EVAL unopened')
     for field in ('release_tag', 'repository'):
         require(isinstance(manifest[field], str) and bool(manifest[field]),
                 'Manifest: missing ' + field)
@@ -98,7 +116,14 @@ def validate_manifest(manifest):
             'Manifest must contain files')
     destinations, assets = set(), set()
     for record in manifest['files']:
-        _metadata(record, ('path', 'bytes', 'sha256_alpha', 'parts'), 'File')
+        _metadata(record, ('path', 'bytes', 'sha256_alpha', 'parts'), 'File',
+                  ('defer_allowed', 'source_recorded_pin_match'))
+        if 'defer_allowed' in record:
+            require(type(record['defer_allowed']) is bool, 'File: invalid defer_allowed')
+        if 'source_recorded_pin_match' in record:
+            require(record['source_recorded_pin_match'] is None or
+                    type(record['source_recorded_pin_match']) is bool,
+                    'File: invalid source_recorded_pin_match')
         safe_relative(record['path'], 'File path')
         key = record['path'].casefold()
         require(key not in destinations, 'Duplicate evidence destination')
